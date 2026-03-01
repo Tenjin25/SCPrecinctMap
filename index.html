@@ -3542,26 +3542,38 @@ document.addEventListener('DOMContentLoaded', function() {
       return toTitleCaseName(cleaned);
     }
 
-    function stripRunningMateName(name) {
+function stripRunningMateName(name) {
       const raw = (name || '').toString().trim();
       if (!raw) return '';
+      // Fix common mojibake sequences if UTF-8 bytes were mis-decoded somewhere upstream.
+      const normalized = raw.replace(/â€“/g, '–').replace(/â€”/g, '—').trim();
       // Common presidential ticket separators.
-      const seps = [' / ', '/', ' & ', '&', ' + ', '+', ' - ', ' – ', ' — '];
+      const seps = [' / ', '/', ' & ', '&', ' + ', '+', ' - ', '–', '—', ' – ', ' — '];
       for (const sep of seps) {
-        if (raw.includes(sep)) {
-          const left = raw.split(sep, 1)[0].trim();
-          return left || raw;
+        if (normalized.includes(sep)) {
+          const left = normalized.split(sep, 1)[0].trim();
+          return left || normalized;
         }
       }
       // Some feeds use "NAME and RUNNINGMATE" (e.g., ELSTATS).
-      const andMatch = raw.split(/\s+and\s+/i, 2).map(s => (s || '').trim()).filter(Boolean);
-      if (andMatch.length >= 2) return andMatch[0] || raw;
+      const andMatch = normalized.split(/\s+and\s+/i, 2).map(s => (s || '').trim()).filter(Boolean);
+      if (andMatch.length >= 2) return andMatch[0] || normalized;
       // Legacy "GORE-LIEBERMAN" style.
-      if (raw.includes('-')) {
-        const [left, right] = raw.split('-', 2).map(s => (s || '').trim());
+      if (normalized.includes('-')) {
+        const [left, right] = normalized.split('-', 2).map(s => (s || '').trim());
         if (left && right && (right.includes('.') || right.includes(' '))) return left;
       }
-      return raw;
+
+      // Ticket shorthand sometimes appears as a single token like "BIDEN-HARRIS" (no spaces).
+      // Only treat dash as a ticket separator when there are no spaces in the string to avoid
+      // stripping hyphenated last names in "First Last-Last" formats.
+      if (!/\s/.test(normalized) && /[-–—]/.test(normalized)) {
+        const parts = normalized.split(/[-–—]/, 2).map(s => (s || '').trim()).filter(Boolean);
+        if (parts.length === 2 && /^[A-Za-z'.]{3,}$/.test(parts[0]) && /^[A-Za-z'.]{3,}$/.test(parts[1])) {
+          return parts[0] || normalized;
+        }
+      }
+      return normalized;
     }
 
     function winnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
