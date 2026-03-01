@@ -653,17 +653,314 @@ def build_district_contests():
     print(f'\n  manifest: {len(manifest_entries)} district contest(s)')
 
 
+def _geom_bbox(coords) -> tuple[float, float, float, float]:
+    minx = miny = float('inf')
+    maxx = maxy = float('-inf')
+    stack = [coords]
+    while stack:
+        cur = stack.pop()
+        if not cur:
+            continue
+        if isinstance(cur[0], (int, float)) and len(cur) >= 2:
+            x, y = float(cur[0]), float(cur[1])
+            if x < minx: minx = x
+            if y < miny: miny = y
+            if x > maxx: maxx = x
+            if y > maxy: maxy = y
+        else:
+            stack.extend(cur)
+    return (minx, miny, maxx, maxy)
+
+
+def _point_in_ring(x: float, y: float, ring: list) -> bool:
+    # Ray casting algorithm; ring is list[[x,y], ...]
+    inside = False
+    n = len(ring)
+    if n < 3:
+        return False
+    j = n - 1
+    for i in range(n):
+        xi, yi = ring[i][0], ring[i][1]
+        xj, yj = ring[j][0], ring[j][1]
+        intersect = ((yi > y) != (yj > y)) and (
+            x < (xj - xi) * (y - yi) / ((yj - yi) or 1e-20) + xi
+        )
+        if intersect:
+            inside = not inside
+        j = i
+    return inside
+
+
+def _point_in_polygon(x: float, y: float, poly: list) -> bool:
+    # poly = [outer_ring, hole1, hole2, ...]
+    if not poly:
+        return False
+    outer = poly[0]
+    if not _point_in_ring(x, y, outer):
+        return False
+    for hole in poly[1:]:
+        if _point_in_ring(x, y, hole):
+            return False
+    return True
+
+
+def _point_in_geometry(x: float, y: float, geom: dict) -> bool:
+    gtype = (geom or {}).get('type')
+    coords = (geom or {}).get('coordinates')
+    if not gtype or coords is None:
+        return False
+    if gtype == 'Polygon':
+        return _point_in_polygon(x, y, coords)
+    if gtype == 'MultiPolygon':
+        for poly in coords:
+            if _point_in_polygon(x, y, poly):
+                return True
+        return False
+    return False
+
+
+def _parse_district_num(raw) -> str:
+    s = ('' if raw is None else str(raw)).strip()
+    if not s:
+        return ''
+    try:
+        return str(int(s))
+    except ValueError:
+        return s
+
+
+def build_statewide_contests_by_district_from_slices() -> int:
+    """
+    Build per-district results for *statewide* contest slices (President, US Senate, etc.)
+    by assigning each precinct centroid to a district polygon (CD/SLDL/SLDU) and summing
+    precinct rows from data/contests/*.json.
+
+    Outputs files to data/district_contests/{scope}_{contest_type}_{year}.json
+    and (re)writes data/district_contests/manifest.json to include both district-race
+    and statewide-into-district slices.
+    """
+    contests_manifest_path = os.path.join(DATA_OUT, 'contests', 'manifest.json')
+    centroids_path = os.path.join(DATA_OUT, 'precinct_centroids.geojson')
+    if not (os.path.exists(contests_manifest_path) and os.path.exists(centroids_path)):
+        return 0
+
+    district_sources = {
+        'congressional': (os.path.join(DATA_OUT, 'tileset', 'sc_cd118_tileset.geojson'), 'CD118FP'),
+        'state_house':   (os.path.join(DATA_OUT, 'tileset', 'sc_state_house_2022_lines_tileset.geojson'), 'SLDLST'),
+        'state_senate':  (os.path.join(DATA_OUT, 'tileset', 'sc_state_senate_2022_lines_tileset.geojson'), 'SLDUST'),
+    }
+    for path, _ in district_sources.values():
+        if not os.path.exists(path):
+            return 0
+
+    with open(contests_manifest_path, encoding='utf-8') as fh:
+        contest_manifest = json.load(fh) or {}
+    contest_entries = contest_manifest.get('files') or []
+    if not contest_entries:
+        return 0
+
+    with open(centroids_path, encoding='utf-8') as fh:
+        centroids = json.load(fh) or {}
+    centroid_points = []
+    for f in centroids.get('features', []) or []:
+        geom = (f or {}).get('geometry') or {}
+        if geom.get('type') != 'Point':
+            continue
+        coords = geom.get('coordinates') or []
+        if len(coords) < 2:
+            continue
+        props = (f or {}).get('properties') or {}
+        pn = (props.get('precinct_norm') or '').strip().upper()
+        if not pn:
+            continue
+        centroid_points.append((pn, float(coords[0]), float(coords[1])))
+
+    # Build precinct_norm -> district_num per scope
+    precinct_to_district: dict[str, dict[str, str]] = {k: {} for k in district_sources.keys()}
+    for scope, (path, num_field) in district_sources.items():
+        with open(path, encoding='utf-8') as fh:
+            gj = json.load(fh) or {}
+        districts = []
+        for feat in gj.get('features', []) or []:
+            geom = (feat or {}).get('geometry') or {}
+            props = (feat or {}).get('properties') or {}
+            dnum = _parse_district_num(props.get(num_field))
+            if not dnum:
+                continue
+            bbox = _geom_bbox(geom.get('coordinates'))
+            districts.append((bbox, geom, dnum))
+
+        for pn, x, y in centroid_points:
+            chosen = ''
+            for (minx, miny, maxx, maxy), geom, dnum in districts:
+                if x < minx or x > maxx or y < miny or y > maxy:
+                    continue
+                if _point_in_geometry(x, y, geom):
+                    chosen = dnum
+                    break
+            if chosen:
+                precinct_to_district[scope][pn] = chosen
+
+    dist_dir = os.path.join(DATA_OUT, 'district_contests')
+    os.makedirs(dist_dir, exist_ok=True)
+
+    written = 0
+    # Aggregate each contest slice into each scope
+    for entry in contest_entries:
+        year = entry.get('year')
+        contest_type = entry.get('contest_type')
+        fname = entry.get('file')
+        if not (year and contest_type and fname):
+            continue
+        contest_path = os.path.join(DATA_OUT, 'contests', fname)
+        if not os.path.exists(contest_path):
+            continue
+
+        with open(contest_path, encoding='utf-8') as fh:
+            payload = json.load(fh) or {}
+        rows = payload.get('rows') or []
+        precinct_rows = [r for r in rows if isinstance(r, dict) and ' - ' in str(r.get('county') or '')]
+        if not precinct_rows:
+            continue
+
+        for scope in district_sources.keys():
+            by_dist = {}
+            matched = 0
+            dem_name = ''
+            rep_name = ''
+            for r in precinct_rows:
+                key = (r.get('county') or '').strip()
+                pn = normalize(key)
+                dnum = precinct_to_district[scope].get(pn)
+                if not dnum:
+                    continue
+                matched += 1
+                if dnum not in by_dist:
+                    by_dist[dnum] = {'dem': 0, 'rep': 0, 'other': 0, 'dem_cand': '', 'rep_cand': ''}
+                node = by_dist[dnum]
+                node['dem'] += int(r.get('dem_votes') or 0)
+                node['rep'] += int(r.get('rep_votes') or 0)
+                node['other'] += int(r.get('other_votes') or 0)
+                if not dem_name:
+                    dem_name = (r.get('dem_candidate') or '').strip()
+                if not rep_name:
+                    rep_name = (r.get('rep_candidate') or '').strip()
+                if dem_name and rep_name:
+                    # Not strictly required to break, but avoids extra string checks.
+                    pass
+
+            if not by_dist:
+                continue
+
+            # Fill candidate labels (consistent within a statewide contest).
+            if dem_name or rep_name:
+                for node in by_dist.values():
+                    if dem_name and not node['dem_cand']:
+                        node['dem_cand'] = dem_name
+                    if rep_name and not node['rep_cand']:
+                        node['rep_cand'] = rep_name
+
+            results = {}
+            for dnum, v in by_dist.items():
+                total = v['dem'] + v['rep'] + v['other']
+                margin = v['rep'] - v['dem']
+                mpct = round(margin / total * 100, 4) if total else 0
+                winner = 'R' if margin > 0 else ('D' if margin < 0 else 'T')
+                results[str(dnum)] = {
+                    'dem_votes':     v['dem'],
+                    'rep_votes':     v['rep'],
+                    'other_votes':   v['other'],
+                    'total_votes':   total,
+                    'dem_candidate': v.get('dem_cand', ''),
+                    'rep_candidate': v.get('rep_cand', ''),
+                    'margin':        margin,
+                    'margin_pct':    mpct,
+                    'winner':        winner,
+                    'color':         margin_color(mpct),
+                }
+
+            out_name = f'{scope}_{contest_type}_{year}.json'
+            coverage = round(matched / len(precinct_rows) * 100, 4) if precinct_rows else 0
+            out_payload = {
+                'general': {'results': results},
+                'meta': {
+                    'match_coverage_pct': coverage,
+                    'precinct_rows_total': len(precinct_rows),
+                    'precinct_rows_matched': matched,
+                },
+            }
+            write_json(out_payload, os.path.join(dist_dir, out_name))
+            written += 1
+
+    # Rebuild manifest from disk so it includes both district-race and statewide-by-district slices.
+    manifest_entries = []
+    for fn in os.listdir(dist_dir):
+        if not fn.endswith('.json') or fn == 'manifest.json':
+            continue
+        base = fn[:-5]
+        parts = base.split('_')
+        if len(parts) < 3:
+            continue
+        scope = parts[0] + ('' if parts[0] != 'state' else '')  # no-op, keep for readability
+        # scope names include an underscore for state_house/state_senate
+        if parts[0] == 'state' and len(parts) >= 4:
+            scope = '_'.join(parts[0:2])
+            contest_type = '_'.join(parts[2:-1])
+            year = parts[-1]
+        else:
+            scope = parts[0]
+            contest_type = '_'.join(parts[1:-1])
+            year = parts[-1]
+        try:
+            y = int(year)
+        except ValueError:
+            continue
+
+        # Best-effort row count
+        rows_count = 0
+        try:
+            with open(os.path.join(dist_dir, fn), encoding='utf-8') as fh:
+                node = json.load(fh) or {}
+            results = (node.get('general') or {}).get('results') or {}
+            rows_count = len(results)
+        except Exception:
+            rows_count = 0
+
+        manifest_entries.append({
+            'year': y,
+            'contest_type': contest_type,
+            'scope': scope,
+            'file': fn,
+            'rows': rows_count,
+        })
+
+    manifest_entries.sort(key=lambda e: (-e['year'], _PRIORITY.get(e['contest_type'], 99), e['scope']))
+    write_json({'files': manifest_entries}, os.path.join(dist_dir, 'manifest.json'))
+    return written
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
 if __name__ == '__main__':
     try:
-        county_fp_map = build_county_geojson()
-        build_precinct_geojson(county_fp_map)
-        build_district_geojson()
-        build_election_data()
-        build_district_contests()
+        has_shapes = os.path.exists(SHP_COUNTY) and os.path.exists(SHP_VTD)
+        has_any_csv = any(os.path.exists(p) for p in ELECTION_FILES.values())
+
+        if has_shapes:
+            county_fp_map = build_county_geojson()
+            build_precinct_geojson(county_fp_map)
+            build_district_geojson()
+
+        if has_any_csv:
+            build_election_data()
+            build_district_contests()
+
+        # Always attempt this if the generated contest slices + centroids exist.
+        n = build_statewide_contests_by_district_from_slices()
+        if n:
+            print(f'\n=== Statewide-by-District Slices ===\n  wrote  {n} file(s)')
         print('\nBuild complete.')
     except Exception as exc:
         print(f'\nBuild failed: {exc}')
