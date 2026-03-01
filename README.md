@@ -85,6 +85,12 @@ SCPrecinctMap/
 
 > **Precinct name matching**: OpenElections precinct labels match TIGER VTD `NAME20` field at ~99% after normalization. The ~1% unmatched entries are non-geographic buckets (FAILSAFE, PROVISIONAL, ABSENTEE, etc.) which are intentionally excluded from the precinct overlay.
 
+If you still see **mismatched/missing precincts** (e.g., different punctuation, split/merged precincts, or typos), add a manual override in `precinct_aliases.json` and rebuild. You can generate a ranked mismatch report with:
+
+```powershell
+py scripts/precinct_mismatch_report.py --contest president --year 2024
+```
+
 ---
 
 ## Data Pipeline

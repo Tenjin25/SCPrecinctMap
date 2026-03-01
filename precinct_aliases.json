@@ -1,0 +1,8 @@
+{
+  "_comment": "Optional manual overrides to fix precinct name mismatches between results and boundary polygons.",
+  "_format": "Map keys and values should be strings in the form \"COUNTY - PRECINCT\".",
+  "_example": {
+    "AIKEN - BREEZY NO. 87": "AIKEN - BREEZY HILL",
+    "ANDERSON - BARKERS CREEK-MCADAMS": "ANDERSON - BARKERS CREEK"
+  }
+}

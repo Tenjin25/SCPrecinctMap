@@ -44,6 +44,7 @@ except ImportError:
 BASE_DIR  = os.path.dirname(os.path.abspath(__file__))
 DATA_SRC  = os.path.join(BASE_DIR, 'Data')          # canonical capitalised source dir
 DATA_OUT  = os.path.join(BASE_DIR, 'data')          # lowercase output dir expected by JS
+PRECINCT_ALIASES_PATH = os.path.join(BASE_DIR, 'precinct_aliases.json')
 
 SHP_COUNTY   = os.path.join(DATA_SRC, 'census', 'tl_2020_45_county20',
                              'tl_2020_45_county20.shp')
@@ -356,22 +357,67 @@ def make_row(key: str, v: dict, year: int) -> dict:
     }
 
 
-def load_precinct_norm_set() -> set[str] | None:
+def load_precinct_polygon_index() -> tuple[set[str], dict[str, str]] | tuple[None, None]:
+    """
+    Returns:
+        precinct_norm_set: Set of normalized polygon precinct keys (upper).
+        precinct_display_by_norm: Map precinct_norm -> "County - Precinct" display key.
+    """
     path = os.path.join(DATA_OUT, 'Voting_Precincts.geojson')
     if not os.path.exists(path):
-        return None
+        return None, None
     try:
         with open(path, encoding='utf-8') as fh:
             gj = json.load(fh)
-        out = set()
+        norm_set: set[str] = set()
+        display_by_norm: dict[str, str] = {}
         for f in gj.get('features', []):
             p = (f or {}).get('properties') or {}
             n = (p.get('precinct_norm') or '').strip().upper()
-            if n:
-                out.add(n)
+            if not n:
+                continue
+            norm_set.add(n)
+            county = str(p.get('county_nam') or '').strip()
+            prec = str(p.get('prec_id') or '').strip()
+            display = f'{county} - {prec}'.strip()
+            if display:
+                display_by_norm[n] = display
+        return norm_set, display_by_norm
+    except Exception:
+        return None, None
+
+
+def load_precinct_aliases(precinct_display_by_norm: dict[str, str] | None = None) -> dict[str, str]:
+    """
+    Optional manual overrides to map result keys to polygon keys.
+
+    File format: JSON object { "COUNTY - PRECINCT_FROM": "COUNTY - PRECINCT_TO" }.
+    Keys and values are normalized via normalize().
+    """
+    path = PRECINCT_ALIASES_PATH
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, encoding='utf-8') as fh:
+            raw = json.load(fh)
+        if not isinstance(raw, dict):
+            return {}
+        out: dict[str, str] = {}
+        precinct_display_by_norm = precinct_display_by_norm or {}
+        for k, v in raw.items():
+            if not isinstance(k, str) or not isinstance(v, str):
+                continue
+            if k.startswith('_'):
+                continue
+            nk = normalize(k)
+            nv = normalize(v)
+            if not (nk and nv):
+                continue
+            # Store the canonical display key if it exists in polygons; otherwise keep the raw target.
+            out[nk] = precinct_display_by_norm.get(nv, v.strip())
         return out
     except Exception:
-        return None
+        return {}
 
 
 _DIR_PREFIX = re.compile(r'^(N|S|E|W)\s+', re.IGNORECASE)
@@ -511,7 +557,11 @@ def precinct_label_variants(label: str) -> list[str]:
     return out
 
 
-def aggregate_all(rows: list, precinct_norm_set: set[str] | None = None) -> tuple[dict, dict]:
+def aggregate_all(
+    rows: list,
+    precinct_norm_set: set[str] | None = None,
+    precinct_aliases: dict[str, str] | None = None,
+) -> tuple[dict, dict]:
     """
     Build both county-level and precinct-level aggregates.
 
@@ -521,6 +571,7 @@ def aggregate_all(rows: list, precinct_norm_set: set[str] | None = None) -> tupl
     """
     county_agg   = {}
     precinct_agg = {}
+    precinct_aliases = precinct_aliases or {}
 
     for row in rows:
         county_raw = (row.get('county') or '').strip()
@@ -564,6 +615,13 @@ def aggregate_all(rows: list, precinct_norm_set: set[str] | None = None) -> tupl
                         break
                 if chosen:
                     prec_key = chosen
+            # Manual alias mapping (results -> polygon).
+            try:
+                nkey = normalize(prec_key)
+                if nkey in precinct_aliases:
+                    prec_key = precinct_aliases[nkey]
+            except Exception:
+                pass
             _add(precinct_agg, prec_key)
 
     # Some boundary files contain a single combined precinct where the results feed splits it
@@ -606,7 +664,8 @@ def build_election_data():
     contests_dir = os.path.join(DATA_OUT, 'contests')
     os.makedirs(contests_dir, exist_ok=True)
     manifest_entries = []
-    precinct_norm_set = load_precinct_norm_set()
+    precinct_norm_set, precinct_display_by_norm = load_precinct_polygon_index()
+    precinct_aliases = load_precinct_aliases(precinct_display_by_norm)
 
     for year, csv_path in sorted(ELECTION_FILES.items()):
         if not os.path.exists(csv_path):
@@ -629,7 +688,7 @@ def build_election_data():
             by_contest.setdefault(ct, []).append(row)
 
         for ct, ct_rows in by_contest.items():
-            county_agg, precinct_agg = aggregate_all(ct_rows, precinct_norm_set)
+            county_agg, precinct_agg = aggregate_all(ct_rows, precinct_norm_set, precinct_aliases)
             if not county_agg:
                 continue
 
