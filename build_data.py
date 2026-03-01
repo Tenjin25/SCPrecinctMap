@@ -95,6 +95,15 @@ _ELSTATS_2024_OE = os.path.join(DATA_SRC, '20241105__sc__general__precinct__from
 if os.path.exists(_ELSTATS_2024_OE):
     ELECTION_FILES[2024] = _ELSTATS_2024_OE
 
+# Optional: ELSTATS "search export" conversions (county + precinct where inferable).
+_ELSTATS_SEARCH_2010_OE = os.path.join(DATA_SRC, '_tmpdata', '20101102__sc__general__precinct__from_elstats_search.csv')
+if os.path.exists(_ELSTATS_SEARCH_2010_OE):
+    ELECTION_FILES[2010] = _ELSTATS_SEARCH_2010_OE
+
+_ELSTATS_SEARCH_2012_OE = os.path.join(DATA_SRC, '_tmpdata', '20121106__sc__general__precinct__from_elstats_search.csv')
+if os.path.exists(_ELSTATS_SEARCH_2012_OE):
+    ELECTION_FILES[2012] = _ELSTATS_SEARCH_2012_OE
+
 # Offices to include (lower-cased raw value → contest_type key)
 OFFICE_MAP = {
     'president':                            'president',
@@ -573,6 +582,15 @@ def aggregate_all(
     precinct_agg = {}
     precinct_aliases = precinct_aliases or {}
 
+    # If the input includes explicit county-level rows (precinct blank), use those for county totals
+    # to avoid double counting when precinct-level rows are also present.
+    has_explicit_county_rows = any(
+        isinstance(r, dict)
+        and (r.get('county') or '').strip()
+        and not (r.get('precinct') or '').strip()
+        for r in (rows or [])
+    )
+
     for row in rows:
         county_raw = (row.get('county') or '').strip()
         prec_raw   = (row.get('precinct') or '').strip()
@@ -599,8 +617,11 @@ def aggregate_all(
             else:
                 node['other'] += votes
 
-        # County aggregate (always)
-        _add(county_agg, ct)
+        # County aggregate:
+        # - If we have explicit county rows, only count those (precinct blank).
+        # - Otherwise, fall back to summing all rows.
+        if (not has_explicit_county_rows) or (has_explicit_county_rows and not prec_raw):
+            _add(county_agg, ct)
 
         # Precinct row – only for geographic precincts
         if prec_raw and not is_non_geo(prec_raw):
