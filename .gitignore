@@ -5,9 +5,6 @@ __pycache__/
 # Virtualenv
 .venv/
 
-# Raw/source inputs (keep repo lightweight)
-Data/
-
 # Large downloads
 *.zip
 *elstats_search_*.csv
