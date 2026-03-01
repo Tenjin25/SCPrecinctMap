@@ -290,6 +290,7 @@ _NUM_SLASH_NUM = re.compile(r'\b0*([0-9]{1,3})\s*/\s*([0-9]{1,2})\b')
 _NUM_SLASH_ALPHA = re.compile(r'\b0*([0-9]{1,3})\s*/\s*([A-Z]{1,2})\b', re.IGNORECASE)
 _LEADING_ZERO_NUM_ALPHA = re.compile(r'\b0+([0-9]+)([A-Z]{1,2})\b', re.IGNORECASE)
 _LEADING_ZERO_NUM = re.compile(r'\b0+([0-9]+)\b')
+_APOS = re.compile(r"[’'`]")
 
 def normalize_precinct_label(name: str) -> str:
     """
@@ -300,6 +301,9 @@ def normalize_precinct_label(name: str) -> str:
     s = (name or '').strip()
     if not s:
         return ''
+    # Make punctuation consistent across sources (VTD vs ELSTATS vs OE).
+    # Apostrophes often appear in results feeds but not in boundary files.
+    s = _APOS.sub('', s)
     s = _NO_LEADING_ZEROS.sub(lambda m: f'No. {int(m.group(1))}', s)
     s = _NUM_SLASH_ALPHA.sub(lambda m: f'{int(m.group(1))}{m.group(2).upper()}', s)
     s = _NUM_SLASH_NUM.sub(lambda m: f'{int(m.group(1))}{m.group(2)}', s)
@@ -375,6 +379,75 @@ _MT_PREFIX = re.compile(r'^MT\s+', re.IGNORECASE)
 _ST_PREFIX = re.compile(r'^ST\s+', re.IGNORECASE)
 _TRAILING_NUM = re.compile(r'^(.*\D)\s+(\d+[A-Z]{0,2})$', re.IGNORECASE)
 
+_ONES = {
+    0: 'Zero', 1: 'One', 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five',
+    6: 'Six', 7: 'Seven', 8: 'Eight', 9: 'Nine', 10: 'Ten', 11: 'Eleven',
+    12: 'Twelve', 13: 'Thirteen', 14: 'Fourteen', 15: 'Fifteen',
+    16: 'Sixteen', 17: 'Seventeen', 18: 'Eighteen', 19: 'Nineteen',
+}
+_TENS = {
+    20: 'Twenty', 30: 'Thirty', 40: 'Forty', 50: 'Fifty',
+    60: 'Sixty', 70: 'Seventy', 80: 'Eighty', 90: 'Ninety',
+}
+_WORD_TO_NUM = {v.lower(): k for k, v in {**_ONES, **_TENS}.items()}
+
+def _num_to_words(n: int) -> str | None:
+    if n < 0 or n > 99:
+        return None
+    if n in _ONES:
+        return _ONES[n]
+    tens = (n // 10) * 10
+    ones = n % 10
+    if ones == 0:
+        return _TENS.get(tens)
+    t = _TENS.get(tens)
+    o = _ONES.get(ones)
+    if not t or not o:
+        return None
+    return f'{t}-{o}'
+
+def _words_to_num(token: str) -> int | None:
+    if not token:
+        return None
+    parts = re.split(r'[-\s]+', token.strip().lower())
+    parts = [p for p in parts if p]
+    if not parts:
+        return None
+    if len(parts) == 1:
+        return _WORD_TO_NUM.get(parts[0])
+    if len(parts) == 2:
+        a = _WORD_TO_NUM.get(parts[0])
+        b = _WORD_TO_NUM.get(parts[1])
+        if a in _TENS and b in _ONES and b < 10:
+            return int(a + b)
+    return None
+
+def _digits_to_words_variant(s: str) -> str:
+    out = []
+    for tok in (s or '').split():
+        if tok.isdigit():
+            w = _num_to_words(int(tok))
+            out.append(w or tok)
+        else:
+            out.append(tok)
+    return ' '.join(out)
+
+def _words_to_digits_variant(s: str) -> str:
+    out = []
+    for tok in (s or '').split():
+        num = _words_to_num(tok)
+        out.append(str(num) if num is not None else tok)
+    return ' '.join(out)
+
+def _singularize_variant(s: str) -> str:
+    toks = []
+    for tok in (s or '').split():
+        if len(tok) > 3 and tok.endswith('s') and not tok.endswith('ss'):
+            toks.append(tok[:-1])
+        else:
+            toks.append(tok)
+    return ' '.join(toks)
+
 def precinct_label_variants(label: str) -> list[str]:
     s = (label or '').strip()
     if not s:
@@ -393,6 +466,23 @@ def precinct_label_variants(label: str) -> list[str]:
         out.append(v)
 
     _add(s)
+
+    # Hyphen/space normalization for common "Fifty-Two" / "Fifty Two" differences.
+    _add(s.replace('-', ' '))
+
+    # Expand common street abbreviations.
+    _add(re.sub(r'\bRd\.?\b', 'Road', s, flags=re.IGNORECASE))
+    _add(re.sub(r'\bHwy\.?\b', 'Highway', s, flags=re.IGNORECASE))
+
+    # Singular/plural variants ("Springs" vs "Spring", "Wrights" vs "Wright").
+    _add(_singularize_variant(s))
+
+    # French-y suffix normalization ("Pointe" vs "Point").
+    _add(re.sub(r'\bPointe\b', 'Point', s, flags=re.IGNORECASE))
+
+    # Convert small numbers between digits and words ("52" <-> "Fifty-Two").
+    _add(_digits_to_words_variant(s))
+    _add(_words_to_digits_variant(s))
 
     # Expand leading direction abbreviations (e.g., "E Bennettsville" -> "East Bennettsville").
     m = _DIR_PREFIX.match(s)
@@ -475,6 +565,38 @@ def aggregate_all(rows: list, precinct_norm_set: set[str] | None = None) -> tupl
                 if chosen:
                     prec_key = chosen
             _add(precinct_agg, prec_key)
+
+    # Some boundary files contain a single combined precinct where the results feed splits it
+    # into numbered parts (e.g., "BELFAIR 1" + "BELFAIR 2" but polygon is "BELFAIR").
+    # If the combined polygon exists, add a combined row so the precinct overlay can color it.
+    if precinct_norm_set and precinct_agg:
+        base_groups: dict[str, dict] = {}
+        have_norm = {normalize(k) for k in precinct_agg.keys()}
+        for key, node in precinct_agg.items():
+            m = re.match(r'^(.*?)\s*-\s*(.+?)\s+(\d+[A-Z]{0,2})$', key, flags=re.IGNORECASE)
+            if not m:
+                continue
+            county = m.group(1).strip().title()
+            base_label = m.group(2).strip()
+            base_key = f'{county} - {base_label}'
+            base_norm = normalize(base_key)
+            if base_norm not in precinct_norm_set:
+                continue
+            if base_norm in have_norm:
+                continue
+            acc = base_groups.get(base_key)
+            if not acc:
+                acc = {'dem': 0, 'rep': 0, 'other': 0, 'dem_cand': '', 'rep_cand': ''}
+                base_groups[base_key] = acc
+            acc['dem'] += int(node.get('dem') or 0)
+            acc['rep'] += int(node.get('rep') or 0)
+            acc['other'] += int(node.get('other') or 0)
+            if not acc['dem_cand'] and node.get('dem_cand'):
+                acc['dem_cand'] = node.get('dem_cand')
+            if not acc['rep_cand'] and node.get('rep_cand'):
+                acc['rep_cand'] = node.get('rep_cand')
+        for base_key, acc in base_groups.items():
+            precinct_agg[base_key] = acc
 
     return county_agg, precinct_agg
 

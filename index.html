@@ -3585,6 +3585,9 @@ document.addEventListener('DOMContentLoaded', function() {
           return left || raw;
         }
       }
+      // Some feeds use "NAME and RUNNINGMATE" (e.g., ELSTATS).
+      const andMatch = raw.split(/\s+and\s+/i, 2).map(s => (s || '').trim()).filter(Boolean);
+      if (andMatch.length >= 2) return andMatch[0] || raw;
       // Legacy "GORE-LIEBERMAN" style.
       if (raw.includes('-')) {
         const [left, right] = raw.split('-', 2).map(s => (s || '').trim());
@@ -6864,6 +6867,113 @@ document.addEventListener('DOMContentLoaded', function() {
 	        const precRaw = (precRaw0 || '').trim().toUpperCase();
 	        if (!countyOnly || !precRaw) return Array.from(out);
 	        if (isNonGeographicPrecinctCode(precRaw)) return [];
+
+          // Name-based variants (not just code tokens). This helps when results feeds use
+          // different punctuation/pluralization/numbering than the precinct polygon source.
+          const addPrecText = (t) => {
+            const altFull = normalizeCountyName(`${countyOnly} - ${t}`);
+            if (altFull) out.add(altFull);
+          };
+
+          const precTextU = (precRaw0 || '').toString().trim().toUpperCase();
+          if (precTextU) {
+            addPrecText(precTextU);
+
+            // Drop "NO." token and leading zeros: "BREEZY NO. 087" -> "BREEZY 87"
+            addPrecText(precTextU.replace(/\bNO\.?\s*0*(\d+)\b/g, '$1'));
+
+            // If the precinct name has a space before a hyphen, it’s often an appended sub-area label:
+            // "BARKERS CREEK-MCADAMS" -> "BARKERS CREEK". (Avoid "FIFTY-TWO" where there's no space.)
+            if (/\s+\S+-\S+/.test(precTextU)) {
+              addPrecText(precTextU.split('-', 1)[0].trim());
+            }
+
+            // Common spelling variants.
+            addPrecText(precTextU.replace(/\bPOINTE\b/g, 'POINT'));
+            addPrecText(precTextU.replace(/\bRD\.?\b/g, 'ROAD'));
+            addPrecText(precTextU.replace(/\bROAD\b/g, 'RD'));
+            addPrecText(precTextU.replace(/\bHWY\.?\b/g, 'HIGHWAY'));
+            addPrecText(precTextU.replace(/\bMT\.?\b/g, 'MOUNT'));
+            addPrecText(precTextU.replace(/\bMOUNT\b/g, 'MT.'));
+            addPrecText(precTextU.replace(/\bST\.?\b/g, 'SAINT'));
+            addPrecText(precTextU.replace(/\bSAINT\b/g, 'ST.'));
+
+            // Singularize simple trailing S plurals ("SPRINGS" -> "SPRING", "COXS" -> "COX").
+            addPrecText(precTextU.replace(/\b([A-Z]{3,})S\b/g, (m, w) => (w.endsWith('SS') ? m : w)));
+
+            // Drop a trailing numeric/alpha part when the polygon uses a combined precinct:
+            // "BELFAIR 1" -> "BELFAIR", "BLUFFTON 5C" -> "BLUFFTON 5" and "BLUFFTON".
+            const mTail = precTextU.match(/^(.*\D)\s+(\d+)([A-Z]{1,2})?$/);
+            if (mTail) {
+              const base = (mTail[1] || '').trim();
+              const num = (mTail[2] || '').trim();
+              const suf = (mTail[3] || '').trim();
+              if (base) {
+                addPrecText(base);
+                if (num) addPrecText(`${base} ${num}`);
+                if (num && suf) addPrecText(`${base} ${num}${suf}`);
+              }
+            }
+
+            // Convert between digits and words for 0-99 (handles cases like "3 AND 20" <-> "THREE AND TWENTY",
+            // "52" <-> "FIFTY-TWO"). We keep this lightweight and token-based.
+            const ones = ['ZERO','ONE','TWO','THREE','FOUR','FIVE','SIX','SEVEN','EIGHT','NINE','TEN','ELEVEN','TWELVE','THIRTEEN','FOURTEEN','FIFTEEN','SIXTEEN','SEVENTEEN','EIGHTEEN','NINETEEN'];
+            const tens = { 20:'TWENTY', 30:'THIRTY', 40:'FORTY', 50:'FIFTY', 60:'SIXTY', 70:'SEVENTY', 80:'EIGHTY', 90:'NINETY' };
+            const wordToNum = Object.fromEntries(ones.map((w,i)=>[w,i]).concat(Object.entries(tens).map(([k,v])=>[v,Number(k)])));
+            const numToWords = (n) => {
+              if (n < 0 || n > 99 || !Number.isFinite(n)) return null;
+              if (n < 20) return ones[n];
+              const t = Math.floor(n / 10) * 10;
+              const o = n % 10;
+              const tw = tens[t];
+              if (!tw) return null;
+              return o ? `${tw}-${ones[o]}` : tw;
+            };
+            const wordsToNum = (token) => {
+              const parts = (token || '').toString().toUpperCase().split(/[-\s]+/).filter(Boolean);
+              if (!parts.length) return null;
+              if (parts.length === 1) return (parts[0] in wordToNum) ? wordToNum[parts[0]] : null;
+              if (parts.length === 2) {
+                const a = wordToNum[parts[0]];
+                const b = wordToNum[parts[1]];
+                if (a && tens[a] && b >= 0 && b < 10) return a + b;
+              }
+              return null;
+            };
+            const hyphenateNumberWords = (s) => {
+              const toks = (s || '').toString().toUpperCase().split(/\s+/).filter(Boolean);
+              const outToks = [];
+              for (let i = 0; i < toks.length; i++) {
+                const a = toks[i];
+                const b = toks[i + 1];
+                const av = wordToNum[a];
+                const bv = wordToNum[b];
+                if (a && b && tens[av] && typeof bv === 'number' && bv >= 0 && bv < 10) {
+                  outToks.push(`${a}-${b}`);
+                  i++;
+                  continue;
+                }
+                outToks.push(a);
+              }
+              return outToks.join(' ');
+            };
+            const digitsToWords = precTextU.split(/\s+/).map(tok => {
+              if (/^\d{1,2}$/.test(tok)) {
+                const w = numToWords(parseInt(tok, 10));
+                return w || tok;
+              }
+              return tok;
+            }).join(' ');
+            addPrecText(digitsToWords);
+            addPrecText(digitsToWords.replace(/-/g, ' '));
+            const hyphenatedWords = hyphenateNumberWords(precTextU);
+            if (hyphenatedWords && hyphenatedWords !== precTextU) addPrecText(hyphenatedWords);
+            const wordsToDigits = hyphenatedWords.split(/\s+/).map(tok => {
+              const n = wordsToNum(tok);
+              return (n === null) ? tok : String(n);
+            }).join(' ');
+            addPrecText(wordsToDigits);
+          }
 
 	        // Extract a compact code token (if present) so we can handle split precinct IDs
 	        // like "03S" -> "03SE"/"03SM" and "10" -> "10A"/"10B" using the centroid index.
