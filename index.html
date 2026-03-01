@@ -2965,29 +2965,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	        return `Judicial Retention ${contestType.toUpperCase()}`;
 	      }
 
-	      if (contestType.startsWith('nc_court_of_appeals_judge_seat_')) {
-	        const seat = contestType.replace('nc_court_of_appeals_judge_seat_', '').replace(/^0+/, '');
-	        return `NC Court of Appeals Judge Seat ${seat || contestType}`;
-	      }
-	      if (contestType.startsWith('nc_court_of_appeals_judge_') && contestType.endsWith('_seat')) {
-	        const who = contestType.replace('nc_court_of_appeals_judge_', '').replace(/_seat$/i, '').replace(/_/g, ' ').trim();
-	        const label = who ? (typeof toTitleCaseName === 'function' ? toTitleCaseName(who) : who) : contestType;
-	        return `NC Court of Appeals Judge (${label})`;
-	      }
-	      if (contestType.startsWith('nc_supreme_court_associate_justice_seat_')) {
-	        const seat = contestType.replace('nc_supreme_court_associate_justice_seat_', '').replace(/^0+/, '');
-	        return `NC Supreme Court Associate Justice Seat ${seat || contestType}`;
-	      }
-	      if (contestType.startsWith('nc_supreme_court_chief_justice_seat_')) {
-	        const seat = contestType.replace('nc_supreme_court_chief_justice_seat_', '').replace(/^0+/, '');
-	        return `NC Supreme Court Chief Justice Seat ${seat || contestType}`;
-	      }
-	      if (contestType.startsWith('nc_supreme_court_chief_justice_') && contestType.endsWith('_seat')) {
-	        const who = contestType.replace('nc_supreme_court_chief_justice_', '').replace(/_seat$/i, '').replace(/_/g, ' ').trim();
-	        const label = who ? (typeof toTitleCaseName === 'function' ? toTitleCaseName(who) : who) : contestType;
-	        return `NC Supreme Court Chief Justice (${label})`;
-	      }
-
 	      return nameMap[contestType] || contestType.toUpperCase();
 	    }
 
@@ -3015,11 +2992,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	        const rows = Number(entry.rows || entry.districts || 0) || 0;
 	        if (!contestType || rows <= 0) return;
 
-          // Hide older NC judicial contests until we have reliable D/R-alignment (endorsement) data.
-          // NC appellate judicial races are nonpartisan in older cycles; without endorsements they read as "OTHER".
-          const isJudicial = contestType.startsWith('nc_supreme_court_') || contestType.startsWith('nc_court_of_appeals_');
-          if (isJudicial && Number.isFinite(year) && year < 2018) return;
-
 	        if (!contestYearPairs[contestType]) contestYearPairs[contestType] = new Set();
 	        contestYearPairs[contestType].add(year);
 	      });
@@ -3027,18 +2999,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	      function groupLabelForContestType(contestType) {
 	        if (contestType === 'president') return 'US President';
 	        if (contestType === 'us_senate') return 'US Senate';
-	        if (contestType === 'governor') return 'NC Governor';
-	        if (contestType === 'lieutenant_governor') return 'NC Lieutenant Governor';
-	        if (contestType === 'attorney_general') return 'NC Attorney General';
-	        if (contestType === 'secretary_of_state') return 'NC Secretary of State';
-	        if (contestType === 'treasurer') return 'NC Treasurer';
+	        if (contestType === 'governor') return 'Governor';
+	        if (contestType === 'lieutenant_governor') return 'Lieutenant Governor';
+	        if (contestType === 'attorney_general') return 'Attorney General';
+	        if (contestType === 'secretary_of_state') return 'Secretary of State';
+	        if (contestType === 'treasurer') return 'Treasurer';
 	        if (contestType === 'auditor') return 'Auditor';
 	        if (contestType === 'labor_commissioner') return 'Labor Commissioner';
 	        if (contestType === 'insurance_commissioner') return 'Insurance Commissioner';
 	        if (contestType === 'agriculture_commissioner') return 'Agriculture Commissioner';
 	        if (contestType === 'superintendent') return 'Superintendent of Public Instruction';
-	        if (contestType.startsWith('nc_supreme_court_')) return 'NC Supreme Court';
-	        if (contestType.startsWith('nc_court_of_appeals_')) return 'Court of Appeals';
 	        return formatContestName(contestType, '');
 	      }
 
@@ -3050,18 +3020,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	      const groupOrder = [
 	        'US President',
 	        'US Senate',
-	        'NC Governor',
-	        'NC Lieutenant Governor',
-	        'NC Attorney General',
-	        'NC Secretary of State',
-	        'NC Treasurer',
+	        'Governor',
+	        'Lieutenant Governor',
+	        'Attorney General',
+	        'Secretary of State',
+	        'Treasurer',
 	        'Auditor',
 	        'Labor Commissioner',
 	        'Insurance Commissioner',
 	        'Agriculture Commissioner',
-	        'Superintendent of Public Instruction',
-	        'NC Supreme Court',
-	        'Court of Appeals'
+	        'Superintendent of Public Instruction'
 	      ];
 
 	      const grouped = new Map(); // label -> Array<{contestType, year}>
@@ -3082,15 +3050,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	      const fragment = document.createDocumentFragment();
 	      orderedLabels.forEach(label => {
 	        const items = (grouped.get(label) || []).slice();
-	        const isJudicial = (label === 'NC Supreme Court' || label === 'Court of Appeals');
 	        items.sort((a, b) => {
 	          const y = Number(a.year) - Number(b.year);
 	          if (y !== 0) return y;
-	          if (isJudicial) {
-	            const sa = extractSeatNumFromType(a.contestType) || 0;
-	            const sb = extractSeatNumFromType(b.contestType) || 0;
-	            if (sa !== sb) return sa - sb;
-	          }
 	          return String(a.contestType).localeCompare(String(b.contestType));
 	        });
 
@@ -3100,11 +3062,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	        items.forEach(item => {
 	          const opt = document.createElement('option');
 	          opt.value = `${item.contestType}_${item.year}`;
-	          if (isJudicial) {
-	            opt.textContent = `${formatContestName(item.contestType, item.year)} (${item.year})`;
-	          } else {
-	            opt.textContent = `${label} (${item.year})`;
-	          }
+	          opt.textContent = `${label} (${item.year})`;
 	          if (q) {
 	            const hay = `${label} ${item.year} ${item.contestType} ${formatContestName(item.contestType, item.year)}`.toUpperCase();
 	            if (!hay.includes(q)) return;
@@ -3209,11 +3167,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	      function groupLabelForContestType(contestType) {
 	        if (contestType === 'president') return 'US President';
 	        if (contestType === 'us_senate') return 'US Senate';
-	        if (contestType === 'governor') return 'NC Governor';
-	        if (contestType === 'lieutenant_governor') return 'NC Lieutenant Governor';
-	        if (contestType === 'attorney_general') return 'NC Attorney General';
-	        if (contestType === 'secretary_of_state') return 'NC Secretary of State';
-	        if (contestType === 'treasurer') return 'NC Treasurer';
+	        if (contestType === 'governor') return 'Governor';
+	        if (contestType === 'lieutenant_governor') return 'Lieutenant Governor';
+	        if (contestType === 'attorney_general') return 'Attorney General';
+	        if (contestType === 'secretary_of_state') return 'Secretary of State';
+	        if (contestType === 'treasurer') return 'Treasurer';
 	        if (contestType === 'auditor') return 'Auditor';
 	        if (contestType === 'labor_commissioner') return 'Labor Commissioner';
 	        if (contestType === 'insurance_commissioner') return 'Insurance Commissioner';
@@ -3225,11 +3183,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	      const groupOrder = [
 	        'US President',
 	        'US Senate',
-	        'NC Governor',
-	        'NC Lieutenant Governor',
-	        'NC Attorney General',
-	        'NC Secretary of State',
-	        'NC Treasurer',
+	        'Governor',
+	        'Lieutenant Governor',
+	        'Attorney General',
+	        'Secretary of State',
+	        'Treasurer',
 	        'Auditor',
 	        'Labor Commissioner',
 	        'Insurance Commissioner',
@@ -3543,7 +3501,13 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!cleaned) return fallback;
       const parts = cleaned.split(' ').filter(Boolean);
       if (!parts.length) return fallback;
-      return parts[parts.length - 1];
+      let last = parts[parts.length - 1];
+      const suffixes = new Set(['JR', 'SR', 'II', 'III', 'IV', 'V']);
+      const lastUpper = (last || '').toString().replace(/\.+$/g, '').toUpperCase();
+      if ((suffixes.has(lastUpper) || (lastUpper.length === 1 && parts.length >= 2)) && parts.length >= 2) {
+        last = parts[parts.length - 2];
+      }
+      return toTitleCaseName(last);
     }
 
     function toTitleCaseName(raw) {
@@ -4249,7 +4213,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function showCountyDetails(countyName) {
       if (!SIDEBAR_ENABLED) return;
-      // --- NC Map Card-Style Sidebar ---
+      // --- Sidebar ---
       const sidebar = document.getElementById('sidebar');
       let sidebarContent = '';
       const detailsDiv = document.getElementById('county-details');
@@ -5537,8 +5501,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function getHistoricalTrends(countyName, isDistrict = false, districtNum = null) {
       const presidentialYears = [2024, 2020, 2016, 2012, 2008];
       const stateHouseYears = [2024, 2022, 2020, 2018, 2016]; // Recent state house elections
-      // NC governor elections align with presidential years (e.g., 2016, 2020, 2024).
-      const governorYears = [2024, 2020, 2016, 2012, 2008];
+      const governorYears = [2022, 2018, 2014, 2010, 2006, 2002];
       const trends = [];
       
       if (isDistrict && districtNum) {
@@ -5613,13 +5576,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (trends.length > 0) {
           trends.push({
             year: 0,
-            display: '--- State House ---',
+            display: '--- Governor ---',
             margin: 0,
             type: 'separator'
           });
         }
         
-        // State House trends (recent years only)
         // Governor trends (recent years only)
         governorYears.forEach(year => {
           const data = electionData.find(row => 
@@ -5642,32 +5604,6 @@ document.addEventListener('DOMContentLoaded', function() {
               margin: margin,
               type: 'governor'
             });
-          }
-        });
-        stateHouseYears.forEach(year => {
-          const data = electionData.find(row => 
-            row.year == year && row.county === countyName
-          );
-          
-          if (data && data.state_house_total > 0) {
-            const demVotes = data.state_house_dem || 0;
-            const repVotes = data.state_house_rep || 0;
-            const totalVotes = data.state_house_total || 0;
-            
-            if (totalVotes > 0) {
-              const demPct = (demVotes / totalVotes) * 100;
-              const repPct = (repVotes / totalVotes) * 100;
-              const margin = demPct - repPct;
-              const winner = margin > 0 ? 'D' : 'R';
-              const marginAbs = Math.abs(margin);
-              
-              trends.push({
-                year: year,
-                display: `${year}: ${winner}+${marginAbs.toFixed(2)} (House)`,
-                margin: margin,
-                type: 'state_house'
-              });
-            }
           }
         });
       }
@@ -7360,16 +7296,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function applyDistrictContest(contestType, year) {
-      if (contestType !== 'us_house') {
-        return setStatus('Only US House races available for congressional districts');
-      }
-
       // Preferred path: use precomputed district results aligned to active lines.
       const hasSlice = await loadDistrictSlice('congressional', contestType, year);
       if (hasSlice) {
         return applyStatewideContestToDistricts(contestType, year);
       }
-      
+
+      // Back-compat fallback: older builds had only US House by-district data.
+      if (contestType !== 'us_house') {
+        return applyStatewideContestToDistricts(contestType, year);
+      }
+       
       // Filter congressional data for this year
       const contestData = (congressionalData || []).filter(row => row.year == year);
       
@@ -7406,7 +7343,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       map.setPaintProperty('district-fill', 'fill-color', expr);
   document.getElementById('contest-name').textContent = `US House (${year})`;
-      setStatus(`Applied contest: NC US House ${year}`);
+      setStatus(`Applied contest: US House ${year}`);
     }
 
     async function applyStatewideContestToDistricts(contestType, year) {
