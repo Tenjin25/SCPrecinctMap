@@ -108,6 +108,10 @@ _ELSTATS_SEARCH_2008_OE = os.path.join(DATA_SRC, '_tmpdata', '20081104__sc__gene
 if os.path.exists(_ELSTATS_SEARCH_2008_OE):
     ELECTION_FILES[2008] = _ELSTATS_SEARCH_2008_OE
 
+_LOCAL_2006_OE = os.path.join(DATA_SRC, '_tmpdata', '20061107__sc__general__precinct__local.csv')
+if os.path.exists(_LOCAL_2006_OE):
+    ELECTION_FILES[2006] = _LOCAL_2006_OE
+
 _ELSTATS_SEARCH_2014_OE = os.path.join(DATA_SRC, '_tmpdata', '20141104__sc__general__precinct__from_elstats_search.csv')
 if os.path.exists(_ELSTATS_SEARCH_2014_OE):
     ELECTION_FILES[2014] = _ELSTATS_SEARCH_2014_OE
@@ -161,6 +165,29 @@ def normalize(s: str) -> str:
     """Mirror JS normalizeCountyName: keep a-z 0-9 space period hyphen, upper."""
     s = re.sub(r'[^a-zA-Z0-9 .\-]', '', str(s))
     return re.sub(r'\s+', ' ', s).strip().upper()
+
+
+def normalize_party(party: str) -> str:
+    """
+    Normalize party strings across sources into the short codes used by the app.
+    Examples: "DEMOCRAT" -> "DEM", "REPUBLICAN" -> "REP".
+    """
+    p = (party or '').strip().upper()
+    if not p:
+        return ''
+    if p in {'DEM', 'DEMOCRAT', 'DEMOCRATIC', 'D'}:
+        return 'DEM'
+    if p in {'REP', 'REPUBLICAN', 'R', 'GOP'}:
+        return 'REP'
+    if p in {'LIB', 'LIBERTARIAN'}:
+        return 'LIB'
+    if p in {'GRN', 'GREEN'}:
+        return 'GRN'
+    if p in {'CON', 'CONSTITUTION'}:
+        return 'CON'
+    if p in {'WFP', 'WORKING FAMILIES', 'WORKINGFAMILIES'}:
+        return 'WFP'
+    return p
 
 
 def margin_color(signed_pct: float) -> str:
@@ -613,7 +640,7 @@ def aggregate_all(
             continue
         ct = county_raw.title()          # "Richland"
         county_norm = normalize(county_raw)
-        party = (row.get('party') or '').strip().upper()
+        party = normalize_party(row.get('party') or '')
         votes = int(row.get('votes') or 0)
         cand  = (row.get('candidate') or '').strip()
 
@@ -836,7 +863,7 @@ def build_district_contests():
                     dist_key = str(int(dist_raw))   # strip leading zeros
                 except ValueError:
                     continue
-                party = (row.get('party') or '').strip().upper()
+                party = normalize_party(row.get('party') or '')
                 votes = int(row.get('votes') or 0)
                 cand  = (row.get('candidate') or '').strip()
                 if dist_key not in agg:
