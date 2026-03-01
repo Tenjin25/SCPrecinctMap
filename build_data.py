@@ -104,6 +104,10 @@ _ELSTATS_SEARCH_2012_OE = os.path.join(DATA_SRC, '_tmpdata', '20121106__sc__gene
 if os.path.exists(_ELSTATS_SEARCH_2012_OE):
     ELECTION_FILES[2012] = _ELSTATS_SEARCH_2012_OE
 
+_ELSTATS_SEARCH_2008_OE = os.path.join(DATA_SRC, '_tmpdata', '20081104__sc__general__precinct__from_elstats_search.csv')
+if os.path.exists(_ELSTATS_SEARCH_2008_OE):
+    ELECTION_FILES[2008] = _ELSTATS_SEARCH_2008_OE
+
 _ELSTATS_SEARCH_2014_OE = os.path.join(DATA_SRC, '_tmpdata', '20141104__sc__general__precinct__from_elstats_search.csv')
 if os.path.exists(_ELSTATS_SEARCH_2014_OE):
     ELECTION_FILES[2014] = _ELSTATS_SEARCH_2014_OE
