@@ -3548,7 +3548,7 @@ function stripRunningMateName(name) {
       // Fix common mojibake sequences if UTF-8 bytes were mis-decoded somewhere upstream.
       const normalized = raw.replace(/â€“/g, '–').replace(/â€”/g, '—').trim();
       // Common presidential ticket separators.
-      const seps = [' / ', '/', ' & ', '&', ' + ', '+', ' - ', '–', '—', ' – ', ' — '];
+      const seps = [' | ', '|', ' / ', '/', ' & ', '&', ' + ', '+', ' - ', '–', '—', ' – ', ' — '];
       for (const sep of seps) {
         if (normalized.includes(sep)) {
           const left = normalized.split(sep, 1)[0].trim();
