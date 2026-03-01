@@ -104,6 +104,10 @@ _ELSTATS_SEARCH_2012_OE = os.path.join(DATA_SRC, '_tmpdata', '20121106__sc__gene
 if os.path.exists(_ELSTATS_SEARCH_2012_OE):
     ELECTION_FILES[2012] = _ELSTATS_SEARCH_2012_OE
 
+_ELSTATS_SEARCH_2014_OE = os.path.join(DATA_SRC, '_tmpdata', '20141104__sc__general__precinct__from_elstats_search.csv')
+if os.path.exists(_ELSTATS_SEARCH_2014_OE):
+    ELECTION_FILES[2014] = _ELSTATS_SEARCH_2014_OE
+
 # Offices to include (lower-cased raw value → contest_type key)
 OFFICE_MAP = {
     'president':                            'president',
@@ -584,12 +588,19 @@ def aggregate_all(
 
     # If the input includes explicit county-level rows (precinct blank), use those for county totals
     # to avoid double counting when precinct-level rows are also present.
-    has_explicit_county_rows = any(
-        isinstance(r, dict)
-        and (r.get('county') or '').strip()
-        and not (r.get('precinct') or '').strip()
-        for r in (rows or [])
-    )
+    #
+    # Do this per-county (not globally): some sources can be mixed (county rows for some counties
+    # but only precinct rows for others).
+    counties_with_explicit_rows = set()
+    for r in (rows or []):
+        if not isinstance(r, dict):
+            continue
+        county_raw = (r.get('county') or '').strip()
+        if not county_raw:
+            continue
+        prec_raw = (r.get('precinct') or '').strip()
+        if not prec_raw:
+            counties_with_explicit_rows.add(normalize(county_raw))
 
     for row in rows:
         county_raw = (row.get('county') or '').strip()
@@ -597,6 +608,7 @@ def aggregate_all(
         if not county_raw:
             continue
         ct = county_raw.title()          # "Richland"
+        county_norm = normalize(county_raw)
         party = (row.get('party') or '').strip().upper()
         votes = int(row.get('votes') or 0)
         cand  = (row.get('candidate') or '').strip()
@@ -618,9 +630,9 @@ def aggregate_all(
                 node['other'] += votes
 
         # County aggregate:
-        # - If we have explicit county rows, only count those (precinct blank).
-        # - Otherwise, fall back to summing all rows.
-        if (not has_explicit_county_rows) or (has_explicit_county_rows and not prec_raw):
+        # - If this county has explicit county rows, only count those (precinct blank).
+        # - Otherwise, fall back to summing precinct rows.
+        if (county_norm in counties_with_explicit_rows and not prec_raw) or (county_norm not in counties_with_explicit_rows):
             _add(county_agg, ct)
 
         # Precinct row – only for geographic precincts
