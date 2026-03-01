@@ -212,7 +212,18 @@ The app can render boundaries either from **local GeoJSON** (default, works imme
 
 `CONFIG.tilesets.enabled` is set to `true` but the `url` fields are empty strings — the app falls back to loading the local GeoJSON files under `data/`.
 
-No Mapbox account changes needed. The Mapbox token in `index.html` is only required for the basemap style (`mapbox://styles/mapbox/light-v11`).
+The app still needs a **Mapbox public token** for the basemap style (`mapbox://styles/mapbox/light-v11`), but the repo intentionally does **not** commit tokens.
+
+Set it once per browser:
+
+```js
+localStorage.setItem('MAPBOX_TOKEN', 'pk.<your token>');
+location.reload();
+```
+
+If you open the app without a token, it will show a prompt and save to `localStorage.MAPBOX_TOKEN`.
+
+> If you accidentally paste a token into a public place (issue/chat/commit), rotate/revoke it in Mapbox.
 
 ### Tileset mode (optional, better performance)
 
