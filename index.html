@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <style>
   /* Mobile Styles - Enhanced for touch and small screens */
   @media (max-width: 768px) {
@@ -150,7 +152,6 @@
     font-weight: 700;
   }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script>
     // Define toggleSidebar function before DOMContentLoaded
     const SIDEBAR_ENABLED = false;
@@ -312,9 +313,7 @@
   <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js'></script>
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-    <meta charset='utf-8'>
     <title>South Carolina Precinct Map (2020-2024)</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes'>
     <meta property="og:title" content="SC Precinct Map (2020-2024)">
     <meta property="og:description" content="Interactive visualization of South Carolina's political trends from 2020 to 2024, showing precinct-level voting patterns.">
     <meta property="og:image" content="preview.png">
@@ -427,6 +426,11 @@ body { height: var(--app-height); }
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: opacity 0.15s ease;
+}
+@media (max-width: 768px) {
+  .hover-tooltip {
+    max-width: 92vw;
+  }
 }
 
 .hover-tooltip .tooltip-title {
@@ -1995,12 +1999,12 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
   <!-- Floating Sidebar Expand/Collapse Button (smaller size) -->
-  <button id="sidebar-float-toggle" title="Expand Sidebar">+</button>
+  <button id="sidebar-float-toggle" type="button" title="Expand Sidebar" aria-label="Toggle sidebar">+</button>
 
   <!-- Floating Status Panel -->
   <div class="status-panel" id="status-panel" style="display:none;position:fixed;top:20px;right:90px;z-index:10002;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);padding:18px 24px 18px 18px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.12);border:1px solid #e5e7eb;max-width:340px;min-width:200px;font-size:15px;color:#34495e;">
     <span id="status-message"></span>
-    <button id="status-exit" title="Close" style="position:absolute;top:10px;right:10px;padding:4px 10px;border-radius:6px;border:none;background:#eee;cursor:pointer;font-weight:bold;font-size:18px;">×</button>
+    <button id="status-exit" type="button" title="Close" aria-label="Close status" style="position:absolute;top:10px;right:10px;padding:4px 10px;border-radius:6px;border:none;background:#eee;cursor:pointer;font-weight:bold;font-size:18px;">×</button>
   </div>
     
 
@@ -2010,25 +2014,25 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="controls-header" style="display:flex;align-items:center;justify-content:space-between;">
             <h3>South Carolina Election Contests</h3>
             <div style="display:flex;align-items:center;gap:8px;">
-              <button id="help-btn" title="Help" type="button">?</button>
-              <button class="minimize-btn" onclick="toggleMainControls()" id="controls-minimize-btn">-</button>
+              <button id="help-btn" title="Help" type="button" aria-label="Help">?</button>
+              <button class="minimize-btn" type="button" onclick="toggleMainControls()" id="controls-minimize-btn" aria-label="Toggle controls">-</button>
             </div>
         </div>
         <div class="controls-content" id="controls-content">
             <div class="control-group" style="margin-bottom:10px;">
                 <div style="display:flex;gap:6px;flex-wrap:wrap;">
-                  <button id="counties-view" class="view-toggle-btn active" onclick="setMapView('counties')">Counties</button>
-                  <button id="districts-view" class="view-toggle-btn" onclick="setMapView('districts')">Congress</button>
-                  <button id="state-house-view" class="view-toggle-btn" onclick="setMapView('state_house')">State House</button>
-                  <button id="state-senate-view" class="view-toggle-btn" onclick="setMapView('state_senate')">State Senate</button>
+                  <button id="counties-view" type="button" class="view-toggle-btn active" onclick="setMapView('counties')">Counties</button>
+                  <button id="districts-view" type="button" class="view-toggle-btn" onclick="setMapView('districts')">Congress</button>
+                  <button id="state-house-view" type="button" class="view-toggle-btn" onclick="setMapView('state_house')">State House</button>
+                  <button id="state-senate-view" type="button" class="view-toggle-btn" onclick="setMapView('state_senate')">State Senate</button>
                 </div>
             </div>
             <div class="control-group">
                 <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-                  <label>Contest:</label>
-                  <button id="accessibility-toggle" title="Accessibility: Color Blind Mode" style="background:#1f2937;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;">&#9855;</button>
-                  <button id="label-toggle" title="Toggle County Labels" style="background:#1f2937;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;">Aa</button>
-                  <button id="precinct-toggle" title="Enable Precinct Overlay (Zoom 8.5+)" style="background:#065f46;color:#fff;border-radius:8px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;padding:0 10px;">Precincts Off</button>
+                  <label for="contestSelect">Contest:</label>
+                  <button id="accessibility-toggle" type="button" title="Accessibility: Color Blind Mode" aria-label="Toggle colorblind-friendly colors" style="background:#1f2937;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;">&#9855;</button>
+                  <button id="label-toggle" type="button" title="Toggle County Labels" aria-label="Toggle labels" style="background:#1f2937;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;">Aa</button>
+                  <button id="precinct-toggle" type="button" title="Enable Precinct Overlay (Zoom 8.5+)" aria-label="Toggle precinct overlay" style="background:#065f46;color:#fff;border-radius:8px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;padding:0 10px;">Precincts Off</button>
                 </div>
                 <div style="margin-top:8px;">
                   <input id="contestSearch" type="search" placeholder="Search contests (e.g., President, Senate, 2008)..." autocomplete="off" spellcheck="false" />
@@ -2049,7 +2053,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="legend" id="legend">
         <div class="legend-header">
             <h4>Political Categories</h4>
-            <button class="minimize-btn" onclick="toggleLegend()" id="legend-minimize-btn">-</button>
+            <button class="minimize-btn" type="button" onclick="toggleLegend()" id="legend-minimize-btn" aria-label="Toggle legend">-</button>
         </div>
         <div class="legend-content" id="legend-content">
             <div class="legend-item"><div class="legend-color" style="background: #67000d;"></div>Annihilation Republican (&ge;40.00%)</div>
@@ -2078,7 +2082,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="help-title">
         <div class="modal-head">
           <h2 id="help-title">How to read this map</h2>
-          <button class="modal-close" id="help-close" type="button" title="Close">&times;</button>
+          <button class="modal-close" id="help-close" type="button" title="Close" aria-label="Close help">&times;</button>
         </div>
         <div class="modal-body">
           <h3>Modes</h3>
@@ -5565,7 +5569,6 @@ document.addEventListener('DOMContentLoaded', function() {
               const marginAbs = Math.abs(margin);
               
               // Get candidate names for recent years
-              const winner = margin > 0 ? 'D' : 'R';
               const presNominee = winner === 'D'
                 ? getCandidateName(year, 'President of the United States', 'Democrat')
                 : getCandidateName(year, 'President of the United States', 'Republican');
@@ -5605,7 +5608,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const margin = demPct - repPct;
             const winner = margin > 0 ? 'D' : 'R';
             const marginAbs = Math.abs(margin);
-            const winner = margin > 0 ? 'D' : 'R';
             const govNominee = winner === 'D'
               ? getCandidateName(year, 'Governor', 'Democrat')
               : getCandidateName(year, 'Governor', 'Republican');

@@ -11,5 +11,8 @@ __pycache__/
 Data/_tmpdata/*.csv
 data/_tmpdata/*.csv
 
+# Reports / scratch outputs
+scripts/out/
+
 # Mapbox build artifacts
 *.mbtiles
