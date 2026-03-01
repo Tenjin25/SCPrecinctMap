@@ -3626,8 +3626,18 @@ document.addEventListener('DOMContentLoaded', function() {
       const otherPct = (o / total) * 100.0;
 
       const marginLabel = winnerMarginLabel(r, d, total, repCandidate || '', demCandidate || '');
-      const demFull = (demCandidate || '').toString().trim() || 'Democratic';
-      const repFull = (repCandidate || '').toString().trim() || 'Republican';
+      let demFull = (demCandidate || '').toString().trim() || 'Democratic';
+      let repFull = (repCandidate || '').toString().trim() || 'Republican';
+      try {
+        if (typeof stripRunningMateName === 'function') {
+          demFull = stripRunningMateName(demFull);
+          repFull = stripRunningMateName(repFull);
+        }
+        if (typeof toTitleCaseName === 'function') {
+          demFull = toTitleCaseName(demFull);
+          repFull = toTitleCaseName(repFull);
+        }
+      } catch (_) {}
 
       const safeTitle = (title || '').toString();
       const safeSubtitle = (subtitle || '').toString();
