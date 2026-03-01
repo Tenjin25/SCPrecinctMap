@@ -2151,7 +2151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const CONFIG = {
       // Set this at runtime (e.g. `window.MAPBOX_TOKEN = "pk...."` in the console) or
       // replace with your own public token before deploying. Do not commit tokens.
-      mapboxToken: (window.MAPBOX_TOKEN || ''),
+      mapboxToken: (window.MAPBOX_TOKEN || localStorage.getItem('MAPBOX_TOKEN') || ''),
       tilesets: {
         enabled: true,
         sources: {
