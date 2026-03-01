@@ -5565,12 +5565,11 @@ document.addEventListener('DOMContentLoaded', function() {
               const marginAbs = Math.abs(margin);
               
               // Get candidate names for recent years
-              let candidateInfo = '';
-              if (year === 2024) candidateInfo = margin > 0 ? getCandidateName(year, 'President of the United States', 'Democrat') : getCandidateName(year, 'President of the United States', 'Republican');
-              else if (year === 2020) candidateInfo = margin > 0 ? getCandidateName(year, 'President of the United States', 'Democrat') : getCandidateName(year, 'President of the United States', 'Republican');
-              else if (year === 2016) candidateInfo = margin > 0 ? getCandidateName(year, 'President of the United States', 'Democrat') : getCandidateName(year, 'President of the United States', 'Republican');
-              else if (year === 2012) candidateInfo = margin > 0 ? getCandidateName(year, 'President of the United States', 'Democrat') : getCandidateName(year, 'President of the United States', 'Republican');
-              else if (year === 2008) candidateInfo = margin > 0 ? getCandidateName(year, 'President of the United States', 'Democrat') : getCandidateName(year, 'President of the United States', 'Republican');
+              const winner = margin > 0 ? 'D' : 'R';
+              const presNominee = winner === 'D'
+                ? getCandidateName(year, 'President of the United States', 'Democrat')
+                : getCandidateName(year, 'President of the United States', 'Republican');
+              const candidateInfo = shortCandidateLabel(presNominee, winner);
               
               trends.push({
                 year: year,
@@ -5606,8 +5605,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const margin = demPct - repPct;
             const winner = margin > 0 ? 'D' : 'R';
             const marginAbs = Math.abs(margin);
-            let candidateInfo = '';
-            candidateInfo = margin > 0 ? getCandidateName(year, 'Governor', 'Democrat') : getCandidateName(year, 'Governor', 'Republican');
+            const winner = margin > 0 ? 'D' : 'R';
+            const govNominee = winner === 'D'
+              ? getCandidateName(year, 'Governor', 'Democrat')
+              : getCandidateName(year, 'Governor', 'Republican');
+            const candidateInfo = shortCandidateLabel(govNominee, winner);
             trends.push({
               year: year,
               display: `${year}: ${candidateInfo}+${marginAbs.toFixed(2)}`,

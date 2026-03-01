@@ -733,11 +733,37 @@ def build_election_data():
                 'rows':         len(all_rows),
             })
 
-    # Sort: newest year first, then by priority within a year
-    manifest_entries.sort(key=lambda e: (-e['year'], _PRIORITY.get(e['contest_type'], 99)))
-    write_json({'files': manifest_entries},
-               os.path.join(contests_dir, 'manifest.json'))
-    print(f'\n  manifest: {len(manifest_entries)} contest(s)')
+    # Rebuild manifest by scanning the directory so partial CSV availability doesn't hide older slices.
+    scanned_entries: list[dict] = []
+    try:
+        for fn in os.listdir(contests_dir):
+            if not fn.endswith('.json'):
+                continue
+            if fn == 'manifest.json':
+                continue
+            path = os.path.join(contests_dir, fn)
+            try:
+                with open(path, encoding='utf-8') as fh:
+                    payload = json.load(fh)
+                y = int(payload.get('year') or 0)
+                ct = str(payload.get('contest_type') or '').strip()
+                rows = payload.get('rows') or []
+                if y <= 0 or not ct or not isinstance(rows, list):
+                    continue
+                scanned_entries.append({
+                    'year': y,
+                    'contest_type': ct,
+                    'file': fn,
+                    'rows': len(rows),
+                })
+            except Exception:
+                continue
+    except Exception:
+        scanned_entries = manifest_entries
+
+    scanned_entries.sort(key=lambda e: (-e['year'], _PRIORITY.get(e['contest_type'], 99)))
+    write_json({'files': scanned_entries}, os.path.join(contests_dir, 'manifest.json'))
+    print(f'\n  manifest: {len(scanned_entries)} contest(s)')
 
 
 # ---------------------------------------------------------------------------

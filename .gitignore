@@ -8,6 +8,8 @@ __pycache__/
 # Large downloads
 *.zip
 *elstats_search_*.csv
+Data/_tmpdata/*.csv
+data/_tmpdata/*.csv
 
 # Mapbox build artifacts
 *.mbtiles
