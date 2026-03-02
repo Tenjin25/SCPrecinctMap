@@ -7,15 +7,20 @@ An interactive, single-page election results map for South Carolina built with *
 ## Table of Contents
 
 1. [Features](#features)
-2. [Project Structure](#project-structure)
-3. [Data Sources](#data-sources)
-4. [Data Pipeline](#data-pipeline)
-5. [Available Contests](#available-contests)
-6. [Mapbox Setup](#mapbox-setup)
-7. [Running Locally](#running-locally)
-8. [Rebuilding Data](#rebuilding-data)
-9. [Adding New Election Years](#adding-new-election-years)
-10. [Key Files Reference](#key-files-reference)
+2. [Architecture Overview](#architecture-overview)
+3. [Project Structure](#project-structure)
+4. [Data Sources](#data-sources)
+5. [Data Pipeline](#data-pipeline)
+6. [Available Contests](#available-contests)
+7. [Mapbox Setup](#mapbox-setup)
+8. [Running Locally](#running-locally)
+9. [Rebuilding Data](#rebuilding-data)
+10. [Adding New Election Years](#adding-new-election-years)
+11. [Precinct Aliases](#precinct-aliases)
+12. [Helper Scripts](#helper-scripts)
+13. [Known Limitations](#known-limitations)
+14. [Deployment](#deployment)
+15. [Key Files Reference](#key-files-reference)
 
 ---
 
@@ -28,6 +33,42 @@ An interactive, single-page election results map for South Carolina built with *
 - **Color scale**: 14-step red/blue gradient keyed to R–D margin percentage
 - **Hover tooltip**: candidate names, vote totals, and margin for any hovered feature
 - **Contest panel**: dropdown to switch contests; color-coded legend bar
+
+---
+
+## Architecture Overview
+
+The project is split into two distinct phases:
+
+```
+Phase 1 – Offline data build (Python)
+  TIGER shapefiles   ──► build_data.py ──► GeoJSON boundary files
+  OpenElections CSVs ──────────────────► Contest JSON slices
+
+Phase 2 – Runtime rendering (browser)
+  GeoJSON + Contest JSONs ──► Mapbox GL JS ──► Interactive map
+```
+
+### Data build (offline, one-time or per election cycle)
+
+`build_data.py` is the only build step. It reads shapefiles and election CSVs from `Data/` and writes everything the browser needs into `data/`. No GDAL, geopandas, or Node.js toolchain is required — the only dependency is `pyshp`.
+
+### Front-end rendering (browser)
+
+`index.html` is a self-contained single-page application. On load it:
+
+1. Reads `CONFIG` at the top of the file for token, tileset URLs, and defaults.
+2. Fetches `data/contests/manifest.json` and `data/district_contests/manifest.json` to build the contest dropdown.
+3. Loads the requested contest slice (e.g. `data/contests/president_2024.json`) and calls `applyCountyContest()`.
+4. `applyCountyContest()` iterates every row; rows without `" - "` in the `county` key color the **county fill layer**, rows with `" - "` are split to color the **precinct overlay layer**.
+5. Switching the map view (counties / CD / state house / state senate) swaps which Mapbox layers are visible and re-applies the current contest data.
+
+### Boundary delivery modes
+
+| Mode | How to enable | Notes |
+|---|---|---|
+| **Local GeoJSON** (default) | Leave `url` fields empty in `CONFIG.tilesets` | Works immediately; fine for development |
+| **Mapbox tilesets** | Populate `url` fields in `CONFIG.tilesets` | Faster at scale; requires Mapbox Studio upload |
 
 ---
 
@@ -229,7 +270,7 @@ location.reload();
 
 If you open the app without a token, it will show a prompt and save to `localStorage.MAPBOX_TOKEN`.
 
-> If you accidentally paste a token into a public place (issue/chat/commit), rotate/revoke it in Mapbox.
+> **Security**: Never paste a live token into a public issue, chat message, or commit. If you accidentally expose one, rotate or revoke it immediately in the [Mapbox access tokens dashboard](https://account.mapbox.com/access-tokens/).
 
 ### Tileset mode (optional, better performance)
 
@@ -352,6 +393,113 @@ ELECTION_FILES = {
 3. Re-run `python build_data.py`. The new contest slices will be generated automatically and added to both manifests.
 
 > The pipeline automatically detects which offices appear in the CSV. County/precinct contest types are controlled by `OFFICE_MAP`; district contest types by `DISTRICT_OFFICE_MAP`.
+
+---
+
+## Precinct Aliases
+
+OpenElections precinct names match TIGER `NAME20` field after normalization at ~99%. The remaining ~1% are either:
+
+- **Non-geographic buckets** — FAILSAFE, PROVISIONAL, ABSENTEE, etc. (intentionally excluded).
+- **True mismatches** — split/merged precincts, punctuation differences, or typographical discrepancies between OpenElections and the shapefile.
+
+For true mismatches, add a manual override to `precinct_aliases.json`:
+
+```json
+{
+  "AIKEN - BREEZY NO. 87": "AIKEN - BREEZY HILL",
+  "ANDERSON - BARKERS CREEK-MCADAMS": "ANDERSON - BARKERS CREEK"
+}
+```
+
+- **Key**: the normalized `"COUNTY - PRECINCT"` string as it appears in the OpenElections CSV.
+- **Value**: the correct `"COUNTY - PRECINCT"` string matching the shapefile `NAME20` field.
+
+Rebuild after editing: `python build_data.py`.
+
+### Identifying mismatches
+
+Use `scripts/precinct_mismatch_report.py` to rank unmatched precincts by closest fuzzy match:
+
+```powershell
+# Run from the project root
+py scripts/precinct_mismatch_report.py --contest president --year 2024
+```
+
+The report shows each unmatched election row alongside the top-3 closest shapefile polygon names, making it easy to decide whether to add an alias or treat it as a non-geographic bucket.
+
+---
+
+## Helper Scripts
+
+### `_inspect.py`
+
+Ad-hoc inspection script used during development. Reads a sample of OpenElections CSV rows for selected years and offices to verify field formats (`district`, `county`, `precinct`) before adjusting the pipeline.
+
+```powershell
+py _inspect.py
+```
+
+### `scripts/precinct_mismatch_report.py`
+
+Generates a ranked mismatch report comparing contest JSON precinct keys against the GeoJSON polygon set. Uses `difflib.SequenceMatcher` for fuzzy candidate suggestions.
+
+```
+usage: precinct_mismatch_report.py [-h] --contest CONTEST --year YEAR
+                                   [--precincts PRECINCTS]
+                                   [--aliases ALIASES]
+
+options:
+  --contest   Contest type (e.g. president, governor, us_senate)
+  --year      Election year (e.g. 2024)
+  --precincts Path to Voting_Precincts.geojson  (default: data/Voting_Precincts.geojson)
+  --aliases   Path to precinct_aliases.json     (default: precinct_aliases.json)
+```
+
+### `scripts/elstats_search_to_openelections.py`
+
+Converts SC Election Commission (`elstats`) precinct-level CSV exports — which use a different channel/row layout — into the OpenElections CSV format expected by `build_data.py`. Useful for election years not yet published by OpenElections.
+
+```powershell
+py scripts/elstats_search_to_openelections.py ^
+    --input  Data/_tmpdata/20241105__sc__general__precinct__from_elstats.csv ^
+    --output Data/openelections-data-sc/2024/20241105__sc__general__precinct.csv
+```
+
+Key behaviors:
+- Maps voting channels (Early Voting, Absentee, Failsafe, etc.) to OpenElections column names.
+- Normalizes office strings to match `OFFICE_MAP` in `build_data.py`.
+- Drops non-candidate rows such as "Total Votes Cast" and "Overvotes/Undervotes".
+
+---
+
+## Known Limitations
+
+| Limitation | Details |
+|---|---|
+| **2008 coverage** | Only ~29 of 46 counties have precinct-level data in OpenElections for 2008; the rest show county-level totals only. |
+| **2024 State House** | The 2024 state house source CSV covers only 2 of 124 districts. Use 2022 State House data for full coverage. |
+| **Precinct boundaries are 2020 vintage** | The VTD shapefile is `tl_2020_45_vtd20`. Precincts that were split, merged, or renamed after 2020 may not match OpenElections data for 2022+ elections without aliases. |
+| **District boundaries reflect latest redistricting** | Congressional uses 118th Congress lines; State House/Senate use 2024 TIGER files. Results from cycles before redistricting are applied to current district lines. |
+| **No runoff or primary data** | Only general election precinct CSVs are included. |
+| **`file://` protocol blocked** | The app uses `fetch()` for data files, which browsers block under the `file://` protocol. Always serve via HTTP (see [Running Locally](#running-locally)). |
+
+---
+
+## Deployment
+
+### GitHub Pages (static hosting)
+
+Because `index.html` is a self-contained SPA with no server-side logic, it deploys directly to any static host.
+
+1. Ensure `data/` (generated output) is committed to the repo.
+2. In your GitHub repository settings → Pages → select **Branch: main**, **Folder: / (root)**.
+3. GitHub Pages will serve `index.html` at `https://<username>.github.io/<repo>/`.
+4. Set your Mapbox token via `localStorage` in the browser after the first visit (see [Mapbox Setup](#mapbox-setup)).
+
+### Any other static host (Netlify, Vercel, S3, etc.)
+
+Deploy the project root as-is. No build command is required; the output of `build_data.py` is pre-generated static JSON. The only runtime requirement is HTTPS or localhost (for `fetch()` CORS).
 
 ---
 
