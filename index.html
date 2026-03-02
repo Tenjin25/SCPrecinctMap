@@ -6336,7 +6336,7 @@ function stripRunningMateName(name) {
         candidateNameCache = new Map();
         contestSliceCache = new Map();
 	        try {
-	          const manifest = await loadJSON(`${CONFIG.paths.contests_dir}/manifest.json`);
+	          const manifest = await loadJSON(`${CONFIG.paths.contests_dir}/manifest.json?cb=${Date.now()}`);
 	          contestManifest = manifest?.files || [];
 	          // Add CSV-backed presidential elections not present in the precomputed contest slices.
 	          Object.keys(PRESIDENT_OPEN_ELECTIONS_CSV).map(Number).forEach(y => {
@@ -6364,7 +6364,7 @@ function stripRunningMateName(name) {
         }
 
         try {
-          const dManifest = await loadJSON(`${CONFIG.paths.district_contests_dir}/manifest.json`);
+          const dManifest = await loadJSON(`${CONFIG.paths.district_contests_dir}/manifest.json?cb=${Date.now()}`);
           districtManifest = dManifest?.files || [];
           districtElectionDataJSON = null;
           districtSliceCache = new Map();
@@ -7055,7 +7055,13 @@ function stripRunningMateName(name) {
 	        return Array.from(out);
 	      }
 
-      // Build county aggregates from precinct-level rows.
+      // Build county aggregates from contest slice rows.
+      // Contest slices contain BOTH county rows (county="Abbeville") AND precinct rows
+      // (county="Abbeville - Abbeville No. 1"). If we sum both, totals are double-counted.
+      const hasExplicitCountyRows = contestData.some(r => {
+        const n = (r?.county || '').toString();
+        return n && !n.includes(' - ');
+      });
       const countyAgg = {};
       currentPrecinctResults = new Map();
       contestData.forEach(row => {
@@ -7063,6 +7069,7 @@ function stripRunningMateName(name) {
         const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
         const countyNorm = normalizeCountyName(countyOnly);
         if (!countyNorm) return;
+        const isPrecinctRow = rowName.includes(' - ');
 
         const demVotes = Number(row[`${contestType}_dem`] || 0);
         const repVotes = Number(row[`${contestType}_rep`] || 0);
@@ -7075,6 +7082,9 @@ function stripRunningMateName(name) {
         norms.forEach(n => {
           currentPrecinctResults.set(n, row);
         });
+
+        // Only add to county totals when appropriate to avoid double counting.
+        if (hasExplicitCountyRows && isPrecinctRow) return;
         if (!countyAgg[countyNorm]) {
           countyAgg[countyNorm] = {
             year: Number(year),
@@ -7097,25 +7107,26 @@ function stripRunningMateName(name) {
       });
       currentElectionResults = countyAgg;
 
-      // Calculate statewide totals
+      // Calculate statewide totals from countyAgg (already de-duplicated).
       let statewidedemVotes = 0;
       let statewidrepVotes = 0;
       let statewidotherVotes = 0;
       let statewidTotalVotes = 0;
       let statewideDemCandidate = '';
       let statewideRepCandidate = '';
-      
-      contestData.forEach(row => {
-        const demVotes = row[`${contestType}_dem`] || 0;
-        const repVotes = row[`${contestType}_rep`] || 0;
-        const otherVotes = row[`${contestType}_other`] || 0;
-        const totalVotes = row[`${contestType}_total`] || 0;
-        const demCand = row[`${contestType}_dem_candidate`] || '';
-        const repCand = row[`${contestType}_rep_candidate`] || '';
+
+      Object.keys(countyAgg).forEach(k => {
+        const row = countyAgg[k] || {};
+        const demVotes = Number(row[`${contestType}_dem`] || 0);
+        const repVotes = Number(row[`${contestType}_rep`] || 0);
+        const otherVotes = Number(row[`${contestType}_other`] || 0);
+        const totalVotes = Number(row[`${contestType}_total`] || 0);
+        const demCand = (row[`${contestType}_dem_candidate`] || '').toString();
+        const repCand = (row[`${contestType}_rep_candidate`] || '').toString();
         statewidedemVotes += demVotes;
         statewidrepVotes += repVotes;
         statewidotherVotes += otherVotes;
-        statewidTotalVotes += totalVotes; // Use total which includes other parties
+        statewidTotalVotes += totalVotes;
         if (!statewideDemCandidate && demCand) statewideDemCandidate = demCand;
         if (!statewideRepCandidate && repCand) statewideRepCandidate = repCand;
       });
@@ -7501,7 +7512,15 @@ function stripRunningMateName(name) {
       let totalRep = 0;
       let totalVotes = 0;
 
+      const hasExplicitCountyRows = contestData.some(r => {
+        const n = (r?.county || '').toString();
+        return n && !n.includes(' - ');
+      });
+
       contestData.forEach(row => {
+        const rowName = (row?.county || '').toString();
+        const isPrecinctRow = rowName.includes(' - ');
+        if (hasExplicitCountyRows && isPrecinctRow) return;
         const demVotes = Number(row[`${contestType}_dem`]) || 0;
         const repVotes = Number(row[`${contestType}_rep`]) || 0;
         const rowTotalVotes = Number(row[`${contestType}_total`]);
