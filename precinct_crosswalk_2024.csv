@@ -1,0 +1,72 @@
+year,contest_type,county,source_result_key,target_polygon_key,score,status,confidence,notes
+2024,president,Charleston,,Charleston - Deer Park 1A,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - Deer Park 1B,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - Deer Park 2A,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - Deer Park 2B,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - Deer Park 2C,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - Isle Of Palms 1A,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - Isle Of Palms 1B,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - Isle Of Palms 1C,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - James Island 1A,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - James Island 1B,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - James Island 2,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - James Island 5A,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - James Island 5B,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - James Island 8A,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - James Island 8B,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - Johns Island 1A,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - Johns Island 1B,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - Johns Island 3A,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - Johns Island 3B,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - Licolnville,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - St. Pauls 2A,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - St. Pauls 2B,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Charleston,,Charleston - Town Of Seabrook,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Lancaster,Lancaster - Buford,Lancaster - Dwight,,pending,review,manual_override user_confirmed_town_coverage
+2024,president,Lancaster,Lancaster - Jim Wilson,Lancaster - Jacksonham,0.4000,pending,low,mutual_best gap=0.1000
+2024,president,Lancaster,Lancaster - Flat Creek,Lancaster - Lancaster West,0.4167,pending,low,mutual_best gap=0.1090
+2024,president,Lancaster,Lancaster - Mcilwain,Lancaster - Lynwood Drive,,pending,review,manual_override user_confirmed
+2024,president,Lancaster,Lancaster - Springdale,Lancaster - Goochs Cross Road,,pending,review,manual_override user_corrected_target
+2024,president,Saluda,,Saluda - Clyde,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Saluda,,Saluda - Delmar,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Saluda,,Saluda - Mayson,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Saluda,,Saluda - Mt. Willing,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Saluda,,Saluda - Pleasant Cross,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Saluda,,Saluda - Richland,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Saluda,,Saluda - Ridge Springmonetta,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Saluda,,Saluda - Ward,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Spartanburg,Spartanburg - Beacon,Spartanburg - Beaumont Methodist,,pending,review,manual_city_batch
+2024,president,Spartanburg,Spartanburg - Holly Springs Motlow,Spartanburg - Boiling Springs Intermediate,0.5000,pending,low,mutual_best gap=0.1863
+2024,president,Spartanburg,Spartanburg - Clifton Glendale,Spartanburg - Cleveland Elementary,0.3889,pending,low,mutual_best gap=0.0168
+2024,president,Spartanburg,Spartanburg - Chestnut Lake,Spartanburg - Cowpens Depot Museum,0.3636,pending,low,mutual_best gap=0.0065
+2024,president,Spartanburg,Spartanburg - Mccracken Middle School,Spartanburg - Fairforest Middle School,0.6809,pending,medium,mutual_best gap=0.2809
+2024,president,Spartanburg,Spartanburg - Southport,Spartanburg - Southside Baptist,0.5385,pending,low,mutual_best gap=0.1936
+2024,president,Spartanburg,Spartanburg - Moore Duncan,Spartanburg - Woodruff Elementary,0.3871,pending,low,mutual_best gap=0.0538
+2024,president,York,,York - Airport,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Bethany,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Bethel,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Bowling Green,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Carolina,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Ebenezer,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Edgewood,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Friendship,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Gold Hill,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Hopewell,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Mill Creek,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Oakwood,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Palmetto,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Six Mile,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Springdale,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - Springfield,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,York,,York - University,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Spartanburg,Spartanburg - Cowpens,Spartanburg - Cowpens Depot Museum,0.5185,pending,low,generated_by_worklist mutual_best blockassign_source_unknown
+2024,president,Spartanburg,Spartanburg - Wade Hampton,Spartanburg - Mt. Zion Gospel Baptist,,pending,review,manual_city_batch
+2024,president,Spartanburg,Spartanburg - Drayton,Spartanburg - Glendale Fire Station,,pending,review,manual_city_batch
+2024,president,Spartanburg,Spartanburg - Enoree River,Spartanburg - Enoree First Baptist,,pending,review,manual_override user_confirmed
+2024,president,Spartanburg,Spartanburg - Palmetto,Spartanburg - Chapman Elementary,0.4615,pending,low,generated_by_worklist mutual_best blockassign_source_unknown
+2024,president,Spartanburg,Spartanburg - Spartangreen,Spartanburg - Spartanburg High School,0.4571,pending,low,generated_by_worklist mutual_best blockassign_source_unknown
+2024,president,Spartanburg,Spartanburg - New Prospect,Spartanburg - Ebenezer Baptist,0.4286,pending,low,generated_by_worklist mutual_best blockassign_source_unknown
+2024,president,Spartanburg,Spartanburg - Fairgrounds,Spartanburg - Park Hills Elementary,,pending,review,manual_city_batch
+2024,president,Spartanburg,Spartanburg - Lake Cooley,Spartanburg - Fairforest Middle School,0.4000,pending,low,generated_by_worklist mutual_best blockassign_source_unknown
+2024,president,Lancaster,Lancaster - 521 North,Lancaster - Osceola,,pending,review,manual_hypothesis user_preference_521_corridor
+2024,president,Lancaster,Lancaster - Tradesville,Lancaster - Spring Hill,,pending,review,manual_override user_confirmed
