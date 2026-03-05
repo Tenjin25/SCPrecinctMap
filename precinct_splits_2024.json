@@ -1,0 +1,24 @@
+{
+  "_comment": "Optional one-to-many mappings when one source precinct row should paint multiple polygon precincts.",
+  "_format": "Map a source key string to an array of target key strings in the form 'COUNTY - PRECINCT'.",
+  "Chester - Lando/ Lansford": [
+    "CHESTER - LANDO",
+    "CHESTER - LANDO/ LANSFORD"
+  ],
+  "Kershaw - Camden No. 5-A": [
+    "KERSHAW - CAMDEN NO. 5-A",
+    "KERSHAW - E. CAMDEN-HERMITAGE"
+  ],
+  "Kershaw - Salt Pond": [
+    "KERSHAW - SALT POND",
+    "KERSHAW - GATES FORD"
+  ],
+  "Union - Monarch": [
+    "UNION - MONARCH BOX 1",
+    "UNION - MONARCH BOX 2"
+  ],
+  "Union - Buffalo Box 1": [
+    "UNION - BUFFALO BOX 1",
+    "UNION - EAST BUFFALO"
+  ]
+}

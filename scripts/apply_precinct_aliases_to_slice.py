@@ -76,6 +76,38 @@ def load_aliases(aliases_path: str, display_by_norm: dict[str, str]) -> dict[str
     return out
 
 
+def load_splits(splits_path: str, display_by_norm: dict[str, str]) -> dict[str, list[str]]:
+    if not splits_path or not os.path.exists(splits_path):
+        return {}
+    with open(splits_path, encoding="utf-8") as fh:
+        raw = json.load(fh)
+    if not isinstance(raw, dict):
+        return {}
+    out: dict[str, list[str]] = {}
+    for k, v in raw.items():
+        if not isinstance(k, str):
+            continue
+        if k.startswith("_"):
+            continue
+        nk = norm(k)
+        if not nk:
+            continue
+        vals = v if isinstance(v, list) else [v]
+        targets: list[str] = []
+        seen: set[str] = set()
+        for item in vals:
+            if not isinstance(item, str):
+                continue
+            nv = norm(item)
+            if not nv or nv in seen:
+                continue
+            seen.add(nv)
+            targets.append(display_by_norm.get(nv, item.strip()))
+        if targets:
+            out[nk] = targets
+    return out
+
+
 def merge_rows(rows: list[dict], contest_type: str) -> list[dict]:
     """
     Merge duplicate precinct rows that share the same 'county' key (after aliasing).
@@ -164,12 +196,15 @@ def main():
     ap.add_argument("--year", default="2024", help="Election year (e.g. 2024)")
     ap.add_argument("--all", action="store_true", help="Process all files in data/contests (ignores --contest/--year)")
     ap.add_argument("--aliases", default="precinct_aliases.json", help="Alias JSON path relative to base")
+    ap.add_argument("--splits", default="precinct_splits_2024.json", help="Optional split mapping JSON path relative to base")
+    ap.add_argument("--no-splits", action="store_true", help="Disable split mappings")
     args = ap.parse_args()
 
     base = os.path.abspath(args.base)
 
     voting_precincts = os.path.join(base, "data", "Voting_Precincts.geojson")
     aliases_path = os.path.join(base, args.aliases)
+    splits_path = os.path.join(base, args.splits)
     manifest_path = os.path.join(base, "data", "contests", "manifest.json")
 
     if not os.path.exists(voting_precincts):
@@ -177,6 +212,7 @@ def main():
 
     display_by_norm = load_precinct_display_by_norm(voting_precincts)
     aliases = load_aliases(aliases_path, display_by_norm)
+    splits = {} if args.no_splits else load_splits(splits_path, display_by_norm)
 
     contests_dir = os.path.join(base, "data", "contests")
     if not os.path.isdir(contests_dir):
@@ -201,24 +237,41 @@ def main():
             return None, None
         return contest, year
 
-    def process_one(slice_path: str, contest: str, year: int) -> tuple[int, int]:
+    def process_one(slice_path: str, contest: str, year: int) -> tuple[int, int, int]:
         with open(slice_path, encoding="utf-8") as fh:
             payload = json.load(fh) or {}
         rows = payload.get("rows") or []
 
         remapped = 0
+        split_expanded = 0
+        out_rows: list[dict] = []
         for r in rows:
             if not isinstance(r, dict):
                 continue
             key = str(r.get("county") or "")
             if " - " not in key:
+                out_rows.append(r)
                 continue
             nk = norm(key)
-            if nk in aliases:
-                r["county"] = aliases[nk]
+            mapped = aliases.get(nk, key)
+            if mapped != key:
                 remapped += 1
 
-        merged_rows = merge_rows(rows, contest)
+            split_targets = splits.get(norm(mapped), [])
+            if split_targets:
+                # One source result row can paint multiple polygons when the source is merged.
+                for t in split_targets:
+                    rr = dict(r)
+                    rr["county"] = t
+                    out_rows.append(rr)
+                split_expanded += max(0, len(split_targets) - 1)
+                continue
+
+            rr = dict(r)
+            rr["county"] = mapped
+            out_rows.append(rr)
+
+        merged_rows = merge_rows(out_rows, contest)
         payload["rows"] = merged_rows
 
         tmp = slice_path + ".tmp"
@@ -227,7 +280,7 @@ def main():
         os.replace(tmp, slice_path)
 
         update_manifest(manifest_path, contest, year, len(merged_rows))
-        return remapped, len(merged_rows)
+        return remapped, split_expanded, len(merged_rows)
 
     if not args.all:
         contest = str(args.contest).strip()
@@ -235,25 +288,29 @@ def main():
         slice_path = os.path.join(contests_dir, f"{contest}_{year}.json")
         if not os.path.exists(slice_path):
             raise SystemExit(f"Missing {slice_path}")
-        remapped, rows_out = process_one(slice_path, contest, year)
+        remapped, split_expanded, rows_out = process_one(slice_path, contest, year)
         print(f"Updated {slice_path}")
         print(f"Remapped rows: {remapped}")
+        print(f"Split rows expanded: {split_expanded}")
         print(f"Rows after merge: {rows_out}")
         return
 
     total_files = 0
     total_remapped = 0
+    total_split_expanded = 0
     for fn in sorted(os.listdir(contests_dir)):
         contest, year = parse_contest_and_year(fn)
         if not contest:
             continue
         slice_path = os.path.join(contests_dir, fn)
-        remapped, _ = process_one(slice_path, contest, year)
+        remapped, split_expanded, _ = process_one(slice_path, contest, year)
         total_files += 1
         total_remapped += remapped
+        total_split_expanded += split_expanded
 
     print(f"Updated files: {total_files}")
     print(f"Remapped rows: {total_remapped}")
+    print(f"Split rows expanded: {total_split_expanded}")
 
 
 if __name__ == "__main__":
