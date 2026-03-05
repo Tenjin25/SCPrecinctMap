@@ -1,5 +1,4 @@
 import argparse
-import csv
 import json
 import os
 import re
@@ -75,83 +74,6 @@ def load_aliases(aliases_path: str, display_by_norm: dict[str, str]) -> dict[str
             continue
         out[nk] = display_by_norm.get(nv, v.strip())
     return out
-
-
-def load_crosswalk_map(
-    crosswalk_path: str,
-    display_by_norm: dict[str, str],
-    year: int | None = None,
-    contest_type: str | None = None,
-) -> dict[str, list[str]]:
-    if not crosswalk_path or not os.path.exists(crosswalk_path):
-        return {}
-
-    ct_filter = (contest_type or "").strip().lower()
-    y_filter = str(year or "").strip()
-
-    def is_approved(v: str) -> bool:
-        return str(v or "").strip().lower() in {"approved", "true", "1", "yes", "y"}
-
-    out: dict[str, list[str]] = {}
-    seen_targets: dict[str, set[str]] = {}
-
-    try:
-        with open(crosswalk_path, encoding="utf-8", newline="") as fh:
-            reader = csv.DictReader(fh)
-            for row in reader:
-                if not isinstance(row, dict):
-                    continue
-                if not is_approved(row.get("status")):
-                    continue
-
-                row_year = str(row.get("year") or "").strip()
-                row_ct = str(row.get("contest_type") or "").strip().lower()
-                if row_year and y_filter and row_year != y_filter:
-                    continue
-                if row_ct and ct_filter and row_ct != ct_filter:
-                    continue
-
-                src = str(row.get("source_result_key") or row.get("source_precinct") or "").strip()
-                dst = str(row.get("target_polygon_key") or row.get("target_precinct") or "").strip()
-                if not (src and dst):
-                    continue
-
-                nsrc = norm(src)
-                ndst = norm(dst)
-                if not (nsrc and ndst):
-                    continue
-
-                dst_display = display_by_norm.get(ndst, dst)
-                dst_norm = norm(dst_display)
-                if not dst_norm:
-                    continue
-
-                if nsrc not in out:
-                    out[nsrc] = []
-                    seen_targets[nsrc] = set()
-                if dst_norm in seen_targets[nsrc]:
-                    continue
-                out[nsrc].append(dst_display)
-                seen_targets[nsrc].add(dst_norm)
-    except Exception:
-        return {}
-
-    return out
-
-
-def split_crosswalk_aliases(crosswalk_map: dict[str, list[str]] | None) -> tuple[dict[str, str], dict[str, list[str]]]:
-    crosswalk_map = crosswalk_map or {}
-    one_to_one: dict[str, str] = {}
-    one_to_many: dict[str, list[str]] = {}
-
-    for src, targets in crosswalk_map.items():
-        clean = [t for t in (targets or []) if isinstance(t, str) and t.strip()]
-        if len(clean) == 1:
-            one_to_one[src] = clean[0]
-        elif len(clean) > 1:
-            one_to_many[src] = clean
-
-    return one_to_one, one_to_many
 
 
 def merge_rows(rows: list[dict], contest_type: str) -> list[dict]:
@@ -242,15 +164,12 @@ def main():
     ap.add_argument("--year", default="2024", help="Election year (e.g. 2024)")
     ap.add_argument("--all", action="store_true", help="Process all files in data/contests (ignores --contest/--year)")
     ap.add_argument("--aliases", default="precinct_aliases.json", help="Alias JSON path relative to base")
-    ap.add_argument("--crosswalk", default="precinct_crosswalk_2024.csv", help="Crosswalk CSV path relative to base")
-    ap.add_argument("--no-crosswalk", action="store_true", help="Disable crosswalk application")
     args = ap.parse_args()
 
     base = os.path.abspath(args.base)
 
     voting_precincts = os.path.join(base, "data", "Voting_Precincts.geojson")
     aliases_path = os.path.join(base, args.aliases)
-    crosswalk_path = os.path.join(base, args.crosswalk)
     manifest_path = os.path.join(base, "data", "contests", "manifest.json")
 
     if not os.path.exists(voting_precincts):
@@ -282,54 +201,24 @@ def main():
             return None, None
         return contest, year
 
-    def process_one(slice_path: str, contest: str, year: int) -> tuple[int, int, int]:
+    def process_one(slice_path: str, contest: str, year: int) -> tuple[int, int]:
         with open(slice_path, encoding="utf-8") as fh:
             payload = json.load(fh) or {}
         rows = payload.get("rows") or []
 
-        crosswalk_map = {}
-        if not args.no_crosswalk:
-            crosswalk_map = load_crosswalk_map(
-                crosswalk_path=crosswalk_path,
-                display_by_norm=display_by_norm,
-                year=year,
-                contest_type=contest,
-            )
-        crosswalk_aliases, crosswalk_split_map = split_crosswalk_aliases(crosswalk_map)
-
-        effective_aliases = dict(aliases)
-        effective_aliases.update(crosswalk_aliases)
-
         remapped = 0
-        split_rows = 0
-        out_rows: list[dict] = []
         for r in rows:
             if not isinstance(r, dict):
                 continue
             key = str(r.get("county") or "")
             if " - " not in key:
-                out_rows.append(r)
                 continue
-
             nk = norm(key)
-            mapped_key = effective_aliases.get(nk, key)
-            if mapped_key != key:
+            if nk in aliases:
+                r["county"] = aliases[nk]
                 remapped += 1
 
-            split_targets = crosswalk_split_map.get(norm(mapped_key)) or crosswalk_split_map.get(nk) or []
-            if split_targets:
-                split_rows += len(split_targets)
-                for t in split_targets:
-                    rr = dict(r)
-                    rr["county"] = t
-                    out_rows.append(rr)
-                continue
-
-            rr = dict(r)
-            rr["county"] = mapped_key
-            out_rows.append(rr)
-
-        merged_rows = merge_rows(out_rows, contest)
+        merged_rows = merge_rows(rows, contest)
         payload["rows"] = merged_rows
 
         tmp = slice_path + ".tmp"
@@ -338,7 +227,7 @@ def main():
         os.replace(tmp, slice_path)
 
         update_manifest(manifest_path, contest, year, len(merged_rows))
-        return remapped, split_rows, len(merged_rows)
+        return remapped, len(merged_rows)
 
     if not args.all:
         contest = str(args.contest).strip()
@@ -346,29 +235,25 @@ def main():
         slice_path = os.path.join(contests_dir, f"{contest}_{year}.json")
         if not os.path.exists(slice_path):
             raise SystemExit(f"Missing {slice_path}")
-        remapped, split_rows, rows_out = process_one(slice_path, contest, year)
+        remapped, rows_out = process_one(slice_path, contest, year)
         print(f"Updated {slice_path}")
         print(f"Remapped rows: {remapped}")
-        print(f"Expanded split rows: {split_rows}")
         print(f"Rows after merge: {rows_out}")
         return
 
     total_files = 0
     total_remapped = 0
-    total_split_rows = 0
     for fn in sorted(os.listdir(contests_dir)):
         contest, year = parse_contest_and_year(fn)
         if not contest:
             continue
         slice_path = os.path.join(contests_dir, fn)
-        remapped, split_rows, _ = process_one(slice_path, contest, year)
+        remapped, _ = process_one(slice_path, contest, year)
         total_files += 1
         total_remapped += remapped
-        total_split_rows += split_rows
 
     print(f"Updated files: {total_files}")
     print(f"Remapped rows: {total_remapped}")
-    print(f"Expanded split rows: {total_split_rows}")
 
 
 if __name__ == "__main__":
