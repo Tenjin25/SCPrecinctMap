@@ -472,11 +472,11 @@ def load_precinct_aliases(precinct_display_by_norm: dict[str, str] | None = None
         return {}
 
 
-def load_precinct_crosswalk_aliases(
+def load_precinct_crosswalk_map(
     precinct_display_by_norm: dict[str, str] | None = None,
     year: int | None = None,
     contest_type: str | None = None,
-) -> dict[str, str]:
+) -> dict[str, list[str]]:
     """
     Optional CSV-based overrides for explicit, reviewable crosswalk edits.
 
@@ -484,6 +484,8 @@ def load_precinct_crosswalk_aliases(
       year,contest_type,source_result_key,target_polygon_key,status
 
     Only rows with status in {approved,true,1,yes} are applied.
+    Multiple approved rows with the same source_result_key are supported and
+    treated as one-to-many mappings (single source unit paints multiple polygons).
     """
     path = PRECINCT_CROSSWALK_PATH
     if not os.path.exists(path):
@@ -495,7 +497,8 @@ def load_precinct_crosswalk_aliases(
     def _is_approved(v: str) -> bool:
         return (v or '').strip().lower() in {'approved', 'true', '1', 'yes', 'y'}
 
-    out: dict[str, str] = {}
+    out: dict[str, list[str]] = {}
+    seen_targets: dict[str, set[str]] = {}
     try:
         with open(path, encoding='utf-8', newline='') as fh:
             reader = csv.DictReader(fh)
@@ -522,10 +525,40 @@ def load_precinct_crosswalk_aliases(
                 if not (nsrc and ndst):
                     continue
 
-                out[nsrc] = precinct_display_by_norm.get(ndst, dst)
+                dst_display = precinct_display_by_norm.get(ndst, dst)
+                dst_norm = normalize(dst_display)
+                if not dst_norm:
+                    continue
+                if nsrc not in out:
+                    out[nsrc] = []
+                    seen_targets[nsrc] = set()
+                if dst_norm in seen_targets[nsrc]:
+                    continue
+                out[nsrc].append(dst_display)
+                seen_targets[nsrc].add(dst_norm)
     except Exception:
         return {}
     return out
+
+
+def split_crosswalk_aliases(
+    crosswalk_map: dict[str, list[str]] | None,
+) -> tuple[dict[str, str], dict[str, list[str]]]:
+    """
+    Split crosswalk mappings into:
+      one_to_one: source -> single destination alias
+      one_to_many: source -> multiple destination keys
+    """
+    crosswalk_map = crosswalk_map or {}
+    one_to_one: dict[str, str] = {}
+    one_to_many: dict[str, list[str]] = {}
+    for src, targets in crosswalk_map.items():
+        cleaned = [t for t in (targets or []) if isinstance(t, str) and t.strip()]
+        if len(cleaned) == 1:
+            one_to_one[src] = cleaned[0]
+        elif len(cleaned) > 1:
+            one_to_many[src] = cleaned
+    return one_to_one, one_to_many
 
 
 _DIR_PREFIX = re.compile(r'^(N|S|E|W)\s+', re.IGNORECASE)
@@ -669,6 +702,7 @@ def aggregate_all(
     rows: list,
     precinct_norm_set: set[str] | None = None,
     precinct_aliases: dict[str, str] | None = None,
+    precinct_split_map: dict[str, list[str]] | None = None,
 ) -> tuple[dict, dict]:
     """
     Build both county-level and precinct-level aggregates.
@@ -680,6 +714,7 @@ def aggregate_all(
     county_agg   = {}
     precinct_agg = {}
     precinct_aliases = precinct_aliases or {}
+    precinct_split_map = precinct_split_map or {}
 
     # If the input includes explicit county-level rows (precinct blank), use those for county totals
     # to avoid double counting when precinct-level rows are also present.
@@ -750,7 +785,18 @@ def aggregate_all(
                     prec_key = precinct_aliases[nkey]
             except Exception:
                 pass
-            _add(precinct_agg, prec_key)
+            # Crosswalk one-to-many mapping: paint all mapped polygons with this unit's totals.
+            targets = []
+            try:
+                nkey = normalize(prec_key)
+                targets = precinct_split_map.get(nkey, []) or []
+            except Exception:
+                targets = []
+            if targets:
+                for t in targets:
+                    _add(precinct_agg, t)
+            else:
+                _add(precinct_agg, prec_key)
 
     # Some boundary files contain a single combined precinct where the results feed splits it
     # into numbered parts (e.g., "BELFAIR 1" + "BELFAIR 2" but polygon is "BELFAIR").
@@ -787,6 +833,37 @@ def aggregate_all(
     return county_agg, precinct_agg
 
 
+def build_precinct_match_meta(
+    precinct_agg: dict,
+    precinct_norm_set: set[str] | None = None,
+) -> dict:
+    """
+    Coverage diagnostics for county/precinct slices.
+    """
+    if not precinct_norm_set:
+        return {}
+    row_norms = {normalize(k) for k in (precinct_agg or {}).keys() if isinstance(k, str) and ' - ' in k}
+    poly_norms = set(precinct_norm_set or set())
+    if not poly_norms:
+        return {}
+
+    matched_polys = len(poly_norms & row_norms)
+    missing_polys = len(poly_norms - row_norms)
+    matched_rows = len(row_norms & poly_norms)
+    unmatched_rows = len(row_norms - poly_norms)
+    coverage = round((matched_polys / len(poly_norms)) * 100, 4) if poly_norms else 0
+
+    return {
+        'match_coverage_pct': coverage,
+        'precinct_rows_total': len(row_norms),
+        'precinct_rows_matched': matched_rows,
+        'precinct_rows_unmatched': unmatched_rows,
+        'polygon_precinct_total': len(poly_norms),
+        'polygon_precinct_matched': matched_polys,
+        'polygon_precinct_unmatched': missing_polys,
+    }
+
+
 def build_election_data():
     print('\n=== County/Precinct Contest JSONs ===')
     contests_dir = os.path.join(DATA_OUT, 'contests')
@@ -817,14 +894,19 @@ def build_election_data():
 
         for ct, ct_rows in by_contest.items():
             precinct_aliases = dict(base_precinct_aliases)
-            precinct_aliases.update(
-                load_precinct_crosswalk_aliases(
-                    precinct_display_by_norm,
-                    year=year,
-                    contest_type=ct,
-                )
+            crosswalk_map = load_precinct_crosswalk_map(
+                precinct_display_by_norm,
+                year=year,
+                contest_type=ct,
             )
-            county_agg, precinct_agg = aggregate_all(ct_rows, precinct_norm_set, precinct_aliases)
+            crosswalk_aliases, crosswalk_split_map = split_crosswalk_aliases(crosswalk_map)
+            precinct_aliases.update(crosswalk_aliases)
+            county_agg, precinct_agg = aggregate_all(
+                ct_rows,
+                precinct_norm_set,
+                precinct_aliases,
+                crosswalk_split_map,
+            )
             if not county_agg:
                 continue
 
@@ -832,12 +914,16 @@ def build_election_data():
             county_rows   = [make_row(k, v, year) for k, v in sorted(county_agg.items())]
             precinct_rows = [make_row(k, v, year) for k, v in sorted(precinct_agg.items())]
             all_rows = county_rows + precinct_rows
+            meta = build_precinct_match_meta(precinct_agg, precinct_norm_set)
+            if crosswalk_split_map:
+                meta['crosswalk_split_sources'] = len(crosswalk_split_map)
 
             fname = f'{ct}_{year}.json'
             payload = {
                 'year':         year,
                 'contest_type': ct,
                 'rows':         all_rows,
+                'meta':         meta,
             }
             write_json(payload, os.path.join(contests_dir, fname))
             print(f'    {ct}: {len(county_rows)} counties + {len(precinct_rows)} precincts')

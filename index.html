@@ -2212,9 +2212,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const CONFIG = {
-      // Set this at runtime (e.g. `window.MAPBOX_TOKEN = "pk...."` in the console) or
-      // replace with your own public token before deploying. Do not commit tokens.
-      mapboxToken: (window.MAPBOX_TOKEN || localStorage.getItem('MAPBOX_TOKEN') || ''),
+      // Set this at runtime (for example in a separate, non-committed config file).
+      mapboxToken: (window.MAPBOX_TOKEN || ''),
       tilesets: {
         enabled: true,
         sources: {
@@ -2261,45 +2260,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     };
 
-    function showMapboxTokenPrompt() {
-      try {
-        if (document.getElementById('mapbox-token-prompt')) return;
-        const wrap = document.createElement('div');
-        wrap.id = 'mapbox-token-prompt';
-        wrap.style.cssText = [
-          'position:fixed', 'inset:0', 'z-index:10050',
-          'background:rgba(15,23,42,0.70)', 'backdrop-filter:blur(6px)',
-          'display:flex', 'align-items:center', 'justify-content:center',
-          'padding:24px'
-        ].join(';');
-        wrap.innerHTML = `
-          <div style="max-width:620px;width:100%;background:#fff;border-radius:14px;padding:18px 18px 16px;box-shadow:0 10px 30px rgba(0,0,0,.25);border:1px solid #e5e7eb;">
-            <div style="font-weight:900;font-size:16px;color:#0f172a;margin-bottom:8px;">Mapbox token required</div>
-            <div style="font-size:13px;color:#475569;line-height:1.35;margin-bottom:10px;">
-              This app uses Mapbox GL JS. Paste a <code>pk.*</code> public access token to continue.
-              The token will be saved in <code>localStorage.MAPBOX_TOKEN</code> for this browser only.
-            </div>
-            <input id="mapbox-token-input" type="password" spellcheck="false" placeholder="pk.<your token>" style="width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:10px;font-size:13px;">
-            <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;">
-              <button id="mapbox-token-cancel" style="padding:9px 12px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;font-weight:800;">Close</button>
-              <button id="mapbox-token-save" style="padding:9px 12px;border:1px solid #1d4ed8;border-radius:10px;background:#2563eb;color:#fff;font-weight:900;">Save & Reload</button>
-            </div>
-          </div>
-        `;
-        document.body.appendChild(wrap);
-        wrap.querySelector('#mapbox-token-cancel')?.addEventListener('click', () => wrap.remove());
-        wrap.querySelector('#mapbox-token-save')?.addEventListener('click', () => {
-          const t = (wrap.querySelector('#mapbox-token-input')?.value || '').trim();
-          if (!t) return;
-          try { localStorage.setItem('MAPBOX_TOKEN', t); } catch (_) {}
-          location.reload();
-        });
-      } catch (_) {}
-    }
-
     let map = null;
     if (!CONFIG.mapboxToken) {
-      console.error('Mapbox token missing. Set localStorage.MAPBOX_TOKEN or window.MAPBOX_TOKEN.');
+      console.error('Mapbox token missing. Set window.MAPBOX_TOKEN before initializing the map.');
       // Prevent confusing follow-on errors if users click around before the token is set.
       try {
         document.querySelectorAll('.view-toggle-btn, #sidebar-float-toggle').forEach(b => {
@@ -2308,7 +2271,6 @@ document.addEventListener('DOMContentLoaded', function() {
           b.style.cursor = 'not-allowed';
         });
       } catch (_) {}
-      showMapboxTokenPrompt();
     } else {
       mapboxgl.accessToken = CONFIG.mapboxToken;
       map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/light-v11', center: CONFIG.center, zoom: CONFIG.zoom });
@@ -3588,8 +3550,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function setMapView(view) {
       if (!map) {
-        try { showMapboxTokenPrompt(); } catch (_) {}
-        setStatus('Mapbox token missing. Set MAPBOX_TOKEN to enable the map.');
+        setStatus('Map unavailable: MAPBOX_TOKEN is not configured.');
         return;
       }
       if (!appReady) {
@@ -4105,7 +4066,7 @@ function stripRunningMateName(name) {
 
       const row = currentPrecinctResults ? currentPrecinctResults.get(precinctNorm) : null;
       if (!row) {
-        showHoverTooltip(point.x, point.y, buildTooltipShell(title, '<div style="color:#64748b;">No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.</div>'));
+        showHoverTooltip(point.x, point.y, buildTooltipShell(title, '<div style="color:#64748b;">No direct precinct result for this polygon in this contest (official reporting units do not map 1:1 here).</div>'));
         wireTooltipButtons();
         return;
       }
@@ -5142,7 +5103,7 @@ function stripRunningMateName(name) {
               showHoverTooltip(
                 evt.point.x,
                 evt.point.y,
-                buildTooltipShell(title, `<div style="color:#64748b;">No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.</div>`)
+                buildTooltipShell(title, `<div style="color:#64748b;">No direct precinct result for this polygon in this contest (official reporting units do not map 1:1 here).</div>`)
               );
               wireTooltipButtons();
               return;
@@ -6564,8 +6525,7 @@ function stripRunningMateName(name) {
     async function init() {
       try {
         if (!map) {
-          setStatus('Mapbox token missing. Click the prompt to set MAPBOX_TOKEN.');
-          try { showMapboxTokenPrompt(); } catch (_) {}
+          setStatus('Map unavailable: MAPBOX_TOKEN is not configured.');
           return;
         }
         setStatus('Loading counties...');
