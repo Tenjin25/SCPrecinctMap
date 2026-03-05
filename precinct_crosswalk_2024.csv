@@ -35,13 +35,13 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,Saluda,,Saluda - Richland,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Saluda,,Saluda - Ridge Springmonetta,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Saluda,,Saluda - Ward,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
-2024,president,Spartanburg,Spartanburg - Beacon,Spartanburg - Beaumont Methodist,,pending,review,manual_city_batch
-2024,president,Spartanburg,Spartanburg - Holly Springs Motlow,Spartanburg - Boiling Springs Intermediate,0.5000,pending,low,mutual_best gap=0.1863
-2024,president,Spartanburg,Spartanburg - Clifton Glendale,Spartanburg - Cleveland Elementary,0.3889,pending,low,mutual_best gap=0.0168
+2024,president,Spartanburg,Spartanburg - Beacon,Spartanburg - Ben Avon Methodist,,pending,review,auto_suggested_from_crossref score_1=0.8333
+2024,president,Spartanburg,Spartanburg - Holly Springs Motlow,Spartanburg - Beech Springs Intermediate,0.5000,pending,low,auto_suggested_from_crossref score_1=0.8148
+2024,president,Spartanburg,Spartanburg - Clifton Glendale,Spartanburg - Oakland Elementary,0.3889,pending,low,auto_suggested_from_crossref score_1=0.7895
 2024,president,Spartanburg,Spartanburg - Chestnut Lake,Spartanburg - Cowpens Depot Museum,0.3636,pending,low,mutual_best gap=0.0065
-2024,president,Spartanburg,Spartanburg - Mccracken Middle School,Spartanburg - Fairforest Middle School,0.6809,pending,medium,mutual_best gap=0.2809
-2024,president,Spartanburg,Spartanburg - Southport,Spartanburg - Southside Baptist,0.5385,pending,low,mutual_best gap=0.1936
-2024,president,Spartanburg,Spartanburg - Moore Duncan,Spartanburg - Woodruff Elementary,0.3871,pending,low,mutual_best gap=0.0538
+2024,president,Spartanburg,Spartanburg - Mccracken Middle School,Spartanburg - Gable Middle School,0.6809,pending,medium,auto_suggested_from_crossref score_1=0.7442
+2024,president,Spartanburg,Spartanburg - Southport,Spartanburg - Eastside Baptist,0.5385,pending,low,auto_suggested_from_crossref score_1=0.8485
+2024,president,Spartanburg,Spartanburg - Moore Duncan,Spartanburg - Woodruff Leisure Center,0.3871,pending,low,auto_suggested_from_crossref score_1=0.7143
 2024,president,York,,York - Airport,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,York,,York - Bethany,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,York,,York - Bethel,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
@@ -60,13 +60,13 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,York,,York - Springfield,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,York,,York - University,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Spartanburg,Spartanburg - Cowpens,Spartanburg - Cowpens Depot Museum,0.5185,pending,low,generated_by_worklist mutual_best blockassign_source_unknown
-2024,president,Spartanburg,Spartanburg - Wade Hampton,Spartanburg - Mt. Zion Gospel Baptist,,pending,review,manual_city_batch
-2024,president,Spartanburg,Spartanburg - Drayton,Spartanburg - Glendale Fire Station,,pending,review,manual_city_batch
+2024,president,Spartanburg,Spartanburg - Wade Hampton,Spartanburg - Morningside Baptist,,pending,review,auto_suggested_from_crossref score_1=0.6667
+2024,president,Spartanburg,Spartanburg - Drayton,Spartanburg - Pelham Fire Station,,pending,review,auto_suggested_from_crossref score_1=0.7500
 2024,president,Spartanburg,Spartanburg - Enoree River,Spartanburg - Enoree First Baptist,,pending,review,manual_override user_confirmed
-2024,president,Spartanburg,Spartanburg - Palmetto,Spartanburg - Chapman Elementary,0.4615,pending,low,generated_by_worklist mutual_best blockassign_source_unknown
-2024,president,Spartanburg,Spartanburg - Spartangreen,Spartanburg - Spartanburg High School,0.4571,pending,low,generated_by_worklist mutual_best blockassign_source_unknown
-2024,president,Spartanburg,Spartanburg - New Prospect,Spartanburg - Ebenezer Baptist,0.4286,pending,low,generated_by_worklist mutual_best blockassign_source_unknown
-2024,president,Spartanburg,Spartanburg - Fairgrounds,Spartanburg - Park Hills Elementary,,pending,review,manual_city_batch
-2024,president,Spartanburg,Spartanburg - Lake Cooley,Spartanburg - Fairforest Middle School,0.4000,pending,low,generated_by_worklist mutual_best blockassign_source_unknown
+2024,president,Spartanburg,Spartanburg - Palmetto,Spartanburg - Lyman Elementary,0.4615,pending,low,auto_suggested_from_crossref score_1=0.8235
+2024,president,Spartanburg,Spartanburg - Spartangreen,Spartanburg - Chapman High School,0.4571,pending,low,auto_suggested_from_crossref score_1=0.7143
+2024,president,Spartanburg,Spartanburg - New Prospect,Spartanburg - Enoree First Baptist,0.4286,pending,low,auto_suggested_from_crossref score_1=0.7222
+2024,president,Spartanburg,Spartanburg - Fairgrounds,Spartanburg - Anderson Mill Elementary,,pending,review,auto_suggested_from_crossref score_1=0.7556
+2024,president,Spartanburg,Spartanburg - Lake Cooley,Spartanburg - Gable Middle School,0.4000,pending,low,auto_suggested_from_crossref score_1=0.7442
 2024,president,Lancaster,Lancaster - 521 North,Lancaster - Osceola,,pending,review,manual_hypothesis user_preference_521_corridor
-2024,president,Lancaster,Lancaster - Tradesville,Lancaster - Spring Hill,,pending,review,manual_override user_confirmed
+2024,president,Lancaster,Lancaster - Tradesville,Lancaster - Rich Hill,,pending,review,auto_suggested_from_crossref score_1=0.7000

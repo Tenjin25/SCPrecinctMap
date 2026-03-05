@@ -1,9 +1,29 @@
 {
   "_comment": "Optional weighted one-to-many mappings that preserve vote totals while splitting a source precinct row.",
   "_format": "Map a source key string to an object of target key -> weight.",
-  "_note": "Lancaster East/West weight uses 2020 total-vote share (East 65.95%, West 34.05%).",
+  "_note": "Weights use 2020 total-vote share within each proposed source+missing pair.",
   "Lancaster - Lancaster East": {
     "LANCASTER - LANCASTER EAST": 0.6595,
     "LANCASTER - LANCASTER WEST": 0.3405
+  },
+  "Saluda - Pleasant Grove": {
+    "SALUDA - PLEASANT GROVE": 0.8093,
+    "SALUDA - PLEASANT CROSS": 0.1907
+  },
+  "Saluda - Fruit Hill": {
+    "SALUDA - FRUIT HILL": 0.7364,
+    "SALUDA - MT. WILLING": 0.2636
+  },
+  "Saluda - Holstons": {
+    "SALUDA - HOLSTONS": 0.6706,
+    "SALUDA - MAYSON": 0.3294
+  },
+  "Saluda - Richland": {
+    "SALUDA - RICHLAND": 0.6963,
+    "SALUDA - CLYDE": 0.3037
+  },
+  "Saluda - Ward": {
+    "SALUDA - WARD": 0.4928,
+    "SALUDA - DELMAR": 0.5072
   }
 }
