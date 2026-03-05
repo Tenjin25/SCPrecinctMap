@@ -22,11 +22,11 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,Charleston,,Charleston - St. Pauls 2A,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Charleston,,Charleston - St. Pauls 2B,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Charleston,,Charleston - Town Of Seabrook,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
-2024,president,Lancaster,Lancaster - Buford,Lancaster - Goochs Cross Road,0.2609,pending,low,mutual_best gap=0.0386
-2024,president,Lancaster,Lancaster - Jim Wilson,Lancaster - Jacksonham,0.4000,pending,low,mutual_best gap=0.1000
-2024,president,Lancaster,Lancaster - Flat Creek,Lancaster - Lancaster West,0.4167,pending,low,mutual_best gap=0.1090
-2024,president,Lancaster,Lancaster - Mcilwain,Lancaster - Midway,0.5714,pending,low,mutual_best gap=0.1964
-2024,president,Lancaster,Lancaster - Springdale,Lancaster - Spring Hill,0.6667,pending,medium,mutual_best gap=0.2857
+2024,president,Lancaster,Lancaster - Buford,Lancaster - Goochs Cross Road,0.2609,approved,low,mutual_best gap=0.0386; auto_approved 2026-03-05
+2024,president,Lancaster,Lancaster - Jim Wilson,Lancaster - Jacksonham,0.4000,approved,low,mutual_best gap=0.1000; auto_approved 2026-03-05
+2024,president,Lancaster,Lancaster - Flat Creek,Lancaster - Lancaster West,0.4167,approved,low,mutual_best gap=0.1090; auto_approved 2026-03-05
+2024,president,Lancaster,Lancaster - Mcilwain,Lancaster - Midway,0.5714,approved,low,mutual_best gap=0.1964; auto_approved 2026-03-05
+2024,president,Lancaster,Lancaster - Springdale,Lancaster - Spring Hill,0.6667,approved,medium,mutual_best gap=0.2857; auto_approved 2026-03-05
 2024,president,Saluda,,Saluda - Clyde,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Saluda,,Saluda - Delmar,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Saluda,,Saluda - Mayson,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
@@ -35,13 +35,13 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,Saluda,,Saluda - Richland,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Saluda,,Saluda - Ridge Springmonetta,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Saluda,,Saluda - Ward,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
-2024,president,Spartanburg,Spartanburg - Beacon,Spartanburg - Beaumont Methodist,0.4167,pending,low,mutual_best gap=0.0296
-2024,president,Spartanburg,Spartanburg - Holly Springs Motlow,Spartanburg - Boiling Springs Intermediate,0.5000,pending,low,mutual_best gap=0.1863
-2024,president,Spartanburg,Spartanburg - Clifton Glendale,Spartanburg - Cleveland Elementary,0.3889,pending,low,mutual_best gap=0.0168
-2024,president,Spartanburg,Spartanburg - Chestnut Lake,Spartanburg - Cowpens Depot Museum,0.3636,pending,low,mutual_best gap=0.0065
-2024,president,Spartanburg,Spartanburg - Mccracken Middle School,Spartanburg - Fairforest Middle School,0.6809,pending,medium,mutual_best gap=0.2809
-2024,president,Spartanburg,Spartanburg - Southport,Spartanburg - Southside Baptist,0.5385,pending,low,mutual_best gap=0.1936
-2024,president,Spartanburg,Spartanburg - Moore Duncan,Spartanburg - Woodruff Elementary,0.3871,pending,low,mutual_best gap=0.0538
+2024,president,Spartanburg,Spartanburg - Beacon,Spartanburg - Beaumont Methodist,0.4167,approved,low,mutual_best gap=0.0296; auto_approved 2026-03-05
+2024,president,Spartanburg,Spartanburg - Holly Springs Motlow,Spartanburg - Boiling Springs Intermediate,0.5000,approved,low,mutual_best gap=0.1863; auto_approved 2026-03-05
+2024,president,Spartanburg,Spartanburg - Clifton Glendale,Spartanburg - Cleveland Elementary,0.3889,approved,low,mutual_best gap=0.0168; auto_approved 2026-03-05
+2024,president,Spartanburg,Spartanburg - Chestnut Lake,Spartanburg - Cowpens Depot Museum,0.3636,approved,low,mutual_best gap=0.0065; auto_approved 2026-03-05
+2024,president,Spartanburg,Spartanburg - Mccracken Middle School,Spartanburg - Fairforest Middle School,0.6809,approved,medium,mutual_best gap=0.2809; auto_approved 2026-03-05
+2024,president,Spartanburg,Spartanburg - Southport,Spartanburg - Southside Baptist,0.5385,approved,low,mutual_best gap=0.1936; auto_approved 2026-03-05
+2024,president,Spartanburg,Spartanburg - Moore Duncan,Spartanburg - Woodruff Elementary,0.3871,approved,low,mutual_best gap=0.0538; auto_approved 2026-03-05
 2024,president,York,,York - Airport,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,York,,York - Bethany,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,York,,York - Bethel,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
@@ -59,3 +59,220 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,York,,York - Springdale,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,York,,York - Springfield,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,York,,York - University,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
+2024,president,Anderson,Anderson - Barkers Creek-Mcadams,Anderson - Barkers Creek,0.7647,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2024,president,Cherokee,Cherokee - 99 And Cherokee Falls,Cherokee - Ninety Nine And Cherokee Falls,0.7451,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2024,president,Horry,Horry - Jernigans Xroads,Horry - Jerigans Crossroads,0.8000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2024,president,Newberry,Newberry - Consolidated 5,Newberry - Consolidated Number 5,0.8000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Aiken,Aiken - Misty Lakes No. 45,Aiken - Misty Lakes,0.7586,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Aiken,Aiken - Millbrook No. 20,Aiken - Millbrook,0.7200,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Aiken,Aiken - Oak Grove No. 30,Aiken - Oak Grove,0.7200,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Beaufort,Beaufort - Hilton Head 6A,Beaufort - Hilton Head 6,0.9630,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Beaufort,Beaufort - Hilton Head 8A,Beaufort - Hilton Head 8,0.9630,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Beaufort,Beaufort - Bluffton 3A,Beaufort - Bluffton 3,0.9524,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Beaufort,Beaufort - Bluffton 5,Beaufort - Bluffton 5A,0.9524,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Beaufort,Beaufort - Sun City 1A,Beaufort - Sun City 1,0.9524,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Beaufort,Beaufort - Sun City 3A,Beaufort - Sun City 3,0.9524,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Beaufort,Beaufort - Sun City 4A,Beaufort - Sun City 4,0.9524,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Beaufort,Beaufort - Chechessee,Beaufort - Chechessee 1,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Berkeley,Berkeley - Foster Creek,Berkeley - Foster Creek 1,0.9231,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Calhoun,Calhoun - Murph Mill,Calhoun - Murph Hill,0.9000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Chester,Chester - Landsford,Chester - Lando Lansford,0.7826,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Colleton,Colleton - Sidney,Colleton - Sidneys,0.9231,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Colleton,Colleton - Peoples,Colleton - Peeples,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 10,Florence - Florence Ward 10,0.7742,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 11,Florence - Florence Ward 11,0.7742,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 12,Florence - Florence Ward 12,0.7742,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 14,Florence - Florence Ward 14,0.7742,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 15,Florence - Florence Ward 15,0.7742,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 1,Florence - Florence Ward 1,0.7586,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 2,Florence - Florence Ward 2,0.7586,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 3,Florence - Florence Ward 3,0.7586,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 4,Florence - Florence Ward 4,0.7586,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 5,Florence - Florence Ward 5,0.7586,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 6,Florence - Florence Ward 6,0.7586,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 7,Florence - Florence Ward 7,0.7586,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 8,Florence - Florence Ward 8,0.7586,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Florence,Florence - Florence No. 9,Florence - Florence Ward 9,0.7586,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Greenwood,Greenwood - Rutherford,Greenwood - Rutherford Shoals,0.7407,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Horry,Horry - Brooksville,Horry - Brooksville 1,0.9167,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Horry,Horry - Enterprise,Horry - Enterprise 1,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Horry,Horry - Lake Park,Horry - Lake Park 1,0.9000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Lexington,Lexington - Edmund,Lexington - Edmund 1,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Newberry,Newberry - Kinards Jalapa,Newberry - Kinards-Jalapa,0.9286,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Newberry,Newberry - Ponaria,Newberry - Pomaria,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Newberry,Newberry - Prosperity,Newberry - Prosperity City,0.8000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Richland,Richland - Pennington,Richland - Pennington 1,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Richland,Richland - Pine Lakes,Richland - Pine Lakes 1,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Richland,Richland - Rice Creek,Richland - Rice Creek 1,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Richland,Richland - Ridge View,Richland - Ridge View 1,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Richland,Richland - Brandon,Richland - Brandon 1,0.8750,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Richland,Richland - Hopkins,Richland - Hopkins 1,0.8750,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Richland,Richland - Pontiac,Richland - Pontiac 1,0.8750,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Richland,Richland - Keels,Richland - Keels 1,0.8333,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Spartanburg,Spartanburg - Boiling Springs Junior High,Spartanburg - Boling Springs Jr. High,0.8800,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Spartanburg,Spartanburg - Park Hills Elementary School,Spartanburg - Park Hills Elementary,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Spartanburg,Spartanburg - Cleveland Elementary School,Spartanburg - Cleveland Elementary,0.8511,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Spartanburg,Spartanburg - Beaumont Methodist Church,Spartanburg - Beaumont Methodist,0.8372,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Spartanburg,Spartanburg - Grace Baptist,Spartanburg - Apalache Baptist,0.7586,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Spartanburg,Spartanburg - Clifdale Elementary,Spartanburg - Pacolet Elementary,0.7568,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Spartanburg,Spartanburg - Mountain View Baptist,Spartanburg - Morningside Baptist,0.7500,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2012,president,Spartanburg,Spartanburg - Powell Saxon Una Fire Station,Spartanburg - Wellford Fire Station,0.7200,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Aiken,Aiken - Misty Lakes No. 45,Aiken - Misty Lakes,0.7586,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Aiken,Aiken - Millbrook No. 20,Aiken - Millbrook,0.7200,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Anderson,Anderson - Three & Twenty,Anderson - Three And Twenty,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Beaufort,Beaufort - Hilton Head 6A,Beaufort - Hilton Head 6,0.9630,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Beaufort,Beaufort - Hilton Head 8A,Beaufort - Hilton Head 8,0.9630,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Beaufort,Beaufort - Bluffton 3A,Beaufort - Bluffton 3,0.9524,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Beaufort,Beaufort - Bluffton 5,Beaufort - Bluffton 5A,0.9524,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Beaufort,Beaufort - Sun City 1A,Beaufort - Sun City 1,0.9524,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Beaufort,Beaufort - Sun City 3A,Beaufort - Sun City 3,0.9524,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Beaufort,Beaufort - Sun City 4A,Beaufort - Sun City 4,0.9524,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Beaufort,Beaufort - Chechessee,Beaufort - Chechessee 1,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Berkeley,Berkeley - Daniel Island,Berkeley - Daniel Island 1,0.9286,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Berkeley,Berkeley - Devon Forest,Berkeley - Devon Forest 1,0.9231,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Berkeley,Berkeley - St. Stephen,Berkeley - St. Stephen 1,0.9167,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Berkeley,Berkeley - Whitesville,Berkeley - Whitesville 1,0.9167,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Berkeley,Berkeley - Howe Hall,Berkeley - Howe Hall 1,0.9000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Berkeley,Berkeley - Goose Creek 1,Berkeley - Foster Creek 1,0.8148,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Berkeley,Berkeley - Goose Creek 2,Berkeley - Foster Creek 2,0.8148,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Berkeley,Berkeley - Goose Creek 3,Berkeley - Foster Creek 3,0.8148,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Berkeley,Berkeley - Boulder Bluff No. 1,Berkeley - Boulder Bluff,0.8125,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Calhoun,Calhoun - Murph Mill,Calhoun - Murph Hill,0.9000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Cherokee,Cherokee - Ezells/Butler,Cherokee - Ezells And Butler,0.8276,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Cherokee,Cherokee - Musgrove,Cherokee - Musgrove Mill,0.7619,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Chester,Chester - Landsford,Chester - Lando Lansford,0.7826,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Chesterfield,Chesterfield - Pageland,Chesterfield - Pageland No. 1,0.7273,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Chesterfield,Chesterfield - Snow Hill,Chesterfield - Snow Hill-Vaughn,0.7200,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Greenville,Greenville - Brook Glenn,Greenville - Brookglenn,0.9524,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Greenville,Greenville - Travelers Rest,Greenville - Travelers Rest 1,0.9333,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Greenwood,Greenwood - Ninety Six Depot,Greenwood - Ninety Six,0.7692,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Greenwood,Greenwood - Rutherford Ford,Greenwood - Rutherford Shoals,0.7500,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Horry,Horry - Brooksville,Horry - Brooksville 1,0.9167,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Horry,Horry - Enterprise,Horry - Enterprise 1,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Horry,Horry - Lake Park,Horry - Lake Park 1,0.9000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Horry,Horry - Marlowe,Horry - Marlowe 1,0.8750,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Kershaw,Kershaw - Camden No. 2,Kershaw - Camden No. 2 3,0.9231,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Lexington,Lexington - Sandhill,Lexington - Sand Hill,0.9412,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Lexington,Lexington - Red Bank South,Lexington - Red Bank South 1,0.9333,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Lexington,Lexington - Pine Ridge,Lexington - Pine Ridge 1,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Lexington,Lexington - Barr Road,Lexington - Barr Road 1,0.9000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Lexington,Lexington - Park Road,Lexington - Park Road 1,0.9000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Lexington,Lexington - Edmund,Lexington - Edmund 1,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Lexington,Lexington - Old Barnwell,Lexington - Old Barnwell Road,0.8276,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Lexington,Lexington - Cayce No. 2A,Lexington - Cayce 2A,0.8000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Newberry,Newberry - Kinards Jalapa,Newberry - Kinards-Jalapa,0.9286,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Newberry,Newberry - Prosperity,Newberry - Prosperity City,0.8000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Oconee,Oconee - Walhalla,Oconee - Walhalla 1,0.8889,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Oconee,Oconee - Seneca,Oconee - Seneca 1,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Pickens,Pickens - Rice Creek,Pickens - Rices Creek,0.9524,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Pickens,Pickens - Praters Creek I,Pickens - Praters Creek,0.9286,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Pickens,Pickens - Dacusville I,Pickens - Dacusville,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Pickens,Pickens - Crosswell I,Pickens - Crosswell,0.9000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Pickens,Pickens - Clemson I,Pickens - Clemson,0.8750,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Richland,Richland - Pennington,Richland - Pennington 1,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Richland,Richland - Pine Lakes,Richland - Pine Lakes 1,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Richland,Richland - Rice Creek,Richland - Rice Creek 1,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Richland,Richland - Ridge View,Richland - Ridge View 1,0.9091,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Richland,Richland - Brandon,Richland - Brandon 1,0.8750,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Richland,Richland - Hopkins,Richland - Hopkins 1,0.8750,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Richland,Richland - Parkway,Richland - Parkway 1,0.8750,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Richland,Richland - Pontiac,Richland - Pontiac 1,0.8750,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Richland,Richland - Keels,Richland - Keels 1,0.8333,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Spartanburg,Spartanburg - Park Hills Elementary School,Spartanburg - Park Hills Elementary,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Spartanburg,Spartanburg - Cleveland Elementary School,Spartanburg - Cleveland Elementary,0.8511,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Spartanburg,Spartanburg - Beaumont Methodist Church,Spartanburg - Beaumont Methodist,0.8372,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Spartanburg,Spartanburg - Central Fire Station,Spartanburg - Glendale Fire Station,0.8293,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Spartanburg,Spartanburg - Spartanburg High A,Spartanburg - Spartanburg High School,0.8293,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Spartanburg,Spartanburg - Boiling Springs A,Spartanburg - Boiling Springs 9Th Grade,0.8095,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Spartanburg,Spartanburg - Powell-Saxon,Spartanburg - Powell Saxon Una,0.7857,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Spartanburg,Spartanburg - Cherokee Springs A,Spartanburg - Cherokee Springs Fire Station,0.7660,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Spartanburg,Spartanburg - Holly Springs,Spartanburg - Holly Springs Baptist,0.7647,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Spartanburg,Spartanburg - Poplar Springs A,Spartanburg - Poplar Springs Fire Station,0.7442,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Spartanburg,Spartanburg - Cornerstone,Spartanburg - Cornerstone Baptist,0.7333,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Spartanburg,Spartanburg - Silverhill Methodist,Spartanburg - Victor Mill Methodist,0.7317,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Sumter,Sumter - Dalzell,Sumter - Dalzell 1,0.8750,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Union,Union - Ward 1 Box 1,Union - Union Ward 1 Box 1,0.8000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Union,Union - Ward 1 Box 2,Union - Union Ward 1 Box 2,0.8000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Union,Union - Ward 4 Box 1,Union - Union Ward 4 Box 1,0.8000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2008,president,Union,Union - Ward 4 Box 2,Union - Union Ward 4 Box 2,0.8000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Allendale,Allendale - Allendale #1,Allendale - Allendale No. 1,0.8462,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Allendale,Allendale - Allendale #2,Allendale - Allendale No. 2,0.8462,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Allendale,Allendale - Fairfax #1,Allendale - Fairfax No. 1,0.8182,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Allendale,Allendale - Fairfax #2,Allendale - Fairfax No. 2,0.8182,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Beaufort,Beaufort - Saint Helena 1A,Beaufort - St. Helena 1A,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Beaufort,Beaufort - Saint Helena 1B,Beaufort - St. Helena 1B,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Beaufort,Beaufort - Saint Helena 1C,Beaufort - St. Helena 1C,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Beaufort,Beaufort - Saint Helena 2A,Beaufort - St. Helena 2A,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Beaufort,Beaufort - Saint Helena 2B,Beaufort - St. Helena 2B,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Beaufort,Beaufort - Saint Helena 2C,Beaufort - St. Helena 2C,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Charleston,Charleston - Johns Island 2,Charleston - James Island 2,0.7857,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Fairfield,Fairfield - Gladden Grove,Fairfield - Garden Grove,0.8800,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Marion,Marion - N East Mullins,Marion - Northeast Mullins,0.8387,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Marion,Marion - N West Mullins,Marion - Northwest Mullins,0.8387,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Marion,Marion - S East Mullins,Marion - Southeast Mullins,0.8387,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Marion,Marion - S West Mullins,Marion - Southwest Mullins,0.8387,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Orangeburg,Orangeburg - Orangeburg Wd 10,Orangeburg - Orangeburg Ward 10,0.9412,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Orangeburg,Orangeburg - Orangeburg Wd 1,Orangeburg - Orangeburg Ward 1,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Orangeburg,Orangeburg - Orangeburg Wd 2,Orangeburg - Orangeburg Ward 2,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Orangeburg,Orangeburg - Orangeburg Wd 3,Orangeburg - Orangeburg Ward 3,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Orangeburg,Orangeburg - Orangeburg Wd 4,Orangeburg - Orangeburg Ward 4,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Orangeburg,Orangeburg - Orangeburg Wd 5,Orangeburg - Orangeburg Ward 5,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Orangeburg,Orangeburg - Orangeburg Wd 6,Orangeburg - Orangeburg Ward 6,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Orangeburg,Orangeburg - Orangeburg Wd 8,Orangeburg - Orangeburg Ward 8,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Orangeburg,Orangeburg - Orangeburg Wd 9,Orangeburg - Orangeburg Ward 9,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2020,president,Pickens,Pickens - Lenhart,Pickens - Lenhardt,0.9333,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Allendale,Allendale - Allendale #1,Allendale - Allendale No. 1,0.8462,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Allendale,Allendale - Allendale #2,Allendale - Allendale No. 2,0.8462,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Allendale,Allendale - Fairfax #1,Allendale - Fairfax No. 1,0.8182,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Allendale,Allendale - Fairfax #2,Allendale - Fairfax No. 2,0.8182,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Anderson,Anderson - Fork No.1,Anderson - Fork No. 1,0.9474,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Anderson,Anderson - Fork No.2,Anderson - Fork No. 2,0.9474,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Beaufort,Beaufort - Saint Helena 1A,Beaufort - St. Helena 1A,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Beaufort,Beaufort - Saint Helena 1B,Beaufort - St. Helena 1B,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Beaufort,Beaufort - Saint Helena 1C,Beaufort - St. Helena 1C,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Beaufort,Beaufort - Saint Helena 2A,Beaufort - St. Helena 2A,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Beaufort,Beaufort - Saint Helena 2B,Beaufort - St. Helena 2B,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Beaufort,Beaufort - Saint Helena 2C,Beaufort - St. Helena 2C,0.8571,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Charleston,Charleston - Johns Island 2,Charleston - James Island 2,0.7857,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Fairfield,Fairfield - Gladde3N Grove,Fairfield - Garden Grove,0.8462,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Florence,Florence - South Florence No. 1,Florence - South Florence 1,0.8889,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Florence,Florence - South Florence No. 2,Florence - South Florence 2,0.8889,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Florence,Florence - West Florence No. 1,Florence - West Florence 1,0.8824,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Florence,Florence - West Florence No. 2,Florence - West Florence 2,0.8824,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Florence,Florence - Timmonsville No. 1,Florence - Timmonsville 1,0.8750,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Florence,Florence - Timmonsville No. 2,Florence - Timmonsville 2,0.8750,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Florence,Florence - Coles Cr Roads,Florence - Coles Crossroads,0.8667,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Lexington,Lexington - Old Barnwell Rd,Lexington - Old Barnwell Road,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Lexington,Lexington - W Columbia No 1,Lexington - West Columbia No. 1,0.8824,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Lexington,Lexington - W Columbia No 2,Lexington - West Columbia No. 2,0.8824,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Lexington,Lexington - W Columbia No 3,Lexington - West Columbia No. 3,0.8824,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Lexington,Lexington - W Columbia No 4,Lexington - West Columbia No. 4,0.8824,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Lexington,Lexington - Lexington #3,Lexington - Lexington No. 3,0.8462,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Lexington,Lexington - Lexington #4,Lexington - Lexington No. 4,0.8462,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Lexington,Lexington - Cayce Ward No.1,Lexington - Cayce No. 1,0.7692,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Lexington,Lexington - Cayce Ward No.2,Lexington - Cayce No. 2,0.7692,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Lexington,Lexington - Cayce Ward No.3,Lexington - Cayce No. 3,0.7692,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Marion,Marion - N East Mullins,Marion - Northeast Mullins,0.8387,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Marion,Marion - N West Mullins,Marion - Northwest Mullins,0.8387,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Marion,Marion - S East Mullins,Marion - Southeast Mullins,0.8387,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Marion,Marion - S West Mullins,Marion - Southwest Mullins,0.8387,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Newberry,Newberry - Newberry Wd 1,Newberry - Newberry Ward 1,0.9286,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Newberry,Newberry - Newberry Wd 2,Newberry - Newberry Ward 2,0.9286,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Newberry,Newberry - Newberry Wd 3,Newberry - Newberry Ward 3,0.9286,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Newberry,Newberry - Newberry Wd 4,Newberry - Newberry Ward 4,0.9286,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Newberry,Newberry - Newberry Wd 5,Newberry - Newberry Ward 5,0.9286,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Newberry,Newberry - Newberry Wd 6,Newberry - Newberry Ward 6,0.9286,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Newberry,Newberry - Mt. Betherl Garmany,Newberry - Mt. Bethel-Garmany,0.9189,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Newberry,Newberry - St Phillips Jolly St.,Newberry - St. Phillips-Jolly Street,0.8261,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Orangeburg,Orangeburg - Orangeburg Wd 10,Orangeburg - Orangeburg Ward 10,0.9412,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Orangeburg,Orangeburg - Orangeburg Wd 1,Orangeburg - Orangeburg Ward 1,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Orangeburg,Orangeburg - Orangeburg Wd 2,Orangeburg - Orangeburg Ward 2,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Orangeburg,Orangeburg - Orangeburg Wd 3,Orangeburg - Orangeburg Ward 3,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Orangeburg,Orangeburg - Orangeburg Wd 4,Orangeburg - Orangeburg Ward 4,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Orangeburg,Orangeburg - Orangeburg Wd 5,Orangeburg - Orangeburg Ward 5,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Orangeburg,Orangeburg - Orangeburg Wd 6,Orangeburg - Orangeburg Ward 6,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Orangeburg,Orangeburg - Orangeburg Wd 8,Orangeburg - Orangeburg Ward 8,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Orangeburg,Orangeburg - Orangeburg Wd 9,Orangeburg - Orangeburg Ward 9,0.9375,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Pickens,Pickens - Lenhart,Pickens - Lenhardt,0.9333,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Saluda,Saluda - Ridge Spring - Monetta,Saluda - Ridge Springmonetta,0.9268,approved,high,generated_by_worklist mutual_best blockassign_source_unknown
+2016,president,Spartanburg,Spartanburg - Clifdale Elementary,Spartanburg - Lyman Elementary,0.7429,approved,medium,generated_by_worklist mutual_best blockassign_source_unknown
