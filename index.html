@@ -2385,8 +2385,10 @@ document.addEventListener('DOMContentLoaded', function() {
       if (/^(ABSENTEE|PROVISIONAL|CURBSIDE)$/i.test(c)) return true;
       if (c.includes('ONE STOP') || c.includes('MAIL ABSENTEE') || c.includes('VOTE CENTER') || c.includes('VOTECENTER') || c.includes('EARLY VOT')) return true;
       if (c.startsWith('OS ') || c.startsWith('OS-') || c.startsWith('OS_')) return true;
-      // Wake (and others) sometimes use compact one-stop bucket codes like "OSAB 1-40" or "OSNB81-91".
-      if (/^OS[A-Z0-9]/.test(c)) return true;
+      // Compact one-stop bucket codes can start with OS (e.g. "OSAB 1-40", "OSNB81-91", "OS12").
+      // Require a numeric segment so regular precinct names like "OSCEOLA" are not misclassified.
+      if (/^OS\d/.test(c)) return true;
+      if (/^OS[A-Z]{1,8}(?:\s+|[-_])?\d/.test(c)) return true;
       return false;
     }
 
