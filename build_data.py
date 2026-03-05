@@ -317,7 +317,8 @@ def build_precinct_geojson(county_fp_map: dict):
 # Non-geographic precinct buckets – never map to geometry
 _NON_GEO = re.compile(
     r'^(FAILSAFE|FAILSAFE PROVISIONAL|PROVISIONAL|ABSENTEE|CURBSIDE|'
-    r'ONE STOP|MAIL ABSENTEE|VOTE CENTER|VOTECENTER|EARLY VOT|EV|OS |OS-|OS_)',
+    r'ONE STOP|MAIL ABSENTEE|VOTE CENTER|VOTECENTER|EARLY VOT|'
+    r'EV$|EV[-_ ]|EV[0-9]|OS[-_ ]|OS[0-9]|OS[A-Z]{1,8}[-_ ]?[0-9])',
     re.IGNORECASE,
 )
 
