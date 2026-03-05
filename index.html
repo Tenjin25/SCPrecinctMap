@@ -2381,7 +2381,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Compact bucket codes used by some exports.
       if (/^(ABSEN|PROVI|TRANS)$/i.test(c)) return true;
       if (c === 'EV') return true;
-      if (c.startsWith('EV') || c.startsWith('EV-') || c.startsWith('EV_')) return true;
+      if (c.startsWith('EV-') || c.startsWith('EV_')) return true;
+      if (/^EV(?:\s+|[-_])?\d/.test(c)) return true;
       if (/^(ABSENTEE|PROVISIONAL|CURBSIDE)$/i.test(c)) return true;
       if (c.includes('ONE STOP') || c.includes('MAIL ABSENTEE') || c.includes('VOTE CENTER') || c.includes('VOTECENTER') || c.includes('EARLY VOT')) return true;
       if (c.startsWith('OS ') || c.startsWith('OS-') || c.startsWith('OS_')) return true;
