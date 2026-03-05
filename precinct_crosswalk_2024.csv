@@ -24,7 +24,7 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,Charleston,,Charleston - Town Of Seabrook,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Lancaster,Lancaster - Buford,Lancaster - Dwight,,pending,review,manual_override user_confirmed_town_coverage
 2024,president,Lancaster,Lancaster - Jim Wilson,Lancaster - Jacksonham,0.4000,pending,low,mutual_best gap=0.1000
-2024,president,Lancaster,Lancaster - Flat Creek,Lancaster - Lancaster West,0.4167,pending,low,mutual_best gap=0.1090
+2024,president,Lancaster,Lancaster - Flat Creek,Lancaster - Midway,,pending,review,manual_override user_confirmed
 2024,president,Lancaster,Lancaster - Mcilwain,Lancaster - Lynwood Drive,,pending,review,manual_override user_confirmed
 2024,president,Lancaster,Lancaster - Springdale,Lancaster - Goochs Cross Road,,pending,review,manual_override user_corrected_target
 2024,president,Saluda,,Saluda - Clyde,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.

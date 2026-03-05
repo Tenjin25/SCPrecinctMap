@@ -108,6 +108,91 @@ def load_splits(splits_path: str, display_by_norm: dict[str, str]) -> dict[str, 
     return out
 
 
+def load_weighted_splits(weighted_splits_path: str, display_by_norm: dict[str, str]) -> dict[str, list[tuple[str, float]]]:
+    if not weighted_splits_path or not os.path.exists(weighted_splits_path):
+        return {}
+    with open(weighted_splits_path, encoding="utf-8") as fh:
+        raw = json.load(fh)
+    if not isinstance(raw, dict):
+        return {}
+    out: dict[str, list[tuple[str, float]]] = {}
+    for k, v in raw.items():
+        if not isinstance(k, str):
+            continue
+        if k.startswith("_"):
+            continue
+        nk = norm(k)
+        if not nk:
+            continue
+
+        pairs: list[tuple[str, float]] = []
+        if isinstance(v, dict):
+            for to_key, w in v.items():
+                if not isinstance(to_key, str):
+                    continue
+                try:
+                    wf = float(w)
+                except (TypeError, ValueError):
+                    continue
+                if wf <= 0:
+                    continue
+                nv = norm(to_key)
+                if not nv:
+                    continue
+                pairs.append((display_by_norm.get(nv, to_key.strip()), wf))
+        elif isinstance(v, list):
+            for item in v:
+                if not isinstance(item, dict):
+                    continue
+                to_key = item.get("to")
+                w = item.get("weight")
+                if not isinstance(to_key, str):
+                    continue
+                try:
+                    wf = float(w)
+                except (TypeError, ValueError):
+                    continue
+                if wf <= 0:
+                    continue
+                nv = norm(to_key)
+                if not nv:
+                    continue
+                pairs.append((display_by_norm.get(nv, to_key.strip()), wf))
+        else:
+            continue
+
+        if not pairs:
+            continue
+
+        combined: dict[str, float] = OrderedDict()
+        for target, w in pairs:
+            combined[target] = float(combined.get(target) or 0.0) + float(w)
+        total_w = sum(combined.values())
+        if total_w <= 0:
+            continue
+        out[nk] = [(target, w / total_w) for target, w in combined.items()]
+    return out
+
+
+def split_integer_by_weights(total: int, weights: list[float]) -> list[int]:
+    total_i = int(total or 0)
+    if total_i <= 0 or not weights:
+        return [0 for _ in weights]
+    norm_sum = sum(float(w) for w in weights)
+    if norm_sum <= 0:
+        return [0 for _ in weights]
+    norm_weights = [float(w) / norm_sum for w in weights]
+
+    raw = [total_i * w for w in norm_weights]
+    parts = [int(x) for x in raw]
+    rem = total_i - sum(parts)
+    if rem > 0:
+        order = sorted(range(len(raw)), key=lambda i: (raw[i] - int(raw[i]), -i), reverse=True)
+        for i in order[:rem]:
+            parts[i] += 1
+    return parts
+
+
 def merge_rows(rows: list[dict], contest_type: str) -> list[dict]:
     """
     Merge duplicate precinct rows that share the same 'county' key (after aliasing).
@@ -197,7 +282,13 @@ def main():
     ap.add_argument("--all", action="store_true", help="Process all files in data/contests (ignores --contest/--year)")
     ap.add_argument("--aliases", default="precinct_aliases.json", help="Alias JSON path relative to base")
     ap.add_argument("--splits", default="precinct_splits_2024.json", help="Optional split mapping JSON path relative to base")
+    ap.add_argument(
+        "--weighted-splits",
+        default="precinct_weighted_splits_2024.json",
+        help="Optional weighted split mapping JSON path relative to base",
+    )
     ap.add_argument("--no-splits", action="store_true", help="Disable split mappings")
+    ap.add_argument("--no-weighted-splits", action="store_true", help="Disable weighted split mappings")
     args = ap.parse_args()
 
     base = os.path.abspath(args.base)
@@ -205,6 +296,7 @@ def main():
     voting_precincts = os.path.join(base, "data", "Voting_Precincts.geojson")
     aliases_path = os.path.join(base, args.aliases)
     splits_path = os.path.join(base, args.splits)
+    weighted_splits_path = os.path.join(base, args.weighted_splits)
     manifest_path = os.path.join(base, "data", "contests", "manifest.json")
 
     if not os.path.exists(voting_precincts):
@@ -213,6 +305,7 @@ def main():
     display_by_norm = load_precinct_display_by_norm(voting_precincts)
     aliases = load_aliases(aliases_path, display_by_norm)
     splits = {} if args.no_splits else load_splits(splits_path, display_by_norm)
+    weighted_splits = {} if args.no_weighted_splits else load_weighted_splits(weighted_splits_path, display_by_norm)
 
     contests_dir = os.path.join(base, "data", "contests")
     if not os.path.isdir(contests_dir):
@@ -256,6 +349,24 @@ def main():
             mapped = aliases.get(nk, key)
             if mapped != key:
                 remapped += 1
+
+            weighted_targets = weighted_splits.get(norm(mapped), [])
+            if weighted_targets:
+                targets = [t for t, _ in weighted_targets]
+                weights = [w for _, w in weighted_targets]
+                dem_parts = split_integer_by_weights(int(r.get("dem_votes") or 0), weights)
+                rep_parts = split_integer_by_weights(int(r.get("rep_votes") or 0), weights)
+                other_parts = split_integer_by_weights(int(r.get("other_votes") or 0), weights)
+                for i, t in enumerate(targets):
+                    rr = dict(r)
+                    rr["county"] = t
+                    rr["dem_votes"] = dem_parts[i]
+                    rr["rep_votes"] = rep_parts[i]
+                    rr["other_votes"] = other_parts[i]
+                    rr["total_votes"] = dem_parts[i] + rep_parts[i] + other_parts[i]
+                    out_rows.append(rr)
+                split_expanded += max(0, len(targets) - 1)
+                continue
 
             split_targets = splits.get(norm(mapped), [])
             if split_targets:

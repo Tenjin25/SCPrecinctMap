@@ -1,0 +1,9 @@
+{
+  "_comment": "Optional weighted one-to-many mappings that preserve vote totals while splitting a source precinct row.",
+  "_format": "Map a source key string to an object of target key -> weight.",
+  "_note": "Lancaster East/West weight uses 2020 total-vote share (East 65.95%, West 34.05%).",
+  "Lancaster - Lancaster East": {
+    "LANCASTER - LANCASTER EAST": 0.6595,
+    "LANCASTER - LANCASTER WEST": 0.3405
+  }
+}
