@@ -134,28 +134,6 @@
       margin-right: 12px !important;
     }
   }
-  @media (max-width: 768px) {
-    /* Mobile: dock hover tooltip above bottom legend for easier reading/taps. */
-    #hover-tooltip {
-      position: fixed !important;
-      left: 8px !important;
-      right: 8px !important;
-      top: auto !important;
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 8px) !important;
-      max-width: none !important;
-      width: auto !important;
-      max-height: 42vh;
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
-      touch-action: pan-y;
-    }
-    #hover-tooltip .tooltip-btn {
-      min-height: 44px;
-      padding: 10px 12px;
-      font-size: 13px;
-      border-radius: 12px;
-    }
-  }
     .spinner svg {
       vertical-align: middle;
     }
@@ -1010,35 +988,7 @@ body { height: var(--app-height); }
   gap: 6px;
 }
 
-/* Inline viz controls (used on mobile to avoid stacked floating UI). */
-.viz-inline-group { display: none; }
-.viz-modes-inline { display: none; }
-
 @media (max-width: 768px) {
-  /* Avoid stacking floating mode bar; keep modes inside main controls. */
-  .viz-modes { display: none !important; }
-  .viz-inline-group { display: block; }
-  .viz-modes-inline {
-    display: flex;
-    gap: 6px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 6px;
-    border-radius: 12px;
-    background: rgba(15, 23, 42, 0.04);
-    border: 1px solid rgba(15, 23, 42, 0.10);
-  }
-  .viz-modes-inline .viz-mode-btn {
-    min-width: auto !important;
-    padding: 9px 12px !important;
-    font-size: 12px !important;
-    border-radius: 10px !important;
-    white-space: nowrap;
-    flex: 0 0 auto;
-  }
-  .viz-modes-inline::-webkit-scrollbar { display: none; }
-
   .viz-modes {
     position: fixed;
     top: auto;
@@ -2077,15 +2027,6 @@ document.addEventListener('DOMContentLoaded', function() {
                   <button id="state-senate-view" type="button" class="view-toggle-btn" onclick="setMapView('state_senate')">State Senate</button>
                 </div>
             </div>
-            <div class="control-group viz-inline-group" style="margin-bottom:10px;">
-              <label style="display:block;font-weight:600;margin-bottom:8px;color:#374151;">Mode:</label>
-              <div class="viz-modes-inline" id="viz-modes-inline">
-                <button class="viz-mode-btn active" data-mode="margins" type="button"><span>Margins</span></button>
-                <button class="viz-mode-btn" data-mode="winners" type="button"><span>Winners</span></button>
-                <button class="viz-mode-btn" data-mode="shift" type="button"><span>Shift</span></button>
-                <button class="viz-mode-btn" data-mode="flips" type="button"><span>Flips</span></button>
-              </div>
-            </div>
             <div class="control-group">
                 <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
                   <label for="contestSelect">Contest:</label>
@@ -2212,8 +2153,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const CONFIG = {
-      // Set this at runtime (for example in a separate, non-committed config file).
-      mapboxToken: (window.MAPBOX_TOKEN || 'pk.eyJ1Ijoic2hhbWFyZGF2aXMiLCJhIjoiY21tYjlxamMxMG5nbTJ2cHU5amE5MTBxZyJ9.JSPHbYwzGQAV8TgI6MBwHw'),
+      // Set this at runtime (e.g. `window.MAPBOX_TOKEN = "pk...."` in the console) or
+      // replace with your own public token before deploying. Do not commit tokens.
+      mapboxToken: (window.MAPBOX_TOKEN || localStorage.getItem('MAPBOX_TOKEN') || ''),
       tilesets: {
         enabled: true,
         sources: {
@@ -2260,9 +2202,45 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     };
 
+    function showMapboxTokenPrompt() {
+      try {
+        if (document.getElementById('mapbox-token-prompt')) return;
+        const wrap = document.createElement('div');
+        wrap.id = 'mapbox-token-prompt';
+        wrap.style.cssText = [
+          'position:fixed', 'inset:0', 'z-index:10050',
+          'background:rgba(15,23,42,0.70)', 'backdrop-filter:blur(6px)',
+          'display:flex', 'align-items:center', 'justify-content:center',
+          'padding:24px'
+        ].join(';');
+        wrap.innerHTML = `
+          <div style="max-width:620px;width:100%;background:#fff;border-radius:14px;padding:18px 18px 16px;box-shadow:0 10px 30px rgba(0,0,0,.25);border:1px solid #e5e7eb;">
+            <div style="font-weight:900;font-size:16px;color:#0f172a;margin-bottom:8px;">Mapbox token required</div>
+            <div style="font-size:13px;color:#475569;line-height:1.35;margin-bottom:10px;">
+              This app uses Mapbox GL JS. Paste a <code>pk.*</code> public access token to continue.
+              The token will be saved in <code>localStorage.MAPBOX_TOKEN</code> for this browser only.
+            </div>
+            <input id="mapbox-token-input" type="password" spellcheck="false" placeholder="pk.<your token>" style="width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:10px;font-size:13px;">
+            <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;">
+              <button id="mapbox-token-cancel" style="padding:9px 12px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;font-weight:800;">Close</button>
+              <button id="mapbox-token-save" style="padding:9px 12px;border:1px solid #1d4ed8;border-radius:10px;background:#2563eb;color:#fff;font-weight:900;">Save & Reload</button>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(wrap);
+        wrap.querySelector('#mapbox-token-cancel')?.addEventListener('click', () => wrap.remove());
+        wrap.querySelector('#mapbox-token-save')?.addEventListener('click', () => {
+          const t = (wrap.querySelector('#mapbox-token-input')?.value || '').trim();
+          if (!t) return;
+          try { localStorage.setItem('MAPBOX_TOKEN', t); } catch (_) {}
+          location.reload();
+        });
+      } catch (_) {}
+    }
+
     let map = null;
     if (!CONFIG.mapboxToken) {
-      console.error('Mapbox token missing. Set window.MAPBOX_TOKEN before initializing the map.');
+      console.error('Mapbox token missing. Set localStorage.MAPBOX_TOKEN or window.MAPBOX_TOKEN.');
       // Prevent confusing follow-on errors if users click around before the token is set.
       try {
         document.querySelectorAll('.view-toggle-btn, #sidebar-float-toggle').forEach(b => {
@@ -2271,6 +2249,7 @@ document.addEventListener('DOMContentLoaded', function() {
           b.style.cursor = 'not-allowed';
         });
       } catch (_) {}
+      showMapboxTokenPrompt();
     } else {
       mapboxgl.accessToken = CONFIG.mapboxToken;
       map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/light-v11', center: CONFIG.center, zoom: CONFIG.zoom });
@@ -2388,120 +2367,6 @@ document.addEventListener('DOMContentLoaded', function() {
       // Wake (and others) sometimes use compact one-stop bucket codes like "OSAB 1-40" or "OSNB81-91".
       if (/^OS[A-Z0-9]/.test(c)) return true;
       return false;
-    }
-
-    // Hover outline (stroke-only highlight) helpers.
-    const HOVER_OUTLINE_LAYER_IDS = [
-      'county-stroke-hover',
-      'district-stroke-hover',
-      'state-house-stroke-hover',
-      'state-senate-stroke-hover'
-    ];
-    let lastHoverOutlineKey = null;
-    let precinctHoverFeatureId = null; // feature-state hover on precinct polygons (performance-friendly)
-    let lastPrecinctHoverKey = null;
-    let lastPrecinctHoverRenderedAt = 0;
-    const PRECINCT_HOVER_THROTTLE_MS = 75;
-
-    function setLayerVisibilityIfExists(layerId, visibility) {
-      if (!map || !layerId || !map.getLayer(layerId)) return;
-      try { map.setLayoutProperty(layerId, 'visibility', visibility); } catch (_) {}
-    }
-
-    function clearPrecinctHoverFeature() {
-      if (!map) return;
-      if (precinctHoverFeatureId === null || precinctHoverFeatureId === undefined) return;
-      try { map.setFeatureState({ source: 'precincts', id: precinctHoverFeatureId }, { hover: false }); } catch (_) {}
-      precinctHoverFeatureId = null;
-      lastPrecinctHoverKey = null;
-    }
-
-    function clearHoverOutline() {
-      if (!map) return;
-      lastHoverOutlineKey = null;
-      HOVER_OUTLINE_LAYER_IDS.forEach(id => setLayerVisibilityIfExists(id, 'none'));
-      clearPrecinctHoverFeature();
-    }
-
-    function showHoverOutline(layerId, filter, key) {
-      if (!map || !layerId || !map.getLayer(layerId)) return;
-      if (key && key === lastHoverOutlineKey) return;
-      lastHoverOutlineKey = key || null;
-      HOVER_OUTLINE_LAYER_IDS.forEach(id => setLayerVisibilityIfExists(id, id === layerId ? 'visible' : 'none'));
-      try { map.setFilter(layerId, filter); } catch (_) {}
-      setLayerVisibilityIfExists(layerId, 'visible');
-    }
-
-    function setCountyHoverOutline(countyName) {
-      const name = (countyName || '').toString().trim();
-      if (!name) return clearHoverOutline();
-      showHoverOutline(
-        'county-stroke-hover',
-        ['==', ['coalesce', ['get', 'NAME20'], ['get', 'CountyName'], ['get', 'COUNTYNAME'], ['get', 'county_nam'], ['get', 'NAME'], ['get', 'name']], name],
-        `county:${name}`
-      );
-    }
-
-    function setPrecinctHoverFeature(feature) {
-      if (!map) return;
-      const src = feature?.layer?.source || feature?.source || '';
-      if (src !== 'precincts') return clearPrecinctHoverFeature();
-      const id = feature?.id;
-      if (id === null || id === undefined) return;
-      if (precinctHoverFeatureId === id) return;
-      clearPrecinctHoverFeature();
-      precinctHoverFeatureId = id;
-      try { map.setFeatureState({ source: 'precincts', id }, { hover: true }); } catch (_) {}
-    }
-
-    function buildAnyPropertyMatchFilter(keys, districtNum) {
-      const raw = (districtNum || '').toString().trim();
-      if (!raw) return ['==', 1, 0];
-      const padded3 = raw.padStart(3, '0');
-      const num = Number(raw);
-
-      const clauses = [];
-      (keys || []).forEach(k => {
-        clauses.push(['==', ['to-string', ['get', k]], raw]);
-        clauses.push(['==', ['to-string', ['get', k]], padded3]);
-        if (Number.isFinite(num)) clauses.push(['==', ['to-number', ['get', k]], num]);
-      });
-
-      return clauses.length ? ['any', ...clauses] : ['==', 1, 0];
-    }
-
-    function setDistrictHoverOutline(scope, districtNum) {
-      const d = (districtNum || '').toString().trim();
-      if (!d) return clearHoverOutline();
-
-      if (scope === 'congressional') {
-        showHoverOutline(
-          'district-stroke-hover',
-          buildAnyPropertyMatchFilter(['DISTRICT', 'CD118FP', 'district_id', 'district'], d),
-          `district:${scope}:${d}`
-        );
-        return;
-      }
-
-      if (scope === 'state_house') {
-        showHoverOutline(
-          'state-house-stroke-hover',
-          buildAnyPropertyMatchFilter(['DISTRICT', 'SLDLST', 'district_id', 'district'], d),
-          `district:${scope}:${d}`
-        );
-        return;
-      }
-
-      if (scope === 'state_senate') {
-        showHoverOutline(
-          'state-senate-stroke-hover',
-          buildAnyPropertyMatchFilter(['DISTRICT', 'SLDUST', 'district_id', 'district'], d),
-          `district:${scope}:${d}`
-        );
-        return;
-      }
-
-      clearHoverOutline();
     }
 
     // Visualization Mode Functions - VoteHub Style
@@ -3550,7 +3415,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function setMapView(view) {
       if (!map) {
-        setStatus('Map unavailable: MAPBOX_TOKEN is not configured.');
+        try { showMapboxTokenPrompt(); } catch (_) {}
+        setStatus('Mapbox token missing. Set MAPBOX_TOKEN to enable the map.');
         return;
       }
       if (!appReady) {
@@ -3956,7 +3822,6 @@ function stripRunningMateName(name) {
       const props = e.features[0].properties || {};
       const countyName = props.NAME20 || props.CountyName || props.COUNTYNAME || props.county_nam || props.NAME || props.name || 'Unknown County';
       const countyDisplay = displayCountyName(countyName);
-      setCountyHoverOutline(countyName);
       const norm = (countyName || '').toString().replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
       let row = currentElectionResults ? currentElectionResults[norm] : null;
       if (!row && currentElectionResults) {
@@ -4039,24 +3904,8 @@ function stripRunningMateName(name) {
       const countyName = (props.county_nam || '').toString().trim();
       const precId = (props.prec_id || '').toString().trim();
       const title = `${countyName} - ${precId}`;
-      setPrecinctHoverFeature(feature);
 
       const contestValue = document.getElementById('contestSelect')?.value || '';
-      // Avoid rebuilding the same tooltip repeatedly while the mouse moves within one precinct.
-      // Also throttle rapid transitions between precincts to keep hover responsive.
-      try {
-        const featKey = (feature?.id !== null && feature?.id !== undefined) ? `id:${feature.id}` : `norm:${precinctNorm}`;
-        const hoverKey = `${featKey}|${contestValue}`;
-        const tooltip = document.getElementById('hover-tooltip');
-        const tooltipVisible = !!tooltip && tooltip.style.display !== 'none' && (tooltip.innerHTML || '').trim().length > 0;
-        const now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
-
-        if (hoverKey === lastPrecinctHoverKey && tooltipVisible) return;
-        if (tooltipVisible && now - lastPrecinctHoverRenderedAt < PRECINCT_HOVER_THROTTLE_MS) return;
-
-        lastPrecinctHoverKey = hoverKey;
-        lastPrecinctHoverRenderedAt = now;
-      } catch (_) {}
       const [contestType, year] = parseContestValue(contestValue);
       if (!contestType || !year) {
         showHoverTooltip(point.x, point.y, buildTooltipShell(title, '<div style="color:#64748b;">Select a contest to see results</div>'));
@@ -4066,7 +3915,7 @@ function stripRunningMateName(name) {
 
       const row = currentPrecinctResults ? currentPrecinctResults.get(precinctNorm) : null;
       if (!row) {
-        showHoverTooltip(point.x, point.y, buildTooltipShell(title, '<div style="color:#64748b;">No direct precinct result for this polygon in this contest (official reporting units do not map 1:1 here).</div>'));
+        showHoverTooltip(point.x, point.y, buildTooltipShell(title, '<div style="color:#64748b;">No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.</div>'));
         wireTooltipButtons();
         return;
       }
@@ -4110,7 +3959,6 @@ function stripRunningMateName(name) {
 
     async function refreshHoverAtPointer() {
       if (!lastPointerPoint) return;
-      if (tooltipPinned) return;
 
       // If precinct overlay is enabled, prefer hovering precincts (dots or polygons) when present.
       if (precinctsEnabled) {
@@ -4125,24 +3973,17 @@ function stripRunningMateName(name) {
           }
         }
       }
-      clearPrecinctHoverFeature();
 
       const layerName = currentView === 'counties'
         ? 'county-fill'
         : (currentView === 'districts'
           ? 'district-fill'
           : (currentView === 'state_house' ? 'state-house-fill' : 'state-senate-fill'));
-      if (!map.getLayer(layerName)) {
-        clearHoverOutline();
-        return;
-      }
+      if (!map.getLayer(layerName)) return;
 
       const features = map.queryRenderedFeatures(lastPointerPoint, { layers: [layerName] });
       if (!features || !features.length) {
         hideHoverTooltip();
-        clearHoverOutline();
-        clearVoteCounterHoverState();
-        clearPrecinctHoverFeature();
         return;
       }
       const evt = { point: lastPointerPoint, features };
@@ -4170,7 +4011,6 @@ function stripRunningMateName(name) {
       const props = e.features[0].properties || {};
       const districtNum = getDistrictNumberFromProps(props, districtFieldCandidates);
       if (!districtNum) return;
-      setDistrictHoverOutline(scope, districtNum);
       const requestId = ++districtHoverRequestId;
 
       const contestValue = document.getElementById('contestSelect')?.value || '';
@@ -4742,14 +4582,6 @@ function stripRunningMateName(name) {
           source: 'counties', 
           paint: { 'line-color': '#333', 'line-width': 1 } 
         });
-        addLayerWithOptionalSourceLayer({ 
-          id: 'county-stroke-hover', 
-          type: 'line', 
-          source: 'counties',
-          layout: { visibility: 'none' },
-          filter: ['==', ['get', '_'], '__'],
-          paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 3, 'line-opacity': 0.95 }
-        });
         // County label layer (disabled for precinct geometry performance)
         addLayerWithOptionalSourceLayer({
           id: 'county-label',
@@ -4781,7 +4613,6 @@ function stripRunningMateName(name) {
             if (countyName) {
               showCountyDetails(countyName);
               lastSelectedCounty = countyName;
-              setCountyHoverOutline(countyName);
               // Show historical trends popup based on current contest selection.
               const contestValue = document.getElementById('contestSelect')?.value || '';
               const [contestType] = parseContestValue(contestValue);
@@ -4823,7 +4654,6 @@ function stripRunningMateName(name) {
           map.getCanvas().style.cursor = '';
           hideHoverTooltip();
           clearVoteCounterHoverState();
-          clearHoverOutline();
         });
       }
       updatePrecinctVisibility();
@@ -4875,7 +4705,7 @@ function stripRunningMateName(name) {
       } catch (_) {}
       // Do not overwrite window.countiesData (used for county search/zoom).
       window.precinctsData = precincts;
-      map.addSource('precincts', { type: 'geojson', data: precincts, generateId: true });
+      map.addSource('precincts', { type: 'geojson', data: precincts });
       precinctSourceLoaded = true;
       precinctLoadInFlight = false;
       addPrecinctLayers();
@@ -4907,11 +4737,7 @@ function stripRunningMateName(name) {
         source: 'precincts',
         minzoom: CONFIG.precincts?.minZoom || 8.5,
         layout: { visibility: 'none' },
-        paint: {
-          'line-color': ['case', ['boolean', ['feature-state', 'hover'], false], 'rgba(15, 23, 42, 0.75)', '#6b7280'],
-          'line-width': ['case', ['boolean', ['feature-state', 'hover'], false], 2.25, 0.25],
-          'line-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 0.95, 0.65]
-        }
+        paint: { 'line-color': '#6b7280', 'line-width': 0.25 }
       });
 
       map.on('click', 'precinct-fill', (e) => {
@@ -5103,7 +4929,7 @@ function stripRunningMateName(name) {
               showHoverTooltip(
                 evt.point.x,
                 evt.point.y,
-                buildTooltipShell(title, `<div style="color:#64748b;">No direct precinct result for this polygon in this contest (official reporting units do not map 1:1 here).</div>`)
+                buildTooltipShell(title, `<div style="color:#64748b;">No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.</div>`)
               );
               wireTooltipButtons();
               return;
@@ -5184,7 +5010,6 @@ function stripRunningMateName(name) {
       } else {
         setTooltipPinned(false);
       }
-      clearHoverOutline();
       updatePrecinctVisibility();
       const contestKey = document.getElementById('contestSelect')?.value;
       if (contestKey) await applyContest(contestKey);
@@ -5206,14 +5031,6 @@ function stripRunningMateName(name) {
           source: 'districts', 
           paint: { 'line-color': '#1f2937', 'line-width': 2 } 
         });
-        addLayerWithOptionalSourceLayer({ 
-          id: 'district-stroke-hover', 
-          type: 'line', 
-          source: 'districts',
-          layout: { visibility: 'none' },
-          filter: ['==', ['get', '_'], '__'],
-          paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 4, 'line-opacity': 0.95 }
-        });
         
         // Add click handler for districts with full trends popup
         map.on('click', 'district-fill', async (e) => {
@@ -5226,7 +5043,6 @@ function stripRunningMateName(name) {
               lastSelectedCounty = `District ${districtNum}`;
 
               // Pin vote counter to this district for current contest (if any).
-              const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
                 const i = contestValue.lastIndexOf('_');
                 const contestType = contestValue.substring(0, i);
@@ -5240,10 +5056,6 @@ function stripRunningMateName(name) {
                   pinVoteCounterState(`Selected: Congressional District ${districtNum}`, `${formatContestName(contestType, year)} ${year}`, demVotes, repVotes, otherVotes);
                 }).catch(() => {});
               }
-
-              try {
-                await renderDistrictHover(e, 'congressional', 'Congressional District', ['DISTRICT', 'CD118FP', 'district_id', 'district', 'NAMELSAD']);
-              } catch (_) {}
             }
           }
         });
@@ -5267,7 +5079,6 @@ function stripRunningMateName(name) {
           map.getCanvas().style.cursor = '';
           hideHoverTooltip();
           clearVoteCounterHoverState();
-          clearHoverOutline();
         });
       }
     }
@@ -5287,14 +5098,6 @@ function stripRunningMateName(name) {
           source: 'state-house', 
           paint: { 'line-color': '#374151', 'line-width': 1 } 
         });
-        addLayerWithOptionalSourceLayer({ 
-          id: 'state-house-stroke-hover', 
-          type: 'line', 
-          source: 'state-house',
-          layout: { visibility: 'none' },
-          filter: ['==', ['get', '_'], '__'],
-          paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 3, 'line-opacity': 0.95 }
-        });
         
         // Add click handler for state house districts with full trends popup
         map.on('click', 'state-house-fill', async (e) => {
@@ -5306,7 +5109,6 @@ function stripRunningMateName(name) {
               showStateDistrictDetails(districtNum, 'house');
               lastSelectedCounty = `State House District ${districtNum}`;
 
-              const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
                 const i = contestValue.lastIndexOf('_');
                 const contestType = contestValue.substring(0, i);
@@ -5320,10 +5122,6 @@ function stripRunningMateName(name) {
                   pinVoteCounterState(`Selected: State House District ${districtNum}`, `${formatContestName(contestType, year)} ${year}`, demVotes, repVotes, otherVotes);
                 }).catch(() => {});
               }
-
-              try {
-                await renderDistrictHover(e, 'state_house', 'State House District', ['DISTRICT', 'SLDLST', 'district_id', 'district', 'NAMELSAD']);
-              } catch (_) {}
             }
           }
         });
@@ -5347,7 +5145,6 @@ function stripRunningMateName(name) {
           map.getCanvas().style.cursor = '';
           hideHoverTooltip();
           clearVoteCounterHoverState();
-          clearHoverOutline();
         });
       }
     }
@@ -5367,14 +5164,6 @@ function stripRunningMateName(name) {
           source: 'state-senate', 
           paint: { 'line-color': '#4b5563', 'line-width': 1 } 
         });
-        addLayerWithOptionalSourceLayer({ 
-          id: 'state-senate-stroke-hover', 
-          type: 'line', 
-          source: 'state-senate',
-          layout: { visibility: 'none' },
-          filter: ['==', ['get', '_'], '__'],
-          paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 3, 'line-opacity': 0.95 }
-        });
         
         // Add click handler for state senate districts with full trends popup
         map.on('click', 'state-senate-fill', async (e) => {
@@ -5386,7 +5175,6 @@ function stripRunningMateName(name) {
               showStateDistrictDetails(districtNum, 'senate');
               lastSelectedCounty = `State Senate District ${districtNum}`;
 
-              const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
                 const i = contestValue.lastIndexOf('_');
                 const contestType = contestValue.substring(0, i);
@@ -5400,10 +5188,6 @@ function stripRunningMateName(name) {
                   pinVoteCounterState(`Selected: State Senate District ${districtNum}`, `${formatContestName(contestType, year)} ${year}`, demVotes, repVotes, otherVotes);
                 }).catch(() => {});
               }
-
-              try {
-                await renderDistrictHover(e, 'state_senate', 'State Senate District', ['DISTRICT', 'SLDUST', 'district_id', 'district', 'NAMELSAD']);
-              } catch (_) {}
             }
           }
         });
@@ -5427,7 +5211,6 @@ function stripRunningMateName(name) {
           map.getCanvas().style.cursor = '';
           hideHoverTooltip();
           clearVoteCounterHoverState();
-          clearHoverOutline();
         });
       }
     }
@@ -6525,7 +6308,8 @@ function stripRunningMateName(name) {
     async function init() {
       try {
         if (!map) {
-          setStatus('Map unavailable: MAPBOX_TOKEN is not configured.');
+          setStatus('Mapbox token missing. Click the prompt to set MAPBOX_TOKEN.');
+          try { showMapboxTokenPrompt(); } catch (_) {}
           return;
         }
         setStatus('Loading counties...');
