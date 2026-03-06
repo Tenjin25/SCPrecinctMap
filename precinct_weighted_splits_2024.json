@@ -25,5 +25,13 @@
   "Saluda - Ward": {
     "SALUDA - WARD": 0.4928,
     "SALUDA - DELMAR": 0.5072
+  },
+  "Spartanburg - Cowpens": {
+    "SPARTANBURG - COWPENS DEPOT MUSEUM": 0.397,
+    "SPARTANBURG - COWPENS FIRE STATION": 0.603
+  },
+  "Spartanburg - Shoally": {
+    "SPARTANBURG - BOILING SPRINGS 9TH GRADE": 0.808059,
+    "SPARTANBURG - WHITLOCK JR. HIGH": 0.191941
   }
 }

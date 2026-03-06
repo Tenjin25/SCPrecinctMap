@@ -6,6 +6,11 @@ import os
 import re
 from collections import defaultdict
 
+DEFAULT_IGNORED_MISSING = {
+    "AIKEN - SRS",
+    "BARNWELL - SRS",
+}
+
 
 def norm(s: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"[^A-Za-z0-9 .\-]", "", str(s or ""))).strip().upper()
@@ -89,6 +94,16 @@ def main():
     ap.add_argument("--year", default="2024", help="Election year (e.g. 2024)")
     ap.add_argument("--out", default="", help="Output CSV path (default: scripts/out/precinct_mismatches_<contest>_<year>.csv)")
     ap.add_argument("--aliases", default="precinct_aliases.json", help="Alias JSON path relative to base")
+    ap.add_argument(
+        "--ignore-missing",
+        default="",
+        help="Comma-separated normalized polygon keys to ignore in missing_polygon output (in addition to defaults).",
+    )
+    ap.add_argument(
+        "--no-default-ignore",
+        action="store_true",
+        help="Do not apply built-in missing_polygon ignores (AIKEN - SRS, BARNWELL - SRS).",
+    )
     args = ap.parse_args()
 
     base = os.path.abspath(args.base)
@@ -119,6 +134,14 @@ def main():
 
     missing_polys = sorted(poly_norms - row_norms)
     extra_rows = sorted(row_norms - poly_norms)
+
+    ignored_missing = set()
+    if not args.no_default_ignore:
+        ignored_missing |= set(DEFAULT_IGNORED_MISSING)
+    if args.ignore_missing:
+        ignored_missing |= {norm(x) for x in str(args.ignore_missing).split(",") if str(x).strip()}
+    if ignored_missing:
+        missing_polys = [k for k in missing_polys if k not in ignored_missing]
 
     out_path = args.out
     if not out_path:
@@ -151,6 +174,8 @@ def main():
 
     print(f"Wrote {out_path}")
     print(f"Polygons: {len(poly_norms)} | Result precinct rows: {len(row_norms)}")
+    if ignored_missing:
+        print(f"Ignored missing polygons: {len(ignored_missing)}")
     print(f"Missing polygons (no result row): {len(missing_polys)}")
     print(f"Extra result rows (no polygon): {len(extra_rows)}")
 
