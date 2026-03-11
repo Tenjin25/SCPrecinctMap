@@ -36,7 +36,7 @@ import zipfile
 try:
     import shapefile  # pip install pyshp
 except ImportError:
-    raise SystemExit("Missing dependency: run  pip install pyshp")
+    shapefile = None
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -45,6 +45,11 @@ BASE_DIR  = os.path.dirname(os.path.abspath(__file__))
 DATA_SRC  = os.path.join(BASE_DIR, 'Data')          # canonical capitalised source dir
 DATA_OUT  = os.path.join(BASE_DIR, 'data')          # lowercase output dir expected by JS
 PRECINCT_ALIASES_PATH = os.path.join(BASE_DIR, 'precinct_aliases.json')
+BLOCK_ASSIGN_ZIP_PATH = os.path.join(DATA_SRC, 'BlockAssign_ST45_SC.zip')
+if not os.path.exists(BLOCK_ASSIGN_ZIP_PATH):
+    _fallback_block_assign = os.path.join(os.path.dirname(BASE_DIR), 'Data', 'BlockAssign_ST45_SC.zip')
+    if os.path.exists(_fallback_block_assign):
+        BLOCK_ASSIGN_ZIP_PATH = _fallback_block_assign
 
 SHP_COUNTY   = os.path.join(DATA_SRC, 'census', 'tl_2020_45_county20',
                              'tl_2020_45_county20.shp')
@@ -213,6 +218,8 @@ def write_json(obj, path: str) -> None:
 
 
 def shp_to_geojson_features(shp_path: str, augment_fn=None) -> list:
+    if shapefile is None:
+        raise RuntimeError("Missing dependency: run pip install pyshp")
     sf     = shapefile.Reader(shp_path)
     fields = [f[0] for f in sf.fields[1:]]
     feats  = []
@@ -1001,11 +1008,124 @@ def _parse_district_num(raw) -> str:
         return s
 
 
+def _district_sort_key(dnum: str) -> tuple[int, int | str]:
+    """Stable tiebreak for district ids: numeric first, then lexical."""
+    s = (dnum or '').strip()
+    try:
+        return (0, int(s))
+    except ValueError:
+        return (1, s)
+
+
+def load_block_assignment_precinct_weights() -> dict[str, dict[str, dict[str, float]]]:
+    """
+    Build precinct_norm -> district-share weights from Census block assignment files.
+
+    Uses:
+      Data/BlockAssign_ST45_SC.zip
+        - BlockAssign_ST45_SC_VTD.txt (BLOCKID -> COUNTYFP + VTD DISTRICT)
+        - BlockAssign_ST45_SC_CD.txt
+        - BlockAssign_ST45_SC_SLDL.txt
+        - BlockAssign_ST45_SC_SLDU.txt
+    """
+    precincts_path = os.path.join(DATA_OUT, 'Voting_Precincts.geojson')
+    if not (os.path.exists(BLOCK_ASSIGN_ZIP_PATH) and os.path.exists(precincts_path)):
+        return {}
+
+    # Index precinct polygons by (countyfp, vtdst20) so block assignments can map back
+    # to the same precinct_norm keys used by contest rows.
+    vtd_to_precincts: dict[tuple[str, str], set[str]] = {}
+    try:
+        with open(precincts_path, encoding='utf-8') as fh:
+            precincts = json.load(fh) or {}
+        for feat in precincts.get('features', []) or []:
+            props = (feat or {}).get('properties') or {}
+            pn = (props.get('precinct_norm') or '').strip().upper()
+            countyfp = str(props.get('COUNTYFP20') or '').strip().zfill(3)
+            vtd = str(props.get('VTDST20') or '').strip().zfill(6)
+            if not (pn and countyfp and vtd):
+                continue
+            vtd_to_precincts.setdefault((countyfp, vtd), set()).add(pn)
+    except Exception:
+        return {}
+    if not vtd_to_precincts:
+        return {}
+
+    members = {
+        'congressional': 'BlockAssign_ST45_SC_CD.txt',
+        'state_house': 'BlockAssign_ST45_SC_SLDL.txt',
+        'state_senate': 'BlockAssign_ST45_SC_SLDU.txt',
+    }
+
+    out: dict[str, dict[str, dict[str, float]]] = {k: {} for k in members.keys()}
+    try:
+        with zipfile.ZipFile(BLOCK_ASSIGN_ZIP_PATH) as z:
+            names = {n: True for n in z.namelist()}
+            if 'BlockAssign_ST45_SC_VTD.txt' not in names:
+                return {}
+            for req in members.values():
+                if req not in names:
+                    return {}
+
+            # BLOCKID -> (COUNTYFP, VTDST20)
+            block_to_vtd: dict[str, tuple[str, str]] = {}
+            with z.open('BlockAssign_ST45_SC_VTD.txt') as fh:
+                reader = csv.DictReader(io.TextIOWrapper(fh, encoding='utf-8-sig', newline=''), delimiter='|')
+                for row in reader:
+                    block = (row.get('BLOCKID') or '').strip()
+                    countyfp = (row.get('COUNTYFP') or '').strip().zfill(3)
+                    vtd = (row.get('DISTRICT') or '').strip().zfill(6)
+                    if not (block and countyfp and vtd):
+                        continue
+                    if (countyfp, vtd) in vtd_to_precincts:
+                        block_to_vtd[block] = (countyfp, vtd)
+            if not block_to_vtd:
+                return {}
+
+            for scope, member in members.items():
+                counts_by_precinct: dict[str, dict[str, int]] = {}
+                with z.open(member) as fh:
+                    reader = csv.DictReader(io.TextIOWrapper(fh, encoding='utf-8-sig', newline=''), delimiter='|')
+                    for row in reader:
+                        block = (row.get('BLOCKID') or '').strip()
+                        dnum = _parse_district_num(row.get('DISTRICT'))
+                        if not (block and dnum):
+                            continue
+                        vtd_key = block_to_vtd.get(block)
+                        if not vtd_key:
+                            continue
+                        precincts_for_vtd = vtd_to_precincts.get(vtd_key)
+                        if not precincts_for_vtd:
+                            continue
+                        for pn in precincts_for_vtd:
+                            node = counts_by_precinct.setdefault(pn, {})
+                            node[dnum] = int(node.get(dnum) or 0) + 1
+
+                mapped = {}
+                for pn, counts in counts_by_precinct.items():
+                    total = sum(int(v) for v in counts.values())
+                    if total <= 0:
+                        continue
+                    shares = {}
+                    for dnum, cnt in counts.items():
+                        shares[dnum] = float(cnt) / float(total)
+                    mapped[pn] = shares
+                out[scope] = mapped
+    except Exception:
+        return {}
+
+    return out
+
+
 def build_statewide_contests_by_district_from_slices() -> int:
     """
     Build per-district results for *statewide* contest slices (President, US Senate, etc.)
-    by assigning each precinct centroid to a district polygon (CD/SLDL/SLDU) and summing
-    precinct rows from data/contests/*.json.
+    by assigning each precinct to a district polygon and summing precinct rows from
+    data/contests/*.json.
+
+    Assignment order:
+      1) Census block assignment files from Data/BlockAssign_ST45_SC.zip (preferred)
+      2) Precinct centroid point-in-polygon fallback for any remaining unmatched precincts
 
     Outputs files to data/district_contests/{scope}_{contest_type}_{year}.json
     and (re)writes data/district_contests/manifest.json to include both district-race
@@ -1031,47 +1151,57 @@ def build_statewide_contests_by_district_from_slices() -> int:
     if not contest_entries:
         return 0
 
-    with open(centroids_path, encoding='utf-8') as fh:
-        centroids = json.load(fh) or {}
-    centroid_points = []
-    for f in centroids.get('features', []) or []:
-        geom = (f or {}).get('geometry') or {}
-        if geom.get('type') != 'Point':
-            continue
-        coords = geom.get('coordinates') or []
-        if len(coords) < 2:
-            continue
-        props = (f or {}).get('properties') or {}
-        pn = (props.get('precinct_norm') or '').strip().upper()
-        if not pn:
-            continue
-        centroid_points.append((pn, float(coords[0]), float(coords[1])))
-
-    # Build precinct_norm -> district_num per scope
     precinct_to_district: dict[str, dict[str, str]] = {k: {} for k in district_sources.keys()}
-    for scope, (path, num_field) in district_sources.items():
-        with open(path, encoding='utf-8') as fh:
-            gj = json.load(fh) or {}
-        districts = []
-        for feat in gj.get('features', []) or []:
-            geom = (feat or {}).get('geometry') or {}
-            props = (feat or {}).get('properties') or {}
-            dnum = _parse_district_num(props.get(num_field))
-            if not dnum:
+    if os.path.exists(centroids_path):
+        with open(centroids_path, encoding='utf-8') as fh:
+            centroids = json.load(fh) or {}
+        centroid_points = []
+        for f in centroids.get('features', []) or []:
+            geom = (f or {}).get('geometry') or {}
+            if geom.get('type') != 'Point':
                 continue
-            bbox = _geom_bbox(geom.get('coordinates'))
-            districts.append((bbox, geom, dnum))
+            coords = geom.get('coordinates') or []
+            if len(coords) < 2:
+                continue
+            props = (f or {}).get('properties') or {}
+            pn = (props.get('precinct_norm') or '').strip().upper()
+            if not pn:
+                continue
+            centroid_points.append((pn, float(coords[0]), float(coords[1])))
 
-        for pn, x, y in centroid_points:
-            chosen = ''
-            for (minx, miny, maxx, maxy), geom, dnum in districts:
-                if x < minx or x > maxx or y < miny or y > maxy:
+        for scope, (path, num_field) in district_sources.items():
+            with open(path, encoding='utf-8') as fh:
+                gj = json.load(fh) or {}
+            districts = []
+            for feat in gj.get('features', []) or []:
+                geom = (feat or {}).get('geometry') or {}
+                props = (feat or {}).get('properties') or {}
+                dnum = _parse_district_num(props.get(num_field))
+                if not dnum:
                     continue
-                if _point_in_geometry(x, y, geom):
-                    chosen = dnum
-                    break
-            if chosen:
-                precinct_to_district[scope][pn] = chosen
+                bbox = _geom_bbox(geom.get('coordinates'))
+                districts.append((bbox, geom, dnum))
+
+            for pn, x, y in centroid_points:
+                chosen = ''
+                for (minx, miny, maxx, maxy), geom, dnum in districts:
+                    if x < minx or x > maxx or y < miny or y > maxy:
+                        continue
+                    if _point_in_geometry(x, y, geom):
+                        chosen = dnum
+                        break
+                if chosen:
+                    precinct_to_district[scope][pn] = chosen
+
+    # Prefer block-derived fractional allocation where available.
+    block_weight_maps = load_block_assignment_precinct_weights()
+    if block_weight_maps:
+        for scope, mapping in block_weight_maps.items():
+            if scope not in precinct_to_district:
+                continue
+            if not mapping:
+                continue
+            print(f'  block assignments ({scope}): {len(mapping)} precinct mappings')
 
     dist_dir = os.path.join(DATA_OUT, 'district_contests')
     os.makedirs(dist_dir, exist_ok=True)
@@ -1098,21 +1228,41 @@ def build_statewide_contests_by_district_from_slices() -> int:
         for scope in district_sources.keys():
             by_dist = {}
             matched = 0
+            matched_weighted = 0
             dem_name = ''
             rep_name = ''
             for r in precinct_rows:
                 key = (r.get('county') or '').strip()
                 pn = normalize(key)
-                dnum = precinct_to_district[scope].get(pn)
-                if not dnum:
-                    continue
-                matched += 1
-                if dnum not in by_dist:
-                    by_dist[dnum] = {'dem': 0, 'rep': 0, 'other': 0, 'dem_cand': '', 'rep_cand': ''}
-                node = by_dist[dnum]
-                node['dem'] += int(r.get('dem_votes') or 0)
-                node['rep'] += int(r.get('rep_votes') or 0)
-                node['other'] += int(r.get('other_votes') or 0)
+                weights = (block_weight_maps.get(scope) or {}).get(pn) if block_weight_maps else None
+                if weights:
+                    matched += 1
+                    matched_weighted += 1
+                    dem_votes = float(r.get('dem_votes') or 0)
+                    rep_votes = float(r.get('rep_votes') or 0)
+                    other_votes = float(r.get('other_votes') or 0)
+                    for dnum, share in weights.items():
+                        w = float(share or 0)
+                        if w <= 0:
+                            continue
+                        if dnum not in by_dist:
+                            by_dist[dnum] = {'dem': 0.0, 'rep': 0.0, 'other': 0.0, 'dem_cand': '', 'rep_cand': ''}
+                        node = by_dist[dnum]
+                        node['dem'] += dem_votes * w
+                        node['rep'] += rep_votes * w
+                        node['other'] += other_votes * w
+                else:
+                    dnum = precinct_to_district[scope].get(pn)
+                    if not dnum:
+                        continue
+                    matched += 1
+                    if dnum not in by_dist:
+                        by_dist[dnum] = {'dem': 0.0, 'rep': 0.0, 'other': 0.0, 'dem_cand': '', 'rep_cand': ''}
+                    node = by_dist[dnum]
+                    node['dem'] += float(r.get('dem_votes') or 0)
+                    node['rep'] += float(r.get('rep_votes') or 0)
+                    node['other'] += float(r.get('other_votes') or 0)
+
                 if not dem_name:
                     dem_name = (r.get('dem_candidate') or '').strip()
                 if not rep_name:
@@ -1134,14 +1284,17 @@ def build_statewide_contests_by_district_from_slices() -> int:
 
             results = {}
             for dnum, v in by_dist.items():
-                total = v['dem'] + v['rep'] + v['other']
-                margin = v['rep'] - v['dem']
+                dem_votes = int(round(v['dem']))
+                rep_votes = int(round(v['rep']))
+                other_votes = int(round(v['other']))
+                total = dem_votes + rep_votes + other_votes
+                margin = rep_votes - dem_votes
                 mpct = round(margin / total * 100, 4) if total else 0
                 winner = 'R' if margin > 0 else ('D' if margin < 0 else 'T')
                 results[str(dnum)] = {
-                    'dem_votes':     v['dem'],
-                    'rep_votes':     v['rep'],
-                    'other_votes':   v['other'],
+                    'dem_votes':     dem_votes,
+                    'rep_votes':     rep_votes,
+                    'other_votes':   other_votes,
                     'total_votes':   total,
                     'dem_candidate': v.get('dem_cand', ''),
                     'rep_candidate': v.get('rep_cand', ''),
@@ -1159,6 +1312,7 @@ def build_statewide_contests_by_district_from_slices() -> int:
                     'match_coverage_pct': coverage,
                     'precinct_rows_total': len(precinct_rows),
                     'precinct_rows_matched': matched,
+                    'precinct_rows_block_weighted': matched_weighted,
                 },
             }
             write_json(out_payload, os.path.join(dist_dir, out_name))

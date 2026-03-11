@@ -2166,6 +2166,35 @@ body { height: var(--app-height); }
     }
   }
 
+  @media (max-width: 768px) {
+    .region-jumps {
+      display: flex;
+      grid-template-columns: none;
+      gap: 8px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 1px 1px 3px;
+      margin: 0 -2px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+    }
+
+    .region-jumps::-webkit-scrollbar {
+      display: none;
+    }
+
+    .region-jump-btn {
+      width: auto;
+      min-width: max-content;
+      flex: 0 0 auto;
+      min-height: 40px;
+      padding: 10px 14px;
+      font-size: 12px;
+      scroll-snap-align: start;
+    }
+  }
+
   .view-toggle-row {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4376,34 +4405,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const REGION_JUMPS = {
       upstate: {
         label: 'Upstate',
+        bounds: [[-83.49, 33.48], [-81.23, 35.33]],
         counties: ['Abbeville', 'Anderson', 'Cherokee', 'Greenville', 'Greenwood', 'Laurens', 'McCormick', 'Oconee', 'Pickens', 'Spartanburg', 'Union']
       },
       piedmont: {
         label: 'Piedmont',
+        bounds: [[-83.6, 33.41], [-79.53, 35.33]],
         counties: ['Abbeville', 'Anderson', 'Cherokee', 'Chester', 'Chesterfield', 'Edgefield', 'Fairfield', 'Greenville', 'Greenwood', 'Kershaw', 'Lancaster', 'Laurens', 'Lexington', 'McCormick', 'Newberry', 'Oconee', 'Pickens', 'Richland', 'Saluda', 'Spartanburg', 'Union', 'York']
       },
       charlotte_metro: {
         label: 'Charlotte Metro',
+        bounds: [[-81.61, 34.36], [-80.29, 35.26]],
         counties: ['Chester', 'Lancaster', 'York']
       },
       charleston_metro: {
         label: 'Charleston Metro',
+        bounds: [[-80.91, 32.38], [-79.14, 33.61]],
         counties: ['Berkeley', 'Charleston', 'Dorchester']
       },
       midlands: {
         label: 'Midlands',
+        bounds: [[-82.32, 32.95], [-80.15, 35.31]],
         counties: ['Aiken', 'Barnwell', 'Chester', 'Edgefield', 'Fairfield', 'Kershaw', 'Lancaster', 'Lexington', 'Newberry', 'Richland', 'Saluda', 'York']
       },
       pee_dee: {
         label: 'Pee Dee',
+        bounds: [[-80.8, 32.93], [-78.35, 34.94]],
         counties: ['Chesterfield', 'Clarendon', 'Darlington', 'Dillon', 'Florence', 'Georgetown', 'Horry', 'Lee', 'Marion', 'Marlboro', 'Sumter', 'Williamsburg']
       },
       grand_strand: {
         label: 'Grand Strand',
+        bounds: [[-79.8, 32.95], [-78.38, 34.4]],
         counties: ['Georgetown', 'Horry']
       },
       lowcountry: {
         label: 'Lowcountry',
+        bounds: [[-81.78, 31.86], [-79.1, 34.01]],
         counties: ['Allendale', 'Bamberg', 'Beaufort', 'Berkeley', 'Calhoun', 'Charleston', 'Colleton', 'Dorchester', 'Hampton', 'Jasper', 'Orangeburg']
       }
     };
@@ -4551,10 +4588,20 @@ document.addEventListener('DOMContentLoaded', function() {
     async function jumpToRegion(regionKey) {
       const region = REGION_JUMPS[regionKey];
       if (!region || !map) return;
-      const moved = fitRegionToCountySet(regionKey);
-      if (!moved) {
-        map.fitBounds(CONFIG.fitBounds, { padding: getMapFitPadding({ includeCounter: true }), duration: 900 });
+      const hasStaticBounds = Array.isArray(region.bounds) && region.bounds.length === 2;
+      if (hasStaticBounds) {
+        map.fitBounds(region.bounds, { padding: 28, duration: 900 });
+      } else {
+        const moved = fitRegionToCountySet(regionKey);
+        if (!moved) {
+          map.fitBounds(CONFIG.fitBounds, { padding: getMapFitPadding({ includeCounter: true }), duration: 900 });
+        }
       }
+      try {
+        // Mirror NCMap mobile behavior: after a quick-jump, collapse floating panels to reveal map.
+        minimizeMainControlsOnMobile();
+        minimizeLegendOnMobile();
+      } catch (_) {}
       const contestValue = document.getElementById('contestSelect')?.value || '';
       if (!contestValue) {
         setStatus(`Jumped to ${region.label}.`);
@@ -9184,7 +9231,7 @@ function stripRunningMateName(name) {
         if (trends.length > 0) {
           trends.push({
             year: 0,
-            display: '--- Governor ---',
+            display: '--- State House ---',
             margin: 0,
             type: 'separator'
           });
@@ -9214,6 +9261,34 @@ function stripRunningMateName(name) {
               margin: margin,
               type: 'governor'
             });
+          }
+        });
+
+        // State House trends (recent years only)
+        stateHouseYears.forEach(year => {
+          const data = electionData.find(row => 
+            row.year == year && row.county === countyName
+          );
+          
+          if (data && data.state_house_total > 0) {
+            const demVotes = data.state_house_dem || 0;
+            const repVotes = data.state_house_rep || 0;
+            const totalVotes = data.state_house_total || 0;
+            
+            if (totalVotes > 0) {
+              const demPct = (demVotes / totalVotes) * 100;
+              const repPct = (repVotes / totalVotes) * 100;
+              const margin = demPct - repPct;
+              const winner = margin > 0 ? 'D' : 'R';
+              const marginAbs = Math.abs(margin);
+              
+              trends.push({
+                year: year,
+                display: `${year}: ${winner}+${marginAbs.toFixed(2)} (House)`,
+                margin: margin,
+                type: 'state_house'
+              });
+            }
           }
         });
       }
@@ -10416,6 +10491,17 @@ function stripRunningMateName(name) {
     async function applyContest(contestKey) {
       if (!contestKey) return setStatus('Select a contest');
       updateControlSummary(contestKey);
+
+      const previousRegionPinnedState = voteCounterPinned?.meta?.kind === 'region'
+        ? {
+            ...voteCounterPinned,
+            meta: voteCounterPinned.meta ? { ...voteCounterPinned.meta } : null
+          }
+        : null;
+      if (previousRegionPinnedState) {
+        voteCounterPinned = null;
+        voteCounterHoverActive = false;
+      }
       
       // Split contest key properly - year is always the last part after final underscore
       const lastUnderscoreIndex = contestKey.lastIndexOf('_');
@@ -10430,6 +10516,13 @@ function stripRunningMateName(name) {
       } else {
         // All other contests (statewide) aggregate county data by district
         await applyStatewideContestToDistricts(contestType, year);
+      }
+      if (previousRegionPinnedState?.meta?.regionKey) {
+        try {
+          await focusRegionSummary(previousRegionPinnedState.meta.regionKey);
+        } catch (err) {
+          console.warn('Failed to restore regional selection after contest change:', err?.message || err);
+        }
       }
       await refreshHoverAtPointer();
     }
