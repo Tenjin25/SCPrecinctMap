@@ -1194,7 +1194,17 @@ body { height: var(--app-height); }
   text-overflow: ellipsis;
 }
 
-.vote-counter-context .context-clear {
+.vote-counter-context .context-actions {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.vote-counter-context .context-clear,
+.vote-counter-context .context-minimize {
   display: none;
   border: 1px solid rgba(0,0,0,0.10);
   background: rgba(17,24,39,0.04);
@@ -1204,6 +1214,20 @@ body { height: var(--app-height); }
   padding: 6px 10px;
   border-radius: 999px;
   cursor: pointer;
+}
+
+.vote-counter-context .context-clear:hover,
+.vote-counter-context .context-minimize:hover {
+  background: rgba(17,24,39,0.08);
+}
+
+.vote-counter.is-minimized .vote-counter-meta,
+.vote-counter.is-minimized .vote-counter-row {
+  display: none;
+}
+
+.vote-counter-context .context-clear {
+  margin-left: 0;
 }
 
 .vote-counter-context .context-clear:hover {
@@ -4572,7 +4596,8 @@ body { height: var(--app-height); }
       padding-bottom: 10px;
     }
 
-    .vote-counter-context .context-clear {
+    .vote-counter-context .context-clear,
+    .vote-counter-context .context-minimize {
       min-height: 34px;
       padding: 0 10px;
     }
@@ -4921,7 +4946,8 @@ body { height: var(--app-height); }
       padding-bottom: 10px;
     }
 
-    .vote-counter-context .context-clear {
+    .vote-counter-context .context-clear,
+    .vote-counter-context .context-minimize {
       min-height: 34px;
       padding: 0 10px;
     }
@@ -5052,7 +5078,8 @@ body { height: var(--app-height); }
     color: #475569;
   }
 
-  .vote-counter.nc-top-panel .vote-counter-context .context-clear {
+  .vote-counter.nc-top-panel .vote-counter-context .context-clear,
+  .vote-counter.nc-top-panel .vote-counter-context .context-minimize {
     min-height: 30px;
     padding: 0 12px;
     font-size: 12px;
@@ -5435,7 +5462,10 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="context-title" id="vote-context-title">Statewide</div>
         <div class="context-sub" id="vote-context-sub">Hover a county or district</div>
       </div>
-      <button class="context-clear" id="vote-context-clear" title="Clear selection">Clear</button>
+      <div class="context-actions" id="vote-context-actions">
+        <button class="context-minimize" id="vote-context-minimize" title="Minimize details">Minimize</button>
+        <button class="context-clear" id="vote-context-clear" title="Clear selection">Clear</button>
+      </div>
     </div>
     <div class="vote-counter-row">
       <div class="vote-item">
@@ -6928,14 +6958,31 @@ document.addEventListener('DOMContentLoaded', function() {
     let voteCounterBaseline = null; // {title, sub, dem, rep, other}
     let voteCounterPinned = null;   // {title, sub, dem, rep, other}
     let voteCounterHoverActive = false;
+    let voteCounterMinimized = false;
 
-    function setVoteCounterContext(title, sub, {showClear = false} = {}) {
+    function setVoteCounterMinimized(minimized) {
+      voteCounterMinimized = !!minimized;
+      const counter = document.getElementById('vote-counter');
+      const minimizeBtn = document.getElementById('vote-context-minimize');
+      if (counter) counter.classList.toggle('is-minimized', voteCounterMinimized);
+      if (minimizeBtn) {
+        minimizeBtn.textContent = voteCounterMinimized ? 'Expand' : 'Minimize';
+        minimizeBtn.title = voteCounterMinimized ? 'Expand details' : 'Minimize details';
+      }
+    }
+
+    function setVoteCounterContext(title, sub, {showClear = false, showMinimize = showClear} = {}) {
       const t = document.getElementById('vote-context-title');
       const s = document.getElementById('vote-context-sub');
+      const a = document.getElementById('vote-context-actions');
       const c = document.getElementById('vote-context-clear');
+      const m = document.getElementById('vote-context-minimize');
       if (t) t.textContent = title || '';
       if (s) s.textContent = sub || '';
+      if (a) a.style.display = (showClear || showMinimize) ? 'inline-flex' : 'none';
       if (c) c.style.display = showClear ? 'inline-flex' : 'none';
+      if (m) m.style.display = showMinimize ? 'inline-flex' : 'none';
+      if (!showMinimize) setVoteCounterMinimized(false);
     }
 
     function setVoteCounterBaselineState(title, sub, demVotes, repVotes, otherVotes) {
@@ -6949,7 +6996,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function pinVoteCounterState(title, sub, demVotes, repVotes, otherVotes) {
       voteCounterPinned = { title, sub, demVotes, repVotes, otherVotes };
       voteCounterHoverActive = false;
-      setVoteCounterContext(title, sub, { showClear: true });
+      setVoteCounterContext(title, sub, { showClear: true, showMinimize: true });
       updateVoteCounter(demVotes, repVotes, otherVotes);
     }
 
@@ -7026,7 +7073,17 @@ document.addEventListener('DOMContentLoaded', function() {
         clearBtn.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
+          setVoteCounterMinimized(false);
           clearPinnedVoteCounterState();
+        });
+      }
+      const minimizeBtn = document.getElementById('vote-context-minimize');
+      if (minimizeBtn) {
+        minimizeBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          if (!voteCounterPinned) return;
+          setVoteCounterMinimized(!voteCounterMinimized);
         });
       }
     });
@@ -8651,7 +8708,7 @@ function stripRunningMateName(name) {
         : `${sincePct > 0 ? 'R' : 'D'} +${Math.abs(sincePct).toFixed(2)} vs ${earliest.year}`;
 
       const summaryHtml = `
-        <div class="trend-summary-grid">
+        <div class="trend-summary-grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:10px;">
           <div class="trend-summary-box">
             <div class="trend-summary-k">Latest</div>
             <div class="trend-summary-v ${latestCls}">${esc(newest.year)}: ${esc(latestOutcome.winnerShort)} +${latestOutcome.absPct.toFixed(2)}%</div>
@@ -8660,7 +8717,7 @@ function stripRunningMateName(name) {
             <div class="trend-summary-k">Closest</div>
             <div class="trend-summary-v ${closestCls}">${esc(closest.year)}: ${esc(closestOutcome.winnerShort)} +${closestOutcome.absPct.toFixed(2)}%</div>
           </div>
-          <div class="trend-summary-box">
+          <div class="trend-summary-box" style="grid-column:1;">
             <div class="trend-summary-k">Since ${esc(earliest.year)}</div>
             <div class="trend-summary-v ${sinceCls}">${esc(sinceLabel)}</div>
           </div>
@@ -8711,7 +8768,7 @@ function stripRunningMateName(name) {
         }
 
         return `
-          <div class="trend-item">
+          <div class="trend-item" style="display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:8px;align-items:start;">
             <div class="trend-year-node">${esc(entry.year)}</div>
             <div class="trend-card ${partyClass}">
               <div class="trend-card-top">
@@ -8820,7 +8877,15 @@ function stripRunningMateName(name) {
       }
       const demCandidate = row[`${contestType}_dem_candidate`] || getCandidateName(year, formatContestName(contestType, year), 'Democrat');
       const repCandidate = row[`${contestType}_rep_candidate`] || getCandidateName(year, formatContestName(contestType, year), 'Republican');
-      setVoteCounterHoverState(`Hover: ${countyDisplay} County`, `${formatContestName(contestType, year)} ${year}`, demVotes, repVotes, otherVotes);
+      setVoteCounterHoverState(
+        `Hover: ${countyDisplay} County`,
+        `${formatContestName(contestType, year)} ${year}`,
+        demVotes,
+        repVotes,
+        otherVotes,
+        { demCandidate, repCandidate },
+        { kind: 'county', county: countyDisplay.toUpperCase(), contestType, year: Number(year) }
+      );
 
       const signedMarginPct = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
       const winner = signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T');
@@ -9288,15 +9353,14 @@ function stripRunningMateName(name) {
     }
 
     function showCountyDetails(countyName) {
-      if (!SIDEBAR_ENABLED) return;
       // --- NC Map Card-Style Sidebar ---
       const sidebar = document.getElementById('sidebar');
       let sidebarContent = '';
       const detailsDiv = document.getElementById('county-details');
       const contentEl = document.getElementById('county-info-content');
+      const sidebarReady = !!(SIDEBAR_ENABLED && contentEl && detailsDiv);
       // sidebarContent will be declared once below
-      if (!contentEl || !detailsDiv) return;
-      if (sidebar) {
+      if (sidebarReady && sidebar) {
         sidebar.classList.remove('minimized');
         const sidebarContentEl = document.querySelector('.sidebar-content');
         if (sidebarContentEl) sidebarContentEl.style.display = 'block';
@@ -9313,12 +9377,16 @@ function stripRunningMateName(name) {
       }
       const countyNameElement = document.getElementById('county-name');
       const countyDisplay = displayCountyName(countyName);
+      window.lastSelectedCounty = countyDisplay;
+      updateContextBanner();
       if (countyNameElement) countyNameElement.textContent = countyDisplay + ' County';
       // sidebarContent already declared above
       // Guard: election results must exist
       if (!currentElectionResults) {
-        contentEl.innerHTML = '<p>Select a contest to see county results.</p>';
-        detailsDiv.style.display = 'block';
+        if (sidebarReady) {
+          contentEl.innerHTML = '<p>Select a contest to see county results.</p>';
+          detailsDiv.style.display = 'block';
+        }
         return;
       }
       // Normalize and find county data
@@ -9340,16 +9408,20 @@ function stripRunningMateName(name) {
         }
       }
       if (!countyData) {
-        contentEl.innerHTML = '<p>No results found for this county in the selected contest.</p>';
-        detailsDiv.style.display = 'block';
+        if (sidebarReady) {
+          contentEl.innerHTML = '<p>No results found for this county in the selected contest.</p>';
+          detailsDiv.style.display = 'block';
+        }
         return;
       }
       // Get contest info
       const contestSelect = document.getElementById('contestSelect');
       const contestKey = contestSelect && contestSelect.value;
       if (!contestKey) {
-        contentEl.innerHTML = '<p>Select a contest to see detailed results.</p>';
-        detailsDiv.style.display = 'block';
+        if (sidebarReady) {
+          contentEl.innerHTML = '<p>Select a contest to see detailed results.</p>';
+          detailsDiv.style.display = 'block';
+        }
         return;
       }
       const lastUnderscoreIndex = contestKey.lastIndexOf('_');
@@ -9358,10 +9430,13 @@ function stripRunningMateName(name) {
       // Votes
       const demVotes = countyData[`${contestType}_dem`] || 0;
       const repVotes = countyData[`${contestType}_rep`] || 0;
+      const otherVotes = countyData[`${contestType}_other`] || 0;
       const totalVotes = countyData[`${contestType}_total`] || 0;
       if (totalVotes === 0) {
-        contentEl.innerHTML = `<p>No ${formatContestName(contestType, year)} data available for ${countyDisplay} County in ${year}.</p>`;
-        detailsDiv.style.display = 'block';
+        if (sidebarReady) {
+          contentEl.innerHTML = `<p>No ${formatContestName(contestType, year)} data available for ${countyDisplay} County in ${year}.</p>`;
+          detailsDiv.style.display = 'block';
+        }
         return;
       }
       const demPct = (demVotes / totalVotes * 100);
@@ -9371,14 +9446,22 @@ function stripRunningMateName(name) {
   let repCandidate = (countyData[`${contestType}_rep_candidate`] || '').toString().trim() || getCandidateName(year, formatContestName(contestType, year), 'Republican');
   demCandidate = stripRunningMateName(demCandidate);
   repCandidate = stripRunningMateName(repCandidate);
+      pinVoteCounterState(
+        `Selected: ${countyDisplay} County`,
+        `${formatContestName(contestType, year)} ${year}`,
+        demVotes,
+        repVotes,
+        otherVotes,
+        { kind: 'county', county: countyDisplay.toUpperCase(), contestType, year: Number(year) },
+        { demCandidate, repCandidate }
+      );
+      if (!sidebarReady) return;
       // Margin
       const margin = demVotes - repVotes;
       const marginPct = (Math.abs(margin) / totalVotes * 100).toFixed(2);
       const winner = margin > 0 ? 'Democratic' : (margin < 0 ? 'Republican' : 'Tie');
       const winnerCandidate = margin > 0 ? demCandidate : repCandidate;
-      const marginText = margin > 0
-        ? `${shortCandidateLabel(winnerCandidate, winner === 'Republican' ? 'Republican' : 'Democratic')} + ${marginPct}`
-        : (margin < 0 ? `${shortCandidateLabel(winnerCandidate, winner === 'Republican' ? 'Republican' : 'Democratic')} + ${marginPct}` : 'Tied');
+      const marginText = winnerMarginLabelShort(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
       // Accessibility palette for winner color
       function cbColorForMargin(marginPct, winner) {
         if (marginPct >= 40) {
@@ -9429,7 +9512,7 @@ function stripRunningMateName(name) {
       sidebarContent += `</div>`;
     sidebarContent += `<div class="winner-section">`;
   sidebarContent += '<h3 class="sidebar-section-title">Winner</h3>';
-  sidebarContent += `<p class="sidebar-winner" style="color: ${winnerColor}; font-weight: bold;">${winnerCandidate} (${winner === 'Republican' ? 'R' : 'D'})</p>`;
+  sidebarContent += `<p class="sidebar-winner" style="color: ${winnerColor}; font-weight: bold;">${fullCandidateLabel(winnerCandidate, winner === 'Republican' ? 'Republican' : 'Democratic')} (${winner === 'Republican' ? 'R' : 'D'})</p>`;
   sidebarContent += `</div>`;
   sidebarContent += `<div class="margin-section">`;
   sidebarContent += '<h3 class="sidebar-section-title">Margin</h3>';
@@ -9464,11 +9547,10 @@ function stripRunningMateName(name) {
     // Non-accessibility mode: always use regular blue for Democratic vote breakdown
     demColor = '#2563eb';
   }
-  sidebarContent += `<p class="sidebar-breakdown"><span style="color: ${demColor}; font-weight: bold;">${demCandidate} (D)</span> : ${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</p>`;
-  sidebarContent += `<p class="sidebar-breakdown"><span style="color: ${repColor}; font-weight: bold;">${repCandidate} (R)</span> : ${repPct.toFixed(2)}% (${repVotes.toLocaleString()})</p>`;
+  sidebarContent += `<p class="sidebar-breakdown"><span style="color: ${demColor}; font-weight: bold;">${fullCandidateLabel(demCandidate, 'Democratic')} (D)</span> : ${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</p>`;
+  sidebarContent += `<p class="sidebar-breakdown"><span style="color: ${repColor}; font-weight: bold;">${fullCandidateLabel(repCandidate, 'Republican')} (R)</span> : ${repPct.toFixed(2)}% (${repVotes.toLocaleString()})</p>`;
   
   // Add Other votes if they exist
-  const otherVotes = countyData[`${contestType}_other`] || 0;
   if (otherVotes > 0) {
     const otherPct = (otherVotes / totalVotes * 100);
     sidebarContent += `<p class="sidebar-breakdown"><span style="color: #6b7280; font-weight: bold;">Other Candidates</span> : ${otherPct.toFixed(2)}% (${otherVotes.toLocaleString()})</p>`;
@@ -9490,7 +9572,7 @@ function stripRunningMateName(name) {
         if (cNorm !== norm) return;
         const token = (pRaw || '').toString().trim().toUpperCase();
         if (!token) return;
-        if (!isNonGeographicPrecinctToken(token)) return;
+        if (!isNonGeographicPrecinctToken(token, cNorm)) return;
         if (!buckets.has(token)) buckets.set(token, { dem: 0, rep: 0, other: 0, total: 0 });
         const node = buckets.get(token);
         node.dem += Number(r[`${contestType}_dem`] || 0);
@@ -9669,26 +9751,11 @@ function stripRunningMateName(name) {
           if (e.features && e.features[0] && e.features[0].properties) {
             const countyName = e.features[0].properties.precinct_name || e.features[0].properties.NAME20 || e.features[0].properties.CountyName || e.features[0].properties.county_nam || e.features[0].properties.COUNTYNAME || e.features[0].properties.County || e.features[0].properties.NAME || e.features[0].properties.name;
             if (countyName) {
-              prepareTooltipForSelection();
-              hideHoverTooltip();
-              clearVoteCounterHoverState();
               showCountyDetails(countyName);
               lastSelectedCounty = countyName;
               setCountyHoverOutline(countyName);
-              pinCountySelectionVoteCounter(countyName);
-              const contestValue = document.getElementById('contestSelect')?.value || '';
-              const [contestType] = parseContestValue(contestValue);
-              const trendType = contestType || 'president';
-              try {
-                const series = await getCountyTrendSeries(trendType, countyName);
-                const title = `${displayCountyName(countyName)} County`;
-                const content = formatTrendSeries(title, series);
-                showHoverTooltip(e.point.x, e.point.y, content, { placement: 'top-right' });
-                wireTooltipButtons();
-                maybePinTooltipForTap();
-              } catch (err) {
-                console.warn('Failed to load county trends:', err?.message || err);
-              }
+              setTooltipPinned(false);
+              hideHoverTooltip();
               
               // Optionally, expand sidebar if minimized
               const sidebar = document.getElementById('sidebar');
@@ -11025,21 +11092,13 @@ function stripRunningMateName(name) {
       tooltip.style.top = top + 'px';
     }
 
-    function showHoverTooltip(x, y, content, { force = false, placement = 'cursor' } = {}) {
+    function showHoverTooltip(x, y, content, { force = false } = {}) {
       const tooltip = document.getElementById('hover-tooltip');
       if (!tooltip) return;
       if (tooltipPinned && !force) return;
       
       tooltip.innerHTML = content;
-      const timelineLayout = !!tooltip.querySelector('[data-tooltip-layout="timeline"], .trend-summary-grid, .trend-timeline');
-      tooltip.setAttribute('data-layout', timelineLayout ? 'timeline' : 'default');
       tooltip.style.display = 'block';
-      tooltipPlacementMode = placement === 'top-right' ? 'top-right' : 'cursor';
-
-      if (tooltipPlacementMode === 'top-right') {
-        positionTooltipTopRight(tooltip);
-        return;
-      }
       
       // Position tooltip near mouse but avoid edges
       const tooltipRect = tooltip.getBoundingClientRect();
@@ -11098,22 +11157,13 @@ function stripRunningMateName(name) {
     }
 
     function wireTooltipButtons() {
-      const pinBtn = document.getElementById('tooltip-pin-btn');
       const closeBtn = document.getElementById('tooltip-close-btn');
-      if (pinBtn) {
-        pinBtn.onclick = () => {
-          setTooltipPinned(!tooltipPinned);
-          pinBtn.textContent = tooltipPinned ? 'Unpin' : 'Pin';
-        };
-      }
       if (closeBtn) {
         closeBtn.onclick = () => {
-          countyTrendRequestId++;
           setTooltipPinned(false);
           const tooltip = document.getElementById('hover-tooltip');
           if (tooltip) tooltip.style.display = 'none';
           clearHoverOutline();
-          clearPrecinctHoverFeature();
           clearVoteCounterHoverState();
         };
       }
