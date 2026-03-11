@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <style>
@@ -5432,80 +5432,26 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="vote-counter" id="vote-counter">
     <div class="vote-counter-context" id="vote-counter-context">
       <div class="context-left">
-        <div class="context-title" id="vote-context-title">Statewide Focus</div>
+        <div class="context-title" id="vote-context-title">Statewide</div>
         <div class="context-sub" id="vote-context-sub">Hover a county or district</div>
       </div>
       <button class="context-clear" id="vote-context-clear" title="Clear selection">Clear</button>
     </div>
-    <div class="vote-counter-meta">
-      <div class="vote-total" id="vote-total">0 total votes</div>
-      <div class="vote-lead" id="vote-lead" data-party="tie">Even race</div>
-    </div>
-    <div class="focus-card visible" id="focus-card">
-      <div class="focus-summary">
-        <div class="focus-pill">
-          <span class="focus-pill-label">Winner</span>
-          <span class="focus-pill-value tie" id="focus-winner">No data</span>
-        </div>
-        <div class="focus-pill">
-          <span class="focus-pill-label">Lead</span>
-          <span class="focus-pill-value tie" id="focus-margin">Tie</span>
-        </div>
-        <div class="focus-pill focus-pill-total">
-          <span class="focus-pill-label">Total Votes</span>
-          <span class="focus-pill-value" id="focus-total">0</span>
-        </div>
-      </div>
-      <div class="focus-bar-panel">
-        <div class="focus-bar-head">
-          <span class="focus-bar-label dem" id="focus-bar-label-dem">Dem 0.00%</span>
-          <span class="focus-bar-label midpoint" id="focus-bar-label-mid">50%</span>
-          <span class="focus-bar-label rep" id="focus-bar-label-rep">Rep 0.00%</span>
-        </div>
-        <div class="focus-bar" aria-label="Vote share split">
-          <div class="focus-bar-segment dem" id="focus-bar-dem" style="width:0%;"></div>
-          <div class="focus-bar-segment other" id="focus-bar-other" style="width:0%;"></div>
-          <div class="focus-bar-segment rep" id="focus-bar-rep" style="width:0%;"></div>
-          <div class="focus-bar-midpoint" aria-hidden="true"></div>
-        </div>
-      </div>
-      <div class="focus-trend" id="focus-trend">
-        <div class="focus-trend-head">
-          <span class="focus-trend-title">Trend</span>
-          <span class="focus-trend-caption" id="focus-trend-caption">Statewide history</span>
-        </div>
-        <div class="focus-trend-chart" id="focus-trend-chart">
-          <div class="focus-trend-empty">Select a contest to load trend history.</div>
-        </div>
-      </div>
-    </div>
     <div class="vote-counter-row">
-      <div class="vote-item dem">
-        <div class="vote-item-head">
-          <span class="vote-swatch"></span>
-          <div class="vote-label dem" id="dem-label">Dem</div>
-        </div>
+      <div class="vote-item">
+        <div class="vote-label dem">Dem</div>
         <div class="vote-count dem" id="dem-count">0</div>
         <div class="vote-percent" id="dem-percent">0%</div>
-        <div class="vote-share-track"><span class="vote-share-fill dem" id="dem-share-fill"></span></div>
       </div>
-      <div class="vote-item rep">
-        <div class="vote-item-head">
-          <span class="vote-swatch"></span>
-          <div class="vote-label rep" id="rep-label">Rep</div>
-        </div>
+      <div class="vote-item">
+        <div class="vote-label rep">Rep</div>
         <div class="vote-count rep" id="rep-count">0</div>
         <div class="vote-percent" id="rep-percent">0%</div>
-        <div class="vote-share-track"><span class="vote-share-fill rep" id="rep-share-fill"></span></div>
       </div>
-      <div class="vote-item other">
-        <div class="vote-item-head">
-          <span class="vote-swatch"></span>
-          <div class="vote-label other" id="other-label">Other</div>
-        </div>
+      <div class="vote-item">
+        <div class="vote-label other">OTHER</div>
         <div class="vote-count" id="other-count">0</div>
         <div class="vote-percent" id="other-percent">0%</div>
-        <div class="vote-share-track"><span class="vote-share-fill other" id="other-share-fill"></span></div>
       </div>
     </div>
   </div>
@@ -5559,7 +5505,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- Floating Status Panel -->
   <div class="status-panel" id="status-panel" style="display:none;position:fixed;top:20px;right:90px;z-index:10002;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);padding:18px 24px 18px 18px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.12);border:1px solid #e5e7eb;max-width:340px;min-width:200px;font-size:15px;color:#34495e;">
     <span id="status-message"></span>
-    <button id="status-exit" title="Close" style="position:absolute;top:10px;right:10px;padding:4px 10px;border-radius:6px;border:none;background:#eee;cursor:pointer;font-weight:bold;font-size:18px;">×</button>
+    <button id="status-exit" title="Close" style="position:absolute;top:10px;right:10px;padding:4px 10px;border-radius:6px;border:none;background:#eee;cursor:pointer;font-weight:bold;font-size:18px;">Ã—</button>
   </div>
     
 
@@ -5721,28 +5667,28 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="modal-body">
           <h3>Modes</h3>
-          <p><strong>Margins</strong>: colors show the <strong>two-party margin</strong> (absolute value of Rep% − Dem%). Darker = less competitive.</p>
+          <p><strong>Margins</strong>: colors show the <strong>two-party margin</strong> (absolute value of Rep% âˆ’ Dem%). Darker = less competitive.</p>
           <p><strong>Winners</strong>: solid color by winner (D/R), regardless of margin size.</p>
-          <p><strong>Shift</strong>: change in <strong>signed</strong> margin vs the nearest available prior election for that contest (e.g. 2020→2024). Positive = more Republican; negative = more Democratic.</p>
+          <p><strong>Shift</strong>: change in <strong>signed</strong> margin vs the nearest available prior election for that contest (e.g. 2020â†’2024). Positive = more Republican; negative = more Democratic.</p>
 
           <h3>Political Categories</h3>
           <p>Category names are just shorthand for margin ranges:</p>
           <ul>
             <li><strong>Annihilation</strong>: &ge;40%</li>
-            <li><strong>Dominant</strong>: 30–39.99%</li>
-            <li><strong>Stronghold</strong>: 20–29.99%</li>
-            <li><strong>Safe</strong>: 10–19.99%</li>
-            <li><strong>Likely</strong>: 5.50–9.99%</li>
-            <li><strong>Lean</strong>: 1.00–5.49%</li>
-            <li><strong>Tilt</strong>: 0.50–0.99%</li>
+            <li><strong>Dominant</strong>: 30â€“39.99%</li>
+            <li><strong>Stronghold</strong>: 20â€“29.99%</li>
+            <li><strong>Safe</strong>: 10â€“19.99%</li>
+            <li><strong>Likely</strong>: 5.50â€“9.99%</li>
+            <li><strong>Lean</strong>: 1.00â€“5.49%</li>
+            <li><strong>Tilt</strong>: 0.50â€“0.99%</li>
             <li><strong>Tossup</strong>: &lt;0.50%</li>
           </ul>
-          <p class="meta-subtle">Example: “Safe Republican (10–19.99%)” means the Republican candidate leads by 10–19.99 percentage points (two-party margin).</p>
+          <p class="meta-subtle">Example: â€œSafe Republican (10â€“19.99%)â€ means the Republican candidate leads by 10â€“19.99 percentage points (two-party margin).</p>
 
           <h3>Hover Details</h3>
           <ul>
             <li>Hover a shape to see a quick result card.</li>
-            <li>Click <strong>Pin</strong> in the tooltip to freeze it (so it won’t change while you move the mouse).</li>
+            <li>Click <strong>Pin</strong> in the tooltip to freeze it (so it wonâ€™t change while you move the mouse).</li>
             <li>Use <strong>Close</strong> to dismiss a pinned tooltip.</li>
           </ul>
 
@@ -5750,12 +5696,12 @@ document.addEventListener('DOMContentLoaded', function() {
           <ul>
             <li><span class="kbd">P</span> toggles precinct overlay (dots at statewide zoom; polygons when zoomed in).</li>
             <li><span class="kbd">L</span> toggles county labels.</li>
-            <li><strong>♿</strong> toggles colorblind-friendly colors.</li>
+            <li><strong>â™¿</strong> toggles colorblind-friendly colors.</li>
             <li><strong>Clear</strong> (in the vote counter) unpins a selected area.</li>
           </ul>
 
           <h3>Notes</h3>
-          <p class="meta-subtle">If Shift can’t find a prior year for the selected contest, it falls back to Margins.</p>
+          <p class="meta-subtle">If Shift canâ€™t find a prior year for the selected contest, it falls back to Margins.</p>
         </div>
       </div>
     </div>
@@ -6188,7 +6134,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let districtsInfo = null;
     let stateHouseInfo = null;
     let stateSenateInfo = null;
-    let districtDescriptions = null; // Optional labels like "Sampson & Bladen Counties" or "Concord–Harrisburg"
+    let districtDescriptions = null; // Optional labels like "Sampson & Bladen Counties" or "Concordâ€“Harrisburg"
     let countyDemographics = null; // County-level VAP (18+) + total-pop race/ethnicity from DP1
     let countyNameMap = {};
     let currentView = 'counties'; // 'counties', 'districts', 'state_house', 'state_senate'
@@ -6956,206 +6902,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Vote Counter Functions - VoteHub Style
-    function resolveVoteCounterCandidates(candidates = null, meta = null) {
-      let demCandidate = (candidates?.demCandidate || meta?.demCandidate || '').toString().trim();
-      let repCandidate = (candidates?.repCandidate || meta?.repCandidate || '').toString().trim();
-      const contestType = (meta?.contestType || '').toString().trim();
-      const year = meta?.year !== undefined && meta?.year !== null ? String(meta.year) : '';
-      const shouldLookupContestCandidates = !!(contestType && year)
-        && !(meta?.kind === 'statewide' && contestType === 'us_house' && !demCandidate && !repCandidate);
-      if (shouldLookupContestCandidates) {
-        const officeName = formatContestName(contestType, year);
-        if (!demCandidate) demCandidate = getCandidateName(year, officeName, 'Democrat');
-        if (!repCandidate) repCandidate = getCandidateName(year, officeName, 'Republican');
-      }
-      demCandidate = stripRunningMateName(demCandidate);
-      repCandidate = stripRunningMateName(repCandidate);
-      return { demCandidate, repCandidate };
-    }
-
-    function formatVoteCounterCandidateLabel(name, partyCode, fallbackText) {
-      const full = fullCandidateLabel(name, '');
-      if (!full || full.toUpperCase() === partyCode.toUpperCase()) return fallbackText;
-      return `${full} (${partyCode})`;
-    }
-
-    function shouldUseCompactVoteCounterWinnerLabel() {
-      try {
-        return !!(window.matchMedia && window.matchMedia('(max-width: 1180px)').matches);
-      } catch (_) {
-        return true;
-      }
-    }
-
-    function formatVoteCounterWinnerLabel(name, partyCode, fallbackText) {
-      if (!shouldUseCompactVoteCounterWinnerLabel()) {
-        return formatVoteCounterCandidateLabel(name, partyCode, fallbackText);
-      }
-      const short = shortCandidateLabel(name, fallbackText);
-      if (!short || short.toUpperCase() === partyCode.toUpperCase()) return fallbackText;
-      return `${short} (${partyCode})`;
-    }
-
-    function formatFocusBarLabel(name, pct, fallbackText) {
-      const short = shortCandidateLabel(name, fallbackText);
-      return `${short} ${Number(pct || 0).toFixed(2)}%`;
-    }
-
-    function formatCompactVoteTotal(value) {
-      const votes = Number(value || 0);
-      if (!Number.isFinite(votes) || votes <= 0) return '0';
-      if (votes >= 1000000) {
-        const digits = votes >= 10000000 ? 1 : 2;
-        return `${(votes / 1000000).toFixed(digits)}M`;
-      }
-      if (votes >= 1000) {
-        const digits = votes >= 100000 ? 0 : 1;
-        return `${(votes / 1000).toFixed(digits)}K`;
-      }
-      return votes.toLocaleString();
-    }
-
-    function getTrendWinnerMeta(item) {
-      const repVotes = Number(item?.rep_votes || 0);
-      const demVotes = Number(item?.dem_votes || 0);
-      if (repVotes > demVotes) {
-        return {
-          partyClass: 'rep',
-          label: `${shortCandidateLabel(item?.rep_candidate, 'Republican')} (R)`
-        };
-      }
-      if (demVotes > repVotes) {
-        return {
-          partyClass: 'dem',
-          label: `${shortCandidateLabel(item?.dem_candidate, 'Democratic')} (D)`
-        };
-      }
-      return {
-        partyClass: 'tie',
-        label: 'Tie'
-      };
-    }
-
-    function setVoteCounterLabels(candidates = null, meta = null) {
-      const demLabelEl = document.getElementById('dem-label');
-      const repLabelEl = document.getElementById('rep-label');
-      const otherLabelEl = document.getElementById('other-label');
-      const resolved = resolveVoteCounterCandidates(candidates, meta);
-      const demText = formatVoteCounterCandidateLabel(resolved.demCandidate, 'D', 'Dem');
-      const repText = formatVoteCounterCandidateLabel(resolved.repCandidate, 'R', 'Rep');
-
-      if (demLabelEl) {
-        demLabelEl.textContent = demText;
-        demLabelEl.classList.toggle('candidate', demText !== 'Dem');
-      }
-      if (repLabelEl) {
-        repLabelEl.textContent = repText;
-        repLabelEl.classList.toggle('candidate', repText !== 'Rep');
-      }
-      if (otherLabelEl) {
-        otherLabelEl.textContent = 'Other';
-        otherLabelEl.classList.remove('candidate');
-      }
-
-      return resolved;
-    }
-
-    function updateVoteCounterSummary(demVotes, repVotes, otherVotes = 0, candidates = null, meta = null) {
-      const d = Number(demVotes || 0);
-      const r = Number(repVotes || 0);
-      const o = Number(otherVotes || 0);
-      const total = d + r + o;
-
-      const winnerEl = document.getElementById('focus-winner');
-      const marginEl = document.getElementById('focus-margin');
-      const totalEl = document.getElementById('focus-total');
-      const barDem = document.getElementById('focus-bar-dem');
-      const barOther = document.getElementById('focus-bar-other');
-      const barRep = document.getElementById('focus-bar-rep');
-      const barDemLabelEl = document.getElementById('focus-bar-label-dem');
-      const barMidLabelEl = document.getElementById('focus-bar-label-mid');
-      const barRepLabelEl = document.getElementById('focus-bar-label-rep');
-      const totalMetaEl = document.getElementById('vote-total');
-      const leadMetaEl = document.getElementById('vote-lead');
-      const demShareFill = document.getElementById('dem-share-fill');
-      const repShareFill = document.getElementById('rep-share-fill');
-      const otherShareFill = document.getElementById('other-share-fill');
-
-      if (!winnerEl || !marginEl || !totalEl || !barDem || !barOther || !barRep || !barDemLabelEl || !barMidLabelEl || !barRepLabelEl) return;
-
-      const resolvedCandidates = setVoteCounterLabels(candidates, meta);
-
-      if (total <= 0) {
-        winnerEl.textContent = 'No data';
-        winnerEl.className = 'focus-pill-value tie';
-        marginEl.textContent = 'Tie';
-        marginEl.className = 'focus-pill-value tie';
-        totalEl.textContent = '0';
-        barDem.style.width = '0%';
-        barOther.style.width = '0%';
-        barRep.style.width = '0%';
-        barDemLabelEl.textContent = 'Dem 0.00%';
-        barMidLabelEl.textContent = '50%';
-        barRepLabelEl.textContent = 'Rep 0.00%';
-        if (totalMetaEl) totalMetaEl.textContent = '0 total votes';
-        if (leadMetaEl) {
-          leadMetaEl.textContent = 'Even race';
-          leadMetaEl.dataset.party = 'tie';
-        }
-        if (demShareFill) demShareFill.style.width = '0%';
-        if (repShareFill) repShareFill.style.width = '0%';
-        if (otherShareFill) otherShareFill.style.width = '0%';
-        return;
-      }
-
-      const demPct = (d / total) * 100;
-      const repPct = (r / total) * 100;
-      const otherPct = (o / total) * 100;
-      const winnerParty = repPct > demPct ? 'rep' : (demPct > repPct ? 'dem' : 'tie');
-      const winnerLabel = winnerParty === 'rep'
-        ? formatVoteCounterWinnerLabel(resolvedCandidates.repCandidate, 'R', 'Republican')
-        : (winnerParty === 'dem'
-          ? formatVoteCounterWinnerLabel(resolvedCandidates.demCandidate, 'D', 'Democratic')
-          : 'Tie');
-      const winnerTitle = winnerParty === 'rep'
-        ? formatVoteCounterCandidateLabel(resolvedCandidates.repCandidate, 'R', 'Republican')
-        : (winnerParty === 'dem'
-          ? formatVoteCounterCandidateLabel(resolvedCandidates.demCandidate, 'D', 'Democratic')
-          : 'Tie');
-      const leadLabel = winnerParty === 'tie'
-        ? 'Tie'
-        : leadMarginPctLabel(r, d, total);
-
-      winnerEl.textContent = winnerLabel;
-      winnerEl.className = `focus-pill-value ${winnerParty}`;
-      winnerEl.title = winnerTitle;
-      marginEl.textContent = leadLabel;
-      marginEl.className = `focus-pill-value ${winnerParty}`;
-      marginEl.title = leadLabel;
-      totalEl.textContent = total.toLocaleString();
-      barDem.style.width = `${demPct.toFixed(4)}%`;
-      barOther.style.width = `${otherPct.toFixed(4)}%`;
-      barRep.style.width = `${repPct.toFixed(4)}%`;
-      barDemLabelEl.textContent = formatFocusBarLabel(resolvedCandidates.demCandidate, demPct, 'Dem');
-      barMidLabelEl.textContent = '50%';
-      barRepLabelEl.textContent = formatFocusBarLabel(resolvedCandidates.repCandidate, repPct, 'Rep');
-      if (totalMetaEl) totalMetaEl.textContent = `${total.toLocaleString()} total votes`;
-      if (leadMetaEl) {
-        leadMetaEl.textContent = winnerParty === 'tie'
-          ? 'Even race'
-          : winnerMarginLabelShort(r, d, total, resolvedCandidates.repCandidate, resolvedCandidates.demCandidate);
-        leadMetaEl.dataset.party = winnerParty;
-      }
-      if (demShareFill) demShareFill.style.width = `${demPct.toFixed(2)}%`;
-      if (repShareFill) repShareFill.style.width = `${repPct.toFixed(2)}%`;
-      if (otherShareFill) otherShareFill.style.width = `${otherPct.toFixed(2)}%`;
-    }
-
-    function updateVoteCounter(demVotes, repVotes, otherVotes = 0, candidatesOrMeta = null, maybeMeta = null) {
-      const { candidates, meta } = splitVoteCounterArgs(candidatesOrMeta, maybeMeta);
+    function updateVoteCounter(demVotes, repVotes, otherVotes = 0) {
       const totalVotes = demVotes + repVotes + otherVotes;
       if (totalVotes === 0) {
-        updateVoteCounterSummary(0, 0, 0, candidates, meta);
         hideVoteCounter();
         return;
       }
@@ -7171,7 +6920,6 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('dem-percent').textContent = demPct.toFixed(2) + '%';
       document.getElementById('rep-percent').textContent = repPct.toFixed(2) + '%';
       document.getElementById('other-percent').textContent = otherPct.toFixed(2) + '%';
-      updateVoteCounterSummary(demVotes, repVotes, otherVotes, candidates, meta);
       
       showVoteCounter();
     }
@@ -7180,7 +6928,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let voteCounterBaseline = null; // {title, sub, dem, rep, other}
     let voteCounterPinned = null;   // {title, sub, dem, rep, other}
     let voteCounterHoverActive = false;
-    let voteCounterTrendRequestId = 0;
 
     function setVoteCounterContext(title, sub, {showClear = false} = {}) {
       const t = document.getElementById('vote-context-title');
@@ -7191,327 +6938,19 @@ document.addEventListener('DOMContentLoaded', function() {
       if (c) c.style.display = showClear ? 'inline-flex' : 'none';
     }
 
-    function renderFocusTrendEmpty(message, caption = 'Statewide history') {
-      const captionEl = document.getElementById('focus-trend-caption');
-      const chartEl = document.getElementById('focus-trend-chart');
-      if (captionEl) captionEl.textContent = caption;
-      if (chartEl) {
-        chartEl.innerHTML = `<div class="focus-trend-empty">${message}</div>`;
-      }
-      try { updateMobileOverlayOffsets(); } catch (_) {}
-    }
-
-    function escapeHtml(text) {
-      return String(text || '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-    }
-
-    function describeTrendShift(currentSignedPct, prevSignedPct, prevYear) {
-      if (!Number.isFinite(Number(prevSignedPct))) {
-        return { cls: 'tie', text: 'First available result' };
-      }
-      const shift = (Number(currentSignedPct) || 0) - (Number(prevSignedPct) || 0);
-      if (Math.abs(shift) < 0.01) {
-        return { cls: 'tie', text: `No shift vs ${prevYear}` };
-      }
-      return {
-        cls: shift > 0 ? 'rep' : 'dem',
-        text: `${shift > 0 ? 'R' : 'D'} +${Math.abs(shift).toFixed(2)} vs ${prevYear}`
-      };
-    }
-
-    function renderFocusTrendSeries(series, caption = 'Trend history') {
-      const captionEl = document.getElementById('focus-trend-caption');
-      const chartEl = document.getElementById('focus-trend-chart');
-      if (!chartEl) return;
-      if (captionEl) captionEl.textContent = caption;
-      if (!series || !series.length) {
-        chartEl.innerHTML = `<div class="focus-trend-empty">No historical trend data available.</div>`;
-        return;
-      }
-
-      const sortedSeries = series
-        .slice()
-        .sort((a, b) => a.year - b.year);
-      const annotated = sortedSeries.map((item, idx) => {
-        const prev = idx > 0 ? sortedSeries[idx - 1] : null;
-        const totalVotes = Number(item.total_votes || 0);
-        const demVotes = Number(item.dem_votes || 0);
-        const repVotes = Number(item.rep_votes || 0);
-        const otherVotes = Number(item.other_votes || 0);
-        const demPct = totalVotes > 0 ? (demVotes / totalVotes) * 100 : 0;
-        const repPct = totalVotes > 0 ? (repVotes / totalVotes) * 100 : 0;
-        const otherPct = totalVotes > 0 ? (otherVotes / totalVotes) * 100 : 0;
-        const signedPct = Number(item.margin_pct || 0);
-        const winnerMeta = getTrendWinnerMeta(item);
-        const leadLabel = leadMarginPctLabel(repVotes, demVotes, totalVotes);
-        const shiftMeta = describeTrendShift(signedPct, prev ? prev.margin_pct : NaN, prev ? prev.year : '');
-        const flip = prev ? flipInfo(prev.margin_pct, signedPct) : { flipped: false, from: 'T', to: 'T' };
-        return {
-          item,
-          prev,
-          totalVotes,
-          demVotes,
-          repVotes,
-          otherVotes,
-          demPct,
-          repPct,
-          otherPct,
-          signedPct,
-          winnerMeta,
-          leadLabel,
-          shiftMeta,
-          flip
-        };
-      });
-
-      const latest = annotated[annotated.length - 1];
-      const closest = annotated.reduce((best, entry) => {
-        if (!best) return entry;
-        return Math.abs(entry.signedPct) < Math.abs(best.signedPct) ? entry : best;
-      }, null);
-      const latestSummary = winnerMarginLabelShort(
-        latest.repVotes,
-        latest.demVotes,
-        latest.totalVotes,
-        latest.item.rep_candidate,
-        latest.item.dem_candidate
-      );
-      const earliest = annotated[0];
-      const historyShift = describeTrendShift(latest.signedPct, earliest ? earliest.signedPct : NaN, earliest ? earliest.item.year : '');
-      let streakCount = 0;
-      for (let i = annotated.length - 1; i >= 0; i -= 1) {
-        if (annotated[i].winnerMeta.partyClass !== latest.winnerMeta.partyClass) break;
-        streakCount += 1;
-      }
-      const streakLabel = latest.winnerMeta.partyClass === 'tie'
-        ? 'Latest result was an even race.'
-        : `${latest.winnerMeta.partyClass === 'rep' ? 'Republican' : 'Democratic'} streak: ${streakCount} election${streakCount === 1 ? '' : 's'}.`;
-
-      const summaryBadges = [];
-      if (latest.shiftMeta) {
-        summaryBadges.push(
-          `<span class="focus-trend-summary-badge ${latest.shiftMeta.cls}">${escapeHtml(latest.shiftMeta.text)}</span>`
-        );
-      }
-      if (latest.flip && latest.flip.flipped) {
-        summaryBadges.push(
-          `<span class="focus-trend-summary-badge ${latest.flip.to === 'R' ? 'rep' : 'dem'}">${escapeHtml(`Flip ${latest.flip.from}->${latest.flip.to}`)}</span>`
-        );
-      }
-
-      const cards = annotated
-        .slice()
-        .reverse()
-        .map(entry => {
-          const winnerLabel = entry.winnerMeta.partyClass === 'rep'
-            ? 'Republican'
-            : (entry.winnerMeta.partyClass === 'dem' ? 'Democratic' : 'Tie');
-          const totalVotesLabel = `${formatCompactVoteTotal(entry.totalVotes)} votes`;
-          const flipChip = entry.flip && entry.flip.flipped
-            ? `<span class="focus-trend-chip flip">${escapeHtml(`Flip ${entry.flip.from}->${entry.flip.to}`)}</span>`
-            : '';
-          const leadSummary = entry.leadLabel === 'Tie' ? 'Even race' : entry.leadLabel;
-          const otherChip = entry.otherPct >= 0.05
-            ? `<span class="focus-trend-chip">Other ${escapeHtml(entry.otherPct.toFixed(2))}%</span>`
-            : '';
-          return `
-            <div class="focus-trend-entry">
-              <span class="focus-trend-entry-year">${escapeHtml(entry.item.year)}</span>
-              <div class="focus-trend-entry-card" data-party="${entry.winnerMeta.partyClass}">
-                <div class="focus-trend-entry-head">
-                  <div class="focus-trend-entry-copy">
-                    <span class="focus-trend-entry-badge ${entry.winnerMeta.partyClass}">${escapeHtml(winnerLabel)}</span>
-                    <span class="focus-trend-entry-call ${entry.winnerMeta.partyClass}">${escapeHtml(entry.winnerMeta.label)}</span>
-                  </div>
-                  <span class="focus-trend-entry-margin">${escapeHtml(leadSummary)}</span>
-                </div>
-                <div class="focus-trend-entry-scale">
-                  <span class="dem">${escapeHtml(`${shortCandidateLabel(entry.item.dem_candidate, 'Dem')} ${entry.demPct.toFixed(2)}%`)}</span>
-                  <span class="rep">${escapeHtml(`${shortCandidateLabel(entry.item.rep_candidate, 'Rep')} ${entry.repPct.toFixed(2)}%`)}</span>
-                </div>
-                <div class="focus-trend-entry-bar" aria-hidden="true">
-                  <span style="width:${entry.demPct.toFixed(4)}%;background:#2563eb;"></span>
-                  ${entry.otherVotes > 0 ? `<span style="width:${entry.otherPct.toFixed(4)}%;background:#64748b;"></span>` : ''}
-                  <span style="width:${entry.repPct.toFixed(4)}%;background:#dc2626;"></span>
-                </div>
-                <div class="focus-trend-entry-footer">
-                  <span class="focus-trend-chip">${escapeHtml(totalVotesLabel)}</span>
-                  <span class="focus-trend-chip ${entry.shiftMeta.cls}">${escapeHtml(entry.shiftMeta.text)}</span>
-                  ${otherChip}
-                  ${flipChip}
-                </div>
-              </div>
-            </div>
-          `;
-        })
-        .join('');
-
-      chartEl.innerHTML = `
-        <div class="focus-trend-plot">
-          <div class="focus-trend-summary">
-            <div class="focus-trend-summary-copy">
-              <span class="focus-trend-summary-kicker">Trend at a glance</span>
-              <div class="focus-trend-summary-call">${escapeHtml(`${latest.item.year}: ${latestSummary}`)}</div>
-              <div class="focus-trend-summary-note">${escapeHtml(`Showing ${annotated.length} elections from ${earliest.item.year} to ${latest.item.year}. ${streakLabel}`)}</div>
-            </div>
-            <div class="focus-trend-summary-badges">${summaryBadges.join('')}</div>
-            <div class="focus-trend-stats">
-              <div class="focus-trend-stat">
-                <span class="focus-trend-stat-label">Latest</span>
-                <span class="focus-trend-stat-value ${latest.winnerMeta.partyClass}">${escapeHtml(`${latest.item.year}: ${latestSummary}`)}</span>
-              </div>
-              <div class="focus-trend-stat">
-                <span class="focus-trend-stat-label">Closest</span>
-                <span class="focus-trend-stat-value ${closest.winnerMeta.partyClass}">${escapeHtml(`${closest.item.year}: ${winnerMarginLabelShort(closest.repVotes, closest.demVotes, closest.totalVotes, closest.item.rep_candidate, closest.item.dem_candidate)}`)}</span>
-              </div>
-              <div class="focus-trend-stat">
-                <span class="focus-trend-stat-label">Since ${escapeHtml(earliest.item.year)}</span>
-                <span class="focus-trend-stat-value ${historyShift.cls}">${escapeHtml(historyShift.text)}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="focus-trend-list">${cards}</div>
-      `;
-      try { updateMobileOverlayOffsets(); } catch (_) {}
-    }
-
-    async function getStatewideTrendSeries(contestType) {
-      const entries = (contestManifest || [])
-        .filter(f => f && f.contest_type === contestType && Number.isFinite(Number(f.year)))
-        .slice()
-        .sort((a, b) => Number(a.year) - Number(b.year));
-
-      const out = [];
-      for (const e of entries) {
-        const year = Number(e.year);
-        const rows = await loadContestSlice(contestType, year);
-        let dem = 0, rep = 0, oth = 0, tot = 0;
-        let demCand = '', repCand = '';
-        rows.forEach(r => {
-          dem += Number(r[`${contestType}_dem`]) || 0;
-          rep += Number(r[`${contestType}_rep`]) || 0;
-          oth += Number(r[`${contestType}_other`]) || 0;
-          tot += Number(r[`${contestType}_total`]) || 0;
-          if (!demCand) demCand = r[`${contestType}_dem_candidate`] || '';
-          if (!repCand) repCand = r[`${contestType}_rep_candidate`] || '';
-        });
-        if (tot <= 0) continue;
-        const margin = rep - dem;
-        out.push({
-          year,
-          dem_votes: dem,
-          rep_votes: rep,
-          other_votes: oth,
-          total_votes: tot,
-          dem_candidate: demCand,
-          rep_candidate: repCand,
-          winner: margin > 0 ? 'REP' : (margin < 0 ? 'DEM' : 'TIE'),
-          margin_pct: Number(((margin / tot) * 100).toFixed(2))
-        });
-      }
-      if (!out.length && contestType === 'us_house' && Array.isArray(congressionalData) && congressionalData.length) {
-        const byYear = new Map();
-        congressionalData.forEach(row => {
-          const year = Number(row.year);
-          if (!Number.isFinite(year)) return;
-          if (!byYear.has(year)) byYear.set(year, { dem: 0, rep: 0, other: 0, total: 0 });
-          const agg = byYear.get(year);
-          agg.dem += Number(row.us_house_dem || 0);
-          agg.rep += Number(row.us_house_rep || 0);
-          agg.total += Number(row.us_house_total || 0);
-        });
-        Array.from(byYear.entries())
-          .sort((a, b) => a[0] - b[0])
-          .forEach(([year, agg]) => {
-            if (agg.total <= 0) return;
-            const margin = agg.rep - agg.dem;
-            out.push({
-              year,
-              dem_votes: agg.dem,
-              rep_votes: agg.rep,
-              other_votes: Math.max(0, agg.total - agg.dem - agg.rep),
-              total_votes: agg.total,
-              dem_candidate: '',
-              rep_candidate: '',
-              winner: margin > 0 ? 'REP' : (margin < 0 ? 'DEM' : 'TIE'),
-              margin_pct: Number(((margin / agg.total) * 100).toFixed(2))
-            });
-          });
-      }
-      return out;
-    }
-
-    async function refreshFocusTrend(state) {
-      const reqId = ++voteCounterTrendRequestId;
-      const contestValue = document.getElementById('contestSelect')?.value || '';
-      const [contestType, year] = parseContestValue(contestValue);
-      if (!contestType || !year) {
-        renderFocusTrendEmpty('Select a contest to load trend history.', 'Trend history');
-        return;
-      }
-
-      const meta = state?.meta || { kind: 'statewide', contestType, year };
-      const baseCaption = meta.kind === 'statewide'
-        ? 'Statewide history'
-        : (meta.kind === 'region'
-          ? `${meta.regionLabel || REGION_JUMPS[meta.regionKey]?.label || 'Region'} history`
-          : (meta.kind === 'county'
-            ? `${displayCountyName(meta.county)} County`
-            : (meta.kind === 'district'
-              ? (meta.scope === 'congressional'
-                ? `Congressional District ${meta.districtNum}`
-                : (meta.scope === 'state_house' ? `State House District ${meta.districtNum}` : `State Senate District ${meta.districtNum}`))
-              : (meta.kind === 'precinct' ? `${meta.precinct}` : 'Trend history'))));
-
-      renderFocusTrendEmpty('Loading trend history...', baseCaption);
-
-      try {
-        let series = [];
-        if (meta.kind === 'county' && meta.county) {
-          series = await getCountyTrendSeries(contestType, meta.county);
-        } else if (meta.kind === 'region' && meta.regionKey && typeof getRegionTrendSeries === 'function') {
-          series = await getRegionTrendSeries(contestType, meta.regionKey);
-        } else if (meta.kind === 'district' && meta.scope && meta.districtNum !== undefined) {
-          series = await getDistrictTrendSeries(meta.scope, contestType, meta.districtNum);
-        } else if (meta.kind === 'precinct' && meta.county) {
-          series = await getCountyTrendSeries(contestType, meta.county);
-        } else {
-          series = await getStatewideTrendSeries(contestType);
-        }
-        if (reqId !== voteCounterTrendRequestId) return;
-        renderFocusTrendSeries(series, baseCaption);
-      } catch (err) {
-        if (reqId !== voteCounterTrendRequestId) return;
-        renderFocusTrendEmpty('Failed to load trend history.', baseCaption);
-        console.warn('Failed to load focus trend:', err?.message || err);
-      }
-    }
-
-    function setVoteCounterBaselineState(title, sub, demVotes, repVotes, otherVotes, candidatesOrMeta = null, maybeMeta = null) {
-      const { candidates, meta } = splitVoteCounterArgs(candidatesOrMeta, maybeMeta);
-      voteCounterBaseline = { title, sub, demVotes, repVotes, otherVotes, meta, candidates };
+    function setVoteCounterBaselineState(title, sub, demVotes, repVotes, otherVotes) {
+      voteCounterBaseline = { title, sub, demVotes, repVotes, otherVotes };
       if (!voteCounterPinned) {
         setVoteCounterContext(title, sub, { showClear: false });
-        updateVoteCounter(demVotes, repVotes, otherVotes, candidates, meta);
-        refreshFocusTrend(voteCounterBaseline);
+        updateVoteCounter(demVotes, repVotes, otherVotes);
       }
-      try { updateContextBanner(); } catch (_) {}
     }
 
-    function pinVoteCounterState(title, sub, demVotes, repVotes, otherVotes, candidatesOrMeta = null, maybeMeta = null) {
-      const { candidates, meta } = splitVoteCounterArgs(candidatesOrMeta, maybeMeta);
-      voteCounterPinned = { title, sub, demVotes, repVotes, otherVotes, meta, candidates };
+    function pinVoteCounterState(title, sub, demVotes, repVotes, otherVotes) {
+      voteCounterPinned = { title, sub, demVotes, repVotes, otherVotes };
       voteCounterHoverActive = false;
       setVoteCounterContext(title, sub, { showClear: true });
-      updateVoteCounter(demVotes, repVotes, otherVotes, candidates, meta);
-      refreshFocusTrend(voteCounterPinned);
-      try { updateContextBanner(); } catch (_) {}
+      updateVoteCounter(demVotes, repVotes, otherVotes);
     }
 
     function clearPinnedVoteCounterState() {
@@ -7519,28 +6958,18 @@ document.addEventListener('DOMContentLoaded', function() {
       voteCounterHoverActive = false;
       if (voteCounterBaseline) {
         setVoteCounterContext(voteCounterBaseline.title, voteCounterBaseline.sub, { showClear: false });
-        updateVoteCounter(
-          voteCounterBaseline.demVotes,
-          voteCounterBaseline.repVotes,
-          voteCounterBaseline.otherVotes,
-          voteCounterBaseline.candidates,
-          voteCounterBaseline.meta
-        );
-        refreshFocusTrend(voteCounterBaseline);
+        updateVoteCounter(voteCounterBaseline.demVotes, voteCounterBaseline.repVotes, voteCounterBaseline.otherVotes);
       } else {
         setVoteCounterContext('Statewide', 'Hover a county or district', { showClear: false });
-        renderFocusTrendEmpty('Select a contest to load trend history.', 'Trend history');
         hideVoteCounter();
       }
-      try { updateContextBanner(); } catch (_) {}
     }
 
-    function setVoteCounterHoverState(title, sub, demVotes, repVotes, otherVotes, candidatesOrMeta = null, maybeMeta = null) {
+    function setVoteCounterHoverState(title, sub, demVotes, repVotes, otherVotes) {
       if (voteCounterPinned) return; // don't override a pinned selection
       voteCounterHoverActive = true;
-      const { candidates, meta } = splitVoteCounterArgs(candidatesOrMeta, maybeMeta);
       setVoteCounterContext(title, sub, { showClear: false });
-      updateVoteCounter(demVotes, repVotes, otherVotes, candidates, meta);
+      updateVoteCounter(demVotes, repVotes, otherVotes);
     }
 
     function clearVoteCounterHoverState() {
@@ -7549,13 +6978,7 @@ document.addEventListener('DOMContentLoaded', function() {
       voteCounterHoverActive = false;
       if (voteCounterBaseline) {
         setVoteCounterContext(voteCounterBaseline.title, voteCounterBaseline.sub, { showClear: false });
-        updateVoteCounter(
-          voteCounterBaseline.demVotes,
-          voteCounterBaseline.repVotes,
-          voteCounterBaseline.otherVotes,
-          voteCounterBaseline.candidates,
-          voteCounterBaseline.meta
-        );
+        updateVoteCounter(voteCounterBaseline.demVotes, voteCounterBaseline.repVotes, voteCounterBaseline.otherVotes);
       }
     }
 
@@ -7590,13 +7013,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function showVoteCounter() {
       const counter = document.getElementById('vote-counter');
       if (counter) counter.style.display = 'block';
-      try { updateMobileOverlayOffsets(); } catch (_) {}
     }
 
     function hideVoteCounter() {
       const counter = document.getElementById('vote-counter');
       if (counter) counter.style.display = 'none';
-      try { updateMobileOverlayOffsets(); } catch (_) {}
     }
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -8849,9 +8270,9 @@ function stripRunningMateName(name) {
       const raw = (name || '').toString().trim();
       if (!raw) return '';
       // Fix common mojibake sequences if UTF-8 bytes were mis-decoded somewhere upstream.
-      const normalized = raw.replace(/â€“/g, '–').replace(/â€”/g, '—').trim();
+      const normalized = raw.replace(/Ã¢â‚¬â€œ/g, 'â€“').replace(/Ã¢â‚¬â€/g, 'â€”').trim();
       // Common presidential ticket separators.
-      const seps = [' | ', '|', ' / ', '/', ' & ', '&', ' + ', '+', ' - ', '–', '—', ' – ', ' — '];
+      const seps = [' | ', '|', ' / ', '/', ' & ', '&', ' + ', '+', ' - ', 'â€“', 'â€”', ' â€“ ', ' â€” '];
       for (const sep of seps) {
         if (normalized.includes(sep)) {
           const left = normalized.split(sep, 1)[0].trim();
@@ -8870,8 +8291,8 @@ function stripRunningMateName(name) {
       // Ticket shorthand sometimes appears as a single token like "BIDEN-HARRIS" (no spaces).
       // Only treat dash as a ticket separator when there are no spaces in the string to avoid
       // stripping hyphenated last names in "First Last-Last" formats.
-      if (!/\s/.test(normalized) && /[-–—]/.test(normalized)) {
-        const parts = normalized.split(/[-–—]/, 2).map(s => (s || '').trim()).filter(Boolean);
+      if (!/\s/.test(normalized) && /[-â€“â€”]/.test(normalized)) {
+        const parts = normalized.split(/[-â€“â€”]/, 2).map(s => (s || '').trim()).filter(Boolean);
         if (parts.length === 2 && /^[A-Za-z'.]{3,}$/.test(parts[0]) && /^[A-Za-z'.]{3,}$/.test(parts[1])) {
           return parts[0] || normalized;
         }
@@ -8986,18 +8407,8 @@ function stripRunningMateName(name) {
       const otherPct = (o / total) * 100.0;
 
       const marginLabel = winnerMarginLabel(r, d, total, repCandidate || '', demCandidate || '');
-      let demFull = (demCandidate || '').toString().trim() || 'Democratic';
-      let repFull = (repCandidate || '').toString().trim() || 'Republican';
-      try {
-        if (typeof stripRunningMateName === 'function') {
-          demFull = stripRunningMateName(demFull);
-          repFull = stripRunningMateName(repFull);
-        }
-        if (typeof toTitleCaseName === 'function') {
-          demFull = toTitleCaseName(demFull);
-          repFull = toTitleCaseName(repFull);
-        }
-      } catch (_) {}
+      const demFull = (demCandidate || '').toString().trim() || 'Democratic';
+      const repFull = (repCandidate || '').toString().trim() || 'Republican';
 
       const safeTitle = (title || '').toString();
       const safeSubtitle = (subtitle || '').toString();
@@ -9346,7 +8757,7 @@ function stripRunningMateName(name) {
       const abs = Math.abs(s);
       const label = abs < 0.01 ? 'No change' : `${dir} + ${abs.toFixed(2)}%`;
       const dotColor = colorForShiftMode(s);
-      const years = (prevYear && year) ? `${prevYear}→${year}` : '';
+      const years = (prevYear && year) ? `${prevYear}â†’${year}` : '';
       return `<span class="meta-chip shift"><span class="dot" style="background:${dotColor};"></span>Shift: ${label}${years ? ` <span style="color:#64748b;font-weight:800;">(${years})</span>` : ''}</span>`;
     }
 
@@ -9878,7 +9289,7 @@ function stripRunningMateName(name) {
 
     function showCountyDetails(countyName) {
       if (!SIDEBAR_ENABLED) return;
-      // --- Sidebar ---
+      // --- NC Map Card-Style Sidebar ---
       const sidebar = document.getElementById('sidebar');
       let sidebarContent = '';
       const detailsDiv = document.getElementById('county-details');
@@ -9902,7 +9313,7 @@ function stripRunningMateName(name) {
       }
       const countyNameElement = document.getElementById('county-name');
       const countyDisplay = displayCountyName(countyName);
-      if (countyNameElement) countyNameElement.textContent = countyDisplay;
+      if (countyNameElement) countyNameElement.textContent = countyDisplay + ' County';
       // sidebarContent already declared above
       // Guard: election results must exist
       if (!currentElectionResults) {
@@ -9911,11 +9322,18 @@ function stripRunningMateName(name) {
         return;
       }
       // Normalize and find county data
-      let norm = normalizeCountyLookupKey(countyName);
+      function normalizeCountyName(name) {
+        return (name || '')
+          .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
+          .replace(/\s+/g, ' ')
+          .trim()
+          .toUpperCase();
+      }
+      let norm = normalizeCountyName(countyName);
       let countyData = currentElectionResults[norm];
       if (!countyData) {
         for (const key in currentElectionResults) {
-          if (normalizeCountyLookupKey(key) === norm) {
+          if (normalizeCountyName(key) === norm) {
             countyData = currentElectionResults[key];
             break;
           }
@@ -9942,7 +9360,7 @@ function stripRunningMateName(name) {
       const repVotes = countyData[`${contestType}_rep`] || 0;
       const totalVotes = countyData[`${contestType}_total`] || 0;
       if (totalVotes === 0) {
-        contentEl.innerHTML = `<p>No ${formatContestName(contestType, year)} data available for ${countyDisplay} in ${year}.</p>`;
+        contentEl.innerHTML = `<p>No ${formatContestName(contestType, year)} data available for ${countyDisplay} County in ${year}.</p>`;
         detailsDiv.style.display = 'block';
         return;
       }
@@ -10083,7 +9501,7 @@ function stripRunningMateName(name) {
       if (buckets.size) {
         sidebarContent += `<div class="margin-section">`;
         sidebarContent += '<h3 class="sidebar-section-title">Non-geographic votes</h3>';
-        sidebarContent += `<p class="sidebar-margin-details" style="margin-top:0;">Included in totals; not shown as precincts (e.g., Early Vote “EV”).</p>`;
+        sidebarContent += `<p class="sidebar-margin-details" style="margin-top:0;">Included in totals; not shown as precincts (e.g., Early Vote â€œEVâ€).</p>`;
         Array.from(buckets.entries())
           .sort((a, b) => (b[1].total || 0) - (a[1].total || 0))
           .slice(0, 10)
@@ -11749,7 +11167,7 @@ function stripRunningMateName(name) {
       if (districtInfo) {
         demographicInfo = `
           <div style="margin-bottom: 16px;">
-            <h5>👥 Demographics (VAP)</h5>
+            <h5>ðŸ‘¥ Demographics (VAP)</h5>
             <p><strong>Total Population:</strong> ${districtInfo.total_population.toLocaleString()}</p>
             <p><strong>White:</strong> ${districtInfo.white_vap_pct}%</p>
             <p><strong>Black:</strong> ${districtInfo.black_vap_pct}%</p>
@@ -11864,7 +11282,7 @@ function stripRunningMateName(name) {
       if (districtInfo) {
         demographicInfo = `
           <div style="margin-bottom: 16px;">
-            <h5>👥 Demographics (VAP)</h5>
+            <h5>ðŸ‘¥ Demographics (VAP)</h5>
             <p><strong>Total Population:</strong> ${districtInfo.total_population.toLocaleString()}</p>
             <p><strong>White:</strong> ${districtInfo.white_vap_pct}%</p>
             <p><strong>Black:</strong> ${districtInfo.black_vap_pct}%</p>
@@ -12938,7 +12356,7 @@ function stripRunningMateName(name) {
             // Drop "NO." token and leading zeros: "BREEZY NO. 087" -> "BREEZY 87"
             addPrecText(precTextU.replace(/\bNO\.?\s*0*(\d+)\b/g, '$1'));
 
-            // If the precinct name has a space before a hyphen, it’s often an appended sub-area label:
+            // If the precinct name has a space before a hyphen, itâ€™s often an appended sub-area label:
             // "BARKERS CREEK-MCADAMS" -> "BARKERS CREEK". (Avoid "FIFTY-TWO" where there's no space.)
             if (/\s+\S+-\S+/.test(precTextU)) {
               addPrecText(precTextU.split('-', 1)[0].trim());
@@ -13819,4 +13237,5 @@ function stripRunningMateName(name) {
   </script>
 </body>
 </html>
+
 
