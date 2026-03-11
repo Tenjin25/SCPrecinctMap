@@ -175,7 +175,7 @@
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script>
     // Define toggleSidebar function before DOMContentLoaded
-    const SIDEBAR_ENABLED = true;
+    const SIDEBAR_ENABLED = false;
     // Gate sidebar rendering/styles without a flash-of-sidebar on load.
     document.documentElement.classList.toggle('sidebar-enabled', SIDEBAR_ENABLED);
 
@@ -9669,11 +9669,26 @@ function stripRunningMateName(name) {
           if (e.features && e.features[0] && e.features[0].properties) {
             const countyName = e.features[0].properties.precinct_name || e.features[0].properties.NAME20 || e.features[0].properties.CountyName || e.features[0].properties.county_nam || e.features[0].properties.COUNTYNAME || e.features[0].properties.County || e.features[0].properties.NAME || e.features[0].properties.name;
             if (countyName) {
+              prepareTooltipForSelection();
+              hideHoverTooltip();
+              clearVoteCounterHoverState();
               showCountyDetails(countyName);
               lastSelectedCounty = countyName;
               setCountyHoverOutline(countyName);
-              setTooltipPinned(false);
-              hideHoverTooltip();
+              pinCountySelectionVoteCounter(countyName);
+              const contestValue = document.getElementById('contestSelect')?.value || '';
+              const [contestType] = parseContestValue(contestValue);
+              const trendType = contestType || 'president';
+              try {
+                const series = await getCountyTrendSeries(trendType, countyName);
+                const title = `${displayCountyName(countyName)} County`;
+                const content = formatTrendSeries(title, series);
+                showHoverTooltip(e.point.x, e.point.y, content, { placement: 'top-right' });
+                wireTooltipButtons();
+                maybePinTooltipForTap();
+              } catch (err) {
+                console.warn('Failed to load county trends:', err?.message || err);
+              }
               
               // Optionally, expand sidebar if minimized
               const sidebar = document.getElementById('sidebar');
