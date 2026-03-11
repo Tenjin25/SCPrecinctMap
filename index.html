@@ -3163,7 +3163,8 @@ body { height: var(--app-height); }
       left: auto;
       right: 24px;
       bottom: 24px;
-      width: min(340px, calc(100vw - 560px));
+      width: clamp(360px, 28vw, 460px);
+      max-width: min(460px, calc(100vw - 48px));
       max-height: calc(100vh - var(--desktop-counter-bottom, 20px) - var(--desktop-right-stack-gap, 40px) - 24px);
     }
 
@@ -3172,7 +3173,8 @@ body { height: var(--app-height); }
       left: auto;
       right: 24px;
       transform: none;
-      width: clamp(320px, 24vw, 380px);
+      width: clamp(360px, 28vw, 460px);
+      max-width: min(460px, calc(100vw - 48px));
     }
 
     .vote-counter-context {
@@ -3240,19 +3242,20 @@ body { height: var(--app-height); }
     max-width: min(360px, calc(100vw - 24px));
     max-height: min(54vh, 420px);
     overflow: auto;
-    padding: 14px;
-    border-radius: 18px;
-    background: linear-gradient(180deg, rgba(15, 23, 42, 0.96) 0%, rgba(17, 24, 39, 0.94) 100%);
-    border: 1px solid rgba(148, 163, 184, 0.22);
-    box-shadow: 0 24px 56px rgba(2, 6, 23, 0.46);
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: rgba(17, 24, 39, 0.96);
+    border: 1px solid rgba(15, 23, 42, 0.20);
+    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.25);
+    backdrop-filter: blur(14px);
+    animation: tooltip-in 140ms ease-out;
   }
 
   .hover-tooltip .tooltip-head {
+    display: flex;
     align-items: flex-start;
-    gap: 12px;
-    padding-bottom: 12px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    justify-content: space-between;
+    gap: 10px;
   }
 
   .hover-tooltip .tooltip-copy {
@@ -3270,36 +3273,39 @@ body { height: var(--app-height); }
   }
 
   .hover-tooltip .tooltip-title {
-    margin-bottom: 0;
-    font-size: 15px;
-    line-height: 1.25;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
   }
 
   .hover-tooltip .tooltip-actions {
-    gap: 8px;
+    display: flex;
+    gap: 6px;
     flex-shrink: 0;
   }
 
   .hover-tooltip .tooltip-btn {
-    min-height: 34px;
-    padding: 7px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.2);
-    background: rgba(255, 255, 255, 0.08);
-    color: #f8fafc;
-    font-weight: 700;
+    border: 1px solid rgba(15, 23, 42, 0.16);
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 6px 8px;
+    font-size: 12px;
+    color: #0f172a;
+    cursor: pointer;
   }
 
   .hover-tooltip .tooltip-btn:hover {
-    background: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.98);
   }
 
   .hover-tooltip .tooltip-trends,
   .hover-tooltip .tooltip-body {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    color: #e2e8f0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #ffffff;
   }
 
   .hover-tooltip .tooltip-trends b,
@@ -3310,9 +3316,9 @@ body { height: var(--app-height); }
   }
 
   #hover-tooltip[data-layout="timeline"] {
-    width: min(420px, calc(100vw - 24px));
-    max-width: min(420px, calc(100vw - 24px));
-    max-height: calc(100vh - 130px);
+    width: clamp(360px, 28vw, 460px);
+    max-width: min(460px, calc(100vw - 24px));
+    max-height: calc(100vh - 112px);
     padding: 12px;
     border-radius: 20px;
     background: rgba(248, 250, 252, 0.97);
@@ -3339,7 +3345,7 @@ body { height: var(--app-height); }
     color: #334155;
     font-size: 13px;
     line-height: 1.35;
-    max-height: calc(100vh - 178px);
+    max-height: calc(100vh - 168px);
     overflow: auto;
     padding-right: 2px;
   }
@@ -3680,11 +3686,11 @@ body { height: var(--app-height); }
       bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 8px) !important;
       width: auto !important;
       max-width: none !important;
-      max-height: 54vh;
+      max-height: 58vh;
     }
 
     #hover-tooltip[data-layout="timeline"] .tooltip-trends {
-      max-height: 42vh;
+      max-height: 46vh;
     }
 
     .trend-summary-grid {
@@ -4661,7 +4667,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 
   <!-- Vote Counter Display - VoteHub Style -->
-  <div class="vote-counter nc-top-panel" id="vote-counter">
+  <div class="vote-counter" id="vote-counter">
     <div class="vote-counter-context" id="vote-counter-context">
       <div class="context-left">
         <div class="context-title" id="vote-context-title">Statewide</div>
@@ -4669,37 +4675,21 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
       <button class="context-clear" id="vote-context-clear" title="Clear selection">Clear</button>
     </div>
-    <div class="vote-counter-meta">
-      <div class="vote-total" id="vote-total">0 total votes</div>
-      <div class="vote-lead" id="vote-lead">Lead unavailable</div>
-    </div>
     <div class="vote-counter-row">
-      <div class="vote-kpi-grid">
-        <div class="vote-kpi vote-kpi-winner" id="winner-kpi" data-party="tie">
-          <div class="vote-kpi-label">Winner</div>
-          <div class="vote-kpi-value" id="winner-name">No leader</div>
-          <div class="vote-kpi-sub" id="winner-party">(T)</div>
-        </div>
-        <div class="vote-kpi vote-kpi-lead" id="lead-kpi" data-party="tie">
-          <div class="vote-kpi-label">Lead</div>
-          <div class="vote-kpi-value" id="lead-value">0.00%</div>
-        </div>
+      <div class="vote-item">
+        <div class="vote-label dem">Dem</div>
+        <div class="vote-count dem" id="dem-count">0</div>
+        <div class="vote-percent" id="dem-percent">0%</div>
       </div>
-      <div class="vote-share-card">
-        <div class="vote-share-header">
-          <span class="vote-share-title">Total Votes</span>
-          <strong id="vote-total-card">0</strong>
-        </div>
-        <div class="vote-share-labels">
-          <span class="dem" id="dem-share-label">Dem 0.00%</span>
-          <span class="mid">50%</span>
-          <span class="rep" id="rep-share-label">Rep 0.00%</span>
-        </div>
-        <div class="vote-share-track">
-          <span class="vote-share-fill dem" id="dem-share-fill"></span>
-          <span class="vote-share-fill other" id="other-share-fill"></span>
-          <span class="vote-share-fill rep" id="rep-share-fill"></span>
-        </div>
+      <div class="vote-item">
+        <div class="vote-label rep">Rep</div>
+        <div class="vote-count rep" id="rep-count">0</div>
+        <div class="vote-percent" id="rep-percent">0%</div>
+      </div>
+      <div class="vote-item">
+        <div class="vote-label other">OTHER</div>
+        <div class="vote-count" id="other-count">0</div>
+        <div class="vote-percent" id="other-percent">0%</div>
       </div>
     </div>
   </div>
@@ -6053,70 +6043,27 @@ document.addEventListener('DOMContentLoaded', function() {
         hideVoteCounter();
         return;
       }
-      const counterMeta = normalizeVoteCounterMeta(meta);
-      
       const demPct = (demVotes / totalVotes) * 100;
       const repPct = (repVotes / totalVotes) * 100;
       const otherPct = (otherVotes / totalVotes) * 100;
+      
+      animateCounter('dem-count', demVotes);
+      animateCounter('rep-count', repVotes);
+      animateCounter('other-count', otherVotes);
 
-      const useShortLabels = useShortVoteCounterCandidateLabels();
-      const demDisplay = useShortLabels
-        ? shortCandidateLabel(counterMeta.demCandidate, 'Democratic')
-        : (counterMeta.demCandidate || 'Democratic');
-      const repDisplay = useShortLabels
-        ? shortCandidateLabel(counterMeta.repCandidate, 'Republican')
-        : (counterMeta.repCandidate || 'Republican');
-
-      const demShareFill = document.getElementById('dem-share-fill');
-      const repShareFill = document.getElementById('rep-share-fill');
-      const otherShareFill = document.getElementById('other-share-fill');
-      if (demShareFill) demShareFill.style.width = `${demPct.toFixed(2)}%`;
-      if (repShareFill) repShareFill.style.width = `${repPct.toFixed(2)}%`;
-      if (otherShareFill) otherShareFill.style.width = `${otherPct.toFixed(2)}%`;
-
-      const demShareLabelEl = document.getElementById('dem-share-label');
-      const repShareLabelEl = document.getElementById('rep-share-label');
-      if (demShareLabelEl) demShareLabelEl.textContent = `${demDisplay} ${demPct.toFixed(2)}%`;
-      if (repShareLabelEl) repShareLabelEl.textContent = `${repDisplay} ${repPct.toFixed(2)}%`;
-
-      const totalEl = document.getElementById('vote-total');
-      if (totalEl) totalEl.textContent = `${totalVotes.toLocaleString()} total votes`;
-      const totalCardEl = document.getElementById('vote-total-card');
-      if (totalCardEl) totalCardEl.textContent = `${totalVotes.toLocaleString()}`;
-
-      const leadEl = document.getElementById('vote-lead');
-      const winnerKpi = document.getElementById('winner-kpi');
-      const leadKpi = document.getElementById('lead-kpi');
-      const winnerNameEl = document.getElementById('winner-name');
-      const winnerPartyEl = document.getElementById('winner-party');
-      const leadValueEl = document.getElementById('lead-value');
-      const marginPct = Math.abs(demPct - repPct);
-      const winnerIsDem = demVotes > repVotes;
-      const winnerIsRep = repVotes > demVotes;
-      const leadParty = winnerIsDem ? 'dem' : (winnerIsRep ? 'rep' : 'tie');
-      const winnerLabel = winnerIsDem ? demDisplay : (winnerIsRep ? repDisplay : 'No leader');
-      const winnerCode = winnerIsDem ? 'D' : (winnerIsRep ? 'R' : 'T');
-
-      if (winnerKpi) winnerKpi.dataset.party = leadParty;
-      if (leadKpi) leadKpi.dataset.party = leadParty;
-      if (winnerNameEl) winnerNameEl.textContent = winnerLabel;
-      if (winnerPartyEl) winnerPartyEl.textContent = `(${winnerCode})`;
-      if (leadValueEl) leadValueEl.textContent = `${marginPct.toFixed(2)}%`;
-
-      if (leadEl) {
-        let leadText = 'Even';
-        if (demVotes !== repVotes) {
-          const leadShort = winnerIsDem
-            ? shortCandidateLabel(counterMeta.demCandidate || demDisplay, 'Democratic')
-            : shortCandidateLabel(counterMeta.repCandidate || repDisplay, 'Republican');
-          leadText = `${leadShort} +${marginPct.toFixed(2)}%`;
-        }
-        leadEl.textContent = leadText;
-        leadEl.dataset.party = leadParty;
-      }
+      const demPctEl = document.getElementById('dem-percent');
+      const repPctEl = document.getElementById('rep-percent');
+      const otherPctEl = document.getElementById('other-percent');
+      if (demPctEl) demPctEl.textContent = demPct.toFixed(2) + '%';
+      if (repPctEl) repPctEl.textContent = repPct.toFixed(2) + '%';
+      if (otherPctEl) otherPctEl.textContent = otherPct.toFixed(2) + '%';
 
       const counterEl = document.getElementById('vote-counter');
-      if (counterEl) counterEl.dataset.party = leadParty;
+      if (counterEl) {
+        const winnerIsDem = demVotes > repVotes;
+        const winnerIsRep = repVotes > demVotes;
+        counterEl.dataset.party = winnerIsDem ? 'dem' : (winnerIsRep ? 'rep' : 'tie');
+      }
       
       showVoteCounter();
     }
@@ -7825,96 +7772,128 @@ function stripRunningMateName(name) {
     }
 
     function formatTrendSeries(title, series) {
-      const orderedAsc = (series || [])
-        .filter(s => Number.isFinite(Number(s?.year)))
+      if (!series || series.length === 0) {
+        return buildTooltipShell(title, '<div style="color:#999;">No historical data</div>');
+      }
+      const esc = (value) => String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+      const ordered = series
         .slice()
+        .filter(Boolean)
         .sort((a, b) => Number(a.year) - Number(b.year));
-      if (!orderedAsc.length) {
+      if (!ordered.length) {
         return buildTooltipShell(title, '<div style="color:#999;">No historical data</div>');
       }
 
-      const latest = orderedAsc[orderedAsc.length - 1];
-      const closest = orderedAsc.reduce((best, row) => {
-        if (!best) return row;
-        return Math.abs(trendSignedMarginPct(row)) < Math.abs(trendSignedMarginPct(best)) ? row : best;
+      const newest = ordered[ordered.length - 1];
+      const earliest = ordered[0];
+      const closest = ordered.reduce((best, entry) => {
+        if (!best) return entry;
+        const bestAbs = Math.abs(trendSignedMarginPct(best));
+        const nextAbs = Math.abs(trendSignedMarginPct(entry));
+        if (nextAbs < bestAbs) return entry;
+        if (Math.abs(nextAbs - bestAbs) < 0.0001 && Number(entry.year) > Number(best.year)) return entry;
+        return best;
       }, null);
-      const baseline = orderedAsc[0];
 
-      const latestSummary = trendOutcomeSummary(latest);
-      const closestSummary = trendOutcomeSummary(closest);
-      const baselineSigned = trendSignedMarginPct(baseline);
-      const sinceDelta = latestSummary.signedPct - baselineSigned;
-      const sinceAbs = Math.abs(sinceDelta);
-      const sinceClass = sinceDelta > 0 ? 'rep' : (sinceDelta < 0 ? 'dem' : '');
-      const sinceText = sinceAbs < 0.005
-        ? `No change vs ${baseline.year}`
-        : `${sinceDelta > 0 ? 'R' : 'D'} +${sinceAbs.toFixed(2)}% vs ${baseline.year}`;
+      const latestOutcome = trendOutcomeSummary(newest);
+      const closestOutcome = trendOutcomeSummary(closest);
+      const latestCls = latestOutcome.winnerCode === 'R' ? 'rep' : (latestOutcome.winnerCode === 'D' ? 'dem' : '');
+      const closestCls = closestOutcome.winnerCode === 'R' ? 'rep' : (closestOutcome.winnerCode === 'D' ? 'dem' : '');
 
-      const orderedDesc = orderedAsc.slice().sort((a, b) => Number(b.year) - Number(a.year));
-      const cards = orderedDesc.map((entry, index) => {
+      const sincePct = trendSignedMarginPct(newest) - trendSignedMarginPct(earliest);
+      const sinceCls = sincePct > 0 ? 'rep' : (sincePct < 0 ? 'dem' : '');
+      const sinceLabel = Math.abs(sincePct) < 0.01
+        ? `Even vs ${earliest.year}`
+        : `${sincePct > 0 ? 'R' : 'D'} +${Math.abs(sincePct).toFixed(2)} vs ${earliest.year}`;
+
+      const summaryHtml = `
+        <div class="trend-summary-grid">
+          <div class="trend-summary-box">
+            <div class="trend-summary-k">Latest</div>
+            <div class="trend-summary-v ${latestCls}">${esc(newest.year)}: ${esc(latestOutcome.winnerShort)} +${latestOutcome.absPct.toFixed(2)}%</div>
+          </div>
+          <div class="trend-summary-box">
+            <div class="trend-summary-k">Closest</div>
+            <div class="trend-summary-v ${closestCls}">${esc(closest.year)}: ${esc(closestOutcome.winnerShort)} +${closestOutcome.absPct.toFixed(2)}%</div>
+          </div>
+          <div class="trend-summary-box">
+            <div class="trend-summary-k">Since ${esc(earliest.year)}</div>
+            <div class="trend-summary-v ${sinceCls}">${esc(sinceLabel)}</div>
+          </div>
+        </div>
+      `;
+
+      const desc = ordered.slice().reverse();
+      const timelineHtml = desc.map((entry, idx) => {
+        const signed = trendSignedMarginPct(entry);
+        const outcome = trendOutcomeSummary(entry);
+        const winnerCode = outcome.winnerCode;
+        const partyClass = winnerCode === 'R' ? 'rep' : (winnerCode === 'D' ? 'dem' : 'tie');
+        const partyLabel = winnerCode === 'R' ? 'REPUBLICAN' : (winnerCode === 'D' ? 'DEMOCRATIC' : 'TIE');
+
         const demVotes = Number(entry.dem_votes || 0);
         const repVotes = Number(entry.rep_votes || 0);
         const otherVotes = Number(entry.other_votes || 0);
         const totalVotes = Number(entry.total_votes || (demVotes + repVotes + otherVotes));
-        if (totalVotes <= 0) return '';
+        const demPct = totalVotes > 0 ? (demVotes / totalVotes) * 100 : 0;
+        const repPct = totalVotes > 0 ? (repVotes / totalVotes) * 100 : 0;
+        const otherPct = totalVotes > 0 ? (otherVotes / totalVotes) * 100 : 0;
+        const twoParty = demVotes + repVotes;
+        const demBar = twoParty > 0 ? (demVotes / twoParty) * 100 : 50;
+        const repBar = Math.max(0, 100 - demBar);
 
-        const summary = trendOutcomeSummary(entry);
-        const winnerCode = summary.winnerCode;
-        const cardClass = winnerCode === 'R' ? 'rep' : (winnerCode === 'D' ? 'dem' : 'tie');
-        const partyText = winnerCode === 'R' ? 'Republican' : (winnerCode === 'D' ? 'Democratic' : 'Tossup');
-        const demPct = (demVotes / totalVotes) * 100.0;
-        const repPct = (repVotes / totalVotes) * 100.0;
-        const otherPct = (otherVotes / totalVotes) * 100.0;
-        const twoPartyTotal = demVotes + repVotes;
-        const demBar = twoPartyTotal > 0 ? (demVotes / twoPartyTotal) * 100.0 : 50;
-        const repBar = twoPartyTotal > 0 ? (repVotes / twoPartyTotal) * 100.0 : 50;
-        const demLabel = shortCandidateLabel(entry.dem_candidate, 'Dem');
-        const repLabel = shortCandidateLabel(entry.rep_candidate, 'Rep');
-        const winnerLine = winnerCode === 'T'
+        const winnerName = winnerCode === 'T'
           ? 'Tie'
-          : `${summary.winnerName} (${winnerCode})`;
+          : `${outcome.winnerName} ${winnerCode === 'R' ? '(R)' : '(D)'}`;
 
-        const prev = orderedDesc[index + 1] || null;
-        let shiftHtml = '';
-        let flipHtml = '';
+        const prev = desc[idx + 1] || null;
+        let shiftChip = '';
+        let flipChip = '';
         if (prev) {
           const prevSigned = trendSignedMarginPct(prev);
-          const delta = summary.signedPct - prevSigned;
-          const deltaAbs = Math.abs(delta);
-          if (deltaAbs < 0.005) {
-            shiftHtml = `<span class="trend-meta-pill shift">No change vs ${prev.year}</span>`;
-          } else {
-            const shiftClass = delta > 0 ? 'rep' : 'dem';
-            shiftHtml = `<span class="trend-meta-pill shift ${shiftClass}">${delta > 0 ? 'R' : 'D'} +${deltaAbs.toFixed(2)}% vs ${prev.year}</span>`;
-          }
-          const flip = flipInfo(prevSigned, summary.signedPct);
+          const shift = signed - prevSigned;
+          const shiftCls = shift > 0 ? 'rep' : (shift < 0 ? 'dem' : '');
+          const shiftLabel = Math.abs(shift) < 0.01
+            ? `Even vs ${prev.year}`
+            : `${shift > 0 ? 'R' : 'D'} +${Math.abs(shift).toFixed(2)} vs ${prev.year}`;
+          shiftChip = `<span class="trend-meta-pill shift ${shiftCls}">${esc(shiftLabel)}</span>`;
+
+          const flip = flipInfo(prevSigned, signed);
           if (flip.flipped) {
-            flipHtml = `<span class="trend-meta-pill flip">Flip ${flip.from}\u2192${flip.to}</span>`;
+            const from = flip.from === 'R' ? 'R' : 'D';
+            const to = flip.to === 'R' ? 'R' : 'D';
+            flipChip = `<span class="trend-meta-pill flip">Flip ${from}\u2192${to}</span>`;
           }
         }
 
         return `
           <div class="trend-item">
-            <div class="trend-year-node">${entry.year}</div>
-            <div class="trend-card ${cardClass}">
+            <div class="trend-year-node">${esc(entry.year)}</div>
+            <div class="trend-card ${partyClass}">
               <div class="trend-card-top">
-                <span class="trend-party-pill ${cardClass}">${partyText}</span>
-                <span class="trend-margin-pill">${summary.absPct.toFixed(2)}%</span>
+                <span class="trend-party-pill ${partyClass}">${partyLabel}</span>
+                <span class="trend-margin-pill">${outcome.absPct.toFixed(2)}%</span>
               </div>
-              <div class="trend-winner ${cardClass}">${winnerLine}</div>
+              <div class="trend-winner ${partyClass}">${esc(winnerName)}</div>
               <div class="trend-share-labels">
-                <span class="dem">${demLabel} ${demPct.toFixed(2)}%</span>
-                <span class="rep">${repLabel} ${repPct.toFixed(2)}%</span>
+                <span class="dem">${esc(shortCandidateLabel(entry.dem_candidate, 'Democratic'))} ${demPct.toFixed(2)}%</span>
+                <span class="rep">${esc(shortCandidateLabel(entry.rep_candidate, 'Republican'))} ${repPct.toFixed(2)}%</span>
               </div>
               <div class="trend-share-bar">
                 <div class="trend-share-dem" style="width:${demBar.toFixed(4)}%;"></div>
                 <div class="trend-share-rep" style="width:${repBar.toFixed(4)}%;"></div>
               </div>
               <div class="trend-meta-row">
-                <span class="trend-meta-pill votes">${formatTrendVotesCompact(totalVotes)}</span>
-                ${shiftHtml}
-                <span class="trend-meta-pill other">Other ${otherPct.toFixed(2)}%</span>
-                ${flipHtml}
+                <span class="trend-meta-pill">${esc(formatTrendVotesCompact(totalVotes))}</span>
+                <span class="trend-meta-pill">Other ${otherPct.toFixed(2)}%</span>
+                ${shiftChip}
+                ${flipChip}
               </div>
             </div>
           </div>
@@ -7922,26 +7901,12 @@ function stripRunningMateName(name) {
       }).join('');
 
       const inner = `
-        <div class="trend-summary-grid">
-          <div class="trend-summary-box">
-            <div class="trend-summary-k">Latest</div>
-            <div class="trend-summary-v ${latestSummary.winnerCode === 'R' ? 'rep' : (latestSummary.winnerCode === 'D' ? 'dem' : '')}">
-              ${latest.year}: ${latestSummary.label}
-            </div>
-          </div>
-          <div class="trend-summary-box">
-            <div class="trend-summary-k">Closest</div>
-            <div class="trend-summary-v ${closestSummary.winnerCode === 'R' ? 'rep' : (closestSummary.winnerCode === 'D' ? 'dem' : '')}">
-              ${closest.year}: ${closestSummary.label}
-            </div>
-          </div>
-          <div class="trend-summary-box">
-            <div class="trend-summary-k">Since ${baseline.year}</div>
-            <div class="trend-summary-v ${sinceClass}">${sinceText}</div>
-          </div>
+        <div data-tooltip-layout="timeline">
+          ${summaryHtml}
+          <div class="trend-timeline">${timelineHtml}</div>
         </div>
-        <div class="trend-timeline">${cards || '<div style="color:#999;">No historical data</div>'}</div>
       `;
+
       return buildTooltipShell(title, inner);
     }
 
@@ -8869,6 +8834,19 @@ function stripRunningMateName(name) {
           setCountyHoverOutline(countyName);
           if (feature) focusCountyFeature(feature, { duration: 850 });
           pinCountySelectionVoteCounter(countyName);
+          const contestValue = document.getElementById('contestSelect')?.value || '';
+          const [contestType] = parseContestValue(contestValue);
+          const trendType = contestType || 'president';
+          try {
+            const series = await getCountyTrendSeries(trendType, countyName);
+            const title = `${displayCountyName(countyName)} - ${formatContestName(trendType, '')} Trends`;
+            const content = formatTrendSeries(title, series);
+            showHoverTooltip(e.point.x, e.point.y, content, { placement: 'top-right' });
+            wireTooltipButtons();
+            maybePinTooltipForTap();
+          } catch (err) {
+            console.warn('Failed to load county trends:', err?.message || err);
+          }
           const sidebar = document.getElementById('sidebar');
           if (sidebar && sidebar.classList.contains('minimized')) {
             sidebar.classList.remove('minimized');
@@ -9366,7 +9344,10 @@ function stripRunningMateName(name) {
                 }).catch(() => {});
               }
 
-              try { districtHoverRequestId++; } catch (_) {}
+              try {
+                await renderDistrictHover(e, 'congressional', 'Congressional District', ['DISTRICT', 'CD118FP', 'district_id', 'district', 'NAMELSAD'], { tooltipPlacement: 'top-right' });
+                maybePinTooltipForTap();
+              } catch (_) {}
             }
           }
         });
@@ -9451,7 +9432,10 @@ function stripRunningMateName(name) {
                 }).catch(() => {});
               }
 
-              try { districtHoverRequestId++; } catch (_) {}
+              try {
+                await renderDistrictHover(e, 'state_house', 'State House District', ['DISTRICT', 'SLDLST', 'district_id', 'district', 'NAMELSAD'], { tooltipPlacement: 'top-right' });
+                maybePinTooltipForTap();
+              } catch (_) {}
             }
           }
         });
@@ -9536,7 +9520,10 @@ function stripRunningMateName(name) {
                 }).catch(() => {});
               }
 
-              try { districtHoverRequestId++; } catch (_) {}
+              try {
+                await renderDistrictHover(e, 'state_senate', 'State Senate District', ['DISTRICT', 'SLDUST', 'district_id', 'district', 'NAMELSAD'], { tooltipPlacement: 'top-right' });
+                maybePinTooltipForTap();
+              } catch (_) {}
             }
           }
         });
@@ -10133,20 +10120,21 @@ function stripRunningMateName(name) {
 
     function positionTooltipTopRight(tooltip) {
       if (!tooltip) return;
-      const padding = 15;
+      const mobile = isMobileTooltipViewport();
+      const padding = mobile ? 10 : 24;
       const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1280;
       const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 720;
       const tooltipRect = tooltip.getBoundingClientRect();
 
       let top = padding;
-      if (!isMobileTooltipViewport()) {
+      if (!mobile) {
         const counter = document.getElementById('vote-counter');
         if (counter) {
           const style = window.getComputedStyle ? window.getComputedStyle(counter) : null;
           const shown = !style || (style.display !== 'none' && style.visibility !== 'hidden');
           if (shown) {
             const counterRect = counter.getBoundingClientRect();
-            if (counterRect.height > 0) top = Math.max(top, Math.ceil(counterRect.bottom) + 10);
+            if (counterRect.height > 0) top = Math.max(top, Math.ceil(counterRect.bottom) + 12);
           }
         }
       }
@@ -10158,20 +10146,14 @@ function stripRunningMateName(name) {
       tooltip.style.top = top + 'px';
     }
 
-    function showHoverTooltip(x, y, content, { force = false, placement = 'cursor', layout = 'auto' } = {}) {
+    function showHoverTooltip(x, y, content, { force = false, placement = 'cursor' } = {}) {
       const tooltip = document.getElementById('hover-tooltip');
       if (!tooltip) return;
       if (tooltipPinned && !force) return;
       
       tooltip.innerHTML = content;
-      const resolvedLayout = layout === 'timeline'
-        ? 'timeline'
-        : (layout === 'default'
-          ? 'default'
-          : ((typeof content === 'string' && (content.includes('trend-summary-grid') || content.includes('trend-timeline')))
-            ? 'timeline'
-            : 'default'));
-      tooltip.setAttribute('data-layout', resolvedLayout);
+      const timelineLayout = !!tooltip.querySelector('[data-tooltip-layout="timeline"], .trend-summary-grid, .trend-timeline');
+      tooltip.setAttribute('data-layout', timelineLayout ? 'timeline' : 'default');
       tooltip.style.display = 'block';
       tooltipPlacementMode = placement === 'top-right' ? 'top-right' : 'cursor';
 
@@ -10223,20 +10205,16 @@ function stripRunningMateName(name) {
     }
 
     function buildTooltipShell(title, innerHtml) {
-      const pinLabel = tooltipPinned && tooltipPinnedExplicit ? 'Unpin' : 'Pin';
-      const kicker = tooltipPinned ? (tooltipPinnedExplicit ? 'Pinned detail' : 'Selected detail') : 'Map detail';
+      const pinLabel = tooltipPinned ? 'Unpin' : 'Pin';
       return `
         <div class="tooltip-head">
-          <div class="tooltip-copy">
-            <div class="tooltip-kicker">${kicker}</div>
-            <div class="tooltip-title">${title}</div>
-          </div>
+          <div class="tooltip-title">${title}</div>
           <div class="tooltip-actions">
             <button class="tooltip-btn" id="tooltip-pin-btn" type="button">${pinLabel}</button>
             <button class="tooltip-btn" id="tooltip-close-btn" type="button">Close</button>
           </div>
         </div>
-        <div class="tooltip-body tooltip-trends">${innerHtml}</div>
+        <div class="tooltip-trends">${innerHtml}</div>
       `;
     }
 
@@ -10245,12 +10223,8 @@ function stripRunningMateName(name) {
       const closeBtn = document.getElementById('tooltip-close-btn');
       if (pinBtn) {
         pinBtn.onclick = () => {
-          if (tooltipPinned && tooltipPinnedExplicit) {
-            setTooltipPinned(false);
-          } else {
-            setTooltipPinned(true, { explicit: true, key: tooltipPinnedKey });
-          }
-          pinBtn.textContent = tooltipPinned && tooltipPinnedExplicit ? 'Unpin' : 'Pin';
+          setTooltipPinned(!tooltipPinned);
+          pinBtn.textContent = tooltipPinned ? 'Unpin' : 'Pin';
         };
       }
       if (closeBtn) {
