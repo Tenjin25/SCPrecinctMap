@@ -3648,6 +3648,170 @@ body { height: var(--app-height); }
     background: rgba(237, 233, 254, 0.9);
   }
 
+  /* NCMap parity: apply NC tooltip visual language to trend timeline layout. */
+  #hover-tooltip[data-layout="timeline"] {
+    width: min(360px, calc(100vw - 24px));
+    max-width: min(360px, calc(100vw - 24px));
+    max-height: min(54vh, 420px);
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: rgba(17, 24, 39, 0.96);
+    border: 1px solid rgba(15, 23, 42, 0.20);
+    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.25);
+  }
+
+  #hover-tooltip[data-layout="timeline"] .tooltip-head {
+    border-bottom-color: rgba(148, 163, 184, 0.22);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .tooltip-kicker {
+    color: #93c5fd;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .tooltip-title {
+    color: #ffffff;
+    font-size: 14px;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .tooltip-trends {
+    color: #e2e8f0;
+    font-size: 12px;
+    line-height: 1.5;
+    max-height: min(44vh, 320px);
+    overflow: auto;
+    padding-right: 2px;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .tooltip-btn {
+    border: 1px solid rgba(15, 23, 42, 0.16);
+    background: rgba(255, 255, 255, 0.85);
+    color: #0f172a;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-summary-box {
+    background: rgba(15, 23, 42, 0.45);
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 10px;
+    padding: 8px 10px;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-summary-k {
+    color: #cbd5e1;
+    font-size: 10px;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-summary-v {
+    color: #ffffff;
+    font-size: 15px;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-summary-v.rep {
+    color: #fca5a5;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-summary-v.dem {
+    color: #93c5fd;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-timeline::before {
+    background: rgba(148, 163, 184, 0.24);
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-year-node {
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: rgba(15, 23, 42, 0.82);
+    color: #e2e8f0;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-card {
+    background: rgba(15, 23, 42, 0.58);
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 12px;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-card.rep {
+    background: rgba(127, 29, 29, 0.34);
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-card.dem {
+    background: rgba(30, 58, 138, 0.32);
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-card.tie {
+    background: rgba(15, 23, 42, 0.62);
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-party-pill,
+  #hover-tooltip[data-layout="timeline"] .trend-margin-pill,
+  #hover-tooltip[data-layout="timeline"] .trend-meta-pill {
+    border-color: rgba(148, 163, 184, 0.30);
+    background: rgba(15, 23, 42, 0.74);
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-party-pill.rep {
+    color: #fecaca;
+    background: rgba(153, 27, 27, 0.40);
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-party-pill.dem {
+    color: #bfdbfe;
+    background: rgba(30, 64, 175, 0.40);
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-party-pill.tie {
+    color: #cbd5e1;
+    background: rgba(51, 65, 85, 0.50);
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-margin-pill,
+  #hover-tooltip[data-layout="timeline"] .trend-quick-total,
+  #hover-tooltip[data-layout="timeline"] .trend-quick-margin,
+  #hover-tooltip[data-layout="timeline"] .trend-key-value,
+  #hover-tooltip[data-layout="timeline"] .trend-winner {
+    color: #f8fafc;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-key-label {
+    color: #cbd5e1;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-key-value.rep,
+  #hover-tooltip[data-layout="timeline"] .trend-winner.rep,
+  #hover-tooltip[data-layout="timeline"] .trend-quick-margin.rep {
+    color: #fca5a5;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-key-value.dem,
+  #hover-tooltip[data-layout="timeline"] .trend-winner.dem,
+  #hover-tooltip[data-layout="timeline"] .trend-quick-margin.dem {
+    color: #93c5fd;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-share-bar {
+    background: rgba(51, 65, 85, 0.62);
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-meta-pill {
+    color: #cbd5e1;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-meta-pill.shift.rep {
+    color: #fecaca;
+    background: rgba(127, 29, 29, 0.45);
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-meta-pill.shift.dem {
+    color: #bfdbfe;
+    background: rgba(30, 58, 138, 0.45);
+  }
+
+  #hover-tooltip[data-layout="timeline"] .trend-meta-pill.flip {
+    color: #ddd6fe;
+    background: rgba(76, 29, 149, 0.45);
+  }
+
   #hover-tooltip[data-pinned="1"][data-pin-explicit="1"] {
     pointer-events: auto;
   }
