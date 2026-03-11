@@ -9666,40 +9666,23 @@ function stripRunningMateName(name) {
         });
         // Add county click event handler
         map.on('click', 'county-fill', async (e) => {
-          const feature = e?.features?.[0] || null;
-          const props = feature?.properties || null;
-          if (!props) return;
-          const countyRaw = props.precinct_name || props.county_nam || props.CountyName || props.COUNTYNAME || props.County || props.NAME20 || props.NAME || props.name || props.NAMELSAD20;
-          const countyName = (countyRaw || '').toString().replace(/\s+County$/i, '').trim();
-          if (!countyName) return;
-
-          // NC-style county click flow: select county, clear hover tooltip state, and keep sidebar in sync.
-          prepareTooltipForSelection();
-          hideHoverTooltip();
-          clearVoteCounterHoverState();
-          showCountyDetails(countyName);
-          lastSelectedCounty = countyName;
-          setCountyHoverOutline(countyName);
-          if (feature) focusCountyFeature(feature, { duration: 850 });
-          pinCountySelectionVoteCounter(countyName);
-          const contestValue = document.getElementById('contestSelect')?.value || '';
-          const [contestType] = parseContestValue(contestValue);
-          const trendType = contestType || 'president';
-          try {
-            const series = await getCountyTrendSeries(trendType, countyName);
-            const title = `${displayCountyName(countyName)} - ${formatContestName(trendType, '')} Trends`;
-            const content = formatTrendSeries(title, series);
-            showHoverTooltip(e.point.x, e.point.y, content, { placement: 'top-right' });
-            wireTooltipButtons();
-            maybePinTooltipForTap();
-          } catch (err) {
-            console.warn('Failed to load county trends:', err?.message || err);
-          }
-          const sidebar = document.getElementById('sidebar');
-          if (sidebar && sidebar.classList.contains('minimized')) {
-            sidebar.classList.remove('minimized');
-            const btn = document.getElementById('sidebar-minimize-btn');
-            if (btn) btn.textContent = '-';
+          if (e.features && e.features[0] && e.features[0].properties) {
+            const countyName = e.features[0].properties.precinct_name || e.features[0].properties.NAME20 || e.features[0].properties.CountyName || e.features[0].properties.county_nam || e.features[0].properties.COUNTYNAME || e.features[0].properties.County || e.features[0].properties.NAME || e.features[0].properties.name;
+            if (countyName) {
+              showCountyDetails(countyName);
+              lastSelectedCounty = countyName;
+              setCountyHoverOutline(countyName);
+              setTooltipPinned(false);
+              hideHoverTooltip();
+              
+              // Optionally, expand sidebar if minimized
+              const sidebar = document.getElementById('sidebar');
+              if (sidebar && sidebar.classList.contains('minimized')) {
+                sidebar.classList.remove('minimized');
+                const btn = document.getElementById('sidebar-minimize-btn');
+                if (btn) btn.textContent = '-';
+              }
+            }
           }
         });
         // Hover tooltip with election results
@@ -10631,7 +10614,7 @@ function stripRunningMateName(name) {
         await handlePrecinctSelection(parsed.county, parsed.code);
         return;
       }
-      handleCountySelection(normalizedQuery, { zoomOnly: currentView !== 'counties' });
+      handleCountySelection(normalizedQuery);
     }
 
     async function ensureSearchGeoJSON(sourceId, fallbackPath) {
@@ -10775,7 +10758,7 @@ function stripRunningMateName(name) {
       if (sidebar && sidebar.classList.contains('minimized')) toggleSidebar();
     }
 
-    function handleCountySelection(countyName, { zoomOnly = false } = {}) {
+    function handleCountySelection(countyName) {
       flashFlyToInputs();
       // Find and zoom to the county using countiesData and Turf.js
       // Prefer the authoritative source: window.countiesData if present, otherwise try map source
@@ -10815,18 +10798,10 @@ function stripRunningMateName(name) {
           debugLog('[DIAGNOSTIC] Matched county for', countyName, '->', lastSelectedCounty);
           focusCountyFeature(found, { duration: 1000 });
           setCountyHoverOutline(lastSelectedCounty);
-          if (zoomOnly) {
-            setStatus(`Focused ${displayCountyName(lastSelectedCounty)} County.`);
-          } else {
-            prepareTooltipForSelection();
-            hideHoverTooltip();
-            clearVoteCounterHoverState();
-            showCountyDetails(lastSelectedCounty);
-            pinCountySelectionVoteCounter(lastSelectedCounty);
-            const sidebar = document.getElementById('sidebar');
-            if (sidebar && sidebar.classList.contains('minimized')) {
-              toggleSidebar();
-            }
+          showCountyDetails(lastSelectedCounty);
+          const sidebar = document.getElementById('sidebar');
+          if (sidebar && sidebar.classList.contains('minimized')) {
+            toggleSidebar();
           }
         } else {
           console.warn('[DIAGNOSTIC] County not found:', countyName, 'normalized:', normTarget);
