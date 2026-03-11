@@ -7003,23 +7003,35 @@ function stripRunningMateName(name) {
         .slice()
         .sort((a, b) => Number(a.year) - Number(b.year));
 
-      const target = (countyName || '')
+      const normalizeTrendCounty = (raw) => (raw || '')
         .toString()
         .replace(/\s+County$/i, '')
         .trim()
         .toUpperCase();
+      const target = normalizeTrendCounty(countyName);
       const out = [];
       for (const e of entries) {
         const year = Number(e.year);
         const rows = await loadContestSlice(contestType, year);
-        // Rows are precinct-level: "COUNTY - PREC". Aggregate to county.
+
+        // Contest slices can include both county summary rows and precinct rows.
+        // Prefer the county summary row when present to avoid double counting.
+        const countyRows = [];
+        rows.forEach(r => {
+          const rowName = (r.county || '').toString().trim();
+          if (!rowName) return;
+          const countyOnlyRaw = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
+          const countyOnly = normalizeTrendCounty(countyOnlyRaw);
+          if (countyOnly === target) countyRows.push(r);
+        });
+        if (!countyRows.length) continue;
+
+        const summaryRows = countyRows.filter(r => !((r.county || '').toString().includes(' - ')));
+        const sourceRows = summaryRows.length ? [summaryRows[0]] : countyRows;
+
         let dem = 0, rep = 0, oth = 0, tot = 0;
         let demCand = '', repCand = '';
-        rows.forEach(r => {
-          const rowName = (r.county || '').toString().trim().toUpperCase();
-          const countyOnlyRaw = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
-          const countyOnly = (countyOnlyRaw || '').toString().replace(/\s+COUNTY$/i, '').trim().toUpperCase();
-          if (countyOnly !== target) return;
+        sourceRows.forEach(r => {
           dem += Number(r[`${contestType}_dem`]) || 0;
           rep += Number(r[`${contestType}_rep`]) || 0;
           oth += Number(r[`${contestType}_other`]) || 0;
