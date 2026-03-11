@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <style>
   /* Mobile Styles - Enhanced for touch and small screens */
   @media (max-width: 768px) {
@@ -174,6 +172,7 @@
     font-weight: 700;
   }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script>
     // Define toggleSidebar function before DOMContentLoaded
     const SIDEBAR_ENABLED = false;
@@ -357,6 +356,7 @@
       // Normalize county names for matching
       function normalizeCountyName(name) {
         return (name || '')
+          .replace(/&/g, ' AND ')
           .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
           .replace(/\s+/g, ' ')
           .trim()
@@ -365,18 +365,22 @@
       const normTarget = normalizeCountyName(countyName);
       const countyFeature = counties.find(f => {
         const props = f.properties || {};
-        const name = normalizeCountyName(props.NAME20 || props.County || props.COUNTYNAME || props.NAME || '');
+        const name = normalizeCountyName(props.NAMELSAD20 || props.NAME20 || props.County || props.COUNTYNAME || props.NAME || '');
         return name === normTarget;
       });
       if (!countyFeature) return;
-      const bbox = turf.bbox(countyFeature);
-      map.fitBounds(bbox, { padding: 40, maxZoom: 10 });
+      if (!fitFeatureWithOverlayPadding(countyFeature, { duration: 900, maxZoom: 10 })) {
+        const bbox = turf.bbox(countyFeature);
+        map.fitBounds(bbox, { padding: 40, maxZoom: 10 });
+      }
     }
   </script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js'></script>
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <meta charset='utf-8'>
     <title>The Palmetto Explorer</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover'>
     <meta property="og:title" content="The Palmetto Explorer">
     <meta property="og:description" content="Interactive visualization of South Carolina election trends across counties, precincts, and districts.">
     <meta property="og:image" content="preview.png">
@@ -490,12 +494,6 @@ body { height: var(--app-height); }
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: opacity 0.15s ease;
 }
-@media (max-width: 768px) {
-  .hover-tooltip {
-    max-width: 92vw;
-  }
-}
-
 .hover-tooltip .tooltip-title {
   font-weight: 700;
   margin-bottom: 10px;
@@ -1448,7 +1446,11 @@ body { height: var(--app-height); }
   }
 
   .main-controls {
-    border-radius: 14px;
+    width: min(440px, calc(100vw - 32px));
+    min-width: 0;
+    max-width: 460px;
+    border-radius: 20px;
+    padding: 18px;
   }
 
   .legend,
@@ -1544,8 +1546,21 @@ body { height: var(--app-height); }
     background: rgba(255, 255, 255, 0.98);
   }
 
-  /* Allow interacting with tooltip buttons only when pinned. */
+  .hover-tooltip {
+    pointer-events: none;
+  }
+
+  /* Soft-pinned selection tooltips should not block the next county hover.
+     Explicitly pinned tooltips stay fully interactive. */
   #hover-tooltip[data-pinned="1"] {
+    pointer-events: none;
+  }
+
+  #hover-tooltip[data-pinned="1"][data-pin-explicit="1"] {
+    pointer-events: auto;
+  }
+
+  #hover-tooltip .tooltip-btn {
     pointer-events: auto;
   }
 
@@ -1926,7 +1941,7 @@ body { height: var(--app-height); }
 
   .fly-to-search {
     min-height: 46px;
-    padding-right: 16px;
+    padding-right: 40px;
     font-weight: 600;
   }
 
@@ -2281,6 +2296,35 @@ body { height: var(--app-height); }
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .statewide-card {
+      padding: 12px;
+      border-radius: 16px;
+    }
+
+    .statewide-hero {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .statewide-call {
+      font-size: 30px;
+    }
+
+    .statewide-competitive {
+      justify-content: flex-start;
+      white-space: normal;
+    }
+
+    .statewide-breakdown {
+      grid-template-columns: 1fr;
+    }
+
+    .statewide-footer-row {
+      grid-template-columns: 1fr;
+    }
   }
 
   .statewide-bar {
@@ -2866,6 +2910,27 @@ body { height: var(--app-height); }
   }
 
   @media (min-width: 769px) {
+    .viz-modes {
+      display: none;
+    }
+
+    .viz-inline-group {
+      display: block;
+    }
+
+    .viz-modes-inline {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      overflow: visible;
+    }
+
+    .viz-modes-inline .viz-mode-btn {
+      min-width: 0 !important;
+      padding: 10px 14px !important;
+      white-space: nowrap;
+    }
+
     .main-controls {
       display: flex;
       flex-direction: column;
@@ -2909,6 +2974,11 @@ body { height: var(--app-height); }
       padding-bottom: 0;
       background: transparent;
       backdrop-filter: none;
+    }
+
+    .main-controls.minimized .controls-heading {
+      display: flex;
+      min-width: 0;
     }
 
     .main-controls.minimized .controls-kicker {
@@ -3014,11 +3084,21 @@ body { height: var(--app-height); }
       grid-column: 1 / -1;
     }
 
+    .desktop-statewide-panel .statewide-card {
+      margin-top: 0;
+    }
+
+    .desktop-statewide-panel .statewide-share-row {
+      flex-wrap: wrap;
+      overflow: visible;
+    }
+
     .legend {
       left: auto;
       right: 24px;
       bottom: 24px;
       width: min(340px, calc(100vw - 560px));
+      max-height: calc(100vh - var(--desktop-counter-bottom, 20px) - var(--desktop-right-stack-gap, 40px) - 24px);
     }
 
     .vote-counter {
@@ -3027,6 +3107,11 @@ body { height: var(--app-height); }
       right: 24px;
       transform: none;
       width: clamp(320px, 24vw, 380px);
+    }
+
+    .vote-counter-context {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
     }
 
     .vote-counter-meta {
@@ -3041,10 +3126,19 @@ body { height: var(--app-height); }
       text-align: left;
     }
 
+    .vote-total {
+      font-size: 12px;
+    }
+
     .vote-lead {
       font-size: 16px;
       line-height: 1.2;
       letter-spacing: -0.01em;
+    }
+
+    #status-panel {
+      top: 194px !important;
+      right: 24px !important;
     }
   }
 
@@ -3408,45 +3502,143 @@ body { height: var(--app-height); }
     html.android-mobile #hover-tooltip {
       bottom: calc(var(--legend-h, 56px) + var(--counter-h, 0px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 18px) !important;
     }
-  }
-
-  @media (max-width: 480px) {
-    .main-controls {
-      padding: 12px !important;
-      max-height: min(58vh, 460px) !important;
+    .control-summary {
+      padding: 12px;
+      border-radius: 16px;
     }
 
-    @supports (height: 100svh) {
-      .main-controls { max-height: min(58svh, 460px) !important; }
+    .control-summary-title {
+      font-size: 16px;
+    }
+
+    .control-summary-pill,
+    .control-summary-kicker,
+    .control-summary-mode {
+      font-size: 10px;
+    }
+
+    .viz-modes-inline {
+      border-radius: 16px;
+    }
+
+    .main-controls {
+      top: calc(max(6px, var(--safe-top, 0px)) + var(--android-vv-top, 0px)) !important;
+      left: max(6px, var(--safe-left, 0px)) !important;
+      right: max(6px, var(--safe-right, 0px)) !important;
+      width: auto !important;
+      padding: 10px 10px 12px !important;
+      border-radius: 18px !important;
+      max-height: min(44svh, 400px) !important;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18) !important;
     }
 
     @supports (height: 100dvh) {
-      .main-controls { max-height: min(58dvh, 460px) !important; }
+      .main-controls {
+        max-height: min(44dvh, 400px) !important;
+      }
+    }
+
+    .controls-header {
+      align-items: flex-start;
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+    }
+
+    .controls-heading {
+      gap: 3px;
     }
 
     .controls-header h3 {
-      font-size: 15px !important;
-      line-height: 1.2;
-      max-width: 86%;
+      font-size: 16px;
+      line-height: 1.15;
+      max-width: 18ch;
     }
 
-    .view-toggle-row {
+    .controls-content {
+      gap: 12px;
+      padding-right: 2px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .controls-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .control-group-search {
+      padding: 12px;
+    }
+
+    .control-summary {
+      gap: 8px;
+    }
+
+    .control-summary-title {
+      font-size: 15px;
+    }
+
+    .control-summary-meta {
+      gap: 6px;
+    }
+
+    .contest-toolbar {
       display: grid !important;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 44px 44px minmax(0, 1fr);
+      align-items: stretch !important;
       gap: 8px !important;
     }
 
-    #main-controls .view-toggle-btn {
-      min-height: 42px !important;
-      padding: 8px 10px !important;
-      font-size: 12px !important;
-      line-height: 1.1;
+    .contest-toolbar #accessibility-toggle,
+    .contest-toolbar #label-toggle {
+      width: 44px !important;
+      height: 44px !important;
     }
 
-    #contestSearch,
-    #contestSelect {
-      min-height: 46px !important;
-      font-size: 16px !important;
+    .contest-toolbar #precinct-toggle {
+      grid-column: 3;
+      min-width: 0;
+      min-height: 44px;
+      height: auto !important;
+      border-radius: 14px !important;
+    }
+
+    .fly-to-search-wrap {
+      gap: 10px;
+    }
+
+    .fly-to-helper {
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .fly-to-chip-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 10px;
+      margin-inline: 0;
+      padding-inline: 0;
+      overflow: visible;
+      gap: 8px;
+    }
+
+    .fly-to-chip {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-height: 38px;
+      justify-content: center;
+      text-align: center;
+      white-space: normal;
+      line-height: 1.2;
+    }
+
+    .fly-to-chip:last-child {
+      grid-column: 1 / -1;
     }
 
     .main-controls.minimized {
@@ -3492,80 +3684,117 @@ body { height: var(--app-height); }
     }
 
     .legend {
-      max-height: min(46vh, 380px) !important;
-    }
-
-    @supports (height: 100svh) {
-      .legend { max-height: min(46svh, 380px) !important; }
+      max-height: min(34svh, 300px) !important;
     }
 
     @supports (height: 100dvh) {
-      .legend { max-height: min(46dvh, 380px) !important; }
+      .legend {
+        max-height: min(34dvh, 300px) !important;
+      }
     }
 
-    .legend-item {
-      font-size: 13px !important;
-    }
-  }
-
-  @media (min-width: 769px) {
-    .viz-modes {
-      display: none;
+    .legend-content {
+      max-height: min(21svh, 180px);
     }
 
-    .viz-inline-group {
-      display: block;
-    }
-
-    .viz-modes-inline {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      overflow: visible;
-    }
-
-    .viz-modes-inline .viz-mode-btn {
-      min-width: 0 !important;
-      padding: 10px 14px !important;
-      white-space: nowrap;
-    }
-
-    .main-controls.minimized .controls-heading {
-      display: flex;
-      min-width: 0;
-    }
-
-    .desktop-statewide-panel .statewide-card {
-      margin-top: 0;
-    }
-
-    .desktop-statewide-panel .statewide-share-row {
-      flex-wrap: wrap;
-      overflow: visible;
-    }
-
-    .legend {
-      left: auto;
-      right: 24px;
-      bottom: 24px;
-      width: min(340px, calc(100vw - 560px));
-      max-height: calc(100vh - var(--desktop-counter-bottom, 20px) - var(--desktop-right-stack-gap, 40px) - 24px);
+    .vote-counter {
+      width: min(96vw, 480px);
+      max-height: min(30svh, 260px);
+      padding: 12px;
+      border-radius: 16px;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .vote-counter-context {
+      gap: 10px;
       margin-bottom: 10px;
       padding-bottom: 10px;
     }
 
-    .vote-total {
-      font-size: 12px;
+    .vote-counter-context .context-clear {
+      min-height: 34px;
+      padding: 0 10px;
+    }
+
+    .vote-counter-meta {
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 10px;
+      padding: 8px 10px;
+    }
+
+    .vote-total,
+    .vote-lead {
+      width: 100%;
+      text-align: left;
+      font-size: 11px;
+    }
+
+    .vote-lead {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .vote-counter-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .vote-item {
+      gap: 6px;
+      padding: 9px 10px;
+      border-radius: 14px;
+    }
+
+    .vote-count {
+      font-size: 18px;
+    }
+
+    .vote-percent {
+      font-size: 11px;
+    }
+
+    .vote-item.other {
+      grid-column: 1 / -1;
+    }
+
+    .statewide-share-row {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+
+    .statewide-share-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .statewide-share-chip {
+      flex: 0 0 auto;
+    }
+
+    .statewide-breakdown-label {
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      line-height: 1.25;
+    }
+
+    .statewide-stat strong {
+      font-size: 14px;
     }
 
     #status-panel {
-      top: 194px !important;
-      right: 24px !important;
+      left: 10px !important;
+      right: 10px !important;
+      padding: 14px 16px 14px 14px !important;
+      border-radius: 16px !important;
+      font-size: 14px !important;
     }
   }
+
     </style>
 </head>
 <body>
@@ -3820,12 +4049,12 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
   <!-- Floating Sidebar Expand/Collapse Button (smaller size) -->
-  <button id="sidebar-float-toggle" type="button" title="Expand Sidebar" aria-label="Toggle sidebar">+</button>
+  <button id="sidebar-float-toggle" title="Expand Sidebar">+</button>
 
   <!-- Floating Status Panel -->
   <div class="status-panel" id="status-panel" style="display:none;position:fixed;top:20px;right:90px;z-index:10002;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);padding:18px 24px 18px 18px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.12);border:1px solid #e5e7eb;max-width:340px;min-width:200px;font-size:15px;color:#34495e;">
     <span id="status-message"></span>
-    <button id="status-exit" type="button" title="Close" aria-label="Close status" style="position:absolute;top:10px;right:10px;padding:4px 10px;border-radius:6px;border:none;background:#eee;cursor:pointer;font-weight:bold;font-size:18px;">&times;</button>
+    <button id="status-exit" title="Close" style="position:absolute;top:10px;right:10px;padding:4px 10px;border-radius:6px;border:none;background:#eee;cursor:pointer;font-weight:bold;font-size:18px;">×</button>
   </div>
     
 
@@ -3838,8 +4067,8 @@ document.addEventListener('DOMContentLoaded', function() {
               <h3>South Carolina Elections</h3>
             </div>
             <div class="controls-actions">
-              <button id="help-btn" title="Help" type="button" aria-label="Help">?</button>
-              <button class="minimize-btn" type="button" onclick="toggleMainControls()" id="controls-minimize-btn" aria-label="Toggle controls">-</button>
+              <button id="help-btn" title="Help" type="button">?</button>
+              <button class="minimize-btn" onclick="toggleMainControls()" id="controls-minimize-btn">-</button>
             </div>
         </div>
         <div class="controls-content" id="controls-content">
@@ -3887,10 +4116,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="control-group" style="margin-bottom:10px;">
                 <label class="control-section-label">Geography</label>
                 <div class="view-toggle-row" style="display:flex;gap:6px;flex-wrap:wrap;">
-                  <button id="counties-view" type="button" class="view-toggle-btn active" onclick="setMapView('counties')">Counties</button>
-                  <button id="districts-view" type="button" class="view-toggle-btn" onclick="setMapView('districts')">Congress</button>
-                  <button id="state-house-view" type="button" class="view-toggle-btn" onclick="setMapView('state_house')">State House</button>
-                  <button id="state-senate-view" type="button" class="view-toggle-btn" onclick="setMapView('state_senate')">State Senate</button>
+                  <button id="counties-view" class="view-toggle-btn active" onclick="setMapView('counties')">Counties</button>
+                  <button id="districts-view" class="view-toggle-btn" onclick="setMapView('districts')">Congress</button>
+                  <button id="state-house-view" class="view-toggle-btn" onclick="setMapView('state_house')">State House</button>
+                  <button id="state-senate-view" class="view-toggle-btn" onclick="setMapView('state_senate')">State Senate</button>
                 </div>
             </div>
             <div class="control-group viz-inline-group" style="margin-bottom:10px;">
@@ -3905,9 +4134,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="control-group">
                 <label class="control-section-label" for="contestSelect">Contest</label>
                 <div class="contest-toolbar" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-                  <button id="accessibility-toggle" type="button" title="Accessibility: Color Blind Mode" aria-label="Toggle colorblind-friendly colors" style="background:#1f2937;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;">&#9855;</button>
-                  <button id="label-toggle" type="button" title="Toggle County Labels" aria-label="Toggle labels" style="background:#1f2937;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;">Aa</button>
-                  <button id="precinct-toggle" type="button" title="Enable Precinct Overlay (Zoom 8.5+)" aria-label="Toggle precinct overlay" style="background:#065f46;color:#fff;border-radius:8px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;padding:0 10px;">Precincts Off</button>
+                  <button id="accessibility-toggle" title="Accessibility: Color Blind Mode" style="background:#1f2937;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;">&#9855;</button>
+                  <button id="label-toggle" title="Toggle County Labels" style="background:#1f2937;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;">Aa</button>
+                  <button id="precinct-toggle" title="Enable Precinct Overlay (Zoom 8.5+)" style="background:#065f46;color:#fff;border-radius:8px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;padding:0 10px;">Precincts Off</button>
                 </div>
                 <div class="contest-search-wrap">
                   <input id="contestSearch" type="search" placeholder="Search contests (e.g., President, Senate, 2008)..." autocomplete="off" spellcheck="false" />
@@ -3939,7 +4168,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="legend-header-actions">
               <span class="legend-badge" id="legend-badge">Margins</span>
-              <button class="minimize-btn" type="button" onclick="toggleLegend()" id="legend-minimize-btn" aria-label="Toggle legend">-</button>
+              <button class="minimize-btn" onclick="toggleLegend()" id="legend-minimize-btn">-</button>
             </div>
         </div>
         <div class="legend-content" id="legend-content">
@@ -3970,7 +4199,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="help-title">
         <div class="modal-head">
           <h2 id="help-title">How to read this map</h2>
-          <button class="modal-close" id="help-close" type="button" title="Close" aria-label="Close help">&times;</button>
+          <button class="modal-close" id="help-close" type="button" title="Close">&times;</button>
         </div>
         <div class="modal-body">
           <h3>Modes</h3>
@@ -4320,6 +4549,218 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!panel || !msg) return;
       // Only log status messages to the console; do not show the floating status panel
       debugLog(text);
+    }
+
+    function isOverlayElementVisible(el) {
+      if (!el || !el.getBoundingClientRect) return false;
+      const style = window.getComputedStyle ? window.getComputedStyle(el) : null;
+      if (style && (style.display === 'none' || style.visibility === 'hidden')) return false;
+      const rect = el.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0;
+    }
+
+    function getMapFitPadding(options = {}) {
+      try {
+        const opts = {
+          includeControls: true,
+          includeLegend: true,
+          includeCounter: true,
+          includeSidebar: true,
+          extra: null,
+          ...options
+        };
+        const isMobile = !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+        const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1280;
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 720;
+        const base = Number.isFinite(Number(opts.extra)) ? Number(opts.extra) : (isMobile ? 18 : 24);
+        const padding = { top: base, right: base, bottom: base, left: base };
+        const applyInset = (rect, edges = {}) => {
+          if (!rect) return;
+          if (edges.top) padding.top = Math.max(padding.top, Math.ceil(rect.bottom) + base);
+          if (edges.right) padding.right = Math.max(padding.right, Math.ceil(viewportWidth - rect.left) + base);
+          if (edges.bottom) padding.bottom = Math.max(padding.bottom, Math.ceil(viewportHeight - rect.top) + base);
+          if (edges.left) padding.left = Math.max(padding.left, Math.ceil(rect.right) + base);
+        };
+
+        try {
+          if (typeof updateMobileOverlayOffsets === 'function') updateMobileOverlayOffsets();
+        } catch (_) {}
+
+        const controls = document.getElementById('main-controls');
+        if (opts.includeControls && isOverlayElementVisible(controls)) {
+          applyInset(controls.getBoundingClientRect(), isMobile ? { top: true } : { left: true });
+        }
+
+        const legend = document.getElementById('legend');
+        if (opts.includeLegend && isOverlayElementVisible(legend)) {
+          applyInset(legend.getBoundingClientRect(), isMobile ? { bottom: true } : { bottom: true, right: true });
+        }
+
+        const counter = document.getElementById('vote-counter');
+        if (opts.includeCounter && isOverlayElementVisible(counter)) {
+          const counterStyle = window.getComputedStyle ? window.getComputedStyle(counter) : null;
+          const counterShown = !counterStyle || counterStyle.display !== 'none';
+          if (counterShown) {
+            applyInset(counter.getBoundingClientRect(), isMobile ? { bottom: true } : { top: true, right: true });
+          }
+        }
+
+        const sidebar = document.getElementById('sidebar');
+        if (opts.includeSidebar && isOverlayElementVisible(sidebar) && document.documentElement.classList.contains('sidebar-enabled')) {
+          applyInset(sidebar.getBoundingClientRect(), isMobile ? { bottom: true } : { right: true });
+        }
+
+        return padding;
+      } catch (_) {
+        return 24;
+      }
+    }
+
+    function fitFeatureWithOverlayPadding(feature, options = {}) {
+      if (!feature || !window.turf || !map || !map.fitBounds) return false;
+      let bbox = null;
+      try {
+        bbox = turf.bbox(feature);
+      } catch (_) {
+        return false;
+      }
+      if (!Array.isArray(bbox) || bbox.length !== 4) return false;
+      const nums = bbox.map(v => Number(v));
+      if (!nums.every(v => Number.isFinite(v))) return false;
+      const fitOptions = {
+        padding: getMapFitPadding(options.paddingOptions || {}),
+        duration: Number.isFinite(Number(options.duration)) ? Number(options.duration) : 900
+      };
+      if (Number.isFinite(Number(options.maxZoom))) fitOptions.maxZoom = Number(options.maxZoom);
+      map.fitBounds([[nums[0], nums[1]], [nums[2], nums[3]]], fitOptions);
+      return true;
+    }
+
+    function getSearchFitOptions(kind = 'default', options = {}) {
+      const isMobile = !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+      const cfg = isMobile
+        ? {
+            county: { padding: { top: 104, right: 18, bottom: 148, left: 18 }, offset: [0, 18] },
+            district: { padding: { top: 104, right: 18, bottom: 148, left: 18 }, offset: [0, 18] },
+            precinct: { padding: { top: 112, right: 16, bottom: 156, left: 16 }, offset: [0, 26] },
+            default: { padding: { top: 104, right: 18, bottom: 148, left: 18 }, offset: [0, 18] }
+          }
+        : {
+            county: { padding: { top: 42, right: 42, bottom: 42, left: 42 }, offset: [110, 0] },
+            district: { padding: { top: 42, right: 42, bottom: 42, left: 42 }, offset: [112, 0] },
+            precinct: { padding: { top: 42, right: 42, bottom: 42, left: 42 }, offset: [124, 0] },
+            default: { padding: { top: 42, right: 42, bottom: 42, left: 42 }, offset: [110, 0] }
+          };
+      const picked = cfg[kind] || cfg.default;
+      const fitOptions = {
+        padding: picked.padding,
+        offset: picked.offset,
+        duration: Number.isFinite(Number(options.duration)) ? Number(options.duration) : 950
+      };
+      if (Number.isFinite(Number(options.maxZoom))) fitOptions.maxZoom = Number(options.maxZoom);
+      return fitOptions;
+    }
+
+    function fitFeatureForSearch(feature, options = {}) {
+      if (!feature || !window.turf || !map || !map.fitBounds) return false;
+      let bbox = null;
+      try {
+        bbox = turf.bbox(feature);
+      } catch (_) {
+        return false;
+      }
+      if (!Array.isArray(bbox) || bbox.length !== 4) return false;
+      const nums = bbox.map(v => Number(v));
+      if (!nums.every(v => Number.isFinite(v))) return false;
+      const fitOptions = getSearchFitOptions(options.kind || 'default', options);
+      map.fitBounds([[nums[0], nums[1]], [nums[2], nums[3]]], fitOptions);
+      return true;
+    }
+
+    function flyToPointForSearch(coords, options = {}) {
+      if (!map || !map.easeTo || !Array.isArray(coords) || coords.length < 2) return false;
+      const lng = Number(coords[0]);
+      const lat = Number(coords[1]);
+      if (!Number.isFinite(lng) || !Number.isFinite(lat)) return false;
+      const fitOptions = getSearchFitOptions(options.kind || 'default', options);
+      map.easeTo({
+        center: [lng, lat],
+        offset: fitOptions.offset,
+        zoom: Number.isFinite(Number(options.zoom)) ? Number(options.zoom) : Math.max(CONFIG.precincts?.minZoom || 8.5, 11.25),
+        duration: fitOptions.duration
+      });
+      return true;
+    }
+
+    function getDistrictFocusProfile(sourceId, feature = null) {
+      const isMobile = !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+      const profile = sourceId === 'districts'
+        ? { maxZoom: isMobile ? 10.45 : 10.95, extra: isMobile ? 14 : 18 }
+        : (sourceId === 'state-house'
+          ? { maxZoom: isMobile ? 11.55 : 12.25, extra: isMobile ? 12 : 16 }
+          : (sourceId === 'state-senate'
+            ? { maxZoom: isMobile ? 11.15 : 11.7, extra: isMobile ? 13 : 17 }
+            : { maxZoom: isMobile ? 10.5 : 11.0, extra: isMobile ? 14 : 18 }));
+
+      if (!feature || !window.turf || typeof turf.area !== 'function') return profile;
+
+      let areaSqKm = null;
+      try {
+        areaSqKm = turf.area(feature) / 1e6;
+      } catch (_) {
+        areaSqKm = null;
+      }
+      if (!Number.isFinite(areaSqKm) || areaSqKm <= 0) return profile;
+
+      if (sourceId === 'districts') {
+        if (areaSqKm <= 1800) profile.maxZoom += isMobile ? 0.2 : 0.35;
+        if (areaSqKm <= 900) profile.maxZoom += isMobile ? 0.15 : 0.25;
+      } else if (sourceId === 'state-house') {
+        if (areaSqKm <= 900) profile.maxZoom += isMobile ? 0.25 : 0.45;
+        if (areaSqKm <= 350) profile.maxZoom += isMobile ? 0.2 : 0.35;
+      } else if (sourceId === 'state-senate') {
+        if (areaSqKm <= 1600) profile.maxZoom += isMobile ? 0.2 : 0.35;
+        if (areaSqKm <= 700) profile.maxZoom += isMobile ? 0.15 : 0.25;
+      }
+
+      return profile;
+    }
+
+    function getCountyFocusProfile(feature = null) {
+      const isMobile = !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+      const profile = { maxZoom: isMobile ? 10.1 : 10.65, extra: isMobile ? 16 : 20 };
+      if (!feature || !window.turf || typeof turf.area !== 'function') return profile;
+
+      let areaSqKm = null;
+      try {
+        areaSqKm = turf.area(feature) / 1e6;
+      } catch (_) {
+        areaSqKm = null;
+      }
+      if (!Number.isFinite(areaSqKm) || areaSqKm <= 0) return profile;
+
+      if (areaSqKm <= 2600) profile.maxZoom += isMobile ? 0.15 : 0.3;
+      if (areaSqKm <= 1200) profile.maxZoom += isMobile ? 0.15 : 0.25;
+      if (areaSqKm <= 500) profile.maxZoom += isMobile ? 0.1 : 0.2;
+      return profile;
+    }
+
+    function getPrecinctFocusProfile(feature = null) {
+      const isMobile = !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+      const profile = { maxZoom: isMobile ? 11.7 : 12.35, extra: isMobile ? 10 : 14 };
+      if (!feature || !window.turf || typeof turf.area !== 'function') return profile;
+
+      let areaSqKm = null;
+      try {
+        areaSqKm = turf.area(feature) / 1e6;
+      } catch (_) {
+        areaSqKm = null;
+      }
+      if (!Number.isFinite(areaSqKm) || areaSqKm <= 0) return profile;
+
+      if (areaSqKm <= 120) profile.maxZoom += isMobile ? 0.25 : 0.45;
+      if (areaSqKm <= 35) profile.maxZoom += isMobile ? 0.2 : 0.35;
+      return profile;
     }
 
     // (saveUIState/restoreUIState defined above as no-ops)
@@ -4718,11 +5159,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function showVoteCounter() {
       const counter = document.getElementById('vote-counter');
       if (counter) counter.style.display = 'block';
+      try {
+        updateMobileOverlayOffsets();
+        requestAnimationFrame(() => updateMobileOverlayOffsets());
+      } catch (_) {}
     }
 
     function hideVoteCounter() {
       const counter = document.getElementById('vote-counter');
       if (counter) counter.style.display = 'none';
+      try { updateMobileOverlayOffsets(); } catch (_) {}
     }
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -6476,6 +6922,7 @@ function stripRunningMateName(name) {
       
       if (legend.classList.contains('minimized')) {
         // Expand legend
+        try { minimizeMainControlsOnMobile(); } catch (_) {}
         legend.classList.remove('minimized');
         legendContent.style.display = 'block';
         minimizeBtn.textContent = '-';
@@ -6538,6 +6985,40 @@ function stripRunningMateName(name) {
       } catch (_) {}
     }
 
+    function minimizeLegendOnMobile() {
+      try {
+        const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        if (!isMobile) return;
+        const legend = document.getElementById('legend');
+        const legendContent = document.getElementById('legend-content');
+        const minimizeBtn = document.getElementById('legend-minimize-btn');
+        if (!legend || !legendContent || !minimizeBtn) return;
+        if (legend.classList.contains('minimized')) return;
+        legend.classList.add('minimized');
+        legendContent.style.display = 'none';
+        minimizeBtn.textContent = '+';
+        minimizeBtn.title = 'Expand legend';
+        try { updateMobileOverlayOffsets(); } catch (_) {}
+      } catch (_) {}
+    }
+
+    function minimizeMainControlsOnMobile() {
+      try {
+        const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        if (!isMobile) return;
+        const controls = document.getElementById('main-controls');
+        const controlsContent = document.getElementById('controls-content');
+        const minimizeBtn = document.getElementById('controls-minimize-btn');
+        if (!controls || !controlsContent || !minimizeBtn) return;
+        if (controls.classList.contains('minimized')) return;
+        controls.classList.add('minimized');
+        controlsContent.style.display = 'none';
+        minimizeBtn.textContent = '+';
+        minimizeBtn.title = 'Expand controls';
+        try { updateMobileOverlayOffsets(); } catch (_) {}
+      } catch (_) {}
+    }
+
     // Toggles the visibility of the main controls panel, minimizing or expanding it based on its current state.
     function toggleMainControls() {
       const controls = document.getElementById('main-controls');
@@ -6546,6 +7027,7 @@ function stripRunningMateName(name) {
       
       if (controls.classList.contains('minimized')) {
         // Expand controls
+        try { minimizeLegendOnMobile(); } catch (_) {}
         controls.classList.remove('minimized');
         controlsContent.style.display = 'block';
         minimizeBtn.textContent = '-';
@@ -7885,11 +8367,16 @@ function stripRunningMateName(name) {
       const match = gj.features.find(f => getDistrictNumberFromProps(f.properties) === Number(districtNum));
       if (!match) {
         console.warn('District not found for search:', label, districtNum);
+        setStatus(`${label} ${districtNum} not found.`);
         return;
       }
 
-      const bbox = turf.bbox(match);
-      map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], { padding: 40, duration: 900 });
+      const districtProfile = getDistrictFocusProfile(sourceId, match);
+      fitFeatureForSearch(match, {
+        kind: 'district',
+        duration: 900,
+        maxZoom: districtProfile.maxZoom
+      });
 
       const sidebar = document.getElementById('sidebar');
       if (sidebar && sidebar.classList.contains('minimized')) toggleSidebar();
@@ -7925,12 +8412,33 @@ function stripRunningMateName(name) {
       const hit = gj.features.find(f => ((f.properties || {}).precinct_norm || '').toString().trim().toUpperCase() === target);
       if (!hit) {
         console.warn('Precinct not found for search:', target);
+        setStatus(`Precinct not found: ${target}.`);
         return;
       }
 
+      let fitDone = false;
+      await ensurePrecinctSourceLoaded();
+      const polygonSource = map.getSource('precincts');
+      const polygonData = polygonSource ? (polygonSource._data || polygonSource.data || null) : null;
+      if (polygonData && polygonData.features) {
+        const polygonMatch = polygonData.features.find(f => (((f.properties || {}).precinct_norm || '')).toString().trim().toUpperCase() === target);
+        if (polygonMatch) {
+          const precinctProfile = getPrecinctFocusProfile(polygonMatch);
+          fitDone = fitFeatureForSearch(polygonMatch, {
+            kind: 'precinct',
+            duration: 1000,
+            maxZoom: precinctProfile.maxZoom
+          });
+        }
+      }
+
       const coords = hit.geometry && hit.geometry.type === 'Point' ? hit.geometry.coordinates : null;
-      if (coords && coords.length >= 2) {
-        map.flyTo({ center: coords, zoom: Math.max(CONFIG.precincts?.minZoom || 8.5, 10.0), speed: 0.9 });
+      if (!fitDone && coords && coords.length >= 2) {
+        flyToPointForSearch(coords, {
+          kind: 'precinct',
+          duration: 950,
+          zoom: Math.max(CONFIG.precincts?.minZoom || 8.5, 11.25)
+        });
       }
 
       // Pin vote counter if we have precinct-level results keyed by precinct_norm.
@@ -7986,11 +8494,15 @@ function stripRunningMateName(name) {
 
         if (found) {
           const props = found.properties || {};
-          lastSelectedCounty = props.NAME20 || props.NAMELSAD20 || props.county_name || props.County || props.COUNTYNAME || props.NAME || props.name;
+          lastSelectedCounty = props.NAMELSAD20 || props.NAME20 || props.county_name || props.County || props.COUNTYNAME || props.NAME || props.name;
           setFlyToSearchValue(lastSelectedCounty);
-          const bbox = turf.bbox(found);
-          debugLog('[DIAGNOSTIC] Matched county for', countyName, '->', lastSelectedCounty, 'bbox:', bbox);
-          map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], { padding: 40, duration: 1000 });
+          debugLog('[DIAGNOSTIC] Matched county for', countyName, '->', lastSelectedCounty);
+          const countyProfile = getCountyFocusProfile(found);
+          fitFeatureForSearch(found, {
+            kind: 'county',
+            duration: 1000,
+            maxZoom: countyProfile.maxZoom
+          });
           showCountyDetails(lastSelectedCounty);
           const sidebar = document.getElementById('sidebar');
           if (sidebar && sidebar.classList.contains('minimized')) {
@@ -7998,6 +8510,7 @@ function stripRunningMateName(name) {
           }
         } else {
           console.warn('[DIAGNOSTIC] County not found:', countyName, 'normalized:', normTarget);
+          setStatus(`County not found: ${countyName}.`);
         }
       }
     }
@@ -8953,6 +9466,7 @@ function stripRunningMateName(name) {
         // Setup visualization mode switcher
         setupVizModes();
         try { wireMobileOverlayOffsets(); } catch (_) {}
+        try { minimizeLegendOnMobile(); } catch (_) {}
         appReady = true;
         try { await restoreUIState(); } catch (_) {}
 
