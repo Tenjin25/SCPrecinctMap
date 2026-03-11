@@ -3309,6 +3309,323 @@ body { height: var(--app-height); }
     color: #f8fafc;
   }
 
+  #hover-tooltip[data-layout="timeline"] {
+    width: min(420px, calc(100vw - 24px));
+    max-width: min(420px, calc(100vw - 24px));
+    max-height: calc(100vh - 130px);
+    padding: 12px;
+    border-radius: 20px;
+    background: rgba(248, 250, 252, 0.97);
+    border: 1px solid rgba(203, 213, 225, 0.9);
+    box-shadow: 0 24px 56px rgba(15, 23, 42, 0.3);
+  }
+
+  #hover-tooltip[data-layout="timeline"] .tooltip-head {
+    border-bottom-color: rgba(203, 213, 225, 0.92);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .tooltip-kicker {
+    color: #64748b;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .tooltip-title {
+    color: #0f172a;
+    font-size: 16px;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .tooltip-trends {
+    color: #334155;
+    font-size: 13px;
+    line-height: 1.35;
+    max-height: calc(100vh - 178px);
+    overflow: auto;
+    padding-right: 2px;
+  }
+
+  #hover-tooltip[data-layout="timeline"] .tooltip-btn {
+    background: #fff;
+    border-color: rgba(148, 163, 184, 0.45);
+    color: #334155;
+  }
+
+  .trend-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .trend-summary-box {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(203, 213, 225, 0.86);
+    border-radius: 14px;
+    padding: 10px 12px;
+  }
+
+  .trend-summary-k {
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+  }
+
+  .trend-summary-v {
+    margin-top: 4px;
+    font-size: 16px;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.2;
+  }
+
+  .trend-summary-v.rep {
+    color: #b91c1c;
+  }
+
+  .trend-summary-v.dem {
+    color: #1d4ed8;
+  }
+
+  .trend-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .trend-timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(203, 213, 225, 0.92);
+    border-radius: 2px;
+  }
+
+  .trend-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    column-gap: 8px;
+    align-items: start;
+  }
+
+  .trend-year-node {
+    position: sticky;
+    top: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 0 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(203, 213, 225, 0.96);
+    background: #f8fafc;
+    font-size: 12px;
+    font-weight: 900;
+    color: #475569;
+    z-index: 1;
+  }
+
+  .trend-card {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 16px;
+    padding: 10px 10px 9px;
+  }
+
+  .trend-card.rep {
+    background: rgba(254, 242, 242, 0.92);
+  }
+
+  .trend-card.dem {
+    background: rgba(239, 246, 255, 0.92);
+  }
+
+  .trend-card.tie {
+    background: rgba(248, 250, 252, 0.96);
+  }
+
+  .trend-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .trend-party-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 5px 10px;
+    border: 1px solid rgba(148, 163, 184, 0.38);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .trend-party-pill.rep {
+    color: #b91c1c;
+    background: rgba(254, 226, 226, 0.86);
+  }
+
+  .trend-party-pill.dem {
+    color: #1d4ed8;
+    background: rgba(219, 234, 254, 0.86);
+  }
+
+  .trend-party-pill.tie {
+    color: #475569;
+    background: rgba(226, 232, 240, 0.9);
+  }
+
+  .trend-margin-pill {
+    padding: 4px 9px;
+    border-radius: 999px;
+    border: 1px solid rgba(203, 213, 225, 0.95);
+    background: rgba(248, 250, 252, 0.98);
+    font-size: 11px;
+    font-weight: 900;
+    color: #0f172a;
+    white-space: nowrap;
+  }
+
+  .trend-quick-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 7px;
+  }
+
+  .trend-quick-total {
+    font-size: 13px;
+    font-weight: 800;
+    color: #334155;
+  }
+
+  .trend-quick-margin {
+    font-size: 13px;
+    font-weight: 900;
+    line-height: 1.3;
+    color: #0f172a;
+  }
+
+  .trend-quick-margin.rep {
+    color: #b91c1c;
+  }
+
+  .trend-quick-margin.dem {
+    color: #1d4ed8;
+  }
+
+  .trend-key-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .trend-key-label {
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #64748b;
+  }
+
+  .trend-key-value {
+    margin-top: 2px;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #0f172a;
+    word-break: break-word;
+  }
+
+  .trend-key-value.rep {
+    color: #b91c1c;
+  }
+
+  .trend-key-value.dem {
+    color: #1d4ed8;
+  }
+
+  .trend-share-labels {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 900;
+    margin-bottom: 5px;
+  }
+
+  .trend-share-labels .dem {
+    color: #2563eb;
+  }
+
+  .trend-share-labels .rep {
+    color: #dc2626;
+    text-align: right;
+  }
+
+  .trend-share-bar {
+    display: flex;
+    width: 100%;
+    height: 12px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(226, 232, 240, 0.96);
+    margin-bottom: 7px;
+  }
+
+  .trend-share-dem {
+    background: #2563eb;
+  }
+
+  .trend-share-rep {
+    background: #dc2626;
+  }
+
+  .trend-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .trend-meta-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid rgba(203, 213, 225, 0.95);
+    background: rgba(248, 250, 252, 0.98);
+    padding: 5px 9px;
+    font-size: 12px;
+    font-weight: 900;
+    color: #475569;
+    white-space: nowrap;
+  }
+
+  .trend-meta-pill.shift.rep {
+    color: #b91c1c;
+    background: rgba(254, 226, 226, 0.9);
+  }
+
+  .trend-meta-pill.shift.dem {
+    color: #1d4ed8;
+    background: rgba(219, 234, 254, 0.9);
+  }
+
+  .trend-meta-pill.flip {
+    color: #5b21b6;
+    background: rgba(237, 233, 254, 0.9);
+  }
+
   #hover-tooltip[data-pinned="1"][data-pin-explicit="1"] {
     pointer-events: auto;
   }
@@ -3338,6 +3655,44 @@ body { height: var(--app-height); }
 
     html.android-mobile #hover-tooltip {
       bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 8px) !important;
+    }
+
+    #hover-tooltip[data-layout="timeline"] {
+      left: 8px !important;
+      right: 8px !important;
+      top: auto !important;
+      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 8px) !important;
+      width: auto !important;
+      max-width: none !important;
+      max-height: 54vh;
+    }
+
+    #hover-tooltip[data-layout="timeline"] .tooltip-trends {
+      max-height: 42vh;
+    }
+
+    .trend-summary-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .trend-item {
+      grid-template-columns: 52px minmax(0, 1fr);
+      column-gap: 7px;
+    }
+
+    .trend-year-node {
+      min-height: 30px;
+      padding: 0 8px;
+      font-size: 11px;
+    }
+
+    .trend-key-value {
+      font-size: 14px;
+    }
+
+    .trend-quick-total,
+    .trend-quick-margin {
+      font-size: 12px;
     }
 
     .contest-toolbar {
@@ -7121,21 +7476,197 @@ function stripRunningMateName(name) {
       return out;
     }
 
+    function trendLeadCandidateName(name, fallback) {
+      const raw = (name || '').toString().trim();
+      if (!raw) return fallback || '';
+      const lead = stripRunningMateName(raw);
+      const normalized = toTitleCaseName(lead || raw);
+      const isMobile = !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+      if (isMobile) return shortCandidateLabel(normalized, fallback || '');
+      return normalized;
+    }
+
+    function trendSignedMarginPct(entry) {
+      if (entry && entry.margin_pct !== undefined && entry.margin_pct !== null && Number.isFinite(Number(entry.margin_pct))) {
+        return Number(entry.margin_pct);
+      }
+      const demVotes = Number(entry?.dem_votes || 0);
+      const repVotes = Number(entry?.rep_votes || 0);
+      const totalVotes = Number(entry?.total_votes || (demVotes + repVotes + Number(entry?.other_votes || 0)));
+      return signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+    }
+
+    function trendWinnerCode(entry, signedPct) {
+      const winnerRaw = (entry?.winner || '').toString().trim().toUpperCase();
+      if (winnerRaw === 'R' || winnerRaw.startsWith('REP')) return 'R';
+      if (winnerRaw === 'D' || winnerRaw.startsWith('DEM')) return 'D';
+      if (winnerRaw === 'T' || winnerRaw === 'TIE') return 'T';
+      if (signedPct > 0) return 'R';
+      if (signedPct < 0) return 'D';
+      return 'T';
+    }
+
+    function trendOutcomeSummary(entry) {
+      const signedPct = trendSignedMarginPct(entry);
+      const winnerCode = trendWinnerCode(entry, signedPct);
+      const absPct = Math.abs(signedPct);
+      const winnerName = winnerCode === 'R'
+        ? trendLeadCandidateName(entry?.rep_candidate, 'Republican')
+        : (winnerCode === 'D'
+          ? trendLeadCandidateName(entry?.dem_candidate, 'Democratic')
+          : 'Tie');
+      const winnerShort = winnerCode === 'R'
+        ? shortCandidateLabel(entry?.rep_candidate, 'Republican')
+        : (winnerCode === 'D'
+          ? shortCandidateLabel(entry?.dem_candidate, 'Democratic')
+          : 'Tie');
+      if (winnerCode === 'T') {
+        return { winnerCode, signedPct, absPct, winnerName, winnerShort, label: `Tied ${absPct.toFixed(2)}%` };
+      }
+      return { winnerCode, signedPct, absPct, winnerName, winnerShort, label: `${winnerName} +${absPct.toFixed(2)}%` };
+    }
+
     function formatTrendSeries(title, series) {
-      if (!series || series.length === 0) {
+      const orderedAsc = (series || [])
+        .filter(s => Number.isFinite(Number(s?.year)))
+        .slice()
+        .sort((a, b) => Number(a.year) - Number(b.year));
+      if (!orderedAsc.length) {
         return buildTooltipShell(title, '<div style="color:#999;">No historical data</div>');
       }
-      const lines = series
-        .slice()
-        .sort((a, b) => a.year - b.year)
-        .map(s => {
-          const win = (s.winner || '').toString().toUpperCase();
-          const color = win === 'REP' ? '#ef4444' : (win === 'DEM' ? '#3b82f6' : '#a3a3a3');
-          const label = winnerMarginLabelShort(s.rep_votes, s.dem_votes, s.total_votes, s.rep_candidate, s.dem_candidate);
-          return `<div style="display:flex;justify-content:space-between;gap:10px;"><span style="color:#cbd5e1;">${s.year}</span><span style="color:${color};font-weight:700;">${label}</span></div>`;
-        })
-        .join('');
-      return buildTooltipShell(title, lines);
+
+      const latest = orderedAsc[orderedAsc.length - 1];
+      const closest = orderedAsc.reduce((best, row) => {
+        if (!best) return row;
+        return Math.abs(trendSignedMarginPct(row)) < Math.abs(trendSignedMarginPct(best)) ? row : best;
+      }, null);
+      const baseline = orderedAsc[0];
+
+      const latestSummary = trendOutcomeSummary(latest);
+      const closestSummary = trendOutcomeSummary(closest);
+      const baselineSigned = trendSignedMarginPct(baseline);
+      const sinceDelta = latestSummary.signedPct - baselineSigned;
+      const sinceAbs = Math.abs(sinceDelta);
+      const sinceClass = sinceDelta > 0 ? 'rep' : (sinceDelta < 0 ? 'dem' : '');
+      const sinceText = sinceAbs < 0.005
+        ? `No change vs ${baseline.year}`
+        : `${sinceDelta > 0 ? 'R' : 'D'} +${sinceAbs.toFixed(2)}% vs ${baseline.year}`;
+
+      const orderedDesc = orderedAsc.slice().sort((a, b) => Number(b.year) - Number(a.year));
+      const cards = orderedDesc.map((entry, index) => {
+        const demVotes = Number(entry.dem_votes || 0);
+        const repVotes = Number(entry.rep_votes || 0);
+        const otherVotes = Number(entry.other_votes || 0);
+        const totalVotes = Number(entry.total_votes || (demVotes + repVotes + otherVotes));
+        if (totalVotes <= 0) return '';
+
+        const summary = trendOutcomeSummary(entry);
+        const winnerCode = summary.winnerCode;
+        const cardClass = winnerCode === 'R' ? 'rep' : (winnerCode === 'D' ? 'dem' : 'tie');
+        const partyText = winnerCode === 'R' ? 'Republican' : (winnerCode === 'D' ? 'Democratic' : 'Tossup');
+        const demPct = (demVotes / totalVotes) * 100.0;
+        const repPct = (repVotes / totalVotes) * 100.0;
+        const otherPct = (otherVotes / totalVotes) * 100.0;
+        const twoPartyTotal = demVotes + repVotes;
+        const demBar = twoPartyTotal > 0 ? (demVotes / twoPartyTotal) * 100.0 : 50;
+        const repBar = twoPartyTotal > 0 ? (repVotes / twoPartyTotal) * 100.0 : 50;
+        const demLabel = shortCandidateLabel(entry.dem_candidate, 'Dem');
+        const repLabel = shortCandidateLabel(entry.rep_candidate, 'Rep');
+        const winnerShortName = winnerCode === 'R'
+          ? shortCandidateLabel(entry.rep_candidate, 'Republican')
+          : (winnerCode === 'D' ? shortCandidateLabel(entry.dem_candidate, 'Democratic') : 'Tie');
+        const winnerLine = winnerCode === 'T'
+          ? 'Tie'
+          : `${summary.winnerName} (${winnerCode})`;
+        const leadLabel = winnerCode === 'T'
+          ? `Tied ${summary.absPct.toFixed(2)}%`
+          : `${winnerCode} +${summary.absPct.toFixed(2)}%`;
+        const voteLeadAbs = Math.abs(repVotes - demVotes).toLocaleString();
+        const quickMarginLine = winnerCode === 'T'
+          ? `Tied ${summary.absPct.toFixed(2)}% (${voteLeadAbs} votes)`
+          : `${winnerShortName} +${summary.absPct.toFixed(2)}% (${voteLeadAbs} votes)`;
+
+        const prev = orderedDesc[index + 1] || null;
+        let shiftHtml = '';
+        let flipHtml = '';
+        if (prev) {
+          const prevSigned = trendSignedMarginPct(prev);
+          const delta = summary.signedPct - prevSigned;
+          const deltaAbs = Math.abs(delta);
+          if (deltaAbs < 0.005) {
+            shiftHtml = `<span class="trend-meta-pill shift">No change vs ${prev.year}</span>`;
+          } else {
+            const shiftClass = delta > 0 ? 'rep' : 'dem';
+            shiftHtml = `<span class="trend-meta-pill shift ${shiftClass}">${delta > 0 ? 'R' : 'D'} +${deltaAbs.toFixed(2)}% vs ${prev.year}</span>`;
+          }
+          const flip = flipInfo(prevSigned, summary.signedPct);
+          if (flip.flipped) {
+            flipHtml = `<span class="trend-meta-pill flip">Flip ${flip.from}\u2192${flip.to}</span>`;
+          }
+        }
+
+        return `
+          <div class="trend-item">
+            <div class="trend-year-node">${entry.year}</div>
+            <div class="trend-card ${cardClass}">
+              <div class="trend-card-top">
+                <span class="trend-party-pill ${cardClass}">${partyText}</span>
+                <span class="trend-margin-pill">${summary.absPct.toFixed(2)}%</span>
+              </div>
+              <div class="trend-quick-lines">
+                <div class="trend-quick-total">${totalVotes.toLocaleString()} total votes</div>
+                <div class="trend-quick-margin ${cardClass}">${quickMarginLine}</div>
+              </div>
+              <div class="trend-key-grid">
+                <div>
+                  <div class="trend-key-label">Winner</div>
+                  <div class="trend-key-value ${cardClass}">${winnerLine}</div>
+                </div>
+                <div>
+                  <div class="trend-key-label">Lead</div>
+                  <div class="trend-key-value ${cardClass}">${leadLabel}</div>
+                </div>
+              </div>
+              <div class="trend-share-labels">
+                <span class="dem">${demLabel} ${demPct.toFixed(2)}%</span>
+                <span class="rep">${repLabel} ${repPct.toFixed(2)}%</span>
+              </div>
+              <div class="trend-share-bar">
+                <div class="trend-share-dem" style="width:${demBar.toFixed(4)}%;"></div>
+                <div class="trend-share-rep" style="width:${repBar.toFixed(4)}%;"></div>
+              </div>
+              <div class="trend-meta-row">
+                ${shiftHtml}
+                <span class="trend-meta-pill other">Other ${otherPct.toFixed(2)}%</span>
+                ${flipHtml}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const inner = `
+        <div class="trend-summary-grid">
+          <div class="trend-summary-box">
+            <div class="trend-summary-k">Latest</div>
+            <div class="trend-summary-v ${latestSummary.winnerCode === 'R' ? 'rep' : (latestSummary.winnerCode === 'D' ? 'dem' : '')}">
+              ${latest.year}: ${latestSummary.label}
+            </div>
+          </div>
+          <div class="trend-summary-box">
+            <div class="trend-summary-k">Closest</div>
+            <div class="trend-summary-v ${closestSummary.winnerCode === 'R' ? 'rep' : (closestSummary.winnerCode === 'D' ? 'dem' : '')}">
+              ${closest.year}: ${closestSummary.label}
+            </div>
+          </div>
+          <div class="trend-summary-box">
+            <div class="trend-summary-k">Since ${baseline.year}</div>
+            <div class="trend-summary-v ${sinceClass}">${sinceText}</div>
+          </div>
+        </div>
+        <div class="trend-timeline">${cards || '<div style="color:#999;">No historical data</div>'}</div>
+      `;
+      return buildTooltipShell(title, inner);
     }
 
     function shiftChipHTML(shiftPct, prevYear, year) {
@@ -8071,19 +8602,19 @@ function stripRunningMateName(name) {
           const trendCountyLabel = /County$/i.test(countyDisplay) ? countyDisplay : `${countyDisplay} County`;
           const trendTitle = `${trendCountyLabel} - ${formatContestName(trendType, '')} Trends`;
           const requestId = ++countyTrendRequestId;
-          showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(trendTitle, '<div style="color:#94a3b8;">Loading trends...</div>'), { placement: 'top-right' });
+          showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(trendTitle, '<div style="color:#94a3b8;">Loading trends...</div>'), { placement: 'top-right', layout: 'timeline' });
           wireTooltipButtons();
           try {
             const series = await getCountyTrendSeries(trendType, countyName);
             if (requestId !== countyTrendRequestId) return;
             const content = formatTrendSeries(trendTitle, series);
-            showHoverTooltip(e.point.x, e.point.y, content, { force: true, placement: 'top-right' });
+            showHoverTooltip(e.point.x, e.point.y, content, { force: true, placement: 'top-right', layout: 'timeline' });
             wireTooltipButtons();
             maybePinTooltipForTap();
           } catch (err) {
             if (requestId !== countyTrendRequestId) return;
             console.warn('Failed to load county trends:', err?.message || err);
-            showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(trendTitle, '<div style="color:#94a3b8;">Failed to load trends.</div>'), { force: true, placement: 'top-right' });
+            showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(trendTitle, '<div style="color:#94a3b8;">Failed to load trends.</div>'), { force: true, placement: 'top-right', layout: 'timeline' });
             wireTooltipButtons();
             maybePinTooltipForTap();
           }
@@ -9377,12 +9908,20 @@ function stripRunningMateName(name) {
       tooltip.style.top = top + 'px';
     }
 
-    function showHoverTooltip(x, y, content, { force = false, placement = 'cursor' } = {}) {
+    function showHoverTooltip(x, y, content, { force = false, placement = 'cursor', layout = 'auto' } = {}) {
       const tooltip = document.getElementById('hover-tooltip');
       if (!tooltip) return;
       if (tooltipPinned && !force) return;
       
       tooltip.innerHTML = content;
+      const resolvedLayout = layout === 'timeline'
+        ? 'timeline'
+        : (layout === 'default'
+          ? 'default'
+          : ((typeof content === 'string' && (content.includes('trend-summary-grid') || content.includes('trend-timeline')))
+            ? 'timeline'
+            : 'default'));
+      tooltip.setAttribute('data-layout', resolvedLayout);
       tooltip.style.display = 'block';
       tooltipPlacementMode = placement === 'top-right' ? 'top-right' : 'cursor';
 
@@ -9415,6 +9954,7 @@ function stripRunningMateName(name) {
       if (!tooltip) return;
       if (tooltipPinned) return;
       tooltipPlacementMode = 'cursor';
+      tooltip.setAttribute('data-layout', 'default');
       tooltip.style.display = 'none';
     }
 
