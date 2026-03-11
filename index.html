@@ -5352,10 +5352,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function normalizeVoteCounterMeta(meta = {}) {
       const source = (meta && typeof meta === 'object') ? meta : {};
-      const demCandidate = stripRunningMateName((source.demCandidate || '').toString().trim());
-      const repCandidate = stripRunningMateName((source.repCandidate || '').toString().trim());
+      const demCandidate = (source.demCandidate || '').toString().trim();
+      const repCandidate = (source.repCandidate || '').toString().trim();
       const otherLabel = (source.otherLabel || 'Other').toString().trim() || 'Other';
       return { demCandidate, repCandidate, otherLabel };
+    }
+
+    function useShortVoteCounterCandidateLabels() {
+      try {
+        return !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+      } catch (_) {
+        const width = window.innerWidth || document.documentElement.clientWidth || 1280;
+        return width <= 768;
+      }
     }
 
     function buildVoteCounterCandidateMeta(contestType, year, opts = {}) {
@@ -5430,8 +5439,15 @@ document.addEventListener('DOMContentLoaded', function() {
       const demLabelEl = document.getElementById('dem-label');
       const repLabelEl = document.getElementById('rep-label');
       const otherLabelEl = document.getElementById('other-label');
-      if (demLabelEl) demLabelEl.textContent = shortCandidateLabel(counterMeta.demCandidate, 'Dem');
-      if (repLabelEl) repLabelEl.textContent = shortCandidateLabel(counterMeta.repCandidate, 'Rep');
+      const useShortLabels = useShortVoteCounterCandidateLabels();
+      const demDisplay = useShortLabels
+        ? shortCandidateLabel(counterMeta.demCandidate, 'Democratic')
+        : (counterMeta.demCandidate || 'Democratic');
+      const repDisplay = useShortLabels
+        ? shortCandidateLabel(counterMeta.repCandidate, 'Republican')
+        : (counterMeta.repCandidate || 'Republican');
+      if (demLabelEl) demLabelEl.textContent = demDisplay;
+      if (repLabelEl) repLabelEl.textContent = repDisplay;
       if (otherLabelEl) otherLabelEl.textContent = counterMeta.otherLabel || 'Other';
 
       const totalEl = document.getElementById('vote-total');
@@ -5446,8 +5462,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (demVotes !== repVotes) {
           leadParty = demVotes > repVotes ? 'dem' : 'rep';
           const winnerLabel = demVotes > repVotes
-            ? shortCandidateLabel(counterMeta.demCandidate, 'Dem')
-            : shortCandidateLabel(counterMeta.repCandidate, 'Rep');
+            ? demDisplay
+            : repDisplay;
           leadText = `${winnerLabel} +${marginPct.toFixed(2)}`;
           if (marginVotes > 0) leadText += ` (${marginVotes.toLocaleString()} votes)`;
         }
@@ -7157,6 +7173,7 @@ function stripRunningMateName(name) {
       const props = e.features[0].properties || {};
       const countyName = props.NAMELSAD20 || props.NAME20 || props.CountyName || props.COUNTYNAME || props.county_nam || props.NAME || props.name || 'Unknown County';
       const countyDisplay = displayCountyName(countyName);
+      const countyLabel = /County$/i.test(countyDisplay) ? countyDisplay : `${countyDisplay} County`;
       const hoveredCountyKey = getCountyTooltipKey(countyName);
       if (!IS_COARSE_POINTER && tooltipPinned && !tooltipPinnedExplicit && hoveredCountyKey && hoveredCountyKey !== tooltipPinnedKey) {
         closeHoverUI({ force: true });
@@ -7167,7 +7184,7 @@ function stripRunningMateName(name) {
       const contestValue = document.getElementById('contestSelect')?.value || '';
 
       if (!contestValue || !row) {
-        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyDisplay}`, '<div style="color:#64748b;">Select a contest to see results</div>'));
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyLabel}`, '<div style="color:#64748b;">Select a contest to see results</div>'));
         wireTooltipButtons();
         return;
       }
@@ -7180,7 +7197,7 @@ function stripRunningMateName(name) {
       const otherVotes = Number(row[`${contestType}_other`] || 0);
       const totalVotes = Number(row[`${contestType}_total`] || 0);
       if (totalVotes <= 0) {
-        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyDisplay}`, '<div style="color:#64748b;">No data available</div>'));
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyLabel}`, '<div style="color:#64748b;">No data available</div>'));
         wireTooltipButtons();
         return;
       }
@@ -7228,7 +7245,7 @@ function stripRunningMateName(name) {
         ${demoLine}
       `;
 
-      showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyDisplay}`, inner));
+      showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyLabel}`, inner));
       wireTooltipButtons();
     }
 
@@ -8046,7 +8063,8 @@ function stripRunningMateName(name) {
           const contestValue = document.getElementById('contestSelect')?.value || '';
           const [contestType] = parseContestValue(contestValue);
           const trendType = contestType || 'president';
-          const trendTitle = `${countyDisplay} - ${formatContestName(trendType, '')} Trends`;
+          const trendCountyLabel = /County$/i.test(countyDisplay) ? countyDisplay : `${countyDisplay} County`;
+          const trendTitle = `${trendCountyLabel} - ${formatContestName(trendType, '')} Trends`;
           const requestId = ++countyTrendRequestId;
           showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(trendTitle, '<div style="color:#94a3b8;">Loading trends...</div>'));
           wireTooltipButtons();
@@ -9215,7 +9233,7 @@ function stripRunningMateName(name) {
               const presNominee = winner === 'D'
                 ? getCandidateName(year, 'President of the United States', 'Democrat')
                 : getCandidateName(year, 'President of the United States', 'Republican');
-              const candidateInfo = shortCandidateLabel(presNominee, winner);
+              const candidateInfo = (presNominee || winner).toString().trim() || winner;
               
               trends.push({
                 year: year,
@@ -9254,7 +9272,7 @@ function stripRunningMateName(name) {
             const govNominee = winner === 'D'
               ? getCandidateName(year, 'Governor', 'Democrat')
               : getCandidateName(year, 'Governor', 'Republican');
-            const candidateInfo = shortCandidateLabel(govNominee, winner);
+            const candidateInfo = (govNominee || winner).toString().trim() || winner;
             trends.push({
               year: year,
               display: `${year}: ${candidateInfo}+${marginAbs.toFixed(2)}`,
