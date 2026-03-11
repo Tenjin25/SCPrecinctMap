@@ -6859,7 +6859,7 @@ document.addEventListener('DOMContentLoaded', function() {
         year: Number(year)
       };
       pinVoteCounterState(
-        `Selected: ${displayCountyName(countyName)}`,
+        `Selected: ${displayCountyName(countyName)} County`,
         `${formatContestName(contestType, year)} ${year}`,
         demVotes,
         repVotes,
@@ -8156,12 +8156,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayCountyName(raw) {
       const s = (raw || '').toString().trim();
       if (!s) return 'Unknown County';
-      const countyMatch = s.match(/^(.+?)\s+County$/i);
-      if (countyMatch) {
-        const base = toTitleCaseName(countyMatch[1].trim());
-        return `${base} County`;
-      }
-      return `${toTitleCaseName(s)} County`;
+      // Remove any trailing "COUNTY" if present; UI will add "County".
+      const cleaned = s.replace(/\s+COUNTY$/i, '').trim();
+      return toTitleCaseName(cleaned);
     }
 
     function formatFlyToLocalityLabel(raw) {
