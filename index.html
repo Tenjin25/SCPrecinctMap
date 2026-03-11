@@ -4236,6 +4236,264 @@ body { height: var(--app-height); }
     }
   }
 
+  /* NC-style top-right selected panel parity */
+  .vote-counter.nc-top-panel {
+    top: 20px;
+    left: auto;
+    right: 24px;
+    transform: none;
+    width: clamp(360px, 28vw, 460px);
+    min-width: 0;
+    padding: 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(203, 213, 225, 0.92);
+    box-shadow: 0 22px 44px rgba(15, 23, 42, 0.2);
+  }
+
+  .vote-counter.nc-top-panel::before {
+    height: 3px;
+    background: linear-gradient(90deg, #2563eb 0%, #cbd5e1 45%, #ef4444 100%);
+  }
+
+  .vote-counter.nc-top-panel[data-party="dem"]::before {
+    background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+  }
+
+  .vote-counter.nc-top-panel[data-party="rep"]::before {
+    background: linear-gradient(90deg, #f87171 0%, #dc2626 100%);
+  }
+
+  .vote-counter.nc-top-panel .vote-counter-context {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .vote-counter.nc-top-panel .vote-counter-context .context-title {
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .vote-counter.nc-top-panel .vote-counter-context .context-sub {
+    margin-top: 3px;
+    font-size: 13px;
+    color: #475569;
+  }
+
+  .vote-counter.nc-top-panel .vote-counter-context .context-clear {
+    min-height: 30px;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 800;
+    border-radius: 999px;
+    background: #eef2f7;
+    border-color: rgba(148, 163, 184, 0.45);
+  }
+
+  .vote-counter.nc-top-panel .vote-counter-meta {
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    border-radius: 13px;
+    border: 1px solid rgba(203, 213, 225, 0.8);
+    background: rgba(248, 250, 252, 0.98);
+  }
+
+  .vote-counter.nc-top-panel .vote-total,
+  .vote-counter.nc-top-panel .vote-lead {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .vote-counter.nc-top-panel .vote-total {
+    font-size: 22px;
+    color: #1f2937;
+  }
+
+  .vote-counter.nc-top-panel .vote-lead {
+    font-size: 20px;
+    text-align: right;
+    color: #475569;
+  }
+
+  .vote-counter.nc-top-panel .vote-lead[data-party="dem"] {
+    color: #1d4ed8;
+  }
+
+  .vote-counter.nc-top-panel .vote-lead[data-party="rep"] {
+    color: #b91c1c;
+  }
+
+  .vote-counter.nc-top-panel .vote-counter-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .vote-counter.nc-top-panel .vote-kpi-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .vote-counter.nc-top-panel .vote-kpi {
+    padding: 10px 11px;
+    border-radius: 14px;
+    border: 1px solid rgba(203, 213, 225, 0.85);
+    background: rgba(248, 250, 252, 0.98);
+    min-width: 0;
+  }
+
+  .vote-counter.nc-top-panel .vote-kpi-label {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  .vote-counter.nc-top-panel .vote-kpi-value {
+    margin-top: 5px;
+    font-size: 17px;
+    line-height: 1.15;
+    font-weight: 900;
+    color: #0f172a;
+    word-break: break-word;
+  }
+
+  .vote-counter.nc-top-panel .vote-kpi-sub {
+    margin-top: 1px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #475569;
+  }
+
+  .vote-counter.nc-top-panel .vote-kpi[data-party="dem"] .vote-kpi-value,
+  .vote-counter.nc-top-panel .vote-kpi[data-party="dem"] .vote-kpi-sub {
+    color: #1d4ed8;
+  }
+
+  .vote-counter.nc-top-panel .vote-kpi[data-party="rep"] .vote-kpi-value,
+  .vote-counter.nc-top-panel .vote-kpi[data-party="rep"] .vote-kpi-sub {
+    color: #b91c1c;
+  }
+
+  .vote-counter.nc-top-panel .vote-share-card {
+    padding: 10px 11px;
+    border-radius: 14px;
+    border: 1px solid rgba(203, 213, 225, 0.85);
+    background: rgba(248, 250, 252, 0.98);
+  }
+
+  .vote-counter.nc-top-panel .vote-share-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .vote-counter.nc-top-panel .vote-share-title {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  .vote-counter.nc-top-panel #vote-total-card {
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 900;
+    color: #111827;
+  }
+
+  .vote-counter.nc-top-panel .vote-share-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .vote-counter.nc-top-panel .vote-share-labels .dem {
+    color: #2563eb;
+  }
+
+  .vote-counter.nc-top-panel .vote-share-labels .rep {
+    color: #dc2626;
+  }
+
+  .vote-counter.nc-top-panel .vote-share-labels .mid {
+    color: #64748b;
+  }
+
+  .vote-counter.nc-top-panel .vote-share-track {
+    display: flex;
+    height: 13px;
+    border-radius: 999px;
+    background: rgba(226, 232, 240, 0.95);
+    overflow: hidden;
+  }
+
+  .vote-counter.nc-top-panel .vote-share-fill {
+    height: 100%;
+    border-radius: 0;
+  }
+
+  @media (max-width: 768px) {
+    .vote-counter.nc-top-panel {
+      left: 50% !important;
+      right: auto !important;
+      top: auto !important;
+      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 14px) !important;
+      transform: translateX(-50%) !important;
+      width: min(95vw, 430px) !important;
+      max-width: 95vw !important;
+      padding: 10px;
+      border-radius: 16px;
+    }
+
+    .vote-counter.nc-top-panel .vote-counter-context {
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+    }
+
+    .vote-counter.nc-top-panel .vote-counter-context .context-sub {
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .vote-counter.nc-top-panel .vote-counter-meta {
+      margin-bottom: 8px;
+      padding: 7px 9px;
+    }
+
+    .vote-counter.nc-top-panel .vote-total,
+    .vote-counter.nc-top-panel .vote-lead {
+      font-size: 13px;
+    }
+
+    .vote-counter.nc-top-panel .vote-kpi-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .vote-counter.nc-top-panel .vote-kpi-value {
+      font-size: 14px;
+    }
+
+    .vote-counter.nc-top-panel #vote-total-card {
+      font-size: 22px;
+    }
+  }
+
     </style>
 </head>
 <body>
@@ -4403,7 +4661,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 
   <!-- Vote Counter Display - VoteHub Style -->
-  <div class="vote-counter" id="vote-counter">
+  <div class="vote-counter nc-top-panel" id="vote-counter">
     <div class="vote-counter-context" id="vote-counter-context">
       <div class="context-left">
         <div class="context-title" id="vote-context-title">Statewide</div>
@@ -4416,32 +4674,32 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="vote-lead" id="vote-lead">Lead unavailable</div>
     </div>
     <div class="vote-counter-row">
-      <div class="vote-item dem">
-        <div class="vote-item-head">
-          <span class="vote-swatch" aria-hidden="true"></span>
-          <div class="vote-label dem" id="dem-label">Dem</div>
+      <div class="vote-kpi-grid">
+        <div class="vote-kpi vote-kpi-winner" id="winner-kpi" data-party="tie">
+          <div class="vote-kpi-label">Winner</div>
+          <div class="vote-kpi-value" id="winner-name">No leader</div>
+          <div class="vote-kpi-sub" id="winner-party">(T)</div>
         </div>
-        <div class="vote-count dem" id="dem-count">0</div>
-        <div class="vote-percent" id="dem-percent">0%</div>
-        <div class="vote-share-track"><span class="vote-share-fill dem" id="dem-share-fill"></span></div>
+        <div class="vote-kpi vote-kpi-lead" id="lead-kpi" data-party="tie">
+          <div class="vote-kpi-label">Lead</div>
+          <div class="vote-kpi-value" id="lead-value">0.00%</div>
+        </div>
       </div>
-      <div class="vote-item rep">
-        <div class="vote-item-head">
-          <span class="vote-swatch" aria-hidden="true"></span>
-          <div class="vote-label rep" id="rep-label">Rep</div>
+      <div class="vote-share-card">
+        <div class="vote-share-header">
+          <span class="vote-share-title">Total Votes</span>
+          <strong id="vote-total-card">0</strong>
         </div>
-        <div class="vote-count rep" id="rep-count">0</div>
-        <div class="vote-percent" id="rep-percent">0%</div>
-        <div class="vote-share-track"><span class="vote-share-fill rep" id="rep-share-fill"></span></div>
-      </div>
-      <div class="vote-item other">
-        <div class="vote-item-head">
-          <span class="vote-swatch" aria-hidden="true"></span>
-          <div class="vote-label other" id="other-label">Other</div>
+        <div class="vote-share-labels">
+          <span class="dem" id="dem-share-label">Dem 0.00%</span>
+          <span class="mid">50%</span>
+          <span class="rep" id="rep-share-label">Rep 0.00%</span>
         </div>
-        <div class="vote-count" id="other-count">0</div>
-        <div class="vote-percent" id="other-percent">0%</div>
-        <div class="vote-share-track"><span class="vote-share-fill other" id="other-share-fill"></span></div>
+        <div class="vote-share-track">
+          <span class="vote-share-fill dem" id="dem-share-fill"></span>
+          <span class="vote-share-fill other" id="other-share-fill"></span>
+          <span class="vote-share-fill rep" id="rep-share-fill"></span>
+        </div>
       </div>
     </div>
   </div>
@@ -5800,21 +6058,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const demPct = (demVotes / totalVotes) * 100;
       const repPct = (repVotes / totalVotes) * 100;
       const otherPct = (otherVotes / totalVotes) * 100;
-      
-      animateCounter('dem-count', demVotes);
-      animateCounter('rep-count', repVotes);
-      animateCounter('other-count', otherVotes);
-      
-      document.getElementById('dem-percent').textContent = demPct.toFixed(2) + '%';
-      document.getElementById('rep-percent').textContent = repPct.toFixed(2) + '%';
-      document.getElementById('other-percent').textContent = otherPct.toFixed(2) + '%';
-      document.getElementById('dem-share-fill').style.width = `${demPct.toFixed(2)}%`;
-      document.getElementById('rep-share-fill').style.width = `${repPct.toFixed(2)}%`;
-      document.getElementById('other-share-fill').style.width = `${otherPct.toFixed(2)}%`;
 
-      const demLabelEl = document.getElementById('dem-label');
-      const repLabelEl = document.getElementById('rep-label');
-      const otherLabelEl = document.getElementById('other-label');
       const useShortLabels = useShortVoteCounterCandidateLabels();
       const demDisplay = useShortLabels
         ? shortCandidateLabel(counterMeta.demCandidate, 'Democratic')
@@ -5822,30 +6066,57 @@ document.addEventListener('DOMContentLoaded', function() {
       const repDisplay = useShortLabels
         ? shortCandidateLabel(counterMeta.repCandidate, 'Republican')
         : (counterMeta.repCandidate || 'Republican');
-      if (demLabelEl) demLabelEl.textContent = demDisplay;
-      if (repLabelEl) repLabelEl.textContent = repDisplay;
-      if (otherLabelEl) otherLabelEl.textContent = counterMeta.otherLabel || 'Other';
+
+      const demShareFill = document.getElementById('dem-share-fill');
+      const repShareFill = document.getElementById('rep-share-fill');
+      const otherShareFill = document.getElementById('other-share-fill');
+      if (demShareFill) demShareFill.style.width = `${demPct.toFixed(2)}%`;
+      if (repShareFill) repShareFill.style.width = `${repPct.toFixed(2)}%`;
+      if (otherShareFill) otherShareFill.style.width = `${otherPct.toFixed(2)}%`;
+
+      const demShareLabelEl = document.getElementById('dem-share-label');
+      const repShareLabelEl = document.getElementById('rep-share-label');
+      if (demShareLabelEl) demShareLabelEl.textContent = `${demDisplay} ${demPct.toFixed(2)}%`;
+      if (repShareLabelEl) repShareLabelEl.textContent = `${repDisplay} ${repPct.toFixed(2)}%`;
 
       const totalEl = document.getElementById('vote-total');
       if (totalEl) totalEl.textContent = `${totalVotes.toLocaleString()} total votes`;
+      const totalCardEl = document.getElementById('vote-total-card');
+      if (totalCardEl) totalCardEl.textContent = `${totalVotes.toLocaleString()}`;
 
       const leadEl = document.getElementById('vote-lead');
+      const winnerKpi = document.getElementById('winner-kpi');
+      const leadKpi = document.getElementById('lead-kpi');
+      const winnerNameEl = document.getElementById('winner-name');
+      const winnerPartyEl = document.getElementById('winner-party');
+      const leadValueEl = document.getElementById('lead-value');
+      const marginPct = Math.abs(demPct - repPct);
+      const winnerIsDem = demVotes > repVotes;
+      const winnerIsRep = repVotes > demVotes;
+      const leadParty = winnerIsDem ? 'dem' : (winnerIsRep ? 'rep' : 'tie');
+      const winnerLabel = winnerIsDem ? demDisplay : (winnerIsRep ? repDisplay : 'No leader');
+      const winnerCode = winnerIsDem ? 'D' : (winnerIsRep ? 'R' : 'T');
+
+      if (winnerKpi) winnerKpi.dataset.party = leadParty;
+      if (leadKpi) leadKpi.dataset.party = leadParty;
+      if (winnerNameEl) winnerNameEl.textContent = winnerLabel;
+      if (winnerPartyEl) winnerPartyEl.textContent = `(${winnerCode})`;
+      if (leadValueEl) leadValueEl.textContent = `${marginPct.toFixed(2)}%`;
+
       if (leadEl) {
-        const marginVotes = Math.abs(demVotes - repVotes);
-        const marginPct = Math.abs(demPct - repPct);
         let leadText = 'Even';
-        let leadParty = 'tie';
         if (demVotes !== repVotes) {
-          leadParty = demVotes > repVotes ? 'dem' : 'rep';
-          const winnerLabel = demVotes > repVotes
-            ? demDisplay
-            : repDisplay;
-          leadText = `${winnerLabel} +${marginPct.toFixed(2)}`;
-          if (marginVotes > 0) leadText += ` (${marginVotes.toLocaleString()} votes)`;
+          const leadShort = winnerIsDem
+            ? shortCandidateLabel(counterMeta.demCandidate || demDisplay, 'Democratic')
+            : shortCandidateLabel(counterMeta.repCandidate || repDisplay, 'Republican');
+          leadText = `${leadShort} +${marginPct.toFixed(2)}%`;
         }
         leadEl.textContent = leadText;
         leadEl.dataset.party = leadParty;
       }
+
+      const counterEl = document.getElementById('vote-counter');
+      if (counterEl) counterEl.dataset.party = leadParty;
       
       showVoteCounter();
     }
@@ -8588,7 +8859,6 @@ function stripRunningMateName(name) {
           const countyRaw = props.precinct_name || props.county_nam || props.CountyName || props.COUNTYNAME || props.County || props.NAME20 || props.NAME || props.name || props.NAMELSAD20;
           const countyName = (countyRaw || '').toString().replace(/\s+County$/i, '').trim();
           if (!countyName) return;
-          const countyDisplay = displayCountyName(countyName);
 
           // NC-style county click flow: select county, clear hover tooltip state, and keep sidebar in sync.
           prepareTooltipForSelection();
@@ -8599,31 +8869,6 @@ function stripRunningMateName(name) {
           setCountyHoverOutline(countyName);
           if (feature) focusCountyFeature(feature, { duration: 850 });
           pinCountySelectionVoteCounter(countyName);
-
-          // Show historical trends popup based on current contest selection (NCMap behavior).
-          const contestValue = document.getElementById('contestSelect')?.value || '';
-          const [contestType] = parseContestValue(contestValue);
-          const trendType = contestType || 'president';
-          const trendCountyLabel = /County$/i.test(countyDisplay) ? countyDisplay : `${countyDisplay} County`;
-          const trendTitle = `${trendCountyLabel} - ${formatContestName(trendType, '')} Trends`;
-          const requestId = ++countyTrendRequestId;
-          showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(trendTitle, '<div style="color:#94a3b8;">Loading trends...</div>'), { placement: 'top-right', layout: 'timeline' });
-          wireTooltipButtons();
-          try {
-            const series = await getCountyTrendSeries(trendType, countyName);
-            if (requestId !== countyTrendRequestId) return;
-            const content = formatTrendSeries(trendTitle, series);
-            showHoverTooltip(e.point.x, e.point.y, content, { force: true, placement: 'top-right', layout: 'timeline' });
-            wireTooltipButtons();
-            maybePinTooltipForTap();
-          } catch (err) {
-            if (requestId !== countyTrendRequestId) return;
-            console.warn('Failed to load county trends:', err?.message || err);
-            showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(trendTitle, '<div style="color:#94a3b8;">Failed to load trends.</div>'), { force: true, placement: 'top-right', layout: 'timeline' });
-            wireTooltipButtons();
-            maybePinTooltipForTap();
-          }
-
           const sidebar = document.getElementById('sidebar');
           if (sidebar && sidebar.classList.contains('minimized')) {
             sidebar.classList.remove('minimized');
@@ -9088,13 +9333,16 @@ function stripRunningMateName(name) {
           paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 4, 'line-opacity': 0.95 }
         });
         
-        // Add click handler for districts with full trends popup
+        // Add click handler for district selection (details in sidebar, no pinned hover tooltip).
         map.on('click', 'district-fill', async (e) => {
           if (e.features && e.features[0] && e.features[0].properties) {
             const props = e.features[0].properties;
             const districtNum = props.DISTRICT || props.CD118FP || props.district_id || props.district;
             if (districtNum) {
               prepareTooltipForSelection();
+              hideHoverTooltip();
+              clearVoteCounterHoverState();
+              setDistrictHoverOutline('congressional', districtNum);
               // Show detailed sidebar (results + trends).
               showDistrictDetails(districtNum);
               lastSelectedCounty = `District ${districtNum}`;
@@ -9118,10 +9366,7 @@ function stripRunningMateName(name) {
                 }).catch(() => {});
               }
 
-              try {
-                await renderDistrictHover(e, 'congressional', 'Congressional District', ['DISTRICT', 'CD118FP', 'district_id', 'district', 'NAMELSAD'], { tooltipPlacement: 'top-right' });
-                maybePinTooltipForTap();
-              } catch (_) {}
+              try { districtHoverRequestId++; } catch (_) {}
             }
           }
         });
@@ -9174,13 +9419,16 @@ function stripRunningMateName(name) {
           paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 3, 'line-opacity': 0.95 }
         });
         
-        // Add click handler for state house districts with full trends popup
+        // Add click handler for state house district selection (details in sidebar, no pinned hover tooltip).
         map.on('click', 'state-house-fill', async (e) => {
           if (e.features && e.features[0] && e.features[0].properties) {
             const props = e.features[0].properties;
             const districtNum = props.DISTRICT || props.SLDLST || props.district_id || props.district;
             if (districtNum) {
               prepareTooltipForSelection();
+              hideHoverTooltip();
+              clearVoteCounterHoverState();
+              setDistrictHoverOutline('state_house', districtNum);
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'house');
               lastSelectedCounty = `State House District ${districtNum}`;
@@ -9203,10 +9451,7 @@ function stripRunningMateName(name) {
                 }).catch(() => {});
               }
 
-              try {
-                await renderDistrictHover(e, 'state_house', 'State House District', ['DISTRICT', 'SLDLST', 'district_id', 'district', 'NAMELSAD'], { tooltipPlacement: 'top-right' });
-                maybePinTooltipForTap();
-              } catch (_) {}
+              try { districtHoverRequestId++; } catch (_) {}
             }
           }
         });
@@ -9259,13 +9504,16 @@ function stripRunningMateName(name) {
           paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 3, 'line-opacity': 0.95 }
         });
         
-        // Add click handler for state senate districts with full trends popup
+        // Add click handler for state senate district selection (details in sidebar, no pinned hover tooltip).
         map.on('click', 'state-senate-fill', async (e) => {
           if (e.features && e.features[0] && e.features[0].properties) {
             const props = e.features[0].properties;
             const districtNum = props.DISTRICT || props.SLDUST || props.district_id || props.district;
             if (districtNum) {
               prepareTooltipForSelection();
+              hideHoverTooltip();
+              clearVoteCounterHoverState();
+              setDistrictHoverOutline('state_senate', districtNum);
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'senate');
               lastSelectedCounty = `State Senate District ${districtNum}`;
@@ -9288,10 +9536,7 @@ function stripRunningMateName(name) {
                 }).catch(() => {});
               }
 
-              try {
-                await renderDistrictHover(e, 'state_senate', 'State Senate District', ['DISTRICT', 'SLDUST', 'district_id', 'district', 'NAMELSAD'], { tooltipPlacement: 'top-right' });
-                maybePinTooltipForTap();
-              } catch (_) {}
+              try { districtHoverRequestId++; } catch (_) {}
             }
           }
         });
