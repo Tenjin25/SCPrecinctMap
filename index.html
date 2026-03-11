@@ -4271,7 +4271,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </ul>
           <p class="meta-subtle">Example: “Safe Republican (10–19.99%)” means the Republican candidate leads by 10–19.99 percentage points (two-party margin).</p>
 
-          <h3>Hover + Pin</h3>
+          <h3>Hover Details</h3>
           <ul>
             <li>Hover a shape to see a quick result card.</li>
             <li>Click <strong>Pin</strong> in the tooltip to freeze it (so it won’t change while you move the mouse).</li>
@@ -4903,13 +4903,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const isMobile = !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
       const cfg = isMobile
         ? {
-            county: { padding: { top: 104, right: 18, bottom: 148, left: 18 }, offset: [0, 18] },
+            county: { padding: { top: 96, right: 16, bottom: 132, left: 16 }, offset: [0, 12] },
             district: { padding: { top: 104, right: 18, bottom: 148, left: 18 }, offset: [0, 18] },
             precinct: { padding: { top: 112, right: 16, bottom: 156, left: 16 }, offset: [0, 26] },
             default: { padding: { top: 104, right: 18, bottom: 148, left: 18 }, offset: [0, 18] }
           }
         : {
-            county: { padding: { top: 42, right: 42, bottom: 42, left: 42 }, offset: [110, 0] },
+            county: { padding: { top: 36, right: 36, bottom: 36, left: 36 }, offset: [92, 0] },
             district: { padding: { top: 42, right: 42, bottom: 42, left: 42 }, offset: [112, 0] },
             precinct: { padding: { top: 42, right: 42, bottom: 42, left: 42 }, offset: [124, 0] },
             default: { padding: { top: 42, right: 42, bottom: 42, left: 42 }, offset: [110, 0] }
@@ -4991,7 +4991,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function getCountyFocusProfile(feature = null) {
       const isMobile = !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
-      const profile = { maxZoom: isMobile ? 10.1 : 10.65, extra: isMobile ? 16 : 20 };
+      const profile = { maxZoom: isMobile ? 10.7 : 11.2, extra: isMobile ? 14 : 18 };
       if (!feature || !window.turf || typeof turf.area !== 'function') return profile;
 
       let areaSqKm = null;
@@ -5002,10 +5002,20 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       if (!Number.isFinite(areaSqKm) || areaSqKm <= 0) return profile;
 
-      if (areaSqKm <= 2600) profile.maxZoom += isMobile ? 0.15 : 0.3;
-      if (areaSqKm <= 1200) profile.maxZoom += isMobile ? 0.15 : 0.25;
-      if (areaSqKm <= 500) profile.maxZoom += isMobile ? 0.1 : 0.2;
+      if (areaSqKm <= 2600) profile.maxZoom += isMobile ? 0.2 : 0.35;
+      if (areaSqKm <= 1200) profile.maxZoom += isMobile ? 0.2 : 0.3;
+      if (areaSqKm <= 500) profile.maxZoom += isMobile ? 0.15 : 0.25;
       return profile;
+    }
+
+    function focusCountyFeature(feature, options = {}) {
+      const duration = Number.isFinite(Number(options.duration)) ? Number(options.duration) : 900;
+      const profile = getCountyFocusProfile(feature);
+      return fitFeatureForSearch(feature, {
+        kind: 'county',
+        duration,
+        maxZoom: Number.isFinite(Number(options.maxZoom)) ? Number(options.maxZoom) : profile.maxZoom
+      });
     }
 
     function getPrecinctFocusProfile(feature = null) {
@@ -6993,7 +7003,11 @@ function stripRunningMateName(name) {
         .slice()
         .sort((a, b) => Number(a.year) - Number(b.year));
 
-      const target = (countyName || '').toString().trim().toUpperCase();
+      const target = (countyName || '')
+        .toString()
+        .replace(/\s+County$/i, '')
+        .trim()
+        .toUpperCase();
       const out = [];
       for (const e of entries) {
         const year = Number(e.year);
@@ -7003,7 +7017,8 @@ function stripRunningMateName(name) {
         let demCand = '', repCand = '';
         rows.forEach(r => {
           const rowName = (r.county || '').toString().trim().toUpperCase();
-          const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0].trim().toUpperCase() : rowName;
+          const countyOnlyRaw = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
+          const countyOnly = (countyOnlyRaw || '').toString().replace(/\s+COUNTY$/i, '').trim().toUpperCase();
           if (countyOnly !== target) return;
           dem += Number(r[`${contestType}_dem`]) || 0;
           rep += Number(r[`${contestType}_rep`]) || 0;
@@ -7950,60 +7965,52 @@ function stripRunningMateName(name) {
         });
         // Add county click event handler
         map.on('click', 'county-fill', async (e) => {
-          if (e.features && e.features[0] && e.features[0].properties) {
-            const countyName = e.features[0].properties.precinct_name || e.features[0].properties.county_nam || e.features[0].properties.NAMELSAD20 || e.features[0].properties.COUNTYNAME || e.features[0].properties.County || e.features[0].properties.NAME || e.features[0].properties.name;
-            if (countyName) {
-              const countyDisplay = displayCountyName(countyName);
-              const contestValue = document.getElementById('contestSelect')?.value || '';
-              const [contestType, year] = parseContestValue(contestValue);
-              const selectedRow = getCountyResultRow(countyName);
-              prepareTooltipForSelection();
-              const requestId = ++countyTrendRequestId;
-              showCountyDetails(countyName);
-              lastSelectedCounty = countyName;
-              setCountyHoverOutline(countyName);
-              if (contestType && year && selectedRow) {
-                const demVotes = Number(selectedRow[`${contestType}_dem`] || 0);
-                const repVotes = Number(selectedRow[`${contestType}_rep`] || 0);
-                const otherVotes = Number(selectedRow[`${contestType}_other`] || 0);
-                const totalVotes = Number(selectedRow[`${contestType}_total`] || (demVotes + repVotes + otherVotes));
-                if (totalVotes > 0) {
-                  pinVoteCounterState(`Selected: ${countyDisplay}`, `${formatContestName(contestType, year)} ${year}`, demVotes, repVotes, otherVotes, {
-                    demCandidate: selectedRow[`${contestType}_dem_candidate`] || getCandidateName(year, formatContestName(contestType, year), 'Democrat'),
-                    repCandidate: selectedRow[`${contestType}_rep_candidate`] || getCandidateName(year, formatContestName(contestType, year), 'Republican')
-                  });
-                }
-              }
-              if (IS_COARSE_POINTER) {
-                renderCountyHoverAtPoint(e);
-                maybePinTooltipForTap();
-              } else {
-                const trendType = contestType || 'president';
-                const tooltipTitle = `${countyDisplay} - ${formatContestName(trendType, '')} Trends`;
-                setTooltipPinned(true, { explicit: false, key: getCountyTooltipKey(countyName) });
-                showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(tooltipTitle, '<div style="color:#94a3b8;">Loading trends...</div>'), { force: true });
-                wireTooltipButtons();
-                try {
-                  const series = await getCountyTrendSeries(trendType, countyName);
-                  if (requestId !== countyTrendRequestId) return;
-                  const content = formatTrendSeries(tooltipTitle, series);
-                  showHoverTooltip(e.point.x, e.point.y, content, { force: true });
-                  wireTooltipButtons();
-                } catch (err) {
-                  if (requestId !== countyTrendRequestId) return;
-                  showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(tooltipTitle, '<div style="color:#94a3b8;">Failed to load trends.</div>'), { force: true });
-                  wireTooltipButtons();
-                  console.warn('Failed to load county trends:', err?.message || err);
-                }
-              }
-              // Optionally, expand sidebar if minimized
-              const sidebar = document.getElementById('sidebar');
-              if (sidebar && sidebar.classList.contains('minimized')) {
-                sidebar.classList.remove('minimized');
-                const btn = document.getElementById('sidebar-minimize-btn');
-                if (btn) btn.textContent = '-';
-              }
-            }
+          const feature = e?.features?.[0] || null;
+          const props = feature?.properties || null;
+          if (!props) return;
+          const countyRaw = props.precinct_name || props.county_nam || props.CountyName || props.COUNTYNAME || props.County || props.NAME20 || props.NAME || props.name || props.NAMELSAD20;
+          const countyName = (countyRaw || '').toString().replace(/\s+County$/i, '').trim();
+          if (!countyName) return;
+          const countyDisplay = displayCountyName(countyName);
+
+          // NC-style county click flow: select county, clear hover tooltip state, and keep sidebar in sync.
+          prepareTooltipForSelection();
+          hideHoverTooltip();
+          clearVoteCounterHoverState();
+          showCountyDetails(countyName);
+          lastSelectedCounty = countyName;
+          setCountyHoverOutline(countyName);
+          if (feature) focusCountyFeature(feature, { duration: 850 });
+          pinCountySelectionVoteCounter(countyName);
+
+          // Show historical trends popup based on current contest selection (NCMap behavior).
+          const contestValue = document.getElementById('contestSelect')?.value || '';
+          const [contestType] = parseContestValue(contestValue);
+          const trendType = contestType || 'president';
+          const trendTitle = `${countyDisplay} - ${formatContestName(trendType, '')} Trends`;
+          const requestId = ++countyTrendRequestId;
+          showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(trendTitle, '<div style="color:#94a3b8;">Loading trends...</div>'));
+          wireTooltipButtons();
+          try {
+            const series = await getCountyTrendSeries(trendType, countyName);
+            if (requestId !== countyTrendRequestId) return;
+            const content = formatTrendSeries(trendTitle, series);
+            showHoverTooltip(e.point.x, e.point.y, content, { force: true });
+            wireTooltipButtons();
+            maybePinTooltipForTap();
+          } catch (err) {
+            if (requestId !== countyTrendRequestId) return;
+            console.warn('Failed to load county trends:', err?.message || err);
+            showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(trendTitle, '<div style="color:#94a3b8;">Failed to load trends.</div>'), { force: true });
+            wireTooltipButtons();
+            maybePinTooltipForTap();
+          }
+
+          const sidebar = document.getElementById('sidebar');
+          if (sidebar && sidebar.classList.contains('minimized')) {
+            sidebar.classList.remove('minimized');
+            const btn = document.getElementById('sidebar-minimize-btn');
+            if (btn) btn.textContent = '-';
           }
         });
         // Hover tooltip with election results
@@ -9071,13 +9078,12 @@ function stripRunningMateName(name) {
           lastSelectedCounty = props.NAMELSAD20 || props.NAME20 || props.county_name || props.County || props.COUNTYNAME || props.NAME || props.name;
           setFlyToSearchValue(formatFlyToLocalityLabel(lastSelectedCounty));
           debugLog('[DIAGNOSTIC] Matched county for', countyName, '->', lastSelectedCounty);
-          const countyProfile = getCountyFocusProfile(found);
-          fitFeatureForSearch(found, {
-            kind: 'county',
-            duration: 1000,
-            maxZoom: countyProfile.maxZoom
-          });
+          prepareTooltipForSelection();
+          hideHoverTooltip();
+          clearVoteCounterHoverState();
+          focusCountyFeature(found, { duration: 1000 });
           showCountyDetails(lastSelectedCounty);
+          setCountyHoverOutline(lastSelectedCounty);
           pinCountySelectionVoteCounter(lastSelectedCounty);
           const sidebar = document.getElementById('sidebar');
           if (sidebar && sidebar.classList.contains('minimized')) {
@@ -10733,7 +10739,21 @@ function stripRunningMateName(name) {
 	        return Array.from(out);
 	      }
 
-      // Build county aggregates from precinct-level rows.
+      // Build county aggregates from contest rows.
+      // Some files contain both county summary rows and precinct rows; in that case,
+      // prefer county summary rows for county/statewide rollups to avoid double counting.
+      const countySummarySet = new Set();
+      const precinctRowCountySet = new Set();
+      contestData.forEach(row => {
+        const rowName = (row?.county || '').toString();
+        const isPrecinctRow = rowName.includes(' - ');
+        const countyOnly = isPrecinctRow ? rowName.split(' - ')[0] : rowName;
+        const countyNorm = normalizeCountyName(countyOnly);
+        if (!countyNorm) return;
+        if (isPrecinctRow) precinctRowCountySet.add(countyNorm);
+        else countySummarySet.add(countyNorm);
+      });
+
       const countyAgg = {};
       const precinctVoteAgg = needsPrecinctDetail ? new Map() : null; // Map precinct_norm -> aggregated row
       const unmatchedCountyGeoAgg = needsPrecinctDetail ? new Map() : null; // county_norm -> residual geographic votes
@@ -10764,9 +10784,12 @@ function stripRunningMateName(name) {
 
       contestData.forEach(row => {
         const rowName = (row.county || '').toString();
-        const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
+        const isPrecinctRow = rowName.includes(' - ');
+        const countyOnly = isPrecinctRow ? rowName.split(' - ')[0] : rowName;
         const countyNorm = normalizeCountyName(countyOnly);
         if (!countyNorm) return;
+        const hasCountySummary = countySummarySet.has(countyNorm);
+        const hasPrecinctRowsForCounty = precinctRowCountySet.has(countyNorm);
 
         const demVotes = Number(row[`${contestType}_dem`] || 0);
         const repVotes = Number(row[`${contestType}_rep`] || 0);
@@ -10776,31 +10799,41 @@ function stripRunningMateName(name) {
         const repCand = (row[`${contestType}_rep_candidate`] || '').toString();
 
         if (needsPrecinctDetail) {
-          const candidateNorms = precinctNormVariants(rowName);
-          if (candidateNorms.length) {
-            let matchedNorms = candidateNorms.filter(n => !precinctNormSet || precinctNormSet.has(n));
-            if (!matchedNorms.length) {
-              const labelMatches = matchPrecinctNormsByLabel(countyNorm, row.precinct_label || '');
-              if (labelMatches.length) matchedNorms = labelMatches;
-            }
-            if (matchedNorms.length) {
-              // Split a legacy row across all matched modern precincts so totals remain bounded.
-              const share = 1 / matchedNorms.length;
-              matchedNorms.forEach(n => addPrecinctVotes(n, demVotes * share, repVotes * share, otherVotes * share, demCand, repCand));
-            } else {
-              // Geographic row failed direct key matching; hold for county-level redistribution.
-              if (!unmatchedCountyGeoAgg.has(countyNorm)) {
-                unmatchedCountyGeoAgg.set(countyNorm, { dem: 0, rep: 0, other: 0, demCand: demCand || '', repCand: repCand || '' });
+          // If a county already has explicit precinct rows, do not project its county-summary row
+          // onto precincts; that would duplicate totals.
+          const useRowForPrecinctDetail = isPrecinctRow || !hasPrecinctRowsForCounty;
+          if (useRowForPrecinctDetail) {
+            const candidateNorms = precinctNormVariants(rowName);
+            if (candidateNorms.length) {
+              let matchedNorms = candidateNorms.filter(n => !precinctNormSet || precinctNormSet.has(n));
+              if (!matchedNorms.length) {
+                const labelMatches = matchPrecinctNormsByLabel(countyNorm, row.precinct_label || '');
+                if (labelMatches.length) matchedNorms = labelMatches;
               }
-              const miss = unmatchedCountyGeoAgg.get(countyNorm);
-              miss.dem += demVotes;
-              miss.rep += repVotes;
-              miss.other += otherVotes;
-              if (!miss.demCand && demCand) miss.demCand = demCand;
-              if (!miss.repCand && repCand) miss.repCand = repCand;
+              if (matchedNorms.length) {
+                // Split a legacy row across all matched modern precincts so totals remain bounded.
+                const share = 1 / matchedNorms.length;
+                matchedNorms.forEach(n => addPrecinctVotes(n, demVotes * share, repVotes * share, otherVotes * share, demCand, repCand));
+              } else {
+                // Geographic row failed direct key matching; hold for county-level redistribution.
+                if (!unmatchedCountyGeoAgg.has(countyNorm)) {
+                  unmatchedCountyGeoAgg.set(countyNorm, { dem: 0, rep: 0, other: 0, demCand: demCand || '', repCand: repCand || '' });
+                }
+                const miss = unmatchedCountyGeoAgg.get(countyNorm);
+                miss.dem += demVotes;
+                miss.rep += repVotes;
+                miss.other += otherVotes;
+                if (!miss.demCand && demCand) miss.demCand = demCand;
+                if (!miss.repCand && repCand) miss.repCand = repCand;
+              }
             }
           }
         }
+
+        // County/statewide rollups: skip precinct rows when a county summary row exists.
+        const includeInCountyRollup = !isPrecinctRow || !hasCountySummary;
+        if (!includeInCountyRollup) return;
+
         if (!countyAgg[countyNorm]) {
           countyAgg[countyNorm] = {
             year: Number(year),
