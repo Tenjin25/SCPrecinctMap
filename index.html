@@ -8771,6 +8771,8 @@ function stripRunningMateName(name) {
     function renderCountyHoverAtPoint(e) {
       if (!(e.features && e.features[0])) return;
 
+      // If precinct overlay is enabled and a precinct feature is under the cursor, let the
+      // precinct hover path own the tooltip/outline to avoid flicker between layers.
       try {
         if (precinctsEnabled && e?.point) {
           const layers = [];
@@ -8778,27 +8780,31 @@ function stripRunningMateName(name) {
           if (map.getLayer('precinct-dot-missing')) layers.push('precinct-dot-missing');
           if (map.getLayer('precinct-fill')) layers.push('precinct-fill');
           if (layers.length) {
-            const precinctFeatures = map.queryRenderedFeatures(e.point, { layers });
-            if (precinctFeatures && precinctFeatures.length) return;
+            const pf = map.queryRenderedFeatures(e.point, { layers });
+            if (pf && pf.length) return;
           }
         }
       } catch (_) {}
 
       const props = e.features[0].properties || {};
-      const countyName = props.NAMELSAD20 || props.NAME20 || props.CountyName || props.COUNTYNAME || props.county_nam || props.NAME || props.name || 'Unknown County';
+      const countyName = props.NAME20 || props.CountyName || props.COUNTYNAME || props.county_nam || props.NAME || props.name || 'Unknown County';
       const countyDisplay = displayCountyName(countyName);
-      const countyLabel = /County$/i.test(countyDisplay) ? countyDisplay : `${countyDisplay} County`;
-      const hoveredCountyKey = getCountyTooltipKey(countyName);
-      if (!IS_COARSE_POINTER && tooltipPinned && !tooltipPinnedExplicit && hoveredCountyKey && hoveredCountyKey !== tooltipPinnedKey) {
-        closeHoverUI({ force: true });
-      }
       setCountyHoverOutline(countyName);
-      const norm = normalizeCountyLookupKey(countyName);
-      const row = getCountyResultRow(countyName);
+      const norm = (countyName || '').toString().replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+      let row = currentElectionResults ? currentElectionResults[norm] : null;
+      if (!row && currentElectionResults) {
+        for (const key of Object.keys(currentElectionResults)) {
+          const keyNorm = (key || '').toString().replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+          if (keyNorm === norm) {
+            row = currentElectionResults[key];
+            break;
+          }
+        }
+      }
       const contestValue = document.getElementById('contestSelect')?.value || '';
 
       if (!contestValue || !row) {
-        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyLabel}`, '<div style="color:#64748b;">Select a contest to see results</div>'));
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyDisplay} County`, '<div style="color:#64748b;">Select a contest to see results</div>'));
         wireTooltipButtons();
         return;
       }
@@ -8811,16 +8817,13 @@ function stripRunningMateName(name) {
       const otherVotes = Number(row[`${contestType}_other`] || 0);
       const totalVotes = Number(row[`${contestType}_total`] || 0);
       if (totalVotes <= 0) {
-        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyLabel}`, '<div style="color:#64748b;">No data available</div>'));
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyDisplay} County`, '<div style="color:#64748b;">No data available</div>'));
         wireTooltipButtons();
         return;
       }
       const demCandidate = row[`${contestType}_dem_candidate`] || getCandidateName(year, formatContestName(contestType, year), 'Democrat');
       const repCandidate = row[`${contestType}_rep_candidate`] || getCandidateName(year, formatContestName(contestType, year), 'Republican');
-      setVoteCounterHoverState(`Hover: ${countyDisplay}`, `${formatContestName(contestType, year)} ${year}`, demVotes, repVotes, otherVotes, {
-        demCandidate,
-        repCandidate
-      });
+      setVoteCounterHoverState(`Hover: ${countyDisplay} County`, `${formatContestName(contestType, year)} ${year}`, demVotes, repVotes, otherVotes);
 
       const signedMarginPct = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
       const winner = signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T');
@@ -8859,7 +8862,7 @@ function stripRunningMateName(name) {
         ${demoLine}
       `;
 
-      showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyLabel}`, inner));
+      showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyDisplay} County`, inner));
       wireTooltipButtons();
     }
 
@@ -9501,7 +9504,7 @@ function stripRunningMateName(name) {
       if (buckets.size) {
         sidebarContent += `<div class="margin-section">`;
         sidebarContent += '<h3 class="sidebar-section-title">Non-geographic votes</h3>';
-        sidebarContent += `<p class="sidebar-margin-details" style="margin-top:0;">Included in totals; not shown as precincts (e.g., Early Vote â€œEVâ€).</p>`;
+        sidebarContent += `<p class="sidebar-margin-details" style="margin-top:0;">Included in totals; not shown as precincts (e.g., Early Vote “EV”).</p>`;
         Array.from(buckets.entries())
           .sort((a, b) => (b[1].total || 0) - (a[1].total || 0))
           .slice(0, 10)
@@ -10813,7 +10816,8 @@ function stripRunningMateName(name) {
     function getHistoricalTrends(countyName, isDistrict = false, districtNum = null) {
       const presidentialYears = [2024, 2020, 2016, 2012, 2008];
       const stateHouseYears = [2024, 2022, 2020, 2018, 2016]; // Recent state house elections
-      const governorYears = [2022, 2018, 2014, 2010, 2006, 2002];
+      // NC governor elections align with presidential years (e.g., 2016, 2020, 2024).
+      const governorYears = [2024, 2020, 2016, 2012, 2008];
       const trends = [];
       
       if (isDistrict && districtNum) {
@@ -10867,10 +10871,12 @@ function stripRunningMateName(name) {
               const marginAbs = Math.abs(margin);
               
               // Get candidate names for recent years
-              const presNominee = winner === 'D'
-                ? getCandidateName(year, 'President of the United States', 'Democrat')
-                : getCandidateName(year, 'President of the United States', 'Republican');
-              const candidateInfo = (presNominee || winner).toString().trim() || winner;
+              let candidateInfo = '';
+              if (year === 2024) candidateInfo = margin > 0 ? getCandidateName(year, 'President of the United States', 'Democrat') : getCandidateName(year, 'President of the United States', 'Republican');
+              else if (year === 2020) candidateInfo = margin > 0 ? getCandidateName(year, 'President of the United States', 'Democrat') : getCandidateName(year, 'President of the United States', 'Republican');
+              else if (year === 2016) candidateInfo = margin > 0 ? getCandidateName(year, 'President of the United States', 'Democrat') : getCandidateName(year, 'President of the United States', 'Republican');
+              else if (year === 2012) candidateInfo = margin > 0 ? getCandidateName(year, 'President of the United States', 'Democrat') : getCandidateName(year, 'President of the United States', 'Republican');
+              else if (year === 2008) candidateInfo = margin > 0 ? getCandidateName(year, 'President of the United States', 'Democrat') : getCandidateName(year, 'President of the United States', 'Republican');
               
               trends.push({
                 year: year,
@@ -10892,6 +10898,7 @@ function stripRunningMateName(name) {
           });
         }
         
+        // State House trends (recent years only)
         // Governor trends (recent years only)
         governorYears.forEach(year => {
           const data = electionData.find(row => 
@@ -10906,10 +10913,8 @@ function stripRunningMateName(name) {
             const margin = demPct - repPct;
             const winner = margin > 0 ? 'D' : 'R';
             const marginAbs = Math.abs(margin);
-            const govNominee = winner === 'D'
-              ? getCandidateName(year, 'Governor', 'Democrat')
-              : getCandidateName(year, 'Governor', 'Republican');
-            const candidateInfo = (govNominee || winner).toString().trim() || winner;
+            let candidateInfo = '';
+            candidateInfo = margin > 0 ? getCandidateName(year, 'Governor', 'Democrat') : getCandidateName(year, 'Governor', 'Republican');
             trends.push({
               year: year,
               display: `${year}: ${candidateInfo}+${marginAbs.toFixed(2)}`,
@@ -10918,8 +10923,6 @@ function stripRunningMateName(name) {
             });
           }
         });
-
-        // State House trends (recent years only)
         stateHouseYears.forEach(year => {
           const data = electionData.find(row => 
             row.year == year && row.county === countyName
