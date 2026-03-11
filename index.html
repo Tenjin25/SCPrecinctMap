@@ -3556,6 +3556,22 @@ body { height: var(--app-height); }
     color: #1d4ed8;
   }
 
+  .trend-winner {
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    color: #0f172a;
+  }
+
+  .trend-winner.rep {
+    color: #b91c1c;
+  }
+
+  .trend-winner.dem {
+    color: #1d4ed8;
+  }
+
   .trend-share-labels {
     display: flex;
     justify-content: space-between;
@@ -3693,6 +3709,10 @@ body { height: var(--app-height); }
     .trend-quick-total,
     .trend-quick-margin {
       font-size: 12px;
+    }
+
+    .trend-winner {
+      font-size: 15px;
     }
 
     .contest-toolbar {
@@ -7476,6 +7496,13 @@ function stripRunningMateName(name) {
       return out;
     }
 
+    function formatTrendVotesCompact(value) {
+      const n = Number(value) || 0;
+      if (n >= 1000000) return `${(n / 1000000).toFixed(1)}M votes`;
+      if (n >= 1000) return `${(n / 1000).toFixed(1)}K votes`;
+      return `${Math.round(n).toLocaleString()} votes`;
+    }
+
     function trendLeadCandidateName(name, fallback) {
       const raw = (name || '').toString().trim();
       if (!raw) return fallback || '';
@@ -7572,19 +7599,9 @@ function stripRunningMateName(name) {
         const repBar = twoPartyTotal > 0 ? (repVotes / twoPartyTotal) * 100.0 : 50;
         const demLabel = shortCandidateLabel(entry.dem_candidate, 'Dem');
         const repLabel = shortCandidateLabel(entry.rep_candidate, 'Rep');
-        const winnerShortName = winnerCode === 'R'
-          ? shortCandidateLabel(entry.rep_candidate, 'Republican')
-          : (winnerCode === 'D' ? shortCandidateLabel(entry.dem_candidate, 'Democratic') : 'Tie');
         const winnerLine = winnerCode === 'T'
           ? 'Tie'
           : `${summary.winnerName} (${winnerCode})`;
-        const leadLabel = winnerCode === 'T'
-          ? `Tied ${summary.absPct.toFixed(2)}%`
-          : `${winnerCode} +${summary.absPct.toFixed(2)}%`;
-        const voteLeadAbs = Math.abs(repVotes - demVotes).toLocaleString();
-        const quickMarginLine = winnerCode === 'T'
-          ? `Tied ${summary.absPct.toFixed(2)}% (${voteLeadAbs} votes)`
-          : `${winnerShortName} +${summary.absPct.toFixed(2)}% (${voteLeadAbs} votes)`;
 
         const prev = orderedDesc[index + 1] || null;
         let shiftHtml = '';
@@ -7613,20 +7630,7 @@ function stripRunningMateName(name) {
                 <span class="trend-party-pill ${cardClass}">${partyText}</span>
                 <span class="trend-margin-pill">${summary.absPct.toFixed(2)}%</span>
               </div>
-              <div class="trend-quick-lines">
-                <div class="trend-quick-total">${totalVotes.toLocaleString()} total votes</div>
-                <div class="trend-quick-margin ${cardClass}">${quickMarginLine}</div>
-              </div>
-              <div class="trend-key-grid">
-                <div>
-                  <div class="trend-key-label">Winner</div>
-                  <div class="trend-key-value ${cardClass}">${winnerLine}</div>
-                </div>
-                <div>
-                  <div class="trend-key-label">Lead</div>
-                  <div class="trend-key-value ${cardClass}">${leadLabel}</div>
-                </div>
-              </div>
+              <div class="trend-winner ${cardClass}">${winnerLine}</div>
               <div class="trend-share-labels">
                 <span class="dem">${demLabel} ${demPct.toFixed(2)}%</span>
                 <span class="rep">${repLabel} ${repPct.toFixed(2)}%</span>
@@ -7636,6 +7640,7 @@ function stripRunningMateName(name) {
                 <div class="trend-share-rep" style="width:${repBar.toFixed(4)}%;"></div>
               </div>
               <div class="trend-meta-row">
+                <span class="trend-meta-pill votes">${formatTrendVotesCompact(totalVotes)}</span>
                 ${shiftHtml}
                 <span class="trend-meta-pill other">Other ${otherPct.toFixed(2)}%</span>
                 ${flipHtml}
