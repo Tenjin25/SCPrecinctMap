@@ -1194,9 +1194,15 @@ def build_statewide_contests_by_district_from_slices() -> int:
                     precinct_to_district[scope][pn] = chosen
 
     # Prefer block-derived fractional allocation where available.
+    # The block assignment SLDL/SLDU numbering does not align cleanly with our
+    # court-ordered 2022 legislative line files, so limit block weighting to
+    # congressional scope until legislative district code alignment is resolved.
+    block_weight_scopes = {'congressional'}
     block_weight_maps = load_block_assignment_precinct_weights()
     if block_weight_maps:
         for scope, mapping in block_weight_maps.items():
+            if scope not in block_weight_scopes:
+                continue
             if scope not in precinct_to_district:
                 continue
             if not mapping:
@@ -1226,6 +1232,7 @@ def build_statewide_contests_by_district_from_slices() -> int:
             continue
 
         for scope in district_sources.keys():
+            scope_weight_map = (block_weight_maps.get(scope) or {}) if scope in block_weight_scopes else {}
             by_dist = {}
             matched = 0
             matched_weighted = 0
@@ -1234,7 +1241,7 @@ def build_statewide_contests_by_district_from_slices() -> int:
             for r in precinct_rows:
                 key = (r.get('county') or '').strip()
                 pn = normalize(key)
-                weights = (block_weight_maps.get(scope) or {}).get(pn) if block_weight_maps else None
+                weights = scope_weight_map.get(pn) if scope_weight_map else None
                 if weights:
                     matched += 1
                     matched_weighted += 1
