@@ -4747,6 +4747,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	    let tooltipPinned = false;
       let tooltipPinnedExplicit = false;
       let tooltipPinnedKey = '';
+      let tooltipPlacementMode = 'cursor';
 	    let precinctDotHoverRaf = null;
 	    let lastPrecinctDotHoverEvent = null;
     let districtHoverRequestId = 0;
@@ -7381,20 +7382,21 @@ function stripRunningMateName(name) {
       });
     }
 
-    async function renderDistrictHover(e, scope, districtLabel, districtFieldCandidates) {
+    async function renderDistrictHover(e, scope, districtLabel, districtFieldCandidates, opts = {}) {
       if (!(e.features && e.features[0])) return;
       const props = e.features[0].properties || {};
       const districtNum = getDistrictNumberFromPropsCandidates(props, districtFieldCandidates);
       if (!districtNum) return;
       const requestId = ++districtHoverRequestId;
       setDistrictHoverOutline(scope, districtNum);
+      const tooltipPlacement = opts?.tooltipPlacement === 'top-right' ? 'top-right' : 'cursor';
 
       const contestValue = document.getElementById('contestSelect')?.value || '';
-      const demoRow = getDistrictDemographics(scope, districtNum);
-      const demoHTML = buildDemoHTML(demoRow);
+      const _demoRow = getDistrictDemographics(scope, districtNum);
+      const _demoHTML = buildDemoHTML(_demoRow);
       if (!contestValue) {
         showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`,
-          demoHTML + '<div style="color:#94a3b8;margin-top:6px;">Select a contest to see results</div>'));
+          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">Select a contest to see results</div>'), { placement: tooltipPlacement });
         wireTooltipButtons();
         return;
       }
@@ -7416,7 +7418,8 @@ function stripRunningMateName(name) {
       }
 
       if (!row) {
-        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`, '<div style=\"color:#64748b;\">No data available</div>'));
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`,
+          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>'), { placement: tooltipPlacement });
         wireTooltipButtons();
         return;
       }
@@ -7426,7 +7429,8 @@ function stripRunningMateName(name) {
       const otherVotes = Number(row.other_votes || 0);
       const totalVotes = Number(row.total_votes || 0);
       if (totalVotes <= 0) {
-        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`, '<div style=\"color:#64748b;\">No data available</div>'));
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`,
+          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>'), { placement: tooltipPlacement });
         wireTooltipButtons();
         return;
       }
@@ -7478,10 +7482,11 @@ function stripRunningMateName(name) {
       const desc = getDistrictDescription(scope, districtNum);
       const inner = `
         <div class="hover-meta">${chips.join('')}</div>
-        ${desc ? `<div class="meta-subtle" style="margin-top:6px;"><strong>Area:</strong> ${desc}</div>` : ''}
+        ${desc ? `<div style="margin-top:6px;font-size:12px;color:#94a3b8;"><strong style="color:#e2e8f0;">Area:</strong> ${desc}</div>` : ''}
+        ${_demoHTML}
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
       `;
-      showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`, inner));
+      showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`, inner), { placement: tooltipPlacement });
       wireTooltipButtons();
     }
 
@@ -8066,19 +8071,19 @@ function stripRunningMateName(name) {
           const trendCountyLabel = /County$/i.test(countyDisplay) ? countyDisplay : `${countyDisplay} County`;
           const trendTitle = `${trendCountyLabel} - ${formatContestName(trendType, '')} Trends`;
           const requestId = ++countyTrendRequestId;
-          showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(trendTitle, '<div style="color:#94a3b8;">Loading trends...</div>'));
+          showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(trendTitle, '<div style="color:#94a3b8;">Loading trends...</div>'), { placement: 'top-right' });
           wireTooltipButtons();
           try {
             const series = await getCountyTrendSeries(trendType, countyName);
             if (requestId !== countyTrendRequestId) return;
             const content = formatTrendSeries(trendTitle, series);
-            showHoverTooltip(e.point.x, e.point.y, content, { force: true });
+            showHoverTooltip(e.point.x, e.point.y, content, { force: true, placement: 'top-right' });
             wireTooltipButtons();
             maybePinTooltipForTap();
           } catch (err) {
             if (requestId !== countyTrendRequestId) return;
             console.warn('Failed to load county trends:', err?.message || err);
-            showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(trendTitle, '<div style="color:#94a3b8;">Failed to load trends.</div>'), { force: true });
+            showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(trendTitle, '<div style="color:#94a3b8;">Failed to load trends.</div>'), { force: true, placement: 'top-right' });
             wireTooltipButtons();
             maybePinTooltipForTap();
           }
@@ -8578,7 +8583,7 @@ function stripRunningMateName(name) {
               }
 
               try {
-                await renderDistrictHover(e, 'congressional', 'Congressional District', ['DISTRICT', 'CD118FP', 'district_id', 'district', 'NAMELSAD']);
+                await renderDistrictHover(e, 'congressional', 'Congressional District', ['DISTRICT', 'CD118FP', 'district_id', 'district', 'NAMELSAD'], { tooltipPlacement: 'top-right' });
                 maybePinTooltipForTap();
               } catch (_) {}
             }
@@ -8663,7 +8668,7 @@ function stripRunningMateName(name) {
               }
 
               try {
-                await renderDistrictHover(e, 'state_house', 'State House District', ['DISTRICT', 'SLDLST', 'district_id', 'district', 'NAMELSAD']);
+                await renderDistrictHover(e, 'state_house', 'State House District', ['DISTRICT', 'SLDLST', 'district_id', 'district', 'NAMELSAD'], { tooltipPlacement: 'top-right' });
                 maybePinTooltipForTap();
               } catch (_) {}
             }
@@ -8748,7 +8753,7 @@ function stripRunningMateName(name) {
               }
 
               try {
-                await renderDistrictHover(e, 'state_senate', 'State Senate District', ['DISTRICT', 'SLDUST', 'district_id', 'district', 'NAMELSAD']);
+                await renderDistrictHover(e, 'state_senate', 'State Senate District', ['DISTRICT', 'SLDUST', 'district_id', 'district', 'NAMELSAD'], { tooltipPlacement: 'top-right' });
                 maybePinTooltipForTap();
               } catch (_) {}
             }
@@ -9336,13 +9341,55 @@ function stripRunningMateName(name) {
     }
 
     // Hover Tooltip Functions - VoteHub Style
-    function showHoverTooltip(x, y, content, { force = false } = {}) {
+    function isMobileTooltipViewport() {
+      try {
+        return !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+      } catch (_) {
+        const width = window.innerWidth || document.documentElement.clientWidth || 1280;
+        return width <= 768;
+      }
+    }
+
+    function positionTooltipTopRight(tooltip) {
+      if (!tooltip) return;
+      const padding = 15;
+      const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1280;
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 720;
+      const tooltipRect = tooltip.getBoundingClientRect();
+
+      let top = padding;
+      if (!isMobileTooltipViewport()) {
+        const counter = document.getElementById('vote-counter');
+        if (counter) {
+          const style = window.getComputedStyle ? window.getComputedStyle(counter) : null;
+          const shown = !style || (style.display !== 'none' && style.visibility !== 'hidden');
+          if (shown) {
+            const counterRect = counter.getBoundingClientRect();
+            if (counterRect.height > 0) top = Math.max(top, Math.ceil(counterRect.bottom) + 10);
+          }
+        }
+      }
+
+      let left = viewportWidth - tooltipRect.width - padding;
+      if (left < padding) left = padding;
+      top = Math.min(Math.max(padding, top), Math.max(padding, viewportHeight - tooltipRect.height - padding));
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+    }
+
+    function showHoverTooltip(x, y, content, { force = false, placement = 'cursor' } = {}) {
       const tooltip = document.getElementById('hover-tooltip');
       if (!tooltip) return;
       if (tooltipPinned && !force) return;
       
       tooltip.innerHTML = content;
       tooltip.style.display = 'block';
+      tooltipPlacementMode = placement === 'top-right' ? 'top-right' : 'cursor';
+
+      if (tooltipPlacementMode === 'top-right') {
+        positionTooltipTopRight(tooltip);
+        return;
+      }
       
       // Position tooltip near mouse but avoid edges
       const tooltipRect = tooltip.getBoundingClientRect();
@@ -9367,6 +9414,7 @@ function stripRunningMateName(name) {
       const tooltip = document.getElementById('hover-tooltip');
       if (!tooltip) return;
       if (tooltipPinned) return;
+      tooltipPlacementMode = 'cursor';
       tooltip.style.display = 'none';
     }
 
@@ -9378,7 +9426,10 @@ function stripRunningMateName(name) {
       if (!tooltip) return;
       tooltip.setAttribute('data-pinned', tooltipPinned ? '1' : '0');
       tooltip.setAttribute('data-pin-explicit', tooltipPinnedExplicit ? '1' : '0');
-      if (!tooltipPinned) tooltipPinnedKey = '';
+      if (!tooltipPinned) {
+        tooltipPinnedKey = '';
+        tooltipPlacementMode = 'cursor';
+      }
     }
 
     function buildTooltipShell(title, innerHtml) {
@@ -9429,6 +9480,7 @@ function stripRunningMateName(name) {
       const tooltip = document.getElementById('hover-tooltip');
       if (!tooltip || tooltip.style.display === 'none') return;
       if (tooltipPinned) return;
+      if (tooltipPlacementMode === 'top-right') return;
       
       const tooltipRect = tooltip.getBoundingClientRect();
       const padding = 15;
