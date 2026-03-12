@@ -8673,7 +8673,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (leadMetaEl) {
         leadMetaEl.textContent = winnerParty === 'tie'
           ? 'Even race'
-          : leadMarginPctLabel(r, d, total);
+          : winnerMarginLabelShort(r, d, total, resolvedCandidates.repCandidate, resolvedCandidates.demCandidate);
         leadMetaEl.dataset.party = winnerParty;
       }
       if (demShareFill) demShareFill.style.width = `${demPct.toFixed(2)}%`;
