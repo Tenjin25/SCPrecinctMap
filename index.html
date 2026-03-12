@@ -8364,7 +8364,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function leadMarginPctLabel(repVotes, demVotes, totalVotes) {
       const margin = Number(repVotes || 0) - Number(demVotes || 0);
       if (!margin) return 'Tie';
-      return `${marginPctValue(repVotes, demVotes, totalVotes).toFixed(2)}%`;
+      const side = margin > 0 ? 'R' : 'D';
+      return `${side}+${marginPctValue(repVotes, demVotes, totalVotes).toFixed(2)}%`;
     }
 
     function compactWinnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
@@ -8672,7 +8673,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (leadMetaEl) {
         leadMetaEl.textContent = winnerParty === 'tie'
           ? 'Even race'
-          : compactWinnerMarginLabel(r, d, total, resolvedCandidates.repCandidate, resolvedCandidates.demCandidate);
+          : leadMarginPctLabel(r, d, total);
         leadMetaEl.dataset.party = winnerParty;
       }
       if (demShareFill) demShareFill.style.width = `${demPct.toFixed(2)}%`;
