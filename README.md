@@ -21,6 +21,7 @@ An interactive, single-page election results map for South Carolina built with *
 13. [Known Limitations](#known-limitations)
 14. [Deployment](#deployment)
 15. [Key Files Reference](#key-files-reference)
+16. [Recent Changes (March 2026)](#recent-changes-march-2026)
 
 ---
 
@@ -33,6 +34,16 @@ An interactive, single-page election results map for South Carolina built with *
 - **Color scale**: 14-step red/blue gradient keyed to R–D margin percentage
 - **Hover tooltip**: candidate names, vote totals, and margin for any hovered feature
 - **Contest panel**: dropdown to switch contests; color-coded legend bar
+
+---
+
+## Recent Changes (March 2026)
+
+- Synced county click behavior and selected-county results/trend presentation with NC map logic in `index.html`.
+- Updated winner/lead labeling so summary text uses **candidate + margin** while lead text uses **party + margin** (`R+` / `D+`).
+- Fixed county-level presidential margin handling to use contest JSON margin values in county detail and trend context.
+- Added a minimize control next to Clear in the selected-results panel flow.
+- Standardized candidate display cleanup to remove presidential running mates (for example 2020 now shows ticket leads instead of full tickets) across vote counter and candidate lookup paths.
 
 ---
 

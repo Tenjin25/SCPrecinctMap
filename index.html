@@ -7329,8 +7329,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       if (record && record[candidateField]) {
-        candidateNameCache.set(cacheKey, record[candidateField]);
-        return record[candidateField];
+        const cleaned = stripRunningMateName(record[candidateField]);
+        candidateNameCache.set(cacheKey, cleaned);
+        return cleaned;
       }
       
       const fallback = party === 'Democrat' ? 'D' : 'R';
