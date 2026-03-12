@@ -8342,6 +8342,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       // Common presidential ticket separators.
       const seps = [' / ', '/', ' & ', '&', ' + ', '+', ' - ', ' â€“ ', ' â€” '];
+      seps.unshift('|');
+      seps.unshift(' | ');
       for (const sep of seps) {
         if (raw.includes(sep)) {
           const left = raw.split(sep, 1)[0].trim();
