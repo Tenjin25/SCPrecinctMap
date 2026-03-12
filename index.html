@@ -8300,7 +8300,18 @@ document.addEventListener('DOMContentLoaded', function() {
       const ticketLead = stripRunningMateName(raw);
       const cleaned = ticketLead.replace(/\([^)]*\)/g, ' ').replace(/[^A-Za-z .'-]/g, ' ').replace(/\s+/g, ' ').trim();
       if (!cleaned) return fallback;
-      return toTitleCaseName(cleaned);
+      return addMiddleInitialPeriods(toTitleCaseName(cleaned));
+    }
+
+    function addMiddleInitialPeriods(name) {
+      const parts = (name || '').toString().trim().split(/\s+/).filter(Boolean);
+      if (parts.length < 3) return (name || '').toString().trim();
+      return parts.map((part, idx) => {
+        if (idx === 0 || idx === parts.length - 1) return part;
+        const core = part.replace(/\.+$/g, '');
+        if (/^[A-Za-z]$/.test(core)) return `${core}.`;
+        return part;
+      }).join(' ');
     }
 
     function toTitleCaseName(raw) {
