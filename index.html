@@ -6699,7 +6699,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const out = [];
       for (const e of entries) {
         const year = Number(e.year);
-        const rows = await loadContestSlice(contestType, year);
+        // County trend cards should stay county-based even when precinct overlay is enabled.
+        const rows = await loadContestSlice(contestType, year, { preferCounty: true });
         let dem = 0, rep = 0, oth = 0, tot = 0;
         let demCand = '', repCand = '';
         rows.forEach(r => {
@@ -12704,15 +12705,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function applyCountyContest(contestType, year) {
-      // Filter data for this contest and year
-      const contestData = await loadContestSlice(contestType, year);
-      
-      debugLog(`Applying ${contestType} for ${year}:`, contestData.length, 'counties found');
-      
-      if (contestData.length === 0) {
+      // Always compute county colors/totals from county-level slices so margins are stable
+      // regardless of precinct overlay state.
+      const countyRows = await loadContestSlice(contestType, year, { preferCounty: true });
+
+      // Precinct overlay can still use precinct-granularity rows when available.
+      const needsPrecinctDetail = !!precinctsEnabled;
+      let precinctRows = countyRows;
+      if (needsPrecinctDetail) {
+        try {
+          const loaded = await loadContestSlice(contestType, year, { preferCounty: false });
+          if (Array.isArray(loaded) && loaded.length) precinctRows = loaded;
+        } catch (_) {
+          precinctRows = countyRows;
+        }
+      }
+
+      debugLog(`Applying ${contestType} for ${year}:`, countyRows.length, 'county rows');
+
+      if (!Array.isArray(countyRows) || countyRows.length === 0) {
         return setStatus('No data found for this contest');
       }
-      lastContestSliceMeta = { contestType, year: Number(year), rows: contestData };
+      // Keep precinct-capable rows for non-geographic bucket diagnostics in county details.
+      lastContestSliceMeta = { contestType, year: Number(year), rows: precinctRows };
 
 	      function normalizeCountyName(name) {
 	        return (name || '')
@@ -12724,7 +12739,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Only build heavy precinct matching/color expressions when the overlay is enabled.
       // If users switch contests with precincts off, keep the county path fast.
-      const needsPrecinctDetail = !!precinctsEnabled;
 
       // Precinct key matching needs to tolerate (a) non-geographic buckets in results
       // (absentee/one-stop/etc) and (b) modern precinct splits where historical results
@@ -12879,7 +12893,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Build county aggregates from precinct-level rows.
       const countyAgg = {};
       currentPrecinctResults = needsPrecinctDetail ? new Map() : null;
-      contestData.forEach(row => {
+      countyRows.forEach(row => {
         const rowName = (row.county || '').toString();
         const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
         const countyNorm = normalizeCountyName(countyOnly);
@@ -12892,12 +12906,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const demCand = (row[`${contestType}_dem_candidate`] || '').toString();
         const repCand = (row[`${contestType}_rep_candidate`] || '').toString();
 
-        if (needsPrecinctDetail) {
-          const norms = precinctNormVariants(rowName);
-          norms.forEach(n => {
-            currentPrecinctResults.set(n, row);
-          });
-        }
         if (!countyAgg[countyNorm]) {
           countyAgg[countyNorm] = {
             year: Number(year),
@@ -12928,7 +12936,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let statewideDemCandidate = '';
       let statewideRepCandidate = '';
       
-      contestData.forEach(row => {
+      countyRows.forEach(row => {
         const demVotes = row[`${contestType}_dem`] || 0;
         const repVotes = row[`${contestType}_rep`] || 0;
         const otherVotes = row[`${contestType}_other`] || 0;
@@ -13111,8 +13119,17 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       // Optional precinct expression (detail overlay)
       if (needsPrecinctDetail) {
+        // Build precinct lookup map from precinct rows (or county rows fallback).
+        precinctRows.forEach(row => {
+          const rowName = (row.county || '').toString();
+          const norms = precinctNormVariants(rowName);
+          norms.forEach(n => {
+            currentPrecinctResults.set(n, row);
+          });
+        });
+
         const exprPrecinct = ['case'];
-        contestData.forEach(row => {
+        precinctRows.forEach(row => {
           const precinctNames = precinctNormVariants(row.county);
           const demVotes = Number(row[`${contestType}_dem`] || 0);
           const repVotes = Number(row[`${contestType}_rep`] || 0);
