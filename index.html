@@ -358,7 +358,8 @@
       // Normalize county names for matching
       function normalizeCountyName(name) {
         return (name || '')
-          .replace(/&/g, ' AND ')
+          
+          .replace(/\\s+County$/i, '').replace(/&/g, ' AND ')
           .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
           .replace(/\s+/g, ' ')
           .trim()
@@ -6588,6 +6589,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const o = Number(otherVotes || 0);
       const total = d + r + o;
 
+      const voteTotalEl = document.getElementById('vote-total');
+      const voteLeadEl = document.getElementById('vote-lead');
       const winnerEl = document.getElementById('focus-winner');
       const marginEl = document.getElementById('focus-margin');
       const totalEl = document.getElementById('focus-total');
@@ -6603,6 +6606,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const resolvedCandidates = setVoteCounterLabels(candidates, meta);
 
       if (total <= 0) {
+        if (voteTotalEl) voteTotalEl.textContent = '0 total votes';
+        if (voteLeadEl) {
+          voteLeadEl.textContent = 'Even race';
+          voteLeadEl.setAttribute('data-party', 'tie');
+        }
         winnerEl.textContent = 'No data';
         winnerEl.className = 'focus-pill-value tie';
         marginEl.textContent = 'Tie';
@@ -6642,6 +6650,11 @@ document.addEventListener('DOMContentLoaded', function() {
       marginEl.className = `focus-pill-value ${winnerParty}`;
       marginEl.title = leadLabel;
       totalEl.textContent = total.toLocaleString();
+      if (voteTotalEl) voteTotalEl.textContent = `${total.toLocaleString()} total votes`;
+      if (voteLeadEl) {
+        voteLeadEl.textContent = winnerMarginLabelShort(r, d, total, resolvedCandidates.repCandidate, resolvedCandidates.demCandidate);
+        voteLeadEl.setAttribute('data-party', winnerParty);
+      }
       barDem.style.width = `${demPct.toFixed(4)}%`;
       barOther.style.width = `${otherPct.toFixed(4)}%`;
       barRep.style.width = `${repPct.toFixed(4)}%`;
@@ -7505,7 +7518,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const electionMap = {};
   function normalizeCountyName(name) {
     return (name || '')
-      .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
+      
+          .replace(/\\s+County$/i, '').replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
       .replace(/\s+/g, ' ')
       .trim()
       .toUpperCase();
@@ -7530,7 +7544,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!geojson || !geojson.features) return map;
       function normalizeCountyName(name) {
         return (name || '')
-          .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
+          
+          .replace(/\\s+County$/i, '').replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
           .replace(/\s+/g, ' ')
           .trim()
           .toUpperCase();
@@ -8347,6 +8362,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function normalizeCountyLookupKey(name) {
       return (name || '')
         .toString()
+        .replace(/\s+county$/i, '')
         .replace(/&/g, ' AND ')
         .replace(/[^a-z0-9 .\-]/gi, '')
         .replace(/\s+/g, ' ')
@@ -9277,6 +9293,7 @@ function stripRunningMateName(name) {
       // Normalize and find county data
       function normalizeCountyName(name) {
         return (name || '')
+          .replace(/\s+County$/i, '')
           .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
           .replace(/\s+/g, ' ')
           .trim()
@@ -12209,7 +12226,8 @@ function stripRunningMateName(name) {
 
 	      function normalizeCountyName(name) {
 	        return (name || '')
-	          .replace(/&/g, ' AND ')
+	          
+          .replace(/\\s+County$/i, '').replace(/&/g, ' AND ')
 	          .replace(/[^a-z0-9 .\-]/gi, '')
 	          .replace(/\s+/g, ' ')
 	          .trim()
