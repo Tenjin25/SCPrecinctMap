@@ -297,6 +297,32 @@
         } catch (_) {}
       }
 
+      function syncMobileThumbDock() {
+        try {
+          const dock = document.getElementById('mobile-thumb-dock');
+          const controlsFab = document.getElementById('mobile-controls-fab');
+          const searchFab = document.getElementById('mobile-search-fab');
+          const topbar = document.getElementById('map-topbar');
+          const controls = document.getElementById('main-controls');
+          if (!dock || !controlsFab) return;
+
+          if (!isMobileViewport()) {
+            dock.style.display = 'none';
+            return;
+          }
+          dock.style.display = 'flex';
+
+          const controlsExpanded = !!(controls && !controls.classList.contains('minimized'));
+          controlsFab.textContent = controlsExpanded ? 'Hide' : 'Controls';
+          controlsFab.setAttribute('aria-expanded', controlsExpanded ? 'true' : 'false');
+
+          if (searchFab) {
+            const detailsOpen = !!(topbar && topbar.classList.contains('topbar-expanded'));
+            searchFab.textContent = detailsOpen ? 'Close' : 'Search';
+          }
+        } catch (_) {}
+      }
+
       function collapseMobileTopbar() {
         try {
           if (!isMobileViewport()) return;
@@ -304,6 +330,7 @@
           if (!topbar) return;
           topbar.classList.remove('topbar-expanded');
           syncMobileTopbarToggle();
+          syncMobileThumbDock();
           if (typeof window.syncInitialTopbarOffset === 'function') {
             window.syncInitialTopbarOffset();
           }
@@ -318,6 +345,7 @@
           const topbarHeight = Math.max(minTopbarHeight, Math.round(topbar.getBoundingClientRect().height || 0));
           document.documentElement.style.setProperty('--topbar-h', `${topbarHeight}px`);
           syncMobileTopbarToggle();
+          syncMobileThumbDock();
           if (typeof window.updateMobileOverlayOffsets === 'function') {
             window.updateMobileOverlayOffsets();
           }
@@ -326,6 +354,7 @@
       window.syncInitialTopbarOffset = syncInitialTopbarOffset;
       window.collapseMobileTopbar = collapseMobileTopbar;
       window.syncMobileTopbarToggle = syncMobileTopbarToggle;
+      window.syncMobileThumbDock = syncMobileThumbDock;
 
       var sidebar = document.getElementById('sidebar');
       var sidebarBtn = document.getElementById('sidebar-minimize-btn');
@@ -335,13 +364,46 @@
       var statusExit = document.getElementById('status-exit');
       var mobileTopbarToggle = document.getElementById('mobile-topbar-toggle');
       var topbar = document.getElementById('map-topbar');
+      var mobileControlsFab = document.getElementById('mobile-controls-fab');
+      var mobileSearchFab = document.getElementById('mobile-search-fab');
 
       if (mobileTopbarToggle && topbar) {
         mobileTopbarToggle.addEventListener('click', function() {
           if (!isMobileViewport()) return;
           topbar.classList.toggle('topbar-expanded');
           syncMobileTopbarToggle();
+          syncMobileThumbDock();
           syncInitialTopbarOffset();
+        });
+      }
+
+      if (mobileControlsFab) {
+        mobileControlsFab.addEventListener('click', function() {
+          if (!isMobileViewport()) return;
+          toggleMainControls();
+          syncMobileThumbDock();
+          try { updateMobileOverlayOffsets(); } catch (_) {}
+        });
+      }
+
+      if (mobileSearchFab) {
+        mobileSearchFab.addEventListener('click', function() {
+          if (!isMobileViewport()) return;
+          const searchInput = document.getElementById('county-search');
+          if (!topbar) return;
+          const shouldOpen = !topbar.classList.contains('topbar-expanded');
+          topbar.classList.toggle('topbar-expanded', shouldOpen);
+          syncMobileTopbarToggle();
+          syncMobileThumbDock();
+          syncInitialTopbarOffset();
+          if (shouldOpen && searchInput) {
+            setTimeout(() => {
+              try { searchInput.focus({ preventScroll: true }); } catch (_) { try { searchInput.focus(); } catch (_) {} }
+              try { searchInput.select(); } catch (_) {}
+            }, 20);
+          } else if (searchInput) {
+            try { searchInput.blur(); } catch (_) {}
+          }
         });
       }
 
@@ -412,10 +474,12 @@
       }
 
       syncMobileTopbarToggle();
+      syncMobileThumbDock();
       syncInitialTopbarOffset();
       requestAnimationFrame(syncInitialTopbarOffset);
       setTimeout(syncInitialTopbarOffset, 180);
       window.addEventListener('resize', syncInitialTopbarOffset, { passive: true });
+      window.addEventListener('resize', syncMobileThumbDock, { passive: true });
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(() => {
           try { syncInitialTopbarOffset(); } catch (_) {}
@@ -5134,6 +5198,131 @@ body { height: var(--app-height); }
       font-size: clamp(30px, 2.5vw, 38px);
     }
   }
+  @media (max-width: 420px) {
+    .map-topbar {
+      padding: calc(10px + var(--safe-top, 0px)) calc(10px + var(--safe-right, 0px)) 10px calc(10px + var(--safe-left, 0px));
+    }
+
+    .main-controls {
+      left: 8px !important;
+      right: 8px !important;
+      padding: 12px !important;
+      max-height: min(46vh, 390px) !important;
+    }
+
+    .main-controls.minimized {
+      left: 8px !important;
+    }
+
+    .vote-counter {
+      left: 8px !important;
+      right: 8px !important;
+      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 56px) !important;
+    }
+
+    .control-group select,
+    #contestSearch,
+    #contestSelect,
+    .map-topbar input[type="search"],
+    .map-topbar input[type="text"] {
+      min-height: 44px !important;
+    }
+  }
+
+  @media (max-width: 900px) and (max-height: 520px) {
+    .map-topbar {
+      border-radius: 0 0 14px 14px;
+    }
+
+    .main-controls {
+      max-height: min(40vh, 300px) !important;
+    }
+
+    .legend {
+      max-height: min(34vh, 240px) !important;
+    }
+
+    .vote-counter {
+      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 50px) !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .controls-content {
+      padding-bottom: calc(74px + var(--safe-bottom, 0px));
+    }
+
+    .contest-toolbar {
+      position: sticky;
+      bottom: calc(var(--safe-bottom, 0px) + 2px);
+      z-index: 6;
+      margin: 6px 0 0 0;
+      padding: 8px;
+      border-radius: 14px;
+      background: rgba(248, 250, 252, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.10);
+    }
+
+    .contest-toolbar label {
+      display: none;
+    }
+
+    #accessibility-toggle,
+    #label-toggle {
+      width: 44px !important;
+      height: 44px !important;
+      min-width: 44px !important;
+      min-height: 44px !important;
+      font-size: 17px !important;
+      border-radius: 12px !important;
+    }
+
+    #precinct-toggle {
+      height: 44px !important;
+      min-height: 44px !important;
+      padding: 0 12px !important;
+      font-size: 13px !important;
+      border-radius: 12px !important;
+      flex: 1 1 150px !important;
+    }
+
+    .mobile-thumb-dock {
+      position: fixed;
+      right: calc(10px + var(--safe-right, 0px));
+      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 8px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 10011;
+      pointer-events: auto;
+    }
+
+    .mobile-thumb-btn {
+      min-height: 44px;
+      padding: 0 12px;
+      border: 1px solid rgba(15, 23, 42, 0.16);
+      border-radius: 999px;
+      background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+      color: #f8fafc;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.22);
+      cursor: pointer;
+    }
+
+    .mobile-thumb-btn.primary {
+      background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+      border-color: rgba(37, 99, 235, 0.44);
+    }
+  }
+
+  @media (min-width: 769px) {
+    .mobile-thumb-dock {
+      display: none !important;
+    }
+  }
     </style>
 </head>
 <body>
@@ -5283,6 +5472,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <div id="map"></div>
+<div class="mobile-thumb-dock" id="mobile-thumb-dock" aria-label="Quick mobile actions">
+  <button id="mobile-controls-fab" class="mobile-thumb-btn primary" type="button" aria-controls="main-controls" aria-expanded="false">Controls</button>
+  <button id="mobile-search-fab" class="mobile-thumb-btn" type="button" aria-controls="county-search">Search</button>
+</div>
 
   <div class="desktop-ui-left">
   <div class="map-topbar" id="map-topbar">
@@ -6969,7 +7162,8 @@ document.addEventListener('DOMContentLoaded', function() {
           e.stopPropagation();
           toggleVoteCounterMinimized();
         });
-        setVoteCounterMinimizedState(false);
+        const startMinimized = (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) || window.innerWidth <= 768;
+        setVoteCounterMinimizedState(startMinimized);
       }
       window.addEventListener('resize', queueVoteBreakdownLayoutMeasure, { passive: true });
       queueVoteBreakdownLayoutMeasure();
@@ -9705,6 +9899,45 @@ document.addEventListener('DOMContentLoaded', function() {
       try { updateMobileOverlayOffsets(); } catch (_) {}
     }
 
+    function elementIsLayoutVisible(el) {
+      if (!el) return false;
+      if (!el.getClientRects || !el.getClientRects().length) return false;
+      const cs = window.getComputedStyle ? window.getComputedStyle(el) : null;
+      if (!cs) return true;
+      return cs.display !== 'none' && cs.visibility !== 'hidden';
+    }
+
+    function parseCssPx(value, fallback = 0) {
+      const n = Number.parseFloat(String(value || '').replace('px', '').trim());
+      return Number.isFinite(n) ? n : fallback;
+    }
+
+    let lastMapViewportPaddingKey = '';
+    function syncMapViewportPadding({ isMobile, topHeight = 0, legendHeight = 0, voteBottom = 0, voteHeight = 0, dockHeight = 0 } = {}) {
+      try {
+        if (!map || typeof map.setPadding !== 'function') return;
+
+        let padding;
+        if (!isMobile) {
+          padding = { top: 0, right: 0, bottom: 0, left: 0 };
+        } else {
+          const rootStyles = window.getComputedStyle ? window.getComputedStyle(document.documentElement) : null;
+          const safeBottom = parseCssPx(rootStyles ? rootStyles.getPropertyValue('--safe-bottom') : 0, 0);
+          const top = Math.max(0, Math.round(topHeight + 8));
+          const legendBottom = Math.max(0, Math.round(legendHeight + safeBottom + 8));
+          const counterBottom = voteHeight > 0 ? Math.max(0, Math.round(voteBottom + voteHeight + 8)) : 0;
+          const dockBottom = dockHeight > 0 ? Math.max(0, Math.round(legendHeight + safeBottom + dockHeight + 12)) : 0;
+          const bottom = Math.max(legendBottom, counterBottom, dockBottom);
+          padding = { top, right: 10, bottom, left: 10 };
+        }
+
+        const key = `${padding.top}|${padding.right}|${padding.bottom}|${padding.left}`;
+        if (key === lastMapViewportPaddingKey) return;
+        lastMapViewportPaddingKey = key;
+        map.setPadding(padding);
+      } catch (_) {}
+    }
+
     function updateMobileOverlayOffsets() {
       // Measure the floating UI so mobile overlays and the desktop right rail can avoid collisions.
       try {
@@ -9712,27 +9945,49 @@ document.addEventListener('DOMContentLoaded', function() {
         const isDesktop = window.matchMedia && window.matchMedia('(min-width: 769px)').matches;
         const root = document.documentElement;
         const topbar = document.getElementById('map-topbar');
+        const legend = document.getElementById('legend');
+        const controls = document.getElementById('main-controls');
         const voteCounter = document.getElementById('vote-counter');
-        const th = topbar ? Math.round(topbar.getBoundingClientRect().height) : 112;
+        const thumbDock = document.getElementById('mobile-thumb-dock');
+        const topbarVisible = elementIsLayoutVisible(topbar);
+        const legendVisible = elementIsLayoutVisible(legend);
+        const controlsVisible = elementIsLayoutVisible(controls);
+        const counterVisible = elementIsLayoutVisible(voteCounter);
+        const dockVisible = elementIsLayoutVisible(thumbDock);
+
+        const th = topbarVisible ? Math.round(topbar.getBoundingClientRect().height) : 0;
+        const lh = legendVisible ? Math.round(legend.getBoundingClientRect().height) : 0;
+        const ch = controlsVisible ? Math.round(controls.getBoundingClientRect().height) : 0;
+        const vh = counterVisible ? Math.round(voteCounter.getBoundingClientRect().height) : 0;
+        const dh = dockVisible ? Math.round(thumbDock.getBoundingClientRect().height) : 0;
+        const voteBottom = counterVisible ? parseCssPx(window.getComputedStyle(voteCounter).bottom, 0) : 0;
         root.style.setProperty('--topbar-h', `${Math.max(0, th)}px`);
+
         if (isDesktop) {
-          const counterVisible = !!(voteCounter && voteCounter.style.display !== 'none' && voteCounter.getClientRects().length);
-          const vh = counterVisible ? Math.round(voteCounter.getBoundingClientRect().height) : 0;
           root.style.setProperty('--desktop-vote-counter-h', `${Math.max(0, vh)}px`);
         } else {
           root.style.removeProperty('--desktop-vote-counter-h');
         }
+
         if (!isMobile) {
           root.style.removeProperty('--legend-h');
           root.style.removeProperty('--controls-h');
+          root.style.removeProperty('--thumb-dock-h');
+          syncMapViewportPadding({ isMobile: false });
           return;
         }
-        const legend = document.getElementById('legend');
-        const controls = document.getElementById('main-controls');
-        const lh = legend ? Math.round(legend.getBoundingClientRect().height) : 56;
-        const ch = controls ? Math.round(controls.getBoundingClientRect().height) : 0;
+
         root.style.setProperty('--legend-h', `${Math.max(0, lh)}px`);
         root.style.setProperty('--controls-h', `${Math.max(0, ch)}px`);
+        root.style.setProperty('--thumb-dock-h', `${Math.max(0, dh)}px`);
+        syncMapViewportPadding({
+          isMobile: true,
+          topHeight: th,
+          legendHeight: lh,
+          voteBottom,
+          voteHeight: vh,
+          dockHeight: dh
+        });
       } catch (_) {}
     }
 
@@ -9745,7 +10000,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('resize', () => { try { updateMobileOverlayOffsets(); } catch (_) {} }, { passive: true });
         window.addEventListener('orientationchange', () => { try { updateMobileOverlayOffsets(); } catch (_) {} }, { passive: true });
         if (typeof ResizeObserver !== 'undefined') {
-          const targets = ['map-topbar', 'main-controls', 'legend', 'vote-counter']
+          const targets = ['map-topbar', 'main-controls', 'legend', 'vote-counter', 'mobile-thumb-dock']
             .map(id => document.getElementById(id))
             .filter(Boolean);
           if (targets.length) {
@@ -9794,6 +10049,7 @@ document.addEventListener('DOMContentLoaded', function() {
         minimizeBtn.textContent = '+';
         minimizeBtn.title = 'Expand controls';
         try { updateMobileOverlayOffsets(); } catch (_) {}
+        try { if (typeof window.syncMobileThumbDock === 'function') window.syncMobileThumbDock(); } catch (_) {}
       } catch (_) {}
     }
 
@@ -9819,6 +10075,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       saveUIState();
       try { updateMobileOverlayOffsets(); } catch (_) {}
+      try { if (typeof window.syncMobileThumbDock === 'function') window.syncMobileThumbDock(); } catch (_) {}
     }
 
     function showCountyDetails(countyName) {
