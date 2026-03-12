@@ -5865,6 +5865,17 @@ document.addEventListener('DOMContentLoaded', function() {
       return new Set(counties.map(normalizeRegionCountyName).filter(Boolean));
     }
 
+    function splitContestRowsByLevel(rows = []) {
+      const countySummaryRows = [];
+      const precinctRows = [];
+      (rows || []).forEach(row => {
+        const countyField = (row?.county || '').toString();
+        if (countyField.includes(' - ')) precinctRows.push(row);
+        else countySummaryRows.push(row);
+      });
+      return { countySummaryRows, precinctRows };
+    }
+
     function aggregateContestRowsForRegion(rows, contestType, regionKey) {
       const countySet = getRegionCountySet(regionKey);
       let dem = 0;
@@ -5875,18 +5886,51 @@ document.addEventListener('DOMContentLoaded', function() {
       let repCandidate = '';
       const matchedCounties = new Set();
 
-      (rows || []).forEach(row => {
+      const split = splitContestRowsByLevel(rows || []);
+      const summaryByCounty = new Map();
+      split.countySummaryRows.forEach(row => {
+        const countyNorm = normalizeRegionCountyName(row?.county || '');
+        if (!countyNorm) return;
+        summaryByCounty.set(countyNorm, row);
+      });
+
+      const precinctAggByCounty = new Map();
+      split.precinctRows.forEach(row => {
         const countyRaw = ((row?.county || '').toString().split(' - ')[0] || '').trim();
         const countyNorm = normalizeRegionCountyName(countyRaw);
-        if (!countyNorm || !countySet.has(countyNorm)) return;
+        if (!countyNorm) return;
+        if (!precinctAggByCounty.has(countyNorm)) {
+          precinctAggByCounty.set(countyNorm, { dem: 0, rep: 0, other: 0, total: 0, demCandidate: '', repCandidate: '' });
+        }
+        const node = precinctAggByCounty.get(countyNorm);
+        node.dem += Number(row?.[`${contestType}_dem`] || 0);
+        node.rep += Number(row?.[`${contestType}_rep`] || 0);
+        node.other += Number(row?.[`${contestType}_other`] || 0);
+        node.total += Number(row?.[`${contestType}_total`] || 0);
+        if (!node.demCandidate) node.demCandidate = (row?.[`${contestType}_dem_candidate`] || '').toString().trim();
+        if (!node.repCandidate) node.repCandidate = (row?.[`${contestType}_rep_candidate`] || '').toString().trim();
+      });
 
+      countySet.forEach(countyNorm => {
+        const summaryRow = summaryByCounty.get(countyNorm);
+        const source = summaryRow
+          ? {
+              dem: Number(summaryRow?.[`${contestType}_dem`] || 0),
+              rep: Number(summaryRow?.[`${contestType}_rep`] || 0),
+              other: Number(summaryRow?.[`${contestType}_other`] || 0),
+              total: Number(summaryRow?.[`${contestType}_total`] || 0),
+              demCandidate: (summaryRow?.[`${contestType}_dem_candidate`] || '').toString().trim(),
+              repCandidate: (summaryRow?.[`${contestType}_rep_candidate`] || '').toString().trim()
+            }
+          : precinctAggByCounty.get(countyNorm);
+        if (!source) return;
         matchedCounties.add(countyNorm);
-        dem += Number(row?.[`${contestType}_dem`] || 0);
-        rep += Number(row?.[`${contestType}_rep`] || 0);
-        other += Number(row?.[`${contestType}_other`] || 0);
-        total += Number(row?.[`${contestType}_total`] || 0);
-        if (!demCandidate) demCandidate = (row?.[`${contestType}_dem_candidate`] || '').toString().trim();
-        if (!repCandidate) repCandidate = (row?.[`${contestType}_rep_candidate`] || '').toString().trim();
+        dem += source.dem;
+        rep += source.rep;
+        other += source.other;
+        total += source.total;
+        if (!demCandidate) demCandidate = source.demCandidate;
+        if (!repCandidate) repCandidate = source.repCandidate;
       });
 
       return {
@@ -6699,11 +6743,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const out = [];
       for (const e of entries) {
         const year = Number(e.year);
-        // County trend cards should stay county-based even when precinct overlay is enabled.
         const rows = await loadContestSlice(contestType, year, { preferCounty: true });
+        const split = splitContestRowsByLevel(rows || []);
+        const rollupRows = split.countySummaryRows.length ? split.countySummaryRows : (rows || []);
         let dem = 0, rep = 0, oth = 0, tot = 0;
         let demCand = '', repCand = '';
-        rows.forEach(r => {
+        rollupRows.forEach(r => {
           dem += Number(r[`${contestType}_dem`]) || 0;
           rep += Number(r[`${contestType}_rep`]) || 0;
           oth += Number(r[`${contestType}_other`]) || 0;
@@ -8888,21 +8933,34 @@ document.addEventListener('DOMContentLoaded', function() {
       const out = [];
       for (const e of entries) {
         const year = Number(e.year);
-        const rows = await loadContestSlice(contestType, year);
-        // Rows are precinct-level: "COUNTY - PREC". Aggregate to county.
+        const rows = await loadContestSlice(contestType, year, { preferCounty: true });
+        const split = splitContestRowsByLevel(rows || []);
         let dem = 0, rep = 0, oth = 0, tot = 0;
         let demCand = '', repCand = '';
-        rows.forEach(r => {
-          const rowName = (r.county || '').toString().trim().toUpperCase();
-          const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0].trim().toUpperCase() : rowName;
-          if (countyOnly !== target) return;
-          dem += Number(r[`${contestType}_dem`]) || 0;
-          rep += Number(r[`${contestType}_rep`]) || 0;
-          oth += Number(r[`${contestType}_other`]) || 0;
-          tot += Number(r[`${contestType}_total`]) || 0;
-          if (!demCand) demCand = r[`${contestType}_dem_candidate`] || '';
-          if (!repCand) repCand = r[`${contestType}_rep_candidate`] || '';
+        const summaryRow = (split.countySummaryRows || []).find(r => {
+          const rowCounty = (r?.county || '').toString().trim().toUpperCase();
+          return rowCounty === target;
         });
+        if (summaryRow) {
+          dem = Number(summaryRow[`${contestType}_dem`]) || 0;
+          rep = Number(summaryRow[`${contestType}_rep`]) || 0;
+          oth = Number(summaryRow[`${contestType}_other`]) || 0;
+          tot = Number(summaryRow[`${contestType}_total`]) || 0;
+          demCand = summaryRow[`${contestType}_dem_candidate`] || '';
+          repCand = summaryRow[`${contestType}_rep_candidate`] || '';
+        } else {
+          (split.precinctRows || rows || []).forEach(r => {
+            const rowName = (r.county || '').toString().trim().toUpperCase();
+            const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0].trim().toUpperCase() : rowName;
+            if (countyOnly !== target) return;
+            dem += Number(r[`${contestType}_dem`]) || 0;
+            rep += Number(r[`${contestType}_rep`]) || 0;
+            oth += Number(r[`${contestType}_other`]) || 0;
+            tot += Number(r[`${contestType}_total`]) || 0;
+            if (!demCand) demCand = r[`${contestType}_dem_candidate`] || '';
+            if (!repCand) repCand = r[`${contestType}_rep_candidate`] || '';
+          });
+        }
         if (tot <= 0) continue;
         const margin = rep - dem;
         const marginPct = tot ? (margin / tot * 100.0) : 0.0;
@@ -12610,7 +12668,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	        } catch (_) {}
 	        return Array.from(out);
 	      }
-      (prevMeta.rows || []).forEach(r => {
+      const prevSplit = splitContestRowsByLevel(prevMeta.rows || []);
+      const prevCountyRows = prevSplit.countySummaryRows.length ? prevSplit.countySummaryRows : (prevMeta.rows || []);
+      prevCountyRows.forEach(r => {
         const rowName = (r.county || '').toString();
         const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
         const countyNorm = (countyOnly || '').toString().replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
@@ -12622,12 +12682,15 @@ document.addEventListener('DOMContentLoaded', function() {
         prevCountyTotals[countyNorm].dem += dem;
         prevCountyTotals[countyNorm].rep += rep;
         prevCountyTotals[countyNorm].total += total;
+      });
 
-        if (includePrecinctMargins) {
+      if (includePrecinctMargins) {
+        (prevSplit.precinctRows || []).forEach(r => {
+          const rowName = (r.county || '').toString();
           const mPct = Number(r[`${contestType}_margin_pct`] || 0);
           precinctNormVariantsLite(rowName).forEach(n => prevPrecinctMarginByNorm.set(n, mPct));
-        }
-      });
+        });
+      }
 
       vizPrevCache = {
         contestType,
@@ -12713,17 +12776,24 @@ document.addEventListener('DOMContentLoaded', function() {
     async function applyCountyContest(contestType, year) {
       // Always compute county colors/totals from county-level slices so margins are stable
       // regardless of precinct overlay state.
-      const countyRows = await loadContestSlice(contestType, year, { preferCounty: true });
+      const countyRowsRaw = await loadContestSlice(contestType, year, { preferCounty: true });
+      const countySplit = splitContestRowsByLevel(countyRowsRaw || []);
+      // Prefer explicit county summary rows when present; fallback to raw rows otherwise.
+      const countyRows = countySplit.countySummaryRows.length ? countySplit.countySummaryRows : (countyRowsRaw || []);
 
       // Precinct overlay can still use precinct-granularity rows when available.
       const needsPrecinctDetail = !!precinctsEnabled;
-      let precinctRows = countyRows;
+      let precinctRows = countySplit.precinctRows.slice();
       if (needsPrecinctDetail) {
         try {
           const loaded = await loadContestSlice(contestType, year, { preferCounty: false });
-          if (Array.isArray(loaded) && loaded.length) precinctRows = loaded;
+          if (Array.isArray(loaded) && loaded.length) {
+            const loadedSplit = splitContestRowsByLevel(loaded);
+            // Keep true precinct rows only to avoid county-summary leakage into precinct rendering.
+            precinctRows = loadedSplit.precinctRows.length ? loadedSplit.precinctRows : precinctRows;
+          }
         } catch (_) {
-          precinctRows = countyRows;
+          precinctRows = countySplit.precinctRows.slice();
         }
       }
 
@@ -12733,7 +12803,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return setStatus('No data found for this contest');
       }
       // Keep precinct-capable rows for non-geographic bucket diagnostics in county details.
-      lastContestSliceMeta = { contestType, year: Number(year), rows: precinctRows };
+      lastContestSliceMeta = { contestType, year: Number(year), rows: precinctRows.length ? precinctRows : countyRows };
 
 	      function normalizeCountyName(name) {
 	        return (name || '')
