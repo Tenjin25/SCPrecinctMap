@@ -308,17 +308,22 @@
 
           if (!isMobileViewport()) {
             dock.style.display = 'none';
+            dock.classList.remove('controls-open', 'details-open');
+            if (searchFab) searchFab.setAttribute('aria-expanded', 'false');
             return;
           }
           dock.style.display = 'flex';
 
           const controlsExpanded = !!(controls && !controls.classList.contains('minimized'));
+          dock.classList.toggle('controls-open', controlsExpanded);
           controlsFab.textContent = controlsExpanded ? 'Hide' : 'Controls';
           controlsFab.setAttribute('aria-expanded', controlsExpanded ? 'true' : 'false');
 
           if (searchFab) {
             const detailsOpen = !!(topbar && topbar.classList.contains('topbar-expanded'));
+            dock.classList.toggle('details-open', detailsOpen);
             searchFab.textContent = detailsOpen ? 'Close' : 'Search';
+            searchFab.setAttribute('aria-expanded', detailsOpen ? 'true' : 'false');
           }
         } catch (_) {}
       }
@@ -380,6 +385,12 @@
       if (mobileControlsFab) {
         mobileControlsFab.addEventListener('click', function() {
           if (!isMobileViewport()) return;
+          const controls = document.getElementById('main-controls');
+          const willExpand = !!(controls && controls.classList.contains('minimized'));
+          if (willExpand && topbar && topbar.classList.contains('topbar-expanded')) {
+            topbar.classList.remove('topbar-expanded');
+            syncMobileTopbarToggle();
+          }
           toggleMainControls();
           syncMobileThumbDock();
           try { updateMobileOverlayOffsets(); } catch (_) {}
@@ -390,8 +401,12 @@
         mobileSearchFab.addEventListener('click', function() {
           if (!isMobileViewport()) return;
           const searchInput = document.getElementById('county-search');
+          const controls = document.getElementById('main-controls');
           if (!topbar) return;
           const shouldOpen = !topbar.classList.contains('topbar-expanded');
+          if (shouldOpen && controls && !controls.classList.contains('minimized')) {
+            toggleMainControls();
+          }
           topbar.classList.toggle('topbar-expanded', shouldOpen);
           syncMobileTopbarToggle();
           syncMobileThumbDock();
@@ -5287,20 +5302,36 @@ body { height: var(--app-height); }
       flex: 1 1 150px !important;
     }
 
+    .map-topbar.topbar-expanded .map-topbar-details {
+      max-height: min(48vh, calc(var(--app-height, 100vh) - var(--safe-top, 0px) - 118px));
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      padding-right: 2px;
+    }
+
     .mobile-thumb-dock {
       position: fixed;
+      left: calc(10px + var(--safe-left, 0px));
       right: calc(10px + var(--safe-right, 0px));
       bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 8px);
       display: flex;
       align-items: center;
+      justify-content: flex-end;
       gap: 8px;
+      max-width: min(420px, calc(100vw - 20px - var(--safe-left, 0px) - var(--safe-right, 0px)));
+      margin: 0 auto;
       z-index: 10011;
       pointer-events: auto;
     }
 
     .mobile-thumb-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       min-height: 44px;
       padding: 0 12px;
+      min-width: 86px;
       border: 1px solid rgba(15, 23, 42, 0.16);
       border-radius: 999px;
       background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
@@ -5310,11 +5341,41 @@ body { height: var(--app-height); }
       letter-spacing: 0.02em;
       box-shadow: 0 8px 18px rgba(15, 23, 42, 0.22);
       cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
     }
 
     .mobile-thumb-btn.primary {
       background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
       border-color: rgba(37, 99, 235, 0.44);
+    }
+
+    .mobile-thumb-dock.controls-open .mobile-thumb-btn.primary,
+    .mobile-thumb-dock.details-open #mobile-search-fab {
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.28);
+      transform: translateY(-1px);
+    }
+
+    .mobile-thumb-btn:focus-visible {
+      outline: 2px solid rgba(147, 197, 253, 0.95);
+      outline-offset: 2px;
+    }
+
+    .mobile-thumb-btn:active {
+      transform: translateY(1px);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .mobile-thumb-dock {
+      gap: 10px;
+      max-width: none;
+      justify-content: stretch;
+    }
+
+    .mobile-thumb-btn {
+      flex: 1 1 0;
+      min-width: 0;
+      font-size: 12.5px;
     }
   }
 
