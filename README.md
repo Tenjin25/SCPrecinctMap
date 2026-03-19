@@ -4,6 +4,15 @@ The Palmetto Explorer is an interactive South Carolina election atlas built as a
 
 Its user experience is intentionally inspired by the NC Election Atlas UI, then adapted for South Carolina boundaries, contests, and workflows.
 
+## Recent Updates (March 2026)
+
+- Added statewide precinct QA workflow for alias-driven and overlap-driven fixes across years.
+- Added county click-to-zoom on `county-fill` selection.
+- Added viewport quick stats (`Viewing N precincts`) under the fly-to search UI.
+- Improved centroid readability in dense areas with zoom-based radius scaling.
+- Improved label legibility with stronger halos, including county and district label layers.
+- Added utility scripts for statewide mismatch rollups, VTD10->VTD20 overlap exports, and backfills from OpenElections CSVs.
+
 ## What This Project Does
 
 - Renders South Carolina election results on an interactive map.
@@ -44,6 +53,12 @@ Coverage varies by office and year. Always check both manifests for the latest a
 python -m http.server 8080
 ```
 
+If Python is installed under AppData and not on `PATH`, use the full executable path:
+
+```powershell
+C:\Users\<you>\AppData\Local\Programs\Python\Python311\python.exe -m http.server 8080
+```
+
 2. Open:
 
 ```text
@@ -70,6 +85,9 @@ SCPrecinctMap/
 |-- README.md
 |-- precinct_aliases.json
 |-- scripts/
+|   |-- backfill_missing_contest_rows_from_oe_csv.py
+|   |-- build_statewide_contest_mismatch_report.py
+|   |-- build_vtd10_to_vtd20_overlap_csv.py
 |   |-- elstats_search_to_openelections.py
 |   |-- precinct_mismatch_report.py
 |   |-- apply_precinct_aliases_to_slice.py
@@ -124,16 +142,40 @@ Build all generated outputs:
 python build_data.py
 ```
 
+Apply precinct aliases/splits across all contest slices:
+
+```powershell
+python scripts/apply_precinct_aliases_to_slice.py --all
+```
+
 Check likely precinct name mismatches for a contest/year:
 
 ```powershell
-py scripts/precinct_mismatch_report.py --contest president --year 2024
+python scripts/precinct_mismatch_report.py --contest president --year 2024
+```
+
+Build statewide mismatch reports (summary, extra rows, missing polygons, and county rollups):
+
+```powershell
+python scripts/build_statewide_contest_mismatch_report.py --out-prefix contest_mismatch_summary_post_alias_pass
+```
+
+Build a VTD10->VTD20 overlap crosswalk (example for Spartanburg/Lancaster):
+
+```powershell
+python scripts/build_vtd10_to_vtd20_overlap_csv.py --source Data/tl_2012_45_vtd10.zip --target data/Voting_Precincts.geojson --counties "Spartanburg,Lancaster" --out scripts/out/vtd10_to_vtd20_overlap_spartanburg_lancaster.csv
+```
+
+Backfill missing precinct rows from OpenElections CSV using mismatch output:
+
+```powershell
+python scripts/backfill_missing_contest_rows_from_oe_csv.py --year 2022 --contest governor --contest us_senate --mismatch-csv scripts/out/contest_mismatch_missing_polygons_post_alias_pass.csv
 ```
 
 Convert SC Election Commission export into OpenElections-style format:
 
 ```powershell
-py scripts/elstats_search_to_openelections.py --input Data/_tmpdata/in.csv --output Data/openelections-data-sc/2024/20241105__sc__general__precinct.csv
+python scripts/elstats_search_to_openelections.py --input Data/_tmpdata/in.csv --output Data/openelections-data-sc/2024/20241105__sc__general__precinct.csv
 ```
 
 ## Frontend Behavior Summary
@@ -141,6 +183,9 @@ py scripts/elstats_search_to_openelections.py --input Data/_tmpdata/in.csv --out
 - Views: `Counties`, `Congress`, `State House`, `State Senate`
 - Analysis modes: `Margins`, `Winners`, `Shift`, `Flips`
 - Core tools: contest search/select, precinct toggle, label toggle, color-accessibility toggle, fly-to search
+- County click action: open county details and zoom to county bounds
+- Precinct quick-stats line: live count of precinct centroids in current viewport
+- Label legibility improvements: stronger halos for place/county/district labels
 - Shortcuts: `P` toggles precinct overlay, `L` toggles labels
 
 ## Mobile Notes

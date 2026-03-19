@@ -6528,6 +6528,23 @@ document.addEventListener('DOMContentLoaded', function() {
       } catch (_) {}
     }
 
+    function syncCountyLabelPaintForCountyFillOpacity(fillOpacity = 0.82) {
+      try {
+        if (!map.getLayer('county-label')) return;
+        const o = Number(fillOpacity);
+        const denseFill = Number.isFinite(o) && o >= 0.55;
+        const haloColor = denseFill ? 'rgba(255,255,255,0.86)' : 'rgba(255,255,255,0.72)';
+        const haloBlur = denseFill ? 0.46 : 0.34;
+        const haloWidth = denseFill
+          ? ['interpolate', ['linear'], ['zoom'], 7, 0.9, 10, 1.25, 13, 1.5]
+          : ['interpolate', ['linear'], ['zoom'], 7, 0.6, 10, 0.9, 13, 1.15];
+        map.setPaintProperty('county-label', 'text-color', '#0f172a');
+        map.setPaintProperty('county-label', 'text-halo-color', haloColor);
+        map.setPaintProperty('county-label', 'text-halo-width', haloWidth);
+        map.setPaintProperty('county-label', 'text-halo-blur', haloBlur);
+      } catch (_) {}
+    }
+
 
     function setStatus(text, timeout = 4000) {
       const panel = document.getElementById('status-panel');
@@ -10711,10 +10728,10 @@ document.addEventListener('DOMContentLoaded', function() {
             'visibility': mapLabelsEnabled ? 'visible' : 'none'
           },
           paint: {
-            'text-color': '#222',
-            'text-halo-color': 'rgba(255,255,255,0.98)',
-            'text-halo-width': 2.1,
-            'text-halo-blur': 0.7
+            'text-color': '#0f172a',
+            'text-halo-color': 'rgba(255,255,255,0.86)',
+            'text-halo-width': ['interpolate', ['linear'], ['zoom'], 7, 0.9, 10, 1.25, 13, 1.5],
+            'text-halo-blur': 0.46
           }
         });
         // Add mouseleave event handler
@@ -10774,6 +10791,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
       applyMapLabelVisibility();
+      syncCountyLabelPaintForCountyFillOpacity(precinctsEnabled ? 0.10 : 0.82);
       updatePrecinctVisibility();
     }
 
@@ -11150,6 +11168,13 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       if (map.getLayer('precinct-dot-missing')) {
         map.setLayoutProperty('precinct-dot-missing', 'visibility', polyVisible ? 'visible' : 'none');
+      }
+      if (map.getLayer('county-fill')) {
+        let countyFillOpacity = Number(map.getPaintProperty('county-fill', 'fill-opacity'));
+        if (!Number.isFinite(countyFillOpacity)) {
+          countyFillOpacity = precinctsEnabled ? 0.10 : 0.82;
+        }
+        syncCountyLabelPaintForCountyFillOpacity(countyFillOpacity);
       }
     }
 
@@ -13762,7 +13787,9 @@ document.addEventListener('DOMContentLoaded', function() {
       // so precinct fills/dots remain visually primary.
       if (map.getLayer('county-fill')) {
         map.setPaintProperty('county-fill', 'fill-color', expr);
-        map.setPaintProperty('county-fill', 'fill-opacity', precinctsEnabled ? 0.10 : 0.82);
+        const countyFillOpacity = precinctsEnabled ? 0.10 : 0.82;
+        map.setPaintProperty('county-fill', 'fill-opacity', countyFillOpacity);
+        syncCountyLabelPaintForCountyFillOpacity(countyFillOpacity);
       }
 
       // Flip mode: outline flipped counties in red/blue (to-winner), leave others subtle.
