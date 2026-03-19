@@ -10724,6 +10724,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add county click event handler
         map.on('click', 'county-fill', async (e) => {
           if (e.features && e.features[0] && e.features[0].properties) {
+            const countyFeature = e.features[0];
             const countyName = e.features[0].properties.precinct_name || e.features[0].properties.NAME20 || e.features[0].properties.CountyName || e.features[0].properties.county_nam || e.features[0].properties.COUNTYNAME || e.features[0].properties.County || e.features[0].properties.NAME || e.features[0].properties.name;
             if (countyName) {
               showCountyDetails(countyName);
@@ -10731,6 +10732,14 @@ document.addEventListener('DOMContentLoaded', function() {
               setCountyHoverOutline(countyName);
               setTooltipPinned(false);
               hideHoverTooltip();
+              try {
+                const bbox = turf.bbox(countyFeature);
+                map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], {
+                  padding: 44,
+                  duration: 850,
+                  maxZoom: 10
+                });
+              } catch (_) {}
               
               // Optionally, expand sidebar if minimized
               const sidebar = document.getElementById('sidebar');
