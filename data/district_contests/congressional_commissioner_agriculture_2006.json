@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":37348,"rep_votes":73323,"other_votes":34,"total_votes":110705,"dem_candidate":"Emile DeFelice","rep_candidate":"Hugh Weathers","margin":35975,"margin_pct":32.4963,"winner":"R","color":"#a50f15"},"2":{"dem_votes":38119,"rep_votes":71196,"other_votes":37,"total_votes":109352,"dem_candidate":"Emile DeFelice","rep_candidate":"Hugh Weathers","margin":33077,"margin_pct":30.2482,"winner":"R","color":"#a50f15"},"6":{"dem_votes":69407,"rep_votes":39916,"other_votes":30,"total_votes":109353,"dem_candidate":"Emile DeFelice","rep_candidate":"Hugh Weathers","margin":-29491,"margin_pct":-26.9686,"winner":"D","color":"#4292c6"},"1":{"dem_votes":50657,"rep_votes":80025,"other_votes":42,"total_votes":130724,"dem_candidate":"Emile DeFelice","rep_candidate":"Hugh Weathers","margin":29368,"margin_pct":22.4657,"winner":"R","color":"#cb181d"},"5":{"dem_votes":42329,"rep_votes":57041,"other_votes":26,"total_votes":99396,"dem_candidate":"Emile DeFelice","rep_candidate":"Hugh Weathers","margin":14712,"margin_pct":14.8014,"winner":"R","color":"#ef3b2c"},"7":{"dem_votes":39884,"rep_votes":54936,"other_votes":18,"total_votes":94838,"dem_candidate":"Emile DeFelice","rep_candidate":"Hugh Weathers","margin":15052,"margin_pct":15.8713,"winner":"R","color":"#ef3b2c"},"4":{"dem_votes":28213,"rep_votes":61654,"other_votes":26,"total_votes":89893,"dem_candidate":"Emile DeFelice","rep_candidate":"Hugh Weathers","margin":33441,"margin_pct":37.2009,"winner":"R","color":"#a50f15"}}},"meta":{"match_coverage_pct":72.1811,"precinct_rows_total":2164,"precinct_rows_matched":1562,"precinct_rows_block_weighted":1562}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 37348,
+        "rep_votes": 73323,
+        "other_votes": 34,
+        "total_votes": 110705,
+        "dem_candidate": "Emile DeFelice",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 35975,
+        "margin_pct": 32.4963,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "2": {
+        "dem_votes": 38119,
+        "rep_votes": 71196,
+        "other_votes": 37,
+        "total_votes": 109352,
+        "dem_candidate": "Emile DeFelice",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 33077,
+        "margin_pct": 30.2482,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "6": {
+        "dem_votes": 69407,
+        "rep_votes": 39916,
+        "other_votes": 30,
+        "total_votes": 109353,
+        "dem_candidate": "Emile DeFelice",
+        "rep_candidate": "Hugh Weathers",
+        "margin": -29491,
+        "margin_pct": -26.9686,
+        "winner": "D",
+        "color": "#4292c6"
+      },
+      "1": {
+        "dem_votes": 50657,
+        "rep_votes": 80025,
+        "other_votes": 42,
+        "total_votes": 130724,
+        "dem_candidate": "Emile DeFelice",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 29368,
+        "margin_pct": 22.4657,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "5": {
+        "dem_votes": 42329,
+        "rep_votes": 57041,
+        "other_votes": 26,
+        "total_votes": 99396,
+        "dem_candidate": "Emile DeFelice",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 14712,
+        "margin_pct": 14.8014,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "7": {
+        "dem_votes": 39884,
+        "rep_votes": 54936,
+        "other_votes": 18,
+        "total_votes": 94838,
+        "dem_candidate": "Emile DeFelice",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 15052,
+        "margin_pct": 15.8713,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "4": {
+        "dem_votes": 28213,
+        "rep_votes": 61654,
+        "other_votes": 26,
+        "total_votes": 89893,
+        "dem_candidate": "Emile DeFelice",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 33441,
+        "margin_pct": 37.2009,
+        "winner": "R",
+        "color": "#a50f15"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 72.1811,
+    "precinct_rows_total": 2164,
+    "precinct_rows_matched": 1562,
+    "precinct_rows_block_weighted": 1562
+  }
+}

@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":30368,"rep_votes":101137,"other_votes":12423,"total_votes":143928,"dem_candidate":"Alvin M. Greene","rep_candidate":"Jim DeMint","margin":70769,"margin_pct":49.1697,"winner":"R","color":"#67000d"},"2":{"dem_votes":35956,"rep_votes":112234,"other_votes":23750,"total_votes":171940,"dem_candidate":"Alvin M. Greene","rep_candidate":"Jim DeMint","margin":76278,"margin_pct":44.3631,"winner":"R","color":"#67000d"},"6":{"dem_votes":82240,"rep_votes":58116,"other_votes":18041,"total_votes":158397,"dem_candidate":"Alvin M. Greene","rep_candidate":"Jim DeMint","margin":-24124,"margin_pct":-15.2301,"winner":"D","color":"#6baed6"},"1":{"dem_votes":29734,"rep_votes":100541,"other_votes":22195,"total_votes":152470,"dem_candidate":"Alvin M. Greene","rep_candidate":"Jim DeMint","margin":70807,"margin_pct":46.44,"winner":"R","color":"#67000d"},"5":{"dem_votes":44305,"rep_votes":95166,"other_votes":13438,"total_votes":152909,"dem_candidate":"Alvin M. Greene","rep_candidate":"Jim DeMint","margin":50861,"margin_pct":33.2623,"winner":"R","color":"#a50f15"},"7":{"dem_votes":53104,"rep_votes":96816,"other_votes":12073,"total_votes":161993,"dem_candidate":"Alvin M. Greene","rep_candidate":"Jim DeMint","margin":43712,"margin_pct":26.9839,"winner":"R","color":"#cb181d"},"4":{"dem_votes":31312,"rep_votes":114641,"other_votes":16748,"total_votes":162701,"dem_candidate":"Alvin M. Greene","rep_candidate":"Jim DeMint","margin":83329,"margin_pct":51.216,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":94.9048,"precinct_rows_total":2100,"precinct_rows_matched":1993,"precinct_rows_block_weighted":1993}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 30368,
+        "rep_votes": 101137,
+        "other_votes": 12423,
+        "total_votes": 143928,
+        "dem_candidate": "Alvin M. Greene",
+        "rep_candidate": "Jim DeMint",
+        "margin": 70769,
+        "margin_pct": 49.1697,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 35956,
+        "rep_votes": 112234,
+        "other_votes": 23750,
+        "total_votes": 171940,
+        "dem_candidate": "Alvin M. Greene",
+        "rep_candidate": "Jim DeMint",
+        "margin": 76278,
+        "margin_pct": 44.3631,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 82240,
+        "rep_votes": 58116,
+        "other_votes": 18041,
+        "total_votes": 158397,
+        "dem_candidate": "Alvin M. Greene",
+        "rep_candidate": "Jim DeMint",
+        "margin": -24124,
+        "margin_pct": -15.2301,
+        "winner": "D",
+        "color": "#6baed6"
+      },
+      "1": {
+        "dem_votes": 29734,
+        "rep_votes": 100541,
+        "other_votes": 22195,
+        "total_votes": 152470,
+        "dem_candidate": "Alvin M. Greene",
+        "rep_candidate": "Jim DeMint",
+        "margin": 70807,
+        "margin_pct": 46.44,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 44305,
+        "rep_votes": 95166,
+        "other_votes": 13438,
+        "total_votes": 152909,
+        "dem_candidate": "Alvin M. Greene",
+        "rep_candidate": "Jim DeMint",
+        "margin": 50861,
+        "margin_pct": 33.2623,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "7": {
+        "dem_votes": 53104,
+        "rep_votes": 96816,
+        "other_votes": 12073,
+        "total_votes": 161993,
+        "dem_candidate": "Alvin M. Greene",
+        "rep_candidate": "Jim DeMint",
+        "margin": 43712,
+        "margin_pct": 26.9839,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "4": {
+        "dem_votes": 31312,
+        "rep_votes": 114641,
+        "other_votes": 16748,
+        "total_votes": 162701,
+        "dem_candidate": "Alvin M. Greene",
+        "rep_candidate": "Jim DeMint",
+        "margin": 83329,
+        "margin_pct": 51.216,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 94.9048,
+    "precinct_rows_total": 2100,
+    "precinct_rows_matched": 1993,
+    "precinct_rows_block_weighted": 1993
+  }
+}

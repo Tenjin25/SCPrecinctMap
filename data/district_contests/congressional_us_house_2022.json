@@ -1,1 +1,93 @@
-{"general":{"results":{"2":{"dem_votes":98081,"rep_votes":147699,"other_votes":346,"total_votes":246126,"dem_candidate":"DEM Judd Larkins","rep_candidate":"REP Joe Wilson","margin":49618,"margin_pct":20.1596,"winner":"R","color":"#cb181d"},"6":{"dem_votes":130923,"rep_votes":79879,"other_votes":226,"total_votes":211028,"dem_candidate":"DEM James E Jim Clyburn","rep_candidate":"REP Duke Buckner","margin":-51044,"margin_pct":-24.1883,"winner":"D","color":"#4292c6"},"7":{"dem_votes":89030,"rep_votes":164440,"other_votes":395,"total_votes":253865,"dem_candidate":"DEM Daryl W Scott","rep_candidate":"REP Russell Fry","margin":75410,"margin_pct":29.7048,"winner":"R","color":"#cb181d"},"1":{"dem_votes":115796,"rep_votes":153757,"other_votes":3128,"total_votes":272681,"dem_candidate":"DEM Annie Andrews","rep_candidate":"REP Nancy Mace","margin":37961,"margin_pct":13.9214,"winner":"R","color":"#ef3b2c"},"5":{"dem_votes":83299,"rep_votes":154725,"other_votes":3683,"total_votes":241707,"dem_candidate":"DEM Evangeline Hundley","rep_candidate":"REP Ralph Norman","margin":71426,"margin_pct":29.5507,"winner":"R","color":"#cb181d"},"4":{"dem_votes":0,"rep_votes":165607,"other_votes":16758,"total_votes":182365,"dem_candidate":"","rep_candidate":"REP William Timmons","margin":165607,"margin_pct":90.8107,"winner":"R","color":"#67000d"},"3":{"dem_votes":0,"rep_votes":189971,"other_votes":4598,"total_votes":194569,"dem_candidate":"","rep_candidate":"REP Jeff Duncan","margin":189971,"margin_pct":97.6368,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":100}}
+{
+  "general": {
+    "results": {
+      "2": {
+        "dem_votes": 98081,
+        "rep_votes": 147699,
+        "other_votes": 346,
+        "total_votes": 246126,
+        "dem_candidate": "DEM Judd Larkins",
+        "rep_candidate": "REP Joe Wilson",
+        "margin": 49618,
+        "margin_pct": 20.1596,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "6": {
+        "dem_votes": 130923,
+        "rep_votes": 79879,
+        "other_votes": 226,
+        "total_votes": 211028,
+        "dem_candidate": "DEM James E Jim Clyburn",
+        "rep_candidate": "REP Duke Buckner",
+        "margin": -51044,
+        "margin_pct": -24.1883,
+        "winner": "D",
+        "color": "#4292c6"
+      },
+      "7": {
+        "dem_votes": 89030,
+        "rep_votes": 164440,
+        "other_votes": 395,
+        "total_votes": 253865,
+        "dem_candidate": "DEM Daryl W Scott",
+        "rep_candidate": "REP Russell Fry",
+        "margin": 75410,
+        "margin_pct": 29.7048,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "1": {
+        "dem_votes": 115796,
+        "rep_votes": 153757,
+        "other_votes": 3128,
+        "total_votes": 272681,
+        "dem_candidate": "DEM Annie Andrews",
+        "rep_candidate": "REP Nancy Mace",
+        "margin": 37961,
+        "margin_pct": 13.9214,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "5": {
+        "dem_votes": 83299,
+        "rep_votes": 154725,
+        "other_votes": 3683,
+        "total_votes": 241707,
+        "dem_candidate": "DEM Evangeline Hundley",
+        "rep_candidate": "REP Ralph Norman",
+        "margin": 71426,
+        "margin_pct": 29.5507,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 165607,
+        "other_votes": 16758,
+        "total_votes": 182365,
+        "dem_candidate": "",
+        "rep_candidate": "REP William Timmons",
+        "margin": 165607,
+        "margin_pct": 90.8107,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 189971,
+        "other_votes": 4598,
+        "total_votes": 194569,
+        "dem_candidate": "",
+        "rep_candidate": "REP Jeff Duncan",
+        "margin": 189971,
+        "margin_pct": 97.6368,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 100
+  }
+}

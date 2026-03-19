@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":51793,"rep_votes":131851,"other_votes":6044,"total_votes":189688,"dem_candidate":"Rosalyn L Glenn","rep_candidate":"Curtis Loftis","margin":80058,"margin_pct":42.2051,"winner":"R","color":"#67000d"},"2":{"dem_votes":80374,"rep_votes":127386,"other_votes":8181,"total_votes":215941,"dem_candidate":"Rosalyn L Glenn","rep_candidate":"Curtis Loftis","margin":47012,"margin_pct":21.7708,"winner":"R","color":"#cb181d"},"6":{"dem_votes":99130,"rep_votes":51003,"other_votes":4967,"total_votes":155100,"dem_candidate":"Rosalyn L Glenn","rep_candidate":"Curtis Loftis","margin":-48127,"margin_pct":-31.0297,"winner":"D","color":"#2171b5"},"1":{"dem_votes":81638,"rep_votes":119062,"other_votes":9120,"total_votes":209820,"dem_candidate":"Rosalyn L Glenn","rep_candidate":"Curtis Loftis","margin":37424,"margin_pct":17.8362,"winner":"R","color":"#ef3b2c"},"5":{"dem_votes":78024,"rep_votes":120953,"other_votes":7537,"total_votes":206514,"dem_candidate":"Rosalyn L Glenn","rep_candidate":"Curtis Loftis","margin":42929,"margin_pct":20.7875,"winner":"R","color":"#cb181d"},"7":{"dem_votes":72835,"rep_votes":116737,"other_votes":5348,"total_votes":194920,"dem_candidate":"Rosalyn L Glenn","rep_candidate":"Curtis Loftis","margin":43902,"margin_pct":22.5231,"winner":"R","color":"#cb181d"},"4":{"dem_votes":70496,"rep_votes":132505,"other_votes":7114,"total_votes":210115,"dem_candidate":"Rosalyn L Glenn","rep_candidate":"Curtis Loftis","margin":62009,"margin_pct":29.5119,"winner":"R","color":"#cb181d"}}},"meta":{"match_coverage_pct":95.0607,"precinct_rows_total":2308,"precinct_rows_matched":2194,"precinct_rows_block_weighted":2194}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 51793,
+        "rep_votes": 131851,
+        "other_votes": 6044,
+        "total_votes": 189688,
+        "dem_candidate": "Rosalyn L Glenn",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 80058,
+        "margin_pct": 42.2051,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 80374,
+        "rep_votes": 127386,
+        "other_votes": 8181,
+        "total_votes": 215941,
+        "dem_candidate": "Rosalyn L Glenn",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 47012,
+        "margin_pct": 21.7708,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "6": {
+        "dem_votes": 99130,
+        "rep_votes": 51003,
+        "other_votes": 4967,
+        "total_votes": 155100,
+        "dem_candidate": "Rosalyn L Glenn",
+        "rep_candidate": "Curtis Loftis",
+        "margin": -48127,
+        "margin_pct": -31.0297,
+        "winner": "D",
+        "color": "#2171b5"
+      },
+      "1": {
+        "dem_votes": 81638,
+        "rep_votes": 119062,
+        "other_votes": 9120,
+        "total_votes": 209820,
+        "dem_candidate": "Rosalyn L Glenn",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 37424,
+        "margin_pct": 17.8362,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "5": {
+        "dem_votes": 78024,
+        "rep_votes": 120953,
+        "other_votes": 7537,
+        "total_votes": 206514,
+        "dem_candidate": "Rosalyn L Glenn",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 42929,
+        "margin_pct": 20.7875,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "7": {
+        "dem_votes": 72835,
+        "rep_votes": 116737,
+        "other_votes": 5348,
+        "total_votes": 194920,
+        "dem_candidate": "Rosalyn L Glenn",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 43902,
+        "margin_pct": 22.5231,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "4": {
+        "dem_votes": 70496,
+        "rep_votes": 132505,
+        "other_votes": 7114,
+        "total_votes": 210115,
+        "dem_candidate": "Rosalyn L Glenn",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 62009,
+        "margin_pct": 29.5119,
+        "winner": "R",
+        "color": "#cb181d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 95.0607,
+    "precinct_rows_total": 2308,
+    "precinct_rows_matched": 2194,
+    "precinct_rows_block_weighted": 2194
+  }
+}

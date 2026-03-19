@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":38332,"rep_votes":102757,"other_votes":89,"total_votes":141178,"dem_candidate":"Parnell Diggs","rep_candidate":"Alan Wilson","margin":64425,"margin_pct":45.6339,"winner":"R","color":"#67000d"},"2":{"dem_votes":56342,"rep_votes":108115,"other_votes":163,"total_votes":164620,"dem_candidate":"Parnell Diggs","rep_candidate":"Alan Wilson","margin":51773,"margin_pct":31.45,"winner":"R","color":"#a50f15"},"6":{"dem_votes":95322,"rep_votes":47166,"other_votes":93,"total_votes":142581,"dem_candidate":"Parnell Diggs","rep_candidate":"Alan Wilson","margin":-48156,"margin_pct":-33.7745,"winner":"D","color":"#2171b5"},"1":{"dem_votes":51558,"rep_votes":96748,"other_votes":117,"total_votes":148423,"dem_candidate":"Parnell Diggs","rep_candidate":"Alan Wilson","margin":45190,"margin_pct":30.4468,"winner":"R","color":"#a50f15"},"5":{"dem_votes":53361,"rep_votes":85699,"other_votes":64,"total_votes":139124,"dem_candidate":"Parnell Diggs","rep_candidate":"Alan Wilson","margin":32338,"margin_pct":23.244,"winner":"R","color":"#cb181d"},"7":{"dem_votes":58922,"rep_votes":90420,"other_votes":75,"total_votes":149417,"dem_candidate":"Parnell Diggs","rep_candidate":"Alan Wilson","margin":31498,"margin_pct":21.0806,"winner":"R","color":"#cb181d"},"4":{"dem_votes":42994,"rep_votes":105824,"other_votes":155,"total_votes":148973,"dem_candidate":"Parnell Diggs","rep_candidate":"Alan Wilson","margin":62830,"margin_pct":42.1754,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":96.5174,"precinct_rows_total":2211,"precinct_rows_matched":2134,"precinct_rows_block_weighted":2134}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 38332,
+        "rep_votes": 102757,
+        "other_votes": 89,
+        "total_votes": 141178,
+        "dem_candidate": "Parnell Diggs",
+        "rep_candidate": "Alan Wilson",
+        "margin": 64425,
+        "margin_pct": 45.6339,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 56342,
+        "rep_votes": 108115,
+        "other_votes": 163,
+        "total_votes": 164620,
+        "dem_candidate": "Parnell Diggs",
+        "rep_candidate": "Alan Wilson",
+        "margin": 51773,
+        "margin_pct": 31.45,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "6": {
+        "dem_votes": 95322,
+        "rep_votes": 47166,
+        "other_votes": 93,
+        "total_votes": 142581,
+        "dem_candidate": "Parnell Diggs",
+        "rep_candidate": "Alan Wilson",
+        "margin": -48156,
+        "margin_pct": -33.7745,
+        "winner": "D",
+        "color": "#2171b5"
+      },
+      "1": {
+        "dem_votes": 51558,
+        "rep_votes": 96748,
+        "other_votes": 117,
+        "total_votes": 148423,
+        "dem_candidate": "Parnell Diggs",
+        "rep_candidate": "Alan Wilson",
+        "margin": 45190,
+        "margin_pct": 30.4468,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "5": {
+        "dem_votes": 53361,
+        "rep_votes": 85699,
+        "other_votes": 64,
+        "total_votes": 139124,
+        "dem_candidate": "Parnell Diggs",
+        "rep_candidate": "Alan Wilson",
+        "margin": 32338,
+        "margin_pct": 23.244,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "7": {
+        "dem_votes": 58922,
+        "rep_votes": 90420,
+        "other_votes": 75,
+        "total_votes": 149417,
+        "dem_candidate": "Parnell Diggs",
+        "rep_candidate": "Alan Wilson",
+        "margin": 31498,
+        "margin_pct": 21.0806,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "4": {
+        "dem_votes": 42994,
+        "rep_votes": 105824,
+        "other_votes": 155,
+        "total_votes": 148973,
+        "dem_candidate": "Parnell Diggs",
+        "rep_candidate": "Alan Wilson",
+        "margin": 62830,
+        "margin_pct": 42.1754,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 96.5174,
+    "precinct_rows_total": 2211,
+    "precinct_rows_matched": 2134,
+    "precinct_rows_block_weighted": 2134
+  }
+}

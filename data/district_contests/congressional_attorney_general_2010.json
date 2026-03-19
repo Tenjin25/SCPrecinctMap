@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":51333,"rep_votes":89850,"other_votes":3214,"total_votes":144397,"dem_candidate":"Matthew Richardson","rep_candidate":"Alan Wilson","margin":38517,"margin_pct":26.6744,"winner":"R","color":"#cb181d"},"2":{"dem_votes":73398,"rep_votes":97407,"other_votes":3947,"total_votes":174752,"dem_candidate":"Matthew Richardson","rep_candidate":"Alan Wilson","margin":24009,"margin_pct":13.7389,"winner":"R","color":"#ef3b2c"},"6":{"dem_votes":111005,"rep_votes":48657,"other_votes":2705,"total_votes":162367,"dem_candidate":"Matthew Richardson","rep_candidate":"Alan Wilson","margin":-62348,"margin_pct":-38.3994,"winner":"D","color":"#2171b5"},"1":{"dem_votes":58617,"rep_votes":90755,"other_votes":4286,"total_votes":153658,"dem_candidate":"Matthew Richardson","rep_candidate":"Alan Wilson","margin":32138,"margin_pct":20.9153,"winner":"R","color":"#cb181d"},"5":{"dem_votes":67620,"rep_votes":82652,"other_votes":3329,"total_votes":153601,"dem_candidate":"Matthew Richardson","rep_candidate":"Alan Wilson","margin":15032,"margin_pct":9.7864,"winner":"R","color":"#fc8a6a"},"7":{"dem_votes":73835,"rep_votes":86506,"other_votes":2702,"total_votes":163043,"dem_candidate":"Matthew Richardson","rep_candidate":"Alan Wilson","margin":12671,"margin_pct":7.7716,"winner":"R","color":"#fc8a6a"},"4":{"dem_votes":57588,"rep_votes":102501,"other_votes":3475,"total_votes":163564,"dem_candidate":"Matthew Richardson","rep_candidate":"Alan Wilson","margin":44913,"margin_pct":27.459,"winner":"R","color":"#cb181d"}}},"meta":{"match_coverage_pct":94.9048,"precinct_rows_total":2100,"precinct_rows_matched":1993,"precinct_rows_block_weighted":1993}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 51333,
+        "rep_votes": 89850,
+        "other_votes": 3214,
+        "total_votes": 144397,
+        "dem_candidate": "Matthew Richardson",
+        "rep_candidate": "Alan Wilson",
+        "margin": 38517,
+        "margin_pct": 26.6744,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "2": {
+        "dem_votes": 73398,
+        "rep_votes": 97407,
+        "other_votes": 3947,
+        "total_votes": 174752,
+        "dem_candidate": "Matthew Richardson",
+        "rep_candidate": "Alan Wilson",
+        "margin": 24009,
+        "margin_pct": 13.7389,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "6": {
+        "dem_votes": 111005,
+        "rep_votes": 48657,
+        "other_votes": 2705,
+        "total_votes": 162367,
+        "dem_candidate": "Matthew Richardson",
+        "rep_candidate": "Alan Wilson",
+        "margin": -62348,
+        "margin_pct": -38.3994,
+        "winner": "D",
+        "color": "#2171b5"
+      },
+      "1": {
+        "dem_votes": 58617,
+        "rep_votes": 90755,
+        "other_votes": 4286,
+        "total_votes": 153658,
+        "dem_candidate": "Matthew Richardson",
+        "rep_candidate": "Alan Wilson",
+        "margin": 32138,
+        "margin_pct": 20.9153,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "5": {
+        "dem_votes": 67620,
+        "rep_votes": 82652,
+        "other_votes": 3329,
+        "total_votes": 153601,
+        "dem_candidate": "Matthew Richardson",
+        "rep_candidate": "Alan Wilson",
+        "margin": 15032,
+        "margin_pct": 9.7864,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "7": {
+        "dem_votes": 73835,
+        "rep_votes": 86506,
+        "other_votes": 2702,
+        "total_votes": 163043,
+        "dem_candidate": "Matthew Richardson",
+        "rep_candidate": "Alan Wilson",
+        "margin": 12671,
+        "margin_pct": 7.7716,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "4": {
+        "dem_votes": 57588,
+        "rep_votes": 102501,
+        "other_votes": 3475,
+        "total_votes": 163564,
+        "dem_candidate": "Matthew Richardson",
+        "rep_candidate": "Alan Wilson",
+        "margin": 44913,
+        "margin_pct": 27.459,
+        "winner": "R",
+        "color": "#cb181d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 94.9048,
+    "precinct_rows_total": 2100,
+    "precinct_rows_matched": 1993,
+    "precinct_rows_block_weighted": 1993
+  }
+}

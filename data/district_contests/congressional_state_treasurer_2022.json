@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":0,"rep_votes":175125,"other_votes":26275,"total_votes":201400,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":175125,"margin_pct":86.9538,"winner":"R","color":"#67000d"},"2":{"dem_votes":0,"rep_votes":163224,"other_votes":46910,"total_votes":210134,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":163224,"margin_pct":77.6761,"winner":"R","color":"#67000d"},"6":{"dem_votes":0,"rep_votes":79191,"other_votes":42242,"total_votes":121433,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":79191,"margin_pct":65.2137,"winner":"R","color":"#67000d"},"1":{"dem_votes":0,"rep_votes":187075,"other_votes":58368,"total_votes":245443,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":187075,"margin_pct":76.2193,"winner":"R","color":"#67000d"},"5":{"dem_votes":0,"rep_votes":158993,"other_votes":39795,"total_votes":198788,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":158993,"margin_pct":79.9812,"winner":"R","color":"#67000d"},"7":{"dem_votes":0,"rep_votes":170375,"other_votes":31144,"total_votes":201519,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":170375,"margin_pct":84.5454,"winner":"R","color":"#67000d"},"4":{"dem_votes":0,"rep_votes":171894,"other_votes":37083,"total_votes":208977,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":171894,"margin_pct":82.255,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":97.7394,"precinct_rows_total":2256,"precinct_rows_matched":2205,"precinct_rows_block_weighted":2205}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 175125,
+        "other_votes": 26275,
+        "total_votes": 201400,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 175125,
+        "margin_pct": 86.9538,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 163224,
+        "other_votes": 46910,
+        "total_votes": 210134,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 163224,
+        "margin_pct": 77.6761,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 79191,
+        "other_votes": 42242,
+        "total_votes": 121433,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 79191,
+        "margin_pct": 65.2137,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 187075,
+        "other_votes": 58368,
+        "total_votes": 245443,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 187075,
+        "margin_pct": 76.2193,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 158993,
+        "other_votes": 39795,
+        "total_votes": 198788,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 158993,
+        "margin_pct": 79.9812,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 170375,
+        "other_votes": 31144,
+        "total_votes": 201519,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 170375,
+        "margin_pct": 84.5454,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 171894,
+        "other_votes": 37083,
+        "total_votes": 208977,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 171894,
+        "margin_pct": 82.255,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 97.7394,
+    "precinct_rows_total": 2256,
+    "precinct_rows_matched": 2205,
+    "precinct_rows_block_weighted": 2205
+  }
+}

@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":0,"rep_votes":169686,"other_votes":30043,"total_votes":199729,"dem_candidate":"","rep_candidate":"Hugh Weathers","margin":169686,"margin_pct":84.9581,"winner":"R","color":"#67000d"},"2":{"dem_votes":0,"rep_votes":157410,"other_votes":50125,"total_votes":207535,"dem_candidate":"","rep_candidate":"Hugh Weathers","margin":157410,"margin_pct":75.8474,"winner":"R","color":"#67000d"},"6":{"dem_votes":0,"rep_votes":74058,"other_votes":44314,"total_votes":118372,"dem_candidate":"","rep_candidate":"Hugh Weathers","margin":74058,"margin_pct":62.5638,"winner":"R","color":"#67000d"},"1":{"dem_votes":0,"rep_votes":177435,"other_votes":63344,"total_votes":240779,"dem_candidate":"","rep_candidate":"Hugh Weathers","margin":177435,"margin_pct":73.6921,"winner":"R","color":"#67000d"},"5":{"dem_votes":0,"rep_votes":153712,"other_votes":42516,"total_votes":196228,"dem_candidate":"","rep_candidate":"Hugh Weathers","margin":153712,"margin_pct":78.3334,"winner":"R","color":"#67000d"},"7":{"dem_votes":0,"rep_votes":165651,"other_votes":33053,"total_votes":198704,"dem_candidate":"","rep_candidate":"Hugh Weathers","margin":165651,"margin_pct":83.3657,"winner":"R","color":"#67000d"},"4":{"dem_votes":0,"rep_votes":163969,"other_votes":42832,"total_votes":206801,"dem_candidate":"","rep_candidate":"Hugh Weathers","margin":163969,"margin_pct":79.2883,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":97.7394,"precinct_rows_total":2256,"precinct_rows_matched":2205,"precinct_rows_block_weighted":2205}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 169686,
+        "other_votes": 30043,
+        "total_votes": 199729,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 169686,
+        "margin_pct": 84.9581,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 157410,
+        "other_votes": 50125,
+        "total_votes": 207535,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 157410,
+        "margin_pct": 75.8474,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 74058,
+        "other_votes": 44314,
+        "total_votes": 118372,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 74058,
+        "margin_pct": 62.5638,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 177435,
+        "other_votes": 63344,
+        "total_votes": 240779,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 177435,
+        "margin_pct": 73.6921,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 153712,
+        "other_votes": 42516,
+        "total_votes": 196228,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 153712,
+        "margin_pct": 78.3334,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 165651,
+        "other_votes": 33053,
+        "total_votes": 198704,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 165651,
+        "margin_pct": 83.3657,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 163969,
+        "other_votes": 42832,
+        "total_votes": 206801,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 163969,
+        "margin_pct": 79.2883,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 97.7394,
+    "precinct_rows_total": 2256,
+    "precinct_rows_matched": 2205,
+    "precinct_rows_block_weighted": 2205
+  }
+}

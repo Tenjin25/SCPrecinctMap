@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":68368,"rep_votes":198475,"other_votes":19086,"total_votes":285929,"dem_candidate":"Brad Hutto","rep_candidate":"Lindsey Graham","margin":130107,"margin_pct":45.5033,"winner":"R","color":"#67000d"},"2":{"dem_votes":110095,"rep_votes":204118,"other_votes":17861,"total_votes":332074,"dem_candidate":"Brad Hutto","rep_candidate":"Lindsey Graham","margin":94023,"margin_pct":28.3139,"winner":"R","color":"#cb181d"},"6":{"dem_votes":186317,"rep_votes":91465,"other_votes":9953,"total_votes":287735,"dem_candidate":"Brad Hutto","rep_candidate":"Lindsey Graham","margin":-94852,"margin_pct":-32.9651,"winner":"D","color":"#2171b5"},"1":{"dem_votes":92918,"rep_votes":192330,"other_votes":16686,"total_votes":301934,"dem_candidate":"Brad Hutto","rep_candidate":"Lindsey Graham","margin":99412,"margin_pct":32.9251,"winner":"R","color":"#a50f15"},"5":{"dem_votes":101552,"rep_votes":164080,"other_votes":15479,"total_votes":281111,"dem_candidate":"Brad Hutto","rep_candidate":"Lindsey Graham","margin":62528,"margin_pct":22.2432,"winner":"R","color":"#cb181d"},"7":{"dem_votes":111008,"rep_votes":178560,"other_votes":12883,"total_votes":302451,"dem_candidate":"Brad Hutto","rep_candidate":"Lindsey Graham","margin":67552,"margin_pct":22.3349,"winner":"R","color":"#cb181d"},"4":{"dem_votes":75499,"rep_votes":202063,"other_votes":24341,"total_votes":301903,"dem_candidate":"Brad Hutto","rep_candidate":"Lindsey Graham","margin":126564,"margin_pct":41.9221,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":96.5174,"precinct_rows_total":2211,"precinct_rows_matched":2134,"precinct_rows_block_weighted":2134}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 68368,
+        "rep_votes": 198475,
+        "other_votes": 19086,
+        "total_votes": 285929,
+        "dem_candidate": "Brad Hutto",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 130107,
+        "margin_pct": 45.5033,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 110095,
+        "rep_votes": 204118,
+        "other_votes": 17861,
+        "total_votes": 332074,
+        "dem_candidate": "Brad Hutto",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 94023,
+        "margin_pct": 28.3139,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "6": {
+        "dem_votes": 186317,
+        "rep_votes": 91465,
+        "other_votes": 9953,
+        "total_votes": 287735,
+        "dem_candidate": "Brad Hutto",
+        "rep_candidate": "Lindsey Graham",
+        "margin": -94852,
+        "margin_pct": -32.9651,
+        "winner": "D",
+        "color": "#2171b5"
+      },
+      "1": {
+        "dem_votes": 92918,
+        "rep_votes": 192330,
+        "other_votes": 16686,
+        "total_votes": 301934,
+        "dem_candidate": "Brad Hutto",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 99412,
+        "margin_pct": 32.9251,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "5": {
+        "dem_votes": 101552,
+        "rep_votes": 164080,
+        "other_votes": 15479,
+        "total_votes": 281111,
+        "dem_candidate": "Brad Hutto",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 62528,
+        "margin_pct": 22.2432,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "7": {
+        "dem_votes": 111008,
+        "rep_votes": 178560,
+        "other_votes": 12883,
+        "total_votes": 302451,
+        "dem_candidate": "Brad Hutto",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 67552,
+        "margin_pct": 22.3349,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "4": {
+        "dem_votes": 75499,
+        "rep_votes": 202063,
+        "other_votes": 24341,
+        "total_votes": 301903,
+        "dem_candidate": "Brad Hutto",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 126564,
+        "margin_pct": 41.9221,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 96.5174,
+    "precinct_rows_total": 2211,
+    "precinct_rows_matched": 2134,
+    "precinct_rows_block_weighted": 2134
+  }
+}

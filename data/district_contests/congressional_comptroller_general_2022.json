@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":0,"rep_votes":184178,"other_votes":2274,"total_votes":186452,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":184178,"margin_pct":98.7804,"winner":"R","color":"#67000d"},"2":{"dem_votes":0,"rep_votes":179788,"other_votes":4275,"total_votes":184063,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":179788,"margin_pct":97.6774,"winner":"R","color":"#67000d"},"6":{"dem_votes":0,"rep_votes":93373,"other_votes":2801,"total_votes":96174,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":93373,"margin_pct":97.0876,"winner":"R","color":"#67000d"},"1":{"dem_votes":0,"rep_votes":205955,"other_votes":4184,"total_votes":210139,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":205955,"margin_pct":98.0089,"winner":"R","color":"#67000d"},"5":{"dem_votes":0,"rep_votes":174610,"other_votes":2810,"total_votes":177420,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":174610,"margin_pct":98.4162,"winner":"R","color":"#67000d"},"7":{"dem_votes":0,"rep_votes":181993,"other_votes":1999,"total_votes":183992,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":181993,"margin_pct":98.9135,"winner":"R","color":"#67000d"},"4":{"dem_votes":0,"rep_votes":183418,"other_votes":3603,"total_votes":187021,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":183418,"margin_pct":98.0735,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":97.7394,"precinct_rows_total":2256,"precinct_rows_matched":2205,"precinct_rows_block_weighted":2205}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 184178,
+        "other_votes": 2274,
+        "total_votes": 186452,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 184178,
+        "margin_pct": 98.7804,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 179788,
+        "other_votes": 4275,
+        "total_votes": 184063,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 179788,
+        "margin_pct": 97.6774,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 93373,
+        "other_votes": 2801,
+        "total_votes": 96174,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 93373,
+        "margin_pct": 97.0876,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 205955,
+        "other_votes": 4184,
+        "total_votes": 210139,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 205955,
+        "margin_pct": 98.0089,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 174610,
+        "other_votes": 2810,
+        "total_votes": 177420,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 174610,
+        "margin_pct": 98.4162,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 181993,
+        "other_votes": 1999,
+        "total_votes": 183992,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 181993,
+        "margin_pct": 98.9135,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 183418,
+        "other_votes": 3603,
+        "total_votes": 187021,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 183418,
+        "margin_pct": 98.0735,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 97.7394,
+    "precinct_rows_total": 2256,
+    "precinct_rows_matched": 2205,
+    "precinct_rows_block_weighted": 2205
+  }
+}

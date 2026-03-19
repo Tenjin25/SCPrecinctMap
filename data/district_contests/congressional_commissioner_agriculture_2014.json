@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":0,"rep_votes":104323,"other_votes":18817,"total_votes":123140,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":104323,"margin_pct":84.719,"winner":"R","color":"#67000d"},"2":{"dem_votes":0,"rep_votes":108624,"other_votes":29713,"total_votes":138337,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":108624,"margin_pct":78.5213,"winner":"R","color":"#67000d"},"6":{"dem_votes":0,"rep_votes":51749,"other_votes":31021,"total_votes":82770,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":51749,"margin_pct":62.5214,"winner":"R","color":"#67000d"},"1":{"dem_votes":0,"rep_votes":98736,"other_votes":22404,"total_votes":121140,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":98736,"margin_pct":81.5057,"winner":"R","color":"#67000d"},"5":{"dem_votes":0,"rep_votes":87881,"other_votes":23278,"total_votes":111159,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":87881,"margin_pct":79.0588,"winner":"R","color":"#67000d"},"7":{"dem_votes":0,"rep_votes":93706,"other_votes":20217,"total_votes":113923,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":93706,"margin_pct":82.2538,"winner":"R","color":"#67000d"},"4":{"dem_votes":0,"rep_votes":108540,"other_votes":21443,"total_votes":129983,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":108540,"margin_pct":83.5032,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":96.5174,"precinct_rows_total":2211,"precinct_rows_matched":2134,"precinct_rows_block_weighted":2134}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 104323,
+        "other_votes": 18817,
+        "total_votes": 123140,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 104323,
+        "margin_pct": 84.719,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 108624,
+        "other_votes": 29713,
+        "total_votes": 138337,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 108624,
+        "margin_pct": 78.5213,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 51749,
+        "other_votes": 31021,
+        "total_votes": 82770,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 51749,
+        "margin_pct": 62.5214,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 98736,
+        "other_votes": 22404,
+        "total_votes": 121140,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 98736,
+        "margin_pct": 81.5057,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 87881,
+        "other_votes": 23278,
+        "total_votes": 111159,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 87881,
+        "margin_pct": 79.0588,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 93706,
+        "other_votes": 20217,
+        "total_votes": 113923,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 93706,
+        "margin_pct": 82.2538,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 108540,
+        "other_votes": 21443,
+        "total_votes": 129983,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 108540,
+        "margin_pct": 83.5032,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 96.5174,
+    "precinct_rows_total": 2211,
+    "precinct_rows_matched": 2134,
+    "precinct_rows_block_weighted": 2134
+  }
+}

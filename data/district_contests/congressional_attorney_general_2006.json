@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":0,"rep_votes":87490,"other_votes":520,"total_votes":88010,"dem_candidate":"","rep_candidate":"Henry McMaster","margin":87490,"margin_pct":99.4092,"winner":"R","color":"#67000d"},"2":{"dem_votes":0,"rep_votes":86969,"other_votes":712,"total_votes":87681,"dem_candidate":"","rep_candidate":"Henry McMaster","margin":86969,"margin_pct":99.188,"winner":"R","color":"#67000d"},"6":{"dem_votes":0,"rep_votes":54999,"other_votes":687,"total_votes":55686,"dem_candidate":"","rep_candidate":"Henry McMaster","margin":54999,"margin_pct":98.7663,"winner":"R","color":"#67000d"},"1":{"dem_votes":0,"rep_votes":101358,"other_votes":840,"total_votes":102198,"dem_candidate":"","rep_candidate":"Henry McMaster","margin":101358,"margin_pct":99.1781,"winner":"R","color":"#67000d"},"5":{"dem_votes":0,"rep_votes":71593,"other_votes":367,"total_votes":71960,"dem_candidate":"","rep_candidate":"Henry McMaster","margin":71593,"margin_pct":99.49,"winner":"R","color":"#67000d"},"7":{"dem_votes":0,"rep_votes":66131,"other_votes":356,"total_votes":66487,"dem_candidate":"","rep_candidate":"Henry McMaster","margin":66131,"margin_pct":99.4646,"winner":"R","color":"#67000d"},"4":{"dem_votes":0,"rep_votes":71958,"other_votes":666,"total_votes":72624,"dem_candidate":"","rep_candidate":"Henry McMaster","margin":71958,"margin_pct":99.0829,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":72.1811,"precinct_rows_total":2164,"precinct_rows_matched":1562,"precinct_rows_block_weighted":1562}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 87490,
+        "other_votes": 520,
+        "total_votes": 88010,
+        "dem_candidate": "",
+        "rep_candidate": "Henry McMaster",
+        "margin": 87490,
+        "margin_pct": 99.4092,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 86969,
+        "other_votes": 712,
+        "total_votes": 87681,
+        "dem_candidate": "",
+        "rep_candidate": "Henry McMaster",
+        "margin": 86969,
+        "margin_pct": 99.188,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 54999,
+        "other_votes": 687,
+        "total_votes": 55686,
+        "dem_candidate": "",
+        "rep_candidate": "Henry McMaster",
+        "margin": 54999,
+        "margin_pct": 98.7663,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 101358,
+        "other_votes": 840,
+        "total_votes": 102198,
+        "dem_candidate": "",
+        "rep_candidate": "Henry McMaster",
+        "margin": 101358,
+        "margin_pct": 99.1781,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 71593,
+        "other_votes": 367,
+        "total_votes": 71960,
+        "dem_candidate": "",
+        "rep_candidate": "Henry McMaster",
+        "margin": 71593,
+        "margin_pct": 99.49,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 66131,
+        "other_votes": 356,
+        "total_votes": 66487,
+        "dem_candidate": "",
+        "rep_candidate": "Henry McMaster",
+        "margin": 66131,
+        "margin_pct": 99.4646,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 71958,
+        "other_votes": 666,
+        "total_votes": 72624,
+        "dem_candidate": "",
+        "rep_candidate": "Henry McMaster",
+        "margin": 71958,
+        "margin_pct": 99.0829,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 72.1811,
+    "precinct_rows_total": 2164,
+    "precinct_rows_matched": 1562,
+    "precinct_rows_block_weighted": 1562
+  }
+}

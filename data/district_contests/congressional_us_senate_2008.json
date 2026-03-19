@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":61038,"rep_votes":129383,"other_votes":481,"total_votes":190902,"dem_candidate":"Bob Conley","rep_candidate":"Lindsey Graham","margin":68345,"margin_pct":35.8011,"winner":"R","color":"#a50f15"},"2":{"dem_votes":69097,"rep_votes":138901,"other_votes":361,"total_votes":208359,"dem_candidate":"Bob Conley","rep_candidate":"Lindsey Graham","margin":69804,"margin_pct":33.5018,"winner":"R","color":"#a50f15"},"6":{"dem_votes":128581,"rep_votes":79721,"other_votes":256,"total_votes":208558,"dem_candidate":"Bob Conley","rep_candidate":"Lindsey Graham","margin":-48860,"margin_pct":-23.4275,"winner":"D","color":"#4292c6"},"1":{"dem_votes":69955,"rep_votes":129753,"other_votes":598,"total_votes":200306,"dem_candidate":"Bob Conley","rep_candidate":"Lindsey Graham","margin":59798,"margin_pct":29.8533,"winner":"R","color":"#cb181d"},"5":{"dem_votes":75140,"rep_votes":110071,"other_votes":209,"total_votes":185420,"dem_candidate":"Bob Conley","rep_candidate":"Lindsey Graham","margin":34931,"margin_pct":18.8389,"winner":"R","color":"#ef3b2c"},"7":{"dem_votes":83453,"rep_votes":130770,"other_votes":208,"total_votes":214431,"dem_candidate":"Bob Conley","rep_candidate":"Lindsey Graham","margin":47317,"margin_pct":22.0663,"winner":"R","color":"#cb181d"},"4":{"dem_votes":62826,"rep_votes":105928,"other_votes":996,"total_votes":169750,"dem_candidate":"Bob Conley","rep_candidate":"Lindsey Graham","margin":43102,"margin_pct":25.3915,"winner":"R","color":"#cb181d"}}},"meta":{"match_coverage_pct":92.0935,"precinct_rows_total":2011,"precinct_rows_matched":1852,"precinct_rows_block_weighted":1852}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 61038,
+        "rep_votes": 129383,
+        "other_votes": 481,
+        "total_votes": 190902,
+        "dem_candidate": "Bob Conley",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 68345,
+        "margin_pct": 35.8011,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "2": {
+        "dem_votes": 69097,
+        "rep_votes": 138901,
+        "other_votes": 361,
+        "total_votes": 208359,
+        "dem_candidate": "Bob Conley",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 69804,
+        "margin_pct": 33.5018,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "6": {
+        "dem_votes": 128581,
+        "rep_votes": 79721,
+        "other_votes": 256,
+        "total_votes": 208558,
+        "dem_candidate": "Bob Conley",
+        "rep_candidate": "Lindsey Graham",
+        "margin": -48860,
+        "margin_pct": -23.4275,
+        "winner": "D",
+        "color": "#4292c6"
+      },
+      "1": {
+        "dem_votes": 69955,
+        "rep_votes": 129753,
+        "other_votes": 598,
+        "total_votes": 200306,
+        "dem_candidate": "Bob Conley",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 59798,
+        "margin_pct": 29.8533,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "5": {
+        "dem_votes": 75140,
+        "rep_votes": 110071,
+        "other_votes": 209,
+        "total_votes": 185420,
+        "dem_candidate": "Bob Conley",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 34931,
+        "margin_pct": 18.8389,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "7": {
+        "dem_votes": 83453,
+        "rep_votes": 130770,
+        "other_votes": 208,
+        "total_votes": 214431,
+        "dem_candidate": "Bob Conley",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 47317,
+        "margin_pct": 22.0663,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "4": {
+        "dem_votes": 62826,
+        "rep_votes": 105928,
+        "other_votes": 996,
+        "total_votes": 169750,
+        "dem_candidate": "Bob Conley",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 43102,
+        "margin_pct": 25.3915,
+        "winner": "R",
+        "color": "#cb181d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 92.0935,
+    "precinct_rows_total": 2011,
+    "precinct_rows_matched": 1852,
+    "precinct_rows_block_weighted": 1852
+  }
+}

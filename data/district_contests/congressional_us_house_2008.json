@@ -1,1 +1,81 @@
-{"general":{"results":{"3":{"dem_votes":189405,"rep_votes":355873,"other_votes":413,"total_votes":545691,"dem_candidate":"Jane Ballard Dyer","rep_candidate":"J. Gresham Barrett","margin":166468,"margin_pct":30.5059,"winner":"R","color":"#a50f15"},"2":{"dem_votes":288197,"rep_votes":337707,"other_votes":515,"total_votes":626419,"dem_candidate":"Rob Miller","rep_candidate":"Joe Wilson","margin":49510,"margin_pct":7.9037,"winner":"R","color":"#fc8a6a"},"5":{"dem_votes":357854,"rep_votes":211766,"other_votes":7917,"total_votes":577537,"dem_candidate":"John Spratt","rep_candidate":"Albert F. Spencer","margin":-146088,"margin_pct":-25.295,"winner":"D","color":"#4292c6"},"6":{"dem_votes":372864,"rep_votes":183899,"other_votes":265,"total_votes":557028,"dem_candidate":"James \"Jim\" E. Clyburn","rep_candidate":"Nancy Harrelson","margin":-188965,"margin_pct":-33.9238,"winner":"D","color":"#2171b5"},"1":{"dem_votes":303204,"rep_votes":337891,"other_votes":1158,"total_votes":642253,"dem_candidate":"Linda Ketner","rep_candidate":"Henry E. Brown, Jr.","margin":34687,"margin_pct":5.4008,"winner":"R","color":"#fc8a6a"},"4":{"dem_votes":214158,"rep_votes":353656,"other_votes":17566,"total_votes":585380,"dem_candidate":"Paul Corden","rep_candidate":"Bob Inglis","margin":139498,"margin_pct":23.8303,"winner":"R","color":"#cb181d"}}},"meta":{"match_coverage_pct":100}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 189405,
+        "rep_votes": 355873,
+        "other_votes": 413,
+        "total_votes": 545691,
+        "dem_candidate": "Jane Ballard Dyer",
+        "rep_candidate": "J. Gresham Barrett",
+        "margin": 166468,
+        "margin_pct": 30.5059,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "2": {
+        "dem_votes": 288197,
+        "rep_votes": 337707,
+        "other_votes": 515,
+        "total_votes": 626419,
+        "dem_candidate": "Rob Miller",
+        "rep_candidate": "Joe Wilson",
+        "margin": 49510,
+        "margin_pct": 7.9037,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "5": {
+        "dem_votes": 357854,
+        "rep_votes": 211766,
+        "other_votes": 7917,
+        "total_votes": 577537,
+        "dem_candidate": "John Spratt",
+        "rep_candidate": "Albert F. Spencer",
+        "margin": -146088,
+        "margin_pct": -25.295,
+        "winner": "D",
+        "color": "#4292c6"
+      },
+      "6": {
+        "dem_votes": 372864,
+        "rep_votes": 183899,
+        "other_votes": 265,
+        "total_votes": 557028,
+        "dem_candidate": "James \"Jim\" E. Clyburn",
+        "rep_candidate": "Nancy Harrelson",
+        "margin": -188965,
+        "margin_pct": -33.9238,
+        "winner": "D",
+        "color": "#2171b5"
+      },
+      "1": {
+        "dem_votes": 303204,
+        "rep_votes": 337891,
+        "other_votes": 1158,
+        "total_votes": 642253,
+        "dem_candidate": "Linda Ketner",
+        "rep_candidate": "Henry E. Brown, Jr.",
+        "margin": 34687,
+        "margin_pct": 5.4008,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "4": {
+        "dem_votes": 214158,
+        "rep_votes": 353656,
+        "other_votes": 17566,
+        "total_votes": 585380,
+        "dem_candidate": "Paul Corden",
+        "rep_candidate": "Bob Inglis",
+        "margin": 139498,
+        "margin_pct": 23.8303,
+        "winner": "R",
+        "color": "#cb181d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 100
+  }
+}

@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":47346,"rep_votes":154658,"other_votes":12396,"total_votes":214400,"dem_candidate":"Thomas Dixon","rep_candidate":"Tim Scott","margin":107312,"margin_pct":50.0522,"winner":"R","color":"#67000d"},"2":{"dem_votes":66029,"rep_votes":138036,"other_votes":13249,"total_votes":217314,"dem_candidate":"Thomas Dixon","rep_candidate":"Tim Scott","margin":72007,"margin_pct":33.135,"winner":"R","color":"#a50f15"},"6":{"dem_votes":99302,"rep_votes":66056,"other_votes":8906,"total_votes":174264,"dem_candidate":"Thomas Dixon","rep_candidate":"Tim Scott","margin":-33246,"margin_pct":-19.078,"winner":"D","color":"#6baed6"},"1":{"dem_votes":63516,"rep_votes":150982,"other_votes":12125,"total_votes":226623,"dem_candidate":"Thomas Dixon","rep_candidate":"Tim Scott","margin":87466,"margin_pct":38.5954,"winner":"R","color":"#a50f15"},"5":{"dem_votes":68891,"rep_votes":129292,"other_votes":14514,"total_votes":212697,"dem_candidate":"Thomas Dixon","rep_candidate":"Tim Scott","margin":60401,"margin_pct":28.3977,"winner":"R","color":"#cb181d"},"7":{"dem_votes":62989,"rep_votes":129484,"other_votes":10078,"total_votes":202551,"dem_candidate":"Thomas Dixon","rep_candidate":"Tim Scott","margin":66495,"margin_pct":32.8288,"winner":"R","color":"#a50f15"},"4":{"dem_votes":63197,"rep_votes":161492,"other_votes":12923,"total_votes":237612,"dem_candidate":"Thomas Dixon","rep_candidate":"Tim Scott","margin":98295,"margin_pct":41.3679,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":94.0053,"precinct_rows_total":2252,"precinct_rows_matched":2117,"precinct_rows_block_weighted":2117}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 47346,
+        "rep_votes": 154658,
+        "other_votes": 12396,
+        "total_votes": 214400,
+        "dem_candidate": "Thomas Dixon",
+        "rep_candidate": "Tim Scott",
+        "margin": 107312,
+        "margin_pct": 50.0522,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 66029,
+        "rep_votes": 138036,
+        "other_votes": 13249,
+        "total_votes": 217314,
+        "dem_candidate": "Thomas Dixon",
+        "rep_candidate": "Tim Scott",
+        "margin": 72007,
+        "margin_pct": 33.135,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "6": {
+        "dem_votes": 99302,
+        "rep_votes": 66056,
+        "other_votes": 8906,
+        "total_votes": 174264,
+        "dem_candidate": "Thomas Dixon",
+        "rep_candidate": "Tim Scott",
+        "margin": -33246,
+        "margin_pct": -19.078,
+        "winner": "D",
+        "color": "#6baed6"
+      },
+      "1": {
+        "dem_votes": 63516,
+        "rep_votes": 150982,
+        "other_votes": 12125,
+        "total_votes": 226623,
+        "dem_candidate": "Thomas Dixon",
+        "rep_candidate": "Tim Scott",
+        "margin": 87466,
+        "margin_pct": 38.5954,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "5": {
+        "dem_votes": 68891,
+        "rep_votes": 129292,
+        "other_votes": 14514,
+        "total_votes": 212697,
+        "dem_candidate": "Thomas Dixon",
+        "rep_candidate": "Tim Scott",
+        "margin": 60401,
+        "margin_pct": 28.3977,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "7": {
+        "dem_votes": 62989,
+        "rep_votes": 129484,
+        "other_votes": 10078,
+        "total_votes": 202551,
+        "dem_candidate": "Thomas Dixon",
+        "rep_candidate": "Tim Scott",
+        "margin": 66495,
+        "margin_pct": 32.8288,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "4": {
+        "dem_votes": 63197,
+        "rep_votes": 161492,
+        "other_votes": 12923,
+        "total_votes": 237612,
+        "dem_candidate": "Thomas Dixon",
+        "rep_candidate": "Tim Scott",
+        "margin": 98295,
+        "margin_pct": 41.3679,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 94.0053,
+    "precinct_rows_total": 2252,
+    "precinct_rows_matched": 2117,
+    "precinct_rows_block_weighted": 2117
+  }
+}

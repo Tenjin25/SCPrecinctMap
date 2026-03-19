@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":104874,"rep_votes":222890,"other_votes":5222,"total_votes":332986,"dem_candidate":"Jaime Harrison","rep_candidate":"Lindsey Graham","margin":118016,"margin_pct":35.4417,"winner":"R","color":"#a50f15"},"2":{"dem_votes":160685,"rep_votes":199055,"other_votes":5111,"total_votes":364851,"dem_candidate":"Jaime Harrison","rep_candidate":"Lindsey Graham","margin":38370,"margin_pct":10.5166,"winner":"R","color":"#ef3b2c"},"6":{"dem_votes":190953,"rep_votes":88468,"other_votes":2884,"total_votes":282305,"dem_candidate":"Jaime Harrison","rep_candidate":"Lindsey Graham","margin":-102485,"margin_pct":-36.3029,"winner":"D","color":"#2171b5"},"1":{"dem_votes":190720,"rep_votes":217145,"other_votes":5602,"total_votes":413467,"dem_candidate":"Jaime Harrison","rep_candidate":"Lindsey Graham","margin":26425,"margin_pct":6.3911,"winner":"R","color":"#fc8a6a"},"5":{"dem_votes":153170,"rep_votes":204524,"other_votes":5912,"total_votes":363606,"dem_candidate":"Jaime Harrison","rep_candidate":"Lindsey Graham","margin":51354,"margin_pct":14.1235,"winner":"R","color":"#ef3b2c"},"7":{"dem_votes":145512,"rep_votes":204351,"other_votes":4601,"total_votes":354464,"dem_candidate":"Jaime Harrison","rep_candidate":"Lindsey Graham","margin":58839,"margin_pct":16.5994,"winner":"R","color":"#ef3b2c"},"4":{"dem_votes":141845,"rep_votes":210180,"other_votes":5148,"total_votes":357173,"dem_candidate":"Jaime Harrison","rep_candidate":"Lindsey Graham","margin":68335,"margin_pct":19.1322,"winner":"R","color":"#ef3b2c"}}},"meta":{"match_coverage_pct":98.0531,"precinct_rows_total":2260,"precinct_rows_matched":2216,"precinct_rows_block_weighted":2216}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 104874,
+        "rep_votes": 222890,
+        "other_votes": 5222,
+        "total_votes": 332986,
+        "dem_candidate": "Jaime Harrison",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 118016,
+        "margin_pct": 35.4417,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "2": {
+        "dem_votes": 160685,
+        "rep_votes": 199055,
+        "other_votes": 5111,
+        "total_votes": 364851,
+        "dem_candidate": "Jaime Harrison",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 38370,
+        "margin_pct": 10.5166,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "6": {
+        "dem_votes": 190953,
+        "rep_votes": 88468,
+        "other_votes": 2884,
+        "total_votes": 282305,
+        "dem_candidate": "Jaime Harrison",
+        "rep_candidate": "Lindsey Graham",
+        "margin": -102485,
+        "margin_pct": -36.3029,
+        "winner": "D",
+        "color": "#2171b5"
+      },
+      "1": {
+        "dem_votes": 190720,
+        "rep_votes": 217145,
+        "other_votes": 5602,
+        "total_votes": 413467,
+        "dem_candidate": "Jaime Harrison",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 26425,
+        "margin_pct": 6.3911,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "5": {
+        "dem_votes": 153170,
+        "rep_votes": 204524,
+        "other_votes": 5912,
+        "total_votes": 363606,
+        "dem_candidate": "Jaime Harrison",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 51354,
+        "margin_pct": 14.1235,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "7": {
+        "dem_votes": 145512,
+        "rep_votes": 204351,
+        "other_votes": 4601,
+        "total_votes": 354464,
+        "dem_candidate": "Jaime Harrison",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 58839,
+        "margin_pct": 16.5994,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "4": {
+        "dem_votes": 141845,
+        "rep_votes": 210180,
+        "other_votes": 5148,
+        "total_votes": 357173,
+        "dem_candidate": "Jaime Harrison",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 68335,
+        "margin_pct": 19.1322,
+        "winner": "R",
+        "color": "#ef3b2c"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 98.0531,
+    "precinct_rows_total": 2260,
+    "precinct_rows_matched": 2216,
+    "precinct_rows_block_weighted": 2216
+  }
+}

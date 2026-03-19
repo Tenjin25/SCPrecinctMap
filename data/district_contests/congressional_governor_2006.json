@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":46900,"rep_votes":65930,"other_votes":84,"total_votes":112914,"dem_candidate":"Tommy Moore","rep_candidate":"Mark Sanford","margin":19030,"margin_pct":16.8535,"winner":"R","color":"#ef3b2c"},"2":{"dem_votes":51668,"rep_votes":59984,"other_votes":128,"total_votes":111780,"dem_candidate":"Tommy Moore","rep_candidate":"Mark Sanford","margin":8316,"margin_pct":7.4396,"winner":"R","color":"#fc8a6a"},"6":{"dem_votes":73404,"rep_votes":37698,"other_votes":75,"total_votes":111177,"dem_candidate":"Tommy Moore","rep_candidate":"Mark Sanford","margin":-35706,"margin_pct":-32.1164,"winner":"D","color":"#2171b5"},"1":{"dem_votes":48377,"rep_votes":86587,"other_votes":134,"total_votes":135098,"dem_candidate":"Tommy Moore","rep_candidate":"Mark Sanford","margin":38210,"margin_pct":28.2832,"winner":"R","color":"#cb181d"},"5":{"dem_votes":48925,"rep_votes":53330,"other_votes":50,"total_votes":102305,"dem_candidate":"Tommy Moore","rep_candidate":"Mark Sanford","margin":4405,"margin_pct":4.3058,"winner":"R","color":"#fcbba1"},"7":{"dem_votes":43369,"rep_votes":53716,"other_votes":49,"total_votes":97134,"dem_candidate":"Tommy Moore","rep_candidate":"Mark Sanford","margin":10347,"margin_pct":10.6523,"winner":"R","color":"#ef3b2c"},"4":{"dem_votes":31744,"rep_votes":60893,"other_votes":69,"total_votes":92706,"dem_candidate":"Tommy Moore","rep_candidate":"Mark Sanford","margin":29149,"margin_pct":31.4424,"winner":"R","color":"#a50f15"}}},"meta":{"match_coverage_pct":72.1811,"precinct_rows_total":2164,"precinct_rows_matched":1562,"precinct_rows_block_weighted":1562}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 46900,
+        "rep_votes": 65930,
+        "other_votes": 84,
+        "total_votes": 112914,
+        "dem_candidate": "Tommy Moore",
+        "rep_candidate": "Mark Sanford",
+        "margin": 19030,
+        "margin_pct": 16.8535,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "2": {
+        "dem_votes": 51668,
+        "rep_votes": 59984,
+        "other_votes": 128,
+        "total_votes": 111780,
+        "dem_candidate": "Tommy Moore",
+        "rep_candidate": "Mark Sanford",
+        "margin": 8316,
+        "margin_pct": 7.4396,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "6": {
+        "dem_votes": 73404,
+        "rep_votes": 37698,
+        "other_votes": 75,
+        "total_votes": 111177,
+        "dem_candidate": "Tommy Moore",
+        "rep_candidate": "Mark Sanford",
+        "margin": -35706,
+        "margin_pct": -32.1164,
+        "winner": "D",
+        "color": "#2171b5"
+      },
+      "1": {
+        "dem_votes": 48377,
+        "rep_votes": 86587,
+        "other_votes": 134,
+        "total_votes": 135098,
+        "dem_candidate": "Tommy Moore",
+        "rep_candidate": "Mark Sanford",
+        "margin": 38210,
+        "margin_pct": 28.2832,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "5": {
+        "dem_votes": 48925,
+        "rep_votes": 53330,
+        "other_votes": 50,
+        "total_votes": 102305,
+        "dem_candidate": "Tommy Moore",
+        "rep_candidate": "Mark Sanford",
+        "margin": 4405,
+        "margin_pct": 4.3058,
+        "winner": "R",
+        "color": "#fcbba1"
+      },
+      "7": {
+        "dem_votes": 43369,
+        "rep_votes": 53716,
+        "other_votes": 49,
+        "total_votes": 97134,
+        "dem_candidate": "Tommy Moore",
+        "rep_candidate": "Mark Sanford",
+        "margin": 10347,
+        "margin_pct": 10.6523,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "4": {
+        "dem_votes": 31744,
+        "rep_votes": 60893,
+        "other_votes": 69,
+        "total_votes": 92706,
+        "dem_candidate": "Tommy Moore",
+        "rep_candidate": "Mark Sanford",
+        "margin": 29149,
+        "margin_pct": 31.4424,
+        "winner": "R",
+        "color": "#a50f15"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 72.1811,
+    "precinct_rows_total": 2164,
+    "precinct_rows_matched": 1562,
+    "precinct_rows_block_weighted": 1562
+  }
+}
