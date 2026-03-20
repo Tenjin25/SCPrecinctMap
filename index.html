@@ -11255,9 +11255,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add click handler for districts with full trends popup
         map.on('click', 'district-fill', async (e) => {
           if (e.features && e.features[0] && e.features[0].properties) {
-            const props = e.features[0].properties;
+            const clickedFeature = e.features[0];
+            const props = clickedFeature.properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.CD118FP || props.district_id || props.district);
             if (districtNum) {
+              fitDistrictBoundsById(districtNum, 'districts', clickedFeature, { padding: 44, duration: 850, maxZoom: 11.4 }).catch(() => {});
               // Show detailed sidebar (results + trends).
               showDistrictDetails(districtNum);
               lastSelectedCounty = `District ${districtNum}`;
@@ -11366,9 +11368,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add click handler for state house districts with full trends popup
         map.on('click', 'state-house-fill', async (e) => {
           if (e.features && e.features[0] && e.features[0].properties) {
-            const props = e.features[0].properties;
+            const clickedFeature = e.features[0];
+            const props = clickedFeature.properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.SLDLST || props.district_id || props.district);
             if (districtNum) {
+              fitDistrictBoundsById(districtNum, 'state-house', clickedFeature, { padding: 44, duration: 850, maxZoom: 11.8 }).catch(() => {});
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'house');
               lastSelectedCounty = `State House District ${districtNum}`;
@@ -11475,9 +11479,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add click handler for state senate districts with full trends popup
         map.on('click', 'state-senate-fill', async (e) => {
           if (e.features && e.features[0] && e.features[0].properties) {
-            const props = e.features[0].properties;
+            const clickedFeature = e.features[0];
+            const props = clickedFeature.properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.SLDUST || props.district_id || props.district);
             if (districtNum) {
+              fitDistrictBoundsById(districtNum, 'state-senate', clickedFeature, { padding: 44, duration: 850, maxZoom: 11.8 }).catch(() => {});
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'senate');
               lastSelectedCounty = `State Senate District ${districtNum}`;
@@ -11904,6 +11910,47 @@ document.addEventListener('DOMContentLoaded', function() {
       const raw = p.DISTRICT || p.SLDLST || p.SLDUST || p.district_id || p.district || p.DIST || p.CD118FP || p.CD || p.cd || null;
       const n = Number(String(raw || '').replace(/[^0-9]/g, ''));
       return Number.isFinite(n) ? n : null;
+    }
+
+    async function fitDistrictBoundsById(districtNum, sourceId, fallbackFeature = null, options = {}) {
+      const target = Number(districtNum);
+      if (!Number.isFinite(target)) return false;
+      const path = sourceId === 'districts' ? CONFIG.paths.districts
+        : (sourceId === 'state-house' ? CONFIG.paths.state_house : CONFIG.paths.state_senate);
+      const { padding = 42, duration = 850, maxZoom = 11.6 } = options || {};
+      try {
+        const gj = await ensureSearchGeoJSON(sourceId, path);
+        const matches = (gj?.features || []).filter(f => getDistrictNumberFromPropsNumeric(f?.properties) === target);
+        if (matches.length) {
+          let minX = Infinity;
+          let minY = Infinity;
+          let maxX = -Infinity;
+          let maxY = -Infinity;
+          matches.forEach(feature => {
+            try {
+              const b = turf.bbox(feature);
+              if (!b || b.length < 4) return;
+              minX = Math.min(minX, b[0]);
+              minY = Math.min(minY, b[1]);
+              maxX = Math.max(maxX, b[2]);
+              maxY = Math.max(maxY, b[3]);
+            } catch (_) {}
+          });
+          if (Number.isFinite(minX) && Number.isFinite(minY) && Number.isFinite(maxX) && Number.isFinite(maxY)) {
+            map.fitBounds([[minX, minY], [maxX, maxY]], { padding, duration, maxZoom });
+            return true;
+          }
+        }
+      } catch (_) {}
+      if (!fallbackFeature) return false;
+      try {
+        const b = turf.bbox(fallbackFeature);
+        if (!b || b.length < 4) return false;
+        map.fitBounds([[b[0], b[1]], [b[2], b[3]]], { padding, duration, maxZoom });
+        return true;
+      } catch (_) {
+        return false;
+      }
     }
 
     async function handleDistrictSelection(districtNum, sourceId, chamber, label) {
