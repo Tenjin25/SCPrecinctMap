@@ -6307,7 +6307,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     mapboxgl.accessToken = CONFIG.mapboxToken;
 
-    const map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/light-v11', center: CONFIG.center, zoom: CONFIG.zoom });
+    const map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/light-v11', center: CONFIG.center, zoom: CONFIG.zoom, crossSourceCollisions: true });
 
     const IS_COARSE_POINTER = (() => {
       try { return window.matchMedia && window.matchMedia('(pointer: coarse)').matches; } catch (_) { return false; }
@@ -10551,21 +10551,35 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         const highCountyFill = currentView === 'counties' && getCountyFillOpacity() >= 0.55;
         const textColor = highCountyFill ? 'rgba(15,23,42,0.98)' : 'rgba(15,23,42,0.92)';
-        const textOpacity = ['interpolate', ['linear'], ['zoom'], 6.6, 0.0, 7.4, highCountyFill ? 0.82 : 0.70, 9.5, highCountyFill ? 0.95 : 0.88, 11.5, 1.0];
+        const textOpacity = ['interpolate', ['linear'], ['zoom'], 7.0, 0.0, 7.8, highCountyFill ? 0.78 : 0.64, 9.6, highCountyFill ? 0.95 : 0.88, 11.8, 1.0];
         const haloColor = highCountyFill ? 'rgba(255,255,255,0.96)' : 'rgba(255,255,255,0.88)';
-        const haloWidth = highCountyFill ? 1.6 : 1.3;
-        const haloBlur = highCountyFill ? 0.55 : 0.46;
+        const haloWidth = highCountyFill ? 1.5 : 1.25;
+        const haloBlur = highCountyFill ? 0.50 : 0.42;
         const layers = map?.getStyle?.()?.layers || [];
         layers.forEach(layer => {
           if (!layer || layer.type !== 'symbol' || !layer.layout || layer.layout['text-field'] == null) return;
           const id = String(layer.id || '').toLowerCase();
           if (!/(settlement|place|city|town|locality|village|hamlet|county)/.test(id)) return;
+          // Prevent duplicate/ghost labels when multiple place label layers overlap.
+          try { map.setLayoutProperty(layer.id, 'text-allow-overlap', false); } catch (_) {}
+          try { map.setLayoutProperty(layer.id, 'text-ignore-placement', false); } catch (_) {}
           try { map.setPaintProperty(layer.id, 'text-color', textColor); } catch (_) {}
           try { map.setPaintProperty(layer.id, 'text-opacity', textOpacity); } catch (_) {}
           try { map.setPaintProperty(layer.id, 'text-halo-color', haloColor); } catch (_) {}
           try { map.setPaintProperty(layer.id, 'text-halo-width', haloWidth); } catch (_) {}
           try { map.setPaintProperty(layer.id, 'text-halo-blur', haloBlur); } catch (_) {}
         });
+        if (map.getLayer('county-label')) {
+          try { map.setLayoutProperty('county-label', 'text-allow-overlap', false); } catch (_) {}
+          try { map.setLayoutProperty('county-label', 'text-ignore-placement', false); } catch (_) {}
+          try {
+            map.setPaintProperty(
+              'county-label',
+              'text-opacity',
+              ['interpolate', ['linear'], ['zoom'], 7.5, 0, 8.2, 0.68, 9.6, 0.90, 12, 1.0]
+            );
+          } catch (_) {}
+        }
       } catch (_) {}
     }
 
@@ -10603,7 +10617,7 @@ document.addEventListener('DOMContentLoaded', function() {
           layout: {
             'text-field': ['coalesce', ['get', 'NAME20'], ['get', 'CountyName'], ['get', 'NAME'], ['get', 'county_nam'], ['get', 'COUNTYNAME'], ['get', 'County'], ['get', 'name']],
             'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-            'text-size': ['interpolate', ['linear'], ['zoom'], 7.5, 9.5, 9, 10.8, 11, 12.2],
+            'text-size': ['interpolate', ['linear'], ['zoom'], 7.5, 8.9, 9, 10.2, 11, 11.8],
             'text-anchor': 'center',
             'text-offset': [0, 0],
             'visibility': 'none'
@@ -10612,7 +10626,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'text-color': '#222',
             'text-halo-color': '#f7f7f7', // original background halo
             'text-halo-width': 2,
-            'text-opacity': ['interpolate', ['linear'], ['zoom'], 7.3, 0, 7.9, 0.75, 9.5, 0.92, 12, 1.0]
+            'text-opacity': ['interpolate', ['linear'], ['zoom'], 7.5, 0, 8.2, 0.68, 9.6, 0.90, 12, 1.0]
           }
         });
         // Add mouseleave event handler
