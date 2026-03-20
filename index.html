@@ -6512,20 +6512,33 @@ document.addEventListener('DOMContentLoaded', function() {
       return null;
     }
 
-    function reinforceTownLabelHalos() {
+    function reinforceMapLabelHalos() {
       try {
+        const highCountyFill = currentView === 'counties' && !precinctsEnabled;
+        const textColor = highCountyFill ? 'rgba(248,250,252,0.99)' : 'rgba(241,245,249,0.97)';
+        const textOpacity = highCountyFill ? 1.0 : 0.97;
+        const haloColor = highCountyFill ? 'rgba(15,23,42,0.86)' : 'rgba(15,23,42,0.72)';
+        const haloWidth = highCountyFill ? 1.55 : 1.25;
+        const haloBlur = highCountyFill ? 0.34 : 0.42;
         const layers = map?.getStyle?.()?.layers || [];
         layers.forEach(layer => {
-          if (layer?.type !== 'symbol') return;
-          const hasText = !!(layer.layout && layer.layout['text-field']);
-          if (!hasText) return;
+          if (!layer || layer.type !== 'symbol' || !layer.layout || layer.layout['text-field'] == null) return;
+          // Keep halo adjustments focused on place/town label layers.
           const id = String(layer.id || '').toLowerCase();
-          if (!/(settlement|place|town|city|locality|village|hamlet)/.test(id)) return;
-          try { map.setPaintProperty(layer.id, 'text-halo-color', 'rgba(255,255,255,0.98)'); } catch (_) {}
-          try { map.setPaintProperty(layer.id, 'text-halo-width', ['interpolate', ['linear'], ['zoom'], 6, 0.7, 9, 1.15, 13, 1.6]); } catch (_) {}
-          try { map.setPaintProperty(layer.id, 'text-halo-blur', 0.55); } catch (_) {}
+          if (!/(settlement|place|city|town|village|county)/.test(id)) return;
+          try {
+            map.setPaintProperty(layer.id, 'text-color', textColor);
+            map.setPaintProperty(layer.id, 'text-opacity', textOpacity);
+            map.setPaintProperty(layer.id, 'text-halo-color', haloColor);
+            map.setPaintProperty(layer.id, 'text-halo-width', haloWidth);
+            map.setPaintProperty(layer.id, 'text-halo-blur', haloBlur);
+          } catch (_) {}
         });
       } catch (_) {}
+    }
+
+    function reinforceTownLabelHalos() {
+      reinforceMapLabelHalos();
     }
 
     function syncCountyLabelPaintForCountyFillOpacity(fillOpacity = 0.82) {
