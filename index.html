@@ -6512,49 +6512,19 @@ document.addEventListener('DOMContentLoaded', function() {
       return null;
     }
 
-    function reinforceMapLabelHalos() {
+    function reinforceTownLabelHalos() {
       try {
-        const highCountyFill = currentView === 'counties' && !precinctsEnabled;
-        const textColor = highCountyFill ? 'rgba(248,250,252,0.99)' : 'rgba(241,245,249,0.97)';
-        const textOpacity = highCountyFill ? 1.0 : 0.97;
-        const haloColor = highCountyFill ? 'rgba(15,23,42,0.86)' : 'rgba(15,23,42,0.72)';
-        const haloWidth = highCountyFill ? 1.55 : 1.25;
-        const haloBlur = highCountyFill ? 0.34 : 0.42;
         const layers = map?.getStyle?.()?.layers || [];
         layers.forEach(layer => {
-          if (!layer || layer.type !== 'symbol' || !layer.layout || layer.layout['text-field'] == null) return;
-          // Keep halo adjustments focused on place/town label layers.
+          if (layer?.type !== 'symbol') return;
+          const hasText = !!(layer.layout && layer.layout['text-field']);
+          if (!hasText) return;
           const id = String(layer.id || '').toLowerCase();
-          if (!/(settlement|place|city|town|village|county)/.test(id)) return;
-          try {
-            map.setPaintProperty(layer.id, 'text-color', textColor);
-            map.setPaintProperty(layer.id, 'text-opacity', textOpacity);
-            map.setPaintProperty(layer.id, 'text-halo-color', haloColor);
-            map.setPaintProperty(layer.id, 'text-halo-width', haloWidth);
-            map.setPaintProperty(layer.id, 'text-halo-blur', haloBlur);
-          } catch (_) {}
+          if (!/(settlement|place|town|city|locality|village|hamlet)/.test(id)) return;
+          try { map.setPaintProperty(layer.id, 'text-halo-color', 'rgba(255,255,255,0.98)'); } catch (_) {}
+          try { map.setPaintProperty(layer.id, 'text-halo-width', ['interpolate', ['linear'], ['zoom'], 6, 0.7, 9, 1.15, 13, 1.6]); } catch (_) {}
+          try { map.setPaintProperty(layer.id, 'text-halo-blur', 0.55); } catch (_) {}
         });
-      } catch (_) {}
-    }
-
-    function reinforceTownLabelHalos() {
-      reinforceMapLabelHalos();
-    }
-
-    function syncCountyLabelPaintForCountyFillOpacity(fillOpacity = 0.82) {
-      try {
-        if (!map.getLayer('county-label')) return;
-        const o = Number(fillOpacity);
-        const denseFill = Number.isFinite(o) && o >= 0.55;
-        const haloColor = denseFill ? 'rgba(255,255,255,0.86)' : 'rgba(255,255,255,0.72)';
-        const haloBlur = denseFill ? 0.46 : 0.34;
-        const haloWidth = denseFill
-          ? ['interpolate', ['linear'], ['zoom'], 7, 0.9, 10, 1.25, 13, 1.5]
-          : ['interpolate', ['linear'], ['zoom'], 7, 0.6, 10, 0.9, 13, 1.15];
-        map.setPaintProperty('county-label', 'text-color', '#0f172a');
-        map.setPaintProperty('county-label', 'text-halo-color', haloColor);
-        map.setPaintProperty('county-label', 'text-halo-width', haloWidth);
-        map.setPaintProperty('county-label', 'text-halo-blur', haloBlur);
       } catch (_) {}
     }
 
@@ -10741,10 +10711,10 @@ document.addEventListener('DOMContentLoaded', function() {
             'visibility': mapLabelsEnabled ? 'visible' : 'none'
           },
           paint: {
-            'text-color': '#0f172a',
-            'text-halo-color': 'rgba(255,255,255,0.86)',
-            'text-halo-width': ['interpolate', ['linear'], ['zoom'], 7, 0.9, 10, 1.25, 13, 1.5],
-            'text-halo-blur': 0.46
+            'text-color': '#222',
+            'text-halo-color': 'rgba(255,255,255,0.98)',
+            'text-halo-width': 2.1,
+            'text-halo-blur': 0.7
           }
         });
         // Add mouseleave event handler
@@ -10804,7 +10774,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
       applyMapLabelVisibility();
-      syncCountyLabelPaintForCountyFillOpacity(precinctsEnabled ? 0.10 : 0.82);
       updatePrecinctVisibility();
     }
 
@@ -11182,13 +11151,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (map.getLayer('precinct-dot-missing')) {
         map.setLayoutProperty('precinct-dot-missing', 'visibility', polyVisible ? 'visible' : 'none');
       }
-      if (map.getLayer('county-fill')) {
-        let countyFillOpacity = Number(map.getPaintProperty('county-fill', 'fill-opacity'));
-        if (!Number.isFinite(countyFillOpacity)) {
-          countyFillOpacity = precinctsEnabled ? 0.10 : 0.82;
-        }
-        syncCountyLabelPaintForCountyFillOpacity(countyFillOpacity);
-      }
     }
 
     async function togglePrecinctOverlay() {
@@ -11255,11 +11217,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add click handler for districts with full trends popup
         map.on('click', 'district-fill', async (e) => {
           if (e.features && e.features[0] && e.features[0].properties) {
-            const clickedFeature = e.features[0];
-            const props = clickedFeature.properties;
+            const props = e.features[0].properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.CD118FP || props.district_id || props.district);
             if (districtNum) {
-              fitDistrictBoundsById(districtNum, 'districts', clickedFeature, { padding: 44, duration: 850, maxZoom: 11.4 }).catch(() => {});
               // Show detailed sidebar (results + trends).
               showDistrictDetails(districtNum);
               lastSelectedCounty = `District ${districtNum}`;
@@ -11368,11 +11328,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add click handler for state house districts with full trends popup
         map.on('click', 'state-house-fill', async (e) => {
           if (e.features && e.features[0] && e.features[0].properties) {
-            const clickedFeature = e.features[0];
-            const props = clickedFeature.properties;
+            const props = e.features[0].properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.SLDLST || props.district_id || props.district);
             if (districtNum) {
-              fitDistrictBoundsById(districtNum, 'state-house', clickedFeature, { padding: 44, duration: 850, maxZoom: 11.8 }).catch(() => {});
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'house');
               lastSelectedCounty = `State House District ${districtNum}`;
@@ -11479,11 +11437,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add click handler for state senate districts with full trends popup
         map.on('click', 'state-senate-fill', async (e) => {
           if (e.features && e.features[0] && e.features[0].properties) {
-            const clickedFeature = e.features[0];
-            const props = clickedFeature.properties;
+            const props = e.features[0].properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.SLDUST || props.district_id || props.district);
             if (districtNum) {
-              fitDistrictBoundsById(districtNum, 'state-senate', clickedFeature, { padding: 44, duration: 850, maxZoom: 11.8 }).catch(() => {});
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'senate');
               lastSelectedCounty = `State Senate District ${districtNum}`;
@@ -11910,47 +11866,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const raw = p.DISTRICT || p.SLDLST || p.SLDUST || p.district_id || p.district || p.DIST || p.CD118FP || p.CD || p.cd || null;
       const n = Number(String(raw || '').replace(/[^0-9]/g, ''));
       return Number.isFinite(n) ? n : null;
-    }
-
-    async function fitDistrictBoundsById(districtNum, sourceId, fallbackFeature = null, options = {}) {
-      const target = Number(districtNum);
-      if (!Number.isFinite(target)) return false;
-      const path = sourceId === 'districts' ? CONFIG.paths.districts
-        : (sourceId === 'state-house' ? CONFIG.paths.state_house : CONFIG.paths.state_senate);
-      const { padding = 42, duration = 850, maxZoom = 11.6 } = options || {};
-      try {
-        const gj = await ensureSearchGeoJSON(sourceId, path);
-        const matches = (gj?.features || []).filter(f => getDistrictNumberFromPropsNumeric(f?.properties) === target);
-        if (matches.length) {
-          let minX = Infinity;
-          let minY = Infinity;
-          let maxX = -Infinity;
-          let maxY = -Infinity;
-          matches.forEach(feature => {
-            try {
-              const b = turf.bbox(feature);
-              if (!b || b.length < 4) return;
-              minX = Math.min(minX, b[0]);
-              minY = Math.min(minY, b[1]);
-              maxX = Math.max(maxX, b[2]);
-              maxY = Math.max(maxY, b[3]);
-            } catch (_) {}
-          });
-          if (Number.isFinite(minX) && Number.isFinite(minY) && Number.isFinite(maxX) && Number.isFinite(maxY)) {
-            map.fitBounds([[minX, minY], [maxX, maxY]], { padding, duration, maxZoom });
-            return true;
-          }
-        }
-      } catch (_) {}
-      if (!fallbackFeature) return false;
-      try {
-        const b = turf.bbox(fallbackFeature);
-        if (!b || b.length < 4) return false;
-        map.fitBounds([[b[0], b[1]], [b[2], b[3]]], { padding, duration, maxZoom });
-        return true;
-      } catch (_) {
-        return false;
-      }
     }
 
     async function handleDistrictSelection(districtNum, sourceId, chamber, label) {
@@ -13847,9 +13762,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // so precinct fills/dots remain visually primary.
       if (map.getLayer('county-fill')) {
         map.setPaintProperty('county-fill', 'fill-color', expr);
-        const countyFillOpacity = precinctsEnabled ? 0.10 : 0.82;
-        map.setPaintProperty('county-fill', 'fill-opacity', countyFillOpacity);
-        syncCountyLabelPaintForCountyFillOpacity(countyFillOpacity);
+        map.setPaintProperty('county-fill', 'fill-opacity', precinctsEnabled ? 0.10 : 0.82);
       }
 
       // Flip mode: outline flipped counties in red/blue (to-winner), leave others subtle.
