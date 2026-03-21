@@ -1,6 +1,7 @@
-# SCPrecinctMap (formerly The Palmetto Explorer)
+# The Palmetto Explorer (successor to SCPrecinctMap)
 
-SCPrecinctMap is an interactive South Carolina election atlas built as a single-page web app.
+The Palmetto Explorer is an interactive South Carolina election atlas built as a single-page web app.
+It is the successor project to the original SCPrecinctMap release.
 
 Its user experience is intentionally inspired by the NC Election Atlas UI, then adapted for South Carolina boundaries, contests, and workflows.
 
@@ -206,7 +207,7 @@ No backend service is required.
 ## Attribution
 
 - UI/interaction design baseline: NC Election Atlas (inspiration and interaction model)
-- South Carolina adaptation and implementation: SCPrecinctMap project
+- South Carolina adaptation and implementation: The Palmetto Explorer project
 - Data sources include U.S. Census TIGER/Line geography files, OpenElections precinct CSVs, and South Carolina election exports transformed into OpenElections-compatible structure where needed
 
 ## Known Caveats
