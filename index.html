@@ -6767,7 +6767,7 @@ document.addEventListener('DOMContentLoaded', function() {
           : 'Tie');
       const leadLabel = winnerParty === 'tie'
         ? 'Tie'
-        : leadMarginPctLabel(r, d, total);
+        : leadMarginPctLabel(r, d, total, { includeParty: false });
 
       winnerEl.textContent = winnerLabel;
       winnerEl.className = `focus-pill-value ${winnerParty}`;
@@ -8686,11 +8686,14 @@ document.addEventListener('DOMContentLoaded', function() {
       return Math.abs(repPct - demPct);
     }
 
-    function leadMarginPctLabel(repVotes, demVotes, totalVotes) {
+    function leadMarginPctLabel(repVotes, demVotes, totalVotes, options = {}) {
       const margin = Number(repVotes || 0) - Number(demVotes || 0);
       if (!margin) return 'Tie';
+      const includeParty = options && options.includeParty !== false;
+      const pctLabel = `${marginPctValue(repVotes, demVotes, totalVotes).toFixed(2)}%`;
+      if (!includeParty) return `+${pctLabel}`;
       const side = margin > 0 ? 'R' : 'D';
-      return `${side}+${marginPctValue(repVotes, demVotes, totalVotes).toFixed(2)}%`;
+      return `${side}+${pctLabel}`;
     }
 
     function compactWinnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
@@ -8979,7 +8982,9 @@ document.addEventListener('DOMContentLoaded', function() {
         : (winnerParty === 'dem'
           ? formatVoteCounterCandidateLabel(resolvedCandidates.demCandidate, 'D', 'Democratic')
           : 'Tie');
-      const leadLabel = winnerParty === 'tie' ? 'Tie' : leadMarginPctLabel(r, d, total);
+      const leadLabel = winnerParty === 'tie'
+        ? 'Tie'
+        : leadMarginPctLabel(r, d, total, { includeParty: false });
 
       winnerEl.textContent = winnerLabel;
       winnerEl.className = `focus-pill-value ${winnerParty}`;
