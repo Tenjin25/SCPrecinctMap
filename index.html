@@ -8691,19 +8691,19 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!margin) return 'Tie';
       const includeParty = options && options.includeParty !== false;
       const pctLabel = `${marginPctValue(repVotes, demVotes, totalVotes).toFixed(2)}%`;
-      if (!includeParty) return `+${pctLabel}`;
+      if (!includeParty) return `${pctLabel}`;
       const side = margin > 0 ? 'R' : 'D';
-      return `${side}+${pctLabel}`;
+      return `${side} ${pctLabel}`;
     }
 
     function compactWinnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
       const margin = Number(repVotes || 0) - Number(demVotes || 0);
       const pctLabel = `${marginPctValue(repVotes, demVotes, totalVotes).toFixed(2)}%`;
       if (margin > 0) {
-        return `${shortCandidateLabel(repCandidate, 'R')} +${pctLabel}`;
+        return `${shortCandidateLabel(repCandidate, 'R')} ${pctLabel}`;
       }
       if (margin < 0) {
-        return `${shortCandidateLabel(demCandidate, 'D')} +${pctLabel}`;
+        return `${shortCandidateLabel(demCandidate, 'D')} ${pctLabel}`;
       }
       return 'Tie';
     }
