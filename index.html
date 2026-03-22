@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <style>
@@ -561,7 +561,7 @@
     <title>The Palmetto Explorer</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover'>
     <meta name="author" content="Shamar Davis">
-    <meta name="copyright" content="Â© 2026 Shamar Does Elections. All Rights Reserved.">
+    <meta name="copyright" content="© 2026 Shamar Does Elections. All Rights Reserved.">
     <!-- Watermark: SDE Creator Attribution | Created by Shamar Davis | Copyright 2026 Shamar Does Elections -->
     <meta property="og:title" content="The Palmetto Explorer">
     <meta property="og:description" content="Interactive visualization of South Carolina election trends across counties, precincts, and districts.">
@@ -5712,7 +5712,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </details>
       </div>
       <div class="sidebar-footer" style="padding: 14px 10px; text-align: center; color: #64748b; font-size: 12px; line-height: 1.45; border-top: 1px solid #e5e7eb; background: #f9fafb;">
-        Â© 2026 Shamar Does Elections. All Rights Reserved.<br>
+        © 2026 Shamar Does Elections. All Rights Reserved.<br>
         Created by Shamar Davis.
       </div>
     </div>
@@ -6019,28 +6019,28 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="modal-body">
           <h3>Modes</h3>
-          <p><strong>Margins</strong>: colors show the <strong>two-party margin</strong> (absolute value of Rep% Ã¢Ë†â€™ Dem%). Darker = less competitive.</p>
+          <p><strong>Margins</strong>: colors show the <strong>two-party margin</strong> (absolute value of Rep% âˆ’ Dem%). Darker = less competitive.</p>
           <p><strong>Winners</strong>: solid color by winner (D/R), regardless of margin size.</p>
-          <p><strong>Shift</strong>: change in <strong>signed</strong> margin vs the nearest available prior election for that contest (e.g. 2020Ã¢â€ â€™2024). Positive = more Republican; negative = more Democratic.</p>
+          <p><strong>Shift</strong>: change in <strong>signed</strong> margin vs the nearest available prior election for that contest (e.g. 2020â†’2024). Positive = more Republican; negative = more Democratic.</p>
 
           <h3>Political Categories</h3>
           <p>Category names are just shorthand for margin ranges:</p>
           <ul>
             <li><strong>Annihilation</strong>: &ge;40%</li>
-            <li><strong>Dominant</strong>: 30Ã¢â‚¬â€œ39.99%</li>
-            <li><strong>Stronghold</strong>: 20Ã¢â‚¬â€œ29.99%</li>
-            <li><strong>Safe</strong>: 10Ã¢â‚¬â€œ19.99%</li>
-            <li><strong>Likely</strong>: 5.50Ã¢â‚¬â€œ9.99%</li>
-            <li><strong>Lean</strong>: 1.00Ã¢â‚¬â€œ5.49%</li>
-            <li><strong>Tilt</strong>: 0.50Ã¢â‚¬â€œ0.99%</li>
+            <li><strong>Dominant</strong>: 30â€“39.99%</li>
+            <li><strong>Stronghold</strong>: 20â€“29.99%</li>
+            <li><strong>Safe</strong>: 10â€“19.99%</li>
+            <li><strong>Likely</strong>: 5.50â€“9.99%</li>
+            <li><strong>Lean</strong>: 1.00â€“5.49%</li>
+            <li><strong>Tilt</strong>: 0.50â€“0.99%</li>
             <li><strong>Tossup</strong>: &lt;0.50%</li>
           </ul>
-          <p class="meta-subtle">Example: Ã¢â‚¬Å“Safe Republican (10Ã¢â‚¬â€œ19.99%)Ã¢â‚¬Â means the Republican candidate leads by 10Ã¢â‚¬â€œ19.99 percentage points (two-party margin).</p>
+          <p class="meta-subtle">Example: â€œSafe Republican (10â€“19.99%)â€ means the Republican candidate leads by 10â€“19.99 percentage points (two-party margin).</p>
 
           <h3>Hover + Pin</h3>
           <ul>
             <li>Hover a shape to see a quick result card.</li>
-            <li>Click <strong>Pin</strong> in the tooltip to freeze it (so it wonÃ¢â‚¬â„¢t change while you move the mouse).</li>
+            <li>Click <strong>Pin</strong> in the tooltip to freeze it (so it wonâ€™t change while you move the mouse).</li>
             <li>Use <strong>Close</strong> to dismiss a pinned tooltip.</li>
           </ul>
 
@@ -6048,12 +6048,12 @@ document.addEventListener('DOMContentLoaded', function() {
           <ul>
             <li><span class="kbd">P</span> toggles precinct overlay (dots at statewide zoom; polygons when zoomed in).</li>
             <li><span class="kbd">L</span> toggles county labels.</li>
-            <li><strong>Ã¢â„¢Â¿</strong> toggles colorblind-friendly colors.</li>
+            <li><strong>â™¿</strong> toggles colorblind-friendly colors.</li>
             <li><strong>Clear</strong> (in the vote counter) unpins a selected area.</li>
           </ul>
 
           <h3>Notes</h3>
-          <p class="meta-subtle">If Shift canÃ¢â‚¬â„¢t find a prior year for the selected contest, it falls back to Margins.</p>
+          <p class="meta-subtle">If Shift canâ€™t find a prior year for the selected contest, it falls back to Margins.</p>
         </div>
       </div>
     </div>
@@ -6455,7 +6455,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let districtsInfo = null;
     let stateHouseInfo = null;
     let stateSenateInfo = null;
-    let districtDescriptions = null; // Optional labels like "Sampson & Bladen Counties" or "ConcordÃ¢â‚¬â€œHarrisburg"
+    let districtDescriptions = null; // Optional labels like "Sampson & Bladen Counties" or "Concordâ€“Harrisburg"
     let countyDemographics = null; // County-level VAP (18+) + total-pop race/ethnicity from DP1
     let countyNameMap = {};
     let currentView = 'counties'; // 'counties', 'districts', 'state_house', 'state_senate'
@@ -6612,7 +6612,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="legend-item"><div class="legend-color" style="background: ${colorForFlipMode('T')}; border: 1px solid rgba(15,23,42,0.20);"></div>No flip / No prior</div>
         `;
       } else if (mode === 'shift') {
-        const a = meta?.fromYear ? `${meta.fromYear} Ã¢â€ â€™ ${meta.toYear || ''}`.trim() : 'Shift';
+        const a = meta?.fromYear ? `${meta.fromYear} â†’ ${meta.toYear || ''}`.trim() : 'Shift';
         if (header) header.textContent = meta?.fromYear ? `Shift (${a})` : 'Shift';
         content.innerHTML = `
           <div class="legend-item"><div class="legend-color" style="background: ${colorForShiftMode(-15)};"></div>D +15%</div>
@@ -7251,52 +7251,6 @@ document.addEventListener('DOMContentLoaded', function() {
       updateVoteCounter(demVotes, repVotes, otherVotes, candidates, meta);
     }
 
-    function refreshPinnedCountyForContest(contestType, year) {
-      const pinned = voteCounterPinned || null;
-      const meta = pinned?.meta || null;
-      if (!meta || meta.kind !== 'county') return false;
-      if (!contestType || !currentElectionResults) return false;
-
-      const countyNorm = normalizeCountyToken(meta.county || window.lastSelectedCounty || '');
-      if (!countyNorm) return false;
-
-      let row = currentElectionResults[countyNorm] || null;
-      if (!row && currentElectionResults) {
-        for (const key of Object.keys(currentElectionResults)) {
-          if (normalizeCountyToken(key) === countyNorm) {
-            row = currentElectionResults[key];
-            break;
-          }
-        }
-      }
-      if (!row) return false;
-
-      const demVotes = Number(row[`${contestType}_dem`] || 0);
-      const repVotes = Number(row[`${contestType}_rep`] || 0);
-      const otherVotes = Number(row[`${contestType}_other`] || 0);
-      const countyDisplay = displayCountyName(row.county || meta.county || countyNorm);
-
-      pinVoteCounterState(
-        `Selected: ${countyDisplay} County`,
-        `${formatContestName(contestType, year)} ${year}`,
-        demVotes,
-        repVotes,
-        otherVotes,
-        {
-          ...meta,
-          kind: 'county',
-          county: countyDisplay.toUpperCase(),
-          contestType,
-          year: Number(year)
-        },
-        {
-          demCandidate: row[`${contestType}_dem_candidate`] || pinned?.candidates?.demCandidate || '',
-          repCandidate: row[`${contestType}_rep_candidate`] || pinned?.candidates?.repCandidate || ''
-        }
-      );
-      return true;
-    }
-
     function clearVoteCounterHoverState() {
       if (voteCounterPinned) return;
       if (!voteCounterHoverActive) return;
@@ -7855,31 +7809,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let queuedContestSelection = null;
     let contestSelectionSeq = 0;
     let lastCompletedContestSelection = '';
-    const contestSelectNavKeys = new Set(['ArrowUp', 'ArrowDown', 'Home', 'End', 'PageUp', 'PageDown']);
-
-    function wireContestSelectHandlers(sel) {
-      if (!sel) return;
-      const triggerContestSelection = () => {
-        handleContestSelectionChange(sel.value);
-      };
-      sel.onchange = triggerContestSelection;
-      sel.oninput = triggerContestSelection;
-      if (sel.dataset.keyboardContestNavWired === 'true') return;
-      sel.dataset.keyboardContestNavWired = 'true';
-      sel.addEventListener('keydown', function(ev) {
-        if (!contestSelectNavKeys.has(ev?.key)) return;
-        const before = (sel.value || '').toString();
-        const schedule = (typeof window.requestAnimationFrame === 'function')
-          ? window.requestAnimationFrame.bind(window)
-          : (cb => setTimeout(cb, 0));
-        schedule(() => {
-          const after = (sel.value || '').toString();
-          if (after !== before) {
-            handleContestSelectionChange(after);
-          }
-        });
-      });
-    }
 
     function shouldRefreshCountyDetailsOnContestChange() {
       if (!SIDEBAR_ENABLED) return false;
@@ -8087,7 +8016,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	      sel.appendChild(fragment);
 	      sel.dataset.populated = 'true';
-	      wireContestSelectHandlers(sel);
+	      sel.onchange = () => {
+        handleContestSelectionChange(sel.value);
+      };
 	    }
 
     function updateContestSelectForCurrentView() {
@@ -8121,7 +8052,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (sel) {
           sel.innerHTML = '<option value="">No contests available for this view</option>';
           sel.dataset.populated = 'true';
-          wireContestSelectHandlers(sel);
+          sel.onchange = () => { handleContestSelectionChange(sel.value); };
         }
         return;
       }
@@ -8235,7 +8166,9 @@ document.addEventListener('DOMContentLoaded', function() {
       // Hide loading spinner
   var spinner = document.getElementById('contest-loading-spinner');
   if (spinner) spinner.style.display = 'none';
-      wireContestSelectHandlers(sel);
+      sel.onchange = () => {
+        handleContestSelectionChange(sel.value);
+      };
 
     }
 
@@ -8255,7 +8188,7 @@ document.addEventListener('DOMContentLoaded', function() {
           sel.appendChild(opt);
         }
       });
-      wireContestSelectHandlers(sel);
+      sel.onchange = () => { handleContestSelectionChange(sel.value); };
     }
 
     function populateContestSelectForStateSenate(csvData) {
@@ -8274,7 +8207,7 @@ document.addEventListener('DOMContentLoaded', function() {
           sel.appendChild(opt);
         }
       });
-      wireContestSelectHandlers(sel);
+      sel.onchange = () => { handleContestSelectionChange(sel.value); };
     }
 
     function populateContestSelectFromCongressionalCSV(csvData) {
@@ -8293,7 +8226,7 @@ document.addEventListener('DOMContentLoaded', function() {
           sel.appendChild(opt);
         }
       });
-      wireContestSelectHandlers(sel);
+      sel.onchange = () => { handleContestSelectionChange(sel.value); };
     }
 
     function setAnalysisMode(mode) {
@@ -8836,7 +8769,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lead) return lead;
       }
       // Common presidential ticket separators.
-      const seps = [' / ', '/', ' & ', '&', ' + ', '+', ' - ', ' Ã¢â‚¬â€œ ', ' Ã¢â‚¬â€ '];
+      const seps = [' / ', '/', ' & ', '&', ' + ', '+', ' - ', ' â€“ ', ' â€” '];
       seps.unshift('|');
       seps.unshift(' | ');
       for (const sep of seps) {
@@ -9514,7 +9447,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const abs = Math.abs(s);
       const label = abs < 0.01 ? 'No change' : `${dir} + ${abs.toFixed(2)}%`;
       const dotColor = colorForShiftMode(s);
-      const years = (prevYear && year) ? `${prevYear}Ã¢â€ â€™${year}` : '';
+      const years = (prevYear && year) ? `${prevYear}â†’${year}` : '';
       return `<span class="meta-chip shift"><span class="dot" style="background:${dotColor};"></span>Shift: ${label}${years ? ` <span style="color:#64748b;font-weight:800;">(${years})</span>` : ''}</span>`;
     }
 
@@ -10612,7 +10545,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (buckets.size) {
         sidebarContent += `<div class="margin-section">`;
         sidebarContent += '<h3 class="sidebar-section-title">Non-geographic votes</h3>';
-        sidebarContent += `<p class="sidebar-margin-details" style="margin-top:0;">Included in totals; not shown as precincts (e.g., Early Vote Ã¢â‚¬Å“EVÃ¢â‚¬Â).</p>`;
+        sidebarContent += `<p class="sidebar-margin-details" style="margin-top:0;">Included in totals; not shown as precincts (e.g., Early Vote â€œEVâ€).</p>`;
         Array.from(buckets.entries())
           .sort((a, b) => (b[1].total || 0) - (a[1].total || 0))
           .slice(0, 10)
@@ -12351,7 +12284,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (districtInfo) {
         demographicInfo = `
           <div style="margin-bottom: 16px;">
-            <h5>Ã°Å¸â€˜Â¥ Demographics (VAP)</h5>
+            <h5>ðŸ‘¥ Demographics (VAP)</h5>
             <p><strong>Total Population:</strong> ${districtInfo.total_population.toLocaleString()}</p>
             <p><strong>White:</strong> ${districtInfo.white_vap_pct}%</p>
             <p><strong>Black:</strong> ${districtInfo.black_vap_pct}%</p>
@@ -12466,7 +12399,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (districtInfo) {
         demographicInfo = `
           <div style="margin-bottom: 16px;">
-            <h5>Ã°Å¸â€˜Â¥ Demographics (VAP)</h5>
+            <h5>ðŸ‘¥ Demographics (VAP)</h5>
             <p><strong>Total Population:</strong> ${districtInfo.total_population.toLocaleString()}</p>
             <p><strong>White:</strong> ${districtInfo.white_vap_pct}%</p>
             <p><strong>Black:</strong> ${districtInfo.black_vap_pct}%</p>
@@ -13472,18 +13405,40 @@ document.addEventListener('DOMContentLoaded', function() {
         const queuedSeq = Number(queuedContestSelection?.seq || 0);
         return contestChangeInFlight && queuedSeq > selectionSeq;
       }
-      if (staleCheck()) return;
 
-      // Filter data for this contest and year
-      const contestData = await loadContestSlice(contestType, year);
-      if (staleCheck()) return;
-      
-      debugLog(`Applying ${contestType} for ${year}:`, contestData.length, 'counties found');
-      
-      if (contestData.length === 0) {
+      // Always compute county colors/totals from county-level slices so margins are stable
+      // regardless of precinct overlay state.
+      const countyRowsRaw = await loadContestSlice(contestType, year, { preferCounty: true });
+      const countySplit = splitContestRowsByLevel(countyRowsRaw || []);
+      // Prefer explicit county summary rows when present; fallback to raw rows otherwise.
+      const countyRows = countySplit.countySummaryRows.length ? countySplit.countySummaryRows : (countyRowsRaw || []);
+
+      // Precinct overlay can still use precinct-granularity rows when available.
+      let needsPrecinctDetail = !!precinctsEnabled;
+      if (needsPrecinctDetail && shouldDeferPrecinctDetail()) {
+        needsPrecinctDetail = false;
+      }
+      let precinctRows = countySplit.precinctRows.slice();
+      if (needsPrecinctDetail) {
+        try {
+          const loaded = await loadContestSlice(contestType, year, { preferCounty: false });
+          if (Array.isArray(loaded) && loaded.length) {
+            const loadedSplit = splitContestRowsByLevel(loaded);
+            // Keep true precinct rows only to avoid county-summary leakage into precinct rendering.
+            precinctRows = loadedSplit.precinctRows.length ? loadedSplit.precinctRows : precinctRows;
+          }
+        } catch (_) {
+          precinctRows = countySplit.precinctRows.slice();
+        }
+      }
+
+      debugLog(`Applying ${contestType} for ${year}:`, countyRows.length, 'county rows');
+
+      if (!Array.isArray(countyRows) || countyRows.length === 0) {
         return setStatus('No data found for this contest');
       }
-      lastContestSliceMeta = { contestType, year: Number(year), rows: contestData };
+      // Keep precinct-capable rows for non-geographic bucket diagnostics in county details.
+      lastContestSliceMeta = { contestType, year: Number(year), rows: precinctRows.length ? precinctRows : countyRows };
 
 	      function normalizeCountyName(name) {
 	        return (name || '')
@@ -13495,22 +13450,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Only build heavy precinct matching/color expressions when the overlay is enabled.
       // If users switch contests with precincts off, keep the county path fast.
-      let needsPrecinctDetail = !!precinctsEnabled;
-      if (needsPrecinctDetail && shouldDeferPrecinctDetail()) {
-        needsPrecinctDetail = false;
-      }
 
       // Precinct key matching needs to tolerate (a) non-geographic buckets in results
       // (absentee/one-stop/etc) and (b) modern precinct splits where historical results
       // provide a shorter base code (e.g. "03S" vs "03SE"/"03SM").
       let precinctIdx = null;
-      let precinctAliasIdx = null;
       if (needsPrecinctDetail) {
         try { precinctIdx = await ensurePrecinctCodeIndex(); } catch (_) { precinctIdx = null; }
-        try { precinctAliasIdx = await ensurePrecinctAliasIndex(); } catch (_) { precinctAliasIdx = null; }
-        try { await ensurePrecinctVariantOverrides(); } catch (_) {}
       }
-      if (staleCheck()) return;
 
 	      function isNonGeographicPrecinctCode(code, countyNorm = '') {
 	        const c = (code || '').toString().trim().toUpperCase();
@@ -13535,17 +13482,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	        const precRaw = (precRaw0 || '').trim().toUpperCase();
 	        if (!countyOnly || !precRaw) return Array.from(out);
 	        if (isNonGeographicPrecinctCode(precRaw, countyNorm)) return [];
-	        const addKey = (t) => {
-	          const altFull = normalizeCountyName(`${countyOnly} - ${t}`);
-	          if (altFull) out.add(altFull);
-	        };
-
-          // If results use numeric alpha suffix codes (e.g., "10A") but geometry
-          // uses the numeric base ("10"), include base numeric variants.
-          addNumericBaseVariantsFromAlphaSuffix(precRaw, addKey);
-          // Extract embedded precinct codes from verbose labels like
-          // "PRECINCT 01-14A" and "PR01 GAMEWELL #1".
-          addEmbeddedPrecinctCodeVariants(precRaw, addKey);
 
 	        // Extract a compact code token (if present) so we can handle split precinct IDs
 	        // like "03S" -> "03SE"/"03SM" and "10" -> "10A"/"10B" using the centroid index.
@@ -13555,10 +13491,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	          const token0 = (firstToken.includes('_') ? firstToken.split('_', 1)[0] : firstToken).trim();
 	          baseToken = (token0 || '').toString().trim().toUpperCase().replace(/[^A-Z0-9.\-]/g, '').trim();
 	        } catch (_) { baseToken = ''; }
-	        try {
-	          addKnownLegacyCentroidBridges(countyNorm, precRaw, addKey);
-	          if (baseToken && baseToken !== precRaw) addKnownLegacyCentroidBridges(countyNorm, baseToken, addKey);
-	        } catch (_) {}
 
           // Many older exports use "CODE NAME" or "CODE_NAME ..." where the geometry key
           // is just the code token (e.g., "HARNETT - PR01 ANDERSON CREEK" => "HARNETT - PR01",
@@ -13571,6 +13503,11 @@ document.addEventListener('DOMContentLoaded', function() {
               /^0*\d{1,3}\.\d{1,3}$/.test(token)
             );
             if (tokenOk) {
+              const addKey = (t) => {
+                const altFull = normalizeCountyName(`${countyOnly} - ${t}`);
+                if (altFull) out.add(altFull);
+              };
+
               addKey(token);
               // Numeric codes: include both trimmed and zero-padded forms.
               if (/^\d{1,5}$/.test(token)) {
@@ -13632,7 +13569,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	        // base to any known precinct IDs that extend it by a short suffix.
 	        try {
 	          const codes = precinctIdx && countyNorm ? precinctIdx.get(countyNorm) : null;
-            if (codes && countyNorm === 'WAKE') addClosestHyphenCodeVariants(precRaw, codes, addKey);
 	          const baseCompact = (baseToken || precRaw).replace(/\s+/g, '');
 	          if (codes && baseCompact) {
 	            const baseNum = baseCompact.match(/^0*([0-9]+)$/);
@@ -13641,13 +13577,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	              const cCompact = c.replace(/\s+/g, '');
 	              if (!cCompact || cCompact === baseCompact) return;
 
-	              // Numeric-only bases should only match the exact numeric portion + a short split suffix
-	              // (e.g. "10" -> "10A", "10-1", "10-A").
+	              // Numeric-only bases should only match the exact numeric portion + a short alpha suffix (e.g. "10" -> "10A").
 	              if (baseNum) {
-	                const cmCompactAlpha = cCompact.match(/^0*([0-9]+)([A-Z]{1,2})$/);
-	                const cmHyphenAlpha = c.match(/^0*([0-9]+)-([A-Z]{1,2})$/);
-	                const cmHyphenNumeric = c.match(/^0*([0-9]+)-([0-9]{1,2})$/);
-	                const cm = cmCompactAlpha || cmHyphenAlpha || cmHyphenNumeric;
+	                const cm = cCompact.match(/^0*([0-9]+)([A-Z]{1,2})$/);
 	                if (!cm) return;
 	                if (parseInt(cm[1], 10) !== parseInt(baseNum[1], 10)) return;
 	                const altFull = normalizeCountyName(`${countyOnly} - ${c}`);
@@ -13657,31 +13589,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	              if (!cCompact.startsWith(baseCompact)) return;
 	              const suffix = cCompact.slice(baseCompact.length);
-	              if (!suffix || suffix.length > 3) return;
-	              const alphaNumSplit = /^[A-Z0-9]{1,2}$/.test(suffix) && /[A-Z]/.test(suffix);
-                const hyphenNumericSplit = /^-[0-9]{1,2}$/.test(suffix);
-	              if (!(alphaNumSplit || hyphenNumericSplit)) return;
+	              if (!suffix || suffix.length > 2) return;
+	              if (!/^[A-Z0-9]{1,2}$/.test(suffix)) return;
+	              if (!/[A-Z]/.test(suffix)) return;
 	              const altFull = normalizeCountyName(`${countyOnly} - ${c}`);
 	              if (altFull) out.add(altFull);
 	            });
 	          }
 	        } catch (_) {}
-
-          // Name-only fallback (e.g., legacy keys like "ARMSTRONG")
-          // using county alias lookup built from precinct geometry ENR_DESC.
-          try {
-            const countyAliases = precinctAliasIdx && countyNorm ? precinctAliasIdx.get(countyNorm) : null;
-            if (countyAliases) {
-              const resolvedCode = resolveUniquePrecinctCodeByAlias(countyAliases, precRaw);
-              if (resolvedCode) {
-                const altFull = normalizeCountyName(`${countyOnly} - ${resolvedCode}`);
-                if (altFull) out.add(altFull);
-              }
-            }
-          } catch (_) {}
-          try {
-            applyPrecinctVariantOverrides(countyNorm, precRaw, addKey);
-          } catch (_) {}
 
 	        return Array.from(out);
 	      }
@@ -13689,42 +13604,19 @@ document.addEventListener('DOMContentLoaded', function() {
       // Build county aggregates from precinct-level rows.
       const countyAgg = {};
       currentPrecinctResults = needsPrecinctDetail ? new Map() : null;
-      for (const row of contestData) {
-        if (staleCheck()) return;
+      countyRows.forEach(row => {
         const rowName = (row.county || '').toString();
         const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
         const countyNorm = normalizeCountyName(countyOnly);
-        if (!countyNorm) continue;
+        if (!countyNorm) return;
 
-        const rawDemVotes = Number(row[`${contestType}_dem`] || 0);
-        const rawRepVotes = Number(row[`${contestType}_rep`] || 0);
-        const rawOtherVotes = Number(row[`${contestType}_other`] || 0);
-        const rawTotalVotes = Number(row[`${contestType}_total`] || 0);
-        const adjusted = applyScenarioShiftToVotes(countyNorm, rawDemVotes, rawRepVotes, rawOtherVotes, rawTotalVotes);
-        const demVotes = Number(adjusted.dem || 0);
-        const repVotes = Number(adjusted.rep || 0);
-        const otherVotes = Number(adjusted.other || 0);
-        const totalVotes = Number(adjusted.total || 0);
+        const demVotes = Number(row[`${contestType}_dem`] || 0);
+        const repVotes = Number(row[`${contestType}_rep`] || 0);
+        const otherVotes = Number(row[`${contestType}_other`] || 0);
+        const totalVotes = Number(row[`${contestType}_total`] || 0);
         const demCand = (row[`${contestType}_dem_candidate`] || '').toString();
         const repCand = (row[`${contestType}_rep_candidate`] || '').toString();
 
-        if (needsPrecinctDetail) {
-          const norms = precinctNormVariants(rowName);
-          const adjustedSigned = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
-          const adjustedWinner = adjustedSigned > 0 ? 'REPUBLICAN' : (adjustedSigned < 0 ? 'DEMOCRAT' : 'TIE');
-          const adjustedRow = {
-            ...row,
-            [`${contestType}_dem`]: demVotes,
-            [`${contestType}_rep`]: repVotes,
-            [`${contestType}_other`]: otherVotes,
-            [`${contestType}_total`]: totalVotes,
-            [`${contestType}_margin_pct`]: adjustedSigned,
-            [`${contestType}_winner`]: adjustedWinner
-          };
-          norms.forEach(n => {
-            currentPrecinctResults.set(n, adjustedRow);
-          });
-        }
         if (!countyAgg[countyNorm]) {
           countyAgg[countyNorm] = {
             year: Number(year),
@@ -13744,24 +13636,8 @@ document.addEventListener('DOMContentLoaded', function() {
         countyAgg[countyNorm][`${contestType}_rep`] += repVotes;
         countyAgg[countyNorm][`${contestType}_other`] += otherVotes;
         countyAgg[countyNorm][`${contestType}_total`] += totalVotes;
-      }
-      currentElectionResults = countyAgg;
-      currentCountyTurnoutTotals = {};
-      Object.keys(countyAgg).forEach(countyNorm => {
-        currentCountyTurnoutTotals[countyNorm] = Number(countyAgg[countyNorm]?.[`${contestType}_total`] || 0);
       });
-      currentDistrictTurnoutTotals = {};
-      currentPrecinctTurnoutTotals = new Map();
-      if (staleCheck()) return;
-      const selectedCountyForFastRefresh = (window.lastSelectedCounty || '').toString().trim();
-      if (selectedCountyForFastRefresh && shouldRefreshCountyDetailsOnContestChange()) {
-        try { showCountyDetails(selectedCountyForFastRefresh); } catch (_) {}
-        if (staleCheck()) return;
-        await new Promise(resolve => setTimeout(resolve, 0));
-        if (staleCheck()) return;
-      }
-      try { refreshPinnedCountyForContest(contestType, year); } catch (_) {}
-      if (staleCheck()) return;
+      currentElectionResults = countyAgg;
 
       // Calculate statewide totals
       let statewidedemVotes = 0;
@@ -13771,22 +13647,11 @@ document.addEventListener('DOMContentLoaded', function() {
       let statewideDemCandidate = '';
       let statewideRepCandidate = '';
       
-      for (const row of contestData) {
-        if (staleCheck()) return;
-        const rowName = (row.county || '').toString();
-        const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
-        const countyNorm = normalizeCountyName(countyOnly);
-        const adjusted = applyScenarioShiftToVotes(
-          countyNorm,
-          row[`${contestType}_dem`] || 0,
-          row[`${contestType}_rep`] || 0,
-          row[`${contestType}_other`] || 0,
-          row[`${contestType}_total`] || 0
-        );
-        const demVotes = Number(adjusted.dem || 0);
-        const repVotes = Number(adjusted.rep || 0);
-        const otherVotes = Number(adjusted.other || 0);
-        const totalVotes = Number(adjusted.total || 0);
+      countyRows.forEach(row => {
+        const demVotes = row[`${contestType}_dem`] || 0;
+        const repVotes = row[`${contestType}_rep`] || 0;
+        const otherVotes = row[`${contestType}_other`] || 0;
+        const totalVotes = row[`${contestType}_total`] || 0;
         const demCand = row[`${contestType}_dem_candidate`] || '';
         const repCand = row[`${contestType}_rep_candidate`] || '';
         statewidedemVotes += demVotes;
@@ -13795,8 +13660,7 @@ document.addEventListener('DOMContentLoaded', function() {
         statewidTotalVotes += totalVotes; // Use total which includes other parties
         if (!statewideDemCandidate && demCand) statewideDemCandidate = demCand;
         if (!statewideRepCandidate && repCand) statewideRepCandidate = repCand;
-      }
-      if (staleCheck()) return;
+      });
       
       // Update statewide results display
       updateStatewideResults(contestType, year, statewidedemVotes, statewidrepVotes, statewidTotalVotes, {
@@ -13804,11 +13668,6 @@ document.addEventListener('DOMContentLoaded', function() {
         demCandidate: statewideDemCandidate,
         repCandidate: statewideRepCandidate
       });
-      if (staleCheck()) return;
-
-      // Keep a pinned precinct context synchronized when users switch contests.
-      try { refreshPinnedPrecinctForContest(contestType, year); } catch (_) {}
-      if (staleCheck()) return;
       
       // Baseline vote counter (statewide) for this contest/view.
       setVoteCounterBaselineState(
@@ -13820,106 +13679,22 @@ document.addEventListener('DOMContentLoaded', function() {
         { kind: 'statewide', contestType, year: Number(year) },
         { demCandidate: statewideDemCandidate, repCandidate: statewideRepCandidate }
       );
-      if (staleCheck()) return;
 
       // Build county expression (base map)
       let mode = (currentVizMode || 'margins');
       let prevPrecinctMarginByNorm = null; // Map<string, number>
       let prevCountyTotals = null; // Map countyNorm -> {dem, rep, total}
 
-      if (mode === 'demographics') {
-        renderLegendForVizMode('demographics');
-        vizShiftCache = null;
-        if (staleCheck()) return;
-
-        const countyExpr = ['case'];
-        const countyDemoRows = countyDemographics?.counties || null;
-        if (countyDemoRows) {
-          Object.keys(countyDemoRows).forEach(countyNorm => {
-            const demo = countyDemoRows[countyNorm] || {};
-            const color = colorForDemographicsMode(
-              demo.white_pop_pct,
-              demo.black_pop_pct,
-              demo.hispanic_pop_pct,
-              demo.native_pop_pct,
-              demo.asian_pop_pct,
-              demo.pacific_pop_pct,
-              demo.multiracial_pop_pct
-            );
-            countyExpr.push([
-              '==',
-              ['upcase', ['coalesce', ['get', 'NAME20'], ['get', 'CountyName'], ['get', 'COUNTYNAME'], ['get', 'county_nam'], ['get', 'NAME']]],
-              countyNorm
-            ]);
-            countyExpr.push(color);
-          });
-        }
-        countyExpr.push('#e2e8f0');
-        if (staleCheck()) return;
-        if (map.getLayer('county-fill')) {
-          map.setPaintProperty('county-fill', 'fill-color', countyExpr);
-        }
-        if (map.getLayer('county-stroke')) {
-          try {
-            map.setPaintProperty('county-stroke', 'line-color', '#333');
-            map.setPaintProperty('county-stroke', 'line-width', 1);
-          } catch (_) {}
-        }
-
-        const exprPrecinct = ['case'];
-        if (currentPrecinctResults) {
-          currentPrecinctResults.forEach((precRow, precNorm) => {
-            const tVotes = Number(precRow?.[`${contestType}_total`] || 0);
-            currentPrecinctTurnoutTotals.set(precNorm, tVotes);
-          });
-        }
-        if (precinctDemographicsByNorm && precinctDemographicsByNorm.size) {
-          precinctDemographicsByNorm.forEach((demo, precNorm) => {
-            const color = colorForDemographicsMode(
-              demo?.white_vap_pct,
-              demo?.black_vap_pct,
-              demo?.hispanic_vap_pct,
-              demo?.native_vap_pct,
-              demo?.asian_vap_pct,
-              demo?.pacific_vap_pct,
-              demo?.multiracial_vap_pct
-            );
-            exprPrecinct.push(['==', ['get', 'precinct_norm'], precNorm]);
-            exprPrecinct.push(color);
-          });
-        }
-        exprPrecinct.push('#d1d5db');
-        if (staleCheck()) return;
-        lastPrecinctFillExpr = exprPrecinct;
-        lastPrecinctDotExpr = exprPrecinct;
-        if (needsPrecinctDetail) {
-          if (map.getLayer('precinct-fill')) {
-            map.setPaintProperty('precinct-fill', 'fill-color', exprPrecinct);
-          }
-          if (map.getLayer('precinct-dot')) {
-            map.setPaintProperty('precinct-dot', 'circle-color', exprPrecinct);
-          }
-        }
-
-        applyLayerOpacityTuning();
-        try { scheduleAnalyticsPanelsUpdate(contestType, year, contestData, 150); } catch (_) {}
-        if (staleCheck()) return;
-        setStatewideContestTitle(`${formatContestName(contestType, year)} (${year})`);
-        setStatus(`Applied demographic mode: ${formatContestName(contestType, year)} ${year}`);
-        return;
-      }
-
-      // Keep prior county totals in county view so hover chips can show flips
-      // even when the main map mode is not Shift/Flips.
-      const needsPrevData = (mode === 'shift' || mode === 'flips' || currentView === 'counties');
+      // Keep previous-cycle county totals loaded for hover flip chips across modes.
+      // Precinct-level prior margins remain opt-in for shift/flip mode to keep non-shift
+      // contest switches lightweight when precinct overlay is enabled.
+      const needsPrevData = true;
       const needsPrevPrecinctMargins = needsPrecinctDetail && (mode === 'shift' || mode === 'flips');
-      if (staleCheck()) return;
       if (needsPrevData) {
         try {
           vizPrevCache = await ensurePrevContestCache(contestType, Number(year), {
             includePrecinctMargins: needsPrevPrecinctMargins
           });
-          if (staleCheck()) return;
         } catch (_) {
           vizPrevCache = {
             contestType,
@@ -13930,17 +13705,7 @@ document.addEventListener('DOMContentLoaded', function() {
             hasPrecinctMargins: false
           };
         }
-      } else {
-        vizPrevCache = {
-          contestType,
-          year: Number(year),
-          prevYear: null,
-          prevPrecinctMarginByNorm: new Map(),
-          prevCountyTotals: {},
-          hasPrecinctMargins: false
-        };
       }
-      if (staleCheck()) return;
 
       if (mode === 'shift') {
         if (!vizPrevCache?.prevYear) {
@@ -13967,13 +13732,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const expr = ['case'];
       let countiesProcessed = 0;
       
-      for (const countyName of Object.keys(countyAgg)) {
-        if (staleCheck()) return;
+      Object.keys(countyAgg).forEach(countyName => {
         const row = countyAgg[countyName];
         const demVotes = row[`${contestType}_dem`] || 0;
         const repVotes = row[`${contestType}_rep`] || 0;
         const totalVotes = row[`${contestType}_total`] || 0;
-        if (totalVotes === 0) continue;
+        if (totalVotes === 0) return;
         const demPct = (demVotes / totalVotes) * 100;
         const repPct = (repVotes / totalVotes) * 100;
         const winner = repPct > demPct ? 'R' : (demPct > repPct ? 'D' : 'T');
@@ -14019,40 +13783,39 @@ document.addEventListener('DOMContentLoaded', function() {
         ]);
         expr.push(color);
         countiesProcessed++;
-      }
+      });
       expr.push('#e0e0e0'); // default color
       
       debugLog(`Color expression built for ${countiesProcessed} counties`);
-      if (staleCheck()) return;
       
       // Paint counties by default; when precinct overlay is enabled, reduce county opacity
       // so precinct fills/dots remain visually primary.
       if (map.getLayer('county-fill')) {
         map.setPaintProperty('county-fill', 'fill-color', expr);
+        map.setPaintProperty('county-fill', 'fill-opacity', getCountyFillOpacity());
       }
 
       // Flip mode: outline flipped counties in red/blue (to-winner), leave others subtle.
       if (mode === 'flips' && vizPrevCache?.prevYear && map.getLayer('county-stroke')) {
         const flipColorExpr = ['case'];
         const flipWidthExpr = ['case'];
-        for (const countyNorm of Object.keys(countyAgg)) {
-          if (staleCheck()) return;
+        Object.keys(countyAgg).forEach(countyNorm => {
           const row = countyAgg[countyNorm];
           const demVotes = Number(row[`${contestType}_dem`] || 0);
           const repVotes = Number(row[`${contestType}_rep`] || 0);
           const totalVotes = Number(row[`${contestType}_total`] || 0);
-          if (totalVotes <= 0) continue;
+          if (totalVotes <= 0) return;
           const curSigned = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
           const prev = vizPrevCache.prevCountyTotals?.[countyNorm] || null;
           const prevSigned = prev ? signedMarginPctFromVotes(prev.dem, prev.rep, prev.total) : 0;
           const f = flipInfo(prevSigned, curSigned);
-          if (!f.flipped) continue;
+          if (!f.flipped) return;
           const toColor = colorForFlipMode(f.to);
           flipColorExpr.push(['==', ['upcase', ['coalesce', ['get', 'NAME20'], ['get', 'CountyName'], ['get', 'COUNTYNAME'], ['get', 'county_nam'], ['get', 'NAME']]], countyNorm]);
           flipColorExpr.push(toColor);
           flipWidthExpr.push(['==', ['upcase', ['coalesce', ['get', 'NAME20'], ['get', 'CountyName'], ['get', 'COUNTYNAME'], ['get', 'county_nam'], ['get', 'NAME']]], countyNorm]);
           flipWidthExpr.push(3);
-        }
+        });
         flipColorExpr.push('rgba(15,23,42,0.35)');
         flipWidthExpr.push(1);
         try {
@@ -14065,32 +13828,29 @@ document.addEventListener('DOMContentLoaded', function() {
           map.setPaintProperty('county-stroke', 'line-width', 1);
         } catch (_) {}
       }
-      if (staleCheck()) return;
-      // Optional precinct expression (detail overlay)
       if (needsPrecinctDetail && shouldDeferPrecinctDetail()) {
         needsPrecinctDetail = false;
         currentPrecinctResults = null;
       }
+      // Optional precinct expression (detail overlay)
       if (needsPrecinctDetail) {
-        const exprPrecinct = ['case'];
-        for (const row of contestData) {
-          if (staleCheck()) return;
-          const precinctNames = precinctNormVariants(row.county);
+        // Build precinct lookup map from precinct rows (or county rows fallback).
+        precinctRows.forEach(row => {
           const rowName = (row.county || '').toString();
-          const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
-          const countyNorm = normalizeCountyName(countyOnly);
-          const adjusted = applyScenarioShiftToVotes(
-            countyNorm,
-            Number(row[`${contestType}_dem`] || 0),
-            Number(row[`${contestType}_rep`] || 0),
-            Number(row[`${contestType}_other`] || 0),
-            Number(row[`${contestType}_total`] || 0)
-          );
-          const demVotes = Number(adjusted.dem || 0);
-          const repVotes = Number(adjusted.rep || 0);
-          const totalVotes = Number(adjusted.total || 0);
-          if (totalVotes === 0) continue;
-          const signedMarginPct = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+          const norms = precinctNormVariants(rowName);
+          norms.forEach(n => {
+            currentPrecinctResults.set(n, row);
+          });
+        });
+
+        const exprPrecinct = ['case'];
+        precinctRows.forEach(row => {
+          const precinctNames = precinctNormVariants(row.county);
+          const demVotes = Number(row[`${contestType}_dem`] || 0);
+          const repVotes = Number(row[`${contestType}_rep`] || 0);
+          const totalVotes = Number(row[`${contestType}_total`] || 0);
+          if (totalVotes === 0) return;
+          const signedMarginPct = Number(row[`${contestType}_margin_pct`]);
           const winnerRaw = (row[`${contestType}_winner`] || '').toString().toUpperCase();
           const winner = winnerRaw.startsWith('REP') ? 'R' : (winnerRaw.startsWith('DEM') ? 'D' : (repVotes === demVotes ? 'T' : (repVotes > demVotes ? 'R' : 'D')));
           let color = '#d1d5db';
@@ -14122,11 +13882,9 @@ document.addEventListener('DOMContentLoaded', function() {
           precinctNames.forEach(precinctName => {
             exprPrecinct.push(['==', ['get', 'precinct_norm'], precinctName]);
             exprPrecinct.push(color);
-            currentPrecinctTurnoutTotals.set(precinctName, totalVotes);
           });
-        }
+        });
         exprPrecinct.push('#d1d5db');
-        if (staleCheck()) return;
         // Cache for later, in case precinct overlay loads after the contest is applied.
         lastPrecinctFillExpr = exprPrecinct;
         lastPrecinctDotExpr = exprPrecinct;
@@ -14137,10 +13895,7 @@ document.addEventListener('DOMContentLoaded', function() {
           map.setPaintProperty('precinct-dot', 'circle-color', exprPrecinct);
         }
       }
-      applyLayerOpacityTuning();
-      try { scheduleAnalyticsPanelsUpdate(contestType, year, contestData, 150); } catch (_) {}
-      if (staleCheck()) return;
-      setStatewideContestTitle(`${formatContestName(contestType, year)} (${year})`);
+  setStatewideContestTitle(`${formatContestName(contestType, year)} (${year})`);
       setStatus(`Applied contest: ${formatContestName(contestType, year)} ${year}`);
     }
 
@@ -14376,6 +14131,4 @@ document.addEventListener('DOMContentLoaded', function() {
   </script>
 </body>
 </html>
-
-
 
