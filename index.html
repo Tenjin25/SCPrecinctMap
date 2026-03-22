@@ -7297,6 +7297,29 @@ document.addEventListener('DOMContentLoaded', function() {
       return true;
     }
 
+    async function refreshPinnedDistrictForContest(contestType, year) {
+      const pinned = voteCounterPinned || null;
+      const meta = pinned?.meta || null;
+      if (!meta || meta.kind !== 'district') return false;
+      if (!contestType || !year) return false;
+
+      let scope = (meta.scope || '').toString().trim();
+      let districtNum = Number(meta.districtNum);
+      if (!scope || !Number.isFinite(districtNum)) return false;
+
+      const viewScope = getDistrictScopeForView(currentView);
+      if (!viewScope) return false;
+      if (scope !== viewScope) {
+        const mappedDistrict = await mapDistrictSelectionAcrossScopes(scope, districtNum, viewScope, Number(year));
+        districtNum = Number(mappedDistrict);
+        scope = viewScope;
+        if (!Number.isFinite(districtNum)) return false;
+      }
+
+      const contestValue = `${contestType}_${year}`;
+      return showAndPinDistrictSelection(scope, districtNum, contestValue);
+    }
+
     function clearVoteCounterHoverState() {
       if (voteCounterPinned) return;
       if (!voteCounterHoverActive) return;
@@ -13451,6 +13474,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // All other contests (statewide) aggregate county data by district
         await applyStatewideContestToDistricts(contestType, year);
       }
+      if (isStaleSelection()) return;
+      try { await refreshPinnedDistrictForContest(contestType, year); } catch (_) {}
       if (isStaleSelection()) return;
       if (previousRegionPinnedState?.meta?.regionKey) {
         const regionKey = previousRegionPinnedState.meta.regionKey;
