@@ -453,7 +453,7 @@
         sidebarBtn.onclick = function() {
           toggleSidebar();
           // If no county is selected, show default message
-          if (detailsDiv && contentEl && (!window.lastSelectedCounty || window.lastSelectedCounty === '')) {
+          if (detailsDiv && contentEl && (!lastSelectedCounty || lastSelectedCounty === '')) {
             contentEl.innerHTML = '<p>Select a contest or county to see results.</p>';
             detailsDiv.style.display = 'block';
           }
@@ -7845,7 +7845,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function queueCountyDetailsRefresh() {
       if (!shouldRefreshCountyDetailsOnContestChange()) return;
-      const county = (window.lastSelectedCounty || '').toString().trim();
+     const county = (lastSelectedCounty || '').toString().trim();
       if (!county) return;
       const refresh = () => {
         try { showCountyDetails(county); } catch (_) {}
@@ -8538,7 +8538,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (chamber !== 'house' && chamber !== 'senate') return false;
         showStateDistrictDetails(districtId, chamber);
       }
-      window.lastSelectedCounty = title;
+      lastSelectedCounty  = title;
       try { setDistrictHoverOutline(scope, districtId); } catch (_) {}
 
       const selectedContest = (contestValue || document.getElementById('contestSelect')?.value || '').toString().trim();
@@ -8672,7 +8672,7 @@ document.addEventListener('DOMContentLoaded', function() {
       updateContestSelectForCurrentView();
       
       // Clear pinned geography selection before rebuilding the new view.
-      window.lastSelectedCounty = '';
+      lastSelectedCounty = '';
       if (voteCounterPinned) {
         clearPinnedVoteCounterState();
       }
@@ -9660,7 +9660,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (pinnedMeta?.kind === 'region' && pinnedMeta.regionLabel) {
         return pinnedMeta.regionLabel;
       }
-      const raw = (window.lastSelectedCounty || '').toString().trim();
+      const raw = (lastSelectedCounty || '').toString().trim();
       if (!raw) return 'Statewide';
       if (/district|cd\s|hd\s|sd\s/i.test(raw)) return raw;
       if (raw.includes(' - ')) return raw;
@@ -10363,7 +10363,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       const countyNameElement = document.getElementById('county-name');
       const countyDisplay = displayCountyName(countyName);
-      window.lastSelectedCounty = countyDisplay;
+      lastSelectedCounty  = countyDisplay;
       updateContextBanner();
       if (countyNameElement) countyNameElement.textContent = countyDisplay + ' County';
       // sidebarContent already declared above
@@ -12597,7 +12597,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const contentEl = document.getElementById('county-info-content');
       if (!detailsDiv || !nameEl || !contentEl) return;
 
-      window.lastSelectedCounty = `Congressional District ${districtNum}`;
+      lastSelectedCounty  = `Congressional District ${districtNum}`;
       updateContextBanner();
       nameEl.textContent = `Congressional District ${districtNum}`;
 
@@ -12679,7 +12679,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!detailsDiv || !nameEl || !contentEl) return;
 
       const title = chamber === 'house' ? `State House District ${districtNum}` : `State Senate District ${districtNum}`;
-      window.lastSelectedCounty = title;
+      lastSelectedCounty = title;
       updateContextBanner();
       nameEl.textContent = title;
 
