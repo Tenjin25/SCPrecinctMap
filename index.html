@@ -7406,14 +7406,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!r.ok) throw new Error(`${path} fetch failed: ${r.status}`);
       return r.json();
     }
-
-	    async function loadCSV(path) {
-	      const r = await fetch(path);
-	      if (!r.ok) throw new Error(`${path} fetch failed: ${r.status}`);
-	      return r.text();
-	    }
-
-	    const OPEN_ELECTIONS_CSV = {
+       const OPEN_ELECTIONS_CSV = {
 	      president: {
 	        2008: withBase('./data/openelections-data-sc/2008/20081104__sc__general__precinct.csv'),
 	        2012: withBase('./data/openelections-data-sc/2012/20121106__sc__general__precinct.csv'),
@@ -10644,21 +10637,6 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         sidebarContent += `</div>`;
       }
-    }
-  } catch (_) {}
-
-  // County demographics (DP1-derived: VAP 18+ + total-pop race/ethnicity shares).
-  try {
-    const demo = countyDemographics?.counties?.[norm] || null;
-    if (demo) {
-      sidebarContent += `<div class="demographics-section">`;
-      sidebarContent += `<h3 class="sidebar-section-title">Demographics</h3>`;
-      sidebarContent += `<p class="sidebar-breakdown"><b>VAP (18+):</b> ${Number(demo.vap_18plus || 0).toLocaleString()}</p>`;
-      sidebarContent += `<p class="sidebar-margin-details" style="margin-top:6px;">Race/ethnicity shown is total population (DP1), not VAP-by-race.</p>`;
-      sidebarContent += `<p class="sidebar-breakdown"><b>White:</b> ${Number(demo.white_pop_pct || 0).toFixed(2)}%</p>`;
-      sidebarContent += `<p class="sidebar-breakdown"><b>Black:</b> ${Number(demo.black_pop_pct || 0).toFixed(2)}%</p>`;
-      sidebarContent += `<p class="sidebar-breakdown"><b>Hispanic:</b> ${Number(demo.hispanic_pop_pct || 0).toFixed(2)}%</p>`;
-      sidebarContent += `</div>`;
     }
   } catch (_) {}
 
