@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <style>
@@ -13,7 +13,7 @@
       right: 8px !important;
       z-index: 10002 !important;
       font-size: 20px !important;
-      background: #2563eb !important;
+      background: #002868 !important;
       color: #fff !important;
       border-radius: 8px !important;
       min-width: 44px !important;
@@ -541,7 +541,8 @@
           .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
           .replace(/\s+/g, ' ')
           .trim()
-          .toUpperCase();
+          .toUpperCase()
+          .replace(/\bLA\s*SALLE\b/g, 'LA SALLE');
       }
       const normTarget = normalizeCountyName(countyName);
       const countyFeature = counties.find(f => {
@@ -558,13 +559,10 @@
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <meta charset='utf-8'>
-    <title>The Palmetto Explorer</title>
+    <title>The Lone Star Atlas</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover'>
-    <meta name="author" content="Shamar Davis">
-    <meta name="copyright" content="© 2026 Shamar Does Elections. All Rights Reserved.">
-    <!-- Watermark: SDE Creator Attribution | Created by Shamar Davis | Copyright 2026 Shamar Does Elections -->
-    <meta property="og:title" content="The Palmetto Explorer">
-    <meta property="og:description" content="Interactive visualization of South Carolina election trends across counties, precincts, and districts.">
+    <meta property="og:title" content="The Lone Star Atlas">
+    <meta property="og:description" content="Interactive visualization of Texas election trends across counties, precincts, and districts.">
     <meta property="og:image" content="preview.png">
     <meta name="twitter:card" content="summary_large_image">
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css' rel='stylesheet'>
@@ -772,9 +770,9 @@ body { height: var(--app-height); }
   top: 15px;
   right: 15px;
   transform: none;
-  background: #2563eb;
+  background: #002868;
   color: white;
-  border: 1px solid #1d4ed8;
+  border: 1px solid #0b3d91;
   pointer-events: auto !important;
   cursor: pointer !important;
   z-index: 10001;
@@ -797,8 +795,8 @@ body { height: var(--app-height); }
   padding: 20px;
 }
 .minimize-btn {
-  background: #2563eb;
-  border: 1px solid #1d4ed8;
+  background: #002868;
+  border: 1px solid #0b3d91;
   border-radius: 6px;
   width: 30px;
   height: 30px;
@@ -812,8 +810,8 @@ body { height: var(--app-height); }
   transition: all 0.2s ease;
 }
 .minimize-btn:hover {
-  background: #1d4ed8;
-  border-color: #2563eb;
+  background: #0b3d91;
+  border-color: #002868;
   transform: scale(1.05);
 }
 
@@ -847,8 +845,8 @@ body { height: var(--app-height); }
 }
 .main-controls input[type="search"]:focus,
 .main-controls input[type="text"]:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  border-color: #002868;
+  box-shadow: 0 0 0 3px rgba(0, 40, 104, 0.15);
 }
 /* Mobile: Full-width controls at top */
 @media (max-width: 768px) {
@@ -1005,9 +1003,9 @@ body { height: var(--app-height); }
   color: #6b7280;
 }
 .mode-toggle.active {
-  background: #2563eb;
+  background: #002868;
   color: white;
-  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 40, 104, 0.3);
 }
 .mode-toggle:hover:not(.active) {
   background: #e5e7eb;
@@ -1306,14 +1304,14 @@ body { height: var(--app-height); }
 }
 
 .viz-mode-btn:hover {
-  background: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
+  background: rgba(31, 79, 152, 0.1);
+  color: #1f4f98;
 }
 
 .viz-mode-btn.active {
-  background: #3b82f6;
+  background: #1f4f98;
   color: white;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 2px 8px rgba(31, 79, 152, 0.3);
 }
 
 .viz-mode-btn.active::after {
@@ -1326,7 +1324,7 @@ body { height: var(--app-height); }
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 6px solid #3b82f6;
+  border-top: 6px solid #1f4f98;
 }
 
 /* Vote Counter - VoteHub Style */
@@ -1481,8 +1479,8 @@ body { height: var(--app-height); }
   overflow-wrap: anywhere;
 }
 
-.vote-label.dem { color: #3b82f6; }
-.vote-label.rep { color: #ef4444; }
+.vote-label.dem { color: #1f4f98; }
+.vote-label.rep { color: #c11d3f; }
 .vote-label.other { color: #6b7280; }
 
 .vote-count {
@@ -1491,8 +1489,8 @@ body { height: var(--app-height); }
   font-variant-numeric: tabular-nums;
 }
 
-.vote-count.dem { color: #2563eb; }
-.vote-count.rep { color: #dc2626; }
+.vote-count.dem { color: #002868; }
+.vote-count.rep { color: #bf0a30; }
 
 .vote-percent {
   font-size: 13px;
@@ -1514,7 +1512,7 @@ body { height: var(--app-height); }
   color: #1f2937;
   font-size: 15px;
   font-weight: 600;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px solid #1f4f98;
   padding-bottom: 4px;
 }
 .finding-card p {
@@ -1550,7 +1548,7 @@ body { height: var(--app-height); }
   padding: 2px 6px;
   border-radius: 4px;
   font-weight: 600;
-  color: #2563eb;
+  color: #002868;
 }
 
 /* Mobile: Touch-friendly inputs and buttons */
@@ -1585,7 +1583,7 @@ body { height: var(--app-height); }
   padding: 4px 8px;
   border-radius: 4px;
   font-weight: 600;
-  color: #1d4ed8;
+  color: #0b3d91;
   display: inline-block;
   margin: 2px;
 }
@@ -1622,7 +1620,7 @@ body { height: var(--app-height); }
       z-index: 10001;
       width: 40px;
       height: 40px;
-      background: #2563eb;
+      background: #002868;
       color: #fff;
       border: none;
       border-radius: 8px;
@@ -1649,18 +1647,18 @@ body { height: var(--app-height); }
     --ui-shadow: 0 14px 36px rgba(15, 23, 42, 0.2);
     --ui-text: #0f172a;
     --ui-muted: #475569;
-    --ui-accent: #2563eb;
-    --ui-accent-2: #1d4ed8;
+    --ui-accent: #002868;
+    --ui-accent-2: #bf0a30;
   }
 
   body {
     font-family: 'Manrope', 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-    background: radial-gradient(circle at 18% 12%, #dbeafe 0%, #eaf2ff 28%, #f8fafc 75%);
+    background: radial-gradient(circle at 16% 10%, #d9e7ff 0%, #f7fbff 44%, #fff3f5 100%);
     color: var(--ui-text);
   }
 
   #map {
-    background: linear-gradient(180deg, #e9eff7 0%, #dbe3ef 100%);
+    background: linear-gradient(180deg, #eef3fb 0%, #e2eaf7 64%, #f7edf1 100%);
   }
 
   .main-controls,
@@ -1946,21 +1944,21 @@ body { height: var(--app-height); }
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25);
   }
 
-  .meta-chip.dem .dot { background: #2563eb; }
-  .meta-chip.rep .dot { background: #dc2626; }
+  .meta-chip.dem .dot { background: #002868; }
+  .meta-chip.rep .dot { background: #bf0a30; }
   .meta-chip.tie .dot { background: #94a3b8; }
   .meta-chip.shift .dot { background: #0ea5e9; }
   .meta-chip.flip .dot { background: #a855f7; }
 
   .meta-chip.flip.dem {
-    border-color: rgba(37, 99, 235, 0.65);
-    background: rgba(37, 99, 235, 0.18);
+    border-color: rgba(0, 40, 104, 0.65);
+    background: rgba(0, 40, 104, 0.18);
     color: #dbeafe;
   }
 
   .meta-chip.flip.rep {
-    border-color: rgba(220, 38, 38, 0.65);
-    background: rgba(220, 38, 38, 0.18);
+    border-color: rgba(191, 10, 48, 0.65);
+    background: rgba(191, 10, 48, 0.18);
     color: #fee2e2;
   }
 
@@ -2053,8 +2051,8 @@ body { height: var(--app-height); }
   #accessibility-toggle,
   #label-toggle,
   #precinct-toggle {
-    border: 1px solid rgba(37, 99, 235, 0.34);
-    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.18);
+    border: 1px solid rgba(0, 40, 104, 0.34);
+    box-shadow: 0 6px 14px rgba(0, 40, 104, 0.18);
   }
 
   .minimize-btn,
@@ -2078,8 +2076,8 @@ body { height: var(--app-height); }
 
   .mode-toggle.active,
   .viz-mode-btn.active {
-    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
-    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.32);
+    background: linear-gradient(180deg, #1f4f98 0%, #002868 100%);
+    box-shadow: 0 8px 18px rgba(0, 40, 104, 0.32);
   }
 
   .legend-item {
@@ -2224,7 +2222,7 @@ body { height: var(--app-height); }
     min-height: 136px;
     padding: 14px;
     border-radius: 18px;
-    background: rgba(15, 23, 42, 0.82);
+    background: linear-gradient(135deg, rgba(0, 40, 104, 0.92) 0%, rgba(11, 61, 145, 0.88) 50%, rgba(191, 10, 48, 0.82) 100%);
     color: #f8fafc;
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 20px 52px rgba(15, 23, 42, 0.28);
@@ -2268,8 +2266,8 @@ body { height: var(--app-height); }
     flex: 0 0 auto;
     padding: 6px 10px;
     border-radius: 999px;
-    background: rgba(96, 165, 250, 0.18);
-    color: #bfdbfe;
+    background: rgba(255, 255, 255, 0.16);
+    color: #f8fafc;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -2314,8 +2312,8 @@ body { height: var(--app-height); }
   }
 
   .fly-search-field:focus-within {
-    border-color: #60a5fa;
-    box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.18);
+    border-color: #0b3d91;
+    box-shadow: 0 0 0 4px rgba(11, 61, 145, 0.18);
   }
 
   .fly-search-icon {
@@ -2383,13 +2381,13 @@ body { height: var(--app-height); }
     padding: 0 16px;
     border: none;
     border-radius: 14px;
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    background: linear-gradient(135deg, #002868, #bf0a30);
     color: #fff;
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.01em;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
+    box-shadow: 0 8px 20px rgba(0, 40, 104, 0.28);
     white-space: nowrap;
   }
 
@@ -2429,7 +2427,7 @@ body { height: var(--app-height); }
   }
 
   .mobile-topbar-toggle:hover {
-    background: rgba(96, 165, 250, 0.18);
+    background: rgba(91, 125, 184, 0.18);
     border-color: rgba(147, 197, 253, 0.42);
   }
 
@@ -2448,7 +2446,7 @@ body { height: var(--app-height); }
   }
 
   .fly-search-chip:hover {
-    background: rgba(96, 165, 250, 0.18);
+    background: rgba(91, 125, 184, 0.18);
     border-color: rgba(147, 197, 253, 0.42);
   }
 
@@ -2545,7 +2543,7 @@ body { height: var(--app-height); }
 
   .fly-search-option[data-tone="district"] span,
   .fly-search-option[data-tone="precinct"] span {
-    color: #1d4ed8;
+    color: #0b3d91;
   }
 
   .panel-eyebrow {
@@ -2553,8 +2551,8 @@ body { height: var(--app-height); }
     align-items: center;
     padding: 6px 10px;
     border-radius: 999px;
-    background: rgba(37, 99, 235, 0.10);
-    color: #1d4ed8;
+    background: rgba(0, 40, 104, 0.10);
+    color: #0b3d91;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -2599,7 +2597,7 @@ body { height: var(--app-height); }
 
   .region-jump-btn:hover {
     background: #eff6ff;
-    border-color: rgba(37, 99, 235, 0.26);
+    border-color: rgba(0, 40, 104, 0.26);
   }
 
   .region-jump-btn:active {
@@ -2623,9 +2621,9 @@ body { height: var(--app-height); }
     max-width: 100%;
     padding: 0 12px;
     border-radius: 999px;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.96) 0%, rgba(37, 99, 235, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.96) 0%, rgba(0, 40, 104, 0.9) 100%);
     border: 1px solid rgba(148, 163, 184, 0.18);
-    box-shadow: 0 12px 26px rgba(37, 99, 235, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    box-shadow: 0 12px 26px rgba(0, 40, 104, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.16);
     color: #f8fafc;
     font-size: 11.5px;
     font-weight: 800;
@@ -2941,11 +2939,11 @@ body { height: var(--app-height); }
   }
 
   .focus-pill-value.dem {
-    color: #1d4ed8;
+    color: #0b3d91;
   }
 
   .focus-pill-value.rep {
-    color: #dc2626;
+    color: #bf0a30;
   }
 
   .focus-pill-value.tie {
@@ -2974,7 +2972,7 @@ body { height: var(--app-height); }
   }
 
   .focus-bar-label.dem {
-    color: #1d4ed8;
+    color: #0b3d91;
     text-align: left;
   }
 
@@ -3148,7 +3146,7 @@ body { height: var(--app-height); }
   }
 
   .focus-trend-summary-badge.dem {
-    color: #1d4ed8;
+    color: #0b3d91;
     background: rgba(219, 234, 254, 0.82);
   }
 
@@ -3234,7 +3232,7 @@ body { height: var(--app-height); }
   }
 
   .focus-trend-dot-badge.dem {
-    color: #1d4ed8;
+    color: #0b3d91;
     background: rgba(219, 234, 254, 0.86);
   }
 
@@ -3252,11 +3250,11 @@ body { height: var(--app-height); }
   }
 
   .focus-trend-dot-value.dem {
-    color: #1d4ed8;
+    color: #0b3d91;
   }
 
   .focus-trend-dot-value.rep {
-    color: #dc2626;
+    color: #bf0a30;
   }
 
   .focus-trend-dot-value.tie {
@@ -3326,7 +3324,7 @@ body { height: var(--app-height); }
   }
 
   .focus-trend-dot-shift.dem {
-    color: #1d4ed8;
+    color: #0b3d91;
     background: rgba(219, 234, 254, 0.84);
   }
 
@@ -3383,7 +3381,7 @@ body { height: var(--app-height); }
   }
 
   .focus-trend-stat-value.dem {
-    color: #1d4ed8;
+    color: #0b3d91;
   }
 
   .focus-trend-stat-value.rep {
@@ -3494,7 +3492,7 @@ body { height: var(--app-height); }
   }
 
   .focus-trend-entry-badge.dem {
-    color: #1d4ed8;
+    color: #0b3d91;
     background: rgba(219, 234, 254, 0.86);
   }
 
@@ -3512,7 +3510,7 @@ body { height: var(--app-height); }
   }
 
   .focus-trend-entry-call.dem {
-    color: #1d4ed8;
+    color: #0b3d91;
   }
 
   .focus-trend-entry-call.rep {
@@ -3549,7 +3547,7 @@ body { height: var(--app-height); }
   }
 
   .focus-trend-entry-scale .dem {
-    color: #1d4ed8;
+    color: #0b3d91;
   }
 
   .focus-trend-entry-scale .rep {
@@ -3595,7 +3593,7 @@ body { height: var(--app-height); }
   }
 
   .focus-trend-chip.dem {
-    color: #1d4ed8;
+    color: #0b3d91;
     background: rgba(219, 234, 254, 0.84);
   }
 
@@ -3848,41 +3846,6 @@ body { height: var(--app-height); }
     pointer-events: none;
   }
 
-  .atlas-credit-bar {
-    position: fixed;
-    left: 50%;
-    bottom: calc(10px + var(--safe-bottom, 0px));
-    transform: translateX(-50%);
-    z-index: 10012;
-    max-width: calc(100vw - 24px);
-    padding: 6px 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.34);
-    background: rgba(255, 255, 255, 0.90);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.14);
-    color: #475569;
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 1.25;
-    letter-spacing: 0.01em;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    pointer-events: none;
-  }
-
-  @media (max-width: 768px) {
-    .atlas-credit-bar {
-      bottom: calc(var(--legend-h, 56px) + var(--counter-h, 0px) + var(--safe-bottom, 0px) + 14px);
-      max-width: calc(100vw - 16px);
-      padding: 5px 10px;
-      font-size: 10px;
-      white-space: normal;
-    }
-  }
-
   .controls-header {
     position: sticky;
     top: 0;
@@ -3927,9 +3890,9 @@ body { height: var(--app-height); }
     margin: 0;
     padding: 0 14px;
     border-radius: 999px;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.96) 0%, rgba(37, 99, 235, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(0, 40, 104, 0.96) 0%, rgba(191, 10, 48, 0.9) 100%);
     border: 1px solid rgba(148, 163, 184, 0.18);
-    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    box-shadow: 0 14px 30px rgba(0, 40, 104, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.16);
     color: #f8fafc !important;
     font-size: 14px;
     font-weight: 800;
@@ -3942,8 +3905,8 @@ body { height: var(--app-height); }
     width: 8px;
     height: 8px;
     border-radius: 999px;
-    background: linear-gradient(135deg, #38bdf8 0%, #bfdbfe 100%);
-    box-shadow: 0 0 0 4px rgba(191, 219, 254, 0.12);
+    background: linear-gradient(135deg, #ffffff 0%, #fde2e8 100%);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.12);
     flex: 0 0 auto;
   }
 
@@ -4024,7 +3987,7 @@ body { height: var(--app-height); }
   }
 
   .control-summary-mode {
-    background: rgba(96, 165, 250, 0.16);
+    background: rgba(91, 125, 184, 0.16);
     color: #bfdbfe;
   }
 
@@ -4135,7 +4098,7 @@ body { height: var(--app-height); }
   }
 
   #precinct-toggle {
-    background: linear-gradient(180deg, #065f46 0%, #047857 100%) !important;
+    background: linear-gradient(180deg, #7a1b2f 0%, #047857 100%) !important;
     box-shadow: 0 12px 22px rgba(6, 95, 70, 0.20) !important;
   }
 
@@ -4177,8 +4140,8 @@ body { height: var(--app-height); }
   }
 
   .desktop-statewide-tag {
-    background: rgba(37, 99, 235, 0.10);
-    color: #1d4ed8;
+    background: rgba(191, 10, 48, 0.10);
+    color: #8a1538;
   }
 
   .desktop-statewide-title {
@@ -4235,7 +4198,7 @@ body { height: var(--app-height); }
     color: #0f172a;
   }
 
-  .statewide-call[data-party="dem"] { color: #1d4ed8; }
+  .statewide-call[data-party="dem"] { color: #0b3d91; }
   .statewide-call[data-party="rep"] { color: #b91c1c; }
   .statewide-call[data-party="tie"] { color: #475569; }
 
@@ -4288,9 +4251,9 @@ body { height: var(--app-height); }
   }
 
   .statewide-share-chip.dem {
-    color: #1d4ed8;
+    color: #0b3d91;
     background: rgba(219, 234, 254, 0.72);
-    border-color: rgba(96, 165, 250, 0.32);
+    border-color: rgba(91, 125, 184, 0.32);
   }
 
   .statewide-share-chip.rep {
@@ -4344,8 +4307,8 @@ body { height: var(--app-height); }
     background: #94a3b8;
   }
 
-  .statewide-dot.dem { background: #2563eb; }
-  .statewide-dot.rep { background: #dc2626; }
+  .statewide-dot.dem { background: #002868; }
+  .statewide-dot.rep { background: #bf0a30; }
   .statewide-dot.other { background: #64748b; }
 
   .statewide-breakdown-label {
@@ -4415,7 +4378,7 @@ body { height: var(--app-height); }
     content: '';
     display: block;
     height: 4px;
-    background: linear-gradient(90deg, #dc2626 0%, #f8fafc 50%, #2563eb 100%);
+    background: linear-gradient(90deg, #bf0a30 0%, #f8fafc 50%, #002868 100%);
     opacity: 0.9;
   }
 
@@ -4484,8 +4447,8 @@ body { height: var(--app-height); }
     min-height: 30px;
     padding: 0 10px;
     border-radius: 999px;
-    background: rgba(37, 99, 235, 0.10);
-    color: #1d4ed8;
+    background: rgba(0, 40, 104, 0.10);
+    color: #0b3d91;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.03em;
@@ -4606,7 +4569,7 @@ body { height: var(--app-height); }
   }
 
   .legend-axis .dem {
-    color: #1d4ed8;
+    color: #0b3d91;
   }
 
   .legend-scale-caption {
@@ -4639,7 +4602,7 @@ body { height: var(--app-height); }
   }
 
   .legend-scale-caption .dem {
-    color: #1d4ed8;
+    color: #0b3d91;
   }
 
   .legend-chip-row {
@@ -4722,7 +4685,7 @@ body { height: var(--app-height); }
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #2563eb 0%, #cbd5e1 50%, #dc2626 100%);
+    background: linear-gradient(90deg, #002868 0%, #cbd5e1 50%, #bf0a30 100%);
   }
 
   .vote-counter-context {
@@ -4782,7 +4745,7 @@ body { height: var(--app-height); }
     margin-left: auto;
   }
 
-  .vote-lead[data-party="dem"] { color: #1d4ed8; }
+  .vote-lead[data-party="dem"] { color: #0b3d91; }
   .vote-lead[data-party="rep"] { color: #b91c1c; }
   .vote-lead[data-party="tie"] { color: #475569; }
 
@@ -4827,8 +4790,8 @@ body { height: var(--app-height); }
     flex: 0 0 auto;
   }
 
-  .vote-item.dem .vote-swatch { background: #2563eb; }
-  .vote-item.rep .vote-swatch { background: #dc2626; }
+  .vote-item.dem .vote-swatch { background: #002868; }
+  .vote-item.rep .vote-swatch { background: #bf0a30; }
   .vote-item.other .vote-swatch { background: #64748b; }
 
   .vote-count {
@@ -5137,7 +5100,7 @@ body { height: var(--app-height); }
       gap: 10px;
       padding: 14px 14px 16px !important;
       background: linear-gradient(180deg, rgba(239, 246, 255, 0.94) 0%, rgba(248, 250, 252, 0.92) 100%) !important;
-      border-color: rgba(96, 165, 250, 0.24) !important;
+      border-color: rgba(91, 125, 184, 0.24) !important;
     }
 
     .desktop-fly-search-wrap {
@@ -5165,8 +5128,8 @@ body { height: var(--app-height); }
 
     #desktop-fly-search:focus {
       outline: none;
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+      border-color: #002868;
+      box-shadow: 0 0 0 3px rgba(0, 40, 104, 0.12);
     }
 
     .desktop-fly-submit {
@@ -5175,12 +5138,12 @@ body { height: var(--app-height); }
       padding: 0 16px;
       border: none;
       border-radius: 14px;
-      background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+      background: linear-gradient(180deg, #002868 0%, #0b3d91 100%);
       color: #fff;
       font-size: 14px;
       font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.20);
+      box-shadow: 0 12px 24px rgba(0, 40, 104, 0.20);
     }
 
     .desktop-fly-helper {
@@ -5210,7 +5173,7 @@ body { height: var(--app-height); }
 
     .desktop-fly-chip:hover {
       background: #eff6ff;
-      border-color: rgba(37, 99, 235, 0.26);
+      border-color: rgba(0, 40, 104, 0.26);
     }
 
     .viz-modes {
@@ -5387,7 +5350,7 @@ body { height: var(--app-height); }
       min-width: 86px;
       border: 1px solid rgba(15, 23, 42, 0.16);
       border-radius: 999px;
-      background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+      background: linear-gradient(180deg, #002868 0%, #0b3d91 100%);
       color: #f8fafc;
       font-size: 12px;
       font-weight: 800;
@@ -5398,8 +5361,8 @@ body { height: var(--app-height); }
     }
 
     .mobile-thumb-btn.primary {
-      background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
-      border-color: rgba(37, 99, 235, 0.44);
+      background: linear-gradient(180deg, #002868 0%, #0b3d91 100%);
+      border-color: rgba(0, 40, 104, 0.44);
     }
 
     .mobile-thumb-dock.controls-open .mobile-thumb-btn.primary,
@@ -5622,10 +5585,10 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="desktop-ui-left">
   <div class="map-topbar" id="map-topbar">
     <div class="map-topbar-meta">
-      <div class="map-topbar-badge">The Palmetto Explorer</div>
+      <div class="map-topbar-badge">The Lone Star Atlas</div>
       <div class="map-topbar-copy">
         <strong>Fly to a county, district, or precinct</strong>
-        <span>Try Lexington, CD 2, HD 85, SD 22, or Lexington 01.</span>
+        <span>Try Harris, CD 7, HD 134, SD 15, or Travis 301.</span>
       </div>
     </div>
     <form class="fly-search-bar" id="fly-search-form" role="search">
@@ -5637,7 +5600,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <path d="M16 16L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
           </svg>
         </span>
-        <input type="search" id="county-search" placeholder="Fly to Lexington, CD 2, HD 85..." autocomplete="off" spellcheck="false" />
+        <input type="search" id="county-search" placeholder="Fly to Harris, CD 7, HD 134..." autocomplete="off" spellcheck="false" />
         <button type="button" class="fly-search-clear" id="fly-search-clear" aria-label="Clear search">x</button>
       </div>
       <button type="submit" class="fly-search-submit">Fly to</button>
@@ -5645,11 +5608,11 @@ document.addEventListener('DOMContentLoaded', function() {
     <button type="button" class="mobile-topbar-toggle" id="mobile-topbar-toggle" aria-controls="map-topbar-details" aria-expanded="false">Show details</button>
     <div class="map-topbar-details" id="map-topbar-details">
       <div class="map-topbar-hints" aria-label="Search examples">
-        <button type="button" class="fly-search-chip" data-search-example="Lexington">Lexington</button>
-        <button type="button" class="fly-search-chip" data-search-example="CD 2">CD 2</button>
-        <button type="button" class="fly-search-chip" data-search-example="HD 85">HD 85</button>
-        <button type="button" class="fly-search-chip" data-search-example="SD 22">SD 22</button>
-        <button type="button" class="fly-search-chip" data-search-example="Lexington 01">Lexington 01</button>
+        <button type="button" class="fly-search-chip" data-search-example="Harris">Harris</button>
+        <button type="button" class="fly-search-chip" data-search-example="CD 7">CD 7</button>
+        <button type="button" class="fly-search-chip" data-search-example="HD 134">HD 134</button>
+        <button type="button" class="fly-search-chip" data-search-example="SD 15">SD 15</button>
+        <button type="button" class="fly-search-chip" data-search-example="Travis 301">Travis 301</button>
       </div>
       <div class="context-banner" id="context-banner" aria-label="Current map state">
         <div class="context-banner-item">
@@ -5693,7 +5656,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <summary>Search</summary>
           <div style="margin-top: 10px;">
             <label for="sidebar-county-search" style="font-weight:600;">Find</label>
-            <input type="text" id="sidebar-county-search" placeholder="Lexington, CD 2, HD 85, SD 22, Lexington 01" autocomplete="off" spellcheck="false" />
+            <input type="text" id="sidebar-county-search" placeholder="Harris, CD 7, HD 134, SD 15, Travis 301" autocomplete="off" spellcheck="false" />
             <div style="margin-top:6px;font-size:12px;color:#64748b;">
               Tips: use <span style="font-weight:700;">CD</span> for Congress, <span style="font-weight:700;">HD</span> for House, <span style="font-weight:700;">SD</span> for Senate.
             </div>
@@ -5711,9 +5674,8 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </details>
       </div>
-      <div class="sidebar-footer" style="padding: 14px 10px; text-align: center; color: #64748b; font-size: 12px; line-height: 1.45; border-top: 1px solid #e5e7eb; background: #f9fafb;">
-        © 2026 Shamar Does Elections. All Rights Reserved.<br>
-        Created by Shamar Davis.
+      <div class="sidebar-footer" style="padding: 16px 0; text-align: center; color: #888; font-size: 15px; border-top: 1px solid #e5e7eb; background: #f9fafb;">
+        Created by Shamar Davis
       </div>
     </div>
   <!-- Floating Sidebar Expand/Collapse Button (smaller size) -->
@@ -5732,11 +5694,11 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="controls-header">
             <div class="controls-heading">
               <span class="controls-kicker">Atlas controls</span>
-              <h3 class="controls-title-pill">The Palmetto Explorer</h3>
+              <h3 class="controls-title-pill">The Lone Star Atlas</h3>
               <p class="controls-subtitle">Switch layers, jump to major regions, and compare contests without leaving the map.</p>
             </div>
             <div class="controls-actions">
-              <span class="controls-collapsed-label">The Palmetto Explorer</span>
+              <span class="controls-collapsed-label">The Lone Star Atlas</span>
               <button id="help-btn" title="Help" type="button">?</button>
               <button class="minimize-btn" onclick="toggleMainControls()" id="controls-minimize-btn" title="Minimize controls">-</button>
             </div>
@@ -5746,17 +5708,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 <label class="control-section-label" for="desktop-fly-search">Fly to</label>
                 <div class="desktop-fly-search-wrap">
                   <div class="desktop-fly-search-field fly-search-field">
-                    <input id="desktop-fly-search" type="search" placeholder="Lexington County, CD 2, HD 85, SD 22, Lexington 01" autocomplete="off" spellcheck="false" inputmode="search" />
+                    <input id="desktop-fly-search" type="search" placeholder="Harris County, CD 7, HD 134, SD 15, Travis 301" autocomplete="off" spellcheck="false" inputmode="search" />
                   </div>
                   <button id="desktop-fly-submit" class="desktop-fly-submit" type="button">Go</button>
                 </div>
                 <div class="desktop-fly-helper">Jump to counties, districts, or precincts without changing the selected contest.</div>
                 <div class="desktop-fly-chip-row" aria-label="Fly-to examples">
-                  <button class="desktop-fly-chip" type="button" data-search-example="Lexington">Lexington</button>
-                  <button class="desktop-fly-chip" type="button" data-search-example="CD 2">CD 2</button>
-                  <button class="desktop-fly-chip" type="button" data-search-example="HD 85">HD 85</button>
-                  <button class="desktop-fly-chip" type="button" data-search-example="SD 22">SD 22</button>
-                  <button class="desktop-fly-chip" type="button" data-search-example="Lexington 01">Lexington 01</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="Harris">Harris</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="CD 7">CD 7</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="HD 134">HD 134</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="SD 15">SD 15</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="Travis 301">Travis 301</button>
                 </div>
             </div>
             <div class="control-summary" id="control-summary">
@@ -5786,14 +5748,14 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="control-group" style="margin-bottom:12px;">
                 <span class="section-kicker">Quick Jumps</span>
                 <div class="region-jumps" id="region-jumps">
-                  <button type="button" class="region-jump-btn" data-region-jump="upstate">Upstate</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="piedmont">Piedmont</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="charlotte_metro">Charlotte Metro</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="charleston_metro">Charleston Metro</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="midlands">Midlands</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="pee_dee">Pee Dee</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="grand_strand">Grand Strand</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="lowcountry">Lowcountry</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="dfw_metro">DFW Metro</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="houston_metro">Houston Metro</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="central_texas">Central Texas</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="san_antonio_metro">San Antonio Metro</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="rio_grande_valley">Rio Grande Valley</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="east_texas">East Texas</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="west_texas">West Texas</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="panhandle">Panhandle</button>
                 </div>
             </div>
             <div class="control-group" style="margin-bottom:10px;">
@@ -5818,9 +5780,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span class="section-kicker">Contest</span>
                 <div class="contest-toolbar" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
                   <label>Tools:</label>
-                  <button id="accessibility-toggle" title="Accessibility: Color Blind Mode" style="background:#1f2937;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;">&#9855;</button>
-                  <button id="label-toggle" title="Toggle County Labels" style="background:#1f2937;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;">Aa</button>
-                  <button id="precinct-toggle" title="Enable Precinct Overlay (Zoom 8.5+)" style="background:#065f46;color:#fff;border-radius:8px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;padding:0 10px;">Precincts Off</button>
+                  <button id="accessibility-toggle" title="Accessibility: Color Blind Mode" style="background:#002868;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;">&#9855;</button>
+                  <button id="label-toggle" title="Toggle County Labels" style="background:#002868;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;">Aa</button>
+                  <button id="precinct-toggle" title="Enable Precinct Overlay (Zoom 8.5+)" style="background:#7a1b2f;color:#fff;border-radius:8px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;padding:0 10px;">Precincts Off</button>
                 </div>
                 <div class="contest-search-wrap">
                   <input id="contestSearch" type="search" placeholder="Search contests (e.g., President, Senate, 2008)..." autocomplete="off" spellcheck="false" />
@@ -6019,28 +5981,28 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="modal-body">
           <h3>Modes</h3>
-          <p><strong>Margins</strong>: colors show the <strong>two-party margin</strong> (absolute value of Rep% âˆ’ Dem%). Darker = less competitive.</p>
+          <p><strong>Margins</strong>: colors show the <strong>two-party margin</strong> (absolute value of Rep% - Dem%). Darker = less competitive.</p>
           <p><strong>Winners</strong>: solid color by winner (D/R), regardless of margin size.</p>
-          <p><strong>Shift</strong>: change in <strong>signed</strong> margin vs the nearest available prior election for that contest (e.g. 2020â†’2024). Positive = more Republican; negative = more Democratic.</p>
+          <p><strong>Shift</strong>: change in <strong>signed</strong> margin vs the nearest available prior election for that contest (e.g. 2020-2024). Positive = more Republican; negative = more Democratic.</p>
 
           <h3>Political Categories</h3>
           <p>Category names are just shorthand for margin ranges:</p>
           <ul>
             <li><strong>Annihilation</strong>: &ge;40%</li>
-            <li><strong>Dominant</strong>: 30â€“39.99%</li>
-            <li><strong>Stronghold</strong>: 20â€“29.99%</li>
-            <li><strong>Safe</strong>: 10â€“19.99%</li>
-            <li><strong>Likely</strong>: 5.50â€“9.99%</li>
-            <li><strong>Lean</strong>: 1.00â€“5.49%</li>
-            <li><strong>Tilt</strong>: 0.50â€“0.99%</li>
+            <li><strong>Dominant</strong>: 30-39.99%</li>
+            <li><strong>Stronghold</strong>: 20-29.99%</li>
+            <li><strong>Safe</strong>: 10-19.99%</li>
+            <li><strong>Likely</strong>: 5.50-9.99%</li>
+            <li><strong>Lean</strong>: 1.00-5.49%</li>
+            <li><strong>Tilt</strong>: 0.50-0.99%</li>
             <li><strong>Tossup</strong>: &lt;0.50%</li>
           </ul>
-          <p class="meta-subtle">Example: â€œSafe Republican (10â€“19.99%)â€ means the Republican candidate leads by 10â€“19.99 percentage points (two-party margin).</p>
+          <p class="meta-subtle">Example: "Safe Republican (10-19.99%)" means the Republican candidate leads by 10-19.99 percentage points (two-party margin).</p>
 
           <h3>Hover + Pin</h3>
           <ul>
             <li>Hover a shape to see a quick result card.</li>
-            <li>Click <strong>Pin</strong> in the tooltip to freeze it (so it wonâ€™t change while you move the mouse).</li>
+            <li>Click <strong>Pin</strong> in the tooltip to freeze it (so it won't change while you move the mouse).</li>
             <li>Use <strong>Close</strong> to dismiss a pinned tooltip.</li>
           </ul>
 
@@ -6048,39 +6010,19 @@ document.addEventListener('DOMContentLoaded', function() {
           <ul>
             <li><span class="kbd">P</span> toggles precinct overlay (dots at statewide zoom; polygons when zoomed in).</li>
             <li><span class="kbd">L</span> toggles county labels.</li>
-            <li><strong>â™¿</strong> toggles colorblind-friendly colors.</li>
+            <li><strong>Accessibility button</strong> toggles colorblind-friendly colors.</li>
             <li><strong>Clear</strong> (in the vote counter) unpins a selected area.</li>
           </ul>
 
           <h3>Notes</h3>
-          <p class="meta-subtle">If Shift canâ€™t find a prior year for the selected contest, it falls back to Margins.</p>
+          <p class="meta-subtle">If Shift can't find a prior year for the selected contest, it falls back to Margins.</p>
         </div>
       </div>
     </div>
 
 
-    <div class="atlas-credit-bar" aria-label="Atlas credits">
-      &copy; 2026 Shamar Does Elections | Created by Shamar Davis
-    </div>
-
     <script>
     // --- CONFIG ---
-    const ATLAS_CREATOR_SIGNATURE = Object.freeze({
-      creator: 'Shamar Davis',
-      studio: 'Shamar Does Elections',
-      year: 2026,
-      project: 'The Palmetto Explorer',
-      signature: 'SDE-TPE-2026-SD'
-    });
-    try {
-      Object.defineProperty(window, '__atlas_creator_signature__', {
-        value: ATLAS_CREATOR_SIGNATURE.signature,
-        enumerable: false,
-        configurable: false,
-        writable: false
-      });
-    } catch (_) {}
-
     function detectBasePath() {
       // GitHub Pages project sites are served under /<repo-name>/...
       if (!window.location.hostname.endsWith('github.io')) return '';
@@ -6113,96 +6055,88 @@ document.addEventListener('DOMContentLoaded', function() {
         sources: {
           counties: {
             url: '',
-            sourceLayer: 'tl_2020_45_county20'
+            sourceLayer: 'tl_2020_48_county20'
           },
           districts: {
             url: '',
-            sourceLayer: 'sc_cd118_tileset'
+            sourceLayer: 'tx_cd_tileset'
           },
           state_house: {
             url: '',
-            sourceLayer: 'sc_state_house_2022_lines_til'
+            sourceLayer: 'tx_state_house_2022_lines'
           },
           state_senate: {
             url: '',
-            sourceLayer: 'sc_state_senate_2022_lines_ti'
+            sourceLayer: 'tx_state_senate_2022_lines'
           }
         }
       },
       paths: {
-        counties: withBase('./data/census/tl_2020_45_county20.geojson'),
-        precincts: withBase('./data/Voting_Precincts.geojson'),
-        precinct_centroids: withBase('./data/precinct_centroids.geojson'),
-        districts: withBase('./data/tileset/sc_cd118_tileset.geojson'),
-        state_house: withBase('./data/tileset/sc_state_house_2022_lines_tileset.geojson'),
-        state_senate: withBase('./data/tileset/sc_state_senate_2022_lines_tileset.geojson'),
-        county_demographics: withBase('./data/county_demographics_2020_dp1.json'),
-        election: withBase('./data/sc_elections_aggregated.json'),
-        district_election: withBase('./data/sc_district_results_2022_lines.json'),
-        district_contests_dir: withBase('./data/district_contests'),
-        districts_info: withBase('./data/sc_congressional_districts.csv'),
-        state_house_info: withBase('./data/sc_state_house_districts.csv'),
-        state_senate_info: withBase('./data/sc_state_senate_districts.csv'),
-        district_descriptions: withBase('./data/district_descriptions.json'),
-        contests_dir: withBase('./data/contests')
+        counties: withBase('./Data/tl_2020_48_county20.geojson'),
+        precincts: withBase('./Data/tl_2020_48_vtd20.geojson'),
+        precinct_centroids: withBase('./Data/precinct_centroids_tx.geojson'),
+        districts: withBase('./Data/tx_cd_2025.geojson'),
+        state_house: withBase('./Data/tx_state_house_2022.geojson'),
+        state_senate: withBase('./Data/tx_state_senate_2022.geojson'),
+        county_demographics: withBase('./Data/tx_county_demographics_2020_dp1.json'),
+        election: withBase('./Data/tx_elections_aggregated.json'),
+        district_election: withBase('./Data/tx_district_results_2022_lines.json'),
+        district_contests_dir: withBase('./Data/district_contests'),
+        districts_info: withBase('./Data/tx_congressional_districts.csv'),
+        state_house_info: withBase('./Data/tx_state_house_districts.csv'),
+        state_senate_info: withBase('./Data/tx_state_senate_districts.csv'),
+        district_descriptions: withBase('./Data/district_descriptions.json'),
+        contests_dir: withBase('./Data/contests')
       },
-      center: [-80.9, 33.8],
-      zoom: 6.5,
-      fitBounds: [[-83.4, 32.0], [-78.5, 35.2]],
+      center: [-99.4, 31.2],
+      zoom: 5.6,
+      fitBounds: [[-106.8, 25.8], [-93.4, 36.6]],
       precincts: {
         minZoom: 8.5
       }
     };
 
-    // County memberships back the regional quick jumps so they can drive
-    // real regional rollups instead of only camera movement.
-    // Definitions used:
-    // - Triangle: Research Triangle Regional Partnership
-    // - Triad: Piedmont Triad Regional Council
-    // - Charlotte: 2024 Charlotte-Concord-Gastonia NC counties (BLS/OMB metro definition)
-    // - Mountains: NC Office of State Archaeology mountain region
-    // - Coast: NC DEQ CAMA counties
-    // - Sandhills: NCGS 143B-28.1 Sandhills (South Central) region
+    // Texas regional groupings for quick-jump camera moves and regional rollups.
     const REGION_JUMPS = {
-      upstate: {
-        label: 'Upstate',
-        bounds: [[-83.49, 33.48], [-81.23, 35.33]],
-        counties: ['Abbeville', 'Anderson', 'Cherokee', 'Greenville', 'Greenwood', 'Laurens', 'McCormick', 'Oconee', 'Pickens', 'Spartanburg', 'Union']
+      dfw_metro: {
+        label: 'DFW Metro',
+        bounds: [[-98.2, 31.5], [-95.9, 33.8]],
+        counties: ['Dallas', 'Tarrant', 'Collin', 'Denton', 'Rockwall', 'Kaufman', 'Ellis', 'Johnson', 'Parker', 'Wise']
       },
-      piedmont: {
-        label: 'Piedmont',
-        bounds: [[-83.6, 33.41], [-79.53, 35.33]],
-        counties: ['Abbeville', 'Anderson', 'Cherokee', 'Chester', 'Chesterfield', 'Edgefield', 'Fairfield', 'Greenville', 'Greenwood', 'Kershaw', 'Lancaster', 'Laurens', 'Lexington', 'McCormick', 'Newberry', 'Oconee', 'Pickens', 'Richland', 'Saluda', 'Spartanburg', 'Union', 'York']
+      houston_metro: {
+        label: 'Houston Metro',
+        bounds: [[-96.7, 28.5], [-94.8, 30.9]],
+        counties: ['Harris', 'Fort Bend', 'Montgomery', 'Brazoria', 'Galveston', 'Chambers', 'Liberty', 'Waller']
       },
-      charlotte_metro: {
-        label: 'Charlotte Metro',
-        bounds: [[-81.61, 34.36], [-80.29, 35.26]],
-        counties: ['Chester', 'Lancaster', 'York']
+      central_texas: {
+        label: 'Central Texas',
+        bounds: [[-99.3, 29.3], [-96.7, 31.8]],
+        counties: ['Travis', 'Williamson', 'Hays', 'Bastrop', 'Caldwell', 'Bell', 'Burnet']
       },
-      charleston_metro: {
-        label: 'Charleston Metro',
-        bounds: [[-80.91, 32.38], [-79.14, 33.61]],
-        counties: ['Berkeley', 'Charleston', 'Dorchester']
+      san_antonio_metro: {
+        label: 'San Antonio Metro',
+        bounds: [[-99.8, 28.3], [-97.7, 30.3]],
+        counties: ['Bexar', 'Comal', 'Guadalupe', 'Kendall', 'Wilson', 'Medina', 'Atascosa', 'Bandera']
       },
-      midlands: {
-        label: 'Midlands',
-        bounds: [[-82.32, 32.95], [-80.15, 35.31]],
-        counties: ['Aiken', 'Barnwell', 'Chester', 'Edgefield', 'Fairfield', 'Kershaw', 'Lancaster', 'Lexington', 'Newberry', 'Richland', 'Saluda', 'York']
+      rio_grande_valley: {
+        label: 'Rio Grande Valley',
+        bounds: [[-98.9, 25.7], [-96.7, 27.2]],
+        counties: ['Cameron', 'Hidalgo', 'Starr', 'Willacy']
       },
-      pee_dee: {
-        label: 'Pee Dee',
-        bounds: [[-80.8, 32.93], [-78.35, 34.94]],
-        counties: ['Chesterfield', 'Clarendon', 'Darlington', 'Dillon', 'Florence', 'Georgetown', 'Horry', 'Lee', 'Marion', 'Marlboro', 'Sumter', 'Williamsburg']
+      east_texas: {
+        label: 'East Texas',
+        bounds: [[-96.1, 30.7], [-93.5, 34.7]],
+        counties: ['Smith', 'Gregg', 'Harrison', 'Angelina', 'Nacogdoches', 'Cherokee', 'Bowie', 'Rusk', 'Panola']
       },
-      grand_strand: {
-        label: 'Grand Strand',
-        bounds: [[-79.8, 32.95], [-78.38, 34.4]],
-        counties: ['Georgetown', 'Horry']
+      west_texas: {
+        label: 'West Texas',
+        bounds: [[-106.7, 29.0], [-100.4, 35.2]],
+        counties: ['El Paso', 'Midland', 'Ector', 'Lubbock', 'Taylor', 'Tom Green', 'Brewster', 'Pecos']
       },
-      lowcountry: {
-        label: 'Lowcountry',
-        bounds: [[-81.78, 31.86], [-79.1, 34.01]],
-        counties: ['Allendale', 'Bamberg', 'Beaufort', 'Berkeley', 'Calhoun', 'Charleston', 'Colleton', 'Dorchester', 'Hampton', 'Jasper', 'Orangeburg']
+      panhandle: {
+        label: 'Panhandle',
+        bounds: [[-103.2, 34.3], [-99.9, 36.7]],
+        counties: ['Potter', 'Randall', 'Carson', 'Gray', 'Wheeler', 'Hemphill', 'Hutchinson', 'Moore', 'Deaf Smith', 'Dallam', 'Hartley', 'Oldham']
       }
     };
 
@@ -6455,7 +6389,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let districtsInfo = null;
     let stateHouseInfo = null;
     let stateSenateInfo = null;
-    let districtDescriptions = null; // Optional labels like "Sampson & Bladen Counties" or "Concordâ€“Harrisburg"
+    let districtDescriptions = null; // Optional labels like "Sampson & Bladen Counties" or "Concord-Harrisburg"
     let countyDemographics = null; // County-level VAP (18+) + total-pop race/ethnicity from DP1
     let countyNameMap = {};
     let currentView = 'counties'; // 'counties', 'districts', 'state_house', 'state_senate'
@@ -6612,7 +6546,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="legend-item"><div class="legend-color" style="background: ${colorForFlipMode('T')}; border: 1px solid rgba(15,23,42,0.20);"></div>No flip / No prior</div>
         `;
       } else if (mode === 'shift') {
-        const a = meta?.fromYear ? `${meta.fromYear} â†’ ${meta.toYear || ''}`.trim() : 'Shift';
+        const a = meta?.fromYear ? `${meta.fromYear} -> ${meta.toYear || ''}`.trim() : 'Shift';
         if (header) header.textContent = meta?.fromYear ? `Shift (${a})` : 'Shift';
         content.innerHTML = `
           <div class="legend-item"><div class="legend-color" style="background: ${colorForShiftMode(-15)};"></div>D +15%</div>
@@ -6826,7 +6760,7 @@ document.addEventListener('DOMContentLoaded', function() {
           : 'Tie');
       const leadLabel = winnerParty === 'tie'
         ? 'Tie'
-        : leadMarginPctLabel(r, d, total, { includeParty: false });
+        : leadMarginPctLabel(r, d, total);
 
       winnerEl.textContent = winnerLabel;
       winnerEl.className = `focus-pill-value ${winnerParty}`;
@@ -6925,11 +6859,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       const shift = (Number(currentSignedPct) || 0) - (Number(prevSignedPct) || 0);
       if (Math.abs(shift) < 0.01) {
-        return { cls: 'tie', text: `No shift vs ${prevYear}` };
+        return { cls: 'tie', text: `No shift since ${prevYear}` };
       }
       return {
         cls: shift > 0 ? 'rep' : 'dem',
-        text: `${shift > 0 ? 'R' : 'D'} +${Math.abs(shift).toFixed(2)} vs ${prevYear}`
+        text: `Shift: ${shift > 0 ? 'R' : 'D'}+${Math.abs(shift).toFixed(2)} since ${prevYear}`
       };
     }
 
@@ -7251,6 +7185,101 @@ document.addEventListener('DOMContentLoaded', function() {
       updateVoteCounter(demVotes, repVotes, otherVotes, candidates, meta);
     }
 
+    function refreshPinnedCountyForContest(contestType, year) {
+      const pinned = voteCounterPinned || null;
+      const meta = pinned?.meta || null;
+      if (!meta || meta.kind !== 'county') return false;
+      if (!contestType || !currentElectionResults) return false;
+
+      const countyNorm = normalizeCountyToken(meta.county || window.lastSelectedCounty || '');
+      if (!countyNorm) return false;
+
+      let row = currentElectionResults[countyNorm] || null;
+      if (!row && currentElectionResults) {
+        for (const key of Object.keys(currentElectionResults)) {
+          if (normalizeCountyToken(key) === countyNorm) {
+            row = currentElectionResults[key];
+            break;
+          }
+        }
+      }
+      if (!row) return false;
+
+      const demVotes = Number(row[`${contestType}_dem`] || 0);
+      const repVotes = Number(row[`${contestType}_rep`] || 0);
+      const otherVotes = Number(row[`${contestType}_other`] || 0);
+      const countyDisplay = displayCountyName(row.county || meta.county || countyNorm);
+
+      pinVoteCounterState(
+        `Selected: ${countyDisplay} County`,
+        `${formatContestName(contestType, year)} ${year}`,
+        demVotes,
+        repVotes,
+        otherVotes,
+        {
+          ...meta,
+          kind: 'county',
+          county: countyDisplay.toUpperCase(),
+          contestType,
+          year: Number(year)
+        },
+        {
+          demCandidate: row[`${contestType}_dem_candidate`] || pinned?.candidates?.demCandidate || '',
+          repCandidate: row[`${contestType}_rep_candidate`] || pinned?.candidates?.repCandidate || ''
+        }
+      );
+      return true;
+    }
+
+    async function refreshPinnedDistrictForContest(contestType, year) {
+      if (!contestType || !year) return false;
+
+      const pinned = voteCounterPinned || null;
+      const meta = pinned?.meta || null;
+      let scope = '';
+      let districtNum = NaN;
+
+      if (meta && meta.kind === 'district') {
+        scope = (meta.scope || '').toString().trim();
+        districtNum = Number(meta.districtNum);
+      } else {
+        const selectedLabel = (window.lastSelectedCounty || '').toString().trim();
+        let m = selectedLabel.match(/^CONGRESSIONAL\s+DISTRICT\s+(\d+)$/i) || selectedLabel.match(/^DISTRICT\s+(\d+)$/i);
+        if (m) {
+          scope = 'congressional';
+          districtNum = Number(m[1]);
+        }
+        if (!Number.isFinite(districtNum)) {
+          m = selectedLabel.match(/^STATE\s+HOUSE\s+DISTRICT\s+(\d+)$/i);
+          if (m) {
+            scope = 'state_house';
+            districtNum = Number(m[1]);
+          }
+        }
+        if (!Number.isFinite(districtNum)) {
+          m = selectedLabel.match(/^STATE\s+SENATE\s+DISTRICT\s+(\d+)$/i);
+          if (m) {
+            scope = 'state_senate';
+            districtNum = Number(m[1]);
+          }
+        }
+      }
+
+      if (!scope || !Number.isFinite(districtNum)) return false;
+
+      const viewScope = getDistrictScopeForView(currentView);
+      if (!viewScope) return false;
+      if (scope !== viewScope) {
+        const mappedDistrict = await mapDistrictSelectionAcrossScopes(scope, districtNum, viewScope, Number(year));
+        districtNum = Number(mappedDistrict);
+        scope = viewScope;
+        if (!Number.isFinite(districtNum)) return false;
+      }
+
+      const contestValue = `${contestType}_${year}`;
+      return showAndPinDistrictSelection(scope, districtNum, contestValue);
+    }
+
     function clearVoteCounterHoverState() {
       if (voteCounterPinned) return;
       if (!voteCounterHoverActive) return;
@@ -7346,25 +7375,142 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	    const OPEN_ELECTIONS_CSV = {
 	      president: {
-	        2008: withBase('./data/openelections-data-sc/2008/20081104__sc__general__precinct.csv'),
-	        2012: withBase('./data/openelections-data-sc/2012/20121106__sc__general__precinct.csv'),
-	        2024: withBase('./data/openelections-data-sc/2024/20241105__sc__general__precinct.csv')
+	        2000: withBase('./Data/openelections-data-tx/2000/20001107__tx__general__county.csv'),
+	        2004: withBase('./Data/openelections-data-tx/2004/20041102__tx__general__county.csv'),
+	        2008: withBase('./Data/openelections-data-tx/2008/20081104__tx__general__county.csv'),
+	        2012: withBase('./Data/openelections-data-tx/2012/20121106__tx__general__county.csv'),
+	        2016: withBase('./Data/openelections-data-tx/2016/20161108__tx__general__county.csv'),
+	        2020: withBase('./Data/20201103__tx__general__county__from_clarity.csv'),
+	        2024: withBase('./Data/20241105__tx__general__county__from_clarity.csv')
 	      }
 	    };
 
-	    function getOpenElectionsCsvPath(contestType, year) {
+      // County-level general-election CSV fallback by year.
+      // Prefer root Data/ CSVs generated for this project; keep legacy OpenElections paths
+      // as secondary candidates for compatibility with older local layouts.
+      const COUNTY_GENERAL_CSV = {
+        2000: [
+          withBase('./Data/20001107__tx__general__county.csv'),
+          withBase('./Data/openelections-data-tx/2000/20001107__tx__general__county.csv')
+        ],
+        2002: [
+          withBase('./Data/20021105__tx__general__county.csv'),
+          withBase('./Data/openelections-data-tx/2002/20021105__tx__general__county.csv')
+        ],
+        2004: [
+          withBase('./Data/20041102__tx__general__county.csv'),
+          withBase('./Data/openelections-data-tx/2004/20041102__tx__general__county.csv')
+        ],
+        2006: [
+          withBase('./Data/20061107__tx__general__county.csv'),
+          withBase('./Data/openelections-data-tx/2006/20061107__tx__general__county.csv')
+        ],
+        2008: [
+          withBase('./Data/20081104__tx__general__county.csv'),
+          withBase('./Data/openelections-data-tx/2008/20081104__tx__general__county.csv')
+        ],
+        2010: [
+          withBase('./Data/20101102__tx__general__county.csv'),
+          withBase('./Data/openelections-data-tx/2010/20101102__tx__general__county.csv')
+        ],
+        2012: [
+          withBase('./Data/20121106__tx__general__county.csv'),
+          withBase('./Data/openelections-data-tx/2012/20121106__tx__general__county.csv')
+        ],
+        2016: [
+          withBase('./Data/20161108__tx__general__county.csv'),
+          withBase('./Data/openelections-data-tx/2016/20161108__tx__general__county.csv')
+        ],
+        2018: [
+          withBase('./Data/20181106__tx__general__county.csv'),
+          withBase('./Data/openelections-data-tx/2018/20181106__tx__general__county.csv')
+        ],
+        2020: [
+          withBase('./Data/20201103__tx__general__county__from_clarity.csv'),
+          withBase('./Data/20201103__tx__general__county_from_precinct.csv')
+        ],
+        2022: [
+          withBase('./Data/20221108__tx__general__county__from_clarity.csv'),
+          withBase('./Data/20221108__tx__general__county_from_precinct.csv')
+        ],
+        2024: [
+          withBase('./Data/20241105__tx__general__county__from_clarity.csv')
+        ]
+      };
+
+      function getOpenElectionsCsvPath(contestType, year) {
 	      const y = Number(year);
 	      return OPEN_ELECTIONS_CSV?.[contestType]?.[y] || null;
 	    }
 
+      function getCountyGeneralCsvPaths(year) {
+        const y = Number(year);
+        const configured = COUNTY_GENERAL_CSV?.[y];
+        if (!configured) return [];
+        return Array.isArray(configured) ? configured.filter(Boolean) : [configured];
+      }
+
+      function getCountyGeneralCsvPath(year) {
+        const paths = getCountyGeneralCsvPaths(year);
+        return paths.length ? paths[0] : null;
+      }
+
+      function normalizeOfficeForMatch(officeRaw) {
+        return (officeRaw || '')
+          .toString()
+          .toUpperCase()
+          .replace(/[._/()-]+/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+      }
+
+      function parsePlaceNumberFromOffice(officeNorm) {
+        if (!officeNorm) return null;
+        const patterns = [
+          /\bPLACE\s*(?:NO\.?|NUMBER)?\s*([0-9]{1,2})\b/i,
+          /\bPL(?:ACE)?\.?\s*([0-9]{1,2})\b/i,
+          /\bP([0-9]{1,2})\b/i
+        ];
+        for (const pat of patterns) {
+          const m = officeNorm.match(pat);
+          if (m) {
+            const n = Number(m[1]);
+            if (Number.isFinite(n)) return n;
+          }
+        }
+        return null;
+      }
+
 	    function officeMatchesContestType(officeRaw, contestType) {
-	      const norm = (officeRaw || '').toString().toUpperCase().replace(/[^A-Z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+	      const norm = normalizeOfficeForMatch(officeRaw);
 	      if (!norm) return false;
-	      if (contestType === 'president') return norm === 'PRESIDENT';
-	      if (contestType === 'us_senate') return norm === 'US SENATE' || norm === 'U S SENATE';
-	      if (contestType === 'governor') return norm === 'GOVERNOR';
-	      if (contestType === 'lieutenant_governor') return norm === 'LIEUTENANT GOVERNOR';
-	      if (contestType === 'attorney_general') return norm === 'ATTORNEY GENERAL';
+	      if (contestType === 'president') return /\bPRESIDENT\b/.test(norm);
+	      if (contestType === 'us_senate') return /\b(U S|US|UNITED STATES)\s*(SENATE|SENATOR)\b/.test(norm);
+	      if (contestType === 'governor') return /\bGOVERNOR\b/.test(norm) && !/\b(LIEUTENANT|LT)\b/.test(norm);
+	      if (contestType === 'lieutenant_governor') return /\b(LIEUTENANT|LT)\b.*\bGOVERNOR\b/.test(norm);
+	      if (contestType === 'attorney_general') return /\bATTORNEY\s+GENERAL\b/.test(norm);
+	      if (contestType === 'comptroller') return /\bCOMPTROLLER\b/.test(norm);
+	      if (contestType === 'land_commissioner') return /\b(GENERAL\s+LAND\s+OFFICE|LAND\s+COMMISSIONER|LAND\s+OFFICE)\b/.test(norm);
+	      if (contestType === 'agriculture_commissioner') return /\b(AGRICULTURE|AGRICULTURAL)\b/.test(norm);
+	      if (contestType === 'railroad_commissioner') return /\bRAILROAD\s+COMMISSIONER\b/.test(norm);
+        if (contestType === 'court_of_criminal_appeals_presiding_judge') {
+          return /\b(COURT\s+OF\s+CRIMINAL\s+APPEALS|CRIMINAL\s+APPEALS)\b/.test(norm) && /\bPRESIDING\s+JUDGE\b/.test(norm);
+        }
+        const ccaPlaceMatch = contestType.match(/^court_of_criminal_appeals_place_(\d{1,2})$/);
+        if (ccaPlaceMatch) {
+          if (!/\b(COURT\s+OF\s+CRIMINAL\s+APPEALS|CRIMINAL\s+APPEALS)\b/.test(norm)) return false;
+          if (/\bPRESIDING\s+JUDGE\b/.test(norm)) return false;
+          const expected = Number(ccaPlaceMatch[1]);
+          return parsePlaceNumberFromOffice(norm) === expected;
+        }
+        const scPlaceMatch = contestType.match(/^supreme_court_place_(\d{1,2})(_unexpired)?$/);
+        if (scPlaceMatch) {
+          if (!/\bSUPREME\s+(COURT|CRT|CT)\b/.test(norm)) return false;
+          const expected = Number(scPlaceMatch[1]);
+          const wantUnexpired = !!scPlaceMatch[2];
+          if (wantUnexpired && !/\bUNEXPIRED\b/.test(norm)) return false;
+          return parsePlaceNumberFromOffice(norm) === expected;
+        }
 	      return false;
 	    }
 
@@ -7372,7 +7518,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	      const s0 = (raw || '').toString().trim().toUpperCase().replace(/&/g, ' AND ').replace(/\s+/g, ' ');
 	      if (!s0) return '';
 	      const m = s0.match(/^(.+?)\s+(COUNTY|CITY|TOWN)$/);
-	      return m ? m[1].trim() : s0;
+	      return (m ? m[1].trim() : s0).replace(/\bLA\s*SALLE\b/g, 'LA SALLE');
 	    }
 
 	    function canonicalCountyFromOpenElections(rawCounty) {
@@ -7413,15 +7559,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	                if (!officeMatchesContestType(office, contestType)) return;
 	                const county = canonicalCountyFromOpenElections(r.county);
 	                const precinctRaw = (r.precinct || '').toString().trim();
-	                if (!county || !precinctRaw) return;
+	                if (!county) return;
 	                const code = extractPrecinctCode(precinctRaw);
-	                if (!code) return;
-	                const key = `${county} - ${code}`.replace(/\s+/g, ' ').trim();
+	                const key = code
+	                  ? `${county} - ${code}`.replace(/\s+/g, ' ').trim()
+	                  : county;
 	                const party = (r.party || '').toString().trim().toUpperCase();
 	                const cand = (r.candidate || '').toString().trim();
 	                const votes = Number(r.votes) || 0;
 
-	                if (!byPrecinct.has(key)) byPrecinct.set(key, { dem: 0, rep: 0, other: 0, demCand: '', repCand: '', label: precinctRaw });
+	                if (!byPrecinct.has(key)) byPrecinct.set(key, { dem: 0, rep: 0, other: 0, demCand: '', repCand: '', label: precinctRaw || county });
 	                const node = byPrecinct.get(key);
 	                if (party === 'DEM') { node.dem += votes; if (!node.demCand && cand) node.demCand = cand; }
 	                else if (party === 'REP') { node.rep += votes; if (!node.repCand && cand) node.repCand = cand; }
@@ -7441,15 +7588,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	          if (!officeMatchesContestType(office, contestType)) return;
 	          const county = canonicalCountyFromOpenElections(r.county);
 	          const precinctRaw = (r.precinct || '').toString().trim();
-	          if (!county || !precinctRaw) return;
+	          if (!county) return;
 	          const code = extractPrecinctCode(precinctRaw);
-	          if (!code) return;
-	          const key = `${county} - ${code}`.replace(/\s+/g, ' ').trim();
+	          const key = code
+	            ? `${county} - ${code}`.replace(/\s+/g, ' ').trim()
+	            : county;
 	          const party = (r.party || '').toString().trim().toUpperCase();
 	          const cand = (r.candidate || '').toString().trim();
 	          const votes = Number(r.votes) || 0;
 
-	          if (!byPrecinct.has(key)) byPrecinct.set(key, { dem: 0, rep: 0, other: 0, demCand: '', repCand: '', label: precinctRaw });
+	          if (!byPrecinct.has(key)) byPrecinct.set(key, { dem: 0, rep: 0, other: 0, demCand: '', repCand: '', label: precinctRaw || county });
 	          const node = byPrecinct.get(key);
 	          if (party === 'DEM') { node.dem += votes; if (!node.demCand && cand) node.demCand = cand; }
 	          else if (party === 'REP') { node.rep += votes; if (!node.repCand && cand) node.repCand = cand; }
@@ -7470,6 +7618,86 @@ document.addEventListener('DOMContentLoaded', function() {
 	        [`${contestType}_rep_candidate`]: v.repCand
 	      }));
 	    }
+
+      async function loadCountySliceFromGeneralCountyCSV(contestType, year) {
+        const y = Number(year);
+        const paths = getCountyGeneralCsvPaths(y);
+        if (!paths.length) throw new Error(`No county CSV configured for ${year}`);
+
+        let lastErr = null;
+        for (const path of paths) {
+          try {
+            const csvText = await loadCSV(path);
+            const rows = parseCSV(csvText);
+            const byCounty = new Map();
+
+            rows.forEach(r => {
+              const office = (r.office || '').toString();
+              if (!officeMatchesContestType(office, contestType)) return;
+
+              const county = canonicalCountyFromOpenElections(r.county);
+              if (!county) return;
+
+              const candidate = (r.candidate || '').toString().trim();
+              if (/^TOTAL$/i.test(candidate)) return;
+
+              const partyRaw = (r.party || '').toString().trim().toUpperCase();
+              const party = partyRaw.startsWith('DEM') ? 'DEM' : (partyRaw.startsWith('REP') ? 'REP' : 'OTHER');
+
+              const votesRaw = (r.votes ?? '').toString().replace(/,/g, '').trim();
+              const votes = Number(votesRaw);
+              if (!Number.isFinite(votes)) return;
+
+              if (!byCounty.has(county)) {
+                byCounty.set(county, {
+                  dem: 0,
+                  rep: 0,
+                  other: 0,
+                  demCand: '',
+                  repCand: '',
+                  bestDemVotes: -1,
+                  bestRepVotes: -1
+                });
+              }
+
+              const node = byCounty.get(county);
+              if (party === 'DEM') {
+                node.dem += votes;
+                if (votes >= node.bestDemVotes && candidate) {
+                  node.bestDemVotes = votes;
+                  node.demCand = candidate;
+                }
+              } else if (party === 'REP') {
+                node.rep += votes;
+                if (votes >= node.bestRepVotes && candidate) {
+                  node.bestRepVotes = votes;
+                  node.repCand = candidate;
+                }
+              } else {
+                node.other += votes;
+              }
+            });
+
+            const out = Array.from(byCounty.entries()).map(([county, v]) => ({
+              year: y,
+              county,
+              [`${contestType}_dem`]: v.dem,
+              [`${contestType}_rep`]: v.rep,
+              [`${contestType}_other`]: v.other,
+              [`${contestType}_total`]: v.dem + v.rep + v.other,
+              [`${contestType}_dem_candidate`]: v.demCand || '',
+              [`${contestType}_rep_candidate`]: v.repCand || ''
+            }));
+
+            if (out.length > 0 || path === paths[paths.length - 1]) return out;
+          } catch (err) {
+            lastErr = err;
+          }
+        }
+
+        if (lastErr) throw lastErr;
+        return [];
+      }
 
 	    async function loadPresidentSliceFromOpenElectionsCSV(year) {
 	      return loadStatewideSliceFromOpenElectionsCSV('president', year);
@@ -7494,38 +7722,55 @@ document.addEventListener('DOMContentLoaded', function() {
 	      }
 
 	      const fileKey = `${contestType}_${year}`;
-	      try {
-	        const payload = await loadJSON(`${CONFIG.paths.contests_dir}/${fileKey}.json`);
-	        const rows = (payload.rows || []).map(r => ({
-	          year: Number(year),
-	          county: r.county,
-          [`${contestType}_dem`]: Number(r.dem_votes) || 0,
-          [`${contestType}_rep`]: Number(r.rep_votes) || 0,
-          [`${contestType}_other`]: Number(r.other_votes) || 0,
-          [`${contestType}_total`]: Number(r.total_votes) || 0,
-          [`${contestType}_dem_candidate`]: r.dem_candidate || '',
-          [`${contestType}_rep_candidate`]: r.rep_candidate || '',
-          [`${contestType}_margin`]: Number(r.margin) || 0,
-          [`${contestType}_margin_pct`]: Number(r.margin_pct) || 0,
-          [`${contestType}_winner`]: r.winner || '',
-          [`${contestType}_color`]: r.color || ''
-        }));
-	        contestSliceCache.set(cacheKey, rows);
-	        return rows;
-	      } catch (_) {
-	        if (getOpenElectionsCsvPath(contestType, Number(year))) {
-	          try {
-	            const rows = await loadStatewideSliceFromOpenElectionsCSV(contestType, Number(year));
-	            contestSliceCache.set(cacheKey, rows);
-	            return rows;
-	          } catch (err) {
-	            console.warn('Failed to load OpenElections CSV for', contestType, year, err?.message || err);
-	          }
-	        }
-	        const fallback = (electionData || []).filter(row => row.year == year);
-	        contestSliceCache.set(cacheKey, fallback);
-	        return fallback;
-	      }
+        try {
+          const payload = await loadJSON(`${CONFIG.paths.contests_dir}/${fileKey}.json`);
+          const rows = (payload.rows || []).map(r => ({
+            year: Number(year),
+            county: r.county,
+            [`${contestType}_dem`]: Number(r.dem_votes) || 0,
+            [`${contestType}_rep`]: Number(r.rep_votes) || 0,
+            [`${contestType}_other`]: Number(r.other_votes) || 0,
+            [`${contestType}_total`]: Number(r.total_votes) || 0,
+            [`${contestType}_dem_candidate`]: r.dem_candidate || '',
+            [`${contestType}_rep_candidate`]: r.rep_candidate || '',
+            [`${contestType}_margin`]: Number(r.margin) || 0,
+            [`${contestType}_margin_pct`]: Number(r.margin_pct) || 0,
+            [`${contestType}_winner`]: r.winner || '',
+            [`${contestType}_color`]: r.color || ''
+          }));
+          if (rows && rows.length) {
+            contestSliceCache.set(cacheKey, rows);
+            return rows;
+          }
+        } catch (_) {}
+
+        if (getCountyGeneralCsvPath(Number(year))) {
+          try {
+            const countyRows = await loadCountySliceFromGeneralCountyCSV(contestType, Number(year));
+            if (countyRows && countyRows.length) {
+              contestSliceCache.set(cacheKey, countyRows);
+              return countyRows;
+            }
+          } catch (err) {
+            console.warn('Failed county CSV fallback for', contestType, year, err?.message || err);
+          }
+        }
+
+        if (getOpenElectionsCsvPath(contestType, Number(year))) {
+          try {
+            const rows = await loadStatewideSliceFromOpenElectionsCSV(contestType, Number(year));
+            if (rows && rows.length) {
+              contestSliceCache.set(cacheKey, rows);
+              return rows;
+            }
+          } catch (err) {
+            console.warn('Failed to load OpenElections CSV for', contestType, year, err?.message || err);
+          }
+        }
+
+	      const fallback = (electionData || []).filter(row => row.year == year);
+	      contestSliceCache.set(cacheKey, fallback);
+	      return fallback;
 	    }
 
       // Candidate labels are sometimes blank in older district contest slices (notably US Senate pre-2008).
@@ -7550,6 +7795,24 @@ document.addEventListener('DOMContentLoaded', function() {
           contestCandidateCache.set(key, out);
           return out;
         } catch (_) {
+          try {
+            const countyRows = await loadCountySliceFromGeneralCountyCSV(contestType, Number(year));
+            if (countyRows && countyRows.length) {
+              let bestDem = { name: '', votes: -1 };
+              let bestRep = { name: '', votes: -1 };
+              countyRows.forEach(r => {
+                const dName = (r?.[`${contestType}_dem_candidate`] || '').toString().trim();
+                const rName = (r?.[`${contestType}_rep_candidate`] || '').toString().trim();
+                const dVotes = Number(r?.[`${contestType}_dem`] || 0);
+                const rVotes = Number(r?.[`${contestType}_rep`] || 0);
+                if (dName && dVotes >= bestDem.votes) bestDem = { name: dName, votes: dVotes };
+                if (rName && rVotes >= bestRep.votes) bestRep = { name: rName, votes: rVotes };
+              });
+              const out = { dem: bestDem.name || '', rep: bestRep.name || '' };
+              contestCandidateCache.set(key, out);
+              return out;
+            }
+          } catch (_) {}
           contestCandidateCache.set(key, empty);
           return empty;
         }
@@ -7705,7 +7968,8 @@ document.addEventListener('DOMContentLoaded', function() {
       .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
       .replace(/\s+/g, ' ')
       .trim()
-      .toUpperCase();
+      .toUpperCase()
+      .replace(/\bLA\s*SALLE\b/g, 'LA SALLE');
   }
   electionData.forEach(row => {
     let name = normalizeCountyName(row[countyNameKey]);
@@ -7730,7 +7994,8 @@ document.addEventListener('DOMContentLoaded', function() {
           .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
           .replace(/\s+/g, ' ')
           .trim()
-          .toUpperCase();
+          .toUpperCase()
+          .replace(/\bLA\s*SALLE\b/g, 'LA SALLE');
       }
       geojson.features.forEach(f => {
         const p = f.properties || {};
@@ -7747,6 +8012,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	        'us_senate': 'United States Senator',
 	        'lieutenant_governor': 'Lieutenant Governor',
 	        'attorney_general': 'Attorney General',
+	        'comptroller': 'Comptroller of Public Accounts',
+	        'land_commissioner': 'Commissioner of the General Land Office',
+	        'railroad_commissioner': 'Railroad Commissioner',
 	        'auditor': 'State Auditor',
 	        'labor_commissioner': 'Commissioner of Labor',
 	        'insurance_commissioner': 'Commissioner of Insurance',
@@ -7758,6 +8026,27 @@ document.addEventListener('DOMContentLoaded', function() {
 	        'state_senate': 'State Senate',
 	        'state_house': 'State House'
 	      };
+
+        const txScPlaceMatch = (contestType || '').match(/^supreme_court_place_(\d{1,2})(_unexpired)?$/i);
+        if (txScPlaceMatch) {
+          const placeNum = Number(txScPlaceMatch[1]);
+          const placeLabel = Number.isFinite(placeNum) ? String(placeNum) : txScPlaceMatch[1];
+          const unexpired = txScPlaceMatch[2] ? ' (Unexpired Term)' : '';
+          return `Supreme Court, Place ${placeLabel}${unexpired}`;
+        }
+
+        if (contestType === 'supreme_court_chief_justice') return 'Supreme Court, Chief Justice';
+        if (contestType === 'supreme_court_chief_justice_unexpired') return 'Supreme Court, Chief Justice (Unexpired Term)';
+
+        const txCcaPlaceMatch = (contestType || '').match(/^court_of_criminal_appeals_place_(\d{1,2})$/i);
+        if (txCcaPlaceMatch) {
+          const placeNum = Number(txCcaPlaceMatch[1]);
+          const placeLabel = Number.isFinite(placeNum) ? String(placeNum) : txCcaPlaceMatch[1];
+          return `Court of Criminal Appeals, Place ${placeLabel}`;
+        }
+        if (contestType === 'court_of_criminal_appeals_presiding_judge') {
+          return 'Court of Criminal Appeals, Presiding Judge';
+        }
 
 	      if (contestType.startsWith('a') && contestType.length <= 3) {
 	        return `Amendment ${contestType.substring(1).toUpperCase()}`;
@@ -7804,11 +8093,35 @@ document.addEventListener('DOMContentLoaded', function() {
       // Use only non-gerrymandered statewide contests for all views
       populateContestSelectFromCSV(electionData);
     }
-
     let contestChangeInFlight = false;
     let queuedContestSelection = null;
     let contestSelectionSeq = 0;
     let lastCompletedContestSelection = '';
+    const contestSelectNavKeys = new Set(['ArrowUp', 'ArrowDown', 'Home', 'End', 'PageUp', 'PageDown']);
+
+    function wireContestSelectHandlers(sel) {
+      if (!sel) return;
+      const triggerContestSelection = () => {
+        handleContestSelectionChange(sel.value);
+      };
+      sel.onchange = triggerContestSelection;
+      sel.oninput = triggerContestSelection;
+      if (sel.dataset.keyboardContestNavWired === 'true') return;
+      sel.dataset.keyboardContestNavWired = 'true';
+      sel.addEventListener('keydown', function(ev) {
+        if (!contestSelectNavKeys.has(ev?.key)) return;
+        const before = (sel.value || '').toString();
+        const schedule = (typeof window.requestAnimationFrame === 'function')
+          ? window.requestAnimationFrame.bind(window)
+          : (cb => setTimeout(cb, 0));
+        schedule(() => {
+          const after = (sel.value || '').toString();
+          if (after !== before) {
+            handleContestSelectionChange(after);
+          }
+        });
+      });
+    }
 
     function shouldRefreshCountyDetailsOnContestChange() {
       if (!SIDEBAR_ENABLED) return false;
@@ -7818,7 +8131,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (detailsDiv && detailsDiv.style && detailsDiv.style.display === 'none') return false;
       return true;
     }
-
     function queueCountyDetailsRefresh() {
       if (!shouldRefreshCountyDetailsOnContestChange()) return;
       const county = (window.lastSelectedCounty || '').toString().trim();
@@ -7832,7 +8144,6 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(refresh, 0);
       }
     }
-
     function queueContestSelection(contestKey) {
       const key = (contestKey || '').toString().trim();
       const seq = ++contestSelectionSeq;
@@ -7840,15 +8151,14 @@ document.addEventListener('DOMContentLoaded', function() {
       queuedContestSelection = next;
       return next;
     }
-
     async function handleContestSelectionChange(contestKey) {
       const queued = queueContestSelection(contestKey);
+      // Skip duplicate re-applies when the selected contest is already active.
       if (!contestChangeInFlight && queued.key && queued.key === lastCompletedContestSelection) {
         queueCountyDetailsRefresh();
         return;
       }
       if (contestChangeInFlight) return;
-
       contestChangeInFlight = true;
       try {
         while (true) {
@@ -7856,12 +8166,10 @@ document.addEventListener('DOMContentLoaded', function() {
           queuedContestSelection = null;
           if (!next) break;
           await applyContest(next.key, { selectionSeq: next.seq });
-
           // If users switched again while we were loading, apply the newest selection next.
           if (queuedContestSelection && queuedContestSelection.seq !== next.seq) {
             continue;
           }
-
           if (next.key) lastCompletedContestSelection = next.key;
           queueCountyDetailsRefresh();
           break;
@@ -7883,6 +8191,9 @@ document.addEventListener('DOMContentLoaded', function() {
           'governor',
           'lieutenant_governor',
           'attorney_general',
+          'comptroller',
+          'land_commissioner',
+          'railroad_commissioner',
           'auditor',
           'secretary_of_state',
           'treasurer',
@@ -7928,6 +8239,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	        if (contestType === 'governor') return 'Governor';
 	        if (contestType === 'lieutenant_governor') return 'Lieutenant Governor';
 	        if (contestType === 'attorney_general') return 'Attorney General';
+	        if (contestType === 'comptroller') return 'Comptroller of Public Accounts';
+	        if (contestType === 'land_commissioner') return 'Commissioner of the General Land Office';
+	        if (contestType === 'railroad_commissioner') return 'Railroad Commissioner';
 	        if (contestType === 'secretary_of_state') return 'Secretary of State';
 	        if (contestType === 'treasurer') return 'Treasurer';
 	        if (contestType === 'auditor') return 'Auditor';
@@ -7935,12 +8249,18 @@ document.addEventListener('DOMContentLoaded', function() {
 	        if (contestType === 'insurance_commissioner') return 'Insurance Commissioner';
 	        if (contestType === 'agriculture_commissioner') return 'Agriculture Commissioner';
 	        if (contestType === 'superintendent') return 'Superintendent of Public Instruction';
+	        if (contestType.startsWith('supreme_court_')) return 'Supreme Court';
+	        if (contestType.startsWith('court_of_criminal_appeals_')) return 'Court of Criminal Appeals';
 	        if (contestType.startsWith('nc_supreme_court_')) return 'NC Supreme Court';
 	        if (contestType.startsWith('nc_court_of_appeals_')) return 'Court of Appeals';
 	        return formatContestName(contestType, '');
 	      }
 
 	      function extractSeatNumFromType(contestType) {
+          if ((contestType || '') === 'court_of_criminal_appeals_presiding_judge') return 0;
+          if ((contestType || '').startsWith('supreme_court_chief_justice')) return 0;
+          const placeMatch = (contestType || '').match(/(?:place_|place)(\d+)/i);
+          if (placeMatch) return Number(placeMatch[1]);
 	        const m = (contestType || '').match(/(?:seat_|seat)(\d+)/i);
 	        return m ? Number(m[1]) : null;
 	      }
@@ -7951,6 +8271,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	        'Governor',
 	        'Lieutenant Governor',
 	        'Attorney General',
+	        'Comptroller of Public Accounts',
+	        'Commissioner of the General Land Office',
 	        'Secretary of State',
 	        'Treasurer',
 	        'Auditor',
@@ -7958,6 +8280,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	        'Insurance Commissioner',
 	        'Agriculture Commissioner',
 	        'Superintendent of Public Instruction',
+	        'Railroad Commissioner',
+          'Supreme Court',
+          'Court of Criminal Appeals',
 	        'NC Supreme Court',
 	        'Court of Appeals'
 	      ];
@@ -7980,7 +8305,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	      const fragment = document.createDocumentFragment();
 	      orderedLabels.forEach(label => {
 	        const items = (grouped.get(label) || []).slice();
-	        const isJudicial = (label === 'NC Supreme Court' || label === 'Court of Appeals');
+	        const isJudicial = (
+            label === 'Supreme Court' ||
+            label === 'Court of Criminal Appeals' ||
+            label === 'NC Supreme Court' ||
+            label === 'Court of Appeals'
+          );
 	        items.sort((a, b) => {
 	          const y = Number(a.year) - Number(b.year);
 	          if (y !== 0) return y;
@@ -8016,9 +8346,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	      sel.appendChild(fragment);
 	      sel.dataset.populated = 'true';
-	      sel.onchange = () => {
-        handleContestSelectionChange(sel.value);
-      };
+	      wireContestSelectHandlers(sel);
 	    }
 
     function updateContestSelectForCurrentView() {
@@ -8052,7 +8380,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (sel) {
           sel.innerHTML = '<option value="">No contests available for this view</option>';
           sel.dataset.populated = 'true';
-          sel.onchange = () => { handleContestSelectionChange(sel.value); };
+          wireContestSelectHandlers(sel);
         }
         return;
       }
@@ -8073,7 +8401,7 @@ document.addEventListener('DOMContentLoaded', function() {
         spinner.id = 'contest-loading-spinner';
         spinner.className = 'spinner';
         spinner.style.marginLeft = '8px';
-        spinner.innerHTML = '<svg width="18" height="18" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" stroke-dasharray="31.4 31.4" transform="rotate(-90 25 25)"/></svg>';
+        spinner.innerHTML = '<svg width="18" height="18" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke="#002868" stroke-width="5" stroke-linecap="round" stroke-dasharray="31.4 31.4" transform="rotate(-90 25 25)"/></svg>';
         sel.parentNode.insertBefore(spinner, sel.nextSibling);
       }
 	      const contestTypes = [
@@ -8082,6 +8410,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	        'governor',
 	        'lieutenant_governor',
 	        'attorney_general',
+	        'comptroller',
+	        'land_commissioner',
+	        'railroad_commissioner',
 	        'secretary_of_state',
 	        'treasurer',
 	        'auditor',
@@ -8106,6 +8437,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	        if (contestType === 'governor') return 'Governor';
 	        if (contestType === 'lieutenant_governor') return 'Lieutenant Governor';
 	        if (contestType === 'attorney_general') return 'Attorney General';
+	        if (contestType === 'comptroller') return 'Comptroller of Public Accounts';
+	        if (contestType === 'land_commissioner') return 'Commissioner of the General Land Office';
+	        if (contestType === 'railroad_commissioner') return 'Railroad Commissioner';
 	        if (contestType === 'secretary_of_state') return 'Secretary of State';
 	        if (contestType === 'treasurer') return 'Treasurer';
 	        if (contestType === 'auditor') return 'Auditor';
@@ -8113,6 +8447,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	        if (contestType === 'insurance_commissioner') return 'Insurance Commissioner';
 	        if (contestType === 'agriculture_commissioner') return 'Agriculture Commissioner';
 	        if (contestType === 'superintendent') return 'Superintendent of Public Instruction';
+	        if (contestType.startsWith('supreme_court_')) return 'Supreme Court';
+	        if (contestType.startsWith('court_of_criminal_appeals_')) return 'Court of Criminal Appeals';
 	        return formatContestName(contestType, '');
 	      }
 
@@ -8122,13 +8458,18 @@ document.addEventListener('DOMContentLoaded', function() {
 	        'Governor',
 	        'Lieutenant Governor',
 	        'Attorney General',
+	        'Comptroller of Public Accounts',
+	        'Commissioner of the General Land Office',
 	        'Secretary of State',
 	        'Treasurer',
 	        'Auditor',
 	        'Labor Commissioner',
 	        'Insurance Commissioner',
 	        'Agriculture Commissioner',
-	        'Superintendent of Public Instruction'
+	        'Superintendent of Public Instruction',
+	        'Railroad Commissioner',
+          'Supreme Court',
+          'Court of Criminal Appeals'
 	      ];
 
 	      const grouped = new Map(); // label -> Array<{contestType, year}>
@@ -8166,9 +8507,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Hide loading spinner
   var spinner = document.getElementById('contest-loading-spinner');
   if (spinner) spinner.style.display = 'none';
-      sel.onchange = () => {
-        handleContestSelectionChange(sel.value);
-      };
+      wireContestSelectHandlers(sel);
 
     }
 
@@ -8188,7 +8527,7 @@ document.addEventListener('DOMContentLoaded', function() {
           sel.appendChild(opt);
         }
       });
-      sel.onchange = () => { handleContestSelectionChange(sel.value); };
+      wireContestSelectHandlers(sel);
     }
 
     function populateContestSelectForStateSenate(csvData) {
@@ -8207,7 +8546,7 @@ document.addEventListener('DOMContentLoaded', function() {
           sel.appendChild(opt);
         }
       });
-      sel.onchange = () => { handleContestSelectionChange(sel.value); };
+      wireContestSelectHandlers(sel);
     }
 
     function populateContestSelectFromCongressionalCSV(csvData) {
@@ -8226,7 +8565,7 @@ document.addEventListener('DOMContentLoaded', function() {
           sel.appendChild(opt);
         }
       });
-      sel.onchange = () => { handleContestSelectionChange(sel.value); };
+      wireContestSelectHandlers(sel);
     }
 
     function setAnalysisMode(mode) {
@@ -8281,22 +8620,22 @@ document.addEventListener('DOMContentLoaded', function() {
           compColor = winner === 'Republican' ? '#7f1d1d' : '#1e3a8a';
         } else if (marginPct >= 20 && marginPct <= 29.99) {
           compLabel = winner === 'Republican' ? "Stronghold Republican (20.00-29.99%)" : "Stronghold Democratic (20.00-29.99%)";
-          compColor = winner === 'Republican' ? '#dc2626' : '#2563eb';
+          compColor = winner === 'Republican' ? '#bf0a30' : '#002868';
         } else if (marginPct >= 10 && marginPct <= 19.99) {
           compLabel = winner === 'Republican' ? "Safe Republican (10.00-19.99%)" : "Safe Democratic (10.00-19.99%)";
-          compColor = winner === 'Republican' ? '#dc2626' : '#3b82f6';
+          compColor = winner === 'Republican' ? '#bf0a30' : '#1f4f98';
         } else if (marginPct >= 5.50 && marginPct <= 9.99) {
           compLabel = winner === 'Republican' ? "Likely Republican (5.50-9.99%)" : "Likely Democratic (5.51-9.99%)";
-          compColor = winner === 'Republican' ? '#ef4444' : '#60a5fa';
+          compColor = winner === 'Republican' ? '#c11d3f' : '#5b7db8';
         } else if (marginPct >= 1 && marginPct <= 5.49) {
           compLabel = winner === 'Republican' ? "Lean Republican (1.00-5.49%)" : "Lean Democratic (1.00-5.49%)";
-          compColor = winner === 'Republican' ? '#f87171' : '#93c5fd';
+          compColor = winner === 'Republican' ? '#d66a84' : '#93c5fd';
         } else if (marginPct >= 0.50 && marginPct <= 0.99) {
           compLabel = winner === 'Republican' ? "Tilt Republican (0.50-0.99%)" : "Tilt Democratic (0.50-0.99%)";
           compColor = winner === 'Republican' ? '#fff1f2' : '#dbeafe';
         } else {
           compLabel = winner === 'Democratic' ? 'Tossup (Democratic Win - <0.50%)' : 'Tossup (Republican Win - <0.50%)';
-          compColor = winner === 'Democratic' ? '#2563eb' : '#dc2626';
+          compColor = winner === 'Democratic' ? '#002868' : '#bf0a30';
         }
 
         // Build the horizontal bar with D/R/Other if present.
@@ -8316,13 +8655,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const breakdownItems = [
           {
             label: 'D',
-            color: '#2563eb',
+            color: '#002868',
             votes: demVotes,
             pct: demPct
           },
           {
             label: 'R',
-            color: '#dc2626',
+            color: '#bf0a30',
             votes: repVotes,
             pct: repPct
           }
@@ -8362,9 +8701,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         statewideContent.innerHTML = `
           <div class="statewide-margin" style="margin-bottom:0;">
-            <div class="margin-text" style="color: ${winner === 'Republican' ? '#dc2626' : '#2563eb'};font-size:18px;font-weight:700;text-align:left;">
-              Winner: <span style="color:${winner === 'Republican' ? '#dc2626' : '#2563eb'}">${fullCandidateLabel(winner === 'Republican' ? repCandidate : demCandidate, winner === 'Republican' ? 'Republican' : 'Democratic')} (${winner === 'Republican' ? 'R' : 'D'})</span><br>
-              Margin: <span style="color:${winner === 'Republican' ? '#dc2626' : '#2563eb'}">${winnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate)}</span> <span style="color:#64748b;font-size:14px;">(${Math.abs(repVotes-demVotes).toLocaleString()} votes)</span>
+            <div class="margin-text" style="color: ${winner === 'Republican' ? '#bf0a30' : '#002868'};font-size:18px;font-weight:700;text-align:left;">
+              Winner: <span style="color:${winner === 'Republican' ? '#bf0a30' : '#002868'}">${fullCandidateLabel(winner === 'Republican' ? repCandidate : demCandidate, winner === 'Republican' ? 'Republican' : 'Democratic')} (${winner === 'Republican' ? 'R' : 'D'})</span><br>
+              Margin: <span style="color:${winner === 'Republican' ? '#bf0a30' : '#002868'}">${winnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate)}</span> <span style="color:#64748b;font-size:14px;">(${Math.abs(repVotes-demVotes).toLocaleString()} votes)</span>
             </div>
             ${splitSection}
             <div style="margin-top:10px;font-size:15px;color:#374151;font-weight:600;">
@@ -8708,7 +9047,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!cleaned) return fallback;
       const parts = cleaned.split(' ').filter(Boolean);
       if (!parts.length) return fallback;
-      return parts[parts.length - 1];
+      return toTitleCaseName(parts[parts.length - 1]);
     }
 
     function fullCandidateLabel(name, fallback = '') {
@@ -8769,7 +9108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lead) return lead;
       }
       // Common presidential ticket separators.
-      const seps = [' / ', '/', ' & ', '&', ' + ', '+', ' - ', ' â€“ ', ' â€” '];
+      const seps = [' / ', '/', ' & ', '&', ' + ', '+', ' - ', ' – ', ' — '];
       seps.unshift('|');
       seps.unshift(' | ');
       for (const sep of seps) {
@@ -8804,7 +9143,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return Math.abs(repPct - demPct);
     }
 
-    function leadMarginPctLabel(repVotes, demVotes, totalVotes, options = {}) {
+    function leadMarginPctLabel(repVotes, demVotes, totalVotes) {
       const margin = Number(repVotes || 0) - Number(demVotes || 0);
       if (!margin) return 'Tie';
       return `${marginPctValue(repVotes, demVotes, totalVotes).toFixed(2)}%`;
@@ -8859,7 +9198,7 @@ document.addEventListener('DOMContentLoaded', function() {
           winnerName: fullCandidateLabel(repCandidate, 'Republican'),
           shortLabel: shortCandidateLabel(repCandidate, 'Republican'),
           marginPct,
-          text: `${shortCandidateLabel(repCandidate, 'Republican')} +${marginPct.toFixed(2)}%`
+          text: `${shortCandidateLabel(repCandidate, 'Republican')} +${marginPct.toFixed(2)}`
         };
       }
       if (demVotes > repVotes) {
@@ -8868,7 +9207,7 @@ document.addEventListener('DOMContentLoaded', function() {
           winnerName: fullCandidateLabel(demCandidate, 'Democratic'),
           shortLabel: shortCandidateLabel(demCandidate, 'Democratic'),
           marginPct,
-          text: `${shortCandidateLabel(demCandidate, 'Democratic')} +${marginPct.toFixed(2)}%`
+          text: `${shortCandidateLabel(demCandidate, 'Democratic')} +${marginPct.toFixed(2)}`
         };
       }
       return {
@@ -9096,9 +9435,7 @@ document.addEventListener('DOMContentLoaded', function() {
         : (winnerParty === 'dem'
           ? formatVoteCounterCandidateLabel(resolvedCandidates.demCandidate, 'D', 'Democratic')
           : 'Tie');
-      const leadLabel = winnerParty === 'tie'
-        ? 'Tie'
-        : leadMarginPctLabel(r, d, total, { includeParty: false });
+      const leadLabel = winnerParty === 'tie' ? 'Tie' : leadMarginPctLabel(r, d, total);
 
       winnerEl.textContent = winnerLabel;
       winnerEl.className = `focus-pill-value ${winnerParty}`;
@@ -9156,22 +9493,22 @@ document.addEventListener('DOMContentLoaded', function() {
           compColor = winnerCall.party === 'rep' ? '#7f1d1d' : '#1e3a8a';
         } else if (marginPct >= 20) {
           compLabel = winnerCall.party === 'rep' ? 'Stronghold Republican (20.00-29.99%)' : 'Stronghold Democratic (20.00-29.99%)';
-          compColor = winnerCall.party === 'rep' ? '#dc2626' : '#2563eb';
+          compColor = winnerCall.party === 'rep' ? '#bf0a30' : '#002868';
         } else if (marginPct >= 10) {
           compLabel = winnerCall.party === 'rep' ? 'Safe Republican (10.00-19.99%)' : 'Safe Democratic (10.00-19.99%)';
-          compColor = winnerCall.party === 'rep' ? '#dc2626' : '#3b82f6';
+          compColor = winnerCall.party === 'rep' ? '#bf0a30' : '#1f4f98';
         } else if (marginPct >= 5.5) {
           compLabel = winnerCall.party === 'rep' ? 'Likely Republican (5.50-9.99%)' : 'Likely Democratic (5.50-9.99%)';
-          compColor = winnerCall.party === 'rep' ? '#ef4444' : '#60a5fa';
+          compColor = winnerCall.party === 'rep' ? '#c11d3f' : '#5b7db8';
         } else if (marginPct >= 1) {
           compLabel = winnerCall.party === 'rep' ? 'Lean Republican (1.00-5.49%)' : 'Lean Democratic (1.00-5.49%)';
-          compColor = winnerCall.party === 'rep' ? '#f87171' : '#93c5fd';
+          compColor = winnerCall.party === 'rep' ? '#d66a84' : '#93c5fd';
         } else if (marginPct >= 0.5) {
           compLabel = winnerCall.party === 'rep' ? 'Tilt Republican (0.50-0.99%)' : 'Tilt Democratic (0.50-0.99%)';
           compColor = winnerCall.party === 'rep' ? '#fff1f2' : '#dbeafe';
         } else {
           compLabel = winnerCall.party === 'dem' ? 'Tossup (Democratic Win - <0.50%)' : (winnerCall.party === 'rep' ? 'Tossup (Republican Win - <0.50%)' : 'Tossup');
-          compColor = winnerCall.party === 'dem' ? '#2563eb' : (winnerCall.party === 'rep' ? '#dc2626' : '#64748b');
+          compColor = winnerCall.party === 'dem' ? '#002868' : (winnerCall.party === 'rep' ? '#bf0a30' : '#64748b');
         }
 
         const breakdownItems = [
@@ -9179,7 +9516,7 @@ document.addEventListener('DOMContentLoaded', function() {
             key: 'dem',
             label: 'D',
             candidate: fullCandidateLabel(demCandidate, 'Democratic'),
-            color: '#2563eb',
+            color: '#002868',
             votes: demVotes,
             pct: demPct
           },
@@ -9187,7 +9524,7 @@ document.addEventListener('DOMContentLoaded', function() {
             key: 'rep',
             label: 'R',
             candidate: fullCandidateLabel(repCandidate, 'Republican'),
-            color: '#dc2626',
+            color: '#bf0a30',
             votes: repVotes,
             pct: repPct
           }
@@ -9307,7 +9644,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="rc-row">
             <div class="rc-chip">
               <div class="k">D: ${demFull}</div>
-              <div class="v" style="color:#1d4ed8;">${d.toLocaleString()} (${demPct.toFixed(2)}%)</div>
+              <div class="v" style="color:#0b3d91;">${d.toLocaleString()} (${demPct.toFixed(2)}%)</div>
             </div>
             <div class="rc-chip">
               <div class="k">OTHER</div>
@@ -9433,7 +9770,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .sort((a, b) => a.year - b.year)
         .map(s => {
           const win = (s.winner || '').toString().toUpperCase();
-          const color = win === 'REP' ? '#ef4444' : (win === 'DEM' ? '#3b82f6' : '#a3a3a3');
+          const color = win === 'REP' ? '#c11d3f' : (win === 'DEM' ? '#1f4f98' : '#a3a3a3');
           const label = winnerMarginLabelShort(s.rep_votes, s.dem_votes, s.total_votes, s.rep_candidate, s.dem_candidate);
           return `<div style="display:flex;justify-content:space-between;gap:10px;"><span style="color:#cbd5e1;">${s.year}</span><span style="color:${color};font-weight:700;">${label}</span></div>`;
         })
@@ -9447,7 +9784,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const abs = Math.abs(s);
       const label = abs < 0.01 ? 'No change' : `${dir} + ${abs.toFixed(2)}%`;
       const dotColor = colorForShiftMode(s);
-      const years = (prevYear && year) ? `${prevYear}â†’${year}` : '';
+      const years = (prevYear && year) ? `${prevYear}->${year}` : '';
       return `<span class="meta-chip shift"><span class="dot" style="background:${dotColor};"></span>Shift: ${label}${years ? ` <span style="color:#64748b;font-weight:800;">(${years})</span>` : ''}</span>`;
     }
 
@@ -10357,7 +10694,8 @@ document.addEventListener('DOMContentLoaded', function() {
           .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
           .replace(/\s+/g, ' ')
           .trim()
-          .toUpperCase();
+          .toUpperCase()
+          .replace(/\bLA\s*SALLE\b/g, 'LA SALLE');
       }
       let norm = normalizeCountyName(countyName);
       let countyData = currentElectionResults[norm];
@@ -10446,7 +10784,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       const isColorblind = document.body.classList.contains('colorblind-mode');
       // Accessibility palette for winner color (always orange/yellow for Republican in colorblind mode)
-      let winnerColor = '#dc2626';
+      let winnerColor = '#bf0a30';
       if (winner === 'Republican') {
         if (isColorblind) {
           if (parseFloat(marginPct) >= 40) winnerColor = '#cc5500';
@@ -10459,7 +10797,7 @@ document.addEventListener('DOMContentLoaded', function() {
           else winnerColor = '#cccccc';
         }
       } else {
-        winnerColor = isColorblind ? cbColorForMargin(parseFloat(marginPct), 'D') : '#2563eb';
+        winnerColor = isColorblind ? cbColorForMargin(parseFloat(marginPct), 'D') : '#002868';
       }
       // Precincts (if available)
       let precincts = '';
@@ -10480,7 +10818,7 @@ document.addEventListener('DOMContentLoaded', function() {
   sidebarContent += '<h3 class="sidebar-section-title">Margin</h3>';
   let marginColor = winnerColor;
   if (winner !== 'Republican') {
-    marginColor = isColorblind ? cbColorForMargin(parseFloat(marginPct), 'D') : '#2563eb';
+    marginColor = isColorblind ? cbColorForMargin(parseFloat(marginPct), 'D') : '#002868';
   }
   sidebarContent += `<p class="sidebar-margin" style="color: ${marginColor}; font-weight: bold;">${marginText}</p>`;
   sidebarContent += `<p class="sidebar-margin-details" style="color: #6b7280;">(${Math.abs(margin).toLocaleString()} vote margin)</p>`;
@@ -10488,7 +10826,7 @@ document.addEventListener('DOMContentLoaded', function() {
   sidebarContent += `<div class="vote-breakdown">`;
   sidebarContent += '<h3 class="sidebar-section-title">Vote Breakdown</h3>';
   // For colorblind mode, use the correct accessibility palette for Republican vote breakdown
-  let repColor = '#dc2626';
+  let repColor = '#bf0a30';
   if (isColorblind) {
     if (parseFloat(marginPct) >= 40) repColor = '#cc5500';
     else if (parseFloat(marginPct) >= 30 && parseFloat(marginPct) <= 39.99) repColor = '#ff6600';
@@ -10500,14 +10838,14 @@ document.addEventListener('DOMContentLoaded', function() {
     else repColor = '#cccccc';
   } else {
     // Non-accessibility mode: always use red for Republican vote breakdown
-    repColor = '#dc2626';
+    repColor = '#bf0a30';
   }
   let demColor;
   if (isColorblind) {
     demColor = cbColorForMargin(parseFloat(marginPct), 'D');
   } else {
     // Non-accessibility mode: always use regular blue for Democratic vote breakdown
-    demColor = '#2563eb';
+    demColor = '#002868';
   }
   sidebarContent += `<p class="sidebar-breakdown"><span style="color: ${demColor}; font-weight: bold;">${fullCandidateLabel(demCandidate, 'Democratic')} (D)</span> : ${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</p>`;
   sidebarContent += `<p class="sidebar-breakdown"><span style="color: ${repColor}; font-weight: bold;">${fullCandidateLabel(repCandidate, 'Republican')} (R)</span> : ${repPct.toFixed(2)}% (${repVotes.toLocaleString()})</p>`;
@@ -10545,7 +10883,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (buckets.size) {
         sidebarContent += `<div class="margin-section">`;
         sidebarContent += '<h3 class="sidebar-section-title">Non-geographic votes</h3>';
-        sidebarContent += `<p class="sidebar-margin-details" style="margin-top:0;">Included in totals; not shown as precincts (e.g., Early Vote â€œEVâ€).</p>`;
+        sidebarContent += `<p class="sidebar-margin-details" style="margin-top:0;">Included in totals; not shown as precincts (e.g., Early Vote "EV").</p>`;
         Array.from(buckets.entries())
           .sort((a, b) => (b[1].total || 0) - (a[1].total || 0))
           .slice(0, 10)
@@ -10595,21 +10933,21 @@ document.addEventListener('DOMContentLoaded', function() {
   let compColor = '#6b7280';
   // Handle tossup cases with better colors and formatting like index (1).html
   if (competitiveness.includes('Tossup')) {
-    compColor = winner === 'Democratic' ? '#2563eb' : '#dc2626';
+    compColor = winner === 'Democratic' ? '#002868' : '#bf0a30';
   } else if (competitiveness.includes('Rep')) {
     if (competitiveness.includes('Annihilation')) compColor = '#7f1d1d';
     else if (competitiveness.includes('Dominant')) compColor = '#b91c1c';
-    else if (competitiveness.includes('Stronghold')) compColor = '#dc2626';
-    else if (competitiveness.includes('Safe')) compColor = '#ef4444';
-    else if (competitiveness.includes('Likely')) compColor = '#f87171';
+    else if (competitiveness.includes('Stronghold')) compColor = '#bf0a30';
+    else if (competitiveness.includes('Safe')) compColor = '#c11d3f';
+    else if (competitiveness.includes('Likely')) compColor = '#d66a84';
     else if (competitiveness.includes('Lean')) compColor = '#fecaca';
     else if (competitiveness.includes('Tilt')) compColor = '#fff1f2';
   } else if (competitiveness.includes('Dem')) {
     if (competitiveness.includes('Annihilation')) compColor = '#1e3a8a';
-    else if (competitiveness.includes('Dominant')) compColor = '#1d4ed8';
-    else if (competitiveness.includes('Stronghold')) compColor = '#2563eb';
-    else if (competitiveness.includes('Safe')) compColor = '#3b82f6';
-    else if (competitiveness.includes('Likely')) compColor = '#60a5fa';
+    else if (competitiveness.includes('Dominant')) compColor = '#0b3d91';
+    else if (competitiveness.includes('Stronghold')) compColor = '#002868';
+    else if (competitiveness.includes('Safe')) compColor = '#1f4f98';
+    else if (competitiveness.includes('Likely')) compColor = '#5b7db8';
     else if (competitiveness.includes('Lean')) compColor = '#93c5fd';
     else if (competitiveness.includes('Tilt')) compColor = '#dbeafe';
   }
@@ -10644,7 +10982,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .sort((a, b) => a.year - b.year)
         .map(s => {
           const win = (s.winner || '').toString().toUpperCase();
-          const color = win === 'REP' ? '#ef4444' : (win === 'DEM' ? '#3b82f6' : '#a3a3a3');
+          const color = win === 'REP' ? '#c11d3f' : (win === 'DEM' ? '#1f4f98' : '#a3a3a3');
           const label = winnerMarginLabelShort(s.rep_votes, s.dem_votes, s.total_votes, s.rep_candidate, s.dem_candidate);
           return `<div style="display:flex;justify-content:space-between;gap:10px;"><span style="color:#64748b;">${s.year}</span><span style="color:${color};font-weight:700;">${label}</span></div>`;
         })
@@ -11145,7 +11483,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           btn.textContent = precinctsEnabled ? 'Precincts On' : 'Precincts Off';
         }
-        btn.style.background = precinctsEnabled ? '#1d4ed8' : '#065f46';
+        btn.style.background = precinctsEnabled ? '#0b3d91' : '#7a1b2f';
         btn.style.opacity = precinctLoadInFlight ? '0.75' : '1';
       }
       const minZoom = (CONFIG.precincts?.minZoom || 8.5);
@@ -11734,7 +12072,7 @@ document.addEventListener('DOMContentLoaded', function() {
           countiesGeoJSON = await loadJSON(CONFIG.paths.counties);
         } catch (_) {
           try {
-            countiesGeoJSON = await loadJSON(withBase('./data/census/tl_2020_45_county20.geojson'));
+            countiesGeoJSON = await loadJSON(withBase('./Data/tl_2020_48_county20.geojson'));
           } catch (_) {
             countiesGeoJSON = null;
           }
@@ -11888,7 +12226,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const match = gj.features.find(f => getDistrictNumberFromPropsNumeric(f.properties) === Number(districtNum));
       if (!match) {
         console.warn('District not found for search:', label, districtNum);
-        setFlySearchFeedback('#ef4444');
+        setFlySearchFeedback('#c11d3f');
         setStatus(`${label} ${districtNum} not found on the map.`);
         return;
       }
@@ -11930,7 +12268,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const hit = gj.features.find(f => ((f.properties || {}).precinct_norm || '').toString().trim().toUpperCase() === target);
       if (!hit) {
         console.warn('Precinct not found for search:', target);
-        setFlySearchFeedback('#ef4444');
+        setFlySearchFeedback('#c11d3f');
         setStatus(`Precinct ${target} not found on the map.`);
         return;
       }
@@ -12012,7 +12350,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         } else {
           console.warn('[DIAGNOSTIC] County not found:', countyName, 'normalized:', normTarget);
-          setFlySearchFeedback('#ef4444');
+          setFlySearchFeedback('#c11d3f');
           setStatus(`County "${countyName}" was not found on the map.`);
         }
       }
@@ -12167,7 +12505,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return `<div style="color: #999; font-style: italic; margin: 6px 0; border-top: 1px solid #444; padding-top: 6px;">${t.display}</div>`;
           }
           
-          const color = t.margin > 0 ? '#3b82f6' : '#ef4444'; // Blue for Dem, Red for Rep
+          const color = t.margin > 0 ? '#1f4f98' : '#c11d3f'; // Blue for Dem, Red for Rep
           return `<div style="color: ${color};">${t.display}</div>`;
         }).join('');
       } else {
@@ -12284,7 +12622,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (districtInfo) {
         demographicInfo = `
           <div style="margin-bottom: 16px;">
-            <h5>ðŸ‘¥ Demographics (VAP)</h5>
+            <h5>Demographics (VAP)</h5>
             <p><strong>Total Population:</strong> ${districtInfo.total_population.toLocaleString()}</p>
             <p><strong>White:</strong> ${districtInfo.white_vap_pct}%</p>
             <p><strong>Black:</strong> ${districtInfo.black_vap_pct}%</p>
@@ -12336,21 +12674,21 @@ document.addEventListener('DOMContentLoaded', function() {
             let compColor = '#6b7280';
             // Handle tossup cases with better colors and formatting like index (1).html
             if (competitiveness.includes('Tossup')) {
-              compColor = winner === 'Democratic' ? '#2563eb' : '#dc2626';
+              compColor = winner === 'Democratic' ? '#002868' : '#bf0a30';
             } else if (competitiveness.includes('Rep')) {
               if (competitiveness.includes('Annihilation')) compColor = '#7f1d1d';
               else if (competitiveness.includes('Dominant')) compColor = '#b91c1c';
-              else if (competitiveness.includes('Stronghold')) compColor = '#dc2626';
-              else if (competitiveness.includes('Safe')) compColor = '#ef4444';
-              else if (competitiveness.includes('Likely')) compColor = '#f87171';
+              else if (competitiveness.includes('Stronghold')) compColor = '#bf0a30';
+              else if (competitiveness.includes('Safe')) compColor = '#c11d3f';
+              else if (competitiveness.includes('Likely')) compColor = '#d66a84';
               else if (competitiveness.includes('Lean')) compColor = '#fecaca';
               else if (competitiveness.includes('Tilt')) compColor = '#fff1f2';
             } else if (competitiveness.includes('Dem')) {
               if (competitiveness.includes('Annihilation')) compColor = '#1e3a8a';
-              else if (competitiveness.includes('Dominant')) compColor = '#1d4ed8';
-              else if (competitiveness.includes('Stronghold')) compColor = '#2563eb';
-              else if (competitiveness.includes('Safe')) compColor = '#3b82f6';
-              else if (competitiveness.includes('Likely')) compColor = '#60a5fa';
+              else if (competitiveness.includes('Dominant')) compColor = '#0b3d91';
+              else if (competitiveness.includes('Stronghold')) compColor = '#002868';
+              else if (competitiveness.includes('Safe')) compColor = '#1f4f98';
+              else if (competitiveness.includes('Likely')) compColor = '#5b7db8';
               else if (competitiveness.includes('Lean')) compColor = '#93c5fd';
               else if (competitiveness.includes('Tilt')) compColor = '#dbeafe';
             }
@@ -12362,14 +12700,14 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
               <div style="margin-bottom: 16px;">
                 <h5>Margin</h5>
-                <p style="color: ${winner === 'Republican' ? '#dc2626' : '#2563eb'}; font-weight: bold; font-size: 18px;">
+                <p style="color: ${winner === 'Republican' ? '#bf0a30' : '#002868'}; font-weight: bold; font-size: 18px;">
                   ${winner} +${marginPct.toFixed(2)}%
                 </p>
               </div>
               <div style="margin-bottom: 16px;">
                 <h5>Vote Breakdown</h5>
-                <p><span style="color: #2563eb; font-weight: bold;">Democratic: </span>${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</p>
-                <p><span style="color: #dc2626; font-weight: bold;">Republican: </span>${repPct.toFixed(2)}% (${repVotes.toLocaleString()})</p>
+                <p><span style="color: #002868; font-weight: bold;">Democratic: </span>${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</p>
+                <p><span style="color: #bf0a30; font-weight: bold;">Republican: </span>${repPct.toFixed(2)}% (${repVotes.toLocaleString()})</p>
                 <p><strong>Total Votes:</strong> ${totalVotes.toLocaleString()}</p>
               </div>
             `;
@@ -12399,7 +12737,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (districtInfo) {
         demographicInfo = `
           <div style="margin-bottom: 16px;">
-            <h5>ðŸ‘¥ Demographics (VAP)</h5>
+            <h5>Demographics (VAP)</h5>
             <p><strong>Total Population:</strong> ${districtInfo.total_population.toLocaleString()}</p>
             <p><strong>White:</strong> ${districtInfo.white_vap_pct}%</p>
             <p><strong>Black:</strong> ${districtInfo.black_vap_pct}%</p>
@@ -12511,16 +12849,16 @@ document.addEventListener('DOMContentLoaded', function() {
         compColor = winnerParty === 'R' ? '#7f1d1d' : '#1e3a8a';
       } else if (marginPct >= 20) {
         compLabel = winnerParty === 'R' ? "Stronghold Republican" : "Stronghold Democratic";
-        compColor = winnerParty === 'R' ? '#dc2626' : '#2563eb';
+        compColor = winnerParty === 'R' ? '#bf0a30' : '#002868';
       } else if (marginPct >= 10) {
         compLabel = winnerParty === 'R' ? "Safe Republican" : "Safe Democratic";
-        compColor = winnerParty === 'R' ? '#dc2626' : '#3b82f6';
+        compColor = winnerParty === 'R' ? '#bf0a30' : '#1f4f98';
       } else if (marginPct >= 5.5) {
         compLabel = winnerParty === 'R' ? "Likely Republican" : "Likely Democratic";
-        compColor = winnerParty === 'R' ? '#ef4444' : '#60a5fa';
+        compColor = winnerParty === 'R' ? '#c11d3f' : '#5b7db8';
       } else if (marginPct >= 1) {
         compLabel = winnerParty === 'R' ? "Lean Republican" : "Lean Democratic";
-        compColor = winnerParty === 'R' ? '#f87171' : '#93c5fd';
+        compColor = winnerParty === 'R' ? '#d66a84' : '#93c5fd';
       } else if (marginPct >= 0.5) {
         compLabel = winnerParty === 'R' ? "Tilt Republican" : "Tilt Democratic";
         compColor = winnerParty === 'R' ? '#fff1f2' : '#dbeafe';
@@ -12532,7 +12870,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const winName = winnerParty === 'R'
         ? fullCandidateLabel(repCandidate, 'Republican')
         : (winnerParty === 'D' ? fullCandidateLabel(demCandidate, 'Democratic') : 'Tie');
-      const winColor = winnerParty === 'R' ? '#dc2626' : (winnerParty === 'D' ? '#2563eb' : '#6b7280');
+      const winColor = winnerParty === 'R' ? '#bf0a30' : (winnerParty === 'D' ? '#002868' : '#6b7280');
 
       return `
         <div style="margin-bottom: 12px;">
@@ -12542,8 +12880,8 @@ document.addEventListener('DOMContentLoaded', function() {
             Margin: ${winnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate)} <span style="color:#64748b;font-weight:600;">(${Math.abs(repVotes - demVotes).toLocaleString()} votes)</span>
           </div>
           <div style="margin-top:8px;font-size:14px;">
-            <div><span style="color:#2563eb;font-weight:800;">${fullCandidateLabel(demCandidate, 'Democratic')} (D)</span>: ${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</div>
-            <div><span style="color:#dc2626;font-weight:800;">${fullCandidateLabel(repCandidate, 'Republican')} (R)</span>: ${repPct.toFixed(2)}% (${repVotes.toLocaleString()})</div>
+            <div><span style="color:#002868;font-weight:800;">${fullCandidateLabel(demCandidate, 'Democratic')} (D)</span>: ${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</div>
+            <div><span style="color:#bf0a30;font-weight:800;">${fullCandidateLabel(repCandidate, 'Republican')} (R)</span>: ${repPct.toFixed(2)}% (${repVotes.toLocaleString()})</div>
             ${otherVotes > 0 ? `<div><span style="color:#6b7280;font-weight:800;">Other</span>: ${othPct.toFixed(2)}% (${otherVotes.toLocaleString()})</div>` : ''}
             <div style="margin-top:6px;color:#374151;font-weight:700;">Total Votes: ${totalVotes.toLocaleString()}</div>
           </div>
@@ -12559,7 +12897,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .sort((a, b) => a.year - b.year)
         .map(s => {
           const win = (s.winner || '').toString().toUpperCase();
-          const color = win === 'REP' ? '#ef4444' : (win === 'DEM' ? '#3b82f6' : '#a3a3a3');
+          const color = win === 'REP' ? '#c11d3f' : (win === 'DEM' ? '#1f4f98' : '#a3a3a3');
           const label = winnerMarginLabelShort(s.rep_votes, s.dem_votes, s.total_votes, s.rep_candidate, s.dem_candidate);
           return `<div style="margin-top:4px;color:${color};font-weight:800;">${s.year}: ${label}</div>`;
         })
@@ -12860,7 +13198,7 @@ document.addEventListener('DOMContentLoaded', function() {
             counties = await loadJSON(CONFIG.paths.counties);
           } catch (_) {
             // Fallback for alternate local layouts.
-            counties = await loadJSON(withBase('./data/census/tl_2020_45_county20.geojson'));
+            counties = await loadJSON(withBase('./Data/tl_2020_48_county20.geojson'));
           }
           map.addSource('counties', { type: 'geojson', data: counties });
           window.countiesData = counties;
@@ -13070,15 +13408,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function colorForWinnerMode(winner) {
       // winner: 'R' | 'D' | 'T'
       const cb = isColorblindModeActive();
-      if (winner === 'R') return cb ? '#d97706' : '#dc2626';
-      if (winner === 'D') return cb ? '#2563eb' : '#2563eb';
+      if (winner === 'R') return cb ? '#d97706' : '#bf0a30';
+      if (winner === 'D') return cb ? '#002868' : '#002868';
       return '#9ca3af';
     }
 
     function colorForFlipMode(toWinner) {
       // toWinner: 'R' | 'D' | 'T'
-      if (toWinner === 'R') return isColorblindModeActive() ? '#d97706' : '#dc2626';
-      if (toWinner === 'D') return '#2563eb';
+      if (toWinner === 'R') return isColorblindModeActive() ? '#d97706' : '#bf0a30';
+      if (toWinner === 'D') return '#002868';
       return '#e2e8f0';
     }
 
@@ -13100,11 +13438,11 @@ document.addEventListener('DOMContentLoaded', function() {
       if (cb) {
         // Blue (D shift) vs orange (R shift).
         if (dir === 'R') return ['#ffedd5', '#fdba74', '#f97316', '#c2410c'][bin - 1];
-        return ['#dbeafe', '#93c5fd', '#3b82f6', '#1d4ed8'][bin - 1];
+        return ['#dbeafe', '#93c5fd', '#1f4f98', '#0b3d91'][bin - 1];
       }
       // Red vs blue diverging.
-      if (dir === 'R') return ['#fee2e2', '#fca5a5', '#ef4444', '#991b1b'][bin - 1];
-      return ['#dbeafe', '#93c5fd', '#3b82f6', '#1e3a8a'][bin - 1];
+      if (dir === 'R') return ['#fee2e2', '#fca5a5', '#c11d3f', '#991b1b'][bin - 1];
+      return ['#dbeafe', '#93c5fd', '#1f4f98', '#1e3a8a'][bin - 1];
     }
 
 	    async function tryLoadContestSliceStrict(contestType, year) {
@@ -13345,19 +13683,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function applyContest(contestKey, opts = {}) {
+      if (!contestKey) return setStatus('Select a contest');
       const selectionSeq = Number(opts?.selectionSeq || 0);
       const isStaleSelection = () => (
         Number.isFinite(selectionSeq) &&
         selectionSeq > 0 &&
         selectionSeq !== contestSelectionSeq
       );
-
-      if (!contestKey) {
-        lastCompletedContestSelection = '';
-        updateContextBanner();
-        return setStatus('Select a contest');
-      }
-
       const previousRegionPinnedState = voteCounterPinned?.meta?.kind === 'region'
         ? {
             ...voteCounterPinned,
@@ -13369,12 +13701,10 @@ document.addEventListener('DOMContentLoaded', function() {
         voteCounterPinned = null;
         voteCounterHoverActive = false;
       }
-      
       // Split contest key properly - year is always the last part after final underscore
       const lastUnderscoreIndex = contestKey.lastIndexOf('_');
       const contestType = contestKey.substring(0, lastUnderscoreIndex);
       const year = contestKey.substring(lastUnderscoreIndex + 1);
-      
       if (currentView === 'counties') {
         await applyCountyContest(contestType, year, { selectionSeq, isStaleSelection });
       } else if (currentView === 'districts' && contestType === 'us_house') {
@@ -13385,17 +13715,21 @@ document.addEventListener('DOMContentLoaded', function() {
         await applyStatewideContestToDistricts(contestType, year);
       }
       if (isStaleSelection()) return;
+      try { await refreshPinnedDistrictForContest(contestType, year); } catch (_) {}
+      if (isStaleSelection()) return;
       if (previousRegionPinnedState?.meta?.regionKey) {
         const regionKey = previousRegionPinnedState.meta.regionKey;
+        // Restore region context in the background so contest switching stays snappy.
         focusRegionSummary(regionKey).catch(err => {
           console.warn('Failed to restore regional selection after contest change:', err?.message || err);
         });
       }
       if (isStaleSelection()) return;
+      lastCompletedContestSelection = contestKey;
       updateContextBanner();
+      // Keep switching responsive; hover refresh can run asynchronously.
       refreshHoverAtPointer().catch(() => {});
     }
-
     async function applyCountyContest(contestType, year, opts = {}) {
       const selectionSeq = Number(opts?.selectionSeq || 0);
       const staleCheck = typeof opts?.isStaleSelection === 'function' ? opts.isStaleSelection : (() => false);
@@ -13405,7 +13739,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const queuedSeq = Number(queuedContestSelection?.seq || 0);
         return contestChangeInFlight && queuedSeq > selectionSeq;
       }
-
       // Always compute county colors/totals from county-level slices so margins are stable
       // regardless of precinct overlay state.
       const countyRowsRaw = await loadContestSlice(contestType, year, { preferCounty: true });
@@ -13445,7 +13778,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	          .replace(/[^a-z0-9 .\-]/gi, '')
 	          .replace(/\s+/g, ' ')
 	          .trim()
-	          .toUpperCase();
+	          .toUpperCase()
+	          .replace(/\bLA\s*SALLE\b/g, 'LA SALLE');
 	      }
 
       // Only build heavy precinct matching/color expressions when the overlay is enabled.
@@ -13638,6 +13972,16 @@ document.addEventListener('DOMContentLoaded', function() {
         countyAgg[countyNorm][`${contestType}_total`] += totalVotes;
       });
       currentElectionResults = countyAgg;
+      if (staleCheck()) return;
+      const selectedCountyForFastRefresh = (window.lastSelectedCounty || '').toString().trim();
+      if (selectedCountyForFastRefresh && shouldRefreshCountyDetailsOnContestChange()) {
+        try { showCountyDetails(selectedCountyForFastRefresh); } catch (_) {}
+        if (staleCheck()) return;
+        await new Promise(resolve => setTimeout(resolve, 0));
+        if (staleCheck()) return;
+      }
+      try { refreshPinnedCountyForContest(contestType, year); } catch (_) {}
+      if (staleCheck()) return;
 
       // Calculate statewide totals
       let statewidedemVotes = 0;
@@ -13828,11 +14172,11 @@ document.addEventListener('DOMContentLoaded', function() {
           map.setPaintProperty('county-stroke', 'line-width', 1);
         } catch (_) {}
       }
+      // Optional precinct expression (detail overlay)
       if (needsPrecinctDetail && shouldDeferPrecinctDetail()) {
         needsPrecinctDetail = false;
         currentPrecinctResults = null;
       }
-      // Optional precinct expression (detail overlay)
       if (needsPrecinctDetail) {
         // Build precinct lookup map from precinct rows (or county rows fallback).
         precinctRows.forEach(row => {
