@@ -13725,7 +13725,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const rawRepVotes = Number(row[`${contestType}_rep`] || 0);
         const rawOtherVotes = Number(row[`${contestType}_other`] || 0);
         const rawTotalVotes = Number(row[`${contestType}_total`] || 0);
-        const adjusted = applyScenarioShiftToVotes(countyNorm, rawDemVotes, rawRepVotes, rawOtherVotes, rawTotalVotes);
+        //const adjusted = applyScenarioShiftToVotes(countyNorm, rawDemVotes, rawRepVotes, rawOtherVotes, rawTotalVotes);
         const demVotes = Number(adjusted.dem || 0);
         const repVotes = Number(adjusted.rep || 0);
         const otherVotes = Number(adjusted.other || 0);
