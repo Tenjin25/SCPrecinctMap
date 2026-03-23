@@ -554,6 +554,7 @@
       const bbox = turf.bbox(countyFeature);
       map.fitBounds(bbox, { padding: 40, maxZoom: 10 });
     }
+    let lastSelectedCounty = '';
   </script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js'></script>
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
@@ -7868,8 +7869,51 @@ document.addEventListener('DOMContentLoaded', function() {
     async function handleContestSelectionChange(contestKey) {
       const queued = queueContestSelection(contestKey);
       if (!contestChangeInFlight && queued.key && queued.key === lastCompletedContestSelection) {
-        queueCountyDetailsRefresh();
-        return;
+async function handleContestSelectionChange(contestKey) {
+  const queued = queueContestSelection(contestKey);
+  if (!contestChangeInFlight && queued.key && queued.key === lastCompletedContestSelection) {
+    if (lastSelectedCounty) {
+      try {
+        showCountyDetails(lastSelectedCounty);
+      } catch (err) {
+        console.warn('County detail refresh failed:', err?.message || err);
+      }
+    }
+    return;
+  }
+  if (contestChangeInFlight) return;
+
+  contestChangeInFlight = true;
+  try {
+    while (true) {
+      const next = queuedContestSelection;
+      queuedContestSelection = null;
+      if (!next) break;
+
+      await applyContest(next.key, { selectionSeq: next.seq });
+
+      if (queuedContestSelection && queuedContestSelection.seq !== next.seq) {
+        continue;
+      }
+
+      if (next.key) lastCompletedContestSelection = next.key;
+
+      if (lastSelectedCounty) {
+        try {
+          showCountyDetails(lastSelectedCounty);
+        } catch (err) {
+          console.warn('County detail refresh failed:', err?.message || err);
+        }
+      }
+
+      break;
+    }
+    } catch (err) {
+    console.warn('Contest change failed:', err?.message || err);
+    } finally {
+    contestChangeInFlight = false;
+   }
+    }
       }
       if (contestChangeInFlight) return;
 
@@ -7886,9 +7930,51 @@ document.addEventListener('DOMContentLoaded', function() {
             continue;
           }
 
-          if (next.key) lastCompletedContestSelection = next.key;
-          queueCountyDetailsRefresh();
-          break;
+async function handleContestSelectionChange(contestKey) {
+  const queued = queueContestSelection(contestKey);
+  if (!contestChangeInFlight && queued.key && queued.key === lastCompletedContestSelection) {
+    if (lastSelectedCounty) {
+      try {
+        showCountyDetails(lastSelectedCounty);
+      } catch (err) {
+        console.warn('County detail refresh failed:', err?.message || err);
+      }
+    }
+    return;
+  }
+  if (contestChangeInFlight) return;
+
+  contestChangeInFlight = true;
+  try {
+    while (true) {
+      const next = queuedContestSelection;
+      queuedContestSelection = null;
+      if (!next) break;
+
+      await applyContest(next.key, { selectionSeq: next.seq });
+
+      if (queuedContestSelection && queuedContestSelection.seq !== next.seq) {
+        continue;
+      }
+
+      if (next.key) lastCompletedContestSelection = next.key;
+
+      if (lastSelectedCounty) {
+        try {
+          showCountyDetails(lastSelectedCounty);
+        } catch (err) {
+          console.warn('County detail refresh failed:', err?.message || err);
+        }
+      }
+
+      break;
+    }
+  } catch (err) {
+    console.warn('Contest change failed:', err?.message || err);
+  } finally {
+    contestChangeInFlight = false;
+  }
+}
         }
       } catch (err) {
         console.warn('Contest change failed:', err?.message || err);
