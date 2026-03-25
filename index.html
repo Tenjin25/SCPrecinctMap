@@ -9958,7 +9958,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
-        if (flipChip) chips.unshift(flipChip);
+        if (flipChip) chips.push(flipChip);
       }
 
       const inner = `
@@ -10038,7 +10038,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, curSigned);
-        if (flipChip) chips.unshift(flipChip);
+        if (flipChip) chips.push(flipChip);
       }
 
       const inner = `
@@ -10223,7 +10223,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
-        if (flipChip) chips.unshift(flipChip);
+        if (flipChip) chips.push(flipChip);
       }
 
       const desc = getDistrictDescription(scope, districtNum);
