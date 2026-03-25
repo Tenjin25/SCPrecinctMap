@@ -684,6 +684,40 @@ body { height: var(--app-height); }
   font-size: 14px;
   letter-spacing: 0.3px;
 }
+.hover-tooltip .tooltip-title-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.hover-tooltip .tooltip-title-main {
+  display: inline-flex;
+  align-items: center;
+}
+.hover-tooltip .tooltip-title-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  border: 1px solid transparent;
+}
+.hover-tooltip .tooltip-title-badge.rep {
+  color: #fecaca;
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(248, 113, 113, 0.35);
+}
+.hover-tooltip .tooltip-title-badge.dem {
+  color: #bfdbfe;
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(96, 165, 250, 0.35);
+}
+.hover-tooltip .tooltip-title-badge.tie {
+  color: #e2e8f0;
+  background: rgba(148, 163, 184, 0.2);
+  border-color: rgba(148, 163, 184, 0.35);
+}
 
 .hover-tooltip .tooltip-trends {
   font-size: 12px;
@@ -6919,6 +6953,82 @@ document.addEventListener('DOMContentLoaded', function() {
         .replace(/'/g, '&#39;');
     }
 
+
+    function competitivenessTierMeta(marginPct, party) {
+      const pct = Math.abs(Number(marginPct) || 0);
+      const normalizedParty = party === 'rep' || party === 'R'
+        ? 'rep'
+        : (party === 'dem' || party === 'D' ? 'dem' : 'tie');
+
+      if (normalizedParty === 'tie') {
+        return {
+          party: 'tie',
+          label: 'Tossup',
+          shortLabel: 'Tossup',
+          color: '#6b7280',
+          marginPct: pct
+        };
+      }
+
+      const partyWord = normalizedParty === 'rep' ? 'Republican' : 'Democratic';
+      let tier = 'Tossup';
+      let color = normalizedParty === 'rep' ? '#dc2626' : '#2563eb';
+
+      if (pct >= 40) {
+        tier = 'Annihilation';
+        color = normalizedParty === 'rep' ? '#7f1d1d' : '#1e3a8a';
+      } else if (pct >= 30) {
+        tier = 'Dominant';
+        color = normalizedParty === 'rep' ? '#b91c1c' : '#1d4ed8';
+      } else if (pct >= 20) {
+        tier = 'Stronghold';
+        color = normalizedParty === 'rep' ? '#dc2626' : '#2563eb';
+      } else if (pct >= 10) {
+        tier = 'Safe';
+        color = normalizedParty === 'rep' ? '#ef4444' : '#3b82f6';
+      } else if (pct >= 5.5) {
+        tier = 'Likely';
+        color = normalizedParty === 'rep' ? '#f87171' : '#60a5fa';
+      } else if (pct >= 1.0) {
+        tier = 'Lean';
+        color = normalizedParty === 'rep' ? '#fecaca' : '#93c5fd';
+      } else if (pct >= 0.5) {
+        tier = 'Tilt';
+        color = normalizedParty === 'rep' ? '#fff1f2' : '#dbeafe';
+      }
+
+      const sideAbbrev = normalizedParty === 'rep' ? 'R' : 'D';
+      const label = tier === 'Tossup' ? `Tossup (${partyWord} Win)` : `${tier} ${partyWord}`;
+      const shortLabel = tier === 'Tossup' ? `Tossup ${sideAbbrev}` : `${tier} ${sideAbbrev}`;
+      return {
+        party: normalizedParty,
+        label,
+        shortLabel,
+        color,
+        marginPct: pct
+      };
+    }
+
+    function competitivenessTierMetaFromSignedMarginPct(signedMarginPct) {
+      const signed = Number(signedMarginPct) || 0;
+      if (signed > 0) return competitivenessTierMeta(signed, 'rep');
+      if (signed < 0) return competitivenessTierMeta(Math.abs(signed), 'dem');
+      return competitivenessTierMeta(0, 'tie');
+    }
+
+    function buildTooltipTitleWithTier(titleText, tierMeta = null) {
+      const safeTitle = escapeHtml(String(titleText || '').trim());
+      if (!safeTitle) return '';
+      if (!tierMeta || !tierMeta.label) return safeTitle;
+      const partyClass = tierMeta.party === 'rep' ? 'rep' : (tierMeta.party === 'dem' ? 'dem' : 'tie');
+      return `
+        <span class="tooltip-title-wrap">
+          <span class="tooltip-title-main">${safeTitle}</span>
+          <span class="tooltip-title-badge ${partyClass}">${escapeHtml(tierMeta.label)}</span>
+        </span>
+      `;
+    }
+
     function describeTrendShift(currentSignedPct, prevSignedPct, prevYear) {
       if (!Number.isFinite(Number(prevSignedPct))) {
         return { cls: 'tie', text: 'First available result' };
@@ -7834,22 +7944,49 @@ document.addEventListener('DOMContentLoaded', function() {
     let contestSelectionSeq = 0;
     let lastCompletedContestSelection = '';
 
-    function shouldRefreshCountyDetailsOnContestChange() {
-      if (!SIDEBAR_ENABLED) return false;
+    function shouldRefreshSelectedDetailsOnContestChange() {
+      const selected = (lastSelectedCounty || '').toString().trim();
+      if (!selected) return false;
+
       const view = String(currentView || '').toLowerCase();
-      if (!(view === 'counties' || view === 'vtds_2000')) return false;
-      const detailsDiv = document.getElementById('county-details');
-      if (detailsDiv && detailsDiv.style && detailsDiv.style.display === 'none') return false;
-      return true;
+      return (
+        view === 'counties' ||
+        view === 'vtds_2000' ||
+        view === 'districts' ||
+        view === 'state_house' ||
+        view === 'state_senate'
+      );
     }
 
-    function queueCountyDetailsRefresh() {
-      if (!shouldRefreshCountyDetailsOnContestChange()) return;
-     const county = (lastSelectedCounty || '').toString().trim();
-      if (!county) return;
+    function refreshSelectedDetailsOnContestChange() {
+      if (!shouldRefreshSelectedDetailsOnContestChange()) return;
+
+      const selected = (lastSelectedCounty || '').toString().trim();
+      if (!selected) return;
+
       const refresh = () => {
-        try { showCountyDetails(county); } catch (_) {}
+        try {
+          const view = String(currentView || '').toLowerCase();
+
+          if (view === 'counties' || view === 'vtds_2000') {
+            showCountyDetails(selected);
+            return;
+          }
+
+          const match = selected.match(/\d+/);
+          if (!match) return;
+          const districtNum = Number(match[0]);
+
+          if (view === 'districts') {
+            showDistrictDetails(districtNum);
+          } else if (view === 'state_house') {
+            showStateDistrictDetails(districtNum, 'house');
+          } else if (view === 'state_senate') {
+            showStateDistrictDetails(districtNum, 'senate');
+          }
+        } catch (_) {}
       };
+
       if (typeof window.requestAnimationFrame === 'function') {
         window.requestAnimationFrame(refresh);
       } else {
@@ -7867,10 +8004,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function handleContestSelectionChange(contestKey) {
       const queued = queueContestSelection(contestKey);
+
       if (!contestChangeInFlight && queued.key && queued.key === lastCompletedContestSelection) {
-        queueCountyDetailsRefresh();
+        refreshSelectedDetailsOnContestChange();
         return;
       }
+
       if (contestChangeInFlight) return;
 
       contestChangeInFlight = true;
@@ -7887,7 +8026,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
 
           if (next.key) lastCompletedContestSelection = next.key;
-          queueCountyDetailsRefresh();
+          refreshSelectedDetailsOnContestChange();
           break;
         }
       } catch (err) {
@@ -9756,7 +9895,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const contestValue = document.getElementById('contestSelect')?.value || '';
 
       if (!contestValue || !row) {
-        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyDisplay} County`, '<div style="color:#64748b;">Select a contest to see results</div>'));
+        const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle, '<div style="color:#64748b;">Select a contest to see results</div>'));
         wireTooltipButtons();
         return;
       }
@@ -9769,7 +9909,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const otherVotes = Number(row[`${contestType}_other`] || 0);
       const totalVotes = Number(row[`${contestType}_total`] || 0);
       if (totalVotes <= 0) {
-        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyDisplay} County`, '<div style="color:#64748b;">No data available</div>'));
+        const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle, '<div style="color:#64748b;">No data available</div>'));
         wireTooltipButtons();
         return;
       }
@@ -9786,6 +9927,7 @@ document.addEventListener('DOMContentLoaded', function() {
       );
 
       const signedMarginPct = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+      const tierMeta = competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
       const winner = signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T');
       const subtitle = `${formatContestName(contestType, year)} ${year}`;
 
@@ -9822,7 +9964,8 @@ document.addEventListener('DOMContentLoaded', function() {
         ${demoLine}
       `;
 
-      showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${countyDisplay} County`, inner));
+      const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`, tierMeta);
+      showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle, inner));
       wireTooltipButtons();
     }
 
@@ -9852,14 +9995,16 @@ document.addEventListener('DOMContentLoaded', function() {
       } catch (_) {}
       const [contestType, year] = parseContestValue(contestValue);
       if (!contestType || !year) {
-        showHoverTooltip(point.x, point.y, buildTooltipShell(title, '<div style="color:#64748b;">Select a contest to see results</div>'));
+        const hoverTitle = buildTooltipTitleWithTier(title);
+        showHoverTooltip(point.x, point.y, buildTooltipShell(hoverTitle, '<div style="color:#64748b;">Select a contest to see results</div>'));
         wireTooltipButtons();
         return;
       }
 
       const row = currentPrecinctResults ? currentPrecinctResults.get(precinctNorm) : null;
       if (!row) {
-        showHoverTooltip(point.x, point.y, buildTooltipShell(title, '<div style="color:#64748b;">No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.</div>'));
+        const hoverTitle = buildTooltipTitleWithTier(title);
+        showHoverTooltip(point.x, point.y, buildTooltipShell(hoverTitle, '<div style="color:#64748b;">No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.</div>'));
         wireTooltipButtons();
         return;
       }
@@ -9896,7 +10041,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="hover-meta">${chips.join('')}</div>
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
       `;
-      showHoverTooltip(point.x, point.y, buildTooltipShell(title, inner));
+      const hoverTitle = buildTooltipTitleWithTier(title, tierMeta);
+      showHoverTooltip(point.x, point.y, buildTooltipShell(hoverTitle, inner));
       wireTooltipButtons();
       setVoteCounterHoverState(
         `Hover: ${title}`,
@@ -9979,7 +10125,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const _demoRow = getDistrictDemographics(scope, districtNum);
       const _demoHTML = buildDemoHTML(_demoRow);
       if (!contestValue) {
-        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`,
+        const hoverTitle = buildTooltipTitleWithTier(`${districtLabel} ${districtNum}`);
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle,
           _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">Select a contest to see results</div>'));
         wireTooltipButtons();
         return;
@@ -10002,7 +10149,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       if (!row) {
-        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`,
+        const hoverTitle = buildTooltipTitleWithTier(`${districtLabel} ${districtNum}`);
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle,
           _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>'));
         wireTooltipButtons();
         return;
@@ -10013,7 +10161,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const otherVotes = Number(row.other_votes || 0);
       const totalVotes = Number(row.total_votes || 0);
       if (totalVotes <= 0) {
-        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`,
+        const hoverTitle = buildTooltipTitleWithTier(`${districtLabel} ${districtNum}`);
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle,
           _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>'));
         wireTooltipButtons();
         return;
@@ -10042,6 +10191,7 @@ document.addEventListener('DOMContentLoaded', function() {
       );
 
       const signedMarginPct = ('margin_pct' in row) ? Number(row.margin_pct || 0) : signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+      const tierMeta = competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
       const winnerRaw = (row.winner || '').toString().toUpperCase();
       const winner = winnerRaw.startsWith('REP') ? 'R' : (winnerRaw.startsWith('DEM') ? 'D' : (signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T')));
 
@@ -10078,7 +10228,8 @@ document.addEventListener('DOMContentLoaded', function() {
         ${_demoHTML}
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
       `;
-      showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`, inner));
+      const hoverTitle = buildTooltipTitleWithTier(`${districtLabel} ${districtNum}`, tierMeta);
+      showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle, inner));
       wireTooltipButtons();
     }
 
