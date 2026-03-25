@@ -7063,16 +7063,14 @@ document.addEventListener('DOMContentLoaded', function() {
         targetEl.textContent = '';
         return;
       }
-      if (!tierMeta || !tierMeta.label) {
-        targetEl.textContent = label;
-        return;
-      }
-      const partyClass = tierMeta.party === 'rep' ? 'rep' : (tierMeta.party === 'dem' ? 'dem' : 'tie');
-      const titleText = `${tierMeta.label} (${Number(tierMeta.marginPct || 0).toFixed(2)}%)`;
-      targetEl.innerHTML = `
-        <span class="focus-name-title">${escapeHtml(label)}</span>
-        <span class="focus-name-tier-badge ${partyClass}" title="${escapeHtml(titleText)}">${escapeHtml(tierMeta.label)}</span>
-      `;
+      targetEl.innerHTML = `<span class="focus-name-title">${escapeHtml(label)}</span>`;
+    }
+
+    function competitivenessChipHTML(tierMeta) {
+      if (!tierMeta || !tierMeta.label) return '';
+      const cls = tierMeta.party === 'rep' ? 'rep' : (tierMeta.party === 'dem' ? 'dem' : 'tie');
+      const dotColor = tierMeta.party === 'rep' ? '#fca5a5' : (tierMeta.party === 'dem' ? '#93c5fd' : '#94a3b8');
+      return `<span class="meta-chip ${cls}"><span class="dot" style="background:${dotColor};"></span>${escapeHtml(tierMeta.label)}</span>`;
     }
 
     function buildTooltipTitleWithTier(titleText, tierMeta = null) {
@@ -10661,6 +10659,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const signedMarginPct = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
       const tierMeta = competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
       if (countyNameElement) setFocusNameWithTierBadge(countyNameElement, `${countyDisplay} County`, tierMeta);
+
+      let headerChips = [];
+      const winnerPartyCode = signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T');
+      headerChips.push(winnerChipHTML(winnerPartyCode));
+      headerChips.push(competitivenessChipHTML(tierMeta));
+      let headerPrevSigned = null;
+      if (vizPrevCache?.prevYear && vizPrevCache?.prevCountyTotals) {
+        const prev = vizPrevCache.prevCountyTotals[norm] || null;
+        headerPrevSigned = prev ? signedMarginPctFromVotes(prev.dem, prev.rep, prev.total) : null;
+      }
+      if (headerPrevSigned !== null) {
+        const flipChip = flipChipHTML(headerPrevSigned, signedMarginPct);
+        if (flipChip) headerChips.push(flipChip);
+      }
+      const headerChipsHTML = `<div class="hover-meta" style="margin-top:0;margin-bottom:12px;">${headerChips.filter(Boolean).join('')}</div>`;
       // Accessibility palette for winner color
       function cbColorForMargin(marginPct, winner) {
         if (marginPct >= 40) {
@@ -10865,7 +10878,7 @@ document.addEventListener('DOMContentLoaded', function() {
   sidebarContent += '<h5>Historical Trends</h5>';
   sidebarContent += `<div id="county-trends" style="margin-top:6px;color:#94a3b8;">Loading...</div>`;
   sidebarContent += `</div>`;
-  contentEl.innerHTML = sidebarContent;
+  contentEl.innerHTML = headerChipsHTML + sidebarContent;
   // Populate trends asynchronously from manifest slices (does not block UI).
   (async () => {
     try {
