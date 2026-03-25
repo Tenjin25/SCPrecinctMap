@@ -685,21 +685,26 @@ body { height: var(--app-height); }
   letter-spacing: 0.3px;
 }
 .hover-tooltip .tooltip-title-wrap {
-  display: flex;
-  flex-wrap: wrap;
+  display: inline-flex;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 }
 .hover-tooltip .tooltip-title-main {
   display: inline-flex;
   align-items: center;
+  min-width: 0;
 }
 .hover-tooltip .tooltip-title-badge {
   display: inline-flex;
   align-items: center;
+  flex: 0 0 auto;
+  white-space: nowrap;
   padding: 1px 7px;
   border-radius: 999px;
   font-size: 10px;
+  line-height: 1.2;
   font-weight: 800;
   border: 1px solid transparent;
 }
@@ -1158,6 +1163,10 @@ body { height: var(--app-height); }
   }
   #county-name {
     font-size: 20px !important;
+  }
+  .focus-name-tier-badge {
+    font-size: 10px;
+    padding: 2px 7px;
   }
 }
 /* Sidebar Card Classes for Consistent Font Sizes */
@@ -7016,6 +7025,25 @@ document.addEventListener('DOMContentLoaded', function() {
       return competitivenessTierMeta(0, 'tie');
     }
 
+    function setFocusNameWithTierBadge(targetEl, baseLabel, tierMeta = null) {
+      if (!targetEl) return;
+      const label = String(baseLabel || '').trim();
+      if (!label) {
+        targetEl.textContent = '';
+        return;
+      }
+      if (!tierMeta || !tierMeta.label) {
+        targetEl.textContent = label;
+        return;
+      }
+      const partyClass = tierMeta.party === 'rep' ? 'rep' : (tierMeta.party === 'dem' ? 'dem' : 'tie');
+      const titleText = `${tierMeta.label} (${Number(tierMeta.marginPct || 0).toFixed(2)}%)`;
+      targetEl.innerHTML = `
+        <span class="focus-name-title">${escapeHtml(label)}</span>
+        <span class="focus-name-tier-badge ${partyClass}" title="${escapeHtml(titleText)}">${escapeHtml(tierMeta.label)}</span>
+      `;
+    }
+
     function buildTooltipTitleWithTier(titleText, tierMeta = null) {
       const safeTitle = escapeHtml(String(titleText || '').trim());
       if (!safeTitle) return '';
@@ -7024,7 +7052,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return `
         <span class="tooltip-title-wrap">
           <span class="tooltip-title-main">${safeTitle}</span>
-          <span class="tooltip-title-badge ${partyClass}">${escapeHtml(tierMeta.label)}</span>
+          <span class="tooltip-title-badge ${partyClass}">${escapeHtml(tierMeta.shortLabel || tierMeta.label)}</span>
         </span>
       `;
     }
@@ -10516,7 +10544,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const countyDisplay = displayCountyName(countyName);
       lastSelectedCounty  = countyDisplay;
       updateContextBanner();
-      if (countyNameElement) countyNameElement.textContent = countyDisplay + ' County';
+      if (countyNameElement) setFocusNameWithTierBadge(countyNameElement, `${countyDisplay} County`);
       // sidebarContent already declared above
       // Guard: election results must exist
       if (!currentElectionResults) {
@@ -10599,6 +10627,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const winner = margin > 0 ? 'Democratic' : (margin < 0 ? 'Republican' : 'Tie');
       const winnerCandidate = margin > 0 ? demCandidate : repCandidate;
       const marginText = winnerMarginLabelShort(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
+      const signedMarginPct = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+      const tierMeta = competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
+      if (countyNameElement) setFocusNameWithTierBadge(countyNameElement, `${countyDisplay} County`, tierMeta);
       // Accessibility palette for winner color
       function cbColorForMargin(marginPct, winner) {
         if (marginPct >= 40) {
@@ -12450,7 +12481,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const nameEl = document.getElementById('county-name');
       const contentEl = document.getElementById('county-info-content');
       
-      nameEl.textContent = `Congressional District ${districtNum}`;
+      setFocusNameWithTierBadge(nameEl, `Congressional District ${districtNum}`);
       
       // Get district info from districtsInfo CSV
       const districtInfo = (districtsInfo || []).find(d => d.district == districtNum);
@@ -12563,7 +12594,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const contentEl = document.getElementById('county-info-content');
       
       const title = chamber === 'house' ? `State House District ${districtNum}` : `State Senate District ${districtNum}`;
-      nameEl.textContent = title;
+      setFocusNameWithTierBadge(nameEl, title);
       
       // Get district info from appropriate CSV
       const districtInfo = chamber === 'house' 
@@ -12750,7 +12781,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       lastSelectedCounty  = `Congressional District ${districtNum}`;
       updateContextBanner();
-      nameEl.textContent = `Congressional District ${districtNum}`;
+      setFocusNameWithTierBadge(nameEl, `Congressional District ${districtNum}`);
 
       const districtInfo = (districtsInfo || []).find(d => d.district == districtNum);
       let demographicInfo = '';
@@ -12832,7 +12863,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const title = chamber === 'house' ? `State House District ${districtNum}` : `State Senate District ${districtNum}`;
       lastSelectedCounty = title;
       updateContextBanner();
-      nameEl.textContent = title;
+      setFocusNameWithTierBadge(nameEl, title);
 
       const scope = chamber === 'house' ? 'state_house' : 'state_senate';
       const infoRow = chamber === 'house'
