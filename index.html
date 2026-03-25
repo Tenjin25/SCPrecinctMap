@@ -3191,6 +3191,260 @@ body { height: var(--app-height); }
     background: rgba(226, 232, 240, 0.86);
   }
 
+  .focus-trend-summary-badge.fallback {
+    color: #92400e;
+    background: rgba(254, 243, 199, 0.92);
+  }
+
+  .focus-trajectory {
+    position: relative;
+    display: grid;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(241, 245, 249, 0.92) 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74), 0 6px 16px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+    animation: trajectory-fade-up 0.22s ease-out;
+  }
+
+  @keyframes trajectory-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(3px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .focus-trajectory::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.6) 0%, rgba(100, 116, 139, 0.22) 50%, rgba(220, 38, 38, 0.6) 100%);
+    pointer-events: none;
+  }
+
+  .focus-trajectory-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed rgba(148, 163, 184, 0.24);
+  }
+
+  .focus-trajectory-kicker {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  .focus-trajectory-status {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding: 0 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: rgba(226, 232, 240, 0.84);
+    color: #475569;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  }
+
+  .focus-trajectory-status.dem {
+    color: #1d4ed8;
+    border-color: rgba(37, 99, 235, 0.2);
+    background: rgba(219, 234, 254, 0.88);
+  }
+
+  .focus-trajectory-status.rep {
+    color: #b91c1c;
+    border-color: rgba(220, 38, 38, 0.2);
+    background: rgba(254, 226, 226, 0.84);
+  }
+
+  .focus-trajectory-status.competitive {
+    color: #92400e;
+    border-color: rgba(217, 119, 6, 0.24);
+    background: rgba(254, 243, 199, 0.9);
+  }
+
+  .focus-trajectory-summary {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #334155;
+    font-weight: 700;
+  }
+
+  .focus-trajectory-trendline {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 30px;
+    padding: 6px 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: rgba(255, 255, 255, 0.86);
+    font-size: 11px;
+    line-height: 1.35;
+    color: #334155;
+    font-weight: 700;
+  }
+
+  .focus-trajectory-trendline .trend-tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 20px;
+    padding: 0 7px;
+    border-radius: 999px;
+    background: rgba(226, 232, 240, 0.8);
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .focus-trajectory-trendline .trend-text {
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: inherit;
+  }
+
+  .focus-trajectory-trendline.rep {
+    color: #b91c1c;
+    border-color: rgba(220, 38, 38, 0.22);
+    background: rgba(254, 242, 242, 0.86);
+  }
+
+  .focus-trajectory-trendline.dem {
+    color: #1d4ed8;
+    border-color: rgba(37, 99, 235, 0.22);
+    background: rgba(239, 246, 255, 0.9);
+  }
+
+  .focus-trajectory-trendline.neutral {
+    color: #475569;
+  }
+
+  .focus-trajectory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 8px;
+  }
+
+  .focus-trajectory-item {
+    display: grid;
+    gap: 2px;
+    padding: 8px 9px;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    background: rgba(255, 255, 255, 0.82);
+    transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+  }
+
+  .focus-trajectory-item.latest {
+    grid-column: 1 / -1;
+    gap: 3px;
+    padding: 10px 11px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 252, 0.92) 100%);
+  }
+
+  .focus-trajectory-item.latest .focus-trajectory-label {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+
+  .focus-trajectory-item.latest .focus-trajectory-value {
+    font-size: 13px;
+  }
+
+  .focus-trajectory-item.dem {
+    border-color: rgba(37, 99, 235, 0.18);
+    box-shadow: inset 3px 0 0 rgba(37, 99, 235, 0.42);
+  }
+
+  .focus-trajectory-item.rep {
+    border-color: rgba(220, 38, 38, 0.18);
+    box-shadow: inset 3px 0 0 rgba(220, 38, 38, 0.42);
+  }
+
+  .focus-trajectory-item.neutral {
+    box-shadow: inset 3px 0 0 rgba(100, 116, 139, 0.34);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .focus-trajectory-item:hover {
+      transform: translateY(-1px);
+      box-shadow: inset 3px 0 0 rgba(100, 116, 139, 0.34), 0 4px 10px rgba(15, 23, 42, 0.08);
+    }
+  }
+
+  .focus-trajectory-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  .focus-trajectory-value {
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1.3;
+    color: #0f172a;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .focus-trajectory-value.dem {
+    color: #1d4ed8;
+  }
+
+  .focus-trajectory-value.rep {
+    color: #b91c1c;
+  }
+
+  .focus-trajectory-value.neutral {
+    color: #334155;
+  }
+
+  .focus-trajectory-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 14px;
+    font-weight: 900;
+  }
+
+  .focus-trajectory-arrow.dem {
+    color: #1d4ed8;
+  }
+
+  .focus-trajectory-arrow.rep {
+    color: #b91c1c;
+  }
+
+  .focus-trajectory-arrow.neutral {
+    color: #64748b;
+  }
+
   .focus-trend-dots {
     display: grid;
     grid-auto-flow: column;
@@ -3674,6 +3928,123 @@ body { height: var(--app-height); }
     .desktop-ui-left,
     .desktop-ui-right {
       display: contents;
+    }
+
+    .focus-trend-head {
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .focus-trend-caption {
+      max-width: 55%;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      text-align: right;
+      line-height: 1.25;
+    }
+
+    .focus-trend-plot {
+      padding: 10px;
+      border-radius: 14px;
+    }
+
+    .focus-trajectory {
+      gap: 8px;
+      padding: 10px;
+      border-radius: 14px;
+    }
+
+    .focus-trajectory-head {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .focus-trajectory-status {
+      min-height: 22px;
+      padding: 0 9px;
+      font-size: 10px;
+    }
+
+    .focus-trajectory-grid {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+
+    .focus-trajectory-item.latest {
+      padding: 9px 10px;
+    }
+
+    .focus-trajectory-trendline {
+      flex-wrap: wrap;
+      gap: 6px;
+      min-height: 0;
+      padding: 6px 7px;
+    }
+
+    .focus-trajectory-trendline .trend-tag {
+      min-height: 18px;
+      padding: 0 6px;
+      font-size: 9px;
+    }
+
+    .focus-trend-stats {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+
+    .focus-trend-list {
+      max-height: none;
+      overflow: visible;
+      padding-right: 0;
+      gap: 8px;
+    }
+
+    .focus-trend-entry {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 8px;
+    }
+
+    .focus-trend-entry::after {
+      display: none;
+    }
+
+    .focus-trend-entry-year {
+      justify-self: flex-start;
+      min-height: 30px;
+      padding: 0 9px;
+      font-size: 10px;
+    }
+
+    .focus-trend-entry-card {
+      gap: 8px;
+      padding: 10px;
+      border-radius: 14px;
+    }
+
+    .focus-trend-entry-head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .focus-trend-entry-margin {
+      white-space: normal;
+    }
+
+    .focus-trend-entry-scale {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 4px;
+    }
+
+    .focus-trend-entry-scale .rep {
+      text-align: left;
+    }
+
+    .focus-trend-chip {
+      white-space: normal;
     }
 
     .map-topbar {
@@ -7043,9 +7414,22 @@ document.addEventListener('DOMContentLoaded', function() {
       };
     }
 
-    function renderFocusTrendSeries(series, caption = 'Trend history') {
+    function renderFocusTrendSeries(series, caption = 'Trend history', options = {}) {
       const captionEl = document.getElementById('focus-trend-caption');
       const chartEl = document.getElementById('focus-trend-chart');
+      const fallbackBadge = String(options?.fallbackBadge || '').trim();
+      const selectedYearRaw = Number(options?.selectedYear);
+      const selectedYear = Number.isFinite(selectedYearRaw) ? selectedYearRaw : null;
+      const hasCountyPrecisionFns = (
+        typeof leadCountyMarginPctLabel === 'function' &&
+        typeof winnerMarginLabelShortCounty === 'function'
+      );
+      const useCountyMarginPrecision = (
+        String(options?.marginPrecision || '').toLowerCase() === 'county' &&
+        hasCountyPrecisionFns
+      );
+      const leadMarginLabelFn = useCountyMarginPrecision ? leadCountyMarginPctLabel : leadMarginPctLabel;
+      const winnerMarginLabelFn = useCountyMarginPrecision ? winnerMarginLabelShortCounty : winnerMarginLabelShort;
       if (!chartEl) return;
       if (captionEl) captionEl.textContent = caption;
       if (!series || !series.length) {
@@ -7067,7 +7451,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const otherPct = totalVotes > 0 ? (otherVotes / totalVotes) * 100 : 0;
         const signedPct = Number(item.margin_pct || 0);
         const winnerMeta = getTrendWinnerMeta(item);
-        const leadLabel = leadMarginPctLabel(repVotes, demVotes, totalVotes);
+        const leadLabel = leadMarginLabelFn(repVotes, demVotes, totalVotes);
         const shiftMeta = describeTrendShift(signedPct, prev ? prev.margin_pct : NaN, prev ? prev.year : '');
         const flip = prev ? flipInfo(prev.margin_pct, signedPct) : { flipped: false, from: 'T', to: 'T' };
         return {
@@ -7089,39 +7473,55 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       const latest = annotated[annotated.length - 1];
+      const selectedEntry = selectedYear === null
+        ? null
+        : (annotated.find(entry => Number(entry?.item?.year) === selectedYear) || null);
+      const summaryEntry = selectedEntry || latest;
       const closest = annotated.reduce((best, entry) => {
         if (!best) return entry;
         return Math.abs(entry.signedPct) < Math.abs(best.signedPct) ? entry : best;
       }, null);
-      const latestSummary = winnerMarginLabelShort(
-        latest.repVotes,
-        latest.demVotes,
-        latest.totalVotes,
-        latest.item.rep_candidate,
-        latest.item.dem_candidate
+      const summaryLine = winnerMarginLabelFn(
+        summaryEntry.repVotes,
+        summaryEntry.demVotes,
+        summaryEntry.totalVotes,
+        summaryEntry.item.rep_candidate,
+        summaryEntry.item.dem_candidate
       );
       const earliest = annotated[0];
-      const historyShift = describeTrendShift(latest.signedPct, earliest ? earliest.signedPct : NaN, earliest ? earliest.item.year : '');
+      const historyShift = describeTrendShift(summaryEntry.signedPct, earliest ? earliest.signedPct : NaN, earliest ? earliest.item.year : '');
       let streakCount = 0;
       for (let i = annotated.length - 1; i >= 0; i -= 1) {
         if (annotated[i].winnerMeta.partyClass !== latest.winnerMeta.partyClass) break;
         streakCount += 1;
       }
-      const streakLabel = latest.winnerMeta.partyClass === 'tie'
+      const latestStreakLabel = latest.winnerMeta.partyClass === 'tie'
         ? 'Latest result was an even race.'
         : `${latest.winnerMeta.partyClass === 'rep' ? 'Republican' : 'Democratic'} streak: ${streakCount} election${streakCount === 1 ? '' : 's'}.`;
+      const summaryNoteSuffix = selectedEntry && selectedEntry !== latest
+        ? `Selected year ${summaryEntry.item.year}; latest available ${latest.item.year}.`
+        : latestStreakLabel;
 
       const summaryBadges = [];
-      if (latest.shiftMeta) {
+      if (summaryEntry.shiftMeta) {
         summaryBadges.push(
-          `<span class="focus-trend-summary-badge ${latest.shiftMeta.cls}">${escapeHtml(latest.shiftMeta.text)}</span>`
+          `<span class="focus-trend-summary-badge ${summaryEntry.shiftMeta.cls}">${escapeHtml(summaryEntry.shiftMeta.text)}</span>`
         );
       }
-      if (latest.flip && latest.flip.flipped) {
+      if (summaryEntry.flip && summaryEntry.flip.flipped) {
         summaryBadges.push(
-          `<span class="focus-trend-summary-badge ${latest.flip.to === 'R' ? 'rep' : 'dem'}">${escapeHtml(`Flip ${latest.flip.from}->${latest.flip.to}`)}</span>`
+          `<span class="focus-trend-summary-badge ${summaryEntry.flip.to === 'R' ? 'rep' : 'dem'}">${escapeHtml(`Flip ${summaryEntry.flip.from}->${summaryEntry.flip.to}`)}</span>`
         );
       }
+      if (fallbackBadge) {
+        summaryBadges.push(
+          `<span class="focus-trend-summary-badge fallback">${escapeHtml(fallbackBadge)}</span>`
+        );
+      }
+
+      const trajectoryHtml = options?.trajectoryMeta
+        ? renderTrajectoryBlockHTML(options.trajectoryMeta)
+        : '';
 
       const cards = annotated
         .slice()
@@ -7174,19 +7574,19 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="focus-trend-plot">
           <div class="focus-trend-summary">
             <div class="focus-trend-summary-copy">
-              <span class="focus-trend-summary-kicker">Trend at a glance</span>
-              <div class="focus-trend-summary-call">${escapeHtml(`${latest.item.year}: ${latestSummary}`)}</div>
-              <div class="focus-trend-summary-note">${escapeHtml(`Showing ${annotated.length} elections from ${earliest.item.year} to ${latest.item.year}. ${streakLabel}`)}</div>
+              <span class="focus-trend-summary-kicker">${escapeHtml(selectedEntry ? 'Trend at a glance (selected year)' : 'Trend at a glance')}</span>
+              <div class="focus-trend-summary-call">${escapeHtml(`${summaryEntry.item.year}: ${summaryLine}`)}</div>
+              <div class="focus-trend-summary-note">${escapeHtml(`Showing ${annotated.length} elections from ${earliest.item.year} to ${latest.item.year}. ${summaryNoteSuffix}`)}</div>
             </div>
             <div class="focus-trend-summary-badges">${summaryBadges.join('')}</div>
             <div class="focus-trend-stats">
               <div class="focus-trend-stat">
-                <span class="focus-trend-stat-label">Latest</span>
-                <span class="focus-trend-stat-value ${latest.winnerMeta.partyClass}">${escapeHtml(`${latest.item.year}: ${latestSummary}`)}</span>
+                <span class="focus-trend-stat-label">${escapeHtml(selectedEntry ? 'Selected' : 'Latest')}</span>
+                <span class="focus-trend-stat-value ${summaryEntry.winnerMeta.partyClass}">${escapeHtml(`${summaryEntry.item.year}: ${summaryLine}`)}</span>
               </div>
               <div class="focus-trend-stat">
                 <span class="focus-trend-stat-label">Closest</span>
-                <span class="focus-trend-stat-value ${closest.winnerMeta.partyClass}">${escapeHtml(`${closest.item.year}: ${winnerMarginLabelShort(closest.repVotes, closest.demVotes, closest.totalVotes, closest.item.rep_candidate, closest.item.dem_candidate)}`)}</span>
+                <span class="focus-trend-stat-value ${closest.winnerMeta.partyClass}">${escapeHtml(`${closest.item.year}: ${winnerMarginLabelFn(closest.repVotes, closest.demVotes, closest.totalVotes, closest.item.rep_candidate, closest.item.dem_candidate)}`)}</span>
               </div>
               <div class="focus-trend-stat">
                 <span class="focus-trend-stat-label">Since ${escapeHtml(earliest.item.year)}</span>
@@ -7195,6 +7595,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
           </div>
         </div>
+        ${trajectoryHtml}
         <div class="focus-trend-list">${cards}</div>
       `;
       try { updateMobileOverlayOffsets(); } catch (_) {}
@@ -7294,6 +7695,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       try {
         let series = [];
+        const trendOptions = {};
+        trendOptions.selectedYear = Number(year);
+        trendOptions.marginPrecision = meta.kind === 'county' ? 'county' : 'default';
         if (meta.kind === 'county' && meta.county) {
           series = await getCountyTrendSeries(contestType, meta.county);
         } else if (meta.kind === 'region' && meta.regionKey) {
@@ -7301,12 +7705,27 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (meta.kind === 'district' && meta.scope && meta.districtNum !== undefined) {
           series = await getDistrictTrendSeries(meta.scope, contestType, meta.districtNum);
         } else if (meta.kind === 'precinct' && meta.county) {
-          series = await getCountyTrendSeries(contestType, meta.county);
+          if (typeof getPrecinctTrendSeries === 'function') {
+            try {
+              series = await getPrecinctTrendSeries(contestType, meta.precinctNorm || meta.precinct || '', meta.county || '');
+            } catch (_) {
+              series = [];
+            }
+          }
+          if (!series || !series.length) {
+            series = await getCountyTrendSeries(contestType, meta.county);
+            if (series && series.length) {
+              trendOptions.fallbackBadge = 'Precinct history unavailable - showing county trend';
+            }
+          }
         } else {
           series = await getStatewideTrendSeries(contestType);
         }
+        if (meta.kind !== 'statewide' && series && series.length) {
+          trendOptions.trajectoryMeta = classifyCountyTrajectory(series);
+        }
         if (reqId !== voteCounterTrendRequestId) return;
-        renderFocusTrendSeries(series, baseCaption);
+        renderFocusTrendSeries(series, baseCaption, trendOptions);
       } catch (err) {
         if (reqId !== voteCounterTrendRequestId) return;
         renderFocusTrendEmpty('Failed to load trend history.', baseCaption);
@@ -9585,6 +10004,181 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
       return out;
+    }
+
+    function classifyCountyTrajectory(series) {
+      if (!Array.isArray(series) || !series.length) {
+        return {
+          status: 'No trend data',
+          statusClass: 'competitive',
+          trend: 'Not enough history',
+          icon: '\u2022',
+          details: []
+        };
+      }
+
+      function getSignedMarginTowardGop(row) {
+        if (!row) return 0;
+        const explicit = Number(row.margin_pct);
+        const winnerRaw = (row.winner || '').toString().trim().toUpperCase();
+        const winnerNorm = winnerRaw === 'R' ? 'REP' : winnerRaw === 'D' ? 'DEM' : winnerRaw;
+        if (Number.isFinite(explicit) && explicit !== 0) {
+          if (winnerNorm === 'REP') return Math.abs(explicit);
+          if (winnerNorm === 'DEM') return -Math.abs(explicit);
+        }
+        const repVotes = Number(row.rep_votes);
+        const demVotes = Number(row.dem_votes);
+        const totalVotes = Number(row.total_votes);
+        if (Number.isFinite(repVotes) && Number.isFinite(demVotes) && Number.isFinite(totalVotes) && totalVotes > 0) {
+          return ((repVotes - demVotes) / totalVotes) * 100;
+        }
+        return 0;
+      }
+
+      function formatShiftLabel(delta) {
+        if (!Number.isFinite(delta) || Math.abs(delta) < 0.005) return '\u2192 Even';
+        return `${delta > 0 ? '\u2197' : '\u2198'} ${delta > 0 ? 'R' : 'D'}+${Math.abs(delta).toFixed(2)} pts`;
+      }
+
+      function formatWinnerLabel(row, signedMargin) {
+        const absMargin = Math.abs(signedMargin);
+        if (absMargin < 0.005) return `${row.year}: Tie`;
+        return `${row.year}: ${signedMargin > 0 ? 'R' : 'D'}+${absMargin.toFixed(2)} pts`;
+      }
+
+      const sorted = series.slice().sort((a, b) => Number(a.year) - Number(b.year));
+      const latest = sorted[sorted.length - 1];
+      const latestSigned = getSignedMarginTowardGop(latest);
+      const first = sorted[0];
+      const firstSigned = getSignedMarginTowardGop(first);
+      const longShiftTowardGop = latestSigned - firstSigned;
+      const row2008 = sorted.find(row => Number(row.year) === 2008);
+      const shiftSince2008 = row2008 ? latestSigned - getSignedMarginTowardGop(row2008) : null;
+
+      const recentSlice = sorted.slice(-3);
+      let rightwardSteps = 0;
+      let leftwardSteps = 0;
+      for (let i = 1; i < recentSlice.length; i += 1) {
+        const prev = getSignedMarginTowardGop(recentSlice[i - 1]);
+        const curr = getSignedMarginTowardGop(recentSlice[i]);
+        const deltaTowardGop = curr - prev;
+        if (deltaTowardGop > 0.5) rightwardSteps += 1;
+        if (deltaTowardGop < -0.5) leftwardSteps += 1;
+      }
+
+      let status = 'Tipping Point';
+      let statusClass = 'competitive';
+      let icon = '\u25d0';
+
+      if (latestSigned <= -15 && rightwardSteps === 0) {
+        status = 'Stable Democratic';
+        statusClass = 'dem';
+        icon = '\u25cf';
+      } else if (latestSigned < -5 && (rightwardSteps >= 1 || longShiftTowardGop >= 3)) {
+        status = 'Eroding Democratic';
+        statusClass = 'dem';
+        icon = '\u2198';
+      } else if (Math.abs(latestSigned) < 5) {
+        status = 'Tipping Point';
+        statusClass = 'competitive';
+        icon = '\u25d0';
+      } else if (latestSigned >= 5 && latestSigned < 15) {
+        status = 'Functionally Republican';
+        statusClass = 'rep';
+        icon = '\u2197';
+      } else if (latestSigned >= 15) {
+        status = 'Locked Republican';
+        statusClass = 'rep';
+        icon = '\u25cf';
+      }
+
+      let trend = 'Stable';
+      if (rightwardSteps >= 2) trend = '\u2197 Consistent rightward movement';
+      else if (rightwardSteps === 1) trend = '\u2197 Recent rightward movement';
+      else if (leftwardSteps >= 2) trend = '\u2198 Consistent leftward movement';
+      else if (leftwardSteps === 1) trend = '\u2198 Recent leftward movement';
+      else trend = '\u2192 Stable';
+
+      const previous = sorted.length >= 2 ? sorted[sorted.length - 2] : null;
+      const prevSigned = previous ? getSignedMarginTowardGop(previous) : null;
+      const recentShiftTowardGop = previous ? (latestSigned - prevSigned) : null;
+
+      return {
+        status,
+        statusClass,
+        trend,
+        icon,
+        details: [
+          { label: 'Latest', value: formatWinnerLabel(latest, latestSigned) },
+          ...(previous ? [{ label: `Since ${previous.year}`, value: formatShiftLabel(recentShiftTowardGop) }] : []),
+          { label: `Since ${first.year}`, value: formatShiftLabel(longShiftTowardGop) },
+          ...(row2008 ? [{ label: 'Since 2008', value: formatShiftLabel(shiftSince2008) }] : [])
+        ]
+      };
+    }
+
+    function renderTrajectoryBlockHTML(meta) {
+      if (!meta) return '';
+      const details = Array.isArray(meta.details) ? meta.details : [];
+      const statusClass = ['dem', 'rep', 'competitive'].includes(meta.statusClass)
+        ? meta.statusClass
+        : 'competitive';
+      const statusText = `${String(meta.icon || '').trim() ? `${meta.icon} ` : ''}${meta.status || 'Tipping Point'}`;
+      const trendText = String(meta.trend || '\u2192 Stable');
+      const trendClass = trendText.includes('\u2197')
+        ? 'rep'
+        : (trendText.includes('\u2198') ? 'dem' : 'neutral');
+      const trendArrowMatch = trendText.trim().match(/^([\u2197\u2198\u2192])\s*/);
+      const trendArrow = trendArrowMatch ? trendArrowMatch[1] : '';
+      const trendBody = trendArrow ? trendText.trim().replace(/^([\u2197\u2198\u2192])\s*/, '') : trendText;
+      const detailTone = (label, value) => {
+        const v = String(value || '');
+        if (v.includes('\u2197') || /\bR\+\d/.test(v)) return 'rep';
+        if (v.includes('\u2198') || /\bD\+\d/.test(v)) return 'dem';
+        if (v.includes('\u2192') || /Tie|Even/i.test(v)) return 'neutral';
+        if (String(label || '').toLowerCase() === 'latest') {
+          if (/\bR\+/.test(v)) return 'rep';
+          if (/\bD\+/.test(v)) return 'dem';
+        }
+        return 'neutral';
+      };
+      return `
+        <div class="focus-trajectory" role="group" aria-label="Trajectory summary">
+          <div class="focus-trajectory-head">
+            <span class="focus-trajectory-kicker">Trajectory / Status</span>
+            <span class="focus-trajectory-status ${statusClass}">${escapeHtml(statusText)}</span>
+          </div>
+          <p class="focus-trajectory-trendline ${trendClass}">
+            <span class="trend-tag">Trend</span>
+            <span class="trend-text">
+              ${trendArrow ? `<span class="focus-trajectory-arrow ${trendClass}">${escapeHtml(trendArrow)}</span>` : ''}
+              ${escapeHtml(trendBody)}
+            </span>
+          </p>
+          ${details.length ? `
+            <div class="focus-trajectory-grid">
+              ${details.map(item => {
+                const tone = detailTone(item?.label, item?.value);
+                const label = String(item?.label || '');
+                const valueRaw = String(item?.value || '');
+                const arrowMatch = valueRaw.trim().match(/^([\u2197\u2198\u2192])\s*/);
+                const arrow = arrowMatch ? arrowMatch[1] : '';
+                const valueBody = arrow ? valueRaw.trim().replace(/^([\u2197\u2198\u2192])\s*/, '') : valueRaw;
+                const rowRole = label.toLowerCase() === 'latest' ? 'latest' : 'shift';
+                return `
+                <div class="focus-trajectory-item ${tone} ${rowRole}">
+                  <span class="focus-trajectory-label">${escapeHtml(label)}</span>
+                  <span class="focus-trajectory-value ${tone}">
+                    ${arrow ? `<span class="focus-trajectory-arrow ${tone}">${escapeHtml(arrow)}</span>` : ''}
+                    ${escapeHtml(valueBody)}
+                  </span>
+                </div>
+              `;
+              }).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `;
     }
 
     function formatTrendSeries(title, series) {
