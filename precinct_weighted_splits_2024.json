@@ -37,5 +37,127 @@
   "Spartanburg - Southside Baptist": {
     "SPARTANBURG - SOUTHSIDE BAPTIST": 0.8,
     "SPARTANBURG - BEAUMONT METHODIST": 0.2
+  },
+  "Horry - Burgess #2": {
+    "HORRY - BURGESS #2": 0.6161,
+    "HORRY - BURGESS #5": 0.3839
+  },
+  "Horry - Enterprise #2": {
+    "HORRY - ENTERPRISE #2": 0.6711,
+    "HORRY - ENTERPRISE #1": 0.3289
+  },
+  "Horry - Jet Port #2": {
+    "HORRY - JET PORT #2": 0.7003,
+    "HORRY - JET PORT #4": 0.1859,
+    "HORRY - JET PORT #3": 0.1138
+  },
+  "Horry - Ocean Drive #2": {
+    "HORRY - OCEAN DRIVE #2": 0.3643,
+    "HORRY - OCEAN DRIVE #3": 0.6357
+  },
+  "Jasper - Hardeeville 1": {
+    "JASPER - HARDEEVILLE 1": 0.4407,
+    "JASPER - HARDEEVILLE 3": 0.5547
+  },
+  "Jasper - Oakatie": {
+    "JASPER - OAKATIE": 0.547,
+    "JASPER - OAKATIE 2": 0.4239
+  },
+  "York - Palmetto": {
+    "YORK - PALMETTO": 0.2846,
+    "YORK - CRESCENT": 0.7143
+  },
+  "York - Allison Creek": {
+    "YORK - ALLISON CREEK": 0.6082,
+    "YORK - HANDS MILL": 0.3918
+  },
+  "Aiken - Ascauga Lake": {
+    "AIKEN - ASCAUGA LAKE NO. 84": 0.798289,
+    "AIKEN - ASCAUGA LAKE NO. 63": 0.201711
+  },
+  "Aiken - Gem Lakes": {
+    "AIKEN - GEM LAKES NO. 77": 0.578627,
+    "AIKEN - GEM LAKES NO. 60": 0.421373
+  },
+  "Aiken - Hammond": {
+    "AIKEN - HAMMOND NO. 81": 0.779514,
+    "AIKEN - HAMMOND NO. 48": 0.220486
+  },
+  "Aiken - Levels": {
+    "AIKEN - LEVELS NO. 52": 0.688098,
+    "AIKEN - LEVELS NO. 83": 0.311902
+  },
+  "Colleton - Walterboro No 1": {
+    "COLLETON - WALTERBORO NO. 1": 0.801638,
+    "COLLETON - PENIEL": 0.198362
+  },
+  "Colleton - Walterboro No 2": {
+    "COLLETON - WALTERBORO NO. 2": 0.54973,
+    "COLLETON - WALTERBORO NO. 6": 0.321026,
+    "COLLETON - PEEPLES": 0.129245
+  },
+  "Colleton - Walterboro No 3": {
+    "COLLETON - WALTERBORO NO. 6": 0.507897,
+    "COLLETON - WALTERBORO NO. 3": 0.492103
+  },
+  "Colleton - Walterboro No 4": {
+    "COLLETON - WALTERBORO NO. 5": 0.490502,
+    "COLLETON - WALTERBORO NO. 4": 0.403187,
+    "COLLETON - PEEPLES": 0.106312
+  },
+  "Edgefield - Trenton": {
+    "EDGEFIELD - TRENTON NO. 1": 0.689382,
+    "EDGEFIELD - TRENTON NO. 2": 0.310618
+  },
+  "Greenwood - Greenwood No. 6": {
+    "GREENWOOD - MOUNTAIN LAUREL": 0.442442,
+    "GREENWOOD - HOPES FERRY": 0.438207,
+    "GREENWOOD - LACO": 0.119351
+  },
+  "Oconee - Tokeena Providence": {
+    "OCONEE - TOKEENA-PROVIDENCE": 0.875534,
+    "OCONEE - OAKWAY": 0.124466
+  },
+  "Pickens - Albert R Lewis": {
+    "PICKENS - ALBERT R. LEWIS": 0.547267,
+    "PICKENS - MOUNTAIN VIEW": 0.452733
+  },
+  "Pickens - Park Street": {
+    "PICKENS - FRUIT MOUNTAIN": 0.538422,
+    "PICKENS - SIMPSON": 0.461578
+  },
+  "Richland - Parkridge": {
+    "RICHLAND - PARKRIDGE 2": 0.58733,
+    "RICHLAND - PARKRIDGE 1": 0.41267
+  },
+  "Richland - River Springs": {
+    "RICHLAND - RIVERSPRINGS 3": 0.373368,
+    "RICHLAND - RIVERSPRINGS 2": 0.355466,
+    "RICHLAND - RIVERSPRINGS 1": 0.271166
+  },
+  "Richland - Springville": {
+    "RICHLAND - SPRING HILL": 0.506676,
+    "RICHLAND - SPRINGVILLE 2": 0.250797,
+    "RICHLAND - SPRINGVILLE 1": 0.242527
+  },
+  "York - Clover No. 1": {
+    "YORK - CLOVER": 0.370597,
+    "YORK - LARNE": 0.363185,
+    "YORK - ROOSEVELT": 0.14533,
+    "YORK - BETHEL SCHOOL": 0.120889
+  },
+  "York - Clover No. 2": {
+    "YORK - HAMPTON MILL": 0.402225,
+    "YORK - ROOSEVELT": 0.356388,
+    "YORK - CLOVER": 0.241388
+  },
+  "Horry - Nixons X Roads 1": {
+    "HORRY - NIXONS XROADS 3": 0.531277,
+    "HORRY - NIXONS XROADS 2": 0.264709,
+    "HORRY - NIXONS XROADS 1": 0.204015
+  },
+  "Horry - Nixons X Roads 2": {
+    "HORRY - NIXONS XROADS 2": 0.877013,
+    "HORRY - NIXONS XROADS 1": 0.122378
   }
 }

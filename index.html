@@ -10998,62 +10998,75 @@ document.addEventListener('DOMContentLoaded', function() {
       if (precinctSourceLoaded || map.getSource('precincts')) return true;
       if (precinctLoadInFlight) return false;
       precinctLoadInFlight = true;
+      let loadedNow = false;
       setStatus('Loading precinct geometry...');
-      const precincts = await loadJSON(CONFIG.paths.precincts);
-      precincts.features = (precincts.features || []).map(feature => {
-        const original = feature.properties || {};
-        const countyRaw = (original.county_nam || original.COUNTYNAME || original.County || original.NAME || '').toString().trim();
-        const countyNorm = countyRaw.replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
-        const precRaw = (original.prec_id || original.PREC_ID || '').toString().trim();
-        const precinctRaw = countyRaw && precRaw ? `${countyRaw} - ${precRaw}` : countyRaw;
-        const precinctNorm = (precinctRaw || '').replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
-        feature.properties = {
-          county_nam: countyRaw,
-          county_norm: countyNorm,
-          precinct_name: precinctRaw,
-          precinct_norm: precinctNorm,
-          prec_id: precRaw,
-          id: original.id || original.objectid || null
-        };
-        return feature;
-      });
       try {
-        const s = new Set();
-        (precincts.features || []).forEach(f => {
-          const n = (f?.properties?.precinct_norm || '').toString().trim().toUpperCase();
-          if (n) s.add(n);
+        const precincts = await loadJSON(CONFIG.paths.precincts);
+        precincts.features = (precincts.features || []).map(feature => {
+          const original = feature.properties || {};
+          const countyRaw = (original.county_nam || original.COUNTYNAME || original.County || original.NAME || '').toString().trim();
+          const countyNorm = countyRaw.replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+          const precRaw = (original.prec_id || original.PREC_ID || '').toString().trim();
+          const precinctRaw = countyRaw && precRaw ? `${countyRaw} - ${precRaw}` : countyRaw;
+          const precinctNorm = (precinctRaw || '').replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+          feature.properties = {
+            county_nam: countyRaw,
+            county_norm: countyNorm,
+            precinct_name: precinctRaw,
+            precinct_norm: precinctNorm,
+            prec_id: precRaw,
+            id: original.id || original.objectid || null
+          };
+          return feature;
         });
-        precinctPolygonNormSet = s;
 
-        if (precinctCentroidsData && precinctCentroidsData.features) {
-          precinctCentroidsData.features = (precinctCentroidsData.features || []).map(f => {
-            const p = f.properties || {};
-            const n = (p.precinct_norm || '').toString().trim().toUpperCase();
-            f.properties = { ...p, has_polygon: !!(n && precinctPolygonNormSet && precinctPolygonNormSet.has(n)) };
-            return f;
+        try {
+          const s = new Set();
+          (precincts.features || []).forEach(f => {
+            const n = (f?.properties?.precinct_norm || '').toString().trim().toUpperCase();
+            if (n) s.add(n);
           });
-          const src = map.getSource('precinct-centroids');
-          if (src && typeof src.setData === 'function') {
-            try { src.setData(precinctCentroidsData); } catch (_) {}
+          precinctPolygonNormSet = s;
+
+          if (precinctCentroidsData && precinctCentroidsData.features) {
+            precinctCentroidsData.features = (precinctCentroidsData.features || []).map(f => {
+              const p = f.properties || {};
+              const n = (p.precinct_norm || '').toString().trim().toUpperCase();
+              f.properties = { ...p, has_polygon: !!(n && precinctPolygonNormSet && precinctPolygonNormSet.has(n)) };
+              return f;
+            });
+            const src = map.getSource('precinct-centroids');
+            if (src && typeof src.setData === 'function') {
+              try { src.setData(precinctCentroidsData); } catch (_) {}
+            }
           }
+        } catch (_) {}
+        // Do not overwrite window.countiesData (used for county search/zoom).
+        window.precinctsData = precincts;
+        map.addSource('precincts', { type: 'geojson', data: precincts, generateId: true });
+        precinctSourceLoaded = true;
+        loadedNow = true;
+        addPrecinctLayers();
+        // If a contest is already applied, paint precincts immediately.
+        try {
+          if (lastPrecinctFillExpr && map.getLayer('precinct-fill')) {
+            map.setPaintProperty('precinct-fill', 'fill-color', lastPrecinctFillExpr);
+          }
+        } catch (err) {
+          console.warn('Failed to apply cached precinct colors:', err?.message || err);
         }
-      } catch (_) {}
-      // Do not overwrite window.countiesData (used for county search/zoom).
-      window.precinctsData = precincts;
-      map.addSource('precincts', { type: 'geojson', data: precincts, generateId: true });
-      precinctSourceLoaded = true;
-      precinctLoadInFlight = false;
-      addPrecinctLayers();
-      // If a contest is already applied, paint precincts immediately.
-      try {
-        if (lastPrecinctFillExpr && map.getLayer('precinct-fill')) {
-          map.setPaintProperty('precinct-fill', 'fill-color', lastPrecinctFillExpr);
-        }
+        setStatus('Precinct geometry ready');
+        return true;
       } catch (err) {
-        console.warn('Failed to apply cached precinct colors:', err?.message || err);
+        console.warn('Failed to load precinct geometry:', err?.message || err);
+        return false;
+      } finally {
+        precinctLoadInFlight = false;
+        if (loadedNow) {
+          // Ensure newly-added layers immediately respect current toggle/zoom state.
+          try { updatePrecinctVisibility(); } catch (_) {}
+        }
       }
-      setStatus('Precinct geometry ready');
-      return true;
     }
 
     function addPrecinctLayers() {
@@ -11098,6 +11111,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	      if (precinctCentroidsLoaded || map.getSource('precinct-centroids')) return true;
 	      if (precinctCentroidsLoadInFlight) return false;
 	      precinctCentroidsLoadInFlight = true;
+        let loadedNow = false;
 	      try {
 	        const pts = await loadJSON(CONFIG.paths.precinct_centroids);
           precinctCentroidsData = pts;
@@ -11123,6 +11137,7 @@ document.addEventListener('DOMContentLoaded', function() {
           } catch (_) {}
 	        map.addSource('precinct-centroids', { type: 'geojson', data: pts });
 	        precinctCentroidsLoaded = true;
+          loadedNow = true;
 	        // Build a lightweight county -> precinct code index for key-variant matching.
 	        try {
 	          if (!precinctCodeIndexByCounty && pts && pts.features) {
@@ -11149,6 +11164,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	        console.warn('Failed to load precinct centroids:', err?.message || err);
 	      } finally {
 	        precinctCentroidsLoadInFlight = false;
+          if (loadedNow) {
+            // Make dot layers visible immediately after async load when precinct mode is on.
+            try { updatePrecinctVisibility(); } catch (_) {}
+          }
 	      }
 	      return precinctCentroidsLoaded;
 	    }
@@ -11325,14 +11344,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updatePrecinctVisibility() {
       const btn = document.getElementById('precinct-toggle');
+      const precinctLoading = precinctLoadInFlight || precinctCentroidsLoadInFlight;
       if (btn) {
-        if (precinctLoadInFlight) {
+        if (precinctLoading) {
           btn.textContent = 'Precincts Loading';
         } else {
           btn.textContent = precinctsEnabled ? 'Precincts On' : 'Precincts Off';
         }
         btn.style.background = precinctsEnabled ? '#1d4ed8' : '#065f46';
-        btn.style.opacity = precinctLoadInFlight ? '0.75' : '1';
+        btn.style.opacity = precinctLoading ? '0.75' : '1';
       }
       const minZoom = (CONFIG.precincts?.minZoom || 8.5);
       const z = map.getZoom();
@@ -14319,4 +14339,3 @@ document.addEventListener('DOMContentLoaded', function() {
   </script>
 </body>
 </html>
-
