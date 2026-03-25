@@ -7019,7 +7019,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function buildTooltipTitleWithTier(titleText, tierMeta = null) {
       const safeTitle = escapeHtml(String(titleText || '').trim());
       if (!safeTitle) return '';
-      return safeTitle;
+      if (!tierMeta || !tierMeta.label) return safeTitle;
+      const partyClass = tierMeta.party === 'rep' ? 'rep' : (tierMeta.party === 'dem' ? 'dem' : 'tie');
+      return `
+        <span class="tooltip-title-wrap">
+          <span class="tooltip-title-main">${safeTitle}</span>
+          <span class="tooltip-title-badge ${partyClass}">${escapeHtml(tierMeta.label)}</span>
+        </span>
+      `;
     }
 
     function describeTrendShift(currentSignedPct, prevSignedPct, prevYear) {
@@ -9622,7 +9629,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const dotColor = winner === 'T' ? '#9ca3af' : colorForMarginMode(pct, winner);
       return `<span class="meta-chip tier"><span class="dot" style="background:${dotColor};"></span>${escapeHtml(tierMeta.label)}</span>`;
     }
-
     // Hover outline (stroke-only highlight) helpers.
     const HOVER_OUTLINE_LAYER_IDS = [
       'county-stroke-hover',
@@ -9958,7 +9964,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
-        if (flipChip) chips.push(flipChip);
+        if (flipChip) chips.unshift(flipChip);
       }
 
       const inner = `
@@ -10038,7 +10044,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, curSigned);
-        if (flipChip) chips.push(flipChip);
+        if (flipChip) chips.unshift(flipChip);
       }
 
       const inner = `
@@ -10223,7 +10229,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
-        if (flipChip) chips.push(flipChip);
+        if (flipChip) chips.unshift(flipChip);
       }
 
       const desc = getDistrictDescription(scope, districtNum);
