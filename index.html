@@ -6952,7 +6952,9 @@ document.addEventListener('DOMContentLoaded', function() {
       if (/^(ABSEN|PROVI|TRANS)$/i.test(c)) return true;
       if (c === 'EV') return true;
       if (c.startsWith('EV') || c.startsWith('EV-') || c.startsWith('EV_')) return true;
-      if (/^(ABSENTEE|PROVISIONAL|CURBSIDE)$/i.test(c)) return true;
+      if (/^(ABSENTEE|PROVISIONAL|CURBSIDE)\b/i.test(c)) return true;
+      if (/^FAIL\s*SAFE\b/i.test(c)) return true;
+      if (/^COUNTY\s+TOTALS?\b/i.test(c)) return true;
       if (c.includes('ONE STOP') || c.includes('MAIL ABSENTEE') || c.includes('VOTE CENTER') || c.includes('VOTECENTER') || c.includes('EARLY VOT')) return true;
       if (c.startsWith('OS ') || c.startsWith('OS-') || c.startsWith('OS_')) return true;
       // Wake (and others) sometimes use compact one-stop bucket codes like "OSAB 1-40" or "OSNB81-91".
@@ -14636,18 +14638,193 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       // Optional precinct expression (detail overlay)
       if (needsPrecinctDetail) {
-        // Build precinct lookup map from precinct rows (or county rows fallback).
+        const centroidData = (() => {
+          if (precinctCentroidsData && Array.isArray(precinctCentroidsData.features)) return precinctCentroidsData;
+          try {
+            const src = map.getSource('precinct-centroids');
+            const gj = src ? (src._data || src.data) : null;
+            if (gj && Array.isArray(gj.features)) return gj;
+          } catch (_) {}
+          return null;
+        })();
+
+        const centroidNormSet = new Set();
+        const centroidNormsByCounty = new Map();
+        (centroidData?.features || []).forEach(f => {
+          const p = f?.properties || {};
+          const precinctNorm = (p.precinct_norm || '').toString().trim().toUpperCase();
+          if (!precinctNorm) return;
+          centroidNormSet.add(precinctNorm);
+          const countyNorm = normalizeCountyName(p.county_nam || '');
+          if (!countyNorm) return;
+          if (!centroidNormsByCounty.has(countyNorm)) centroidNormsByCounty.set(countyNorm, new Set());
+          centroidNormsByCounty.get(countyNorm).add(precinctNorm);
+        });
+
+        const precinctVoteAgg = new Map();
+        const unmatchedCountyGeoAgg = new Map();
+
+        function addPrecinctVotes(norm, demVotes, repVotes, otherVotes, demCand, repCand) {
+          if (!norm) return;
+          if (!precinctVoteAgg.has(norm)) {
+            precinctVoteAgg.set(norm, {
+              year: Number(year),
+              county: norm,
+              [`${contestType}_dem`]: 0,
+              [`${contestType}_rep`]: 0,
+              [`${contestType}_other`]: 0,
+              [`${contestType}_total`]: 0,
+              [`${contestType}_dem_candidate`]: demCand || '',
+              [`${contestType}_rep_candidate`]: repCand || ''
+            });
+          }
+          const node = precinctVoteAgg.get(norm);
+          const d = Number(demVotes || 0);
+          const r = Number(repVotes || 0);
+          const o = Number(otherVotes || 0);
+          node[`${contestType}_dem`] += d;
+          node[`${contestType}_rep`] += r;
+          node[`${contestType}_other`] += o;
+          node[`${contestType}_total`] += d + r + o;
+          if (!node[`${contestType}_dem_candidate`] && demCand) node[`${contestType}_dem_candidate`] = demCand;
+          if (!node[`${contestType}_rep_candidate`] && repCand) node[`${contestType}_rep_candidate`] = repCand;
+        }
+
         precinctRows.forEach(row => {
           const rowName = (row.county || '').toString();
-          const norms = precinctNormVariants(rowName);
-          norms.forEach(n => {
-            currentPrecinctResults.set(n, row);
+          const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
+          const countyNorm = normalizeCountyName(countyOnly);
+          if (!countyNorm) return;
+
+          const demVotes = Number(row[`${contestType}_dem`] || 0);
+          const repVotes = Number(row[`${contestType}_rep`] || 0);
+          const otherVotes = Number(row[`${contestType}_other`] || 0);
+          const demCand = (row[`${contestType}_dem_candidate`] || '').toString();
+          const repCand = (row[`${contestType}_rep_candidate`] || '').toString();
+
+          const candidateNorms = precinctNormVariants(rowName);
+          if (!candidateNorms.length) return;
+
+          let matchedNorms = candidateNorms;
+          if (centroidNormSet.size) {
+            matchedNorms = candidateNorms.filter(n => centroidNormSet.has(n));
+          }
+          matchedNorms = Array.from(new Set(matchedNorms));
+
+          if (matchedNorms.length) {
+            const share = 1 / matchedNorms.length;
+            matchedNorms.forEach(n => addPrecinctVotes(n, demVotes * share, repVotes * share, otherVotes * share, demCand, repCand));
+            return;
+          }
+
+          if (!unmatchedCountyGeoAgg.has(countyNorm)) {
+            unmatchedCountyGeoAgg.set(countyNorm, {
+              dem: 0,
+              rep: 0,
+              other: 0,
+              demCand: demCand || '',
+              repCand: repCand || ''
+            });
+          }
+          const miss = unmatchedCountyGeoAgg.get(countyNorm);
+          miss.dem += demVotes;
+          miss.rep += repVotes;
+          miss.other += otherVotes;
+          if (!miss.demCand && demCand) miss.demCand = demCand;
+          if (!miss.repCand && repCand) miss.repCand = repCand;
+        });
+
+        unmatchedCountyGeoAgg.forEach((miss, countyNorm) => {
+          const countyNorms = centroidNormsByCounty?.get(countyNorm)
+            ? Array.from(centroidNormsByCounty.get(countyNorm))
+            : [];
+          if (!countyNorms.length) return;
+
+          let denom = 0;
+          const weightBase = new Map();
+          countyNorms.forEach(n => {
+            const node = precinctVoteAgg.get(n);
+            const base = Number(node?.[`${contestType}_total`] || 0);
+            const adj = base > 0 ? base : 1;
+            weightBase.set(n, adj);
+            denom += adj;
+          });
+          const fallbackW = countyNorms.length ? (1 / countyNorms.length) : 0;
+
+          countyNorms.forEach(n => {
+            const w = denom > 0 ? ((weightBase.get(n) || 0) / denom) : fallbackW;
+            addPrecinctVotes(n, miss.dem * w, miss.rep * w, miss.other * w, miss.demCand, miss.repCand);
+          });
+        });
+
+        centroidNormsByCounty.forEach((normSet, countyNorm) => {
+          const norms = Array.from(normSet || []);
+          if (!norms.length) return;
+          const countyNode = countyAgg[countyNorm];
+          if (!countyNode) return;
+
+          const countyDem = Number(countyNode[`${contestType}_dem`] || 0);
+          const countyRep = Number(countyNode[`${contestType}_rep`] || 0);
+          const countyOther = Number(countyNode[`${contestType}_other`] || 0);
+          const countyTotal = Number(countyNode[`${contestType}_total`] || 0);
+          if (countyTotal <= 0) return;
+
+          const zeroNorms = norms.filter(n => Number(precinctVoteAgg.get(n)?.[`${contestType}_total`] || 0) <= 0);
+          if (!zeroNorms.length) return;
+
+          const assigned = norms.reduce((acc, n) => {
+            const node = precinctVoteAgg.get(n);
+            acc.dem += Number(node?.[`${contestType}_dem`] || 0);
+            acc.rep += Number(node?.[`${contestType}_rep`] || 0);
+            acc.other += Number(node?.[`${contestType}_other`] || 0);
+            acc.total += Number(node?.[`${contestType}_total`] || 0);
+            return acc;
+          }, { dem: 0, rep: 0, other: 0, total: 0 });
+
+          let residualDem = Math.max(0, countyDem - assigned.dem);
+          let residualRep = Math.max(0, countyRep - assigned.rep);
+          let residualOther = Math.max(0, countyOther - assigned.other);
+          let residualTotal = residualDem + residualRep + residualOther;
+
+          if (residualTotal <= 0) {
+            const tinyTotal = Math.max(1, Math.round(countyTotal * 0.0001));
+            const demFrac = countyTotal > 0 ? (countyDem / countyTotal) : 0;
+            const repFrac = countyTotal > 0 ? (countyRep / countyTotal) : 0;
+            const otherFrac = countyTotal > 0 ? (countyOther / countyTotal) : 0;
+            residualTotal = tinyTotal;
+            residualDem = tinyTotal * demFrac;
+            residualRep = tinyTotal * repFrac;
+            residualOther = tinyTotal * otherFrac;
+          }
+
+          const share = 1 / zeroNorms.length;
+          zeroNorms.forEach(norm => {
+            addPrecinctVotes(
+              norm,
+              residualDem * share,
+              residualRep * share,
+              residualOther * share,
+              countyNode[`${contestType}_dem_candidate`] || '',
+              countyNode[`${contestType}_rep_candidate`] || ''
+            );
+          });
+        });
+
+        precinctVoteAgg.forEach((node, norm) => {
+          const demVotes = Number(node[`${contestType}_dem`] || 0);
+          const repVotes = Number(node[`${contestType}_rep`] || 0);
+          const totalVotes = Number(node[`${contestType}_total`] || 0);
+          const signed = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+          const winner = signed > 0 ? 'REPUBLICAN' : (signed < 0 ? 'DEMOCRAT' : 'TIE');
+          currentPrecinctResults.set(norm, {
+            ...node,
+            [`${contestType}_margin_pct`]: signed,
+            [`${contestType}_winner`]: winner
           });
         });
 
         const exprPrecinct = ['case'];
-        precinctRows.forEach(row => {
-          const precinctNames = precinctNormVariants(row.county);
+        currentPrecinctResults.forEach((row, precinctName) => {
           const demVotes = Number(row[`${contestType}_dem`] || 0);
           const repVotes = Number(row[`${contestType}_rep`] || 0);
           const totalVotes = Number(row[`${contestType}_total`] || 0);
@@ -14660,9 +14837,8 @@ document.addEventListener('DOMContentLoaded', function() {
           if (mode === 'flips') {
             const curSigned = isNaN(signedMarginPct) ? signedMarginPctFromVotes(demVotes, repVotes, totalVotes) : signedMarginPct;
             let prevSigned = 0;
-            // Use first matching norm (variants exist for precinct naming quirks).
-            for (const n of precinctNames) {
-              if (vizPrevCache?.prevPrecinctMarginByNorm?.has(n)) { prevSigned = vizPrevCache.prevPrecinctMarginByNorm.get(n); break; }
+            if (vizPrevCache?.prevPrecinctMarginByNorm?.has(precinctName)) {
+              prevSigned = Number(vizPrevCache.prevPrecinctMarginByNorm.get(precinctName) || 0);
             }
             const f = flipInfo(prevSigned, curSigned);
             color = f.flipped ? colorForFlipMode(f.to) : colorForFlipMode('T');
@@ -14672,19 +14848,16 @@ document.addEventListener('DOMContentLoaded', function() {
             // Signed margin pct: positive => R, negative => D.
             const curSigned = isNaN(signedMarginPct) ? signedMarginPctFromVotes(demVotes, repVotes, totalVotes) : signedMarginPct;
             let prevSigned = 0;
-            // Use first matching norm (variants exist for precinct naming quirks).
-            for (const n of precinctNames) {
-              if (prevPrecinctMarginByNorm.has(n)) { prevSigned = prevPrecinctMarginByNorm.get(n); break; }
+            if (prevPrecinctMarginByNorm.has(precinctName)) {
+              prevSigned = Number(prevPrecinctMarginByNorm.get(precinctName) || 0);
             }
             color = colorForShiftMode(curSigned - prevSigned);
           } else {
             const curSigned = isNaN(signedMarginPct) ? signedMarginPctFromVotes(demVotes, repVotes, totalVotes) : signedMarginPct;
             color = colorForMarginMode(Math.abs(curSigned), winner === 'T' ? 'R' : winner);
           }
-          precinctNames.forEach(precinctName => {
-            exprPrecinct.push(['==', ['get', 'precinct_norm'], precinctName]);
-            exprPrecinct.push(color);
-          });
+          exprPrecinct.push(['==', ['get', 'precinct_norm'], precinctName]);
+          exprPrecinct.push(color);
         });
         exprPrecinct.push('#d1d5db');
         // Cache for later, in case precinct overlay loads after the contest is applied.
