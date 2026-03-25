@@ -1147,42 +1147,6 @@ body { height: var(--app-height); }
   font-size: 16px;
   font-weight: 700;
 }
-#county-name {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  line-height: 1.2;
-}
-#county-name .focus-name-title {
-  display: inline-flex;
-  align-items: center;
-}
-.focus-name-tier-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  border: 1px solid transparent;
-}
-.focus-name-tier-badge.rep {
-  color: #7f1d1d;
-  background: rgba(220, 38, 38, 0.14);
-  border-color: rgba(185, 28, 28, 0.35);
-}
-.focus-name-tier-badge.dem {
-  color: #1e3a8a;
-  background: rgba(59, 130, 246, 0.14);
-  border-color: rgba(37, 99, 235, 0.35);
-}
-.focus-name-tier-badge.tie {
-  color: #334155;
-  background: rgba(148, 163, 184, 0.18);
-  border-color: rgba(100, 116, 139, 0.35);
-}
 /* Mobile: Better spacing for county details */
 @media (max-width: 768px) {
   .county-details {
@@ -1194,10 +1158,6 @@ body { height: var(--app-height); }
   }
   #county-name {
     font-size: 20px !important;
-  }
-  .focus-name-tier-badge {
-    font-size: 10px;
-    padding: 2px 7px;
   }
 }
 /* Sidebar Card Classes for Consistent Font Sizes */
@@ -7056,23 +7016,6 @@ document.addEventListener('DOMContentLoaded', function() {
       return competitivenessTierMeta(0, 'tie');
     }
 
-    function setFocusNameWithTierBadge(targetEl, baseLabel, tierMeta = null) {
-      if (!targetEl) return;
-      const label = String(baseLabel || '').trim();
-      if (!label) {
-        targetEl.textContent = '';
-        return;
-      }
-      targetEl.innerHTML = `<span class="focus-name-title">${escapeHtml(label)}</span>`;
-    }
-
-    function competitivenessChipHTML(tierMeta) {
-      if (!tierMeta || !tierMeta.label) return '';
-      const cls = tierMeta.party === 'rep' ? 'rep' : (tierMeta.party === 'dem' ? 'dem' : 'tie');
-      const dotColor = tierMeta.party === 'rep' ? '#fca5a5' : (tierMeta.party === 'dem' ? '#93c5fd' : '#94a3b8');
-      return `<span class="meta-chip ${cls}"><span class="dot" style="background:${dotColor};"></span>${escapeHtml(tierMeta.label)}</span>`;
-    }
-
     function buildTooltipTitleWithTier(titleText, tierMeta = null) {
       const safeTitle = escapeHtml(String(titleText || '').trim());
       if (!safeTitle) return '';
@@ -9678,6 +9621,15 @@ document.addEventListener('DOMContentLoaded', function() {
       return `<span class="meta-chip ${cls}"><span class="dot"></span>${label}</span>`;
     }
 
+    function tierChipHTML(tierMeta) {
+      if (!tierMeta || !tierMeta.label) return '';
+      const partyClass = tierMeta.party === 'rep' ? 'rep' : (tierMeta.party === 'dem' ? 'dem' : 'tie');
+      const pct = Math.abs(Number(tierMeta.marginPct || 0));
+      const winner = partyClass === 'rep' ? 'R' : (partyClass === 'dem' ? 'D' : 'T');
+      const dotColor = winner === 'T' ? '#9ca3af' : colorForMarginMode(pct, winner);
+      return `<span class="meta-chip tier"><span class="dot" style="background:${dotColor};"></span>${escapeHtml(tierMeta.label)}</span>`;
+    }
+
     // Hover outline (stroke-only highlight) helpers.
     const HOVER_OUTLINE_LAYER_IDS = [
       'county-stroke-hover',
@@ -10009,6 +9961,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         chips.push(winnerChipHTML(winner));
       }
+      chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
@@ -10088,6 +10041,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         chips.push(winnerChipHTML(winner));
       }
+      chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, curSigned);
@@ -10272,6 +10226,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         chips.push(winnerChipHTML(winner));
       }
+      chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
@@ -10573,7 +10528,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const countyDisplay = displayCountyName(countyName);
       lastSelectedCounty  = countyDisplay;
       updateContextBanner();
-      if (countyNameElement) setFocusNameWithTierBadge(countyNameElement, `${countyDisplay} County`);
+      if (countyNameElement) countyNameElement.textContent = countyDisplay + ' County';
       // sidebarContent already declared above
       // Guard: election results must exist
       if (!currentElectionResults) {
@@ -10656,24 +10611,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const winner = margin > 0 ? 'Democratic' : (margin < 0 ? 'Republican' : 'Tie');
       const winnerCandidate = margin > 0 ? demCandidate : repCandidate;
       const marginText = winnerMarginLabelShort(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
-      const signedMarginPct = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
-      const tierMeta = competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
-      if (countyNameElement) setFocusNameWithTierBadge(countyNameElement, `${countyDisplay} County`, tierMeta);
-
-      let headerChips = [];
-      const winnerPartyCode = signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T');
-      headerChips.push(winnerChipHTML(winnerPartyCode));
-      headerChips.push(competitivenessChipHTML(tierMeta));
-      let headerPrevSigned = null;
-      if (vizPrevCache?.prevYear && vizPrevCache?.prevCountyTotals) {
-        const prev = vizPrevCache.prevCountyTotals[norm] || null;
-        headerPrevSigned = prev ? signedMarginPctFromVotes(prev.dem, prev.rep, prev.total) : null;
-      }
-      if (headerPrevSigned !== null) {
-        const flipChip = flipChipHTML(headerPrevSigned, signedMarginPct);
-        if (flipChip) headerChips.push(flipChip);
-      }
-      const headerChipsHTML = `<div class="hover-meta" style="margin-top:0;margin-bottom:12px;">${headerChips.filter(Boolean).join('')}</div>`;
       // Accessibility palette for winner color
       function cbColorForMargin(marginPct, winner) {
         if (marginPct >= 40) {
@@ -10878,7 +10815,7 @@ document.addEventListener('DOMContentLoaded', function() {
   sidebarContent += '<h5>Historical Trends</h5>';
   sidebarContent += `<div id="county-trends" style="margin-top:6px;color:#94a3b8;">Loading...</div>`;
   sidebarContent += `</div>`;
-  contentEl.innerHTML = headerChipsHTML + sidebarContent;
+  contentEl.innerHTML = sidebarContent;
   // Populate trends asynchronously from manifest slices (does not block UI).
   (async () => {
     try {
@@ -12525,7 +12462,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const nameEl = document.getElementById('county-name');
       const contentEl = document.getElementById('county-info-content');
       
-      setFocusNameWithTierBadge(nameEl, `Congressional District ${districtNum}`);
+      nameEl.textContent = `Congressional District ${districtNum}`;
       
       // Get district info from districtsInfo CSV
       const districtInfo = (districtsInfo || []).find(d => d.district == districtNum);
@@ -12638,7 +12575,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const contentEl = document.getElementById('county-info-content');
       
       const title = chamber === 'house' ? `State House District ${districtNum}` : `State Senate District ${districtNum}`;
-      setFocusNameWithTierBadge(nameEl, title);
+      nameEl.textContent = title;
       
       // Get district info from appropriate CSV
       const districtInfo = chamber === 'house' 
@@ -12825,7 +12762,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       lastSelectedCounty  = `Congressional District ${districtNum}`;
       updateContextBanner();
-      setFocusNameWithTierBadge(nameEl, `Congressional District ${districtNum}`);
+      nameEl.textContent = `Congressional District ${districtNum}`;
 
       const districtInfo = (districtsInfo || []).find(d => d.district == districtNum);
       let demographicInfo = '';
@@ -12907,7 +12844,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const title = chamber === 'house' ? `State House District ${districtNum}` : `State Senate District ${districtNum}`;
       lastSelectedCounty = title;
       updateContextBanner();
-      setFocusNameWithTierBadge(nameEl, title);
+      nameEl.textContent = title;
 
       const scope = chamber === 'house' ? 'state_house' : 'state_senate';
       const infoRow = chamber === 'house'
