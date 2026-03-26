@@ -10550,17 +10550,17 @@ document.addEventListener('DOMContentLoaded', function() {
         prevSignedForFlip = prev ? signedMarginPctFromVotes(prev.dem, prev.rep, prev.total) : 0;
       }
 
-      if (currentVizMode === 'shift' && vizShiftCache?.prevYear) {
-        const prevSigned = (prevSignedForFlip !== null) ? prevSignedForFlip : 0;
-        chips.push(shiftChipHTML(signedMarginPct - prevSigned, vizShiftCache.prevYear, vizShiftCache.year));
-      } else {
-        chips.push(winnerChipHTML(winner));
-      }
+      chips.push(winnerChipHTML(winner));
       chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
-        if (flipChip) chips.unshift(flipChip);
+        if (flipChip) chips.push(flipChip);
+      }
+
+      if (currentVizMode === 'shift' && vizShiftCache?.prevYear) {
+        const prevSigned = (prevSignedForFlip !== null) ? prevSignedForFlip : 0;
+        chips.push(shiftChipHTML(signedMarginPct - prevSigned, vizShiftCache.prevYear, vizShiftCache.year));
       }
 
       const inner = `
@@ -10631,17 +10631,17 @@ document.addEventListener('DOMContentLoaded', function() {
         prevSignedForFlip = Number(vizPrevCache.prevPrecinctMarginByNorm.get(precinctNorm) || 0);
       }
 
-      if (currentVizMode === 'shift' && vizShiftCache?.prevYear) {
-        const prevSigned = (prevSignedForFlip !== null) ? prevSignedForFlip : 0;
-        chips.push(shiftChipHTML(curSigned - prevSigned, vizShiftCache.prevYear, vizShiftCache.year));
-      } else {
-        chips.push(winnerChipHTML(winner));
-      }
+      chips.push(winnerChipHTML(winner));
       chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, curSigned);
-        if (flipChip) chips.unshift(flipChip);
+        if (flipChip) chips.push(flipChip);
+      }
+
+      if (currentVizMode === 'shift' && vizShiftCache?.prevYear) {
+        const prevSigned = (prevSignedForFlip !== null) ? prevSignedForFlip : 0;
+        chips.push(shiftChipHTML(curSigned - prevSigned, vizShiftCache.prevYear, vizShiftCache.year));
       }
 
       const inner = `
@@ -10815,18 +10815,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       } catch (_) {}
 
-      if (currentVizMode === 'shift' && prevSignedForFlip !== null && prevYearForFlip) {
-        chips.push(shiftChipHTML(signedMarginPct - prevSignedForFlip, prevYearForFlip, Number(year)));
-      } else if (currentVizMode === 'shift') {
-        chips.push(shiftChipHTML(0, null, null));
-      } else {
-        chips.push(winnerChipHTML(winner));
-      }
+      chips.push(winnerChipHTML(winner));
       chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
-        if (flipChip) chips.unshift(flipChip);
+        if (flipChip) chips.push(flipChip);
+      }
+
+      if (currentVizMode === 'shift' && prevSignedForFlip !== null && prevYearForFlip) {
+        chips.push(shiftChipHTML(signedMarginPct - prevSignedForFlip, prevYearForFlip, Number(year)));
+      } else if (currentVizMode === 'shift') {
+        chips.push(shiftChipHTML(0, null, null));
       }
 
       const desc = getDistrictDescription(scope, districtNum);
@@ -10836,7 +10836,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ${_demoHTML}
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
       `;
-      const hoverTitle = buildTooltipTitleWithTier(`${districtLabel} ${districtNum}`, tierMeta);
+      const hoverTitle = buildTooltipTitleWithTier(`${districtLabel} ${districtNum}`);
       showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle, inner));
       wireTooltipButtons();
     }
