@@ -10556,7 +10556,6 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         chips.push(winnerChipHTML(winner));
       }
-      chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
@@ -10623,6 +10622,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const signedMarginPct = Number(row[`${contestType}_margin_pct`]);
       const curSigned = isNaN(signedMarginPct) ? signedMarginPctFromVotes(demVotes, repVotes, demVotes + repVotes + otherVotes) : signedMarginPct;
+      const tierMeta = competitivenessTierMetaFromSignedMarginPct(curSigned);
       const winner = curSigned > 0 ? 'R' : (curSigned < 0 ? 'D' : 'T');
       const chips = [];
       let prevSignedForFlip = null;
@@ -10636,7 +10636,6 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         chips.push(winnerChipHTML(winner));
       }
-      chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, curSigned);
