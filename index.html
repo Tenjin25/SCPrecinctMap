@@ -10556,6 +10556,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         chips.push(winnerChipHTML(winner));
       }
+      chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
@@ -10568,7 +10569,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ${demoLine}
       `;
 
-      const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`, tierMeta);
+      const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
       showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle, inner));
       wireTooltipButtons();
     }
@@ -10636,6 +10637,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         chips.push(winnerChipHTML(winner));
       }
+      chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, curSigned);
@@ -10646,7 +10648,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="hover-meta">${chips.join('')}</div>
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
       `;
-      const hoverTitle = buildTooltipTitleWithTier(title, tierMeta);
+      const hoverTitle = buildTooltipTitleWithTier(title);
       showHoverTooltip(point.x, point.y, buildTooltipShell(hoverTitle, inner));
       wireTooltipButtons();
       setVoteCounterHoverState(
