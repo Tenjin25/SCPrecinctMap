@@ -1782,12 +1782,39 @@ body { height: var(--app-height); }
   }
 
   .hover-tooltip {
+    /* Explicitly override the legacy dark tooltip block above to avoid mixed theme rules. */
+    background: rgba(248, 250, 252, 0.96);
+    color: #0f172a;
+    padding: 12px 16px;
     border: 1px solid rgba(15, 23, 42, 0.20);
     box-shadow: 0 18px 44px rgba(15, 23, 42, 0.25);
     backdrop-filter: blur(14px);
     border-radius: 14px;
     max-width: 360px;
+    line-height: 1.45;
     animation: tooltip-in 140ms ease-out;
+  }
+
+  .hover-tooltip .tooltip-title {
+    color: #0f172a;
+  }
+
+  .hover-tooltip .tooltip-title-badge.rep {
+    color: #991b1b;
+    background: rgba(239, 68, 68, 0.16);
+    border-color: rgba(220, 38, 38, 0.35);
+  }
+
+  .hover-tooltip .tooltip-title-badge.dem {
+    color: #1e3a8a;
+    background: rgba(59, 130, 246, 0.16);
+    border-color: rgba(37, 99, 235, 0.35);
+  }
+
+  .hover-tooltip .tooltip-title-badge.tie {
+    color: #334155;
+    background: rgba(148, 163, 184, 0.16);
+    border-color: rgba(100, 116, 139, 0.35);
   }
 
   .hover-tooltip .tooltip-head {
