@@ -10711,6 +10711,52 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
     }
 
+    function renderCountyPopulationInsightHTML(countyNorm) {
+      let norm = normalizeCountyToken(countyNorm);
+      let county = countyPopulationEstimates?.counties?.[norm] || null;
+      if (!county && /\sCOUNTY$/i.test(norm)) {
+        norm = norm.replace(/\s+COUNTY$/i, '').trim();
+        county = countyPopulationEstimates?.counties?.[norm] || null;
+      }
+      if (!county) return '';
+
+      const startYear = Number(countyPopulationEstimates?.startYear || 2020);
+      const latestYear = Number(countyPopulationEstimates?.latestYear || 2025);
+      const estimates = county.estimates || {};
+      const latestPopulation = Number(estimates[latestYear] ?? county.latestPopulation ?? 0);
+      const startPopulation = Number(estimates[startYear] ?? 0);
+      const totalChange = Number.isFinite(startPopulation) && startPopulation > 0
+        ? (latestPopulation - startPopulation)
+        : Number(county.changePopulation || 0);
+      const totalChangePct = Number.isFinite(startPopulation) && startPopulation > 0
+        ? ((totalChange / startPopulation) * 100)
+        : Number(county.changePct || 0);
+      const changeTone = totalChange > 0 ? '#15803d' : (totalChange < 0 ? '#b91c1c' : '#475569');
+      const changeLabel = `${totalChange > 0 ? '+' : totalChange < 0 ? '-' : ''}${Math.abs(totalChange).toLocaleString()}`;
+      const pctLabel = `${totalChangePct > 0 ? '+' : totalChangePct < 0 ? '-' : ''}${Math.abs(totalChangePct).toFixed(2)}%`;
+
+      return `
+        <div class="census-context-section">
+          <div class="focus-census" role="group" aria-label="County population insight">
+            <div class="focus-census-head">
+              <span class="focus-census-kicker">Population Insight</span>
+            </div>
+            <div class="focus-census-grid">
+              <div class="focus-census-item">
+                <span class="focus-census-label">${latestYear} estimate</span>
+                <span class="focus-census-value">${latestPopulation.toLocaleString()}</span>
+              </div>
+              <div class="focus-census-item">
+                <span class="focus-census-label">${startYear}-${latestYear} change</span>
+                <span class="focus-census-value" style="color:${changeTone};">${changeLabel} (${pctLabel})</span>
+              </div>
+            </div>
+            <p class="focus-census-source">${escapeHtml(countyPopulationEstimates?.source || 'U.S. Census Bureau county population estimates (CO-EST2025-POP-45).')}</p>
+          </div>
+        </div>
+      `;
+    }
+
     function renderFocusCensusSummaryHTML(context) {
       if (!context) return '';
       const title = String(context.title || 'Census Estimates').trim();
@@ -11975,19 +12021,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   } catch (_) {}
 
-  // County demographics (DP1-derived: VAP 18+ + total-pop race/ethnicity shares).
+  // County population insight (same insertion point, demographics removed).
   try {
-    const demo = countyDemographics?.counties?.[norm] || null;
-    if (demo) {
-      sidebarContent += `<div class="demographics-section">`;
-      sidebarContent += `<h3 class="sidebar-section-title">Demographics</h3>`;
-      sidebarContent += `<p class="sidebar-breakdown"><b>VAP (18+):</b> ${Number(demo.vap_18plus || 0).toLocaleString()}</p>`;
-      sidebarContent += `<p class="sidebar-margin-details" style="margin-top:6px;">Race/ethnicity shown is total population (DP1), not VAP-by-race.</p>`;
-      sidebarContent += `<p class="sidebar-breakdown"><b>White:</b> ${Number(demo.white_pop_pct || 0).toFixed(2)}%</p>`;
-      sidebarContent += `<p class="sidebar-breakdown"><b>Black:</b> ${Number(demo.black_pop_pct || 0).toFixed(2)}%</p>`;
-      sidebarContent += `<p class="sidebar-breakdown"><b>Hispanic:</b> ${Number(demo.hispanic_pop_pct || 0).toFixed(2)}%</p>`;
-      sidebarContent += `</div>`;
-    }
+    sidebarContent += renderCountyPopulationInsightHTML(norm);
   } catch (_) {}
 
   // Competitiveness
