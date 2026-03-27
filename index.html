@@ -3547,15 +3547,14 @@ body { height: var(--app-height); }
     }
   }
 
-  .focus-census,
-  .focus-census-insight {
+  .focus-census {
     display: grid;
-    gap: 8px;
+    gap: 10px;
     padding: 12px;
     border-radius: 16px;
     border: 1px solid rgba(148, 163, 184, 0.18);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 252, 0.94) 100%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.93) 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 6px 16px rgba(15, 23, 42, 0.08);
   }
 
   .focus-census-head {
@@ -3563,7 +3562,8 @@ body { height: var(--app-height); }
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    flex-wrap: wrap;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed rgba(148, 163, 184, 0.22);
   }
 
   .focus-census-kicker {
@@ -3575,56 +3575,45 @@ body { height: var(--app-height); }
     color: #64748b;
   }
 
-  .focus-census-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    min-height: 26px;
-    max-width: 100%;
-    padding: 5px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(14, 116, 144, 0.18);
-    background: rgba(236, 254, 255, 0.92);
-    color: #155e75;
-    font-size: 11px;
+  .focus-census-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+  }
+
+  .focus-census-item {
+    min-width: 0;
+    display: grid;
+    gap: 4px;
+    padding: 8px 9px;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: rgba(255, 255, 255, 0.88);
+  }
+
+  .focus-census-label {
+    min-width: 0;
+    font-size: 10px;
     font-weight: 800;
-    line-height: 1.25;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #64748b;
   }
 
-  .focus-census-pill-emoji,
-  .focus-census-inline-emoji {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 16px;
-    line-height: 1;
+  .focus-census-value {
+    min-width: 0;
+    font-size: 12px;
+    line-height: 1.35;
+    color: #1e293b;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
-  .focus-census-summary,
-  .focus-census-note,
   .focus-census-source {
     margin: 0;
-  }
-
-  .focus-census-summary {
-    display: flex;
-    align-items: flex-start;
-    gap: 7px;
-    font-size: 13px;
-    font-weight: 800;
-    line-height: 1.4;
-    color: #0f172a;
-  }
-
-  .focus-census-note {
-    font-size: 12px;
-    line-height: 1.45;
-    color: #334155;
-  }
-
-  .focus-census-source {
     font-size: 11px;
-    line-height: 1.4;
+    line-height: 1.35;
     color: #64748b;
   }
 
@@ -10655,145 +10644,183 @@ document.addEventListener('DOMContentLoaded', function() {
       return 'tone-neutral';
     }
 
-    function getScCensusContext(countyNorm) {
+    function getScCensusContext(countyNorm, trajectoryMeta = null) {
       let norm = normalizeCountyToken(countyNorm);
       let county = countyPopulationEstimates?.counties?.[norm] || null;
       if (!county && /\sCOUNTY$/i.test(norm)) {
         norm = norm.replace(/\s+COUNTY$/i, '').trim();
         county = countyPopulationEstimates?.counties?.[norm] || null;
       }
+
       const startYear = Number(countyPopulationEstimates?.startYear || 2020);
       const latestYear = Number(countyPopulationEstimates?.latestYear || 2025);
-      const signedInt = value => `${value >= 0 ? '+' : '-'}${Math.abs(Number(value) || 0).toLocaleString()}`;
-      const signedPct = value => `${value >= 0 ? '+' : '-'}${Math.abs(Number(value) || 0).toFixed(2)}%`;
+      const previousYear = latestYear - 1;
+      const signedPct = value => `${value >= 0 ? '+' : '-'}${Math.abs(Number(value) || 0).toFixed(1)}%`;
+      const stateLabel = String(countyPopulationEstimates?.statewide?.label || 'South Carolina').trim() || 'South Carolina';
+      const sourceNote = `Based on U.S. Census Bureau Vintage ${latestYear} ${stateLabel} county population estimates, released March 2026 (April 1, ${startYear} to July 1, ${latestYear}).`;
 
       if (!county) {
         return {
-          title: 'Census Estimates',
+          title: 'County Census Insight',
           signalEmoji: '📊',
           signalLabel: 'County population estimate unavailable',
           patternEmoji: '🧾',
           patternLabel: `Could not read ${latestYear} county estimate row for this county.`,
-          noteEmoji: 'ℹ️',
-          noteLabel: 'This panel uses county resident population estimates from CO-EST2025-POP-45 when available.',
-          sourceNote: countyPopulationEstimates?.source || 'U.S. Census Bureau county population estimates (CO-EST2025-POP-45).'
+          summaryText: `The ${latestYear} estimate for this county is not available in the Census file loaded here.`,
+          sourceNote
         };
       }
 
-      const latestPopulation = Number(county.latestPopulation || 0);
-      const changePopulation = Number(county.changePopulation || 0);
-      const changePct = Number(county.changePct || 0);
-      const statewideChangePct = Number(countyPopulationEstimates?.statewide?.changePct || 0);
-      const growthGapPct = changePct - statewideChangePct;
+      const estimates = county.estimates || {};
+      const startPopulation = Number(estimates[startYear] ?? county.startPopulation ?? 0);
+      const latestPopulation = Number(estimates[latestYear] ?? county.latestPopulation ?? 0);
+      const previousPopulation = Number(estimates[previousYear] ?? 0);
+      const changePopulation = latestPopulation - startPopulation;
+      const changePct = startPopulation > 0 ? (changePopulation / startPopulation) * 100 : 0;
+      const annualChangePopulation = latestPopulation - previousPopulation;
+      const annualChangePct = previousPopulation > 0 ? (annualChangePopulation / previousPopulation) * 100 : 0;
+      const annualVsLongRun = changePct / Math.max(1, (latestYear - startYear));
+      const countyName = displayCountyName(norm);
 
-      let noteLabel = 'Population movement can alter turnout baselines and coalition balance across cycles.';
-      if (Math.abs(growthGapPct) < 0.25) {
-        noteLabel = `County growth is roughly in line with the statewide ${signedPct(statewideChangePct)} trend.`;
-      } else if (growthGapPct > 0) {
-        noteLabel = `County growth is faster than statewide by ${growthGapPct.toFixed(2)} points (${signedPct(statewideChangePct)} statewide).`;
-      } else if (growthGapPct < 0) {
-        noteLabel = `County growth is slower than statewide by ${Math.abs(growthGapPct).toFixed(2)} points (${signedPct(statewideChangePct)} statewide).`;
+      let signalEmoji = '➖';
+      let signalLabel = `Population was flat since ${startYear}`;
+      if (changePct > 0.15) {
+        signalEmoji = '📈';
+        signalLabel = `Population up ${Math.abs(changePct).toFixed(1)}% since ${startYear}`;
+      } else if (changePct < -0.15) {
+        signalEmoji = '📉';
+        signalLabel = `Population down ${Math.abs(changePct).toFixed(1)}% since ${startYear}`;
       }
 
+      const coastalCounties = new Set(['BEAUFORT', 'CHARLESTON', 'COLLETON', 'GEORGETOWN', 'HORRY', 'JASPER']);
+      const lakeCounties = new Set(['ANDERSON', 'BERKELEY', 'FAIRFIELD', 'GREENWOOD', 'LANCASTER', 'LEXINGTON', 'NEWBERRY', 'OCONEE', 'PICKENS', 'RICHLAND', 'SALUDA', 'YORK']);
+      const metroSpilloverCounties = new Set(['BERKELEY', 'CHESTER', 'CHESTERFIELD', 'DARLINGTON', 'DORCHESTER', 'KERSHAW', 'LANCASTER', 'PICKENS', 'SPARTANBURG', 'SUMTER', 'YORK']);
+      const urbanCoreCounties = new Set(['CHARLESTON', 'GREENVILLE', 'RICHLAND', 'SPARTANBURG']);
+      const ruralDeclineCounties = new Set(['ALLENDALE', 'BAMBERG', 'BARNWELL', 'CALHOUN', 'CHESTERFIELD', 'DILLON', 'MARLBORO', 'ORANGEBURG', 'WILLIAMSBURG']);
+
+      let patternEmoji = '🧭';
+      let patternLabel = `Recent pace is broadly in line with the ${startYear}-${latestYear} trend`;
+
+      if (coastalCounties.has(norm) && changePct > 2.5) {
+        patternEmoji = '🏖️';
+        patternLabel = annualChangePct > 0.15
+          ? 'Coastal growth still gaining population in 2025'
+          : `Coastal growth with a slower ${latestYear} pace`;
+      } else if (lakeCounties.has(norm) && changePct > 2.5) {
+        patternEmoji = '🌊';
+        patternLabel = annualChangePct > 0.15
+          ? 'Lake-driven growth with residential expansion'
+          : `Lake growth with a slower ${latestYear} pace`;
+      } else if (urbanCoreCounties.has(norm) && changePct > 2.5) {
+        patternEmoji = '🏙️';
+        patternLabel = annualChangePct > 0.15
+          ? 'Urban core growth with continued in-migration'
+          : `Urban core growth with a slower ${latestYear} pace`;
+      } else if (metroSpilloverCounties.has(norm) && changePct > 2.5) {
+        patternEmoji = '🌆';
+        patternLabel = annualChangePct > 0.15
+          ? 'Metro spillover growth with continued expansion'
+          : `Metro spillover growth with a slower ${latestYear} pace`;
+      } else if (ruralDeclineCounties.has(norm) && changePct < -0.15) {
+        patternEmoji = '🏘️';
+        patternLabel = annualChangePct < -0.15
+          ? 'Rural population decline still continuing in 2025'
+          : `Long-run decline with a steadier ${latestYear} pace`;
+      } else if (annualChangePct > 0.15 && annualChangePct > annualVsLongRun + 0.2) {
+        patternEmoji = '🚀';
+        patternLabel = `Growth accelerated in ${latestYear}`;
+      } else if (annualChangePct > 0.15) {
+        patternEmoji = '🌱';
+        patternLabel = `Growth continued into ${latestYear}`;
+      } else if (annualChangePct < -0.15) {
+        patternEmoji = '⚠️';
+        patternLabel = changePct > 0.15
+          ? `Growth since ${startYear}, but population slipped in ${latestYear}`
+          : `Population decline continued into ${latestYear}`;
+      } else if (changePct > 0.15) {
+        patternEmoji = '📊';
+        patternLabel = `${startYear}-${latestYear} growth with a slower ${latestYear} pace`;
+      } else if (changePct < -0.15) {
+        patternEmoji = '🏘️';
+        patternLabel = `Long-run decline with a steadier ${latestYear} pace`;
+      }
+
+      const isReinforcing = !!(trajectoryMeta && (
+        String(trajectoryMeta.status || '').includes('Reinforcing') ||
+        String(trajectoryMeta.meaning || '').toLowerCase().includes('reinforcing')
+      ));
+
+      let noteEmoji = '';
+      let noteLabel = '';
+      if (isReinforcing) {
+        const partyWord = trajectoryMeta?.statusClass === 'rep'
+          ? 'Republican'
+          : (trajectoryMeta?.statusClass === 'dem' ? 'Democratic' : 'recent');
+        noteEmoji = '✅';
+        if (changePct > 1.0) {
+          noteLabel = `Census check: growth is reinforcing the county's recent ${partyWord} trajectory.`;
+        } else if (changePct < -1.0) {
+          noteLabel = `Census check: population decline is reinforcing the county's recent ${partyWord} trajectory.`;
+        } else {
+          noteLabel = `Census check: recent census movement is reinforcing the county's existing political trajectory.`;
+        }
+      }
+
+      const summaryText = `${latestYear} estimate: ${latestPopulation.toLocaleString()}. The county is ${changePct >= 0 ? 'up' : 'down'} ${Math.abs(changePct).toFixed(1)}% since ${startYear} and ${annualChangePct >= 0 ? 'up' : 'down'} ${Math.abs(annualChangePct).toFixed(1)}% from ${previousYear} to ${latestYear}.`;
+
       return {
-        title: 'Census Estimates',
-        signalEmoji: changePopulation > 0 ? '📈' : (changePopulation < 0 ? '📉' : '➖'),
-        signalLabel: `${latestYear} estimate: ${latestPopulation.toLocaleString()}`,
-        patternEmoji: '🧭',
-        patternLabel: `${startYear}->${latestYear}: ${signedInt(changePopulation)} (${signedPct(changePct)})`,
-        noteEmoji: '🏛️',
+        title: 'County Census Insight',
+        signalEmoji,
+        signalLabel,
+        patternEmoji,
+        patternLabel,
+        noteEmoji,
         noteLabel,
-        sourceNote: countyPopulationEstimates?.source || 'U.S. Census Bureau county population estimates (CO-EST2025-POP-45).'
+        summaryText,
+        sourceNote
       };
     }
 
     function renderCensusContextHTML(context) {
       if (!context) return '';
-      const title = String(context.title || 'Census Estimates').trim();
       return `
         <div class="census-context-section">
-          <div class="focus-census-insight census-context-card" role="note" aria-label="${escapeHtml(title)}">
-            <div class="focus-census-head">
-              <span class="focus-census-kicker">${escapeHtml(title)}</span>
-              <span class="focus-census-pill">
-                <span class="focus-census-pill-emoji">${escapeHtml(context.signalEmoji || '📊')}</span>
-                ${escapeHtml(context.signalLabel || 'Not available')}
-              </span>
-            </div>
-            <p class="focus-census-summary">
-              <span class="focus-census-inline-emoji">${escapeHtml(context.patternEmoji || '🧭')}</span>
-              ${escapeHtml(context.patternLabel || 'Not available')}
-            </p>
-            ${context.noteLabel ? `<p class="focus-census-note">${escapeHtml(context.noteLabel)}</p>` : ''}
-            ${context.sourceNote ? `<p class="focus-census-source census-context-source">${escapeHtml(context.sourceNote)}</p>` : ''}
+          <h3 class="sidebar-section-title">${escapeHtml(context.title || 'County Census Insight')}</h3>
+          <div class="census-context-card">
+            <p class="census-context-line"><span class="census-emoji">${escapeHtml(context.signalEmoji || '📊')}</span><span><b>Population signal:</b> ${escapeHtml(context.signalLabel || 'Not available')}</span></p>
+            <p class="census-context-line"><span class="census-emoji">${escapeHtml(context.patternEmoji || '🧭')}</span><span><b>Growth pattern:</b> ${escapeHtml(context.patternLabel || 'Not available')}</span></p>
+            ${context.noteLabel ? `<p class="census-context-line"><span class="census-emoji">${escapeHtml(context.noteEmoji || '✅')}</span><span>${escapeHtml(context.noteLabel)}</span></p>` : ''}
+            <p class="census-context-source">${escapeHtml(context.sourceNote || '')}</p>
           </div>
         </div>
       `;
     }
 
-    function renderCountyPopulationInsightHTML(countyNorm) {
-      let norm = normalizeCountyToken(countyNorm);
-      let county = countyPopulationEstimates?.counties?.[norm] || null;
-      if (!county && /\sCOUNTY$/i.test(norm)) {
-        norm = norm.replace(/\s+COUNTY$/i, '').trim();
-        county = countyPopulationEstimates?.counties?.[norm] || null;
-      }
-      if (!county) return '';
-
-      const startYear = Number(countyPopulationEstimates?.startYear || 2020);
-      const latestYear = Number(countyPopulationEstimates?.latestYear || 2025);
-      const estimates = county.estimates || {};
-      const latestPopulation = Number(estimates[latestYear] ?? county.latestPopulation ?? 0);
-      const startPopulation = Number(estimates[startYear] ?? 0);
-      const totalChange = Number.isFinite(startPopulation) && startPopulation > 0
-        ? (latestPopulation - startPopulation)
-        : Number(county.changePopulation || 0);
-      const totalChangePct = Number.isFinite(startPopulation) && startPopulation > 0
-        ? ((totalChange / startPopulation) * 100)
-        : Number(county.changePct || 0);
-      const changeTone = totalChange > 0 ? '#15803d' : (totalChange < 0 ? '#b91c1c' : '#475569');
-      const changeLabel = `${totalChange > 0 ? '+' : totalChange < 0 ? '-' : ''}${Math.abs(totalChange).toLocaleString()}`;
-      const pctLabel = `${totalChangePct > 0 ? '+' : totalChangePct < 0 ? '-' : ''}${Math.abs(totalChangePct).toFixed(2)}%`;
-
-      return `
-        <div class="census-context-section">
-          <div class="focus-census" role="group" aria-label="County population insight">
-            <div class="focus-census-head">
-              <span class="focus-census-kicker">Population Insight</span>
-            </div>
-            <div class="focus-census-grid">
-              <div class="focus-census-item">
-                <span class="focus-census-label">${latestYear} estimate</span>
-                <span class="focus-census-value">${latestPopulation.toLocaleString()}</span>
-              </div>
-              <div class="focus-census-item">
-                <span class="focus-census-label">${startYear}-${latestYear} change</span>
-                <span class="focus-census-value" style="color:${changeTone};">${changeLabel} (${pctLabel})</span>
-              </div>
-            </div>
-            <p class="focus-census-source">${escapeHtml(countyPopulationEstimates?.source || 'U.S. Census Bureau county population estimates (CO-EST2025-POP-45).')}</p>
-          </div>
-        </div>
-      `;
+    function renderCountyPopulationInsightHTML(countyNorm, trajectoryMeta = null) {
+      const context = getScCensusContext(countyNorm, trajectoryMeta);
+      return renderFocusCensusSummaryHTML(context);
     }
 
     function renderFocusCensusSummaryHTML(context) {
       if (!context) return '';
-      const title = String(context.title || 'Census Estimates').trim();
+      const title = String(context.title || 'County Census Insight').trim();
       return `
         <div class="focus-census" role="group" aria-label="County census estimates">
           <div class="focus-census-head">
             <span class="focus-census-kicker">${escapeHtml(title)}</span>
-            <span class="focus-census-pill">
-              <span class="focus-census-pill-emoji">${escapeHtml(context.signalEmoji || '📊')}</span>
-              ${escapeHtml(context.signalLabel || 'Not available')}
-            </span>
           </div>
-          <p class="focus-census-summary">
-            <span class="focus-census-inline-emoji">${escapeHtml(context.patternEmoji || '🧭')}</span>
-            ${escapeHtml(context.patternLabel || 'Not available')}
-          </p>
-          ${context.noteLabel ? `<p class="focus-census-note">${escapeHtml(context.noteLabel)}</p>` : ''}
+          <div class="focus-census-grid">
+            <div class="focus-census-item">
+              <span class="focus-census-label">${escapeHtml(context.signalEmoji || '📊')}</span>
+              <span class="focus-census-value">${escapeHtml(context.signalLabel || 'Not available')}</span>
+            </div>
+            <div class="focus-census-item">
+              <span class="focus-census-label">${escapeHtml(context.patternEmoji || '🧭')}</span>
+              <span class="focus-census-value">${escapeHtml(context.patternLabel || 'Not available')}</span>
+            </div>
+          </div>
+          ${context.noteLabel ? `<p class="focus-census-summary" style="margin:12px 0 0 0; color:#0f766e; line-height:1.55; font-size:13px; font-weight:700;">${escapeHtml(context.noteEmoji || '✅')} ${escapeHtml(context.noteLabel)}</p>` : ''}
+          ${context.summaryText ? `<p class="focus-census-summary" style="margin:12px 0 0 0; color:#334155; line-height:1.55; font-size:13px;">${escapeHtml(context.summaryText)}</p>` : ''}
           ${context.sourceNote ? `<p class="focus-census-source">${escapeHtml(context.sourceNote)}</p>` : ''}
         </div>
       `;
@@ -11793,7 +11820,7 @@ document.addEventListener('DOMContentLoaded', function() {
       try { if (typeof window.syncMobileThumbDock === 'function') window.syncMobileThumbDock(); } catch (_) {}
     }
 
-    function showCountyDetails(countyName) {
+    async function showCountyDetails(countyName) {
       // --- NC Map Card-Style Sidebar ---
       const sidebar = document.getElementById('sidebar');
       let sidebarContent = '';
@@ -12038,7 +12065,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // County population insight (same insertion point, demographics removed).
   try {
-    sidebarContent += renderCountyPopulationInsightHTML(norm);
+    let countyTrajectoryMeta = null;
+    try {
+      const countySeries = await getCountyTrendSeries(contestType, norm);
+      countyTrajectoryMeta = classifyCountyTrajectory(countySeries);
+    } catch (_) {}
+    sidebarContent += renderCountyPopulationInsightHTML(norm, countyTrajectoryMeta);
   } catch (_) {}
 
   // Competitiveness
