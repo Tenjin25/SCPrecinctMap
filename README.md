@@ -41,6 +41,8 @@ The Census insight includes a simple "growth driver" label. These are heuristics
 - Cross-border spillover (Augusta): `Aiken`, `Edgefield`
 - State-capital metro growth (Columbia): `Richland`, `Lexington`, `Kershaw`
 - Upstate metro buildout (Greenville-Spartanburg): `Greenville`, `Spartanburg`, `Pickens`, `Anderson`, `Cherokee`, `Laurens`
+- Pee Dee hub growth (Florence corridor): `Florence`, `Darlington`, `Chesterfield`
+- Pee Dee population decline: `Dillon`, `Marion`, `Marlboro`
 - Coastal growth (fallback coastal bucket): `Colleton`
 - Lake-region growth: `Fairfield`, `Greenwood`, `Newberry`, `Oconee`, `Saluda`
 - Rural decline: `Allendale`, `Bamberg`, `Barnwell`, `Calhoun`, `Chesterfield`, `Dillon`, `Marlboro`, `Orangeburg`, `Williamsburg`
