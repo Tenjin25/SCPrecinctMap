@@ -12,6 +12,8 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 - Added viewport quick stats (`Viewing N precincts`) under the fly-to search UI.
 - Improved centroid readability in dense areas with zoom-based radius scaling.
 - Improved label legibility with stronger halos, including county and district label layers.
+- Added county trajectory callouts with horizontal trend arrows (Democratic shifts point left; Republican shifts point right).
+- Added County Census Insight cards using U.S. Census county population estimates (`data/CO-EST2025-POP-45.csv`, March 2026 release).
 - Added utility scripts for statewide mismatch rollups, VTD10->VTD20 overlap exports, and backfills from OpenElections CSVs.
 
 ## What This Project Does
@@ -22,6 +24,26 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 - Supports precinct overlays for deeper local detail.
 - Includes comparison modes (`Margins`, `Winners`, `Shift`, `Flips`) for election analysis.
 - Includes mobile-first controls so the map remains usable on smaller touch devices.
+
+## County Trajectory and Census Insights
+
+When you click a county, the right-side focus panel can show two related interpretations:
+
+- **Trajectory:** A political trend summary based on election results across cycles. Trend arrows are horizontal and directional (Democratic shifts point left; Republican shifts point right).
+- **County Census Insight:** A quick cross-check using U.S. Census county population estimates (Vintage 2025, April 1, 2020 to July 1, 2025).
+
+The Census insight includes a simple "growth driver" label. These are heuristics meant to keep the text readable, not definitive explanations:
+
+- Coastal metro growth (Charleston): `Charleston`, `Berkeley`, `Dorchester`
+- Grand Strand growth (Myrtle Beach): `Horry`, `Georgetown`
+- Lowcountry growth (Hilton Head-Savannah corridor): `Beaufort`, `Jasper`
+- Major metro spillover (Charlotte): `York`, `Lancaster`, `Chester`
+- Cross-border spillover (Augusta): `Aiken`, `Edgefield`
+- State-capital metro growth (Columbia): `Richland`, `Lexington`, `Kershaw`
+- Upstate metro buildout (Greenville-Spartanburg): `Greenville`, `Spartanburg`, `Pickens`, `Anderson`, `Cherokee`, `Laurens`
+- Coastal growth (fallback coastal bucket): `Colleton`
+- Lake-region growth: `Fairfield`, `Greenwood`, `Newberry`, `Oconee`, `Saluda`
+- Rural decline: `Allendale`, `Bamberg`, `Barnwell`, `Calhoun`, `Chesterfield`, `Dillon`, `Marlboro`, `Orangeburg`, `Williamsburg`
 
 ## Current Data Snapshot
 
