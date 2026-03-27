@@ -49,12 +49,14 @@ Meanings (high-level heuristics):
 
 ### Momentum line
 
-`Momentum` reports the most recent cycle-to-cycle change in margin (in points), with direction:
+`Momentum` summarizes the most recent cycle-to-cycle change in margin as adjective-based direction:
 
-- `→ R +X.XX pts since YYYY`: moved toward Republicans since the previous cycle
-- `← D +X.XX pts since YYYY`: moved toward Democrats since the previous cycle
-- `↔ Flat since YYYY`: little change since the previous cycle
+- `→ Modest|Building|Strong|Surging Republican momentum`: moved toward Republicans since the previous cycle
+- `← Modest|Building|Strong|Surging Democratic momentum`: moved toward Democrats since the previous cycle
+- `↔ Steady`: little change since the previous cycle
 - `(accelerating)`: recent multi-cycle steps are consistently moving in the same direction
+
+Intensity buckets are based on the absolute point shift: `Modest` (<2), `Building` (2–<4), `Strong` (4–<8), `Surging` (≥8).
 
 The Census insight includes a simple "growth driver" label. These are heuristics meant to keep the text readable, not definitive explanations:
 

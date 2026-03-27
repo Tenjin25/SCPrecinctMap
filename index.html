@@ -10615,11 +10615,14 @@ document.addEventListener('DOMContentLoaded', function() {
       if (previous && Number.isFinite(recentShiftTowardGop)) {
         const absShift = Math.abs(recentShiftTowardGop);
         if (absShift < 0.75) {
-          trend = `↔ Flat since ${previous.year}`;
+          trend = '↔ Steady';
         } else {
           const arrow = recentShiftTowardGop > 0 ? '→' : '←';
-          const partyLetter = recentShiftTowardGop > 0 ? 'R' : 'D';
-          trend = `${arrow} ${partyLetter} +${absShift.toFixed(2)} pts since ${previous.year}`;
+          const direction = recentShiftTowardGop > 0 ? 'Republican' : 'Democratic';
+          const intensity = absShift >= 8
+            ? 'Surging'
+            : (absShift >= 4 ? 'Strong' : (absShift >= 2 ? 'Building' : 'Modest'));
+          trend = `${arrow} ${intensity} ${direction} momentum`;
           const accelerating = (recentShiftTowardGop > 0 && rightwardSteps >= 2)
             || (recentShiftTowardGop < 0 && leftwardSteps >= 2);
           if (accelerating && absShift >= 2) trend += ' (accelerating)';
