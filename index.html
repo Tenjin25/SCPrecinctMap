@@ -10497,13 +10497,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
       function formatShiftLabel(delta) {
         if (!Number.isFinite(delta) || Math.abs(delta) < 0.005) return '↔ No clear shift';
-        return `${delta > 0 ? '→' : '←'} ${delta > 0 ? 'R' : 'D'}+${Math.abs(delta).toFixed(2)} pts`;
+        return `${delta > 0 ? '→' : '←'} ${delta > 0 ? 'R' : 'D'} +${Math.abs(delta).toFixed(2)} pts`;
       }
 
       function formatWinnerLabel(row, signedMargin) {
         const absMargin = Math.abs(signedMargin);
         if (absMargin < 0.005) return `${row.year}: Tie`;
-        return `${row.year}: ${signedMargin > 0 ? 'R' : 'D'}+${absMargin.toFixed(2)} pts`;
+        return `${row.year}: ${signedMargin > 0 ? 'R' : 'D'} +${absMargin.toFixed(2)} pts`;
       }
 
       const sorted = series
@@ -10550,16 +10550,18 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       const absLatest = Math.abs(latestSigned);
-      const side = latestSigned > 0 ? 'Republican' : (latestSigned < 0 ? 'Democratic' : 'Competitive');
+      const side = absLatest < 5
+        ? 'Competitive'
+        : (latestSigned > 0 ? 'Republican' : (latestSigned < 0 ? 'Democratic' : 'Competitive'));
       const everCrossedSides = sorted.some(row => getSignedMarginTowardGop(row) > 0.5) && sorted.some(row => getSignedMarginTowardGop(row) < -0.5);
 
-      let origin = 'Durable';
+      let originKey = 'Durable';
       if (everCrossedSides && Math.abs(longShiftTowardGop) >= 18) {
-        origin = 'Realigned';
+        originKey = 'Realigned';
       } else if (Math.abs(longShiftTowardGop) >= 25) {
-        origin = 'Realigned';
+        originKey = 'Realigned';
       } else if (Math.abs(longShiftTowardGop) >= 10) {
-        origin = 'Emerging';
+        originKey = 'Emerging';
       }
 
       if (
@@ -10567,15 +10569,23 @@ document.addEventListener('DOMContentLoaded', function() {
         ((latestSigned > 0 && firstSigned > 5) || (latestSigned < 0 && firstSigned < -5)) &&
         ((recentShiftTowardGop ?? 0) >= 3 || (recentShiftTowardGop ?? 0) <= -3)
       ) {
-        origin = 'Reinforcing';
+        originKey = 'Reinforcing';
       }
 
       if (
-        origin === 'Emerging' &&
+        originKey === 'Emerging' &&
         ((latestSigned >= 15 && firstSigned >= 5) || (latestSigned <= -15 && firstSigned <= -5))
       ) {
-        origin = 'Durable';
+        originKey = 'Durable';
       }
+
+      const originLabelMap = {
+        Durable: 'Established',
+        Reinforcing: 'Strengthening',
+        Emerging: 'Shifting',
+        Realigned: 'Realigned'
+      };
+      const originLabel = originLabelMap[originKey] || originKey;
 
       let position = 'Battleground';
       if (absLatest >= 20) position = 'Stronghold';
@@ -10584,27 +10594,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
       let icon = '⚖️';
       let iconTone = 'neutral';
-      if (origin === 'Durable') { icon = '🔒'; iconTone = 'durable'; }
-      else if (origin === 'Reinforcing') { icon = '📈'; iconTone = 'reinforcing'; }
-      else if (origin === 'Emerging') { icon = '🌱'; iconTone = 'emerging'; }
-      else if (origin === 'Realigned') { icon = '🔄'; iconTone = 'realigned'; }
+      if (originKey === 'Durable') { icon = '🔒'; iconTone = 'durable'; }
+      else if (originKey === 'Reinforcing') { icon = '📈'; iconTone = 'reinforcing'; }
+      else if (originKey === 'Emerging') { icon = '🌱'; iconTone = 'emerging'; }
+      else if (originKey === 'Realigned') { icon = '🔄'; iconTone = 'realigned'; }
 
-      let status = side === 'Competitive' ? 'Battleground' : `${origin} ${side} ${position}`;
+      let status = side === 'Competitive' ? 'Battleground' : `${originLabel} ${side} ${position}`;
       let statusClass = side === 'Republican' ? 'rep' : (side === 'Democratic' ? 'dem' : 'competitive');
 
-      let trend = '↔ Stable';
-      if ((recentShiftTowardGop ?? 0) >= 5 || rightwardSteps >= 2) {
-        trend = '→ Accelerating Republican trend';
-      } else if ((recentShiftTowardGop ?? 0) >= 2 || rightwardSteps === 1) {
-        trend = '→ Republican trend';
-      } else if ((recentShiftTowardGop ?? 0) <= -5 || leftwardSteps >= 2) {
-        trend = '← Accelerating Democratic trend';
-      } else if ((recentShiftTowardGop ?? 0) <= -2 || leftwardSteps === 1) {
-        trend = '← Democratic trend';
+      let trend = '↔ Not enough history';
+      if (previous && Number.isFinite(recentShiftTowardGop)) {
+        const absShift = Math.abs(recentShiftTowardGop);
+        if (absShift < 0.75) {
+          trend = `↔ Flat since ${previous.year}`;
+        } else {
+          const arrow = recentShiftTowardGop > 0 ? '→' : '←';
+          const partyLetter = recentShiftTowardGop > 0 ? 'R' : 'D';
+          trend = `${arrow} ${partyLetter} +${absShift.toFixed(2)} pts since ${previous.year}`;
+          const accelerating = (recentShiftTowardGop > 0 && rightwardSteps >= 2)
+            || (recentShiftTowardGop < 0 && leftwardSteps >= 2);
+          if (accelerating && absShift >= 2) trend += ' (accelerating)';
+        }
       }
 
       let meaning = 'Both parties are close enough here that turnout or persuasion can still move the county.';
-      if (origin === 'Realigned') {
+      if (originKey === 'Realigned') {
         if (side === 'Republican') {
           meaning = 'Major long-term realignment toward Republicans has moved this county firmly into the GOP column.';
         } else if (side === 'Democratic') {
@@ -10612,31 +10626,31 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           meaning = 'A major long-term realignment has made this county genuinely competitive.';
         }
-      } else if (origin === 'Emerging') {
+      } else if (originKey === 'Emerging') {
         if (side === 'Republican') {
-          meaning = 'Republicans now hold a clear advantage here, but that newer alignment is still taking shape over time.';
+          meaning = 'Republicans currently lead here, but the county is shifting and that alignment is still settling.';
         } else if (side === 'Democratic') {
-          meaning = 'Democrats now hold a clear advantage here, but that newer alignment is still taking shape over time.';
+          meaning = 'Democrats currently lead here, but the county is shifting and that alignment is still settling.';
         } else {
-          meaning = 'The county is moving, but its longer-run direction is still unsettled.';
+          meaning = 'The county is shifting, but its longer-run direction is still unsettled.';
         }
-      } else if (origin === 'Reinforcing') {
+      } else if (originKey === 'Reinforcing') {
         if (side === 'Republican') {
-          meaning = 'Republicans already led here, and recent cycles are reinforcing that edge rather than weakening it.';
+          meaning = 'Republicans already led here, and recent cycles are strengthening that edge rather than weakening it.';
         } else if (side === 'Democratic') {
-          meaning = 'Democrats already led here, and recent cycles are reinforcing that edge rather than weakening it.';
+          meaning = 'Democrats already led here, and recent cycles are strengthening that edge rather than weakening it.';
         } else {
-          meaning = "Recent cycles are reinforcing the county's competitive balance rather than breaking it open.";
+          meaning = "Recent cycles are strengthening the county's competitive balance rather than breaking it open.";
         }
       } else {
         if (side === 'Republican') {
-          meaning = 'Republicans have a durable advantage here, and recent elections have mostly reinforced that footing.';
+          meaning = 'Republicans have an established advantage here, and recent elections have mostly reinforced that footing.';
         } else if (side === 'Democratic') {
-          meaning = 'Democrats have a durable advantage here, and recent elections have mostly reinforced that footing.';
+          meaning = 'Democrats have an established advantage here, and recent elections have mostly reinforced that footing.';
         }
       }
 
-      if (origin !== 'Reinforcing') {
+      if (originKey !== 'Reinforcing') {
         if ((recentShiftTowardGop ?? 0) >= 5) meaning += ' Recent elections show continued Republican acceleration.';
         else if ((recentShiftTowardGop ?? 0) <= -5) meaning += ' Recent elections show continued Democratic acceleration.';
       }
@@ -10648,6 +10662,10 @@ document.addEventListener('DOMContentLoaded', function() {
         icon,
         iconTone,
         meaning,
+        originKey,
+        originLabel,
+        side,
+        position,
         details: [
           { label: 'Latest Result', value: formatWinnerLabel(latest, latestSigned), role: 'latest' },
           ...(previous ? [{ label: cycleShiftLabel, value: formatShiftLabel(recentShiftTowardGop), role: 'shift' }] : []),
@@ -10818,8 +10836,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       const isReinforcing = !!(trajectoryMeta && (
-        String(trajectoryMeta.status || '').includes('Reinforcing') ||
-        String(trajectoryMeta.meaning || '').toLowerCase().includes('reinforcing')
+        trajectoryMeta.originKey === 'Reinforcing' ||
+        String(trajectoryMeta.iconTone || '').toLowerCase() === 'reinforcing'
       ));
 
       let noteEmoji = '';
@@ -10925,12 +10943,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const trendBody = trendArrow ? trendText.trim().replace(/^([←→↔↗↘])\s*/, '') : trendText;
       const detailTone = (label, value) => {
         const v = String(value || '');
-        if (v.includes('→') || v.includes('↗') || /\bR\+\d/.test(v)) return 'rep';
-        if (v.includes('←') || v.includes('↘') || /\bD\+\d/.test(v)) return 'dem';
+        if (v.includes('→') || v.includes('↗') || /\bR\s*\+\d/.test(v)) return 'rep';
+        if (v.includes('←') || v.includes('↘') || /\bD\s*\+\d/.test(v)) return 'dem';
         if (v.includes('↔') || /Tie|Even/i.test(v)) return 'neutral';
         if (String(label || '').toLowerCase() === 'latest result') {
-          if (/\bR\+/.test(v)) return 'rep';
-          if (/\bD\+/.test(v)) return 'dem';
+          if (/\bR\s*\+/.test(v)) return 'rep';
+          if (/\bD\s*\+/.test(v)) return 'dem';
         }
         return 'neutral';
       };

@@ -32,6 +32,30 @@ When you click a county, the right-side focus panel can show two related interpr
 - **Trajectory:** A political trend summary based on election results across cycles. Trend arrows are horizontal and directional (Democratic shifts point left; Republican shifts point right).
 - **County Census Insight:** A quick cross-check using U.S. Census county population estimates (Vintage 2025, April 1, 2020 to July 1, 2025).
 
+### Trajectory labels
+
+The trajectory status headline is built from three parts:
+
+- **Trajectory type:** `Established`, `Strengthening`, `Shifting`, `Realigned`
+- **Side:** `Republican`, `Democratic`, or `Competitive`
+- **Position:** `Edge`, `Lean`, `Stronghold` (or `Battleground` when the latest margin is within ~5 points)
+
+Meanings (high-level heuristics):
+
+- **Established:** The county has a sustained advantage for one side across the visible history.
+- **Strengthening:** The county already leaned one way, and recent cycles are pushing it further in that direction.
+- **Shifting:** The county is moving over time (noticeable long-run change), but not a full “column swap” yet.
+- **Realigned:** A large long-run shift (and/or clear cross-party history) consistent with a true alignment change.
+
+### Momentum line
+
+`Momentum` reports the most recent cycle-to-cycle change in margin (in points), with direction:
+
+- `→ R +X.XX pts since YYYY`: moved toward Republicans since the previous cycle
+- `← D +X.XX pts since YYYY`: moved toward Democrats since the previous cycle
+- `↔ Flat since YYYY`: little change since the previous cycle
+- `(accelerating)`: recent multi-cycle steps are consistently moving in the same direction
+
 The Census insight includes a simple "growth driver" label. These are heuristics meant to keep the text readable, not definitive explanations:
 
 - Coastal metro growth (Charleston): `Charleston`, `Berkeley`, `Dorchester`
