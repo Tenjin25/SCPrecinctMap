@@ -10579,6 +10579,23 @@ document.addEventListener('DOMContentLoaded', function() {
         originKey = 'Durable';
       }
 
+      const bucketSide = (signedMargin) => {
+        const v = Number(signedMargin) || 0;
+        if (v > 0.5) return 'REP';
+        if (v < -0.5) return 'DEM';
+        return 'COMP';
+      };
+
+      const latestBucket = bucketSide(latestSigned);
+      const prevBucket = previous ? bucketSide(prevSigned) : 'COMP';
+      const flippedLast = !!(previous && prevBucket !== 'COMP' && latestBucket !== 'COMP' && prevBucket !== latestBucket);
+
+      // If the county flipped sides in the most recent cycle *and* the new margin is meaningful,
+      // treat it as a realignment even if the long-run shift threshold is not met.
+      if (flippedLast && absLatest >= 5 && Number.isFinite(recentShiftTowardGop) && Math.abs(recentShiftTowardGop) >= 4) {
+        originKey = 'Realigned';
+      }
+
       let position = 'Battleground';
       if (absLatest >= 20) position = 'Stronghold';
       else if (absLatest >= 10) position = 'Lean';

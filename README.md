@@ -45,7 +45,7 @@ Meanings (high-level heuristics):
 - **Durable:** The county has a sustained advantage for one side across the visible history.
 - **Reinforcing:** The county already leaned one way, and recent cycles are pushing it further in that same direction.
 - **Emerging:** The county shows a noticeable long-run change (movement over time), but not necessarily a full “column swap” yet.
-- **Realigned:** A large long-run shift (and/or clear cross-party history) consistent with a true alignment change.
+- **Realigned:** A large long-run shift (and/or a clear recent flip with a meaningful margin) consistent with a true alignment change.
 
 ### Momentum line
 
