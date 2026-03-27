@@ -10729,6 +10729,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const columbiaMetroCounties = new Set(['KERSHAW', 'LEXINGTON', 'RICHLAND']);
       const upstateMetroCounties = new Set(['ANDERSON', 'CHEROKEE', 'GREENVILLE', 'LAURENS', 'PICKENS', 'SPARTANBURG']);
       const augustaSpilloverCounties = new Set(['AIKEN', 'EDGEFIELD']);
+      const peeDeeHubCounties = new Set(['CHESTERFIELD', 'DARLINGTON', 'FLORENCE']);
+      const peeDeeDeclineCounties = new Set(['DILLON', 'MARION', 'MARLBORO']);
       // "Lake-region" labeling should never override obvious metro spillover / metro core context.
       const lakeCounties = new Set(['FAIRFIELD', 'GREENWOOD', 'NEWBERRY', 'OCONEE', 'SALUDA']);
       const ruralDeclineCounties = new Set(['ALLENDALE', 'BAMBERG', 'BARNWELL', 'CALHOUN', 'CHESTERFIELD', 'DILLON', 'MARLBORO', 'ORANGEBURG', 'WILLIAMSBURG']);
@@ -10771,6 +10773,11 @@ document.addEventListener('DOMContentLoaded', function() {
         patternLabel = annualChangePct > 0.15
           ? 'Cross-border spillover (Augusta) with continued expansion'
           : `Cross-border spillover (Augusta) with a slower ${latestYear} pace`;
+      } else if (peeDeeHubCounties.has(norm) && changePct > 0.15) {
+        patternEmoji = '🛣️';
+        patternLabel = annualChangePct > 0.15
+          ? `Pee Dee hub growth (Florence corridor) continuing in ${latestYear}`
+          : `Pee Dee hub growth (Florence corridor) with a steadier ${latestYear} pace`;
       } else if (coastalCounties.has(norm) && changePct > 2.5) {
         patternEmoji = '🏖️';
         patternLabel = annualChangePct > 0.15
@@ -10781,6 +10788,11 @@ document.addEventListener('DOMContentLoaded', function() {
         patternLabel = annualChangePct > 0.15
           ? 'Lake-region growth with residential expansion'
           : `Lake-region growth with a slower ${latestYear} pace`;
+      } else if (peeDeeDeclineCounties.has(norm) && changePct < -0.15) {
+        patternEmoji = '🌾';
+        patternLabel = annualChangePct < -0.15
+          ? `Pee Dee population decline continuing in ${latestYear}`
+          : `Pee Dee long-run decline with a steadier ${latestYear} pace`;
       } else if (ruralDeclineCounties.has(norm) && changePct < -0.15) {
         patternEmoji = '🏘️';
         patternLabel = annualChangePct < -0.15
