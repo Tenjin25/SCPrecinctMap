@@ -3534,6 +3534,33 @@ body { height: var(--app-height); }
     animation-fill-mode: both;
   }
 
+  /* Trendline arrow gets a subtle badge treatment (more "icon" feel). */
+  .focus-trajectory-arrow.is-trend {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    background: rgba(241, 245, 249, 0.92);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82), 0 1px 2px rgba(15, 23, 42, 0.12);
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .focus-trajectory-arrow.is-trend.tone-rep {
+    background: rgba(254, 226, 226, 0.9);
+    border-color: rgba(220, 38, 38, 0.22);
+  }
+
+  .focus-trajectory-arrow.is-trend.tone-dem {
+    background: rgba(219, 234, 254, 0.9);
+    border-color: rgba(37, 99, 235, 0.22);
+  }
+
+  .focus-trajectory-arrow.is-trend.tone-neutral {
+    background: rgba(226, 232, 240, 0.88);
+    border-color: rgba(100, 116, 139, 0.22);
+  }
+
   .focus-trajectory-arrow.rep,
   .focus-trajectory-arrow.tone-rep {
     animation-name: trajectory-arrow-nudge-rep;
@@ -4222,6 +4249,12 @@ body { height: var(--app-height); }
       min-height: 18px;
       padding: 0 6px;
       font-size: 9px;
+    }
+
+    .focus-trajectory-arrow.is-trend {
+      width: 20px;
+      height: 20px;
+      font-size: 11px;
     }
 
     .focus-census-head {
@@ -10998,7 +11031,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <p class="focus-trajectory-trendline ${trendToneClass}">
             <span class="trend-tag">Momentum</span>
             <span class="trend-text">
-              ${trendArrow ? `<span class="focus-trajectory-arrow ${trendToneClass} ${trendMomentumClass}">${escapeHtml(trendArrow)}</span>` : ''}
+              ${trendArrow ? `<span class="focus-trajectory-arrow is-trend ${trendToneClass} ${trendMomentumClass}">${escapeHtml(trendArrow)}</span>` : ''}
               ${escapeHtml(trendBody)}
             </span>
           </p>
