@@ -3351,7 +3351,7 @@ body { height: var(--app-height); }
   .focus-trajectory-trendline {
     margin: 0;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px;
     min-height: 30px;
     padding: 6px 8px;
@@ -3367,7 +3367,6 @@ body { height: var(--app-height); }
   .focus-trajectory-trendline .trend-tag {
     display: inline-flex;
     align-items: center;
-    flex: 0 0 auto;
     min-height: 20px;
     padding: 0 7px;
     border-radius: 999px;
@@ -3381,20 +3380,13 @@ body { height: var(--app-height); }
 
   .focus-trajectory-trendline .trend-text {
     min-width: 0;
-    flex: 1 1 auto;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 6px;
     color: inherit;
-    white-space: nowrap;
-  }
-
-  .focus-trajectory-trendline .trend-body {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .focus-trajectory-trendline.rep {
@@ -4220,7 +4212,7 @@ body { height: var(--app-height); }
     }
 
     .focus-trajectory-trendline {
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       gap: 6px;
       min-height: 0;
       padding: 6px 7px;
@@ -11007,7 +10999,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <span class="trend-tag">Momentum</span>
             <span class="trend-text">
               ${trendArrow ? `<span class="focus-trajectory-arrow ${trendToneClass} ${trendMomentumClass}">${escapeHtml(trendArrow)}</span>` : ''}
-              <span class="trend-body">${escapeHtml(trendBody)}</span>
+              ${escapeHtml(trendBody)}
             </span>
           </p>
           ${details.length ? `
