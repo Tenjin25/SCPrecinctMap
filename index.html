@@ -10723,9 +10723,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const coastalCounties = new Set(['BEAUFORT', 'CHARLESTON', 'COLLETON', 'GEORGETOWN', 'HORRY', 'JASPER']);
       const charlestonMetroCounties = new Set(['BERKELEY', 'CHARLESTON', 'DORCHESTER']);
+      const grandStrandCounties = new Set(['GEORGETOWN', 'HORRY']);
+      const lowcountryCoastalCounties = new Set(['BEAUFORT', 'JASPER']);
       const charlotteSpilloverCounties = new Set(['CHESTER', 'LANCASTER', 'YORK']);
       const columbiaMetroCounties = new Set(['KERSHAW', 'LEXINGTON', 'RICHLAND']);
       const upstateMetroCounties = new Set(['ANDERSON', 'CHEROKEE', 'GREENVILLE', 'PICKENS', 'SPARTANBURG']);
+      const augustaSpilloverCounties = new Set(['AIKEN', 'EDGEFIELD']);
       // "Lake-region" labeling should never override obvious metro spillover / metro core context.
       const lakeCounties = new Set(['FAIRFIELD', 'GREENWOOD', 'NEWBERRY', 'OCONEE', 'SALUDA']);
       const ruralDeclineCounties = new Set(['ALLENDALE', 'BAMBERG', 'BARNWELL', 'CALHOUN', 'CHESTERFIELD', 'DILLON', 'MARLBORO', 'ORANGEBURG', 'WILLIAMSBURG']);
@@ -10738,6 +10741,16 @@ document.addEventListener('DOMContentLoaded', function() {
         patternLabel = annualChangePct > 0.15
           ? 'Coastal metro growth (Charleston) with continued in-migration'
           : `Coastal metro growth (Charleston) with a slower ${latestYear} pace`;
+      } else if (grandStrandCounties.has(norm) && changePct > 2.5) {
+        patternEmoji = '🏄';
+        patternLabel = annualChangePct > 0.15
+          ? 'Grand Strand growth (Myrtle Beach) continuing in 2025'
+          : `Grand Strand growth (Myrtle Beach) with a slower ${latestYear} pace`;
+      } else if (lowcountryCoastalCounties.has(norm) && changePct > 2.5) {
+        patternEmoji = '🏝️';
+        patternLabel = annualChangePct > 0.15
+          ? 'Lowcountry growth (Hilton Head-Savannah corridor) continuing in 2025'
+          : `Lowcountry growth (Hilton Head-Savannah corridor) with a slower ${latestYear} pace`;
       } else if (charlotteSpilloverCounties.has(norm) && changePct > 2.5) {
         patternEmoji = '🌆';
         patternLabel = annualChangePct > 0.15
@@ -10753,6 +10766,11 @@ document.addEventListener('DOMContentLoaded', function() {
         patternLabel = annualChangePct > 0.15
           ? 'Upstate metro buildout (Greenville-Spartanburg) continuing in 2025'
           : `Upstate metro buildout (Greenville-Spartanburg) with a slower ${latestYear} pace`;
+      } else if (augustaSpilloverCounties.has(norm) && changePct > 2.5) {
+        patternEmoji = '🏗️';
+        patternLabel = annualChangePct > 0.15
+          ? 'Cross-border spillover (Augusta) with continued expansion'
+          : `Cross-border spillover (Augusta) with a slower ${latestYear} pace`;
       } else if (coastalCounties.has(norm) && changePct > 2.5) {
         patternEmoji = '🏖️';
         patternLabel = annualChangePct > 0.15
