@@ -3547,14 +3547,14 @@ body { height: var(--app-height); }
     }
   }
 
-  .focus-census {
+  .focus-census-insight {
     display: grid;
-    gap: 10px;
+    gap: 8px;
     padding: 12px;
     border-radius: 16px;
     border: 1px solid rgba(148, 163, 184, 0.18);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.93) 100%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 6px 16px rgba(15, 23, 42, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 252, 0.94) 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
   }
 
   .focus-census-head {
@@ -3562,12 +3562,10 @@ body { height: var(--app-height); }
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    padding-bottom: 6px;
-    border-bottom: 1px dashed rgba(148, 163, 184, 0.22);
+    flex-wrap: wrap;
   }
 
   .focus-census-kicker {
-    min-width: 0;
     font-size: 10px;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -3575,87 +3573,94 @@ body { height: var(--app-height); }
     color: #64748b;
   }
 
-  .focus-census-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 8px;
-  }
-
-  .focus-census-item {
-    min-width: 0;
-    display: grid;
-    gap: 4px;
-    padding: 8px 9px;
-    border-radius: 10px;
-    border: 1px solid rgba(148, 163, 184, 0.18);
-    background: rgba(255, 255, 255, 0.88);
-  }
-
-  .focus-census-label {
-    min-width: 0;
-    font-size: 10px;
+  .focus-census-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 26px;
+    max-width: 100%;
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(14, 116, 144, 0.18);
+    background: rgba(236, 254, 255, 0.92);
+    color: #155e75;
+    font-size: 11px;
     font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #64748b;
+    line-height: 1.25;
   }
 
-  .focus-census-value {
-    min-width: 0;
+  .focus-census-pill-emoji,
+  .focus-census-inline-emoji {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 16px;
+    line-height: 1;
+  }
+
+  .focus-census-summary,
+  .focus-census-note,
+  .focus-census-source {
+    margin: 0;
+  }
+
+  .focus-census-summary {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.4;
+    color: #0f172a;
+  }
+
+  .focus-census-note {
     font-size: 12px;
-    line-height: 1.35;
-    color: #1e293b;
-    font-weight: 700;
-    overflow-wrap: anywhere;
-    word-break: break-word;
+    line-height: 1.45;
+    color: #334155;
   }
 
   .focus-census-source {
-    margin: 0;
     font-size: 11px;
-    line-height: 1.35;
+    line-height: 1.4;
     color: #64748b;
   }
 
   .census-context-section {
-    margin: 12px 0 20px;
+    margin-top: 12px;
   }
-
   .census-context-card {
     border: 1px solid rgba(15, 23, 42, 0.10);
     border-radius: 12px;
-    background: rgba(255,255,255,0.76);
-    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.78);
+    padding: 10px 12px;
   }
-
   .census-context-line {
-    margin: 0;
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: 8px;
+    margin: 0 0 8px 0;
+    color: #334155;
     font-size: 13px;
     line-height: 1.45;
-    color: #334155;
-    padding: 6px 0;
-    border-bottom: 1px dashed rgba(148, 163, 184, 0.22);
   }
-
   .census-context-line:last-of-type {
-    border-bottom: none;
+    margin-bottom: 6px;
   }
-
   .census-emoji {
-    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    font-size: 15px;
     line-height: 1;
-    margin-top: 1px;
-    flex: 0 0 auto;
+    transform: translateY(1px);
   }
-
   .census-context-source {
-    margin: 8px 0 0;
-    font-size: 11px;
-    line-height: 1.4;
+    margin: 0;
+    font-size: 12px;
     color: #64748b;
+    line-height: 1.4;
   }
 
 
@@ -4201,6 +4206,30 @@ body { height: var(--app-height); }
       min-height: 18px;
       padding: 0 6px;
       font-size: 9px;
+    }
+
+    .focus-census-head {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .focus-census-insight {
+      gap: 7px;
+      padding: 10px;
+      border-radius: 14px;
+    }
+
+    .focus-census-pill {
+      font-size: 10px;
+    }
+
+    .focus-census-summary {
+      font-size: 12px;
+    }
+
+    .focus-census-note,
+    .focus-census-source {
+      font-size: 11px;
     }
 
     .focus-trend-stats {
@@ -7840,8 +7869,8 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
           </div>
         </div>
-        ${trajectoryHtml}
         ${censusHtml}
+        ${trajectoryHtml}
         <div class="focus-trend-list">${cards}</div>
       `;
       try { updateMobileOverlayOffsets(); } catch (_) {}
@@ -10467,8 +10496,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       function formatShiftLabel(delta) {
-        if (!Number.isFinite(delta) || Math.abs(delta) < 0.005) return '→ No clear shift';
-        return `${delta > 0 ? '↗' : '↘'} ${delta > 0 ? 'R' : 'D'}+${Math.abs(delta).toFixed(2)} pts`;
+        if (!Number.isFinite(delta) || Math.abs(delta) < 0.005) return '↔ No clear shift';
+        return `${delta > 0 ? '→' : '←'} ${delta > 0 ? 'R' : 'D'}+${Math.abs(delta).toFixed(2)} pts`;
       }
 
       function formatWinnerLabel(row, signedMargin) {
@@ -10563,15 +10592,15 @@ document.addEventListener('DOMContentLoaded', function() {
       let status = side === 'Competitive' ? 'Battleground' : `${origin} ${side} ${position}`;
       let statusClass = side === 'Republican' ? 'rep' : (side === 'Democratic' ? 'dem' : 'competitive');
 
-      let trend = '→ Stable';
+      let trend = '↔ Stable';
       if ((recentShiftTowardGop ?? 0) >= 5 || rightwardSteps >= 2) {
-        trend = '↗ Accelerating Republican trend';
+        trend = '→ Accelerating Republican trend';
       } else if ((recentShiftTowardGop ?? 0) >= 2 || rightwardSteps === 1) {
-        trend = '↗ Republican trend';
+        trend = '→ Republican trend';
       } else if ((recentShiftTowardGop ?? 0) <= -5 || leftwardSteps >= 2) {
-        trend = '↘ Accelerating Democratic trend';
+        trend = '← Accelerating Democratic trend';
       } else if ((recentShiftTowardGop ?? 0) <= -2 || leftwardSteps === 1) {
-        trend = '↘ Democratic trend';
+        trend = '← Democratic trend';
       }
 
       let meaning = 'Both parties are close enough here that turnout or persuasion can still move the county.';
@@ -10805,22 +10834,20 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!context) return '';
       const title = String(context.title || 'County Census Insight').trim();
       return `
-        <div class="focus-census" role="group" aria-label="County census estimates">
+        <div class="focus-census-insight" role="note" aria-label="${escapeHtml(title)}">
           <div class="focus-census-head">
             <span class="focus-census-kicker">${escapeHtml(title)}</span>
+            <span class="focus-census-pill">
+              <span class="focus-census-pill-emoji">${escapeHtml(context.signalEmoji || '📊')}</span>
+              ${escapeHtml(context.signalLabel || 'Not available')}
+            </span>
           </div>
-          <div class="focus-census-grid">
-            <div class="focus-census-item">
-              <span class="focus-census-label">${escapeHtml(context.signalEmoji || '📊')}</span>
-              <span class="focus-census-value">${escapeHtml(context.signalLabel || 'Not available')}</span>
-            </div>
-            <div class="focus-census-item">
-              <span class="focus-census-label">${escapeHtml(context.patternEmoji || '🧭')}</span>
-              <span class="focus-census-value">${escapeHtml(context.patternLabel || 'Not available')}</span>
-            </div>
-          </div>
-          ${context.noteLabel ? `<p class="focus-census-summary" style="margin:12px 0 0 0; color:#0f766e; line-height:1.55; font-size:13px; font-weight:700;">${escapeHtml(context.noteEmoji || '✅')} ${escapeHtml(context.noteLabel)}</p>` : ''}
-          ${context.summaryText ? `<p class="focus-census-summary" style="margin:12px 0 0 0; color:#334155; line-height:1.55; font-size:13px;">${escapeHtml(context.summaryText)}</p>` : ''}
+          <p class="focus-census-summary">
+            <span class="focus-census-inline-emoji">${escapeHtml(context.patternEmoji || '🧭')}</span>
+            ${escapeHtml(context.patternLabel || 'Not available')}
+          </p>
+          ${context.noteLabel ? `<p class="focus-census-note">${escapeHtml(String(context.noteEmoji || '').trim() ? `${context.noteEmoji} ` : '')}${escapeHtml(context.noteLabel)}</p>` : ''}
+          ${context.summaryText ? `<p class="focus-census-note">${escapeHtml(context.summaryText)}</p>` : ''}
           ${context.sourceNote ? `<p class="focus-census-source">${escapeHtml(context.sourceNote)}</p>` : ''}
         </div>
       `;
@@ -10836,20 +10863,28 @@ document.addEventListener('DOMContentLoaded', function() {
       const statusText = meta.status || 'Toss-up';
       const iconText = String(meta.icon || '').trim();
       const iconToneClass = trajectoryToneClass(meta.iconTone || 'neutral');
-      const trendText = String(meta.trend || '→ Little directional change');
+      const trendText = String(meta.trend || '↔ Little directional change');
       const meaningText = String(meta.meaning || '').trim();
-      const trendTone = trendText.includes('↗')
+
+      // Normalize legacy diagonal arrows to horizontal so direction is always shown left/right.
+      const normalizeTrajectoryArrow = (arrow) => {
+        if (arrow === '↗') return '→';
+        if (arrow === '↘') return '←';
+        return arrow;
+      };
+
+      const trendTone = (trendText.includes('→') || trendText.includes('↗'))
         ? 'rep'
-        : (trendText.includes('↘') ? 'dem' : 'neutral');
+        : ((trendText.includes('←') || trendText.includes('↘')) ? 'dem' : 'neutral');
       const trendToneClass = trajectoryToneClass(trendTone);
-      const trendArrowMatch = trendText.trim().match(/^([↗↘→])\s*/);
-      const trendArrow = trendArrowMatch ? trendArrowMatch[1] : '';
-      const trendBody = trendArrow ? trendText.trim().replace(/^([↗↘→])\s*/, '') : trendText;
+      const trendArrowMatch = trendText.trim().match(/^([←→↔↗↘])\s*/);
+      const trendArrow = trendArrowMatch ? normalizeTrajectoryArrow(trendArrowMatch[1]) : '';
+      const trendBody = trendArrow ? trendText.trim().replace(/^([←→↔↗↘])\s*/, '') : trendText;
       const detailTone = (label, value) => {
         const v = String(value || '');
-        if (v.includes('↗') || /\bR\+\d/.test(v)) return 'rep';
-        if (v.includes('↘') || /\bD\+\d/.test(v)) return 'dem';
-        if (v.includes('→') || /Tie|Even/i.test(v)) return 'neutral';
+        if (v.includes('→') || v.includes('↗') || /\bR\+\d/.test(v)) return 'rep';
+        if (v.includes('←') || v.includes('↘') || /\bD\+\d/.test(v)) return 'dem';
+        if (v.includes('↔') || /Tie|Even/i.test(v)) return 'neutral';
         if (String(label || '').toLowerCase() === 'latest result') {
           if (/\bR\+/.test(v)) return 'rep';
           if (/\bD\+/.test(v)) return 'dem';
@@ -10876,9 +10911,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 const tone = detailTone(item?.label, item?.value);
                 const label = String(item?.label || '');
                 const valueRaw = String(item?.value || '');
-                const arrowMatch = valueRaw.trim().match(/^([↗↘→])\s*/);
-                const arrow = arrowMatch ? arrowMatch[1] : '';
-                const valueBody = arrow ? valueRaw.trim().replace(/^([↗↘→])\s*/, '') : valueRaw;
+                const arrowMatch = valueRaw.trim().match(/^([←→↔↗↘])\s*/);
+                const arrow = arrowMatch ? normalizeTrajectoryArrow(arrowMatch[1]) : '';
+                const valueBody = arrow ? valueRaw.trim().replace(/^([←→↔↗↘])\s*/, '') : valueRaw;
                 const rowRole = label.toLowerCase() === 'latest result' ? 'latest' : 'shift';
                 return `
                 <div class="focus-trajectory-item ${tone} ${rowRole}">
