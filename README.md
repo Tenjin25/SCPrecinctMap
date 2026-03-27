@@ -36,15 +36,15 @@ When you click a county, the right-side focus panel can show two related interpr
 
 The trajectory status headline is built from three parts:
 
-- **Trajectory type:** `Established`, `Strengthening`, `Shifting`, `Realigned`
+- **Trajectory type:** `Durable`, `Reinforcing`, `Emerging`, `Realigned`
 - **Side:** `Republican`, `Democratic`, or `Competitive`
 - **Position:** `Edge`, `Lean`, `Stronghold` (or `Battleground` when the latest margin is within ~5 points)
 
 Meanings (high-level heuristics):
 
-- **Established:** The county has a sustained advantage for one side across the visible history.
-- **Strengthening:** The county already leaned one way, and recent cycles are pushing it further in that direction.
-- **Shifting:** The county is moving over time (noticeable long-run change), but not a full “column swap” yet.
+- **Durable:** The county has a sustained advantage for one side across the visible history.
+- **Reinforcing:** The county already leaned one way, and recent cycles are pushing it further in that same direction.
+- **Emerging:** The county shows a noticeable long-run change (movement over time), but not necessarily a full “column swap” yet.
 - **Realigned:** A large long-run shift (and/or clear cross-party history) consistent with a true alignment change.
 
 ### Momentum line

@@ -10579,14 +10579,6 @@ document.addEventListener('DOMContentLoaded', function() {
         originKey = 'Durable';
       }
 
-      const originLabelMap = {
-        Durable: 'Established',
-        Reinforcing: 'Strengthening',
-        Emerging: 'Shifting',
-        Realigned: 'Realigned'
-      };
-      const originLabel = originLabelMap[originKey] || originKey;
-
       let position = 'Battleground';
       if (absLatest >= 20) position = 'Stronghold';
       else if (absLatest >= 10) position = 'Lean';
@@ -10599,7 +10591,7 @@ document.addEventListener('DOMContentLoaded', function() {
       else if (originKey === 'Emerging') { icon = '🌱'; iconTone = 'emerging'; }
       else if (originKey === 'Realigned') { icon = '🔄'; iconTone = 'realigned'; }
 
-      let status = side === 'Competitive' ? 'Battleground' : `${originLabel} ${side} ${position}`;
+      let status = side === 'Competitive' ? 'Battleground' : `${originKey} ${side} ${position}`;
       let statusClass = side === 'Republican' ? 'rep' : (side === 'Democratic' ? 'dem' : 'competitive');
 
       let trend = '↔ Not enough history';
@@ -10628,25 +10620,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       } else if (originKey === 'Emerging') {
         if (side === 'Republican') {
-          meaning = 'Republicans currently lead here, but the county is shifting and that alignment is still settling.';
+          meaning = 'Republicans currently lead here, but the county is still emerging into that alignment over time.';
         } else if (side === 'Democratic') {
-          meaning = 'Democrats currently lead here, but the county is shifting and that alignment is still settling.';
+          meaning = 'Democrats currently lead here, but the county is still emerging into that alignment over time.';
         } else {
-          meaning = 'The county is shifting, but its longer-run direction is still unsettled.';
+          meaning = 'The county is moving, but its longer-run direction is still unsettled.';
         }
       } else if (originKey === 'Reinforcing') {
         if (side === 'Republican') {
-          meaning = 'Republicans already led here, and recent cycles are strengthening that edge rather than weakening it.';
+          meaning = 'Republicans already led here, and recent cycles are reinforcing that edge rather than weakening it.';
         } else if (side === 'Democratic') {
-          meaning = 'Democrats already led here, and recent cycles are strengthening that edge rather than weakening it.';
+          meaning = 'Democrats already led here, and recent cycles are reinforcing that edge rather than weakening it.';
         } else {
-          meaning = "Recent cycles are strengthening the county's competitive balance rather than breaking it open.";
+          meaning = "Recent cycles are reinforcing the county's competitive balance rather than breaking it open.";
         }
       } else {
         if (side === 'Republican') {
-          meaning = 'Republicans have an established advantage here, and recent elections have mostly reinforced that footing.';
+          meaning = 'Republicans have a durable advantage here, and recent elections have mostly reinforced that footing.';
         } else if (side === 'Democratic') {
-          meaning = 'Democrats have an established advantage here, and recent elections have mostly reinforced that footing.';
+          meaning = 'Democrats have a durable advantage here, and recent elections have mostly reinforced that footing.';
         }
       }
 
@@ -10663,7 +10655,6 @@ document.addEventListener('DOMContentLoaded', function() {
         iconTone,
         meaning,
         originKey,
-        originLabel,
         side,
         position,
         details: [
