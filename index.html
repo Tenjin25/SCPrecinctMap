@@ -10722,15 +10722,38 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       const coastalCounties = new Set(['BEAUFORT', 'CHARLESTON', 'COLLETON', 'GEORGETOWN', 'HORRY', 'JASPER']);
-      const lakeCounties = new Set(['ANDERSON', 'BERKELEY', 'FAIRFIELD', 'GREENWOOD', 'LANCASTER', 'LEXINGTON', 'NEWBERRY', 'OCONEE', 'PICKENS', 'RICHLAND', 'SALUDA', 'YORK']);
-      const metroSpilloverCounties = new Set(['BERKELEY', 'CHESTER', 'CHESTERFIELD', 'DARLINGTON', 'DORCHESTER', 'KERSHAW', 'LANCASTER', 'PICKENS', 'SPARTANBURG', 'SUMTER', 'YORK']);
-      const urbanCoreCounties = new Set(['CHARLESTON', 'GREENVILLE', 'RICHLAND', 'SPARTANBURG']);
+      const charlestonMetroCounties = new Set(['BERKELEY', 'CHARLESTON', 'DORCHESTER']);
+      const charlotteSpilloverCounties = new Set(['CHESTER', 'LANCASTER', 'YORK']);
+      const columbiaMetroCounties = new Set(['KERSHAW', 'LEXINGTON', 'RICHLAND']);
+      const upstateMetroCounties = new Set(['ANDERSON', 'GREENVILLE', 'PICKENS', 'SPARTANBURG']);
+      // "Lake-region" labeling should never override obvious metro spillover / metro core context.
+      const lakeCounties = new Set(['FAIRFIELD', 'GREENWOOD', 'NEWBERRY', 'OCONEE', 'SALUDA']);
       const ruralDeclineCounties = new Set(['ALLENDALE', 'BAMBERG', 'BARNWELL', 'CALHOUN', 'CHESTERFIELD', 'DILLON', 'MARLBORO', 'ORANGEBURG', 'WILLIAMSBURG']);
 
       let patternEmoji = '🧭';
       let patternLabel = `Recent pace is broadly in line with the ${startYear}-${latestYear} trend`;
 
-      if (coastalCounties.has(norm) && changePct > 2.5) {
+      if (charlestonMetroCounties.has(norm) && changePct > 2.5) {
+        patternEmoji = '🌴';
+        patternLabel = annualChangePct > 0.15
+          ? 'Coastal metro growth (Charleston) with continued in-migration'
+          : `Coastal metro growth (Charleston) with a slower ${latestYear} pace`;
+      } else if (charlotteSpilloverCounties.has(norm) && changePct > 2.5) {
+        patternEmoji = '🌆';
+        patternLabel = annualChangePct > 0.15
+          ? 'Major metro spillover (Charlotte) with continued expansion'
+          : `Major metro spillover (Charlotte) with a slower ${latestYear} pace`;
+      } else if (columbiaMetroCounties.has(norm) && changePct > 2.5) {
+        patternEmoji = '🏛️';
+        patternLabel = annualChangePct > 0.15
+          ? 'State-capital metro growth (Columbia) with continued in-migration'
+          : `State-capital metro growth (Columbia) with a slower ${latestYear} pace`;
+      } else if (upstateMetroCounties.has(norm) && changePct > 2.5) {
+        patternEmoji = '🏙️';
+        patternLabel = annualChangePct > 0.15
+          ? 'Upstate metro buildout (Greenville-Spartanburg) continuing in 2025'
+          : `Upstate metro buildout (Greenville-Spartanburg) with a slower ${latestYear} pace`;
+      } else if (coastalCounties.has(norm) && changePct > 2.5) {
         patternEmoji = '🏖️';
         patternLabel = annualChangePct > 0.15
           ? 'Coastal growth still gaining population in 2025'
@@ -10738,18 +10761,8 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (lakeCounties.has(norm) && changePct > 2.5) {
         patternEmoji = '🌊';
         patternLabel = annualChangePct > 0.15
-          ? 'Lake-driven growth with residential expansion'
-          : `Lake growth with a slower ${latestYear} pace`;
-      } else if (urbanCoreCounties.has(norm) && changePct > 2.5) {
-        patternEmoji = '🏙️';
-        patternLabel = annualChangePct > 0.15
-          ? 'Urban core growth with continued in-migration'
-          : `Urban core growth with a slower ${latestYear} pace`;
-      } else if (metroSpilloverCounties.has(norm) && changePct > 2.5) {
-        patternEmoji = '🌆';
-        patternLabel = annualChangePct > 0.15
-          ? 'Metro spillover growth with continued expansion'
-          : `Metro spillover growth with a slower ${latestYear} pace`;
+          ? 'Lake-region growth with residential expansion'
+          : `Lake-region growth with a slower ${latestYear} pace`;
       } else if (ruralDeclineCounties.has(norm) && changePct < -0.15) {
         patternEmoji = '🏘️';
         patternLabel = annualChangePct < -0.15
