@@ -7845,6 +7845,20 @@ document.addEventListener('DOMContentLoaded', function() {
       const censusHtml = options?.censusContext
         ? renderFocusCensusSummaryHTML(options.censusContext)
         : '';
+      const baselineSince2020 = annotated.find(entry => Number(entry?.item?.year) >= 2020) || null;
+      const shiftSince2020TowardGop = baselineSince2020 ? (latest.signedPct - baselineSince2020.signedPct) : NaN;
+      const longShiftTowardGop = latest.signedPct - earliest.signedPct;
+      const censusCheckHtml = (
+        String(options?.focusKind || '').toLowerCase() === 'county' &&
+        options?.trajectoryMeta &&
+        options?.county
+      )
+        ? renderFocusCensusCheckHTML(getScCensusCheckContext(options.county, {
+            trajectoryMeta: options.trajectoryMeta,
+            shiftSince2020TowardGop,
+            longShiftTowardGop
+          }))
+        : '';
 
       const cards = annotated
         .slice()
@@ -7919,6 +7933,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
         ${trajectoryHtml}
+        ${censusCheckHtml}
         ${censusHtml}
         <div class="focus-trend-list">${cards}</div>
       `;
@@ -8022,7 +8037,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const trendOptions = {};
         trendOptions.selectedYear = Number(year);
         trendOptions.marginPrecision = meta.kind === 'county' ? 'county' : 'default';
+        trendOptions.focusKind = meta.kind || '';
         if ((meta.kind === 'county' || meta.kind === 'precinct') && meta.county) {
+          trendOptions.county = meta.county;
           trendOptions.censusContext = getScCensusContext(meta.county);
         }
         if (meta.kind === 'county' && meta.county) {
@@ -10970,6 +10987,154 @@ document.addEventListener('DOMContentLoaded', function() {
           ${context.noteLabel ? `<p class="focus-census-note">${escapeHtml(String(context.noteEmoji || '').trim() ? `${context.noteEmoji} ` : '')}${escapeHtml(context.noteLabel)}</p>` : ''}
           ${context.summaryText ? `<p class="focus-census-note">${escapeHtml(context.summaryText)}</p>` : ''}
           ${context.sourceNote ? `<p class="focus-census-source">${escapeHtml(context.sourceNote)}</p>` : ''}
+        </div>
+      `;
+    }
+
+    function normalizeCountyTokenForCensusCheck(countyRaw) {
+      let norm = normalizeCountyToken(countyRaw);
+      if (!norm) return '';
+      if (/\sCOUNTY$/i.test(norm)) norm = norm.replace(/\s+COUNTY$/i, '').trim();
+      return norm;
+    }
+
+    function getScCountyTypeKeyForCensusCheck(norm) {
+      const coastalCounties = new Set(['BEAUFORT', 'CHARLESTON', 'COLLETON', 'GEORGETOWN', 'HORRY', 'JASPER']);
+      const charlestonMetroCounties = new Set(['BERKELEY', 'CHARLESTON', 'DORCHESTER']);
+      const grandStrandCounties = new Set(['GEORGETOWN', 'HORRY']);
+      const lowcountryCoastalCounties = new Set(['BEAUFORT', 'JASPER']);
+      const charlotteSpilloverCounties = new Set(['CHESTER', 'LANCASTER', 'YORK']);
+      const columbiaMetroCounties = new Set(['KERSHAW', 'LEXINGTON', 'RICHLAND']);
+      const upstateMetroCounties = new Set(['ANDERSON', 'CHEROKEE', 'GREENVILLE', 'LAURENS', 'PICKENS', 'SPARTANBURG']);
+      const augustaSpilloverCounties = new Set(['AIKEN', 'EDGEFIELD']);
+      const peeDeeDeclineCounties = new Set(['DILLON', 'MARION', 'MARLBORO']);
+      const ruralDeclineCounties = new Set(['ALLENDALE', 'BAMBERG', 'BARNWELL', 'CALHOUN', 'CHESTERFIELD', 'DILLON', 'MARLBORO', 'ORANGEBURG', 'WILLIAMSBURG']);
+
+      if (charlestonMetroCounties.has(norm) || columbiaMetroCounties.has(norm) || upstateMetroCounties.has(norm)) {
+        return 'metro';
+      }
+      if (charlotteSpilloverCounties.has(norm) || augustaSpilloverCounties.has(norm)) {
+        return 'spillover';
+      }
+      if (grandStrandCounties.has(norm) || lowcountryCoastalCounties.has(norm) || coastalCounties.has(norm)) {
+        return 'coastal';
+      }
+      if (peeDeeDeclineCounties.has(norm) || ruralDeclineCounties.has(norm)) {
+        return 'rural';
+      }
+      return 'other';
+    }
+
+    function getScCensusCheckThresholds(countyTypeKey) {
+      const key = String(countyTypeKey || '').toLowerCase();
+      if (key === 'metro' || key === 'spillover' || key === 'coastal') {
+        return { growthMin: 0.75, shiftMin: 0.75, realignShiftMin: 1.25, longShiftMin: 2.0 };
+      }
+      if (key === 'rural') {
+        return { growthMin: 1.25, shiftMin: 0.9, realignShiftMin: 1.75, longShiftMin: 2.5 };
+      }
+      return { growthMin: 1.0, shiftMin: 0.85, realignShiftMin: 1.5, longShiftMin: 2.25 };
+    }
+
+    function getScCensusCheckContext(countyRaw, metrics = {}) {
+      const title = 'Census Check';
+      const norm = normalizeCountyTokenForCensusCheck(countyRaw);
+      const county = norm ? (countyPopulationEstimates?.counties?.[norm] || null) : null;
+      const startYear = Number(countyPopulationEstimates?.startYear || 2020);
+      const growthPct = Number(county?.changePct);
+
+      if (!county || !Number.isFinite(growthPct)) {
+        return {
+          title,
+          emoji: '📊',
+          headline: 'Unavailable',
+          summary: 'Census growth data unavailable for this county.'
+        };
+      }
+
+      const countyTypeKey = getScCountyTypeKeyForCensusCheck(norm);
+      const thresholds = getScCensusCheckThresholds(countyTypeKey);
+
+      const shiftSince2020TowardGop = Number(metrics?.shiftSince2020TowardGop);
+      const longShiftTowardGop = Number(metrics?.longShiftTowardGop);
+      const absRecentShift = Number.isFinite(shiftSince2020TowardGop) ? Math.abs(shiftSince2020TowardGop) : 0;
+      const absLongShift = Number.isFinite(longShiftTowardGop) ? Math.abs(longShiftTowardGop) : 0;
+
+      const statusClass = String(metrics?.trajectoryMeta?.statusClass || '').trim().toLowerCase();
+      const leanDir = statusClass === 'rep' ? 1 : (statusClass === 'dem' ? -1 : 0);
+      const leanWord = statusClass === 'rep' ? 'Republican' : (statusClass === 'dem' ? 'Democratic' : 'competitive');
+
+      const absGrowth = Math.abs(growthPct);
+      const hasGrowthSignal = absGrowth >= thresholds.growthMin;
+
+      const shiftDir = (Number.isFinite(shiftSince2020TowardGop) && absRecentShift >= thresholds.shiftMin)
+        ? (shiftSince2020TowardGop > 0 ? 1 : -1)
+        : 0;
+      const longDir = (Number.isFinite(longShiftTowardGop) && absLongShift >= thresholds.longShiftMin)
+        ? (longShiftTowardGop > 0 ? 1 : -1)
+        : 0;
+
+      let verdict = 'mixed';
+      if (leanDir !== 0 && hasGrowthSignal && shiftDir !== 0) {
+        const trendReversal = (longDir !== 0 && shiftDir === -longDir && absRecentShift >= thresholds.realignShiftMin);
+        const againstLean = (shiftDir === -leanDir && absRecentShift >= thresholds.realignShiftMin);
+        if (trendReversal || againstLean) {
+          verdict = 'realigning';
+        } else if (shiftDir === leanDir) {
+          verdict = 'reinforcing';
+        }
+      }
+
+      if (verdict === 'reinforcing') {
+        const prefix = growthPct >= thresholds.growthMin
+          ? 'Growth'
+          : (growthPct <= -thresholds.growthMin ? 'Population decline' : 'Population change');
+        return {
+          title,
+          emoji: '📊',
+          headline: 'Reinforcing',
+          summary: `${prefix} appears to be reinforcing the current ${leanWord} lean.`
+        };
+      }
+
+      if (verdict === 'realigning') {
+        const targetParty = shiftDir > 0 ? 'Republican' : 'Democratic';
+        return {
+          title,
+          emoji: '🔄',
+          headline: 'Realigning',
+          summary: `Population changes suggest potential ${targetParty} realignment.`
+        };
+      }
+
+      return {
+        title,
+        emoji: '⚖️',
+        headline: 'Mixed impact',
+        summary: `Growth trends show mixed political impact.`
+      };
+    }
+
+    function renderFocusCensusCheckHTML(context) {
+      if (!context) return '';
+      const title = String(context.title || 'Census Check').trim() || 'Census Check';
+      const emoji = String(context.emoji || '📊').trim() || '📊';
+      const headline = String(context.headline || '').trim();
+      const summary = String(context.summary || '').trim();
+      if (!summary) return '';
+      return `
+        <div class="focus-census-insight" role="note" aria-label="${escapeHtml(title)}">
+          <div class="focus-census-head">
+            <span class="focus-census-kicker">${escapeHtml(title)}</span>
+            <span class="focus-census-pill">
+              <span class="focus-census-pill-emoji">${escapeHtml(emoji)}</span>
+              ${escapeHtml(headline || 'Not available')}
+            </span>
+          </div>
+          <p class="focus-census-summary">
+            <span class="focus-census-inline-emoji">${escapeHtml(emoji)}</span>
+            ${escapeHtml(summary)}
+          </p>
         </div>
       `;
     }
