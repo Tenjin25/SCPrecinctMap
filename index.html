@@ -7848,6 +7848,18 @@ document.addEventListener('DOMContentLoaded', function() {
       const baselineSince2020 = annotated.find(entry => Number(entry?.item?.year) >= 2020) || null;
       const shiftSince2020TowardGop = baselineSince2020 ? (latest.signedPct - baselineSince2020.signedPct) : NaN;
       const longShiftTowardGop = latest.signedPct - earliest.signedPct;
+      const cycleBaseline = annotated.length >= 2 ? annotated[annotated.length - 2] : null;
+      const shiftSince2020Meta = baselineSince2020
+        ? describeTrendShift(latest.signedPct, baselineSince2020.signedPct, baselineSince2020.item.year)
+        : null;
+      const longShiftMeta = describeTrendShift(latest.signedPct, earliest.signedPct, earliest.item.year);
+      const cycleShiftMeta = cycleBaseline
+        ? describeTrendShift(latest.signedPct, cycleBaseline.signedPct, cycleBaseline.item.year)
+        : null;
+      const baselineFlip = baselineSince2020 ? flipInfo(baselineSince2020.signedPct, latest.signedPct) : { flipped: false, from: 'T', to: 'T' };
+      const flipSince2020Text = (baselineSince2020 && baselineFlip?.flipped)
+        ? `Flip: ${baselineFlip.from}→${baselineFlip.to} since ${baselineSince2020.item.year}`
+        : '';
       const censusCheckHtml = (
         String(options?.focusKind || '').toLowerCase() === 'county' &&
         options?.trajectoryMeta &&
@@ -7856,7 +7868,11 @@ document.addEventListener('DOMContentLoaded', function() {
         ? renderFocusCensusCheckHTML(getScCensusCheckContext(options.county, {
             trajectoryMeta: options.trajectoryMeta,
             shiftSince2020TowardGop,
-            longShiftTowardGop
+            longShiftTowardGop,
+            shiftSince2020Text: shiftSince2020Meta?.text || '',
+            longShiftText: longShiftMeta?.text || '',
+            cycleShiftText: cycleShiftMeta?.text || '',
+            flipSince2020Text
           }))
         : '';
 
@@ -11041,6 +11057,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const norm = normalizeCountyTokenForCensusCheck(countyRaw);
       const county = norm ? (countyPopulationEstimates?.counties?.[norm] || null) : null;
       const startYear = Number(countyPopulationEstimates?.startYear || 2020);
+      const latestYear = Number(countyPopulationEstimates?.latestYear || 2025);
+      const previousYear = latestYear - 1;
       const growthPct = Number(county?.changePct);
 
       if (!county || !Number.isFinite(growthPct)) {
@@ -11059,6 +11077,47 @@ document.addEventListener('DOMContentLoaded', function() {
       const longShiftTowardGop = Number(metrics?.longShiftTowardGop);
       const absRecentShift = Number.isFinite(shiftSince2020TowardGop) ? Math.abs(shiftSince2020TowardGop) : 0;
       const absLongShift = Number.isFinite(longShiftTowardGop) ? Math.abs(longShiftTowardGop) : 0;
+
+      const signedPct = (value, digits = 1) => {
+        const v = Number(value) || 0;
+        return `${v >= 0 ? '+' : '-'}${Math.abs(v).toFixed(digits)}%`;
+      };
+
+      const estimates = county?.estimates || {};
+      const latestPopulation = Number(estimates?.[latestYear] ?? county?.latestPopulation ?? 0);
+      const previousPopulation = Number(estimates?.[previousYear] ?? 0);
+      const annualChangePct = previousPopulation > 0 ? ((latestPopulation - previousPopulation) / previousPopulation) * 100 : NaN;
+
+      const evidenceLines = [];
+      const popLine = Number.isFinite(annualChangePct)
+        ? `Population: ${signedPct(growthPct, 1)} since ${startYear} (${previousYear}→${latestYear}: ${signedPct(annualChangePct, 1)})`
+        : `Population: ${signedPct(growthPct, 1)} since ${startYear}`;
+      evidenceLines.push(popLine);
+
+      const typeLabel = countyTypeKey === 'metro'
+        ? 'Urban/suburban core'
+        : (countyTypeKey === 'spillover'
+          ? 'Suburban/exurban spillover'
+          : (countyTypeKey === 'coastal'
+            ? 'Coastal growth'
+            : (countyTypeKey === 'rural' ? 'Rural' : '')));
+
+      const shiftSince2020Text = String(metrics?.shiftSince2020Text || '').trim();
+      const cycleShiftText = String(metrics?.cycleShiftText || '').trim();
+      const longShiftText = String(metrics?.longShiftText || '').trim();
+      const flipSince2020Text = String(metrics?.flipSince2020Text || '').trim();
+
+      if (shiftSince2020Text) evidenceLines.push(shiftSince2020Text);
+      else if (cycleShiftText) evidenceLines.push(cycleShiftText);
+
+      if (flipSince2020Text) evidenceLines.push(flipSince2020Text);
+
+      if (typeLabel) evidenceLines.push(`County type: ${typeLabel}`);
+
+      if (evidenceLines.length < 4) {
+        if (longShiftText) evidenceLines.push(longShiftText);
+        else if (cycleShiftText && !evidenceLines.includes(cycleShiftText)) evidenceLines.push(cycleShiftText);
+      }
 
       const statusClass = String(metrics?.trajectoryMeta?.statusClass || '').trim().toLowerCase();
       const leanDir = statusClass === 'rep' ? 1 : (statusClass === 'dem' ? -1 : 0);
@@ -11085,6 +11144,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
 
+      const confidence = (() => {
+        const growthRatio = thresholds.growthMin > 0 ? (absGrowth / thresholds.growthMin) : 0;
+        const shiftRatio = thresholds.shiftMin > 0 ? (absRecentShift / thresholds.shiftMin) : 0;
+        const realignRatio = thresholds.realignShiftMin > 0 ? (absRecentShift / thresholds.realignShiftMin) : 0;
+
+        if (verdict === 'reinforcing') {
+          if (growthRatio >= 2.0 && shiftRatio >= 2.0) return 'High';
+          if (growthRatio >= 1.25 && shiftRatio >= 1.25) return 'Medium';
+          return 'Low';
+        }
+
+        if (verdict === 'realigning') {
+          if (growthRatio >= 1.5 && realignRatio >= 1.75) return 'High';
+          if (growthRatio >= 1.0 && realignRatio >= 1.0) return 'Medium';
+          return 'Low';
+        }
+
+        if (hasGrowthSignal && absRecentShift >= thresholds.shiftMin) return 'Medium';
+        return 'Low';
+      })();
+
       if (verdict === 'reinforcing') {
         const prefix = growthPct >= thresholds.growthMin
           ? 'Growth'
@@ -11093,7 +11173,9 @@ document.addEventListener('DOMContentLoaded', function() {
           title,
           emoji: '📊',
           headline: 'Reinforcing',
-          summary: `${prefix} appears to be reinforcing the current ${leanWord} lean.`
+          summary: `${prefix} appears to be reinforcing the current ${leanWord} lean.`,
+          confidence,
+          evidenceLines
         };
       }
 
@@ -11103,7 +11185,9 @@ document.addEventListener('DOMContentLoaded', function() {
           title,
           emoji: '🔄',
           headline: 'Realigning',
-          summary: `Population changes suggest potential ${targetParty} realignment.`
+          summary: `Population changes suggest potential ${targetParty} realignment.`,
+          confidence,
+          evidenceLines
         };
       }
 
@@ -11111,7 +11195,9 @@ document.addEventListener('DOMContentLoaded', function() {
         title,
         emoji: '⚖️',
         headline: 'Mixed impact',
-        summary: `Growth trends show mixed political impact.`
+        summary: `Growth trends show mixed political impact.`,
+        confidence,
+        evidenceLines
       };
     }
 
@@ -11121,6 +11207,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const emoji = String(context.emoji || '📊').trim() || '📊';
       const headline = String(context.headline || '').trim();
       const summary = String(context.summary || '').trim();
+      const confidence = String(context.confidence || '').trim();
+      const pillLabel = headline && confidence
+        ? `${headline} · ${confidence}`
+        : (headline || confidence || '');
+      const evidenceLines = Array.isArray(context.evidenceLines)
+        ? context.evidenceLines.map(line => String(line || '').trim()).filter(Boolean).slice(0, 4)
+        : [];
       if (!summary) return '';
       return `
         <div class="focus-census-insight" role="note" aria-label="${escapeHtml(title)}">
@@ -11128,13 +11221,14 @@ document.addEventListener('DOMContentLoaded', function() {
             <span class="focus-census-kicker">${escapeHtml(title)}</span>
             <span class="focus-census-pill">
               <span class="focus-census-pill-emoji">${escapeHtml(emoji)}</span>
-              ${escapeHtml(headline || 'Not available')}
+              ${escapeHtml(pillLabel || 'Not available')}
             </span>
           </div>
           <p class="focus-census-summary">
             <span class="focus-census-inline-emoji">${escapeHtml(emoji)}</span>
             ${escapeHtml(summary)}
           </p>
+          ${evidenceLines.map(line => `<p class="focus-census-note">${escapeHtml(line)}</p>`).join('')}
         </div>
       `;
     }
