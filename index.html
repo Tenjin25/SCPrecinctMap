@@ -3669,6 +3669,144 @@ body { height: var(--app-height); }
     color: #64748b;
   }
 
+  .focus-census-confidence {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 8px;
+  }
+
+  .focus-census-confidence-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(15, 23, 42, 0.58);
+    white-space: nowrap;
+  }
+
+  .focus-census-confidence-meter {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .focus-census-confidence-step {
+    border-radius: 999px;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    background: rgba(148, 163, 184, 0.16);
+    color: rgba(15, 23, 42, 0.45);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+  }
+
+  .focus-census-confidence-step.active {
+    background: rgba(37, 99, 235, 0.14);
+    color: #1d4ed8;
+    border-color: rgba(37, 99, 235, 0.24);
+  }
+
+  .focus-census-confidence-step.active.high {
+    background: rgba(16, 185, 129, 0.14);
+    color: #047857;
+    border-color: rgba(16, 185, 129, 0.24);
+  }
+
+  .focus-census-confidence-step.active.medium {
+    background: rgba(245, 158, 11, 0.14);
+    color: #b45309;
+    border-color: rgba(245, 158, 11, 0.24);
+  }
+
+  .focus-census-confidence-step.active.low {
+    background: rgba(59, 130, 246, 0.14);
+    color: #1d4ed8;
+    border-color: rgba(59, 130, 246, 0.24);
+  }
+
+  .growth-filter-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(248, 250, 252, 0.88);
+  }
+
+  .growth-filter-copy {
+    min-width: 0;
+  }
+
+  .growth-filter-title {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  .growth-filter-sub {
+    display: block;
+    margin-top: 2px;
+    font-size: 11px;
+    line-height: 1.35;
+    color: #64748b;
+  }
+
+  .growth-filter-switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .growth-filter-switch input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .growth-filter-slider {
+    width: 46px;
+    height: 26px;
+    border-radius: 999px;
+    background: rgba(148, 163, 184, 0.35);
+    transition: background 0.2s ease;
+    position: relative;
+  }
+
+  .growth-filter-slider::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.22);
+    transition: transform 0.2s ease;
+  }
+
+  .growth-filter-switch input:checked + .growth-filter-slider {
+    background: rgba(37, 99, 235, 0.78);
+  }
+
+  .growth-filter-switch input:checked + .growth-filter-slider::after {
+    transform: translateX(20px);
+  }
+
+  .growth-filter-switch input:disabled + .growth-filter-slider {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
   .census-context-section {
     margin-top: 12px;
   }
@@ -6500,6 +6638,20 @@ document.addEventListener('DOMContentLoaded', function() {
                   <button id="districts-view" class="view-toggle-btn" onclick="setMapView('districts')">Congress</button>
                   <button id="state-house-view" class="view-toggle-btn" onclick="setMapView('state_house')">State House</button>
                   <button id="state-senate-view" class="view-toggle-btn" onclick="setMapView('state_senate')">State Senate</button>
+                </div>
+            </div>
+
+            <div class="control-group" style="margin-bottom:10px;">
+                <span class="section-kicker">Census Filter</span>
+                <div class="growth-filter-toggle">
+                  <div class="growth-filter-copy">
+                    <span class="growth-filter-title">Growth-aligned counties only</span>
+                    <span class="growth-filter-sub">Shows counties tagged Reinforcing or Realigning for the selected contest.</span>
+                  </div>
+                  <label class="growth-filter-switch" for="growth-aligned-toggle" aria-label="Show growth-aligned counties only">
+                    <input id="growth-aligned-toggle" type="checkbox" onchange="setGrowthAlignedOnly(this.checked)">
+                    <span class="growth-filter-slider" aria-hidden="true"></span>
+                  </label>
                 </div>
             </div>
             <div class="control-group viz-inline-group" style="margin-bottom:10px;">
@@ -9764,6 +9916,8 @@ document.addEventListener('DOMContentLoaded', function() {
         add2000VTDLayers();
       }
       reinforceMapLabelHalos();
+      updateGrowthAlignedToggleUI();
+      applyCountyGrowthAlignedFilter();
       
       // Repopulate contest selector
       updateContestSelectForCurrentView();
@@ -11052,6 +11206,106 @@ document.addEventListener('DOMContentLoaded', function() {
       return { growthMin: 1.0, shiftMin: 0.85, realignShiftMin: 1.5, longShiftMin: 2.25 };
     }
 
+    let growthAlignedOnly = false;
+    let currentGrowthAlignedCountyNames = [];
+
+    function buildCountyNameMatchFilter(countyNames) {
+      const names = Array.isArray(countyNames)
+        ? countyNames.map(name => String(name || '').trim()).filter(Boolean)
+        : [];
+      if (!names.length) return null;
+      const getNameExpr = ['coalesce', ['get', 'NAME20'], ['get', 'CountyName'], ['get', 'COUNTYNAME'], ['get', 'county_nam'], ['get', 'NAME'], ['get', 'County'], ['get', 'name']];
+      return ['match', getNameExpr, names, true, false];
+    }
+
+    function applyCountyGrowthAlignedFilter() {
+      if (!map) return;
+      const filter = (currentView === 'counties' && growthAlignedOnly)
+        ? buildCountyNameMatchFilter(currentGrowthAlignedCountyNames)
+        : null;
+      ['county-fill', 'county-stroke', 'county-label'].forEach(layerId => {
+        if (!map.getLayer(layerId)) return;
+        try { map.setFilter(layerId, filter); } catch (_) {}
+      });
+      if (typeof reinforceMapLabelHalos === 'function') {
+        try { reinforceMapLabelHalos(); } catch (_) {}
+      }
+    }
+
+    function updateGrowthAlignedToggleUI() {
+      const toggle = document.getElementById('growth-aligned-toggle');
+      if (!toggle) return;
+      const shouldDisable = currentView !== 'counties' || !currentGrowthAlignedCountyNames.length;
+      toggle.disabled = shouldDisable;
+      if (shouldDisable && currentView !== 'counties') {
+        toggle.checked = false;
+      } else {
+        toggle.checked = !!growthAlignedOnly;
+      }
+    }
+
+    function setGrowthAlignedOnly(enabled) {
+      growthAlignedOnly = !!enabled;
+      updateGrowthAlignedToggleUI();
+      applyCountyGrowthAlignedFilter();
+    }
+
+    function getCountyGrowthAlignmentContext(countyName, row, contestType, year, prevCountyTotals) {
+      if (!row) return null;
+      const demVotes = Number(row[`${contestType}_dem`] || 0);
+      const repVotes = Number(row[`${contestType}_rep`] || 0);
+      const totalVotes = Number(row[`${contestType}_total`] || 0);
+      if (!Number.isFinite(totalVotes) || totalVotes <= 0) return null;
+
+      const signedMarginPct = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+      const winner = repVotes > demVotes ? 'R' : (demVotes > repVotes ? 'D' : 'T');
+      const prev = prevCountyTotals?.[countyName] || null;
+      const prevSigned = prev ? signedMarginPctFromVotes(prev.dem, prev.rep, prev.total) : NaN;
+      const shiftSince2020TowardGop = Number.isFinite(prevSigned) ? (prevSigned - signedMarginPct) : NaN;
+      const prevWinner = prev
+        ? (prev.rep > prev.dem ? 'R' : (prev.dem > prev.rep ? 'D' : 'T'))
+        : '';
+      const hasFlip = !!(prevWinner && winner !== 'T' && prevWinner !== 'T' && prevWinner !== winner);
+      const shiftText = Number.isFinite(shiftSince2020TowardGop)
+        ? `Shift: ${shiftSince2020TowardGop >= 0 ? 'R' : 'D'}+${Math.abs(shiftSince2020TowardGop).toFixed(2)} since ${Number(year) - 4}`
+        : '';
+      const flipText = hasFlip ? `Flip since ${Number(year) - 4}: ${prevWinner}→${winner}` : '';
+      const trajectoryMeta = {
+        statusClass: winner === 'R' ? 'rep' : (winner === 'D' ? 'dem' : 'competitive'),
+        originKey: hasFlip ? 'Realigned' : 'Reinforcing',
+        position: hasFlip ? 'edge' : 'lean'
+      };
+
+      return getScCensusCheckContext(countyName, {
+        shiftSince2020TowardGop,
+        longShiftTowardGop: shiftSince2020TowardGop,
+        shiftSince2020Text: shiftText,
+        cycleShiftText: shiftText,
+        longShiftText: shiftText,
+        flipSince2020Text: flipText,
+        trajectoryMeta
+      });
+    }
+
+    function getCensusConfidenceMeterHTML(confidence) {
+      const level = String(confidence || '').trim().toLowerCase();
+      if (!level) return '';
+      const order = ['low', 'medium', 'high'];
+      const activeIndex = order.indexOf(level);
+      return `
+        <div class="focus-census-confidence" aria-label="Census check confidence ${escapeHtml(String(confidence || ''))}">
+          <span class="focus-census-confidence-label">Confidence</span>
+          <div class="focus-census-confidence-meter" role="img" aria-hidden="true">
+            ${order.map((step, index) => {
+              const isActive = activeIndex >= 0 && index <= activeIndex;
+              const stateClass = isActive ? ` active ${level}` : '';
+              return `<span class="focus-census-confidence-step${stateClass}">${escapeHtml(step.charAt(0).toUpperCase() + step.slice(1))}</span>`;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    }
+
     function getScCensusCheckContext(countyRaw, metrics = {}) {
       const title = 'Census Check';
       const norm = normalizeCountyTokenForCensusCheck(countyRaw);
@@ -11214,11 +11468,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (verdict === 'realigning') {
         const targetParty = shiftDir > 0 ? 'Republican' : 'Democratic';
+        const confidenceKey = String(confidence || '').toLowerCase();
+        const summary = confidenceKey === 'high'
+          ? `Population changes strongly align with and likely contributed to recent ${targetParty} realignment.`
+          : (confidenceKey === 'medium'
+            ? `Population growth aligns with recent ${targetParty} movement and may be contributing to political change.`
+            : `Population changes suggest potential ${targetParty} realignment.`);
         return {
           title,
           emoji: '🔄',
           headline: 'Realigning',
-          summary: `Population changes suggest potential ${targetParty} realignment.`,
+          summary,
           confidence,
           evidenceLines
         };
@@ -11261,6 +11521,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <span class="focus-census-inline-emoji">${escapeHtml(emoji)}</span>
             ${escapeHtml(summary)}
           </p>
+          ${getCensusConfidenceMeterHTML(confidence)}
           ${evidenceLines.map(line => `<p class="focus-census-note">${escapeHtml(line)}</p>`).join('')}
         </div>
       `;
@@ -15731,6 +15992,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const expr = ['case'];
       let countiesProcessed = 0;
+      const growthAlignedCountyNames = [];
       
       Object.keys(countyAgg).forEach(countyName => {
         const row = countyAgg[countyName];
@@ -15759,6 +16021,11 @@ document.addEventListener('DOMContentLoaded', function() {
           color = colorForShiftMode(shift);
         } else {
           color = colorForMarginMode(marginPctAbs, winner === 'T' ? 'R' : winner);
+        }
+
+        const alignmentContext = getCountyGrowthAlignmentContext(countyName, row, contestType, year, vizPrevCache?.prevCountyTotals);
+        if (alignmentContext && (alignmentContext.headline === 'Realigning' || alignmentContext.headline === 'Reinforcing')) {
+          growthAlignedCountyNames.push(countyName);
         }
         
         // Debug logging for first few entries
@@ -15794,6 +16061,9 @@ document.addEventListener('DOMContentLoaded', function() {
         map.setPaintProperty('county-fill', 'fill-color', expr);
         map.setPaintProperty('county-fill', 'fill-opacity', getCountyFillOpacity());
       }
+      currentGrowthAlignedCountyNames = growthAlignedCountyNames.slice().sort();
+      updateGrowthAlignedToggleUI();
+      applyCountyGrowthAlignedFilter();
 
       // Flip mode: outline flipped counties in red/blue (to-winner), leave others subtle.
       if (mode === 'flips' && vizPrevCache?.prevYear && map.getLayer('county-stroke')) {
