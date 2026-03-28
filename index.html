@@ -11094,7 +11094,7 @@ document.addEventListener('DOMContentLoaded', function() {
         : `📈 Pop: ${signedPct(growthPct, 1)} since ${startYear}`;
       evidenceLines.push(popLine);
 
-      const isJasperHyperGrowth = norm === 'JASPER' && Number.isFinite(growthPct) && growthPct >= 6.0;
+      const isJasperHyperGrowth = norm === 'JASPER' && Number.isFinite(growthPct) && growthPct >= 20.0;
       const typeLabelBase = countyTypeKey === 'metro'
         ? 'Urban/suburban core'
         : (countyTypeKey === 'spillover'
@@ -11175,6 +11175,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (!isJasperHyperGrowth && !hasFlipSignal && (trajectoryPositionLower === 'stronghold' || trajectoryPositionLower === 'lean') && realignRatio < 2.25) {
             return 'Low';
           }
+          if (isJasperHyperGrowth && realignRatio >= 1.0) return 'High';
           if (growthRatio >= 1.5 && realignRatio >= 1.75) return 'High';
           if (growthRatio >= 1.0 && realignRatio >= 1.0) return 'Medium';
           return 'Low';
