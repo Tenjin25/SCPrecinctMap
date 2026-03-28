@@ -11090,8 +11090,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const evidenceLines = [];
       const popLine = Number.isFinite(annualChangePct)
-        ? `Population: ${signedPct(growthPct, 1)} since ${startYear} (${previousYear}→${latestYear}: ${signedPct(annualChangePct, 1)})`
-        : `Population: ${signedPct(growthPct, 1)} since ${startYear}`;
+        ? `📈 Pop: ${signedPct(growthPct, 1)} since ${startYear} (${previousYear}→${latestYear}: ${signedPct(annualChangePct, 1)})`
+        : `📈 Pop: ${signedPct(growthPct, 1)} since ${startYear}`;
       evidenceLines.push(popLine);
 
       const typeLabel = countyTypeKey === 'metro'
@@ -11107,21 +11107,24 @@ document.addEventListener('DOMContentLoaded', function() {
       const longShiftText = String(metrics?.longShiftText || '').trim();
       const flipSince2020Text = String(metrics?.flipSince2020Text || '').trim();
 
-      if (shiftSince2020Text) evidenceLines.push(shiftSince2020Text);
-      else if (cycleShiftText) evidenceLines.push(cycleShiftText);
+      if (shiftSince2020Text) evidenceLines.push(`🗳️ ${shiftSince2020Text}`);
+      else if (cycleShiftText) evidenceLines.push(`🗳️ ${cycleShiftText}`);
 
-      if (flipSince2020Text) evidenceLines.push(flipSince2020Text);
+      if (flipSince2020Text) evidenceLines.push(`🔁 ${flipSince2020Text}`);
 
-      if (typeLabel) evidenceLines.push(`County type: ${typeLabel}`);
+      if (typeLabel) evidenceLines.push(`🏷️ Type: ${typeLabel}`);
 
       if (evidenceLines.length < 4) {
-        if (longShiftText) evidenceLines.push(longShiftText);
-        else if (cycleShiftText && !evidenceLines.includes(cycleShiftText)) evidenceLines.push(cycleShiftText);
+        if (longShiftText) evidenceLines.push(`🧭 ${longShiftText}`);
+        else if (cycleShiftText && !evidenceLines.some(line => line.includes(cycleShiftText))) evidenceLines.push(`🧭 ${cycleShiftText}`);
       }
 
       const statusClass = String(metrics?.trajectoryMeta?.statusClass || '').trim().toLowerCase();
       const leanDir = statusClass === 'rep' ? 1 : (statusClass === 'dem' ? -1 : 0);
       const leanWord = statusClass === 'rep' ? 'Republican' : (statusClass === 'dem' ? 'Democratic' : 'competitive');
+      const trajectoryOriginKey = String(metrics?.trajectoryMeta?.originKey || '').trim();
+      const trajectoryPosition = String(metrics?.trajectoryMeta?.position || '').trim();
+      const trajectoryPositionLower = trajectoryPosition.toLowerCase();
 
       const absGrowth = Math.abs(growthPct);
       const hasGrowthSignal = absGrowth >= thresholds.growthMin;
@@ -11132,12 +11135,20 @@ document.addEventListener('DOMContentLoaded', function() {
       const longDir = (Number.isFinite(longShiftTowardGop) && absLongShift >= thresholds.longShiftMin)
         ? (longShiftTowardGop > 0 ? 1 : -1)
         : 0;
+      const hasFlipSignal = !!flipSince2020Text;
 
       let verdict = 'mixed';
       if (leanDir !== 0 && hasGrowthSignal && shiftDir !== 0) {
         const trendReversal = (longDir !== 0 && shiftDir === -longDir && absRecentShift >= thresholds.realignShiftMin);
-        const againstLean = (shiftDir === -leanDir && absRecentShift >= thresholds.realignShiftMin);
-        if (trendReversal || againstLean) {
+        const guardStronghold = !hasFlipSignal && (trajectoryPositionLower === 'stronghold' || trajectoryPositionLower === 'lean');
+        const trajectorySupportsRealign = trajectoryOriginKey === 'Realigned' || trajectoryOriginKey === 'Emerging';
+        const isCompetitiveNow = trajectoryPositionLower === 'battleground' || trajectoryPositionLower === 'edge';
+
+        if (hasFlipSignal && absRecentShift >= thresholds.realignShiftMin) {
+          verdict = 'realigning';
+        } else if (trendReversal && trajectorySupportsRealign && (!guardStronghold || absRecentShift >= (thresholds.realignShiftMin * 2.25))) {
+          verdict = 'realigning';
+        } else if (!guardStronghold && isCompetitiveNow && trendReversal) {
           verdict = 'realigning';
         } else if (shiftDir === leanDir) {
           verdict = 'reinforcing';
@@ -11156,6 +11167,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (verdict === 'realigning') {
+          if (!hasFlipSignal && (trajectoryPositionLower === 'stronghold' || trajectoryPositionLower === 'lean') && realignRatio < 2.25) {
+            return 'Low';
+          }
           if (growthRatio >= 1.5 && realignRatio >= 1.75) return 'High';
           if (growthRatio >= 1.0 && realignRatio >= 1.0) return 'Medium';
           return 'Low';
