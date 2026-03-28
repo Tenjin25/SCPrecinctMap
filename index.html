@@ -11094,13 +11094,15 @@ document.addEventListener('DOMContentLoaded', function() {
         : `📈 Pop: ${signedPct(growthPct, 1)} since ${startYear}`;
       evidenceLines.push(popLine);
 
-      const typeLabel = countyTypeKey === 'metro'
+      const isJasperHyperGrowth = norm === 'JASPER' && Number.isFinite(growthPct) && growthPct >= 6.0;
+      const typeLabelBase = countyTypeKey === 'metro'
         ? 'Urban/suburban core'
         : (countyTypeKey === 'spillover'
           ? 'Suburban/exurban spillover'
           : (countyTypeKey === 'coastal'
             ? 'Coastal growth'
             : (countyTypeKey === 'rural' ? 'Rural' : '')));
+      const typeLabel = typeLabelBase && isJasperHyperGrowth ? `${typeLabelBase} (hyper-growth)` : typeLabelBase;
 
       const shiftSince2020Text = String(metrics?.shiftSince2020Text || '').trim();
       const cycleShiftText = String(metrics?.cycleShiftText || '').trim();
@@ -11140,11 +11142,14 @@ document.addEventListener('DOMContentLoaded', function() {
       let verdict = 'mixed';
       if (leanDir !== 0 && hasGrowthSignal && shiftDir !== 0) {
         const trendReversal = (longDir !== 0 && shiftDir === -longDir && absRecentShift >= thresholds.realignShiftMin);
-        const guardStronghold = !hasFlipSignal && (trajectoryPositionLower === 'stronghold' || trajectoryPositionLower === 'lean');
+        const guardStronghold = !isJasperHyperGrowth && !hasFlipSignal && (trajectoryPositionLower === 'stronghold' || trajectoryPositionLower === 'lean');
         const trajectorySupportsRealign = trajectoryOriginKey === 'Realigned' || trajectoryOriginKey === 'Emerging';
         const isCompetitiveNow = trajectoryPositionLower === 'battleground' || trajectoryPositionLower === 'edge';
+        const jasperOverride = isJasperHyperGrowth && shiftDir === -leanDir && absRecentShift >= thresholds.realignShiftMin;
 
         if (hasFlipSignal && absRecentShift >= thresholds.realignShiftMin) {
+          verdict = 'realigning';
+        } else if (jasperOverride) {
           verdict = 'realigning';
         } else if (trendReversal && trajectorySupportsRealign && (!guardStronghold || absRecentShift >= (thresholds.realignShiftMin * 2.25))) {
           verdict = 'realigning';
@@ -11167,7 +11172,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (verdict === 'realigning') {
-          if (!hasFlipSignal && (trajectoryPositionLower === 'stronghold' || trajectoryPositionLower === 'lean') && realignRatio < 2.25) {
+          if (!isJasperHyperGrowth && !hasFlipSignal && (trajectoryPositionLower === 'stronghold' || trajectoryPositionLower === 'lean') && realignRatio < 2.25) {
             return 'Low';
           }
           if (growthRatio >= 1.5 && realignRatio >= 1.75) return 'High';
