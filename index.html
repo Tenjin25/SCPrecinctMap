@@ -7858,7 +7858,7 @@ document.addEventListener('DOMContentLoaded', function() {
         : null;
       const baselineFlip = baselineSince2020 ? flipInfo(baselineSince2020.signedPct, latest.signedPct) : { flipped: false, from: 'T', to: 'T' };
       const flipSince2020Text = (baselineSince2020 && baselineFlip?.flipped)
-        ? `Flip: ${baselineFlip.from}→${baselineFlip.to} since ${baselineSince2020.item.year}`
+        ? `Flip since ${baselineSince2020.item.year}: ${baselineFlip.from}→${baselineFlip.to}`
         : '';
       const censusCheckHtml = (
         String(options?.focusKind || '').toLowerCase() === 'county' &&
@@ -11083,6 +11083,16 @@ document.addEventListener('DOMContentLoaded', function() {
         return `${v >= 0 ? '+' : '-'}${Math.abs(v).toFixed(digits)}%`;
       };
 
+      const prettifyShiftEvidence = (text) => {
+        const t = String(text || '').trim();
+        if (!t) return '';
+        const none = t.match(/^Shift:\s*No shift since\s*(\d{4})/i);
+        if (none) return `Since ${none[1]}: no shift`;
+        const match = t.match(/^Shift:\s*([RD])\+([0-9.]+)\s*since\s*(\d{4})/i);
+        if (match) return `Since ${match[3]}: ${match[1].toUpperCase()}+${match[2]} pts`;
+        return t.replace(/^Shift:\s*/i, '').trim();
+      };
+
       const estimates = county?.estimates || {};
       const latestPopulation = Number(estimates?.[latestYear] ?? county?.latestPopulation ?? 0);
       const previousPopulation = Number(estimates?.[previousYear] ?? 0);
@@ -11090,8 +11100,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const evidenceLines = [];
       const popLine = Number.isFinite(annualChangePct)
-        ? `📈 Pop: ${signedPct(growthPct, 1)} since ${startYear} (${previousYear}→${latestYear}: ${signedPct(annualChangePct, 1)})`
-        : `📈 Pop: ${signedPct(growthPct, 1)} since ${startYear}`;
+        ? `📈 Population: ${signedPct(growthPct, 1)} since ${startYear} • ${signedPct(annualChangePct, 1)} (${previousYear}→${latestYear})`
+        : `📈 Population: ${signedPct(growthPct, 1)} since ${startYear}`;
       evidenceLines.push(popLine);
 
       const isJasperHyperGrowth = norm === 'JASPER' && Number.isFinite(growthPct) && growthPct >= 20.0;
@@ -11109,16 +11119,16 @@ document.addEventListener('DOMContentLoaded', function() {
       const longShiftText = String(metrics?.longShiftText || '').trim();
       const flipSince2020Text = String(metrics?.flipSince2020Text || '').trim();
 
-      if (shiftSince2020Text) evidenceLines.push(`🗳️ ${shiftSince2020Text}`);
-      else if (cycleShiftText) evidenceLines.push(`🗳️ ${cycleShiftText}`);
+      if (shiftSince2020Text) evidenceLines.push(`🗳️ ${prettifyShiftEvidence(shiftSince2020Text)}`);
+      else if (cycleShiftText) evidenceLines.push(`🗳️ ${prettifyShiftEvidence(cycleShiftText)}`);
 
       if (flipSince2020Text) evidenceLines.push(`🔁 ${flipSince2020Text}`);
 
       if (typeLabel) evidenceLines.push(`🏷️ Type: ${typeLabel}`);
 
       if (evidenceLines.length < 4) {
-        if (longShiftText) evidenceLines.push(`🧭 ${longShiftText}`);
-        else if (cycleShiftText && !evidenceLines.some(line => line.includes(cycleShiftText))) evidenceLines.push(`🧭 ${cycleShiftText}`);
+        if (longShiftText) evidenceLines.push(`🧭 ${prettifyShiftEvidence(longShiftText)}`);
+        else if (cycleShiftText && !evidenceLines.some(line => line.includes(cycleShiftText))) evidenceLines.push(`🧭 ${prettifyShiftEvidence(cycleShiftText)}`);
       }
 
       const statusClass = String(metrics?.trajectoryMeta?.statusClass || '').trim().toLowerCase();
