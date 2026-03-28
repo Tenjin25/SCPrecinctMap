@@ -10928,21 +10928,9 @@ document.addEventListener('DOMContentLoaded', function() {
         patternLabel = `Long-run decline with a steadier ${latestYear} pace`;
       }
 
-      const latestDetail = trajectoryMeta?.details?.find(d => d.role === 'latest')?.value || '';
-      const recentShiftDetail = trajectoryMeta?.details?.find(d => String(d.label || '').includes('Since 2020'))?.value || '';
-      const latestMatch = latestDetail.match(/([RD]) \+([0-9.]+)/i);
-      const shiftMatch = recentShiftDetail.match(/([RD]) \+([0-9.]+)/i);
-      const latestAbs = latestMatch ? Number(latestMatch[2]) : 0;
-      const recentAbs = shiftMatch ? Number(shiftMatch[2]) : 0;
-
       const isReinforcing = !!(trajectoryMeta && (
         trajectoryMeta.originKey === 'Reinforcing' ||
-        String(trajectoryMeta.iconTone || '').toLowerCase() === 'reinforcing' ||
-        (
-          trajectoryMeta.originKey === 'Realigned' &&
-          latestAbs >= 5 &&
-          recentAbs >= 3
-        )
+        String(trajectoryMeta.iconTone || '').toLowerCase() === 'reinforcing'
       ));
 
       let noteEmoji = '';
@@ -11168,14 +11156,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const trajectorySupportsRealign = trajectoryOriginKey === 'Realigned' || trajectoryOriginKey === 'Emerging';
         const isCompetitiveNow = trajectoryPositionLower === 'battleground' || trajectoryPositionLower === 'edge';
         const jasperOverride = isJasperHyperGrowth && shiftDir === -leanDir && absRecentShift >= thresholds.realignShiftMin;
+        const postFlipReinforcing = hasFlipSignal && trajectoryOriginKey === 'Realigned' && shiftDir === leanDir && absRecentShift >= thresholds.realignShiftMin;
 
-        const postFlipConsolidating = hasFlipSignal
-          && trajectoryOriginKey === 'Realigned'
-          && shiftDir === leanDir
-          && absRecentShift >= thresholds.realignShiftMin
-          && !isCompetitiveNow;
-
-        if (postFlipConsolidating) {
+        if (postFlipReinforcing) {
           verdict = 'reinforcing';
         } else if (hasFlipSignal && absRecentShift >= thresholds.realignShiftMin) {
           verdict = 'realigning';
