@@ -7845,6 +7845,36 @@ document.addEventListener('DOMContentLoaded', function() {
       const censusHtml = options?.censusContext
         ? renderFocusCensusSummaryHTML(options.censusContext)
         : '';
+      const baselineSince2020 = annotated.find(entry => Number(entry?.item?.year) >= 2020) || null;
+      const shiftSince2020TowardGop = baselineSince2020 ? (latest.signedPct - baselineSince2020.signedPct) : NaN;
+      const longShiftTowardGop = latest.signedPct - earliest.signedPct;
+      const cycleBaseline = annotated.length >= 2 ? annotated[annotated.length - 2] : null;
+      const shiftSince2020Meta = baselineSince2020
+        ? describeTrendShift(latest.signedPct, baselineSince2020.signedPct, baselineSince2020.item.year)
+        : null;
+      const longShiftMeta = describeTrendShift(latest.signedPct, earliest.signedPct, earliest.item.year);
+      const cycleShiftMeta = cycleBaseline
+        ? describeTrendShift(latest.signedPct, cycleBaseline.signedPct, cycleBaseline.item.year)
+        : null;
+      const baselineFlip = baselineSince2020 ? flipInfo(baselineSince2020.signedPct, latest.signedPct) : { flipped: false, from: 'T', to: 'T' };
+      const flipSince2020Text = (baselineSince2020 && baselineFlip?.flipped)
+        ? `Flip since ${baselineSince2020.item.year}: ${baselineFlip.from}→${baselineFlip.to}`
+        : '';
+      const censusCheckHtml = (
+        String(options?.focusKind || '').toLowerCase() === 'county' &&
+        options?.trajectoryMeta &&
+        options?.county
+      )
+        ? renderFocusCensusCheckHTML(getScCensusCheckContext(options.county, {
+            trajectoryMeta: options.trajectoryMeta,
+            shiftSince2020TowardGop,
+            longShiftTowardGop,
+            shiftSince2020Text: shiftSince2020Meta?.text || '',
+            longShiftText: longShiftMeta?.text || '',
+            cycleShiftText: cycleShiftMeta?.text || '',
+            flipSince2020Text
+          }))
+        : '';
 
       const cards = annotated
         .slice()
@@ -7919,6 +7949,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
         ${trajectoryHtml}
+        ${censusCheckHtml}
         ${censusHtml}
         <div class="focus-trend-list">${cards}</div>
       `;
@@ -8022,7 +8053,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const trendOptions = {};
         trendOptions.selectedYear = Number(year);
         trendOptions.marginPrecision = meta.kind === 'county' ? 'county' : 'default';
+        trendOptions.focusKind = meta.kind || '';
         if ((meta.kind === 'county' || meta.kind === 'precinct') && meta.county) {
+          trendOptions.county = meta.county;
           trendOptions.censusContext = getScCensusContext(meta.county);
         }
         if (meta.kind === 'county' && meta.county) {
@@ -10897,23 +10930,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const latestDetail = trajectoryMeta?.details?.find(d => d.role === 'latest')?.value || '';
       const recentShiftDetail = trajectoryMeta?.details?.find(d => String(d.label || '').includes('Since 2020'))?.value || '';
-
       const latestMatch = latestDetail.match(/([RD]) \+([0-9.]+)/i);
       const shiftMatch = recentShiftDetail.match(/([RD]) \+([0-9.]+)/i);
-
       const latestAbs = latestMatch ? Number(latestMatch[2]) : 0;
       const recentAbs = shiftMatch ? Number(shiftMatch[2]) : 0;
-
-      const isPostFlipReinforcing = !!(trajectoryMeta && (
-        trajectoryMeta.originKey === 'Realigned' &&
-        latestAbs >= 5 &&
-        recentAbs >= 3
-      ));
 
       const isReinforcing = !!(trajectoryMeta && (
         trajectoryMeta.originKey === 'Reinforcing' ||
         String(trajectoryMeta.iconTone || '').toLowerCase() === 'reinforcing' ||
-        isPostFlipReinforcing
+        (
+          trajectoryMeta.originKey === 'Realigned' &&
+          latestAbs >= 5 &&
+          recentAbs >= 3
+        )
       ));
 
       let noteEmoji = '';
@@ -10986,6 +11015,270 @@ document.addEventListener('DOMContentLoaded', function() {
           ${context.noteLabel ? `<p class="focus-census-note">${escapeHtml(String(context.noteEmoji || '').trim() ? `${context.noteEmoji} ` : '')}${escapeHtml(context.noteLabel)}</p>` : ''}
           ${context.summaryText ? `<p class="focus-census-note">${escapeHtml(context.summaryText)}</p>` : ''}
           ${context.sourceNote ? `<p class="focus-census-source">${escapeHtml(context.sourceNote)}</p>` : ''}
+        </div>
+      `;
+    }
+
+    function normalizeCountyTokenForCensusCheck(countyRaw) {
+      let norm = normalizeCountyToken(countyRaw);
+      if (!norm) return '';
+      if (/\sCOUNTY$/i.test(norm)) norm = norm.replace(/\s+COUNTY$/i, '').trim();
+      return norm;
+    }
+
+    function getScCountyTypeKeyForCensusCheck(norm) {
+      const coastalCounties = new Set(['BEAUFORT', 'CHARLESTON', 'COLLETON', 'GEORGETOWN', 'HORRY', 'JASPER']);
+      const charlestonMetroCounties = new Set(['BERKELEY', 'CHARLESTON', 'DORCHESTER']);
+      const grandStrandCounties = new Set(['GEORGETOWN', 'HORRY']);
+      const lowcountryCoastalCounties = new Set(['BEAUFORT', 'JASPER']);
+      const charlotteSpilloverCounties = new Set(['CHESTER', 'LANCASTER', 'YORK']);
+      const columbiaMetroCounties = new Set(['KERSHAW', 'LEXINGTON', 'RICHLAND']);
+      const upstateMetroCounties = new Set(['ANDERSON', 'CHEROKEE', 'GREENVILLE', 'LAURENS', 'PICKENS', 'SPARTANBURG']);
+      const augustaSpilloverCounties = new Set(['AIKEN', 'EDGEFIELD']);
+      const peeDeeDeclineCounties = new Set(['DILLON', 'MARION', 'MARLBORO']);
+      const ruralDeclineCounties = new Set(['ALLENDALE', 'BAMBERG', 'BARNWELL', 'CALHOUN', 'CHESTERFIELD', 'DILLON', 'MARLBORO', 'ORANGEBURG', 'WILLIAMSBURG']);
+
+      if (charlestonMetroCounties.has(norm) || columbiaMetroCounties.has(norm) || upstateMetroCounties.has(norm)) {
+        return 'metro';
+      }
+      if (charlotteSpilloverCounties.has(norm) || augustaSpilloverCounties.has(norm)) {
+        return 'spillover';
+      }
+      if (grandStrandCounties.has(norm) || lowcountryCoastalCounties.has(norm) || coastalCounties.has(norm)) {
+        return 'coastal';
+      }
+      if (peeDeeDeclineCounties.has(norm) || ruralDeclineCounties.has(norm)) {
+        return 'rural';
+      }
+      return 'other';
+    }
+
+    function getScCensusCheckThresholds(countyTypeKey) {
+      const key = String(countyTypeKey || '').toLowerCase();
+      if (key === 'metro' || key === 'spillover' || key === 'coastal') {
+        return { growthMin: 0.75, shiftMin: 0.75, realignShiftMin: 1.25, longShiftMin: 2.0 };
+      }
+      if (key === 'rural') {
+        return { growthMin: 1.25, shiftMin: 0.9, realignShiftMin: 1.75, longShiftMin: 2.5 };
+      }
+      return { growthMin: 1.0, shiftMin: 0.85, realignShiftMin: 1.5, longShiftMin: 2.25 };
+    }
+
+    function getScCensusCheckContext(countyRaw, metrics = {}) {
+      const title = 'Census Check';
+      const norm = normalizeCountyTokenForCensusCheck(countyRaw);
+      const county = norm ? (countyPopulationEstimates?.counties?.[norm] || null) : null;
+      const startYear = Number(countyPopulationEstimates?.startYear || 2020);
+      const latestYear = Number(countyPopulationEstimates?.latestYear || 2025);
+      const previousYear = latestYear - 1;
+      const growthPct = Number(county?.changePct);
+
+      if (!county || !Number.isFinite(growthPct)) {
+        return {
+          title,
+          emoji: '📊',
+          headline: 'Unavailable',
+          summary: 'Census growth data unavailable for this county.'
+        };
+      }
+
+      const countyTypeKey = getScCountyTypeKeyForCensusCheck(norm);
+      const thresholds = getScCensusCheckThresholds(countyTypeKey);
+
+      const shiftSince2020TowardGop = Number(metrics?.shiftSince2020TowardGop);
+      const longShiftTowardGop = Number(metrics?.longShiftTowardGop);
+      const absRecentShift = Number.isFinite(shiftSince2020TowardGop) ? Math.abs(shiftSince2020TowardGop) : 0;
+      const absLongShift = Number.isFinite(longShiftTowardGop) ? Math.abs(longShiftTowardGop) : 0;
+
+      const signedPct = (value, digits = 1) => {
+        const v = Number(value) || 0;
+        return `${v >= 0 ? '+' : '-'}${Math.abs(v).toFixed(digits)}%`;
+      };
+
+      const prettifyShiftEvidence = (text) => {
+        const t = String(text || '').trim();
+        if (!t) return '';
+        const none = t.match(/^Shift:\s*No shift since\s*(\d{4})/i);
+        if (none) return `Since ${none[1]}: no shift`;
+        const match = t.match(/^Shift:\s*([RD])\+([0-9.]+)\s*since\s*(\d{4})/i);
+        if (match) return `Since ${match[3]}: ${match[1].toUpperCase()}+${match[2]} pts`;
+        return t.replace(/^Shift:\s*/i, '').trim();
+      };
+
+      const estimates = county?.estimates || {};
+      const latestPopulation = Number(estimates?.[latestYear] ?? county?.latestPopulation ?? 0);
+      const previousPopulation = Number(estimates?.[previousYear] ?? 0);
+      const annualChangePct = previousPopulation > 0 ? ((latestPopulation - previousPopulation) / previousPopulation) * 100 : NaN;
+
+      const evidenceLines = [];
+      const popLine = Number.isFinite(annualChangePct)
+        ? `📈 Population: ${signedPct(growthPct, 1)} since ${startYear} • ${signedPct(annualChangePct, 1)} (${previousYear}→${latestYear})`
+        : `📈 Population: ${signedPct(growthPct, 1)} since ${startYear}`;
+      evidenceLines.push(popLine);
+
+      const isJasperHyperGrowth = norm === 'JASPER' && Number.isFinite(growthPct) && growthPct >= 20.0;
+      const typeLabelBase = countyTypeKey === 'metro'
+        ? 'Urban/suburban core'
+        : (countyTypeKey === 'spillover'
+          ? 'Suburban/exurban spillover'
+          : (countyTypeKey === 'coastal'
+            ? 'Coastal growth'
+            : (countyTypeKey === 'rural' ? 'Rural' : '')));
+      const typeLabel = typeLabelBase && isJasperHyperGrowth ? `${typeLabelBase} (hyper-growth)` : typeLabelBase;
+
+      const shiftSince2020Text = String(metrics?.shiftSince2020Text || '').trim();
+      const cycleShiftText = String(metrics?.cycleShiftText || '').trim();
+      const longShiftText = String(metrics?.longShiftText || '').trim();
+      const flipSince2020Text = String(metrics?.flipSince2020Text || '').trim();
+
+      if (shiftSince2020Text) evidenceLines.push(`🗳️ ${prettifyShiftEvidence(shiftSince2020Text)}`);
+      else if (cycleShiftText) evidenceLines.push(`🗳️ ${prettifyShiftEvidence(cycleShiftText)}`);
+
+      if (flipSince2020Text) evidenceLines.push(`🔁 ${flipSince2020Text}`);
+
+      if (typeLabel) evidenceLines.push(`🏷️ Type: ${typeLabel}`);
+
+      if (evidenceLines.length < 4) {
+        if (longShiftText) evidenceLines.push(`🧭 ${prettifyShiftEvidence(longShiftText)}`);
+        else if (cycleShiftText && !evidenceLines.some(line => line.includes(cycleShiftText))) evidenceLines.push(`🧭 ${prettifyShiftEvidence(cycleShiftText)}`);
+      }
+
+      const statusClass = String(metrics?.trajectoryMeta?.statusClass || '').trim().toLowerCase();
+      const leanDir = statusClass === 'rep' ? 1 : (statusClass === 'dem' ? -1 : 0);
+      const leanWord = statusClass === 'rep' ? 'Republican' : (statusClass === 'dem' ? 'Democratic' : 'competitive');
+      const trajectoryOriginKey = String(metrics?.trajectoryMeta?.originKey || '').trim();
+      const trajectoryPosition = String(metrics?.trajectoryMeta?.position || '').trim();
+      const trajectoryPositionLower = trajectoryPosition.toLowerCase();
+
+      const absGrowth = Math.abs(growthPct);
+      const hasGrowthSignal = absGrowth >= thresholds.growthMin;
+
+      const shiftDir = (Number.isFinite(shiftSince2020TowardGop) && absRecentShift >= thresholds.shiftMin)
+        ? (shiftSince2020TowardGop > 0 ? 1 : -1)
+        : 0;
+      const longDir = (Number.isFinite(longShiftTowardGop) && absLongShift >= thresholds.longShiftMin)
+        ? (longShiftTowardGop > 0 ? 1 : -1)
+        : 0;
+      const hasFlipSignal = !!flipSince2020Text;
+
+      let verdict = 'mixed';
+      if (leanDir !== 0 && hasGrowthSignal && shiftDir !== 0) {
+        const trendReversal = (longDir !== 0 && shiftDir === -longDir && absRecentShift >= thresholds.realignShiftMin);
+        const guardStronghold = !isJasperHyperGrowth && !hasFlipSignal && (trajectoryPositionLower === 'stronghold' || trajectoryPositionLower === 'lean');
+        const trajectorySupportsRealign = trajectoryOriginKey === 'Realigned' || trajectoryOriginKey === 'Emerging';
+        const isCompetitiveNow = trajectoryPositionLower === 'battleground' || trajectoryPositionLower === 'edge';
+        const jasperOverride = isJasperHyperGrowth && shiftDir === -leanDir && absRecentShift >= thresholds.realignShiftMin;
+
+        const postFlipConsolidating = hasFlipSignal
+          && trajectoryOriginKey === 'Realigned'
+          && shiftDir === leanDir
+          && absRecentShift >= thresholds.realignShiftMin
+          && !isCompetitiveNow;
+
+        if (postFlipConsolidating) {
+          verdict = 'reinforcing';
+        } else if (hasFlipSignal && absRecentShift >= thresholds.realignShiftMin) {
+          verdict = 'realigning';
+        } else if (jasperOverride) {
+          verdict = 'realigning';
+        } else if (trendReversal && trajectorySupportsRealign && (!guardStronghold || absRecentShift >= (thresholds.realignShiftMin * 2.25))) {
+          verdict = 'realigning';
+        } else if (!guardStronghold && isCompetitiveNow && trendReversal) {
+          verdict = 'realigning';
+        } else if (shiftDir === leanDir) {
+          verdict = 'reinforcing';
+        }
+      }
+
+      const confidence = (() => {
+        const growthRatio = thresholds.growthMin > 0 ? (absGrowth / thresholds.growthMin) : 0;
+        const shiftRatio = thresholds.shiftMin > 0 ? (absRecentShift / thresholds.shiftMin) : 0;
+        const realignRatio = thresholds.realignShiftMin > 0 ? (absRecentShift / thresholds.realignShiftMin) : 0;
+
+        if (verdict === 'reinforcing') {
+          if (growthRatio >= 2.0 && shiftRatio >= 2.0) return 'High';
+          if (growthRatio >= 1.25 && shiftRatio >= 1.25) return 'Medium';
+          return 'Low';
+        }
+
+        if (verdict === 'realigning') {
+          if (!isJasperHyperGrowth && !hasFlipSignal && (trajectoryPositionLower === 'stronghold' || trajectoryPositionLower === 'lean') && realignRatio < 2.25) {
+            return 'Low';
+          }
+          if (isJasperHyperGrowth && realignRatio >= 1.0) return 'High';
+          if (growthRatio >= 1.5 && realignRatio >= 1.75) return 'High';
+          if (growthRatio >= 1.0 && realignRatio >= 1.0) return 'Medium';
+          return 'Low';
+        }
+
+        if (hasGrowthSignal && absRecentShift >= thresholds.shiftMin) return 'Medium';
+        return 'Low';
+      })();
+
+      if (verdict === 'reinforcing') {
+        const prefix = growthPct >= thresholds.growthMin
+          ? 'Growth'
+          : (growthPct <= -thresholds.growthMin ? 'Population decline' : 'Population change');
+        return {
+          title,
+          emoji: '📊',
+          headline: 'Reinforcing',
+          summary: `${prefix} appears to be reinforcing the current ${leanWord} lean.`,
+          confidence,
+          evidenceLines
+        };
+      }
+
+      if (verdict === 'realigning') {
+        const targetParty = shiftDir > 0 ? 'Republican' : 'Democratic';
+        return {
+          title,
+          emoji: '🔄',
+          headline: 'Realigning',
+          summary: `Population changes suggest potential ${targetParty} realignment.`,
+          confidence,
+          evidenceLines
+        };
+      }
+
+      return {
+        title,
+        emoji: '⚖️',
+        headline: 'Mixed impact',
+        summary: `Growth trends show mixed political impact.`,
+        confidence,
+        evidenceLines
+      };
+    }
+
+    function renderFocusCensusCheckHTML(context) {
+      if (!context) return '';
+      const title = String(context.title || 'Census Check').trim() || 'Census Check';
+      const emoji = String(context.emoji || '📊').trim() || '📊';
+      const headline = String(context.headline || '').trim();
+      const summary = String(context.summary || '').trim();
+      const confidence = String(context.confidence || '').trim();
+      const pillLabel = headline && confidence
+        ? `${headline} · ${confidence}`
+        : (headline || confidence || '');
+      const evidenceLines = Array.isArray(context.evidenceLines)
+        ? context.evidenceLines.map(line => String(line || '').trim()).filter(Boolean).slice(0, 4)
+        : [];
+      if (!summary) return '';
+      return `
+        <div class="focus-census-insight" role="note" aria-label="${escapeHtml(title)}">
+          <div class="focus-census-head">
+            <span class="focus-census-kicker">${escapeHtml(title)}</span>
+            <span class="focus-census-pill">
+              <span class="focus-census-pill-emoji">${escapeHtml(emoji)}</span>
+              ${escapeHtml(pillLabel || 'Not available')}
+            </span>
+          </div>
+          <p class="focus-census-summary">
+            <span class="focus-census-inline-emoji">${escapeHtml(emoji)}</span>
+            ${escapeHtml(summary)}
+          </p>
+          ${evidenceLines.map(line => `<p class="focus-census-note">${escapeHtml(line)}</p>`).join('')}
         </div>
       `;
     }
