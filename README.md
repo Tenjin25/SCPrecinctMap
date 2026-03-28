@@ -14,6 +14,7 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 - Improved label legibility with stronger halos, including county and district label layers.
 - Added county trajectory callouts with horizontal trend arrows (Democratic shifts point left; Republican shifts point right).
 - Added County Census Insight cards using U.S. Census county population estimates (`data/CO-EST2025-POP-45.csv`, March 2026 release).
+- Added `Census Check` cards that connect Census growth since 2020 to election movement (reinforcing vs realigning vs mixed), with compact evidence lines, flip callouts, and a confidence tag.
 - Added utility scripts for statewide mismatch rollups, VTD10->VTD20 overlap exports, and backfills from OpenElections CSVs.
 
 ## What This Project Does
@@ -27,10 +28,13 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 
 ## County Trajectory and Census Insights
 
-When you click a county, the right-side focus panel can show two related interpretations:
+When you click a county, the right-side focus panel can show three related interpretation cards (in this order):
 
 - **Trajectory:** A political trend summary based on election results across cycles. Trend arrows are horizontal and directional (Democratic shifts point left; Republican shifts point right).
+- **Census Check:** A lightweight bridge between population growth/decline (since 2020) and election movement (since ~2020 and long-run), labeled as `Reinforcing`, `Realigning`, or `Mixed impact`.
 - **County Census Insight:** A quick cross-check using U.S. Census county population estimates (Vintage 2025, April 1, 2020 to July 1, 2025).
+
+`Census Check` includes a short “receipt” of evidence lines (population change, recent shift, optional flip, and a county-type label like metro/coastal/rural). It also includes a confidence tag, and it tries to avoid overcalling “realignment” off a single-cycle blip in stronghold/lean counties unless other signals (like a flip or clear trend reversal) support it. Jasper County is treated as a narrow exception when its Census growth is extreme (“hyper-growth”).
 
 ### Trajectory labels
 
