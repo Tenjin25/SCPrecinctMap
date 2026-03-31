@@ -8056,7 +8056,7 @@ document.addEventListener('DOMContentLoaded', function() {
         trendOptions.focusKind = meta.kind || '';
         if ((meta.kind === 'county' || meta.kind === 'precinct') && meta.county) {
           trendOptions.county = meta.county;
-          trendOptions.censusContext = (typeof getScCensusContext === 'function') ? getScCensusContext(meta.county) : null;
+          trendOptions.censusContext = getScCensusContext(meta.county);
         }
         if (meta.kind === 'county' && meta.county) {
           series = await getCountyTrendSeries(contestType, meta.county);
@@ -10495,64 +10495,53 @@ document.addEventListener('DOMContentLoaded', function() {
         .slice()
         .sort((a, b) => Number(a.year) - Number(b.year));
 
-      const normalizeTrendCounty = value => (value || '').toString().trim().toUpperCase();
-      const target = normalizeTrendCounty(countyName);
+      const target = (countyName || '').toString().trim().toUpperCase();
       const out = [];
-
       for (const e of entries) {
         const year = Number(e.year);
-        try {
-          const rawRows = await loadContestSlice(contestType, year, { preferCounty: true });
-          const rows = Array.isArray(rawRows) ? rawRows : [];
-          const split = splitContestRowsByLevel(rows);
-          let dem = 0, rep = 0, oth = 0, tot = 0;
-          let demCand = '', repCand = '';
-
-          const summaryRow = (split.countySummaryRows || []).find(r => {
-            const rowCounty = normalizeTrendCounty(r?.county);
-            return rowCounty === target;
+        const rows = await loadContestSlice(contestType, year, { preferCounty: true });
+        const split = splitContestRowsByLevel(rows || []);
+        let dem = 0, rep = 0, oth = 0, tot = 0;
+        let demCand = '', repCand = '';
+        const summaryRow = (split.countySummaryRows || []).find(r => {
+          const rowCounty = (r?.county || '').toString().trim().toUpperCase();
+          return rowCounty === target;
+        });
+        if (summaryRow) {
+          dem = Number(summaryRow[`${contestType}_dem`]) || 0;
+          rep = Number(summaryRow[`${contestType}_rep`]) || 0;
+          oth = Number(summaryRow[`${contestType}_other`]) || 0;
+          tot = Number(summaryRow[`${contestType}_total`]) || 0;
+          demCand = summaryRow[`${contestType}_dem_candidate`] || '';
+          repCand = summaryRow[`${contestType}_rep_candidate`] || '';
+        } else {
+          (split.precinctRows || rows || []).forEach(r => {
+            const rowName = (r.county || '').toString().trim().toUpperCase();
+            const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0].trim().toUpperCase() : rowName;
+            if (countyOnly !== target) return;
+            dem += Number(r[`${contestType}_dem`]) || 0;
+            rep += Number(r[`${contestType}_rep`]) || 0;
+            oth += Number(r[`${contestType}_other`]) || 0;
+            tot += Number(r[`${contestType}_total`]) || 0;
+            if (!demCand) demCand = r[`${contestType}_dem_candidate`] || '';
+            if (!repCand) repCand = r[`${contestType}_rep_candidate`] || '';
           });
-
-          if (summaryRow) {
-            dem = Number(summaryRow?.[`${contestType}_dem`]) || 0;
-            rep = Number(summaryRow?.[`${contestType}_rep`]) || 0;
-            oth = Number(summaryRow?.[`${contestType}_other`]) || 0;
-            tot = Number(summaryRow?.[`${contestType}_total`]) || 0;
-            demCand = (summaryRow?.[`${contestType}_dem_candidate`] || '').toString().trim();
-            repCand = (summaryRow?.[`${contestType}_rep_candidate`] || '').toString().trim();
-          } else {
-            (split.precinctRows || rows).forEach(r => {
-              const rowName = normalizeTrendCounty(r?.county);
-              const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0].trim().toUpperCase() : rowName;
-              if (countyOnly !== target) return;
-              dem += Number(r?.[`${contestType}_dem`]) || 0;
-              rep += Number(r?.[`${contestType}_rep`]) || 0;
-              oth += Number(r?.[`${contestType}_other`]) || 0;
-              tot += Number(r?.[`${contestType}_total`]) || 0;
-              if (!demCand) demCand = (r?.[`${contestType}_dem_candidate`] || '').toString().trim();
-              if (!repCand) repCand = (r?.[`${contestType}_rep_candidate`] || '').toString().trim();
-            });
-          }
-
-          if (tot <= 0) continue;
-          const margin = rep - dem;
-          const marginPct = (margin / tot) * 100.0;
-          out.push({
-            year,
-            dem_votes: dem,
-            rep_votes: rep,
-            other_votes: oth,
-            total_votes: tot,
-            dem_candidate: demCand,
-            rep_candidate: repCand,
-            winner: margin > 0 ? 'REP' : (margin < 0 ? 'DEM' : 'TIE'),
-            margin_pct: Number(marginPct.toFixed(2))
-          });
-        } catch (err) {
-          console.warn(`Skipping county trend year ${year} for ${contestType} / ${countyName}:`, err?.message || err);
         }
+        if (tot <= 0) continue;
+        const margin = rep - dem;
+        const marginPct = tot ? (margin / tot * 100.0) : 0.0;
+        out.push({
+          year,
+          dem_votes: dem,
+          rep_votes: rep,
+          other_votes: oth,
+          total_votes: tot,
+          dem_candidate: demCand,
+          rep_candidate: repCand,
+          winner: margin > 0 ? 'REP' : (margin < 0 ? 'DEM' : 'TIE'),
+          margin_pct: Number(marginPct.toFixed(2))
+        });
       }
-
       return out;
     }
 
