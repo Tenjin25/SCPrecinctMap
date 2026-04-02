@@ -1194,10 +1194,9 @@ def build_statewide_contests_by_district_from_slices() -> int:
                     precinct_to_district[scope][pn] = chosen
 
     # Prefer block-derived fractional allocation where available.
-    # The block assignment SLDL/SLDU numbering does not align cleanly with our
-    # court-ordered 2022 legislative line files, so limit block weighting to
-    # congressional scope until legislative district code alignment is resolved.
-    block_weight_scopes = {'congressional'}
+    # Use this for all scopes so split precincts contribute proportionally
+    # (centroid assignment can bias district aggregates).
+    block_weight_scopes = {'congressional', 'state_house', 'state_senate'}
     block_weight_maps = load_block_assignment_precinct_weights()
     if block_weight_maps:
         for scope, mapping in block_weight_maps.items():
