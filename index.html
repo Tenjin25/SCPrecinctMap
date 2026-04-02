@@ -6541,8 +6541,8 @@ document.addEventListener('DOMContentLoaded', function() {
               <div class="legend-handle" aria-hidden="true"></div>
               <div class="legend-copy">
                 <span class="legend-kicker">Map key</span>
-                <h4>Margin Categories</h4>
-                <p class="legend-subtitle" id="legend-subtitle">Two-party margin buckets for the selected contest.</p>
+                <h4>Rep–Dem Margin</h4>
+                <p class="legend-subtitle" id="legend-subtitle">Signed margin (Rep − Dem), as % of total votes.</p>
               </div>
             </div>
             <div class="legend-header-actions">
@@ -6595,7 +6595,7 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
             </div>
         </div>
-        <div class="legend-footer" id="legend-footer">Darker shades indicate larger two-party leads in the current contest.</div>
+        <div class="legend-footer" id="legend-footer">Darker shades indicate a larger absolute margin.</div>
     </div>
   </div>
 
@@ -6716,12 +6716,12 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="modal-body">
           <h3>Modes</h3>
-          <p><strong>Margins</strong>: colors show the <strong>two-party margin</strong> (absolute value of Rep% - Dem%). Darker = less competitive.</p>
+          <p><strong>Margins</strong>: colors show the <strong>Rep − Dem margin</strong> (as % of total votes). Darker = larger absolute margin.</p>
           <p><strong>Winners</strong>: solid color by winner (D/R), regardless of margin size.</p>
           <p><strong>Shift</strong>: change in <strong>signed</strong> margin vs the nearest available prior election for that contest (e.g. 2020->2024). Positive = more Republican; negative = more Democratic.</p>
 
-          <h3>Margin Categories</h3>
-          <p>Category names are just shorthand for margin ranges:</p>
+          <h3>Rep–Dem Margin</h3>
+          <p>Category names are shorthand for absolute margin ranges:</p>
           <ul>
             <li><strong>Annihilation</strong>: &ge;40%</li>
             <li><strong>Dominant</strong>: 30-39.99%</li>
@@ -6732,7 +6732,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <li><strong>Tilt</strong>: 0.50-0.99%</li>
             <li><strong>Tossup</strong>: &lt;0.50%</li>
           </ul>
-          <p class="meta-subtle">Example: "Safe Republican (10-19.99%)" means the Republican candidate leads by 10-19.99 percentage points (two-party margin).</p>
+          <p class="meta-subtle">Example: "Safe Republican (10-19.99%)" means the Republican candidate leads by 10-19.99 percentage points (as % of total votes).</p>
 
           <h3>Hover + Pin</h3>
           <ul>
@@ -7326,7 +7326,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
       } else {
         // margins (default)
-        if (header) header.textContent = 'Margin Categories';
+        if (header) header.textContent = 'Rep–Dem Margin';
         content.innerHTML = content.dataset.marginsHtml;
       }
 
@@ -10136,15 +10136,15 @@ document.addEventListener('DOMContentLoaded', function() {
         if (header) header.textContent = meta?.fromYear ? `Shift (${shiftRange})` : 'Shift';
         if (subtitle) {
           subtitle.textContent = meta?.fromYear
-            ? `Shows the change in two-party margin from ${meta.fromYear} to ${meta.toYear || 'the current contest'}.`
-            : 'Shows the change in two-party margin relative to the prior comparable election.';
+            ? `Shows the change in Rep − Dem margin from ${meta.fromYear} to ${meta.toYear || 'the current contest'}.`
+            : 'Shows the change in Rep − Dem margin relative to the prior comparable election.';
         }
         if (badge) badge.textContent = meta?.fromYear ? shiftRange : 'Shift';
         if (footer) footer.textContent = 'Blue means movement toward Democrats; red means movement toward Republicans.';
         content.innerHTML = buildShiftLegendHTML();
       } else {
-        if (header) header.textContent = 'Margin Categories';
-        if (subtitle) subtitle.textContent = 'A compact spectrum from strongest Republican to strongest Democratic performance.';
+        if (header) header.textContent = 'Rep–Dem Margin';
+        if (subtitle) subtitle.textContent = 'Signed margin (Rep − Dem), as % of total votes.';
         if (badge) badge.textContent = 'Margins';
         if (footer) footer.textContent = 'Read left to right: stronger Republican, tossup, then stronger Democratic.';
         content.innerHTML = content.dataset.marginsHtml;
