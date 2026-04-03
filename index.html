@@ -8660,8 +8660,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span class="focus-trend-stat-value ${closest.winnerMeta.partyClass}">${escapeHtml(`${closest.item.year}: ${winnerMarginLabelFn(closest.repVotes, closest.demVotes, closest.totalVotes, closest.item.rep_candidate, closest.item.dem_candidate)}`)}</span>
               </div>
               <div class="focus-trend-stat">
-                <span class="focus-trend-stat-label">Since ${escapeHtml(earliest.item.year)}</span>
-                <span class="focus-trend-stat-value ${historyShift.cls}">${escapeHtml(historyShift.text)}</span>
+                <span class="focus-trend-stat-label">History</span>
+                <span class="focus-trend-stat-value tie">${escapeHtml(`${earliest.item.year}\u2013${latest.item.year} (${annotated.length} elections)`)}</span>
               </div>
             </div>
           </div>
