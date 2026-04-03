@@ -7013,12 +7013,12 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="focus-bar-midpoint" aria-hidden="true"></div>
       </div>
     </div>
-      <div class="focus-editorial" id="focus-editorial" style="display:none;"></div>
       <div class="focus-trend" id="focus-trend">
         <div class="focus-trend-head">
           <span class="focus-trend-title">Trend</span>
           <span class="focus-trend-caption" id="focus-trend-caption">Statewide history</span>
         </div>
+        <div class="focus-editorial" id="focus-editorial" style="display:none;"></div>
         <div class="focus-trend-chart" id="focus-trend-chart">
           <div class="focus-trend-empty">Select a contest to load trend history.</div>
         </div>
@@ -7866,76 +7866,6 @@ document.addEventListener('DOMContentLoaded', function() {
         applyVoteBreakdownLineLayout();
         requestAnimationFrame(() => applyVoteBreakdownLineLayout());
       });
-    }
-
-    function updateVoteCounterSummary(demVotes, repVotes, otherVotes = 0, candidates = null, meta = null) {
-      const d = Number(demVotes || 0);
-      const r = Number(repVotes || 0);
-      const o = Number(otherVotes || 0);
-      const total = d + r + o;
-
-      const winnerEl = document.getElementById('focus-winner');
-      const marginEl = document.getElementById('focus-margin');
-      const totalEl = document.getElementById('focus-total');
-      const barDem = document.getElementById('focus-bar-dem');
-      const barOther = document.getElementById('focus-bar-other');
-      const barRep = document.getElementById('focus-bar-rep');
-      const barDemLabelEl = document.getElementById('focus-bar-label-dem');
-      const barMidLabelEl = document.getElementById('focus-bar-label-mid');
-      const barRepLabelEl = document.getElementById('focus-bar-label-rep');
-
-      if (!winnerEl || !marginEl || !totalEl || !barDem || !barOther || !barRep || !barDemLabelEl || !barMidLabelEl || !barRepLabelEl) return;
-
-      const resolvedCandidates = setVoteCounterLabels(candidates, meta);
-
-      if (total <= 0) {
-        winnerEl.textContent = 'No data';
-        winnerEl.className = 'focus-pill-value tie';
-        marginEl.textContent = 'Tie';
-        marginEl.className = 'focus-pill-value tie';
-        totalEl.textContent = '0';
-        barDem.style.width = '0%';
-        barOther.style.width = '0%';
-        barRep.style.width = '0%';
-        barDemLabelEl.textContent = 'Dem 0.00%';
-        barMidLabelEl.textContent = '50%';
-        barRepLabelEl.textContent = 'Rep 0.00%';
-        try { updateFocusEditorial(meta, { demVotes: d, repVotes: r, otherVotes: o, totalVotes: total }, resolvedCandidates); } catch (_) {}
-        return;
-      }
-
-      const demPct = (d / total) * 100;
-      const repPct = (r / total) * 100;
-      const otherPct = (o / total) * 100;
-      const winnerParty = repPct > demPct ? 'rep' : (demPct > repPct ? 'dem' : 'tie');
-      const winnerLabel = winnerParty === 'rep'
-        ? formatVoteCounterWinnerLabel(resolvedCandidates.repCandidate, 'R', 'Republican')
-        : (winnerParty === 'dem'
-          ? formatVoteCounterWinnerLabel(resolvedCandidates.demCandidate, 'D', 'Democratic')
-          : 'Tie');
-      const winnerTitle = winnerParty === 'rep'
-        ? formatVoteCounterCandidateLabel(resolvedCandidates.repCandidate, 'R', 'Republican')
-        : (winnerParty === 'dem'
-          ? formatVoteCounterCandidateLabel(resolvedCandidates.demCandidate, 'D', 'Democratic')
-          : 'Tie');
-      const leadLabel = winnerParty === 'tie'
-        ? 'Tie'
-        : leadMarginPctLabel(r, d, total, { includeParty: false });
-
-      winnerEl.textContent = winnerLabel;
-      winnerEl.className = `focus-pill-value ${winnerParty}`;
-      winnerEl.title = winnerTitle;
-      marginEl.textContent = leadLabel;
-      marginEl.className = `focus-pill-value ${winnerParty}`;
-      marginEl.title = leadLabel;
-      totalEl.textContent = total.toLocaleString();
-      barDem.style.width = `${demPct.toFixed(4)}%`;
-      barOther.style.width = `${otherPct.toFixed(4)}%`;
-      barRep.style.width = `${repPct.toFixed(4)}%`;
-      barDemLabelEl.textContent = formatFocusBarLabel(resolvedCandidates.demCandidate, demPct, 'Dem');
-      barMidLabelEl.textContent = '50%';
-      barRepLabelEl.textContent = formatFocusBarLabel(resolvedCandidates.repCandidate, repPct, 'Rep');
-      try { updateFocusEditorial(meta, { demVotes: d, repVotes: r, otherVotes: o, totalVotes: total, demPct, repPct, otherPct, winnerParty }, resolvedCandidates); } catch (_) {}
     }
 
     function renderConfidenceMeterHTML(level) {
@@ -10810,6 +10740,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (demShareFill) demShareFill.style.width = '0%';
         if (repShareFill) repShareFill.style.width = '0%';
         if (otherShareFill) otherShareFill.style.width = '0%';
+        try { updateFocusEditorial(meta, { demVotes: d, repVotes: r, otherVotes: o, totalVotes: total }, resolvedCandidates); } catch (_) {}
         return;
       }
 
@@ -10854,6 +10785,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (demShareFill) demShareFill.style.width = `${demPct.toFixed(2)}%`;
       if (repShareFill) repShareFill.style.width = `${repPct.toFixed(2)}%`;
       if (otherShareFill) otherShareFill.style.width = `${otherPct.toFixed(2)}%`;
+      try { updateFocusEditorial(meta, { demVotes: d, repVotes: r, otherVotes: o, totalVotes: total, demPct, repPct, otherPct, winnerParty }, resolvedCandidates); } catch (_) {}
     }
 
     function updateStatewideResults(contestType, year, demVotes, repVotes, totalVotes, opts = {}) {
