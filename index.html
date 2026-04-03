@@ -3497,6 +3497,13 @@ body { height: var(--app-height); }
     -webkit-box-orient: vertical;
     word-break: break-word;
   }
+  .focus-story-mini.compare .v {
+    display: block;
+    -webkit-line-clamp: initial;
+    -webkit-box-orient: initial;
+    overflow: visible;
+    text-overflow: unset;
+  }
   .focus-story-watch {
     margin: 0;
     padding-top: 8px;
@@ -8231,7 +8238,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <p class="focus-story-summary">${escapeHtml(storySummary || safeWhyHeadline || '')}</p>
             <div class="focus-story-grid" aria-hidden="true">
               <div class="focus-story-mini"><span class="k">Archetype</span><span class="v">${escapeHtml(archetypeLabel || '—')}</span></div>
-              <div class="focus-story-mini"><span class="k">Compared</span><span class="v">${escapeHtml(comparedWith || '—')}</span></div>
+              <div class="focus-story-mini compare"><span class="k">Compared</span><span class="v">${escapeHtml(comparedWith || '—')}</span></div>
               <div class="focus-story-mini"><span class="k">Confidence</span><span class="v">${escapeHtml(confidence || '—')}</span></div>
               <div class="focus-story-mini"><span class="k">Trend</span><span class="v">${escapeHtml(trendBullet || shiftLine || '—')}</span></div>
             </div>
