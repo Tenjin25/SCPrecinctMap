@@ -3294,6 +3294,66 @@ body { height: var(--app-height); }
     flex-wrap: wrap;
     justify-content: flex-end;
   }
+  .focus-barometer {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 900;
+    background: rgba(15, 23, 42, 0.06);
+    color: #334155;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    white-space: nowrap;
+  }
+  .focus-barometer[data-tone="rep"] {
+    background: rgba(239, 68, 68, 0.22);
+    border-color: rgba(252, 165, 165, 0.32);
+    color: rgba(254, 202, 202, 0.98);
+  }
+  .focus-barometer[data-tone="dem"] {
+    background: rgba(59, 130, 246, 0.22);
+    border-color: rgba(147, 197, 253, 0.34);
+    color: rgba(191, 219, 254, 0.98);
+  }
+  .focus-barometer[data-tone="neutral"] {
+    background: rgba(148, 163, 184, 0.18);
+    color: rgba(226, 232, 240, 0.98);
+    border-color: rgba(148, 163, 184, 0.26);
+  }
+  .focus-story .focus-barometer[data-tone="dem"] {
+    background: rgba(59, 130, 246, 0.34);
+    border-color: rgba(191, 219, 254, 0.52);
+    color: rgba(219, 234, 254, 0.98);
+  }
+  .focus-story .focus-barometer-track {
+    background: linear-gradient(90deg, rgba(147, 197, 253, 0.92), rgba(148, 163, 184, 0.45), rgba(254, 202, 202, 0.82));
+    border-color: rgba(226, 232, 240, 0.18);
+  }
+  .focus-barometer-track {
+    position: relative;
+    width: 64px;
+    height: 7px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.70), rgba(148, 163, 184, 0.35), rgba(220, 38, 38, 0.70));
+    overflow: hidden;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+  }
+  .focus-barometer-dot {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: #f8fafc;
+    border: 2px solid currentColor;
+    box-shadow: 0 2px 7px rgba(15, 23, 42, 0.28);
+  }
+  .focus-barometer[data-strength="low"] .focus-barometer-dot { width: 8px; height: 8px; opacity: 0.92; }
+  .focus-barometer[data-strength="medium"] .focus-barometer-dot { width: 9px; height: 9px; opacity: 0.98; }
+  .focus-barometer[data-strength="high"] .focus-barometer-dot { width: 10px; height: 10px; opacity: 1; }
   .focus-glance-badge {
     display: inline-flex;
     align-items: center;
@@ -8060,6 +8120,7 @@ document.addEventListener('DOMContentLoaded', function() {
       focusName = 'This county',
       winnerParty = 'tie',
       badge = null, // { text, cls:'rep'|'dem'|'neutral' }
+      signedMarginPct = 0,
       trendBullet = '',
       longRunBullet = '',
       populationBullet = '',
@@ -8080,6 +8141,34 @@ document.addEventListener('DOMContentLoaded', function() {
         ? `<span class="focus-glance-badge ${escapeHtml(badgeCls)}">${escapeHtml(badgeText)}</span>`
         : '';
       const confHtml = confidence ? renderConfidenceMeterHTML(confidence) : '';
+
+      const barTone = (() => {
+        const signed = Number(signedMarginPct || 0);
+        if (!Number.isFinite(signed)) return 'neutral';
+        if (signed > 0.25) return 'rep';
+        if (signed < -0.25) return 'dem';
+        return 'neutral';
+      })();
+      const barStrength = (() => {
+        const lvl = String(confidence || '').trim().toLowerCase();
+        if (lvl === 'high') return 'high';
+        if (lvl === 'medium') return 'medium';
+        return 'low';
+      })();
+      const barLabel = (() => {
+        const tier = competitivenessTierMetaFromSignedMarginPct(Number(signedMarginPct || 0));
+        if (tier?.shortLabel) return tier.shortLabel;
+        if (barTone === 'rep') return 'R edge';
+        if (barTone === 'dem') return 'D edge';
+        return 'Even';
+      })();
+      const barPosPct = (() => {
+        const max = 25;
+        const signed = Number(signedMarginPct);
+        if (!Number.isFinite(signed)) return 50;
+        const clamped = Math.max(-max, Math.min(max, signed));
+        return 50 + (clamped / max) * 50;
+      })();
 
       const bullets = [
         { label: 'Trend', value: trendBullet || '—', isHtml: false },
@@ -8127,6 +8216,15 @@ document.addEventListener('DOMContentLoaded', function() {
               <div class="focus-story-left">
                 <span class="focus-story-kicker">Story details</span>
                 <button class="focus-story-copy" type="button" data-action="copy-story" aria-label="Copy story summary" title="Copy story summary">Copy</button>
+              </div>
+              <div class="focus-story-right">
+                <span class="focus-barometer" data-tone="${escapeHtml(barTone)}" data-strength="${escapeHtml(barStrength)}" aria-label="${escapeHtml(`Barometer: ${barLabel}`)}" title="${escapeHtml('Barometer: partisan lean (dot) + strength (size)')}">
+                  <span>Barometer</span>
+                  <span class="focus-barometer-track" aria-hidden="true">
+                    <span class="focus-barometer-dot" style="left:${barPosPct.toFixed(2)}%;"></span>
+                  </span>
+                  <span>${escapeHtml(barLabel)}</span>
+                </span>
               </div>
             </div>
             <h3 class="focus-story-title">${escapeHtml(storyTitle)}</h3>
@@ -8637,6 +8735,7 @@ document.addEventListener('DOMContentLoaded', function() {
           focusName: String(options?.focusName || '').trim() || displayCountyName(countyNorm),
           winnerParty,
           badge,
+          signedMarginPct: countySigned,
           trendBullet: shiftLine,
           longRunBullet,
           populationBullet,
