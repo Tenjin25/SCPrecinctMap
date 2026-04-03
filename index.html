@@ -3264,6 +3264,116 @@ body { height: var(--app-height); }
     margin-bottom: 12px;
   }
 
+  .focus-editorial {
+    margin: 10px 0 12px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: rgba(15, 23, 42, 0.02);
+    border-radius: 14px;
+    padding: 12px 14px;
+  }
+
+  .focus-editorial-kicker {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  .focus-editorial-headline {
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 950;
+    color: #0f172a;
+    line-height: 1.25;
+  }
+
+  .focus-editorial-lines {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.35;
+  }
+
+  .focus-editorial-meta {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .focus-editorial-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(248, 250, 252, 0.88);
+  }
+
+  .focus-editorial-label {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #64748b;
+    white-space: nowrap;
+  }
+
+  .focus-editorial-value {
+    font-size: 12px;
+    font-weight: 950;
+    color: #0f172a;
+    text-align: right;
+    line-height: 1.2;
+  }
+
+  .focus-editorial-value.small {
+    font-size: 12px;
+    font-weight: 850;
+    color: #334155;
+  }
+
+  .focus-trend-deep {
+    margin: 12px 0 6px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.96);
+    overflow: hidden;
+  }
+
+  .focus-trend-deep > summary {
+    cursor: pointer;
+    padding: 10px 12px;
+    font-size: 12px;
+    font-weight: 950;
+    color: #0f172a;
+    list-style: none;
+  }
+
+  .focus-trend-deep > summary::-webkit-details-marker { display: none; }
+
+  .focus-trend-deep > summary::after {
+    content: '+';
+    float: right;
+    color: #64748b;
+    font-weight: 950;
+  }
+
+  .focus-trend-deep[open] > summary::after { content: '–'; }
+
+  .focus-trend-deep-body {
+    padding: 0 12px 12px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
   .focus-bar-head {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -6890,19 +7000,20 @@ document.addEventListener('DOMContentLoaded', function() {
           <span class="focus-pill-value" id="focus-total">0</span>
         </div>
       </div>
-      <div class="focus-bar-panel">
-        <div class="focus-bar-head">
-          <span class="focus-bar-label dem" id="focus-bar-label-dem">Dem 0.00%</span>
-          <span class="focus-bar-label midpoint" id="focus-bar-label-mid">50%</span>
-          <span class="focus-bar-label rep" id="focus-bar-label-rep">Rep 0.00%</span>
-        </div>
-        <div class="focus-bar" aria-label="Vote share split">
-          <div class="focus-bar-segment dem" id="focus-bar-dem" style="width:0%;"></div>
-          <div class="focus-bar-segment other" id="focus-bar-other" style="width:0%;"></div>
-          <div class="focus-bar-segment rep" id="focus-bar-rep" style="width:0%;"></div>
-          <div class="focus-bar-midpoint" aria-hidden="true"></div>
-        </div>
+    <div class="focus-bar-panel">
+      <div class="focus-bar-head">
+        <span class="focus-bar-label dem" id="focus-bar-label-dem">Dem 0.00%</span>
+        <span class="focus-bar-label midpoint" id="focus-bar-label-mid">50%</span>
+        <span class="focus-bar-label rep" id="focus-bar-label-rep">Rep 0.00%</span>
       </div>
+      <div class="focus-bar" aria-label="Vote share split">
+        <div class="focus-bar-segment dem" id="focus-bar-dem" style="width:0%;"></div>
+        <div class="focus-bar-segment other" id="focus-bar-other" style="width:0%;"></div>
+        <div class="focus-bar-segment rep" id="focus-bar-rep" style="width:0%;"></div>
+        <div class="focus-bar-midpoint" aria-hidden="true"></div>
+      </div>
+    </div>
+      <div class="focus-editorial" id="focus-editorial" style="display:none;"></div>
       <div class="focus-trend" id="focus-trend">
         <div class="focus-trend-head">
           <span class="focus-trend-title">Trend</span>
@@ -7789,6 +7900,7 @@ document.addEventListener('DOMContentLoaded', function() {
         barDemLabelEl.textContent = 'Dem 0.00%';
         barMidLabelEl.textContent = '50%';
         barRepLabelEl.textContent = 'Rep 0.00%';
+        try { updateFocusEditorial(meta, { demVotes: d, repVotes: r, otherVotes: o, totalVotes: total }, resolvedCandidates); } catch (_) {}
         return;
       }
 
@@ -7823,6 +7935,208 @@ document.addEventListener('DOMContentLoaded', function() {
       barDemLabelEl.textContent = formatFocusBarLabel(resolvedCandidates.demCandidate, demPct, 'Dem');
       barMidLabelEl.textContent = '50%';
       barRepLabelEl.textContent = formatFocusBarLabel(resolvedCandidates.repCandidate, repPct, 'Rep');
+      try { updateFocusEditorial(meta, { demVotes: d, repVotes: r, otherVotes: o, totalVotes: total, demPct, repPct, otherPct, winnerParty }, resolvedCandidates); } catch (_) {}
+    }
+
+    function renderConfidenceMeterHTML(level) {
+      const lvl = String(level || '').trim() || 'Low';
+      const onCount = lvl === 'High' ? 3 : (lvl === 'Medium' ? 2 : 1);
+      return `
+        <span class="county-conf" aria-label="Confidence ${escapeHtml(lvl)}">
+          <span class="county-conf-bars" aria-hidden="true">
+            <span class="county-conf-bar ${onCount >= 1 ? 'on' : ''}"></span>
+            <span class="county-conf-bar ${onCount >= 2 ? 'on' : ''}"></span>
+            <span class="county-conf-bar ${onCount >= 3 ? 'on' : ''}"></span>
+          </span>
+          <span class="county-conf-label">${escapeHtml(lvl)}</span>
+        </span>
+      `;
+    }
+
+    function computeStatewideSignedMarginPctFromCurrentResults(contestType) {
+      if (!contestType || !currentElectionResults) return 0;
+      let dem = 0, rep = 0, total = 0;
+      try {
+        Object.values(currentElectionResults || {}).forEach(row => {
+          dem += Number(row?.[`${contestType}_dem`] || 0);
+          rep += Number(row?.[`${contestType}_rep`] || 0);
+          total += Number(row?.[`${contestType}_total`] || 0);
+        });
+      } catch (_) {}
+      return signedMarginPctFromVotes(dem, rep, total);
+    }
+
+    function getScCountyGrowthMeta(countyNorm) {
+      const norm = String(countyNorm || '').trim();
+      if (!norm) return { ok: false, pct: NaN, line: '' };
+      const startYear = Number(countyPopulationEstimates?.startYear || 2020);
+      const latestYear = Number(countyPopulationEstimates?.latestYear || 2025);
+      const county = countyPopulationEstimates?.counties?.[norm] || null;
+      if (!county) return { ok: false, pct: NaN, line: '' };
+      const pct = Number(county.changePct);
+      if (!Number.isFinite(pct)) return { ok: false, pct: NaN, line: '' };
+      const signed = `${pct >= 0 ? '+' : '−'}${Math.abs(pct).toFixed(1)}%`;
+      const line = `Population ${pct >= 0 ? 'up' : 'down'} ${signed} since ${startYear}.`;
+      return { ok: true, pct, line, startYear, latestYear };
+    }
+
+    function classifyScCountyArchetypeForStory(countyNorm, { winnerParty = 'tie', absMarginPct = 0, growthPct = NaN } = {}) {
+      const norm = String(countyNorm || '').trim();
+      const inRegion = (key) => {
+        try { return getRegionCountySet(key).has(norm); } catch (_) { return false; }
+      };
+      const isFastGrowth = Number.isFinite(growthPct) && growthPct >= 3.0;
+      const isDeclining = Number.isFinite(growthPct) && growthPct <= -1.0;
+      const isClose = Number(absMarginPct) < 5.5;
+
+      const blackBelt = new Set(['ALLENDALE', 'BAMBERG', 'BARNWELL', 'CALHOUN', 'CLARENDON', 'HAMPTON', 'JASPER', 'LEE', 'MARLBORO', 'ORANGEBURG', 'WILLIAMSBURG']);
+      const countyInBlackBelt = blackBelt.has(norm);
+
+      if (inRegion('charleston_metro')) return { label: 'Charleston-area growth county', key: 'charleston_metro' };
+      if (inRegion('grand_strand')) return { label: 'Grand Strand tourism & retiree county', key: 'grand_strand' };
+      if (inRegion('charlotte_metro')) return { label: 'Charlotte spillover county', key: 'charlotte_metro' };
+      if (countyInBlackBelt && winnerParty === 'dem') return { label: 'Black Belt Democratic base', key: 'black_belt' };
+      if (isClose) return { label: 'Small-margin swing county', key: 'swing' };
+      if (isFastGrowth && winnerParty === 'rep' && (inRegion('midlands') || inRegion('piedmont') || inRegion('upstate') || inRegion('charlotte_metro'))) {
+        return { label: 'Fast-growing GOP exurb', key: 'gop_exurb' };
+      }
+      if (isFastGrowth && (inRegion('lowcountry') || inRegion('pee_dee'))) return { label: 'Fast-growing coastal county', key: 'coastal_growth' };
+      if (isDeclining && winnerParty === 'rep' && absMarginPct >= 15) return { label: 'Rural GOP county with population decline', key: 'rural_decline_rep' };
+      if (winnerParty === 'rep' && absMarginPct >= 20) return { label: 'Rural Republican stronghold', key: 'rural_rep' };
+      if (winnerParty === 'dem' && absMarginPct >= 20) return { label: 'Durable Democratic base county', key: 'durable_dem' };
+      if (winnerParty === 'rep') return { label: 'Republican-leaning county', key: 'lean_rep' };
+      if (winnerParty === 'dem') return { label: 'Democratic-leaning county', key: 'lean_dem' };
+      return { label: 'Competitive county', key: 'competitive' };
+    }
+
+    function buildWhyItVotesThisWayStory({ archetypeMeta, winnerParty, absMarginPct, growthLine, prevYear, shiftSincePrev, flippedLast } = {}) {
+      const lines = [];
+      if (growthLine) lines.push(growthLine);
+
+      if (flippedLast && Number.isFinite(prevYear)) {
+        lines.push(`The county flipped since ${prevYear}, a sign of real movement rather than noise.`);
+      } else if (Number.isFinite(shiftSincePrev) && Number.isFinite(prevYear)) {
+        const abs = Math.abs(shiftSincePrev);
+        if (abs >= 2.0) lines.push(`Recent cycles have moved ${shiftSincePrev > 0 ? 'right' : 'left'} by about ${abs.toFixed(1)} points.`);
+        else lines.push('Recent cycles have mostly reinforced its current lean.');
+      }
+
+      const headline = (() => {
+        const key = String(archetypeMeta?.key || '').trim();
+        if (absMarginPct < 5.5) return 'A genuine swing county where small shifts can change the winner.';
+        if (key === 'charleston_metro') {
+          if (winnerParty === 'rep' && absMarginPct >= 15) return 'Charleston-area growth hasn’t flipped it — it still votes solidly GOP.';
+          return 'Charleston-area growth is the big story — it’s closer to the statewide center than most inland counties.';
+        }
+        if (key === 'grand_strand') return 'Tourism and retiree growth shape the electorate — and keep it right of the state.';
+        if (key === 'black_belt') return 'This remains a core Democratic base in South Carolina’s Black Belt.';
+        if (key === 'gop_exurb') return 'Fast growth on the metro edge, but the vote is still comfortably Republican.';
+        if (key === 'coastal_growth') return 'Coastal growth is changing the county’s profile — but it still votes right of the state.';
+        if (key === 'rural_decline_rep' || key === 'rural_rep') return 'A stable rural base and limited growth have kept this county firmly Republican.';
+        if (winnerParty === 'dem' && absMarginPct >= 15) return 'This county remains one of South Carolina’s most reliable Democratic bases.';
+        if (winnerParty === 'rep' && absMarginPct >= 15) {
+          const label = String(archetypeMeta?.label || '').trim();
+          return label ? `A ${label.toLowerCase()} that now looks like a durable GOP county.` : 'This county looks like a durable GOP county in the current era.';
+        }
+        const label = String(archetypeMeta?.label || '').trim();
+        if (label) return `A ${label.toLowerCase()} with room for movement.`;
+        return `A ${winnerParty === 'rep' ? 'Republican' : 'Democratic'}-leaning county with room for movement.`;
+      })();
+
+      return { headline, lines: lines.slice(0, 2) };
+    }
+
+    function updateFocusEditorial(meta, metrics = {}, candidates = null) {
+      const host = document.getElementById('focus-editorial');
+      if (!host) return;
+
+      const isPinnedCounty = !!(voteCounterPinned && meta && meta.kind === 'county');
+      if (!isPinnedCounty) {
+        host.style.display = 'none';
+        host.innerHTML = '';
+        return;
+      }
+
+      const contestType = String(meta?.contestType || '').trim();
+      const countyNorm = getCountyNormFromVoteMeta(meta);
+      const demVotes = Number(metrics?.demVotes || 0);
+      const repVotes = Number(metrics?.repVotes || 0);
+      const otherVotes = Number(metrics?.otherVotes || 0);
+      const totalVotes = Number(metrics?.totalVotes || (demVotes + repVotes + otherVotes));
+      const winnerParty = String(metrics?.winnerParty || '').trim() || (repVotes > demVotes ? 'rep' : (demVotes > repVotes ? 'dem' : 'tie'));
+      const absMarginPct = totalVotes > 0 ? Math.abs(((repVotes - demVotes) / totalVotes) * 100) : 0;
+
+      const growth = countyNorm ? getScCountyGrowthMeta(countyNorm) : { ok: false, pct: NaN, line: '' };
+      const archetypeMeta = countyNorm ? classifyScCountyArchetypeForStory(countyNorm, { winnerParty, absMarginPct, growthPct: growth.pct }) : { label: 'County', key: 'unknown' };
+
+      const prevYear = Number(vizPrevCache?.prevYear);
+      const prevTotals = countyNorm ? (vizPrevCache?.prevCountyTotals?.[countyNorm] || null) : null;
+      const prevSigned = prevTotals ? signedMarginPctFromVotes(prevTotals.dem, prevTotals.rep, prevTotals.total) : NaN;
+      const countySigned = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+      const shiftSincePrev = Number.isFinite(prevSigned) ? (countySigned - prevSigned) : NaN;
+      const flippedLast = !!(Number.isFinite(prevSigned) && Math.abs(prevSigned) >= 0.5 && Math.abs(countySigned) >= 0.5 && ((prevSigned > 0 && countySigned < 0) || (prevSigned < 0 && countySigned > 0)));
+
+      const statewideSigned = computeStatewideSignedMarginPctFromCurrentResults(contestType);
+      const delta = countySigned - statewideSigned;
+      const stateLabel = String(countyPopulationEstimates?.statewide?.label || 'South Carolina').trim() || 'South Carolina';
+      const comparedWith = (() => {
+        const abs = Math.abs(delta);
+        if (abs < 0.05) return `Essentially in line with ${stateLabel} overall.`;
+        if (delta > 0) return `${abs.toFixed(1)} points more Republican than ${stateLabel} overall.`;
+        return `${abs.toFixed(1)} points to the left of the statewide result.`;
+      })();
+
+      const confidence = (() => {
+        let score = 0.0;
+        score += Math.min(1.0, absMarginPct / 20.0) * 0.70;
+        if (flippedLast) score -= 0.25;
+        if (Number.isFinite(shiftSincePrev)) score -= Math.min(1.0, Math.abs(shiftSincePrev) / 8.0) * 0.18;
+        if (absMarginPct < 2.0) score -= 0.18;
+        score = Math.max(0, Math.min(1, score));
+        return score >= 0.72 ? 'High' : (score >= 0.46 ? 'Medium' : 'Low');
+      })();
+
+      const why = buildWhyItVotesThisWayStory({
+        archetypeMeta,
+        winnerParty,
+        absMarginPct,
+        growthLine: growth.ok ? growth.line : '',
+        prevYear,
+        shiftSincePrev,
+        flippedLast
+      });
+
+      const shiftLine = (() => {
+        if (!Number.isFinite(prevYear) || !Number.isFinite(shiftSincePrev)) return 'No prior cycle loaded.';
+        const abs = Math.abs(shiftSincePrev);
+        if (abs < 0.35) return `Essentially unchanged since ${prevYear}.`;
+        return `${shiftSincePrev > 0 ? 'R' : 'D'}+${abs.toFixed(1)} since ${prevYear}.`;
+      })();
+
+      host.innerHTML = `
+        <div class="focus-editorial-kicker">Why it votes this way</div>
+        <div class="focus-editorial-headline">${escapeHtml(why.headline)}</div>
+        <div class="focus-editorial-lines">${(why.lines || []).map(line => `<div>${escapeHtml(line)}</div>`).join('')}</div>
+        <div class="focus-editorial-meta" aria-label="Key context">
+          <div class="focus-editorial-line">
+            <span class="focus-editorial-label">Archetype</span>
+            <span class="focus-editorial-value">${escapeHtml(archetypeMeta.label)}</span>
+          </div>
+          <div class="focus-editorial-line">
+            <span class="focus-editorial-label">Confidence</span>
+            <span class="focus-editorial-value">${renderConfidenceMeterHTML(confidence)}</span>
+          </div>
+          <div class="focus-editorial-line">
+            <span class="focus-editorial-label">Compared</span>
+            <span class="focus-editorial-value small">${escapeHtml(comparedWith)}</span>
+          </div>
+          <div class="focus-editorial-line">
+            <span class="focus-editorial-label">Trend</span>
+            <span class="focus-editorial-value small">${escapeHtml(shiftLine)}</span>
+          </div>
+        </div>
+      `;
+      host.style.display = 'block';
     }
 
     function updateVoteCounter(demVotes, repVotes, otherVotes = 0, candidates = null, meta = null) {
@@ -8204,6 +8518,16 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .join('');
 
+      const deepCollapse = !!options?.deepCollapse;
+      const deepOpen = !!options?.deepOpen;
+      const deepLabel = String(options?.deepLabel || 'Trajectory, census, and full history').trim() || 'Trajectory, census, and full history';
+      const deepBody = `
+        ${trajectoryHtml}
+        ${censusCheckHtml}
+        ${censusHtml}
+        <div class="focus-trend-list">${cards}</div>
+      `;
+
       chartEl.innerHTML = `
         <div class="focus-trend-plot">
           <div class="focus-trend-summary">
@@ -8229,10 +8553,12 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
           </div>
         </div>
-        ${trajectoryHtml}
-        ${censusCheckHtml}
-        ${censusHtml}
-        <div class="focus-trend-list">${cards}</div>
+        ${deepCollapse ? `
+          <details class="focus-trend-deep" ${deepOpen ? 'open' : ''}>
+            <summary>${escapeHtml(deepLabel)}</summary>
+            <div class="focus-trend-deep-body">${deepBody}</div>
+          </details>
+        ` : deepBody}
       `;
       try { updateMobileOverlayOffsets(); } catch (_) {}
     }
@@ -8335,6 +8661,9 @@ document.addEventListener('DOMContentLoaded', function() {
         trendOptions.selectedYear = Number(year);
         trendOptions.marginPrecision = meta.kind === 'county' ? 'county' : 'default';
         trendOptions.focusKind = meta.kind || '';
+        trendOptions.deepCollapse = meta.kind === 'county';
+        trendOptions.deepOpen = false;
+        if (meta.kind === 'county') trendOptions.deepLabel = 'Trajectory, census, and full history';
         if ((meta.kind === 'county' || meta.kind === 'precinct') && meta.county) {
           trendOptions.county = meta.county;
           trendOptions.censusContext = getScCensusContext(meta.county);
@@ -12658,7 +12987,7 @@ document.addEventListener('DOMContentLoaded', function() {
   demCandidate = stripRunningMateName(demCandidate);
   repCandidate = stripRunningMateName(repCandidate);
       pinVoteCounterState(
-        `Selected: ${countyDisplay} County`,
+        `${countyDisplay} County`,
         `${formatContestName(contestType, year)} ${year}`,
         demVotes,
         repVotes,
