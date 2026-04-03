@@ -8695,6 +8695,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const flippedLast = !!(summaryEntry?.flip && summaryEntry.flip.flipped);
 
         const explosiveGrowth = growth?.ok && Number.isFinite(Number(growth.pct)) && Number(growth.pct) >= 5.0;
+        const baseYearNum = Number(earliest?.item?.year);
+        const recentEraOk = Number.isFinite(baseYearNum) ? baseYearNum >= 2000 : true;
         const realignmentShift = Number.isFinite(longShiftTowardGop) && Math.abs(longShiftTowardGop) >= 3.0;
 
         const confidence = (() => {
@@ -8705,7 +8707,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (absMarginPct < 2.0) score -= 0.18;
           score = Math.max(0, Math.min(1, score));
           let level = score >= 0.72 ? 'High' : (score >= 0.46 ? 'Medium' : 'Low');
-          if (explosiveGrowth && realignmentShift) level = 'High';
+          if (explosiveGrowth && realignmentShift && recentEraOk) level = 'High';
           return level;
         })();
 
@@ -8722,7 +8724,7 @@ document.addEventListener('DOMContentLoaded', function() {
           shiftSincePrev,
           flippedLast
         });
-        const realignHeadline = (explosiveGrowth && realignmentShift)
+        const realignHeadline = (explosiveGrowth && realignmentShift && recentEraOk)
           ? `Explosive growth has reshaped the electorate and pushed this county ${longShiftTowardGop >= 0 ? 'toward the GOP' : 'toward Democrats'}.`
           : '';
 
