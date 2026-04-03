@@ -5,6 +5,26 @@ It is the successor project to the original SCPrecinctMap release.
 
 Its user experience is intentionally inspired by the NC Election Atlas UI, then adapted for South Carolina boundaries, contests, and workflows.
 
+## Recent Updates (April 2026)
+
+- **County focus panel teardown + facelift (selected-county experience):**
+  - Rebuilt the selected-county hierarchy to read like a premium election desk:
+    1) **At a glance** (winner + margin + contest/year)
+    2) One dominant summary card with vote-share bar + key context
+    3) **Why it votes this way** (short causal explainer)
+    4) Confidence + statewide comparison + supporting facts (subordinate)
+    5) Deep detail (trajectory/census/trends/buckets) behind a single expandable section
+  - Added a plain-English **county archetype system** (region membership + growth context + competitiveness) to keep the story readable.
+    - Examples: “Charleston-area growth county”, “Grand Strand tourism & retiree county”, “Fast-growing GOP exurb”, “Black Belt Democratic base”.
+    - The archetype is *not* a decorative badge; it is used to drive the “Why it votes this way” framing.
+  - Added a restrained **confidence meter** (Low / Medium / High) based on:
+    - margin size (bigger margin → higher confidence)
+    - recent movement and flips (big shift or a recent flip → lower confidence)
+    - multi-cycle volatility (after trend history loads, repeated flips reduce confidence further)
+  - Added an immediate **Compared with South Carolina** line so the county is legible in statewide context within ~3 seconds.
+  - Reduced cognitive load by collapsing deeper material (vote breakdown, trajectory snapshot, trend history, census insight, non-geographic buckets) into one expandable “deep dive” section.
+  - Styling goal: calmer, sharper, more editorial, less “stacked sections competing for attention”.
+
 ## Recent Updates (March 2026)
 
 - Added statewide precinct QA workflow for alias-driven and overlap-driven fixes across years.
