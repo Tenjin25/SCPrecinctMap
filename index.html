@@ -8086,13 +8086,14 @@ document.addEventListener('DOMContentLoaded', function() {
       return { label: 'Competitive county', key: 'competitive' };
     }
 
-    function buildWhyItVotesThisWayStory({ archetypeMeta, winnerParty, absMarginPct, growthLine, prevYear, shiftSincePrev, flippedLast, reinforceGrowth } = {}) {
+    function buildWhyItVotesThisWayStory({ archetypeMeta, winnerParty, absMarginPct, growthLine, prevYear, shiftSincePrev, flippedLast, reinforceGrowth, reinforceLine } = {}) {
       const lines = [];
       if (growthLine) lines.push(growthLine);
       if (reinforceGrowth) {
         const side = winnerParty === 'rep' ? 'Republican' : (winnerParty === 'dem' ? 'Democratic' : 'current');
         lines.push(`Explosive growth appears to be strengthening the existing ${side} lean.`);
       }
+      if (reinforceLine) lines.push(reinforceLine);
 
       if (flippedLast && Number.isFinite(prevYear)) {
         lines.push(`The county flipped since ${prevYear}, a sign of real movement rather than noise.`);
@@ -8720,7 +8721,20 @@ document.addEventListener('DOMContentLoaded', function() {
           : { label: 'County', key: 'unknown' };
 
         const safeOrGreater = absMarginPct >= 10.0;
+        const prevAbs = Number.isFinite(prevSigned) ? Math.abs(prevSigned) : NaN;
+        const leapToSafe = (
+          Number.isFinite(prevAbs) &&
+          prevAbs >= 0.5 &&
+          prevAbs < 5.5 &&
+          absMarginPct >= 10.0 &&
+          Number.isFinite(prevSigned) &&
+          Number.isFinite(countySigned) &&
+          Math.sign(prevSigned) === Math.sign(countySigned)
+        );
         const reinforceGrowth = explosiveGrowth && safeOrGreater && !(explosiveGrowth && realignmentShift && recentEraOk);
+        const reinforceLine = leapToSafe
+          ? 'The margin jumped from lean/tilt to safe in one cycle, reinforcing the current partisan lean.'
+          : '';
 
         const why = buildWhyItVotesThisWayStory({
           archetypeMeta,
@@ -8730,7 +8744,8 @@ document.addEventListener('DOMContentLoaded', function() {
           prevYear,
           shiftSincePrev,
           flippedLast,
-          reinforceGrowth
+          reinforceGrowth,
+          reinforceLine
         });
         const realignHeadline = (explosiveGrowth && realignmentShift && recentEraOk)
           ? `Explosive growth has reshaped the electorate and pushed this county ${longShiftTowardGop >= 0 ? 'toward the GOP' : 'toward Democrats'}.`
