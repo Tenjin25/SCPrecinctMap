@@ -8086,9 +8086,13 @@ document.addEventListener('DOMContentLoaded', function() {
       return { label: 'Competitive county', key: 'competitive' };
     }
 
-    function buildWhyItVotesThisWayStory({ archetypeMeta, winnerParty, absMarginPct, growthLine, prevYear, shiftSincePrev, flippedLast } = {}) {
+    function buildWhyItVotesThisWayStory({ archetypeMeta, winnerParty, absMarginPct, growthLine, prevYear, shiftSincePrev, flippedLast, reinforceGrowth } = {}) {
       const lines = [];
       if (growthLine) lines.push(growthLine);
+      if (reinforceGrowth) {
+        const side = winnerParty === 'rep' ? 'Republican' : (winnerParty === 'dem' ? 'Democratic' : 'current');
+        lines.push(`Explosive growth appears to be strengthening the existing ${side} lean.`);
+      }
 
       if (flippedLast && Number.isFinite(prevYear)) {
         lines.push(`The county flipped since ${prevYear}, a sign of real movement rather than noise.`);
@@ -8715,6 +8719,9 @@ document.addEventListener('DOMContentLoaded', function() {
           ? classifyScCountyArchetypeForStory(countyNorm, { winnerParty, absMarginPct, growthPct: Number(growth?.pct) })
           : { label: 'County', key: 'unknown' };
 
+        const safeOrGreater = absMarginPct >= 10.0;
+        const reinforceGrowth = explosiveGrowth && safeOrGreater && !(explosiveGrowth && realignmentShift && recentEraOk);
+
         const why = buildWhyItVotesThisWayStory({
           archetypeMeta,
           winnerParty,
@@ -8722,7 +8729,8 @@ document.addEventListener('DOMContentLoaded', function() {
           growthLine: growth?.ok ? String(growth.line || '') : '',
           prevYear,
           shiftSincePrev,
-          flippedLast
+          flippedLast,
+          reinforceGrowth
         });
         const realignHeadline = (explosiveGrowth && realignmentShift && recentEraOk)
           ? `Explosive growth has reshaped the electorate and pushed this county ${longShiftTowardGop >= 0 ? 'toward the GOP' : 'toward Democrats'}.`
