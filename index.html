@@ -7021,6 +7021,44 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     } catch (_) {}
 
+    // Service worker/cache safety:
+    // If an older build registered a Service Worker, it can keep some users pinned to stale UI even after deploys.
+    // This app does not require a SW; proactively unregister once and clear Cache Storage.
+    (function () {
+      try {
+        if (!('serviceWorker' in navigator)) return;
+        const key = '__palmetto_sw_cleanup_v1__';
+        const controlled = !!navigator.serviceWorker.controller;
+        const already = (function () {
+          try { return localStorage.getItem(key) === '1'; } catch (_) { return false; }
+        })();
+        if (already && !controlled) return;
+        try { localStorage.setItem(key, '1'); } catch (_) {}
+
+        const tasks = [];
+        try {
+          tasks.push(
+            navigator.serviceWorker.getRegistrations()
+              .then(regs => Promise.all((regs || []).map(r => r.unregister())))
+          );
+        } catch (_) {}
+        try {
+          if (window.caches && typeof caches.keys === 'function') {
+            tasks.push(
+              caches.keys()
+                .then(keys => Promise.all((keys || []).map(k => caches.delete(k))))
+            );
+          }
+        } catch (_) {}
+
+        if (controlled && tasks.length) {
+          Promise.allSettled(tasks).then(() => {
+            setTimeout(() => { try { window.location.reload(); } catch (_) {} }, 60);
+          });
+        }
+      } catch (_) {}
+    })();
+
     function detectBasePath() {
       // GitHub Pages project sites are served under /<repo-name>/...
       if (!window.location.hostname.endsWith('github.io')) return '';
