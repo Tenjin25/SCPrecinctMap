@@ -3287,6 +3287,13 @@ body { height: var(--app-height); }
   .focus-glance.tone-neutral { border-color: rgba(148, 163, 184, 0.28); }
   .focus-glance-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .focus-glance-kicker { font-size: 11px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: #0f172a; }
+  .focus-glance-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
   .focus-glance-badge {
     display: inline-flex;
     align-items: center;
@@ -8072,6 +8079,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const badgeHtml = badgeText
         ? `<span class="focus-glance-badge ${escapeHtml(badgeCls)}">${escapeHtml(badgeText)}</span>`
         : '';
+      const confHtml = confidence ? renderConfidenceMeterHTML(confidence) : '';
 
       const bullets = [
         { label: 'Trend', value: trendBullet || '—', isHtml: false },
@@ -8096,7 +8104,10 @@ document.addEventListener('DOMContentLoaded', function() {
         <section class="focus-glance ${toneClass}" aria-label="At a glance">
           <div class="focus-glance-head">
             <span class="focus-glance-kicker">At a glance</span>
-            ${badgeHtml}
+            <span class="focus-glance-meta">
+              ${badgeHtml}
+              ${confHtml}
+            </span>
           </div>
           <div class="focus-glance-headline">${escapeHtml(safeWhyHeadline || storyTitle)}</div>
           <ul class="focus-glance-bullets">
