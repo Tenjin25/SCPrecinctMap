@@ -8694,6 +8694,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const shiftSincePrev = Number.isFinite(prevSigned) ? (countySigned - prevSigned) : NaN;
         const flippedLast = !!(summaryEntry?.flip && summaryEntry.flip.flipped);
 
+        const explosiveGrowth = growth?.ok && Number.isFinite(Number(growth.pct)) && Number(growth.pct) >= 6.0;
+        const realignmentShift = Number.isFinite(longShiftTowardGop) && Math.abs(longShiftTowardGop) >= 4.0;
+
         const confidence = (() => {
           let score = 0.0;
           score += Math.min(1.0, absMarginPct / 20.0) * 0.70;
@@ -8701,7 +8704,9 @@ document.addEventListener('DOMContentLoaded', function() {
           if (Number.isFinite(shiftSincePrev)) score -= Math.min(1.0, Math.abs(shiftSincePrev) / 8.0) * 0.18;
           if (absMarginPct < 2.0) score -= 0.18;
           score = Math.max(0, Math.min(1, score));
-          return score >= 0.72 ? 'High' : (score >= 0.46 ? 'Medium' : 'Low');
+          let level = score >= 0.72 ? 'High' : (score >= 0.46 ? 'Medium' : 'Low');
+          if (explosiveGrowth && realignmentShift) level = 'High';
+          return level;
         })();
 
         const archetypeMeta = countyNorm
@@ -8717,6 +8722,9 @@ document.addEventListener('DOMContentLoaded', function() {
           shiftSincePrev,
           flippedLast
         });
+        const realignHeadline = (explosiveGrowth && realignmentShift)
+          ? `Explosive growth has reshaped the electorate and pushed this county ${longShiftTowardGop >= 0 ? 'toward the GOP' : 'toward Democrats'}.`
+          : '';
 
         const shiftLine = (() => {
           const raw = String(summaryEntry?.shiftMeta?.text || '').trim();
@@ -8749,7 +8757,7 @@ document.addEventListener('DOMContentLoaded', function() {
           archetypeLabel: String(archetypeMeta?.label || '').trim(),
           comparedWith,
           confidence,
-          whyHeadline: String(why?.headline || '').trim(),
+          whyHeadline: (realignHeadline || String(why?.headline || '').trim()),
           whyLines: Array.isArray(why?.lines) ? why.lines : [],
           growthLine: growth?.ok ? String(growth.line || '').trim() : '',
           shiftLine,
