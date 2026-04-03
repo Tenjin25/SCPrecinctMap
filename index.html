@@ -8694,8 +8694,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const shiftSincePrev = Number.isFinite(prevSigned) ? (countySigned - prevSigned) : NaN;
         const flippedLast = !!(summaryEntry?.flip && summaryEntry.flip.flipped);
 
-        const explosiveGrowth = growth?.ok && Number.isFinite(Number(growth.pct)) && Number(growth.pct) >= 6.0;
-        const realignmentShift = Number.isFinite(longShiftTowardGop) && Math.abs(longShiftTowardGop) >= 4.0;
+        const explosiveGrowth = growth?.ok && Number.isFinite(Number(growth.pct)) && Number(growth.pct) >= 5.0;
+        const realignmentShift = Number.isFinite(longShiftTowardGop) && Math.abs(longShiftTowardGop) >= 3.0;
 
         const confidence = (() => {
           let score = 0.0;
