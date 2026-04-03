@@ -8731,10 +8731,18 @@ document.addEventListener('DOMContentLoaded', function() {
           Number.isFinite(countySigned) &&
           Math.sign(prevSigned) === Math.sign(countySigned)
         );
+        const flipNarrowToSafe = (
+          flippedLast &&
+          Number.isFinite(prevAbs) &&
+          prevAbs < 2.0 &&
+          absMarginPct >= 10.0
+        );
         const reinforceGrowth = explosiveGrowth && safeOrGreater && !(explosiveGrowth && realignmentShift && recentEraOk);
         const reinforceLine = leapToSafe
           ? 'The margin jumped from lean/tilt to safe in one cycle, reinforcing the current partisan lean.'
-          : '';
+          : (flipNarrowToSafe
+            ? 'After a narrow flip last cycle, the result snapped back to a safe margin — a clear consolidation.'
+            : '');
 
         const why = buildWhyItVotesThisWayStory({
           archetypeMeta,
