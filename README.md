@@ -14,6 +14,7 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
     3) **Why it votes this way** (short causal explainer)
     4) Confidence + statewide comparison + supporting facts (subordinate)
     5) Deep detail (trajectory/census/trends/buckets) behind a single expandable section
+  - **Placement + layout parity with `NCMap.html`:** the county explainer now renders as an NC-style **“At a glance”** + **“Deeper story”** block inside the always-on right-side focus panel (vote counter), within the `Trend` area (not a separate sidebar).
   - Added a plain-English **county archetype system** (region membership + growth context + competitiveness) to keep the story readable.
     - Examples: “Charleston-area growth county”, “Grand Strand tourism & retiree county”, “Fast-growing GOP exurb”, “Black Belt Democratic base”.
     - The archetype is *not* a decorative badge; it is used to drive the “Why it votes this way” framing.
