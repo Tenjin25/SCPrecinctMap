@@ -443,35 +443,35 @@
         if (floatBtn) floatBtn.style.display = 'none';
       }
       
-      // Always start minimized and set button text
+      // Sidebar is intentionally disabled; do not wire sidebar toggles unless explicitly enabled.
       if (sidebar) sidebar.classList.add('minimized');
-      
-      // Sidebar minimize button
-      if (sidebarBtn) {
-        sidebarBtn.textContent = '+';
-        sidebarBtn.title = 'Expand sidebar';
-        sidebarBtn.onclick = function() {
-          toggleSidebar();
-          // If no county is selected, show default message
-          if (detailsDiv && contentEl && (!lastSelectedCounty || lastSelectedCounty === '')) {
-            contentEl.innerHTML = '<p>Select a contest or county to see results.</p>';
-            detailsDiv.style.display = 'block';
+      if (SIDEBAR_ENABLED) {
+        // Sidebar minimize button
+        if (sidebarBtn) {
+          sidebarBtn.textContent = '+';
+          sidebarBtn.title = 'Expand sidebar';
+          sidebarBtn.onclick = function() {
+            toggleSidebar();
+            // If no county is selected, show default message
+            if (detailsDiv && contentEl && (!lastSelectedCounty || lastSelectedCounty === '')) {
+              contentEl.innerHTML = '<p>Select a contest or county to see results.</p>';
+              detailsDiv.style.display = 'block';
+            }
+          };
+        }
+        // Floating sidebar button
+        if (floatBtn) {
+          floatBtn.onclick = function() {
+            toggleSidebar();
+          };
+          // Set initial float button text based on sidebar state
+          if (sidebar && !sidebar.classList.contains('minimized')) {
+            floatBtn.textContent = '-';
+            floatBtn.title = 'Minimize sidebar';
+          } else {
+            floatBtn.textContent = '+';
+            floatBtn.title = 'Expand sidebar';
           }
-        };
-      }
-      
-      // Floating sidebar button
-      if (floatBtn) {
-        floatBtn.onclick = function() {
-          toggleSidebar();
-        };
-        // Set initial float button text based on sidebar state
-        if (sidebar && !sidebar.classList.contains('minimized')) {
-          floatBtn.textContent = '-';
-          floatBtn.title = 'Minimize sidebar';
-        } else {
-          floatBtn.textContent = '+';
-          floatBtn.title = 'Expand sidebar';
         }
       }
 
@@ -485,9 +485,6 @@
         if (ev.key === 'l' || ev.key === 'L') {
           const btn = document.getElementById('label-toggle');
           if (btn) btn.click();
-        }
-        if (ev.key === 's' || ev.key === 'S') {
-          toggleSidebar();
         }
       });
       
@@ -539,6 +536,8 @@
       // Normalize county names for matching
       function normalizeCountyName(name) {
         return (name || '')
+          .toString()
+          .replace(/\s+COUNTY$/i, '')
           .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
           .replace(/\s+/g, ' ')
           .trim()
@@ -1216,7 +1215,7 @@ body { height: var(--app-height); }
 }
 .county-glance-call {
   margin-top: 4px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 950;
   line-height: 1.15;
   color: #0f172a;
@@ -1351,7 +1350,7 @@ body { height: var(--app-height); }
 }
 .county-why-headline {
   margin-top: 6px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 950;
   color: #0f172a;
   line-height: 1.25;
@@ -1427,7 +1426,7 @@ body { height: var(--app-height); }
 
 @media (max-width: 768px) {
   .county-glance-card { padding: 13px; }
-  .county-glance-call { font-size: 18px; }
+  .county-glance-call { font-size: 19px; }
   .county-meta-line { padding: 10px; }
 }
 .statewide-results {
@@ -3267,9 +3266,10 @@ body { height: var(--app-height); }
   .focus-editorial {
     margin: 10px 0 12px;
     border: 1px solid rgba(15, 23, 42, 0.10);
-    background: rgba(15, 23, 42, 0.02);
+    background: rgba(255, 255, 255, 0.96);
     border-radius: 14px;
     padding: 12px 14px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
   }
 
   .focus-editorial-kicker {
@@ -3282,7 +3282,7 @@ body { height: var(--app-height); }
 
   .focus-editorial-headline {
     margin-top: 6px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 950;
     color: #0f172a;
     line-height: 1.25;
@@ -3323,6 +3323,7 @@ body { height: var(--app-height); }
     text-transform: uppercase;
     color: #64748b;
     white-space: nowrap;
+    flex: 0 0 auto;
   }
 
   .focus-editorial-value {
@@ -3331,12 +3332,68 @@ body { height: var(--app-height); }
     color: #0f172a;
     text-align: right;
     line-height: 1.2;
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .focus-editorial-value.small {
     font-size: 12px;
     font-weight: 850;
     color: #334155;
+  }
+
+  .focus-editorial-details {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+  }
+
+  .focus-editorial-details > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 8px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: rgba(15, 23, 42, 0.04);
+    font-size: 12px;
+    font-weight: 950;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .focus-editorial-details > summary::-webkit-details-marker { display: none; }
+  .focus-editorial-details > summary::marker { content: ''; }
+
+  .focus-editorial-details > summary::after {
+    content: '+';
+    color: #64748b;
+    font-weight: 950;
+  }
+
+  .focus-editorial-details[open] > summary::after { content: '–'; }
+
+  .focus-editorial-details-body {
+    padding: 10px 4px 2px 4px;
+  }
+
+  .focus-editorial-why-head {
+    font-size: 13px;
+    font-weight: 950;
+    color: #0f172a;
+    line-height: 1.25;
+  }
+
+  .focus-editorial-why-lines {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.35;
   }
 
   .focus-trend-deep {
@@ -6492,6 +6549,64 @@ body { height: var(--app-height); }
     order: -20;
   }
 
+  /* Contest switching: subtle progress + disable affordance (no flashes). */
+  .control-group-contest { position: relative; }
+  .control-group-contest[data-loading="1"] {
+    opacity: 0.92;
+  }
+  .control-group-contest[data-loading="1"]::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: -2px;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0) 0%, rgba(37, 99, 235, 0.85) 20%, rgba(37, 99, 235, 0) 50%, rgba(37, 99, 235, 0.85) 75%, rgba(37, 99, 235, 0) 100%);
+    background-size: 200% 100%;
+    animation: contest-loading-bar 900ms linear infinite;
+    pointer-events: none;
+  }
+  @keyframes contest-loading-bar {
+    from { background-position: 0% 50%; }
+    to { background-position: 200% 50%; }
+  }
+
+  /* Advanced tool buttons: secondary styling (keep power, reduce visual noise). */
+  .contest-toolbar label { 
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: rgba(100, 116, 139, 0.9) !important;
+    margin-right: 2px;
+  }
+  #accessibility-toggle,
+  #label-toggle {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 999px !important;
+    background: rgba(15, 23, 42, 0.06) !important;
+    color: #0f172a !important;
+    border: 1px solid rgba(15, 23, 42, 0.12) !important;
+    box-shadow: none !important;
+  }
+  #precinct-toggle {
+    height: 30px !important;
+    border-radius: 999px !important;
+    padding: 0 12px !important;
+    background: rgba(15, 23, 42, 0.06) !important;
+    color: #0f172a !important;
+    border: 1px solid rgba(15, 23, 42, 0.12) !important;
+    box-shadow: none !important;
+    font-weight: 850 !important;
+  }
+  #contestSelect:disabled,
+  #contestSearch:disabled {
+    opacity: 0.72;
+    cursor: progress;
+  }
+
   /* Vivaldi compatibility: reduce compositor-heavy effects and avoid clipped scroll gutters. */
   html.browser-vivaldi .main-controls,
   html.browser-vivaldi .legend,
@@ -6894,7 +7009,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <div class="legend-handle" aria-hidden="true"></div>
               <div class="legend-copy">
                 <span class="legend-kicker">Map key</span>
-                <h4>Rep–Dem Margin</h4>
+                <h4>Margin categories</h4>
                 <p class="legend-subtitle" id="legend-subtitle">Signed margin (Rep − Dem), as % of total votes.</p>
               </div>
             </div>
@@ -7074,7 +7189,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <p><strong>Winners</strong>: solid color by winner (D/R), regardless of margin size.</p>
           <p><strong>Shift</strong>: change in <strong>signed</strong> margin vs the nearest available prior election for that contest (e.g. 2020->2024). Positive = more Republican; negative = more Democratic.</p>
 
-          <h3>Rep–Dem Margin</h3>
+          <h3>Margin categories</h3>
           <p>Category names are shorthand for absolute margin ranges:</p>
           <ul>
             <li><strong>Annihilation</strong>: &ge;40%</li>
@@ -7584,6 +7699,106 @@ document.addEventListener('DOMContentLoaded', function() {
     function saveUIState() {}
     async function restoreUIState() {}
 
+    // Shareable URL state (explicit, non-surprising; no localStorage persistence).
+    const __urlState = { appliedOnce: false };
+
+    function readUrlState() {
+      try {
+        const url = new URL(window.location.href);
+        return {
+          contest: (url.searchParams.get('c') || '').toString().trim(),
+          view: (url.searchParams.get('v') || '').toString().trim(),
+          mode: (url.searchParams.get('m') || '').toString().trim(),
+          focus: (url.searchParams.get('f') || '').toString().trim()
+        };
+      } catch (_) {
+        return { contest: '', view: '', mode: '', focus: '' };
+      }
+    }
+
+    function writeUrlState(next = {}) {
+      try {
+        const url = new URL(window.location.href);
+        const params = url.searchParams;
+        const setOrDelete = (key, value) => {
+          const v = (value ?? '').toString().trim();
+          if (!v) params.delete(key);
+          else params.set(key, v);
+        };
+        if ('contest' in next) setOrDelete('c', next.contest);
+        if ('view' in next) setOrDelete('v', next.view);
+        if ('mode' in next) setOrDelete('m', next.mode);
+        if ('focus' in next) setOrDelete('f', next.focus);
+        const out = url.pathname + (params.toString() ? `?${params.toString()}` : '') + (url.hash || '');
+        window.history.replaceState(null, '', out);
+      } catch (_) {}
+    }
+
+    function syncUrlState() {
+      if (!appReady) return;
+      const contest = (document.getElementById('contestSelect')?.value || '').toString().trim();
+      const view = (currentView || '').toString().trim();
+      const mode = (currentVizMode || '').toString().trim();
+      const focus = (lastSelectedCounty || '').toString().trim();
+      writeUrlState({ contest, view, mode, focus });
+    }
+
+    async function applyUrlStateOnce() {
+      if (__urlState.appliedOnce) return;
+      __urlState.appliedOnce = true;
+
+      const state = readUrlState();
+      const desiredView = (state.view || '').toLowerCase();
+      const desiredMode = (state.mode || '').toLowerCase();
+      const desiredContest = (state.contest || '').toString().trim();
+      const desiredFocus = (state.focus || '').toString().trim();
+
+      try {
+        if (desiredView && desiredView !== String(currentView || '').toLowerCase()) {
+          await setMapView(desiredView);
+        }
+      } catch (_) {}
+
+      try {
+        const allowedModes = new Set(['margins', 'winners', 'shift', 'flips']);
+        if (desiredMode && allowedModes.has(desiredMode) && desiredMode !== String(currentVizMode || '').toLowerCase()) {
+          currentVizMode = desiredMode;
+          setVizModeUI(desiredMode);
+          renderLegendForVizMode(desiredMode);
+        }
+      } catch (_) {}
+
+      try {
+        const sel = document.getElementById('contestSelect');
+        if (sel && desiredContest) {
+          const exists = Array.from(sel.options || []).some(opt => opt && opt.value === desiredContest);
+          if (exists) {
+            sel.value = desiredContest;
+            await handleContestSelectionChange(desiredContest);
+          }
+        }
+      } catch (_) {}
+
+      try {
+        if (desiredFocus) {
+          const view = String(currentView || '').toLowerCase();
+          if (view === 'counties' || view === 'vtds_2000') {
+            handleCountySelection(desiredFocus);
+          } else {
+            const m = desiredFocus.match(/\d+/);
+            if (m) {
+              const districtNum = Number(m[0]);
+              if (Number.isFinite(districtNum)) {
+                if (view === 'districts') showDistrictDetails(districtNum);
+                else if (view === 'state_house') showStateDistrictDetails(districtNum, 'house');
+                else if (view === 'state_senate') showStateDistrictDetails(districtNum, 'senate');
+              }
+            }
+          }
+        }
+      } catch (_) {}
+    }
+
     function getVectorSourceLayer(sourceId) {
       if (!CONFIG.tilesets?.enabled) return null;
       if (sourceId === 'counties') return CONFIG.tilesets.sources?.counties?.sourceLayer || null;
@@ -7681,6 +7896,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       updateContextBanner();
       saveUIState();
+      syncUrlState();
     }
 
     function renderLegendForVizMode(mode, meta = {}) {
@@ -7718,7 +7934,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
       } else {
         // margins (default)
-        if (header) header.textContent = 'Rep–Dem Margin';
+        if (header) header.textContent = 'Margin categories';
         content.innerHTML = content.dataset.marginsHtml;
       }
 
@@ -8113,28 +8329,50 @@ document.addEventListener('DOMContentLoaded', function() {
         return `${shiftSincePrev > 0 ? 'R' : 'D'}+${abs.toFixed(1)} since ${prevYear}.`;
       })();
 
+      const repCandidate = stripRunningMateName(String(candidates?.repCandidate || '').trim());
+      const demCandidate = stripRunningMateName(String(candidates?.demCandidate || '').trim());
+      const winnerCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
+      const tierLabel = compactCompetitivenessLabel(absMarginPct, winnerParty);
+      const glanceHeadline = (() => {
+        if (winnerCall.party === 'tie' || absMarginPct < 0.5) return 'Too close to call — a true tossup.';
+        const leader = String(winnerCall.shortLabel || '').trim() || (winnerCall.party === 'rep' ? 'Republican' : 'Democratic');
+        const marginPts = Number.isFinite(winnerCall.marginPct) ? winnerCall.marginPct : absMarginPct;
+        const verb = (() => {
+          if (marginPts < 1.0) return 'edges ahead';
+          if (marginPts < 5.5) return 'leads narrowly';
+          if (marginPts < 10.0) return 'leads';
+          return 'leads comfortably';
+        })();
+        const shiftClause = (() => {
+          if (!Number.isFinite(prevYear) || !Number.isFinite(shiftSincePrev)) return '';
+          if (flippedLast) return ` · flipped since ${prevYear}`;
+          const abs = Math.abs(shiftSincePrev);
+          if (abs < 0.35) return ` · steady since ${prevYear}`;
+          return ` · moved ${shiftSincePrev > 0 ? 'right' : 'left'} since ${prevYear}`;
+        })();
+        return `${leader} ${verb} by ${marginPts.toFixed(1)} points${shiftClause}.`;
+      })();
+
       host.innerHTML = `
-        <div class="focus-editorial-kicker">Why it votes this way</div>
-        <div class="focus-editorial-headline">${escapeHtml(why.headline)}</div>
-        <div class="focus-editorial-lines">${(why.lines || []).map(line => `<div>${escapeHtml(line)}</div>`).join('')}</div>
+        <div class="focus-editorial-kicker">At a glance</div>
+        <div class="focus-editorial-headline">${escapeHtml(glanceHeadline)}</div>
         <div class="focus-editorial-meta" aria-label="Key context">
           <div class="focus-editorial-line">
-            <span class="focus-editorial-label">Archetype</span>
-            <span class="focus-editorial-value">${escapeHtml(archetypeMeta.label)}</span>
+            <span class="focus-editorial-label">Profile</span>
+            <span class="focus-editorial-value">${escapeHtml(tierLabel)} · ${escapeHtml(archetypeMeta.label)} · ${renderConfidenceMeterHTML(confidence)}</span>
           </div>
           <div class="focus-editorial-line">
-            <span class="focus-editorial-label">Confidence</span>
-            <span class="focus-editorial-value">${renderConfidenceMeterHTML(confidence)}</span>
-          </div>
-          <div class="focus-editorial-line">
-            <span class="focus-editorial-label">Compared</span>
-            <span class="focus-editorial-value small">${escapeHtml(comparedWith)}</span>
-          </div>
-          <div class="focus-editorial-line">
-            <span class="focus-editorial-label">Trend</span>
-            <span class="focus-editorial-value small">${escapeHtml(shiftLine)}</span>
+            <span class="focus-editorial-label">Signal</span>
+            <span class="focus-editorial-value small">${escapeHtml(comparedWith)} · ${escapeHtml(shiftLine)}</span>
           </div>
         </div>
+        <details class="focus-editorial-details">
+          <summary>Why it votes this way</summary>
+          <div class="focus-editorial-details-body">
+            <div class="focus-editorial-why-head">${escapeHtml(why.headline)}</div>
+            ${why.lines && why.lines.length ? `<div class="focus-editorial-why-lines">${why.lines.map(line => `<div>${escapeHtml(line)}</div>`).join('')}</div>` : ''}
+          </div>
+        </details>
       `;
       host.style.display = 'block';
     }
@@ -8168,6 +8406,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let voteCounterPinned = null;   // {title, sub, dem, rep, other}
     let voteCounterHoverActive = false;
     let voteCounterTrendRequestId = 0;
+    let voteCounterLastHover = null; // {title, sub, demVotes, repVotes, otherVotes, candidates, meta}
+    let voteCounterUserMinimized = false; // respects user choice (auto-minimize on mobile is not a "choice")
 
     function getCountyNormFromVoteMeta(meta) {
       const raw = String(meta?.county || '').trim();
@@ -8217,7 +8457,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleVoteCounterMinimized() {
       const counter = document.getElementById('vote-counter');
       if (!counter) return;
-      setVoteCounterMinimizedState(!counter.classList.contains('minimized'));
+      const nextMin = !counter.classList.contains('minimized');
+      setVoteCounterMinimizedState(nextMin);
+      voteCounterUserMinimized = nextMin;
     }
 
     function renderFocusTrendEmpty(message, caption = 'Statewide history') {
@@ -8717,6 +8959,9 @@ document.addEventListener('DOMContentLoaded', function() {
       voteCounterPinned = { title, sub, demVotes, repVotes, otherVotes, meta, candidates };
       voteCounterHoverActive = false;
       setVoteCounterContext(title, sub, { showClear: true, meta });
+      if (!voteCounterUserMinimized) {
+        try { setVoteCounterMinimizedState(false); } catch (_) {}
+      }
       updateVoteCounter(demVotes, repVotes, otherVotes, candidates, meta);
       refreshFocusTrend(voteCounterPinned);
       try { updateContextBanner(); } catch (_) {}
@@ -8746,6 +8991,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function setVoteCounterHoverState(title, sub, demVotes, repVotes, otherVotes, candidates = null, meta = null) {
       if (voteCounterPinned) return; // don't override a pinned selection
       voteCounterHoverActive = true;
+      voteCounterLastHover = { title, sub, demVotes, repVotes, otherVotes, candidates, meta };
       setVoteCounterContext(title, sub, { showClear: false, meta });
       updateVoteCounter(demVotes, repVotes, otherVotes, candidates, meta);
     }
@@ -8754,6 +9000,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (voteCounterPinned) return;
       if (!voteCounterHoverActive) return;
       voteCounterHoverActive = false;
+      voteCounterLastHover = null;
       if (voteCounterBaseline) {
         setVoteCounterContext(voteCounterBaseline.title, voteCounterBaseline.sub, { showClear: false, meta: voteCounterBaseline.meta });
         updateVoteCounter(
@@ -8818,6 +9065,82 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const contestValue = `${contestType}_${year}`;
       return showAndPinDistrictSelection(scope, districtNum, contestValue);
+    }
+
+    async function refreshPinnedVoteCounterForContest(contestType, year) {
+      const pinned = voteCounterPinned || null;
+      const meta = pinned?.meta || null;
+      if (!pinned || !meta) return false;
+      if (!contestType || !year) return false;
+
+      // Region pins are handled explicitly in applyContest (restored via focusRegionSummary).
+      if (meta.kind === 'region') return false;
+      // District pins are handled via refreshPinnedDistrictForContest.
+      if (meta.kind === 'district') return false;
+
+      const y = Number(year);
+      const subtitle = `${formatContestName(contestType, year)} ${year}`;
+
+      if (meta.kind === 'county') {
+        const countyNorm = getCountyNormFromVoteMeta(meta);
+        const row = countyNorm && currentElectionResults ? currentElectionResults[countyNorm] : null;
+        if (!row) {
+          clearPinnedVoteCounterState();
+          return true;
+        }
+        const demVotes = Number(row[`${contestType}_dem`] || 0);
+        const repVotes = Number(row[`${contestType}_rep`] || 0);
+        const otherVotes = Number(row[`${contestType}_other`] || 0);
+        let demCandidate = (row[`${contestType}_dem_candidate`] || '').toString().trim();
+        let repCandidate = (row[`${contestType}_rep_candidate`] || '').toString().trim();
+        if ((!(demCandidate && repCandidate)) && contestType) {
+          try {
+            const cand = await getContestCandidates(contestType, year);
+            if (!demCandidate) demCandidate = (cand?.dem || '').toString().trim();
+            if (!repCandidate) repCandidate = (cand?.rep || '').toString().trim();
+          } catch (_) {}
+        }
+        if (!demCandidate) demCandidate = getCandidateName(year, formatContestName(contestType, year), 'Democrat');
+        if (!repCandidate) repCandidate = getCandidateName(year, formatContestName(contestType, year), 'Republican');
+        demCandidate = stripRunningMateName(demCandidate);
+        repCandidate = stripRunningMateName(repCandidate);
+        pinVoteCounterState(
+          pinned.title,
+          subtitle,
+          demVotes,
+          repVotes,
+          otherVotes,
+          { ...(meta || {}), contestType, year: y },
+          { demCandidate, repCandidate }
+        );
+        return true;
+      }
+
+      if (meta.kind === 'precinct') {
+        const key = (meta.precinct || '').toString().trim().toUpperCase();
+        const row = key && currentPrecinctResults ? currentPrecinctResults.get(key) : null;
+        if (!row) {
+          clearPinnedVoteCounterState();
+          return true;
+        }
+        const demVotes = Number(row[`${contestType}_dem`] || 0);
+        const repVotes = Number(row[`${contestType}_rep`] || 0);
+        const otherVotes = Number(row[`${contestType}_other`] || 0);
+        const demCandidate = stripRunningMateName((row[`${contestType}_dem_candidate`] || '').toString().trim()) || getCandidateName(year, formatContestName(contestType, year), 'Democrat');
+        const repCandidate = stripRunningMateName((row[`${contestType}_rep_candidate`] || '').toString().trim()) || getCandidateName(year, formatContestName(contestType, year), 'Republican');
+        pinVoteCounterState(
+          pinned.title,
+          subtitle,
+          demVotes,
+          repVotes,
+          otherVotes,
+          { ...(meta || {}), contestType, year: y },
+          { demCandidate, repCandidate }
+        );
+        return true;
+      }
+
+      return false;
     }
 
     function showVoteCounter() {
@@ -9224,9 +9547,24 @@ document.addEventListener('DOMContentLoaded', function() {
 	            console.warn('Failed to load OpenElections CSV for', contestType, year, err?.message || err);
 	          }
 	        }
-	        const fallback = (electionData || []).filter(row => row.year == year);
-	        contestSliceCache.set(cacheKey, fallback);
-	        return fallback;
+	        // IMPORTANT: Never silently fall back to a different contest (e.g., President) when a slice is missing.
+	        // Only use the flattened electionData fallback if it actually contains columns for this contestType.
+	        const fallbackRaw = (electionData || []).filter(row => row && row.year == year);
+	        const hasContestTotals = (row) => {
+	          if (!row) return false;
+	          const dem = Number(row[`${contestType}_dem`] || 0);
+	          const rep = Number(row[`${contestType}_rep`] || 0);
+	          const other = Number(row[`${contestType}_other`] || 0);
+	          const total = Number(row[`${contestType}_total`] || 0);
+	          return (total > 0) || (dem > 0) || (rep > 0) || (other > 0);
+	        };
+	        if (fallbackRaw.some(hasContestTotals)) {
+	          contestSliceCache.set(cacheKey, fallbackRaw);
+	          return fallbackRaw;
+	        }
+	        console.warn('No contest slice available for', contestType, year, '- refusing cross-contest fallback.');
+	        contestSliceCache.set(cacheKey, []);
+	        return [];
 	      }
 	    }
 
@@ -9404,6 +9742,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const electionMap = {};
   function normalizeCountyName(name) {
     return (name || '')
+      .toString()
+      .replace(/\s+COUNTY$/i, '')
       .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
       .replace(/\s+/g, ' ')
       .trim()
@@ -9429,6 +9769,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!geojson || !geojson.features) return map;
       function normalizeCountyName(name) {
         return (name || '')
+          .toString()
+          .replace(/\s+COUNTY$/i, '')
           .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
           .replace(/\s+/g, ' ')
           .trim()
@@ -9512,6 +9854,31 @@ document.addEventListener('DOMContentLoaded', function() {
     let contestSelectionSeq = 0;
     let lastCompletedContestSelection = '';
 
+    function setContestLoadingUI(isLoading) {
+      const loading = !!isLoading;
+      try { document.documentElement.classList.toggle('contest-loading', loading); } catch (_) {}
+      try {
+        const group = document.querySelector('.control-group-contest');
+        if (group) {
+          if (loading) {
+            group.dataset.loading = '1';
+            group.setAttribute('aria-busy', 'true');
+          } else {
+            delete group.dataset.loading;
+            group.removeAttribute('aria-busy');
+          }
+        }
+      } catch (_) {}
+      try {
+        const sel = document.getElementById('contestSelect');
+        if (sel) sel.disabled = loading;
+      } catch (_) {}
+      try {
+        const btns = document.querySelectorAll('.view-toggle-btn, .viz-mode-btn, #precinct-toggle');
+        btns.forEach(btn => { try { btn.disabled = loading; } catch (_) {} });
+      } catch (_) {}
+    }
+
     function shouldRefreshSelectedDetailsOnContestChange() {
       const selected = (lastSelectedCounty || '').toString().trim();
       if (!selected) return false;
@@ -9575,12 +9942,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (!contestChangeInFlight && queued.key && queued.key === lastCompletedContestSelection) {
         refreshSelectedDetailsOnContestChange();
+        syncUrlState();
         return;
       }
 
       if (contestChangeInFlight) return;
 
       contestChangeInFlight = true;
+      setContestLoadingUI(true);
       try {
         while (true) {
           const next = queuedContestSelection;
@@ -9595,12 +9964,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
           if (next.key) lastCompletedContestSelection = next.key;
           refreshSelectedDetailsOnContestChange();
+          syncUrlState();
           break;
         }
       } catch (err) {
         console.warn('Contest change failed:', err?.message || err);
       } finally {
         contestChangeInFlight = false;
+        setContestLoadingUI(false);
       }
     }
 
@@ -10340,7 +10711,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'state_senate': 'State Senate District Analysis',
         'vtds_2000': '2000 Precinct Analysis'
       };
-      sidebarTitle.textContent = titles[view];
+      if (sidebarTitle) sidebarTitle.textContent = titles[view] || '';
       
       // Clear all map layers for the active view.
       // Precincts are an overlay; don't destroy precinct layers when switching views.
@@ -10409,6 +10780,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       saveUIState();
+      syncUrlState();
     }
 
     function normalizeDistrictNumber(raw) {
@@ -10753,7 +11125,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (footer) footer.textContent = 'Blue means movement toward Democrats; red means movement toward Republicans.';
         content.innerHTML = buildShiftLegendHTML();
       } else {
-        if (header) header.textContent = 'Rep–Dem Margin';
+        if (header) header.textContent = 'Margin categories';
         if (subtitle) subtitle.textContent = 'Signed margin (Rep − Dem), as % of total votes.';
         if (badge) badge.textContent = 'Margins';
         if (footer) footer.textContent = 'Read left to right: stronger Republican, tossup, then stronger Democratic.';
@@ -12919,6 +13291,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const countyDisplay = displayCountyName(countyName);
       lastSelectedCounty  = countyDisplay;
       updateContextBanner();
+      syncUrlState();
       if (countyNameElement) countyNameElement.textContent = countyDisplay + ' County';
       // sidebarContent already declared above
       // Guard: election results must exist
@@ -12932,6 +13305,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Normalize and find county data
       function normalizeCountyName(name) {
         return (name || '')
+          .toString()
+          .replace(/\s+COUNTY$/i, '')
           .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
           .replace(/\s+/g, ' ')
           .trim()
@@ -12982,10 +13357,19 @@ document.addEventListener('DOMContentLoaded', function() {
       const demPct = (demVotes / totalVotes * 100);
       const repPct = (repVotes / totalVotes * 100);
       // Candidate names
-  let demCandidate = (countyData[`${contestType}_dem_candidate`] || '').toString().trim() || getCandidateName(year, formatContestName(contestType, year), 'Democrat');
-  let repCandidate = (countyData[`${contestType}_rep_candidate`] || '').toString().trim() || getCandidateName(year, formatContestName(contestType, year), 'Republican');
-  demCandidate = stripRunningMateName(demCandidate);
-  repCandidate = stripRunningMateName(repCandidate);
+      let demCandidate = (countyData[`${contestType}_dem_candidate`] || '').toString().trim();
+      let repCandidate = (countyData[`${contestType}_rep_candidate`] || '').toString().trim();
+      if ((!(demCandidate && repCandidate)) && contestType) {
+        try {
+          const cand = await getContestCandidates(contestType, year);
+          if (!demCandidate) demCandidate = (cand?.dem || '').toString().trim();
+          if (!repCandidate) repCandidate = (cand?.rep || '').toString().trim();
+        } catch (_) {}
+      }
+      if (!demCandidate) demCandidate = getCandidateName(year, formatContestName(contestType, year), 'Democrat');
+      if (!repCandidate) repCandidate = getCandidateName(year, formatContestName(contestType, year), 'Republican');
+      demCandidate = stripRunningMateName(demCandidate);
+      repCandidate = stripRunningMateName(repCandidate);
       pinVoteCounterState(
         `${countyDisplay} County`,
         `${formatContestName(contestType, year)} ${year}`,
@@ -13045,9 +13429,35 @@ document.addEventListener('DOMContentLoaded', function() {
       const absMarginPct = Number.isFinite(winnerCall.marginPct) ? winnerCall.marginPct : Math.abs(Number(marginPct) || 0);
       const tierLabel = compactCompetitivenessLabel(absMarginPct, winnerParty);
       const winnerPartyLetter = winnerParty === 'rep' ? 'R' : (winnerParty === 'dem' ? 'D' : 'T');
-      const glanceCallText = winnerParty === 'tie'
-        ? 'Tie'
-        : `${String(winnerCall.shortLabel || '').trim() || shortCandidateLabel(winnerCandidate, winnerParty === 'rep' ? 'Republican' : 'Democratic')} (${winnerPartyLetter}) · ${winnerPartyLetter}+${absMarginPct.toFixed(1)} pts`;
+      const countySigned = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+
+      // Recent shift (uses the already-loaded prior-cycle cache when available)
+      const prevYear = Number(vizPrevCache?.prevYear);
+      const prevTotals = vizPrevCache?.prevCountyTotals?.[norm] || null;
+      const prevSigned = prevTotals ? signedMarginPctFromVotes(prevTotals.dem, prevTotals.rep, prevTotals.total) : NaN;
+      const shiftSincePrev = Number.isFinite(prevSigned) ? (countySigned - prevSigned) : NaN; // + => more R
+      const flippedLast = (() => {
+        if (!Number.isFinite(prevSigned)) return false;
+        if (Math.abs(prevSigned) < 0.5 || Math.abs(countySigned) < 0.5) return false;
+        return (prevSigned > 0 && countySigned < 0) || (prevSigned < 0 && countySigned > 0);
+      })();
+
+      const glanceCallText = (() => {
+        if (winnerParty === 'tie') return 'Too close to call · <0.5 pt';
+        const leader = String(winnerCall.shortLabel || '').trim() ||
+          shortCandidateLabel(winnerCandidate, winnerParty === 'rep' ? 'Republican' : 'Democratic');
+        const prevWinner = Number.isFinite(prevSigned) ? winnerFromSignedMarginPct(prevSigned) : 'T';
+        const curWinner = winnerFromSignedMarginPct(countySigned);
+        const held = prevWinner !== 'T' && curWinner !== 'T' && prevWinner === curWinner && !flippedLast;
+        const verb = flippedLast ? 'flips it' : (held ? 'holds' : 'leads');
+        const lead = `${winnerPartyLetter}+${absMarginPct.toFixed(1)} pts`;
+        const movement = (flippedLast && Number.isFinite(prevYear))
+          ? `Flip since ${prevYear}`
+          : (Number.isFinite(shiftSincePrev) && Number.isFinite(prevYear) && Math.abs(shiftSincePrev) >= 2.0
+            ? `${shiftSincePrev > 0 ? 'Rightward' : 'Leftward'} since ${prevYear}`
+            : '');
+        return movement ? `${leader} ${verb} · ${lead} · ${movement}` : `${leader} ${verb} · ${lead}`;
+      })();
 
       // State comparison (relative lean vs statewide)
       const stateLabel = String(countyPopulationEstimates?.statewide?.label || 'South Carolina').trim() || 'South Carolina';
@@ -13060,7 +13470,6 @@ document.addEventListener('DOMContentLoaded', function() {
           statewideTotal += Number(row?.[`${contestType}_total`] || 0);
         });
       } catch (_) {}
-      const countySigned = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
       const statewideSigned = signedMarginPctFromVotes(statewideDem, statewideRep, statewideTotal);
       const relativeToState = countySigned - statewideSigned; // >0 => more R than state
       const comparedWithStateLine = (() => {
@@ -13071,21 +13480,11 @@ document.addEventListener('DOMContentLoaded', function() {
         return `This county voted ${abs.toFixed(1)} points to the left of the statewide result.`;
       })();
 
-      // Recent shift (uses the already-loaded prior-cycle cache when available)
-      const prevYear = Number(vizPrevCache?.prevYear);
-      const prevTotals = vizPrevCache?.prevCountyTotals?.[norm] || null;
-      const prevSigned = prevTotals ? signedMarginPctFromVotes(prevTotals.dem, prevTotals.rep, prevTotals.total) : NaN;
-      const shiftSincePrev = Number.isFinite(prevSigned) ? (countySigned - prevSigned) : NaN; // + => more R
       const shiftLine = (() => {
         if (!Number.isFinite(prevYear) || !Number.isFinite(prevSigned)) return 'Recent shift: no prior cycle loaded.';
         const abs = Math.abs(shiftSincePrev);
         if (abs < 0.35) return `Recent shift: essentially unchanged since ${prevYear}.`;
         return `Recent shift: ${shiftSincePrev > 0 ? 'R' : 'D'}+${abs.toFixed(1)} since ${prevYear}.`;
-      })();
-      const flippedLast = (() => {
-        if (!Number.isFinite(prevSigned)) return false;
-        if (Math.abs(prevSigned) < 0.5 || Math.abs(countySigned) < 0.5) return false;
-        return (prevSigned > 0 && countySigned < 0) || (prevSigned < 0 && countySigned > 0);
       })();
 
       // Population growth context (Census estimates, if available)
@@ -13566,12 +13965,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
               } catch (_) {}
                
-              // Optionally, expand sidebar if minimized
-              const sidebar = document.getElementById('sidebar');
-              if (sidebar && sidebar.classList.contains('minimized')) {
-                sidebar.classList.remove('minimized');
-                const btn = document.getElementById('sidebar-minimize-btn');
-                if (btn) btn.textContent = '-';
+              if (SIDEBAR_ENABLED) {
+                // Optionally, expand sidebar if minimized
+                const sidebar = document.getElementById('sidebar');
+                if (sidebar && sidebar.classList.contains('minimized')) {
+                  sidebar.classList.remove('minimized');
+                  const btn = document.getElementById('sidebar-minimize-btn');
+                  if (btn) btn.textContent = '-';
+                }
               }
             }
           }
@@ -14041,6 +14442,8 @@ document.addEventListener('DOMContentLoaded', function() {
               // Show detailed sidebar (results + trends).
               showDistrictDetails(districtNum);
               lastSelectedCounty = `District ${districtNum}`;
+              updateContextBanner();
+              syncUrlState();
 
               // Pin vote counter to this district for current contest (if any).
               const contestValue = document.getElementById('contestSelect')?.value || '';
@@ -14135,6 +14538,8 @@ document.addEventListener('DOMContentLoaded', function() {
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'house');
               lastSelectedCounty = `State House District ${districtNum}`;
+              updateContextBanner();
+              syncUrlState();
 
               const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
@@ -14227,6 +14632,8 @@ document.addEventListener('DOMContentLoaded', function() {
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'senate');
               lastSelectedCounty = `State Senate District ${districtNum}`;
+              updateContextBanner();
+              syncUrlState();
 
               const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
@@ -14715,8 +15122,10 @@ document.addEventListener('DOMContentLoaded', function() {
       setFlySearchFeedback('#10b981');
       map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], { padding: 40, duration: 900 });
 
-      const sidebar = document.getElementById('sidebar');
-      if (sidebar && sidebar.classList.contains('minimized')) toggleSidebar();
+      if (SIDEBAR_ENABLED) {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar && sidebar.classList.contains('minimized')) toggleSidebar();
+      }
 
       const scope = sourceId === 'districts'
         ? 'congressional'
@@ -14775,8 +15184,10 @@ document.addEventListener('DOMContentLoaded', function() {
         );
       }
 
-      const sidebar = document.getElementById('sidebar');
-      if (sidebar && sidebar.classList.contains('minimized')) toggleSidebar();
+      if (SIDEBAR_ENABLED) {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar && sidebar.classList.contains('minimized')) toggleSidebar();
+      }
     }
 
     function handleCountySelection(countyName) {
@@ -14820,9 +15231,9 @@ document.addEventListener('DOMContentLoaded', function() {
           setFlySearchFeedback('#10b981');
           map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], { padding: 40, duration: 1000 });
           showCountyDetails(lastSelectedCounty);
-          const sidebar = document.getElementById('sidebar');
-          if (sidebar && sidebar.classList.contains('minimized')) {
-            toggleSidebar();
+          if (SIDEBAR_ENABLED) {
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar && sidebar.classList.contains('minimized')) toggleSidebar();
           }
         } else {
           console.warn('[DIAGNOSTIC] County not found:', countyName, 'normalized:', normTarget);
@@ -15041,6 +15452,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="tooltip-head">
           <div class="tooltip-title">${title}</div>
           <div class="tooltip-actions">
+            <button class="tooltip-btn" id="tooltip-pin-btn" type="button" aria-pressed="${tooltipPinned ? 'true' : 'false'}">${tooltipPinned ? 'Unpin' : 'Pin'}</button>
             <button class="tooltip-btn" id="tooltip-close-btn" type="button">Close</button>
           </div>
         </div>
@@ -15050,6 +15462,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function wireTooltipButtons() {
       const closeBtn = document.getElementById('tooltip-close-btn');
+      const pinBtn = document.getElementById('tooltip-pin-btn');
+
+      if (pinBtn) {
+        pinBtn.onclick = () => {
+          if (tooltipPinned) {
+            setTooltipPinned(false);
+            try { pinBtn.textContent = 'Pin'; } catch (_) {}
+            try { pinBtn.setAttribute('aria-pressed', 'false'); } catch (_) {}
+            const pinned = voteCounterPinned || null;
+            const meta = pinned?.meta || null;
+            if (meta && meta.pinnedByTooltip) {
+              clearPinnedVoteCounterState();
+            }
+            return;
+          }
+
+          const last = voteCounterLastHover;
+          if (!last || !last.meta) return;
+          try {
+            const pinnedTitle = String(last.title || '').replace(/^Hover:\s*/i, 'Selected: ');
+            pinVoteCounterState(
+              pinnedTitle,
+              last.sub,
+              last.demVotes,
+              last.repVotes,
+              last.otherVotes,
+              { ...(last.meta || {}), pinnedByTooltip: true },
+              last.candidates || null
+            );
+          } catch (_) {}
+          setTooltipPinned(true);
+          try { pinBtn.textContent = 'Unpin'; } catch (_) {}
+          try { pinBtn.setAttribute('aria-pressed', 'true'); } catch (_) {}
+        };
+      }
       if (closeBtn) {
         closeBtn.onclick = () => {
           setTooltipPinned(false);
@@ -15057,6 +15504,11 @@ document.addEventListener('DOMContentLoaded', function() {
           if (tooltip) tooltip.style.display = 'none';
           clearHoverOutline();
           clearVoteCounterHoverState();
+          try {
+            const pinned = voteCounterPinned || null;
+            const meta = pinned?.meta || null;
+            if (meta && meta.pinnedByTooltip) clearPinnedVoteCounterState();
+          } catch (_) {}
         };
       }
     }
@@ -15831,6 +16283,7 @@ document.addEventListener('DOMContentLoaded', function() {
         try { minimizeMainControlsOnMobile(); } catch (_) {}
         appReady = true;
         try { await restoreUIState(); } catch (_) {}
+        try { await applyUrlStateOnce(); } catch (_) {}
 
       } catch (e) {
         appReady = false;
@@ -16195,6 +16648,13 @@ document.addEventListener('DOMContentLoaded', function() {
         voteCounterPinned = null;
         voteCounterHoverActive = false;
       }
+
+      // Avoid stale pinned hover tooltip across contest switches (map/panel/tooltip must agree).
+      try {
+        setTooltipPinned(false);
+        hideHoverTooltip();
+        clearHoverOutline();
+      } catch (_) {}
       
       // Split contest key properly - year is always the last part after final underscore
       const lastUnderscoreIndex = contestKey.lastIndexOf('_');
@@ -16212,6 +16672,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       if (isStaleSelection()) return;
       try { await refreshPinnedDistrictForContest(contestType, year); } catch (_) {}
+      if (isStaleSelection()) return;
+      try { await refreshPinnedVoteCounterForContest(contestType, year); } catch (_) {}
       if (isStaleSelection()) return;
       if (previousRegionPinnedState?.meta?.regionKey) {
         const regionKey = previousRegionPinnedState.meta.regionKey;
@@ -16243,6 +16705,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Precinct overlay can still use precinct-granularity rows when available.
       let needsPrecinctDetail = !!precinctsEnabled;
+      if (precinctsEnabled) {
+        // Avoid showing stale precinct colors during contest switches. If new precinct detail is delayed
+        // (or unavailable), fall back to a neutral overlay until the next render applies the new expression.
+        try {
+          const neutralExpr = ['case', '#d1d5db'];
+          lastPrecinctFillExpr = neutralExpr;
+          lastPrecinctDotExpr = neutralExpr;
+          if (map.getLayer('precinct-fill')) map.setPaintProperty('precinct-fill', 'fill-color', neutralExpr);
+          if (map.getLayer('precinct-dot')) map.setPaintProperty('precinct-dot', 'circle-color', neutralExpr);
+          if (map.getLayer('precinct-dot-missing')) map.setPaintProperty('precinct-dot-missing', 'circle-color', neutralExpr);
+        } catch (_) {}
+      }
       if (needsPrecinctDetail && shouldDeferPrecinctDetail()) {
         needsPrecinctDetail = false;
       }
@@ -16263,6 +16737,42 @@ document.addEventListener('DOMContentLoaded', function() {
       debugLog(`Applying ${contestType} for ${year}:`, countyRows.length, 'county rows');
 
       if (!Array.isArray(countyRows) || countyRows.length === 0) {
+        currentElectionResults = {};
+        currentPrecinctResults = null;
+        lastContestSliceMeta = { contestType, year: Number(year), rows: [] };
+        try {
+          updateStatewideResults(contestType, year, 0, 0, 0, { otherVotes: 0, demCandidate: '', repCandidate: '' });
+        } catch (_) {}
+        try {
+          setVoteCounterBaselineState(
+            'Statewide',
+            `${formatContestName(contestType, year)} ${year}`,
+            0,
+            0,
+            0,
+            { kind: 'statewide', contestType, year: Number(year) },
+            { demCandidate: '', repCandidate: '' }
+          );
+          clearPinnedVoteCounterState();
+        } catch (_) {}
+        try {
+          if (map.getLayer('county-fill')) {
+            map.setPaintProperty('county-fill', 'fill-color', '#e0e0e0');
+            map.setPaintProperty('county-fill', 'fill-opacity', getCountyFillOpacity());
+          }
+          if (map.getLayer('county-stroke')) {
+            map.setPaintProperty('county-stroke', 'line-color', '#333');
+            map.setPaintProperty('county-stroke', 'line-width', 1);
+          }
+        } catch (_) {}
+        try {
+          lastPrecinctFillExpr = null;
+          lastPrecinctDotExpr = null;
+          if (map.getLayer('precinct-fill')) map.setPaintProperty('precinct-fill', 'fill-color', '#d1d5db');
+          if (map.getLayer('precinct-dot')) map.setPaintProperty('precinct-dot', 'circle-color', '#d1d5db');
+          if (map.getLayer('precinct-dot-missing')) map.setPaintProperty('precinct-dot-missing', 'circle-color', '#d1d5db');
+        } catch (_) {}
+        try { refreshSelectedDetailsOnContestChange(); } catch (_) {}
         return setStatus('No data found for this contest');
       }
       // Keep precinct-capable rows for non-geographic bucket diagnostics in county details.
@@ -16270,6 +16780,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	      function normalizeCountyName(name) {
 	        return (name || '')
+	          .toString()
+            .replace(/\s+COUNTY$/i, '')
 	          .replace(/[^a-z0-9 .\-]/gi, '')
 	          .replace(/\s+/g, ' ')
 	          .trim()
