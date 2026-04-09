@@ -13465,7 +13465,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const winner = signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T');
       const subtitle = `${formatContestName(contestType, year)} ${year}`;
       const marginCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
-      const tierShort = tierMeta?.shortLabel || tierMeta?.label || '';
+      const tierShort = tierMeta?.label || tierMeta?.shortLabel || '';
 
       let demoLine = '';
       try {
@@ -13608,7 +13608,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const winner = curSigned > 0 ? 'R' : (curSigned < 0 ? 'D' : 'T');
       const totalVotes = Number(demVotes) + Number(repVotes) + Number(otherVotes);
       const marginCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
-      const tierShort = tierMeta?.shortLabel || tierMeta?.label || '';
+      const tierShort = tierMeta?.label || tierMeta?.shortLabel || '';
       const chips = [];
       let prevSignedForFlip = null;
       if (vizPrevCache?.prevYear && vizPrevCache?.prevPrecinctMarginByNorm) {
