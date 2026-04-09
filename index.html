@@ -14890,7 +14890,13 @@ document.addEventListener('DOMContentLoaded', function() {
           id: 'district-stroke', 
           type: 'line', 
           source: 'districts', 
-          paint: { 'line-color': '#1f2937', 'line-width': 2 } 
+          layout: { 'line-join': 'round', 'line-cap': 'round' },
+          paint: {
+            'line-color': 'rgba(15, 23, 42, 0.30)',
+            'line-opacity': ['interpolate', ['linear'], ['zoom'], 4.5, 0.42, 7.5, 0.58, 10.5, 0.70, 12.5, 0.78],
+            'line-width': ['interpolate', ['linear'], ['zoom'], 4.5, 0.85, 7.5, 1.25, 10.5, 1.75, 12.5, 2.25],
+            'line-blur': ['interpolate', ['linear'], ['zoom'], 4.5, 0.35, 8.5, 0.20, 12.5, 0.10]
+          }
         });
         addLayerWithOptionalSourceLayer({ 
           id: 'district-stroke-hover', 
@@ -14898,7 +14904,12 @@ document.addEventListener('DOMContentLoaded', function() {
           source: 'districts',
           layout: { visibility: 'none' },
           filter: ['==', ['get', '_'], '__'],
-          paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 4, 'line-opacity': 0.95 }
+          paint: {
+            'line-color': 'rgba(15, 23, 42, 0.68)',
+            'line-opacity': 0.96,
+            'line-width': ['interpolate', ['linear'], ['zoom'], 5.0, 3.0, 8.5, 4.0, 11.5, 5.0],
+            'line-blur': ['interpolate', ['linear'], ['zoom'], 5.0, 0.28, 11.5, 0.12]
+          }
         });
         
         // Add click handler for districts with full trends popup
@@ -14986,7 +14997,13 @@ document.addEventListener('DOMContentLoaded', function() {
           id: 'state-house-stroke', 
           type: 'line', 
           source: 'state-house', 
-          paint: { 'line-color': '#374151', 'line-width': 1 } 
+          layout: { 'line-join': 'round', 'line-cap': 'round' },
+          paint: {
+            'line-color': 'rgba(15, 23, 42, 0.26)',
+            'line-opacity': ['interpolate', ['linear'], ['zoom'], 4.5, 0.34, 7.5, 0.50, 10.5, 0.62, 12.5, 0.70],
+            'line-width': ['interpolate', ['linear'], ['zoom'], 4.5, 0.65, 7.5, 0.95, 10.5, 1.35, 12.5, 1.70],
+            'line-blur': ['interpolate', ['linear'], ['zoom'], 4.5, 0.40, 8.5, 0.24, 12.5, 0.12]
+          }
         });
         addLayerWithOptionalSourceLayer({ 
           id: 'state-house-stroke-hover', 
@@ -14994,7 +15011,12 @@ document.addEventListener('DOMContentLoaded', function() {
           source: 'state-house',
           layout: { visibility: 'none' },
           filter: ['==', ['get', '_'], '__'],
-          paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 3, 'line-opacity': 0.95 }
+          paint: {
+            'line-color': 'rgba(15, 23, 42, 0.66)',
+            'line-opacity': 0.96,
+            'line-width': ['interpolate', ['linear'], ['zoom'], 5.0, 2.6, 8.5, 3.4, 11.5, 4.4],
+            'line-blur': ['interpolate', ['linear'], ['zoom'], 5.0, 0.30, 11.5, 0.12]
+          }
         });
         
         // Add click handler for state house districts with full trends popup
@@ -15080,7 +15102,13 @@ document.addEventListener('DOMContentLoaded', function() {
           id: 'state-senate-stroke', 
           type: 'line', 
           source: 'state-senate', 
-          paint: { 'line-color': '#4b5563', 'line-width': 1 } 
+          layout: { 'line-join': 'round', 'line-cap': 'round' },
+          paint: {
+            'line-color': 'rgba(15, 23, 42, 0.26)',
+            'line-opacity': ['interpolate', ['linear'], ['zoom'], 4.5, 0.34, 7.5, 0.50, 10.5, 0.62, 12.5, 0.70],
+            'line-width': ['interpolate', ['linear'], ['zoom'], 4.5, 0.70, 7.5, 1.05, 10.5, 1.45, 12.5, 1.80],
+            'line-blur': ['interpolate', ['linear'], ['zoom'], 4.5, 0.40, 8.5, 0.24, 12.5, 0.12]
+          }
         });
         addLayerWithOptionalSourceLayer({ 
           id: 'state-senate-stroke-hover', 
@@ -15088,7 +15116,12 @@ document.addEventListener('DOMContentLoaded', function() {
           source: 'state-senate',
           layout: { visibility: 'none' },
           filter: ['==', ['get', '_'], '__'],
-          paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 3, 'line-opacity': 0.95 }
+          paint: {
+            'line-color': 'rgba(15, 23, 42, 0.66)',
+            'line-opacity': 0.96,
+            'line-width': ['interpolate', ['linear'], ['zoom'], 5.0, 2.7, 8.5, 3.5, 11.5, 4.6],
+            'line-blur': ['interpolate', ['linear'], ['zoom'], 5.0, 0.30, 11.5, 0.12]
+          }
         });
         
         // Add click handler for state senate districts with full trends popup
@@ -18030,14 +18063,20 @@ document.addEventListener('DOMContentLoaded', function() {
           if (map.getLayer(strokeLayerName)) {
             try {
               if (strokeLayerName === 'district-stroke') {
-                map.setPaintProperty(strokeLayerName, 'line-color', '#1f2937');
-                map.setPaintProperty(strokeLayerName, 'line-width', 2);
+                map.setPaintProperty(strokeLayerName, 'line-color', 'rgba(15, 23, 42, 0.30)');
+                map.setPaintProperty(strokeLayerName, 'line-opacity', ['interpolate', ['linear'], ['zoom'], 4.5, 0.42, 7.5, 0.58, 10.5, 0.70, 12.5, 0.78]);
+                map.setPaintProperty(strokeLayerName, 'line-width', ['interpolate', ['linear'], ['zoom'], 4.5, 0.85, 7.5, 1.25, 10.5, 1.75, 12.5, 2.25]);
+                map.setPaintProperty(strokeLayerName, 'line-blur', ['interpolate', ['linear'], ['zoom'], 4.5, 0.35, 8.5, 0.20, 12.5, 0.10]);
               } else if (strokeLayerName === 'state-house-stroke') {
-                map.setPaintProperty(strokeLayerName, 'line-color', '#374151');
-                map.setPaintProperty(strokeLayerName, 'line-width', 1);
+                map.setPaintProperty(strokeLayerName, 'line-color', 'rgba(15, 23, 42, 0.26)');
+                map.setPaintProperty(strokeLayerName, 'line-opacity', ['interpolate', ['linear'], ['zoom'], 4.5, 0.34, 7.5, 0.50, 10.5, 0.62, 12.5, 0.70]);
+                map.setPaintProperty(strokeLayerName, 'line-width', ['interpolate', ['linear'], ['zoom'], 4.5, 0.65, 7.5, 0.95, 10.5, 1.35, 12.5, 1.70]);
+                map.setPaintProperty(strokeLayerName, 'line-blur', ['interpolate', ['linear'], ['zoom'], 4.5, 0.40, 8.5, 0.24, 12.5, 0.12]);
               } else {
-                map.setPaintProperty(strokeLayerName, 'line-color', '#4b5563');
-                map.setPaintProperty(strokeLayerName, 'line-width', 1);
+                map.setPaintProperty(strokeLayerName, 'line-color', 'rgba(15, 23, 42, 0.26)');
+                map.setPaintProperty(strokeLayerName, 'line-opacity', ['interpolate', ['linear'], ['zoom'], 4.5, 0.34, 7.5, 0.50, 10.5, 0.62, 12.5, 0.70]);
+                map.setPaintProperty(strokeLayerName, 'line-width', ['interpolate', ['linear'], ['zoom'], 4.5, 0.70, 7.5, 1.05, 10.5, 1.45, 12.5, 1.80]);
+                map.setPaintProperty(strokeLayerName, 'line-blur', ['interpolate', ['linear'], ['zoom'], 4.5, 0.40, 8.5, 0.24, 12.5, 0.12]);
               }
             } catch (_) {}
           }
