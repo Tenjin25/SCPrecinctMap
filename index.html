@@ -7335,6 +7335,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <label>Tools:</label>
                   <button id="accessibility-toggle" title="Accessibility: Color Blind Mode" style="background:#1f2937;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;">&#9855;</button>
                   <button id="label-toggle" title="Toggle County Labels" style="background:#1f2937;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;">Aa</button>
+                  <button id="share-link-btn" data-action="copy-share-link" title="Copy share link" style="background:#1f2937;color:#fff;border-radius:50%;width:32px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;">&#128279;</button>
                   <button id="precinct-toggle" title="Enable Precinct Overlay (Zoom 8.5+)" style="background:#065f46;color:#fff;border-radius:8px;height:32px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:bold;padding:0 10px;">Precincts Off</button>
                 </div>
                 <div class="contest-search-wrap">
@@ -7698,6 +7699,7 @@ document.addEventListener('DOMContentLoaded', function() {
         state_house_info: withBase('./data/sc_state_house_districts.csv'),
         state_senate_info: withBase('./data/sc_state_senate_districts.csv'),
         district_descriptions: withBase('./data/district_descriptions.json'),
+        cvap_by_precinct_norm: withBase('./data/sc_cvap_2024_by_precinct_norm.json'),
         contests_dir: withBase('./data/contests')
       },
       center: [-80.9, 33.8],
@@ -8011,6 +8013,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let stateSenateInfo = null;
     let districtDescriptions = null; // Optional labels like "Sampson & Bladen Counties" or "Concord-Harrisburg"
     let countyDemographics = null; // County-level VAP (18+) + total-pop race/ethnicity from DP1
+    let cvapByPrecinctNorm = null; // Precinct-level CVAP (ACS 2020-2024) aggregated to 2020 VTDs.
     let countyPopulationEstimates = null; // Census county resident population estimates (2020-2025).
     let countyNameMap = {};
     let currentView = 'counties'; // 'counties', 'districts', 'state_house', 'state_senate'
@@ -8025,6 +8028,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let lastPrecinctDotExpr = null; // Cached circle-color expression for precinct dots (statewide zoom).
     let precinctPolygonNormSet = null; // Set<string precinct_norm> from polygon source (used to show centroid fallback for missing polygons).
     let precinctCentroidsData = null; // Cached centroids GeoJSON so we can annotate with has_polygon after polygons load.
+    let selectedPrecinctNorm = '';
 	    let precinctCentroidsLoaded = false;
 	    let precinctCentroidsLoadInFlight = false;
 	    let precinctCodeIndexByCounty = null; // Map<string countyNorm, Set<string prec_id>> built from precinct centroids.
@@ -8048,8 +8052,46 @@ document.addEventListener('DOMContentLoaded', function() {
     function saveUIState() {}
     async function restoreUIState() {}
 
+    function applySelectedPrecinctHighlightFilter() {
+      const norm = String(selectedPrecinctNorm || '').trim().toUpperCase();
+      const filterNorm = norm || '__NO_SELECTED_PRECINCT__';
+      ['precinct-selected-fill', 'precinct-selected-outline', 'precinct-dot-selected'].forEach(layerId => {
+        try {
+          if (!map.getLayer(layerId)) return;
+          map.setFilter(layerId, ['==', ['get', 'precinct_norm'], filterNorm]);
+        } catch (_) {}
+      });
+    }
+
+    function setSelectedPrecinctNorm(norm) {
+      const next = String(norm || '').trim().toUpperCase();
+      if (selectedPrecinctNorm === next) return;
+      selectedPrecinctNorm = next;
+      applySelectedPrecinctHighlightFilter();
+      try { updatePrecinctVisibility(); } catch (_) {}
+    }
+
+    function clearSelectedPrecinctNorm() {
+      selectedPrecinctNorm = '';
+      applySelectedPrecinctHighlightFilter();
+      try { updatePrecinctVisibility(); } catch (_) {}
+    }
+
     // Shareable URL state (explicit, non-surprising; no localStorage persistence).
     const __urlState = { appliedOnce: false };
+    const __urlStateCfg = { mode: 'prompted' }; // 'prompted' (default) | 'always'
+
+    (function initUrlStateCfg() {
+      try {
+        const url = new URL(window.location.href);
+        const persist = (url.searchParams.get('persist') || '').toString().trim().toLowerCase();
+        if (persist === '1' || persist === 'true' || persist === 'yes') __urlStateCfg.mode = 'always';
+      } catch (_) {}
+    })();
+
+    function shouldSyncUrlStateToAddressBar() {
+      return __urlStateCfg.mode === 'always';
+    }
 
     function readUrlState() {
       try {
@@ -8085,11 +8127,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function syncUrlState() {
       if (!appReady) return;
+      if (!shouldSyncUrlStateToAddressBar()) return;
       const contest = (document.getElementById('contestSelect')?.value || '').toString().trim();
       const view = (currentView || '').toString().trim();
       const mode = (currentVizMode || '').toString().trim();
       const focus = (lastSelectedCounty || '').toString().trim();
       writeUrlState({ contest, view, mode, focus });
+    }
+
+    function buildShareUrlFromCurrentState() {
+      try {
+        const url = new URL(window.location.href);
+        const params = url.searchParams;
+        const setOrDelete = (key, value) => {
+          const v = (value ?? '').toString().trim();
+          if (!v) params.delete(key);
+          else params.set(key, v);
+        };
+
+        const contest = (document.getElementById('contestSelect')?.value || '').toString().trim();
+        const view = (currentView || '').toString().trim();
+        const mode = (currentVizMode || '').toString().trim();
+        const focus = (lastSelectedCounty || '').toString().trim();
+
+        setOrDelete('c', contest);
+        setOrDelete('v', view);
+        setOrDelete('m', mode);
+        setOrDelete('f', focus);
+
+        return url.origin + url.pathname + (params.toString() ? `?${params.toString()}` : '') + (url.hash || '');
+      } catch (_) {
+        return (window.location && window.location.href) ? window.location.href : '';
+      }
     }
 
     async function applyUrlStateOnce() {
@@ -8144,6 +8213,14 @@ document.addEventListener('DOMContentLoaded', function() {
               }
             }
           }
+        }
+      } catch (_) {}
+
+      // If the user opened a share URL, apply it, then clean the address bar by default.
+      try {
+        const hadAny = !!(desiredView || desiredMode || desiredContest || desiredFocus);
+        if (hadAny && !shouldSyncUrlStateToAddressBar()) {
+          writeUrlState({ contest: '', view: '', mode: '', focus: '' });
         }
       } catch (_) {}
     }
@@ -9648,6 +9725,23 @@ document.addEventListener('DOMContentLoaded', function() {
         const original = btn.textContent;
         btn.textContent = 'Copied';
         setTimeout(() => { try { btn.textContent = original; } catch (_) {} }, 1200);
+      }, { passive: false });
+
+      document.addEventListener('click', async (e) => {
+        const btn = e.target && typeof e.target.closest === 'function'
+          ? e.target.closest('[data-action="copy-share-link"]')
+          : null;
+        if (!btn) return;
+        e.preventDefault();
+        e.stopPropagation();
+
+        const shareUrl = buildShareUrlFromCurrentState();
+        const ok = await copyTextToClipboard(shareUrl);
+        if (!ok) return;
+
+        const original = btn.innerHTML;
+        btn.textContent = '✓';
+        setTimeout(() => { try { btn.innerHTML = original; } catch (_) {} }, 1200);
       }, { passive: false });
     });
 
@@ -13131,6 +13225,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const countyDisplay = displayCountyName(countyName);
       setCountyHoverOutline(countyName);
       const norm = (countyName || '').toString().replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+      if (cvapByPrecinctNorm && !__cvapAgg.byCountyNorm) { try { void ensureCvapCountyAggregates(); } catch (_) {} }
+      const countyCvapHTML = buildCvapHTMLFromTotals(getCvapTotalsForCountyNormSync(norm));
       let row = currentElectionResults ? currentElectionResults[norm] : null;
       if (!row && currentElectionResults) {
         for (const key of Object.keys(currentElectionResults)) {
@@ -13145,7 +13241,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (!contestValue || !row) {
         const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
-        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle, '<div style="color:#64748b;">Select a contest to see results</div>'));
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle, `<div style="color:#64748b;">Select a contest to see results</div>${countyCvapHTML}`));
         wireTooltipButtons();
         return;
       }
@@ -13159,7 +13255,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const totalVotes = Number(row[`${contestType}_total`] || 0);
       if (totalVotes <= 0) {
         const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
-        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle, '<div style="color:#64748b;">No data available</div>'));
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle, `<div style="color:#64748b;">No data available</div>${countyCvapHTML}`));
         wireTooltipButtons();
         return;
       }
@@ -13222,6 +13318,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="hover-meta">${chips.join('')}</div>
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
         ${demoLine}
+        ${countyCvapHTML}
       `;
 
       const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
@@ -13229,13 +13326,14 @@ document.addEventListener('DOMContentLoaded', function() {
       wireTooltipButtons();
     }
 
-    function renderPrecinctHoverAtPoint(point, feature) {
+    function renderPrecinctHoverAtPoint(point, feature, { forceTooltip = false, pinSelection = false } = {}) {
       const props = feature?.properties || {};
       const precinctNorm = (props.precinct_norm || '').toString().trim().toUpperCase();
       const countyName = (props.county_nam || '').toString().trim();
       const precId = (props.prec_id || '').toString().trim();
       const title = `${countyName} - ${precId}`;
       setPrecinctHoverFeature(feature);
+      const cvapHTML = buildCvapHTML(getPrecinctCvapRow(precinctNorm));
 
       const contestValue = document.getElementById('contestSelect')?.value || '';
       // Avoid rebuilding the same tooltip repeatedly while the mouse moves within one precinct.
@@ -13247,8 +13345,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const tooltipVisible = !!tooltip && tooltip.style.display !== 'none' && (tooltip.innerHTML || '').trim().length > 0;
         const now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
 
-        if (hoverKey === lastPrecinctHoverKey && tooltipVisible) return;
-        if (tooltipVisible && now - lastPrecinctHoverRenderedAt < PRECINCT_HOVER_THROTTLE_MS) return;
+        if (!forceTooltip && !pinSelection) {
+          if (hoverKey === lastPrecinctHoverKey && tooltipVisible) return;
+          if (tooltipVisible && now - lastPrecinctHoverRenderedAt < PRECINCT_HOVER_THROTTLE_MS) return;
+        }
 
         lastPrecinctHoverKey = hoverKey;
         lastPrecinctHoverRenderedAt = now;
@@ -13256,7 +13356,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const [contestType, year] = parseContestValue(contestValue);
       if (!contestType || !year) {
         const hoverTitle = buildTooltipTitleWithTier(title);
-        showHoverTooltip(point.x, point.y, buildTooltipShell(hoverTitle, '<div style="color:#64748b;">Select a contest to see results</div>'));
+        showHoverTooltip(
+          point.x,
+          point.y,
+          buildTooltipShell(hoverTitle, `<div style="color:#64748b;">Select a contest to see results</div>${cvapHTML}`),
+          { force: !!forceTooltip }
+        );
         wireTooltipButtons();
         return;
       }
@@ -13264,7 +13369,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const row = currentPrecinctResults ? currentPrecinctResults.get(precinctNorm) : null;
       if (!row) {
         const hoverTitle = buildTooltipTitleWithTier(title);
-        showHoverTooltip(point.x, point.y, buildTooltipShell(hoverTitle, '<div style="color:#64748b;">No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.</div>'));
+        showHoverTooltip(
+          point.x,
+          point.y,
+          buildTooltipShell(hoverTitle, `<div style="color:#64748b;">No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.</div>${cvapHTML}`),
+          { force: !!forceTooltip }
+        );
         wireTooltipButtons();
         return;
       }
@@ -13302,19 +13412,33 @@ document.addEventListener('DOMContentLoaded', function() {
       const inner = `
         <div class="hover-meta">${chips.join('')}</div>
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
+        ${cvapHTML}
       `;
       const hoverTitle = buildTooltipTitleWithTier(title);
-      showHoverTooltip(point.x, point.y, buildTooltipShell(hoverTitle, inner));
+      showHoverTooltip(point.x, point.y, buildTooltipShell(hoverTitle, inner), { force: !!forceTooltip });
       wireTooltipButtons();
+      const precinctMeta = { kind: 'precinct', county: countyName, precinct: title, precinctNorm, contestType, year: Number(year) };
+      const precinctCandidates = { demCandidate, repCandidate };
       setVoteCounterHoverState(
         `Hover: ${title}`,
         subtitle,
         demVotes,
         repVotes,
         otherVotes,
-        { demCandidate, repCandidate },
-        { kind: 'precinct', county: countyName, precinct: title, contestType, year: Number(year) }
+        precinctCandidates,
+        precinctMeta
       );
+      if (pinSelection) {
+        pinVoteCounterState(
+          `Selected: ${title}`,
+          subtitle,
+          demVotes,
+          repVotes,
+          otherVotes,
+          precinctMeta,
+          precinctCandidates
+        );
+      }
     }
 
     async function refreshHoverAtPointer() {
@@ -13326,7 +13450,9 @@ document.addEventListener('DOMContentLoaded', function() {
       if (precinctsEnabled) {
         const layers = [];
         if (map.getLayer('precinct-dot')) layers.push('precinct-dot');
+        if (map.getLayer('precinct-dot-selected')) layers.push('precinct-dot-selected');
         if (map.getLayer('precinct-fill')) layers.push('precinct-fill');
+        if (map.getLayer('precinct-dot-missing')) layers.push('precinct-dot-missing');
         if (layers.length) {
           const pf = map.queryRenderedFeatures(lastPointerPoint, { layers });
           if (pf && pf.length) {
@@ -13382,6 +13508,10 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!districtNum) return;
       const requestId = ++districtHoverRequestId;
       setDistrictHoverOutline(scope, districtNum);
+      const scopeKey = String(scope || '').toLowerCase();
+      if (cvapByPrecinctNorm && !__cvapAgg.scopesBuilt.has(scopeKey)) { try { void ensureCvapDistrictAggregates(scopeKey, districtFieldCandidates); } catch (_) {} }
+      const districtCvapTotals = getCvapTotalsForDistrictSync(scopeKey, districtNum);
+      const districtCvapHTML = districtCvapTotals ? buildCvapHTMLFromTotals(districtCvapTotals) : (cvapByPrecinctNorm ? buildCvapLoadingHTML() : '');
 
       const contestValue = document.getElementById('contestSelect')?.value || '';
       const _demoRow = getDistrictDemographics(scope, districtNum);
@@ -13389,7 +13519,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!contestValue) {
         const hoverTitle = buildTooltipTitleWithTier(`${districtLabel} ${districtNum}`);
         showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle,
-          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">Select a contest to see results</div>'));
+          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">Select a contest to see results</div>' + districtCvapHTML));
         wireTooltipButtons();
         return;
       }
@@ -13413,7 +13543,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!row) {
         const hoverTitle = buildTooltipTitleWithTier(`${districtLabel} ${districtNum}`);
         showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle,
-          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>'));
+          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>' + districtCvapHTML));
         wireTooltipButtons();
         return;
       }
@@ -13490,6 +13620,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ${desc ? `<div style="margin-top:6px;font-size:12px;color:#94a3b8;"><strong style="color:#e2e8f0;">Area:</strong> ${desc}</div>` : ''}
         ${_demoHTML}
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
+        ${districtCvapHTML}
       `;
       const hoverTitle = buildTooltipTitleWithTier(`${districtLabel} ${districtNum}`);
       showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle, inner));
@@ -14566,6 +14697,23 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
+    function zoomToClickedPrecinctFeature(feature, { padding = 44, duration = 900, maxZoom = 13.8 } = {}) {
+      try {
+        if (!feature) return;
+        const geom = feature.geometry || null;
+        if (geom && geom.type === 'Point' && Array.isArray(geom.coordinates) && geom.coordinates.length >= 2) {
+          map.flyTo({ center: geom.coordinates, zoom: Math.min(maxZoom, Math.max(CONFIG.precincts?.minZoom || 8.5, 10.0)), speed: 0.9 });
+          return;
+        }
+        const bbox = turf.bbox(feature);
+        if (!Array.isArray(bbox) || bbox.length < 4) return;
+        map.fitBounds(
+          [[bbox[0], bbox[1]], [bbox[2], bbox[3]]],
+          { padding, duration, maxZoom }
+        );
+      } catch (_) {}
+    }
+
     function addPrecinctLayers() {
       if (!map.getSource('precincts') || map.getLayer('precinct-fill')) return;
       map.addLayer({
@@ -14588,9 +14736,36 @@ document.addEventListener('DOMContentLoaded', function() {
           'line-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 0.95, 0.65]
         }
       });
+      map.addLayer({
+        id: 'precinct-selected-fill',
+        type: 'fill',
+        source: 'precincts',
+        minzoom: CONFIG.precincts?.minZoom || 8.5,
+        layout: { visibility: 'none' },
+        filter: ['==', ['get', 'precinct_norm'], '__NO_SELECTED_PRECINCT__'],
+        paint: {
+          'fill-color': '#fde047',
+          'fill-opacity': 0.2
+        }
+      });
+      map.addLayer({
+        id: 'precinct-selected-outline',
+        type: 'line',
+        source: 'precincts',
+        minzoom: CONFIG.precincts?.minZoom || 8.5,
+        layout: { visibility: 'none' },
+        filter: ['==', ['get', 'precinct_norm'], '__NO_SELECTED_PRECINCT__'],
+        paint: {
+          'line-color': '#facc15',
+          'line-width': 3.4,
+          'line-opacity': 0.98
+        }
+      });
+      applySelectedPrecinctHighlightFilter();
 
       map.on('click', 'precinct-fill', (e) => {
         const props = e.features?.[0]?.properties || {};
+        const precinctNorm = (props.precinct_norm || '').toString().trim().toUpperCase();
         const countyName = props.county_nam || '';
         if (countyName) {
           showCountyDetails(countyName);
@@ -14598,7 +14773,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         try {
           if (e?.point && e?.features?.[0]) {
-            renderPrecinctHoverAtPoint(e.point, e.features[0]);
+            if (precinctNorm) setSelectedPrecinctNorm(precinctNorm);
+            zoomToClickedPrecinctFeature(e.features[0], { padding: 44, duration: 900, maxZoom: 13.8 });
+            setTooltipPinned(false);
+            renderPrecinctHoverAtPoint(e.point, e.features[0], { forceTooltip: true, pinSelection: true });
+            if (countyName && props.prec_id) {
+              setStatus(`Selected precinct highlighted in yellow: ${countyName} ${props.prec_id}`);
+            }
           }
         } catch (_) {}
       });
@@ -14748,6 +14929,28 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         });
       }
+      if (!map.getLayer('precinct-dot-selected')) {
+        map.addLayer({
+          id: 'precinct-dot-selected',
+          type: 'circle',
+          source: 'precinct-centroids',
+          filter: ['==', ['get', 'precinct_norm'], '__NO_SELECTED_PRECINCT__'],
+          layout: { visibility: 'none' },
+          paint: {
+            'circle-radius': [
+              'interpolate', ['linear'], ['zoom'],
+              5, 4.6,
+              8.5, 6.4,
+              11, 7.6,
+              14, 8.4
+            ],
+            'circle-color': '#fde047',
+            'circle-opacity': 0.95,
+            'circle-stroke-color': '#92400e',
+            'circle-stroke-width': 1.15
+          }
+        });
+      }
 
       // If a contest was already applied before centroids loaded, apply cached colors.
       if (lastPrecinctDotExpr) {
@@ -14758,6 +14961,7 @@ document.addEventListener('DOMContentLoaded', function() {
           console.warn('Failed to apply precinct dot colors:', err?.message || err);
         }
       }
+      applySelectedPrecinctHighlightFilter();
 
       function wirePrecinctDotHover(layerId) {
         if (!layerId || precinctDotHoverWired.has(layerId)) return;
@@ -14770,56 +14974,25 @@ document.addEventListener('DOMContentLoaded', function() {
             precinctDotHoverRaf = null;
             const evt = lastPrecinctDotHoverEvent;
             if (!evt) return;
-            const props = evt.features?.[0]?.properties || {};
-            const precinctNorm = (props.precinct_norm || '').toString().trim().toUpperCase();
-            const countyName = (props.county_nam || '').toString().trim();
-            const precId = (props.prec_id || '').toString().trim();
-            const title = `${countyName} - ${precId}`;
-
-            const contestValue = document.getElementById('contestSelect')?.value || '';
-            const [contestType, year] = parseContestValue(contestValue);
-            if (!contestType || !year) {
-              showHoverTooltip(evt.point.x, evt.point.y, buildTooltipShell(title, '<div style="color:#64748b;">Select a contest to see results</div>'));
-              wireTooltipButtons();
-              return;
-            }
-
-            const row = currentPrecinctResults ? currentPrecinctResults.get(precinctNorm) : null;
-            if (!row) {
-              showHoverTooltip(
-                evt.point.x,
-                evt.point.y,
-                buildTooltipShell(title, `<div style="color:#64748b;">No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.</div>`)
-              );
-              wireTooltipButtons();
-              return;
-            }
-
-            const demVotes = Number(row[`${contestType}_dem`] || 0);
-            const repVotes = Number(row[`${contestType}_rep`] || 0);
-            const otherVotes = Number(row[`${contestType}_other`] || 0);
-            const demCandidate = row[`${contestType}_dem_candidate`] || '';
-            const repCandidate = row[`${contestType}_rep_candidate`] || '';
-            const subtitle = `${formatContestName(contestType, year)} ${year}`;
-            const inner = buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate);
-            showHoverTooltip(evt.point.x, evt.point.y, buildTooltipShell(title, inner));
-            wireTooltipButtons();
-            setVoteCounterHoverState(
-              `Hover: ${title}`,
-              subtitle,
-              demVotes,
-              repVotes,
-              otherVotes,
-              { demCandidate, repCandidate },
-              { kind: 'precinct', county: row.county || '', precinct: title, contestType, year: Number(year) }
-            );
+            const feature = evt.features?.[0];
+            if (!feature || !evt.point) return;
+            renderPrecinctHoverAtPoint(evt.point, feature);
           });
         });
         map.on('click', layerId, (e) => {
           try {
             const f = e?.features?.[0];
             if (!f) return;
-            renderPrecinctHoverAtPoint(e.point, f);
+            const props = f.properties || {};
+            const precinctNorm = (props.precinct_norm || '').toString().trim().toUpperCase();
+            if (precinctNorm) setSelectedPrecinctNorm(precinctNorm);
+            zoomToClickedPrecinctFeature(f, { padding: 42, duration: 880, maxZoom: 13.0 });
+            setTooltipPinned(false);
+            renderPrecinctHoverAtPoint(e.point, f, { forceTooltip: true, pinSelection: true });
+            if (props.county_nam && props.prec_id) {
+              showCountyDetails(props.county_nam);
+              setStatus(`Selected precinct highlighted in yellow: ${props.county_nam} ${props.prec_id}`);
+            }
           } catch (_) {}
         });
         map.on('mouseleave', layerId, () => {
@@ -14868,11 +15041,22 @@ document.addEventListener('DOMContentLoaded', function() {
           map.setLayoutProperty(id, 'visibility', polyVisible ? 'visible' : 'none');
         }
       });
+      if (map.getLayer('precinct-selected-fill')) {
+        map.setLayoutProperty('precinct-selected-fill', 'visibility', polyVisible ? 'visible' : 'none');
+      }
+      if (map.getLayer('precinct-selected-outline')) {
+        map.setLayoutProperty('precinct-selected-outline', 'visibility', polyVisible ? 'visible' : 'none');
+      }
       if (map.getLayer('precinct-dot')) {
         map.setLayoutProperty('precinct-dot', 'visibility', dotVisible ? 'visible' : 'none');
       }
       if (map.getLayer('precinct-dot-missing')) {
         map.setLayoutProperty('precinct-dot-missing', 'visibility', polyVisible ? 'visible' : 'none');
+      }
+      if (map.getLayer('precinct-dot-selected')) {
+        const selectedHasPolygon = !!(selectedPrecinctNorm && precinctPolygonNormSet && precinctPolygonNormSet.has(selectedPrecinctNorm));
+        const selectedVisible = precinctsEnabled && (dotVisible || (polyVisible && !selectedHasPolygon));
+        map.setLayoutProperty('precinct-dot-selected', 'visibility', selectedVisible ? 'visible' : 'none');
       }
     }
 
@@ -14886,6 +15070,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       } else {
         setTooltipPinned(false);
+        clearSelectedPrecinctNorm();
       }
       clearHoverOutline();
       updatePrecinctVisibility();
@@ -15678,6 +15863,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setStatus(`Precinct ${target} not found on the map.`);
         return;
       }
+      setSelectedPrecinctNorm(((hit?.properties || {}).precinct_norm || target).toString().trim().toUpperCase());
 
       const coords = hit.geometry && hit.geometry.type === 'Point' ? hit.geometry.coordinates : null;
       syncFlySearchInputs(target);
@@ -15695,12 +15881,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const repVotes = Number(row[`${contestType}_rep`] || 0);
         const otherVotes = Number(row[`${contestType}_other`] || 0);
         pinVoteCounterState(
-          target,
+          `Selected: ${target}`,
           `${formatContestName(contestType, year)} ${year}`,
           demVotes,
           repVotes,
           otherVotes,
-          { kind: 'precinct', county, precinct: target, contestType, year: Number(year) },
+          { kind: 'precinct', county, precinct: target, precinctNorm: target, contestType, year: Number(year) },
           { demCandidate: row[`${contestType}_dem_candidate`] || '', repCandidate: row[`${contestType}_rep_candidate`] || '' }
         );
       }
@@ -16598,6 +16784,210 @@ document.addEventListener('DOMContentLoaded', function() {
         `</div>`;
     }
 
+    function getPrecinctCvapRow(precinctNorm = '') {
+      const key = normalizeCarryoverPrecinctKey(precinctNorm || '');
+      const by = cvapByPrecinctNorm && typeof cvapByPrecinctNorm === 'object' ? cvapByPrecinctNorm : null;
+      if (!by || !key) return null;
+      return by[key] || null;
+    }
+
+    function buildCvapHTML(cvapRow) {
+      if (!cvapRow) return '';
+      const tot = Number(cvapRow.CVAP_TOT24 || 0);
+      const hsp = Number(cvapRow.CVAP_HSP24 || 0);
+      const wht = Number(cvapRow.CVAP_WHT24 || 0);
+      const bla = Number(cvapRow.CVAP_BLA24 || 0);
+      const asi = Number(cvapRow.CVAP_ASI24 || 0);
+      const pct = (v) => (tot > 0 ? (Number(v || 0) / tot) * 100 : 0);
+
+      return (
+        `<div style="margin-top:8px;padding:8px 10px;border-radius:10px;border:1px solid rgba(51,65,85,0.9);` +
+        `background:rgba(15,23,42,0.55);color:#cbd5e1;font-size:12px;line-height:1.25;">` +
+        `<div style="font-size:11px;color:#94a3b8;font-weight:800;letter-spacing:0.02em;text-transform:uppercase;">CVAP (ACS 2020-2024)</div>` +
+        `<div style="margin-top:4px;">` +
+        `<span style="font-weight:700;color:#e2e8f0;">Total:</span> ${tot.toLocaleString()}` +
+        ` &nbsp;<span style="font-weight:700;color:#e2e8f0;">W:</span>${pct(wht).toFixed(1)}%` +
+        ` <span style="font-weight:700;color:#e2e8f0;">B:</span>${pct(bla).toFixed(1)}%` +
+        ` <span style="font-weight:700;color:#e2e8f0;">H:</span>${pct(hsp).toFixed(1)}%` +
+        ` <span style="font-weight:700;color:#e2e8f0;">A:</span>${pct(asi).toFixed(1)}%` +
+        `</div></div>`
+      );
+    }
+
+    const __cvapAgg = {
+      precinctMetaByKey: null, // Map<precinct_key, { countyNorm, coords:[lng,lat] }>
+      byCountyNorm: null, // { [county_norm]: { tot,wht,bla,hsp,asi } }
+      byDistrictByScope: {}, // { [scope]: { [districtNum]: { tot,wht,bla,hsp,asi } } }
+      scopesBuilt: new Set(),
+      inFlightByScope: new Map()
+    };
+
+    function cvapTotalsFromRow(cvapRow) {
+      if (!cvapRow) return null;
+      return {
+        tot: Number(cvapRow.CVAP_TOT24 || 0),
+        hsp: Number(cvapRow.CVAP_HSP24 || 0),
+        wht: Number(cvapRow.CVAP_WHT24 || 0),
+        bla: Number(cvapRow.CVAP_BLA24 || 0),
+        asi: Number(cvapRow.CVAP_ASI24 || 0)
+      };
+    }
+
+    function addCvapTotals(dst, add) {
+      if (!dst || !add) return dst;
+      dst.tot = Number(dst.tot || 0) + Number(add.tot || 0);
+      dst.hsp = Number(dst.hsp || 0) + Number(add.hsp || 0);
+      dst.wht = Number(dst.wht || 0) + Number(add.wht || 0);
+      dst.bla = Number(dst.bla || 0) + Number(add.bla || 0);
+      dst.asi = Number(dst.asi || 0) + Number(add.asi || 0);
+      return dst;
+    }
+
+    function buildCvapHTMLFromTotals(totals) {
+      if (!totals) return '';
+      return buildCvapHTML({
+        CVAP_TOT24: totals.tot,
+        CVAP_HSP24: totals.hsp,
+        CVAP_WHT24: totals.wht,
+        CVAP_BLA24: totals.bla,
+        CVAP_ASI24: totals.asi
+      });
+    }
+
+    async function ensureCvapPrecinctMetaIndex() {
+      if (__cvapAgg.precinctMetaByKey) return true;
+      try { await ensurePrecinctCentroidsLoaded(); } catch (_) {}
+      const feats = precinctCentroidsData && Array.isArray(precinctCentroidsData.features) ? precinctCentroidsData.features : null;
+      if (!feats || !feats.length) return false;
+      const m = new Map();
+      feats.forEach(f => {
+        const p = f?.properties || {};
+        const coords = f?.geometry?.coordinates;
+        if (!coords || coords.length < 2) return;
+        const norm = (p.precinct_norm || '').toString().trim().toUpperCase();
+        const key = normalizeCarryoverPrecinctKey(norm);
+        const countyNorm = (p.county_norm || p.county_nam || '').toString()
+          .replace(/[^a-z0-9 .\-]/gi, '')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .toUpperCase();
+        if (!key || !countyNorm) return;
+        m.set(key, { countyNorm, coords });
+      });
+      __cvapAgg.precinctMetaByKey = m;
+      return true;
+    }
+
+    async function ensureCvapCountyAggregates() {
+      if (__cvapAgg.byCountyNorm) return true;
+      const byPrec = cvapByPrecinctNorm && typeof cvapByPrecinctNorm === 'object' ? cvapByPrecinctNorm : null;
+      if (!byPrec) return false;
+      const ok = await ensureCvapPrecinctMetaIndex();
+      if (!ok || !__cvapAgg.precinctMetaByKey) return false;
+      const out = {};
+      for (const [precKey, row] of Object.entries(byPrec)) {
+        const meta = __cvapAgg.precinctMetaByKey.get(String(precKey || '').toUpperCase());
+        if (!meta) continue;
+        const countyNorm = meta.countyNorm;
+        if (!countyNorm) continue;
+        if (!out[countyNorm]) out[countyNorm] = { tot: 0, wht: 0, bla: 0, hsp: 0, asi: 0 };
+        addCvapTotals(out[countyNorm], cvapTotalsFromRow(row));
+      }
+      __cvapAgg.byCountyNorm = out;
+      return true;
+    }
+
+    function getCvapTotalsForCountyNormSync(countyNorm = '') {
+      const key = String(countyNorm || '').toUpperCase();
+      return (__cvapAgg.byCountyNorm && __cvapAgg.byCountyNorm[key]) ? __cvapAgg.byCountyNorm[key] : null;
+    }
+
+    async function ensureCvapDistrictAggregates(scope, districtFieldCandidates) {
+      const s = String(scope || '').trim().toLowerCase();
+      if (!s) return false;
+      if (__cvapAgg.scopesBuilt.has(s)) return true;
+      if (__cvapAgg.inFlightByScope.has(s)) {
+        try { await __cvapAgg.inFlightByScope.get(s); } catch (_) {}
+        return __cvapAgg.scopesBuilt.has(s);
+      }
+
+      const task = (async () => {
+        const byPrec = cvapByPrecinctNorm && typeof cvapByPrecinctNorm === 'object' ? cvapByPrecinctNorm : null;
+        if (!byPrec) return false;
+        const ok = await ensureCvapPrecinctMetaIndex();
+        if (!ok || !__cvapAgg.precinctMetaByKey) return false;
+
+        let path = '';
+        if (s === 'congressional') path = CONFIG.paths.districts;
+        else if (s === 'state_house') path = CONFIG.paths.state_house;
+        else if (s === 'state_senate') path = CONFIG.paths.state_senate;
+        if (!path) return false;
+
+        let gj = null;
+        try { gj = await loadJSON(path); } catch (_) { gj = null; }
+        const feats = gj && Array.isArray(gj.features) ? gj.features : null;
+        if (!feats || !feats.length) return false;
+        if (typeof turf === 'undefined' || !turf) return false;
+
+        const districts = [];
+        for (const f of feats) {
+          const num = getDistrictNumberFromPropsCandidates((f && f.properties) ? f.properties : {}, districtFieldCandidates);
+          if (!num) continue;
+          let bbox = null;
+          try { bbox = turf.bbox(f); } catch (_) { bbox = null; }
+          districts.push({ num: String(Number(num)), feature: f, bbox });
+        }
+        if (!districts.length) return false;
+
+        const out = {};
+        for (const [precKey, row] of Object.entries(byPrec)) {
+          const meta = __cvapAgg.precinctMetaByKey.get(String(precKey || '').toUpperCase());
+          if (!meta || !meta.coords) continue;
+          const coords = meta.coords;
+          const pt = turf.point(coords);
+          let assigned = null;
+          for (const d of districts) {
+            if (d.bbox && (coords[0] < d.bbox[0] || coords[0] > d.bbox[2] || coords[1] < d.bbox[1] || coords[1] > d.bbox[3])) continue;
+            let inside = false;
+            try { inside = turf.booleanPointInPolygon(pt, d.feature); } catch (_) { inside = false; }
+            if (inside) { assigned = d.num; break; }
+          }
+          if (!assigned) continue;
+          if (!out[assigned]) out[assigned] = { tot: 0, wht: 0, bla: 0, hsp: 0, asi: 0 };
+          addCvapTotals(out[assigned], cvapTotalsFromRow(row));
+        }
+
+        __cvapAgg.byDistrictByScope[s] = out;
+        __cvapAgg.scopesBuilt.add(s);
+        return true;
+      })();
+
+      __cvapAgg.inFlightByScope.set(s, task);
+      try { await task; } finally { __cvapAgg.inFlightByScope.delete(s); }
+      return __cvapAgg.scopesBuilt.has(s);
+    }
+
+    async function getCvapTotalsForDistrict(scope, districtNum, districtFieldCandidates) {
+      const s = String(scope || '').trim().toLowerCase();
+      const n = String(Number(districtNum));
+      if (!s || !n || n === 'NaN') return null;
+      try { await ensureCvapDistrictAggregates(s, districtFieldCandidates); } catch (_) {}
+      const by = __cvapAgg.byDistrictByScope && __cvapAgg.byDistrictByScope[s] ? __cvapAgg.byDistrictByScope[s] : null;
+      return by && by[n] ? by[n] : null;
+    }
+
+    function getCvapTotalsForDistrictSync(scope, districtNum) {
+      const s = String(scope || '').trim().toLowerCase();
+      const n = String(Number(districtNum));
+      if (!s || !n || n === 'NaN') return null;
+      const by = __cvapAgg.byDistrictByScope && __cvapAgg.byDistrictByScope[s] ? __cvapAgg.byDistrictByScope[s] : null;
+      return by && by[n] ? by[n] : null;
+    }
+
+    function buildCvapLoadingHTML() {
+      return `<div style="margin-top:8px;color:#94a3b8;font-size:12px;">CVAP: calculating…</div>`;
+    }
+
     function getQuickDistrictInfo(districtNum, type) {
       let displayName = '';
       let recent = null;
@@ -16735,6 +17125,16 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (err) {
           countyDemographics = null;
           console.warn('County demographics not loaded:', err?.message || err);
+        }
+
+        // Optional precinct CVAP (ACS 2020-2024), aggregated to 2020 VTDs.
+        try {
+          const payload = await loadJSON(CONFIG.paths.cvap_by_precinct_norm);
+          cvapByPrecinctNorm = payload?.by_precinct_norm || null;
+          try { await ensureCvapCountyAggregates(); } catch (_) {}
+        } catch (err) {
+          cvapByPrecinctNorm = null;
+          console.warn('Precinct CVAP not loaded:', err?.message || err);
         }
 
         // Optional county population estimates from U.S. Census (CO-EST2025-POP-45).
