@@ -7,6 +7,12 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 
 ## Recent Updates (April 2026)
 
+- **Hover tooltip deltas + NC-style pinning (April 9, 2026):**
+  - Hover tooltip now opens with an NC-style **compact “quickline”** (candidate + margin%) plus an **insight** block.
+  - Insight block adds raw deltas vs prior cycle (when available): `R Δ`, `D Δ`, and `Margin Δ` in **votes**.
+  - Population context is now shown as two Census-estimate deltas: `2020→2024` and `2024→2025`.
+  - **Pin** reveals the full “Details” section (chips + full result card + CVAP/VAP as available).
+
 - **Design-only premium UI polish (April 8, 2026):**
   - Refined the flagship **selected focus briefing panel** (`#vote-counter`) to feel more editorial: clearer hierarchy, calmer spacing, and a stronger “main takeaway” line.
   - Reduced the “stacked components” feeling by relying more on typography + whitespace and less on borders/boxed sub-cards (subtle surfaces, quieter dividers).

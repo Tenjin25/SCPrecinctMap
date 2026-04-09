@@ -13054,27 +13054,6 @@ document.addEventListener('DOMContentLoaded', function() {
       return `<span class="meta-chip shift"><span class="dot" style="background:${dotColor};"></span>Shift: ${label}${years ? ` <span style="color:#64748b;font-weight:800;">(${years})</span>` : ''}</span>`;
     }
 
-    function winnerMarginCallVotes(repVotes, demVotes, repCandidate, demCandidate) {
-      const rep = Number(repVotes) || 0;
-      const dem = Number(demVotes) || 0;
-      const marginVotes = Math.round(Math.abs(rep - dem));
-      if (rep > dem) {
-        return {
-          party: 'rep',
-          shortLabel: shortCandidateLabel(repCandidate, 'Republican'),
-          text: `${shortCandidateLabel(repCandidate, 'Republican')} +${marginVotes.toLocaleString()} votes`
-        };
-      }
-      if (dem > rep) {
-        return {
-          party: 'dem',
-          shortLabel: shortCandidateLabel(demCandidate, 'Democratic'),
-          text: `${shortCandidateLabel(demCandidate, 'Democratic')} +${marginVotes.toLocaleString()} votes`
-        };
-      }
-      return { party: 'tie', shortLabel: 'Even', text: 'Even' };
-    }
-
     function getScPopulationDeltaLine(countyNormOrName) {
       const raw = String(countyNormOrName || '').trim();
       if (!raw) return '';
@@ -13111,17 +13090,44 @@ document.addEventListener('DOMContentLoaded', function() {
       return `Pop change: ${fmtDelta(delta2020to2024)} (${resolved2020}\u2192${resolved2024})\nPop change: ${fmtDelta(delta2024to2025)} (${resolved2024}\u2192${resolved2025})`;
     }
 
-    function buildTooltipDeltaInsightHTML({ voteShiftDeltaVotes = NaN, voteShiftPrevYear = null, populationLine = '' } = {}) {
+    function formatSignedCount(value) {
+      const v = Math.round(Number(value) || 0);
+      const abs = Math.abs(v);
+      const sign = v >= 0 ? '+' : '−';
+      return `${sign}${abs.toLocaleString()}`;
+    }
+
+    function buildTooltipDeltaInsightHTML({
+      voteShiftDeltaVotes = NaN,
+      voteShiftPrevYear = null,
+      repDeltaVotes = NaN,
+      demDeltaVotes = NaN,
+      populationLine = ''
+    } = {}) {
       const lines = [];
       const prevYear = Number(voteShiftPrevYear);
       const deltaVotes = Number(voteShiftDeltaVotes);
-      if (Number.isFinite(prevYear) && Number.isFinite(deltaVotes)) {
-        const signed = Math.round(deltaVotes);
-        const abs = Math.abs(signed);
-        if (abs < 1) {
-          lines.push(`No vote shift since ${prevYear}.`);
-        } else {
-          lines.push(`Vote shift: ${signed > 0 ? 'R' : 'D'}+${abs.toLocaleString()} votes since ${prevYear}.`);
+
+      if (Number.isFinite(prevYear)) {
+        const repDelta = Number(repDeltaVotes);
+        const demDelta = Number(demDeltaVotes);
+        const hasRep = Number.isFinite(repDelta);
+        const hasDem = Number.isFinite(demDelta);
+        if (hasRep || hasDem) {
+          const parts = [];
+          if (hasRep) parts.push(`R ${formatSignedCount(repDelta)}`);
+          if (hasDem) parts.push(`D ${formatSignedCount(demDelta)}`);
+          lines.push(`Vote Δ since ${prevYear}: ${parts.join(' · ')}`);
+        }
+
+        if (Number.isFinite(deltaVotes)) {
+          const signed = Math.round(deltaVotes);
+          const abs = Math.abs(signed);
+          if (abs < 1) {
+            lines.push(`Margin Δ: unchanged since ${prevYear}.`);
+          } else {
+            lines.push(`Margin Δ: ${signed > 0 ? 'R' : 'D'}+${abs.toLocaleString()} votes since ${prevYear}.`);
+          }
         }
       }
       const popLine = String(populationLine || '').trim();
@@ -13458,7 +13464,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const tierMeta = competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
       const winner = signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T');
       const subtitle = `${formatContestName(contestType, year)} ${year}`;
-      const marginCall = winnerMarginCallVotes(repVotes, demVotes, repCandidate, demCandidate);
+      const marginCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
       const tierShort = tierMeta?.shortLabel || tierMeta?.label || '';
 
       let demoLine = '';
@@ -13495,16 +13501,24 @@ document.addEventListener('DOMContentLoaded', function() {
           ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
         </div>
         ${buildTooltipDeltaInsightHTML({
+          voteShiftPrevYear: vizPrevCache?.prevYear || null,
+          repDeltaVotes: (() => {
+            const prev = vizPrevCache?.prevCountyTotals?.[norm] || null;
+            if (!prev) return NaN;
+            return Number(repVotes) - Number(prev.rep);
+          })(),
+          demDeltaVotes: (() => {
+            const prev = vizPrevCache?.prevCountyTotals?.[norm] || null;
+            if (!prev) return NaN;
+            return Number(demVotes) - Number(prev.dem);
+          })(),
           voteShiftDeltaVotes: (() => {
-            if (!(vizPrevCache?.prevYear && vizPrevCache?.prevCountyTotals)) return NaN;
-            const prev = vizPrevCache.prevCountyTotals[norm] || null;
+            const prev = vizPrevCache?.prevCountyTotals?.[norm] || null;
             if (!prev) return NaN;
             const curMargin = Number(repVotes) - Number(demVotes);
             const prevMargin = Number(prev.rep) - Number(prev.dem);
-            if (!Number.isFinite(curMargin) || !Number.isFinite(prevMargin)) return NaN;
             return curMargin - prevMargin;
           })(),
-          voteShiftPrevYear: vizPrevCache?.prevYear || null,
           populationLine: getScPopulationDeltaLine(countyName)
         })}
       `.trim();
@@ -13593,7 +13607,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const tierMeta = competitivenessTierMetaFromSignedMarginPct(curSigned);
       const winner = curSigned > 0 ? 'R' : (curSigned < 0 ? 'D' : 'T');
       const totalVotes = Number(demVotes) + Number(repVotes) + Number(otherVotes);
-      const marginCall = winnerMarginCallVotes(repVotes, demVotes, repCandidate, demCandidate);
+      const marginCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
       const tierShort = tierMeta?.shortLabel || tierMeta?.label || '';
       const chips = [];
       let prevSignedForFlip = null;
@@ -13620,7 +13634,27 @@ document.addEventListener('DOMContentLoaded', function() {
           <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
           ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
         </div>
-        ${buildTooltipDeltaInsightHTML({ populationLine: getScPopulationDeltaLine(countyName) })}
+        ${buildTooltipDeltaInsightHTML({
+          voteShiftPrevYear: vizPrevCache?.prevYear || null,
+          repDeltaVotes: (() => {
+            const prev = vizPrevCache?.prevPrecinctTotalsByNorm?.get(precinctNorm) || null;
+            if (!prev) return NaN;
+            return Number(repVotes) - Number(prev.rep);
+          })(),
+          demDeltaVotes: (() => {
+            const prev = vizPrevCache?.prevPrecinctTotalsByNorm?.get(precinctNorm) || null;
+            if (!prev) return NaN;
+            return Number(demVotes) - Number(prev.dem);
+          })(),
+          voteShiftDeltaVotes: (() => {
+            const prev = vizPrevCache?.prevPrecinctTotalsByNorm?.get(precinctNorm) || null;
+            if (!prev) return NaN;
+            const curMargin = Number(repVotes) - Number(demVotes);
+            const prevMargin = Number(prev.rep) - Number(prev.dem);
+            return curMargin - prevMargin;
+          })(),
+          populationLine: getScPopulationDeltaLine(countyName)
+        })}
       `.trim();
 
       const expandedInner = `
@@ -17649,6 +17683,7 @@ document.addEventListener('DOMContentLoaded', function() {
           year: y,
           prevYear: null,
           prevPrecinctMarginByNorm: new Map(),
+          prevPrecinctTotalsByNorm: new Map(),
           prevCountyTotals: {},
           hasPrecinctMargins: false
         };
@@ -17656,6 +17691,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
 	      const prevPrecinctMarginByNorm = new Map();
+	      const prevPrecinctTotalsByNorm = new Map();
 	      const prevCountyTotals = {};
 	      let precinctIdx = null;
 	      if (includePrecinctMargins) {
@@ -17784,7 +17820,12 @@ document.addEventListener('DOMContentLoaded', function() {
         (prevSplit.precinctRows || []).forEach(r => {
           const rowName = (r.county || '').toString();
           const mPct = Number(r[`${contestType}_margin_pct`] || 0);
+          const dem = Number(r[`${contestType}_dem`] || 0);
+          const rep = Number(r[`${contestType}_rep`] || 0);
+          const other = Number(r[`${contestType}_other`] || 0);
+          const total = Number(r[`${contestType}_total`] || 0);
           precinctNormVariantsLite(rowName).forEach(n => prevPrecinctMarginByNorm.set(n, mPct));
+          precinctNormVariantsLite(rowName).forEach(n => prevPrecinctTotalsByNorm.set(n, { dem, rep, other, total }));
         });
       }
 
@@ -17793,6 +17834,7 @@ document.addEventListener('DOMContentLoaded', function() {
         year: y,
         prevYear: prevMeta.year,
         prevPrecinctMarginByNorm,
+        prevPrecinctTotalsByNorm,
         prevCountyTotals,
         hasPrecinctMargins: includePrecinctMargins
       };
