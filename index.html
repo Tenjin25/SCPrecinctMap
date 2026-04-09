@@ -2069,6 +2069,11 @@ body { height: var(--app-height); }
     align-items: flex-start;
     justify-content: space-between;
     gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  #hover-tooltip:not([data-pinned="1"]) .tooltip-head {
+    margin-bottom: 6px;
   }
 
   .hover-tooltip .tooltip-actions {
@@ -2154,6 +2159,16 @@ body { height: var(--app-height); }
 
   .hover-tooltip .tooltip-more-body {
     margin-top: 10px;
+  }
+
+  /* Only show the expanded "Details" section when pinned. */
+  #hover-tooltip:not([data-pinned="1"]) .tooltip-more {
+    display: none;
+  }
+
+  /* Hide Close unless pinned (Pin remains available to freeze the tooltip). */
+  #hover-tooltip:not([data-pinned="1"]) #tooltip-close-btn {
+    display: none;
   }
 
   /* Allow interacting with tooltip buttons only when pinned. */
@@ -13039,20 +13054,80 @@ document.addEventListener('DOMContentLoaded', function() {
       return `<span class="meta-chip shift"><span class="dot" style="background:${dotColor};"></span>Shift: ${label}${years ? ` <span style="color:#64748b;font-weight:800;">(${years})</span>` : ''}</span>`;
     }
 
-    function buildTooltipDeltaInsightHTML({ shiftDelta = NaN, shiftPrevYear = null, growthLine = '' } = {}) {
+    function winnerMarginCallVotes(repVotes, demVotes, repCandidate, demCandidate) {
+      const rep = Number(repVotes) || 0;
+      const dem = Number(demVotes) || 0;
+      const marginVotes = Math.round(Math.abs(rep - dem));
+      if (rep > dem) {
+        return {
+          party: 'rep',
+          shortLabel: shortCandidateLabel(repCandidate, 'Republican'),
+          text: `${shortCandidateLabel(repCandidate, 'Republican')} +${marginVotes.toLocaleString()} votes`
+        };
+      }
+      if (dem > rep) {
+        return {
+          party: 'dem',
+          shortLabel: shortCandidateLabel(demCandidate, 'Democratic'),
+          text: `${shortCandidateLabel(demCandidate, 'Democratic')} +${marginVotes.toLocaleString()} votes`
+        };
+      }
+      return { party: 'tie', shortLabel: 'Even', text: 'Even' };
+    }
+
+    function getScPopulationDeltaLine(countyNormOrName) {
+      const raw = String(countyNormOrName || '').trim();
+      if (!raw) return '';
+      let norm = '';
+      try {
+        norm = normalizeCountyToken(raw).replace(/\s+COUNTY$/i, '').trim();
+      } catch (_) {
+        norm = raw.replace(/\s+COUNTY$/i, '').trim().toUpperCase();
+      }
+      if (!norm) return '';
+
+      const pop = countyPopulationEstimates?.counties?.[norm] || null;
+      if (!pop) return '';
+      const latestYear = Number(countyPopulationEstimates?.latestYear || 2025);
+      const estimates = pop.estimates || {};
+      if (!estimates || typeof estimates !== 'object') return '';
+
+      const y2020 = Number.isFinite(Number(estimates[2020])) ? 2020 : null;
+      const y2024 = Number.isFinite(Number(estimates[2024])) ? 2024 : null;
+      const y2025 = Number.isFinite(Number(estimates[2025])) ? 2025 : (Number.isFinite(Number(estimates[latestYear])) ? latestYear : null);
+      const resolved2020 = y2020;
+      const resolved2024 = y2024 || (Number.isFinite(Number(estimates[latestYear - 1])) ? (latestYear - 1) : null);
+      const resolved2025 = y2025;
+      if (!Number.isFinite(Number(resolved2020)) || !Number.isFinite(Number(resolved2024)) || !Number.isFinite(Number(resolved2025))) return '';
+
+      const pop2020 = Number(estimates[resolved2020]);
+      const pop2024 = Number(estimates[resolved2024]);
+      const pop2025 = Number(estimates[resolved2025]);
+      if (!Number.isFinite(pop2020) || !Number.isFinite(pop2024) || !Number.isFinite(pop2025)) return '';
+
+      const delta2020to2024 = Math.round(pop2024 - pop2020);
+      const delta2024to2025 = Math.round(pop2025 - pop2024);
+      const fmtDelta = (v) => `${v >= 0 ? '+' : '−'}${Math.abs(v).toLocaleString()}`;
+      return `Pop change: ${fmtDelta(delta2020to2024)} (${resolved2020}\u2192${resolved2024})\nPop change: ${fmtDelta(delta2024to2025)} (${resolved2024}\u2192${resolved2025})`;
+    }
+
+    function buildTooltipDeltaInsightHTML({ voteShiftDeltaVotes = NaN, voteShiftPrevYear = null, populationLine = '' } = {}) {
       const lines = [];
-      const prevYear = Number(shiftPrevYear);
-      if (Number.isFinite(shiftDelta) && Number.isFinite(prevYear)) {
-        const s = Number(shiftDelta) || 0;
-        const abs = Math.abs(s);
-        if (abs < 0.01) {
+      const prevYear = Number(voteShiftPrevYear);
+      const deltaVotes = Number(voteShiftDeltaVotes);
+      if (Number.isFinite(prevYear) && Number.isFinite(deltaVotes)) {
+        const signed = Math.round(deltaVotes);
+        const abs = Math.abs(signed);
+        if (abs < 1) {
           lines.push(`No vote shift since ${prevYear}.`);
         } else {
-          lines.push(`Vote shift: ${s > 0 ? 'R' : 'D'}+${abs.toFixed(2)} since ${prevYear}.`);
+          lines.push(`Vote shift: ${signed > 0 ? 'R' : 'D'}+${abs.toLocaleString()} votes since ${prevYear}.`);
         }
       }
-      const growth = String(growthLine || '').trim();
-      if (growth) lines.push(growth);
+      const popLine = String(populationLine || '').trim();
+      if (popLine) {
+        popLine.split('\n').map(s => String(s || '').trim()).filter(Boolean).forEach(s => lines.push(s));
+      }
       if (!lines.length) return '';
       return `<div class="tooltip-insight">${lines.map(line => `<div>${escapeHtml(line)}</div>`).join('')}</div>`;
     }
@@ -13383,7 +13458,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const tierMeta = competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
       const winner = signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T');
       const subtitle = `${formatContestName(contestType, year)} ${year}`;
-      const marginCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
+      const marginCall = winnerMarginCallVotes(repVotes, demVotes, repCandidate, demCandidate);
       const tierShort = tierMeta?.shortLabel || tierMeta?.label || '';
 
       let demoLine = '';
@@ -13391,16 +13466,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const demo = countyDemographics?.counties?.[norm] || null;
         if (demo) {
           demoLine = `<div class="meta-subtle"><strong>VAP (18+):</strong> ${Number(demo.vap_18plus || 0).toLocaleString()}</div>`;
-        } else {
-          const pop = countyPopulationEstimates?.counties?.[norm] || null;
-          const startYear = Number(countyPopulationEstimates?.startYear || 2020);
-          const latestYear = Number(countyPopulationEstimates?.latestYear || 2025);
-          if (pop) {
-            const latestPopulation = Number(pop.latestPopulation || 0);
-            const delta = Number(pop.changePopulation || 0);
-            const deltaLabel = `${delta >= 0 ? '+' : '-'}${Math.abs(delta).toLocaleString()}`;
-            demoLine = `<div class="meta-subtle"><strong>Census ${latestYear} est.:</strong> ${latestPopulation.toLocaleString()} (${deltaLabel} since ${startYear})</div>`;
-          }
         }
       } catch (_) {}
 
@@ -13424,32 +13489,39 @@ document.addEventListener('DOMContentLoaded', function() {
         chips.push(shiftChipHTML(signedMarginPct - prevSigned, vizShiftCache.prevYear, vizShiftCache.year));
       }
 
-      let growthLine = '';
-      try {
-        const growth = getScCountyGrowthMeta(norm);
-        if (growth?.ok && growth?.line) growthLine = growth.line;
-      } catch (_) {}
-
-      const shiftPrevYear = vizPrevCache?.prevYear || null;
-      const shiftDelta = (prevSignedForFlip !== null && Number.isFinite(Number(prevSignedForFlip)))
-        ? (signedMarginPct - Number(prevSignedForFlip))
-        : NaN;
-
       const compactInner = `
         <div class="tooltip-quickline">
           <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
           ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
         </div>
-        ${buildTooltipDeltaInsightHTML({ shiftDelta, shiftPrevYear, growthLine })}
+        ${buildTooltipDeltaInsightHTML({
+          voteShiftDeltaVotes: (() => {
+            if (!(vizPrevCache?.prevYear && vizPrevCache?.prevCountyTotals)) return NaN;
+            const prev = vizPrevCache.prevCountyTotals[norm] || null;
+            if (!prev) return NaN;
+            const curMargin = Number(repVotes) - Number(demVotes);
+            const prevMargin = Number(prev.rep) - Number(prev.dem);
+            if (!Number.isFinite(curMargin) || !Number.isFinite(prevMargin)) return NaN;
+            return curMargin - prevMargin;
+          })(),
+          voteShiftPrevYear: vizPrevCache?.prevYear || null,
+          populationLine: getScPopulationDeltaLine(countyName)
+        })}
       `.trim();
 
-      const inner = `
-        ${compactInner}
-        <div class="hover-meta">${chips.join('')}</div>
-        ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
-        ${demoLine}
-        ${countyCvapHTML}
-      `;
+      const expandedInner = `
+        <details class="tooltip-more" aria-label="More details">
+          <summary>Details</summary>
+          <div class="tooltip-more-body">
+            <div class="hover-meta">${chips.join('')}</div>
+            ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
+            ${demoLine}
+            ${countyCvapHTML}
+          </div>
+        </details>
+      `.trim();
+
+      const inner = `${compactInner}${expandedInner}`;
 
       const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
       showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle, inner));
@@ -13521,7 +13593,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const tierMeta = competitivenessTierMetaFromSignedMarginPct(curSigned);
       const winner = curSigned > 0 ? 'R' : (curSigned < 0 ? 'D' : 'T');
       const totalVotes = Number(demVotes) + Number(repVotes) + Number(otherVotes);
-      const marginCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
+      const marginCall = winnerMarginCallVotes(repVotes, demVotes, repCandidate, demCandidate);
       const tierShort = tierMeta?.shortLabel || tierMeta?.label || '';
       const chips = [];
       let prevSignedForFlip = null;
@@ -13543,32 +13615,26 @@ document.addEventListener('DOMContentLoaded', function() {
         chips.push(shiftChipHTML(curSigned - prevSigned, vizShiftCache.prevYear, vizShiftCache.year));
       }
 
-      let growthLine = '';
-      try {
-        const countyNorm = normalizeCountyToken(countyName).replace(/\s+COUNTY$/i, '').trim();
-        const growth = getScCountyGrowthMeta(countyNorm);
-        if (growth?.ok && growth?.line) growthLine = growth.line;
-      } catch (_) {}
-
-      const shiftPrevYear = vizPrevCache?.prevYear || null;
-      const shiftDelta = (prevSignedForFlip !== null && Number.isFinite(Number(prevSignedForFlip)))
-        ? (curSigned - Number(prevSignedForFlip))
-        : NaN;
-
       const compactInner = `
         <div class="tooltip-quickline">
           <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
           ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
         </div>
-        ${buildTooltipDeltaInsightHTML({ shiftDelta, shiftPrevYear, growthLine })}
+        ${buildTooltipDeltaInsightHTML({ populationLine: getScPopulationDeltaLine(countyName) })}
       `.trim();
 
-      const inner = `
-        ${compactInner}
-        <div class="hover-meta">${chips.join('')}</div>
-        ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
-        ${cvapHTML}
-      `;
+      const expandedInner = `
+        <details class="tooltip-more" aria-label="More details">
+          <summary>Details</summary>
+          <div class="tooltip-more-body">
+            <div class="hover-meta">${chips.join('')}</div>
+            ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
+            ${cvapHTML}
+          </div>
+        </details>
+      `.trim();
+
+      const inner = `${compactInner}${expandedInner}`;
       const hoverTitle = buildTooltipTitleWithTier(title);
       showHoverTooltip(point.x, point.y, buildTooltipShell(hoverTitle, inner), { force: !!forceTooltip });
       wireTooltipButtons();
