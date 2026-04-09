@@ -7,6 +7,12 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 
 ## Recent Updates (April 2026)
 
+- **Design-only premium UI polish (April 8, 2026):**
+  - Refined the flagship **selected focus briefing panel** (`#vote-counter`) to feel more editorial: clearer hierarchy, calmer spacing, and a stronger “main takeaway” line.
+  - Reduced the “stacked components” feeling by relying more on typography + whitespace and less on borders/boxed sub-cards (subtle surfaces, quieter dividers).
+  - Unified the desktop floating surfaces (controls/legend/modes/topbar/focus) with consistent radii, shadow depth, and opacity for a more premium finish.
+  - **CSS-only change**; no data/model/contest logic changes. Sidebar remains disabled.
+
 - **County focus panel teardown + facelift (selected-county experience):**
   - Rebuilt the selected-county hierarchy to read like a premium election desk:
     1) **At a glance** (winner + margin + contest/year)
