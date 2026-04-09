@@ -2090,6 +2090,72 @@ body { height: var(--app-height); }
     background: rgba(51, 65, 85, 0.96);
   }
 
+  .hover-tooltip .tooltip-trends {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .hover-tooltip .tooltip-quickline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 900;
+    line-height: 1.25;
+  }
+
+  .hover-tooltip .tooltip-quickline .rep { color: #fecaca; }
+  .hover-tooltip .tooltip-quickline .dem { color: #bfdbfe; }
+  .hover-tooltip .tooltip-quickline .tie { color: #e2e8f0; }
+
+  .hover-tooltip .tooltip-quickline .tier {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    color: rgba(226, 232, 240, 0.86);
+  }
+
+  .hover-tooltip .tooltip-insight {
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: rgba(226, 232, 240, 0.92);
+  }
+
+  .hover-tooltip .tooltip-more {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(148, 163, 184, 0.22);
+  }
+
+  .hover-tooltip .tooltip-more summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    background: rgba(15, 23, 42, 0.18);
+    color: rgba(226, 232, 240, 0.96);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .hover-tooltip .tooltip-more summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .hover-tooltip .tooltip-more-body {
+    margin-top: 10px;
+  }
+
   /* Allow interacting with tooltip buttons only when pinned. */
   #hover-tooltip[data-pinned="1"] {
     pointer-events: auto;
@@ -12973,6 +13039,24 @@ document.addEventListener('DOMContentLoaded', function() {
       return `<span class="meta-chip shift"><span class="dot" style="background:${dotColor};"></span>Shift: ${label}${years ? ` <span style="color:#64748b;font-weight:800;">(${years})</span>` : ''}</span>`;
     }
 
+    function buildTooltipDeltaInsightHTML({ shiftDelta = NaN, shiftPrevYear = null, growthLine = '' } = {}) {
+      const lines = [];
+      const prevYear = Number(shiftPrevYear);
+      if (Number.isFinite(shiftDelta) && Number.isFinite(prevYear)) {
+        const s = Number(shiftDelta) || 0;
+        const abs = Math.abs(s);
+        if (abs < 0.01) {
+          lines.push(`No vote shift since ${prevYear}.`);
+        } else {
+          lines.push(`Vote shift: ${s > 0 ? 'R' : 'D'}+${abs.toFixed(2)} since ${prevYear}.`);
+        }
+      }
+      const growth = String(growthLine || '').trim();
+      if (growth) lines.push(growth);
+      if (!lines.length) return '';
+      return `<div class="tooltip-insight">${lines.map(line => `<div>${escapeHtml(line)}</div>`).join('')}</div>`;
+    }
+
     function winnerChipHTML(winner) {
       const w = (winner || '').toString().toUpperCase();
       const cls = w === 'R' ? 'rep' : (w === 'D' ? 'dem' : 'tie');
@@ -13299,6 +13383,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const tierMeta = competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
       const winner = signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T');
       const subtitle = `${formatContestName(contestType, year)} ${year}`;
+      const marginCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
+      const tierShort = tierMeta?.shortLabel || tierMeta?.label || '';
 
       let demoLine = '';
       try {
@@ -13338,7 +13424,27 @@ document.addEventListener('DOMContentLoaded', function() {
         chips.push(shiftChipHTML(signedMarginPct - prevSigned, vizShiftCache.prevYear, vizShiftCache.year));
       }
 
+      let growthLine = '';
+      try {
+        const growth = getScCountyGrowthMeta(norm);
+        if (growth?.ok && growth?.line) growthLine = growth.line;
+      } catch (_) {}
+
+      const shiftPrevYear = vizPrevCache?.prevYear || null;
+      const shiftDelta = (prevSignedForFlip !== null && Number.isFinite(Number(prevSignedForFlip)))
+        ? (signedMarginPct - Number(prevSignedForFlip))
+        : NaN;
+
+      const compactInner = `
+        <div class="tooltip-quickline">
+          <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
+          ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
+        </div>
+        ${buildTooltipDeltaInsightHTML({ shiftDelta, shiftPrevYear, growthLine })}
+      `.trim();
+
       const inner = `
+        ${compactInner}
         <div class="hover-meta">${chips.join('')}</div>
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
         ${demoLine}
@@ -13414,10 +13520,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const curSigned = isNaN(signedMarginPct) ? signedMarginPctFromVotes(demVotes, repVotes, demVotes + repVotes + otherVotes) : signedMarginPct;
       const tierMeta = competitivenessTierMetaFromSignedMarginPct(curSigned);
       const winner = curSigned > 0 ? 'R' : (curSigned < 0 ? 'D' : 'T');
+      const totalVotes = Number(demVotes) + Number(repVotes) + Number(otherVotes);
+      const marginCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
+      const tierShort = tierMeta?.shortLabel || tierMeta?.label || '';
       const chips = [];
       let prevSignedForFlip = null;
       if (vizPrevCache?.prevYear && vizPrevCache?.prevPrecinctMarginByNorm) {
-        prevSignedForFlip = Number(vizPrevCache.prevPrecinctMarginByNorm.get(precinctNorm) || 0);
+        const prevMargin = vizPrevCache.prevPrecinctMarginByNorm.get(precinctNorm);
+        if (Number.isFinite(Number(prevMargin))) prevSignedForFlip = Number(prevMargin);
       }
 
       chips.push(winnerChipHTML(winner));
@@ -13433,7 +13543,28 @@ document.addEventListener('DOMContentLoaded', function() {
         chips.push(shiftChipHTML(curSigned - prevSigned, vizShiftCache.prevYear, vizShiftCache.year));
       }
 
+      let growthLine = '';
+      try {
+        const countyNorm = normalizeCountyToken(countyName).replace(/\s+COUNTY$/i, '').trim();
+        const growth = getScCountyGrowthMeta(countyNorm);
+        if (growth?.ok && growth?.line) growthLine = growth.line;
+      } catch (_) {}
+
+      const shiftPrevYear = vizPrevCache?.prevYear || null;
+      const shiftDelta = (prevSignedForFlip !== null && Number.isFinite(Number(prevSignedForFlip)))
+        ? (curSigned - Number(prevSignedForFlip))
+        : NaN;
+
+      const compactInner = `
+        <div class="tooltip-quickline">
+          <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
+          ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
+        </div>
+        ${buildTooltipDeltaInsightHTML({ shiftDelta, shiftPrevYear, growthLine })}
+      `.trim();
+
       const inner = `
+        ${compactInner}
         <div class="hover-meta">${chips.join('')}</div>
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
         ${cvapHTML}
