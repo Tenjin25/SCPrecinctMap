@@ -14602,9 +14602,9 @@ document.addEventListener('DOMContentLoaded', function() {
               try {
                 const bbox = turf.bbox(countyFeature);
                 map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], {
-                  padding: 44,
+                  padding: getFitBoundsPaddingForCountyFocus(28),
                   duration: 850,
-                  maxZoom: 10
+                  maxZoom: 9.75
                 });
               } catch (_) {}
                
@@ -14736,6 +14736,65 @@ document.addEventListener('DOMContentLoaded', function() {
           { padding, duration, maxZoom }
         );
       } catch (_) {}
+    }
+
+    function getFitBoundsPaddingForCountyFocus(base = 28) {
+      const fallbackControlsW = 296;
+      const fallbackCounterW = 380;
+      const fallbackTopbarH = 58;
+      const safeBase = Math.max(12, Number(base) || 0);
+      try {
+        const container = (map && typeof map.getContainer === 'function') ? map.getContainer() : null;
+        const rect = container ? container.getBoundingClientRect() : null;
+        const vw = rect && rect.width ? rect.width : (window.innerWidth || 1024);
+        const vh = rect && rect.height ? rect.height : (window.innerHeight || 768);
+
+        const topbar = document.getElementById('map-topbar');
+        const controls = document.getElementById('main-controls');
+        const counter = document.getElementById('vote-counter');
+
+        const topbarH = (() => {
+          try {
+            const h = topbar ? Number(topbar.getBoundingClientRect().height || 0) : 0;
+            return h > 0 ? h : fallbackTopbarH;
+          } catch (_) { return fallbackTopbarH; }
+        })();
+
+        const controlsW = (() => {
+          try {
+            const w = controls ? Number(controls.getBoundingClientRect().width || 0) : 0;
+            return w > 0 ? w : fallbackControlsW;
+          } catch (_) { return fallbackControlsW; }
+        })();
+
+        const counterW = (() => {
+          try {
+            const w = counter ? Number(counter.getBoundingClientRect().width || 0) : 0;
+            return w > 0 ? w : fallbackCounterW;
+          } catch (_) { return fallbackCounterW; }
+        })();
+
+        // On mobile/coarse pointer, panels stack/overlay; don't over-pad horizontally.
+        const desktopLike = !IS_COARSE_POINTER && vw >= 900;
+
+        let pad = {
+          top: safeBase + topbarH + 10,
+          bottom: safeBase + (desktopLike ? 18 : 96),
+          left: safeBase + (desktopLike ? (controlsW + 18) : 12),
+          right: safeBase + (desktopLike ? (counterW + 18) : 12)
+        };
+
+        // Clamp so padding can't consume most of the viewport.
+        const maxLR = Math.max(120, Math.floor(vw * 0.45));
+        const maxTB = Math.max(120, Math.floor(vh * 0.45));
+        pad.left = Math.max(safeBase, Math.min(maxLR, Math.round(pad.left)));
+        pad.right = Math.max(safeBase, Math.min(maxLR, Math.round(pad.right)));
+        pad.top = Math.max(safeBase, Math.min(maxTB, Math.round(pad.top)));
+        pad.bottom = Math.max(safeBase, Math.min(maxTB, Math.round(pad.bottom)));
+        return pad;
+      } catch (_) {
+        return safeBase;
+      }
     }
 
     function addPrecinctLayers() {
@@ -15960,7 +16019,11 @@ document.addEventListener('DOMContentLoaded', function() {
           debugLog('[DIAGNOSTIC] Matched county for', countyName, '->', lastSelectedCounty, 'bbox:', bbox);
           syncFlySearchInputs(lastSelectedCounty);
           setFlySearchFeedback('#10b981');
-          map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], { padding: 40, duration: 1000 });
+          map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], {
+            padding: getFitBoundsPaddingForCountyFocus(28),
+            duration: 950,
+            maxZoom: 9.75
+          });
           showCountyDetails(lastSelectedCounty);
           if (SIDEBAR_ENABLED) {
             const sidebar = document.getElementById('sidebar');
