@@ -6815,12 +6815,12 @@ body { height: var(--app-height); }
   }
 
   .vote-counter-meta {
-    background: transparent;
-    border: none;
-    padding: 0;
+    padding: 10px 12px;
     margin-bottom: 14px;
-    border-radius: 0;
-    box-shadow: none;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(248, 250, 252, 0.72) 100%);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76);
   }
 
   .vote-total {
@@ -8314,7 +8314,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function formatVoteCounterCandidateLabel(name, partyCode, fallbackText) {
       const full = fullCandidateLabel(name, '');
       if (!full || full.toUpperCase() === partyCode.toUpperCase()) return fallbackText;
-      return `${full} (${partyCode})`;
+      return full;
     }
 
     function shouldUseCompactVoteCounterWinnerLabel() {
@@ -8331,7 +8331,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       const short = shortCandidateLabel(name, fallbackText);
       if (!short || short.toUpperCase() === partyCode.toUpperCase()) return fallbackText;
-      return `${short} (${partyCode})`;
+      return short;
     }
 
     function formatFocusBarLabel(name, pct, fallbackText) {
@@ -8359,13 +8359,13 @@ document.addEventListener('DOMContentLoaded', function() {
       if (repVotes > demVotes) {
         return {
           partyClass: 'rep',
-          label: `${shortCandidateLabel(item?.rep_candidate, 'Republican')} (R)`
+          label: `${shortCandidateLabel(item?.rep_candidate, 'Republican')}`
         };
       }
       if (demVotes > repVotes) {
         return {
           partyClass: 'dem',
-          label: `${shortCandidateLabel(item?.dem_candidate, 'Democratic')} (D)`
+          label: `${shortCandidateLabel(item?.dem_candidate, 'Democratic')}`
         };
       }
       return {
@@ -8758,8 +8758,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const t = document.getElementById('vote-context-title');
       const s = document.getElementById('vote-context-sub');
       const c = document.getElementById('vote-context-clear');
-      if (t) t.textContent = title || '';
-      if (s) s.textContent = sub || '';
+      const rawTitle = (title || '').toString();
+      const displayTitle = rawTitle.replace(/^(Selected|Hover):\s*/i, '').trim();
+      // Keep contest/year as the small kicker; put the geography as the headline.
+      if (t) t.textContent = (sub || '').toString();
+      if (s) s.textContent = displayTitle;
       if (c) c.style.display = showClear ? 'inline-flex' : 'none';
     }
 
@@ -11098,7 +11101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const row = pickDistrictSliceRow(payload, districtId);
         if (!row) return true;
         pinVoteCounterState(
-          `Selected: ${title}`,
+          title,
           `${formatContestName(contestType, year)} ${year}`,
           Number(row.dem_votes || 0),
           Number(row.rep_votes || 0),
@@ -11879,7 +11882,7 @@ document.addEventListener('DOMContentLoaded', function() {
           ${bar}
           <div class="rc-row">
             <div class="rc-chip">
-              <div class="k">D: ${demFull}</div>
+              <div class="k">${demFull}</div>
               <div class="v" style="color:#1d4ed8;">${d.toLocaleString()} (${demPct.toFixed(2)}%)</div>
             </div>
             <div class="rc-chip">
@@ -11887,7 +11890,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <div class="v" style="color:#475569;">${o.toLocaleString()} (${otherPct.toFixed(2)}%)</div>
             </div>
             <div class="rc-chip">
-              <div class="k">R: ${repFull}</div>
+              <div class="k">${repFull}</div>
               <div class="v" style="color:#b91c1c;">${r.toLocaleString()} (${repPct.toFixed(2)}%)</div>
             </div>
           </div>
@@ -14125,8 +14128,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const voteBreakdownHtml = (() => {
         const rows = [];
-        rows.push(`<div class="county-trend-row"><span>${escapeHtml(fullCandidateLabel(demCandidate, 'Democratic'))} (D)</span><span>${demVotes.toLocaleString()} · ${demPct.toFixed(2)}%</span></div>`);
-        rows.push(`<div class="county-trend-row"><span>${escapeHtml(fullCandidateLabel(repCandidate, 'Republican'))} (R)</span><span>${repVotes.toLocaleString()} · ${repPct.toFixed(2)}%</span></div>`);
+        rows.push(`<div class="county-trend-row"><span>${escapeHtml(fullCandidateLabel(demCandidate, 'Democratic'))}</span><span>${demVotes.toLocaleString()} · ${demPct.toFixed(2)}%</span></div>`);
+        rows.push(`<div class="county-trend-row"><span>${escapeHtml(fullCandidateLabel(repCandidate, 'Republican'))}</span><span>${repVotes.toLocaleString()} · ${repPct.toFixed(2)}%</span></div>`);
         if (otherVotes > 0) rows.push(`<div class="county-trend-row"><span>Other</span><span>${otherVotes.toLocaleString()} · ${otherPct.toFixed(2)}%</span></div>`);
         const voteMargin = Math.abs((repVotes - demVotes) || 0);
         return `
@@ -14939,7 +14942,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   const repVotes = Number(row.rep_votes || 0);
                   const otherVotes = Number(row.other_votes || 0);
                   pinVoteCounterState(
-                    `Selected: Congressional District ${districtNum}`,
+                    `Congressional District ${districtNum}`,
                     `${formatContestName(contestType, year)} ${year}`,
                     demVotes,
                     repVotes,
@@ -15045,7 +15048,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   const repVotes = Number(row.rep_votes || 0);
                   const otherVotes = Number(row.other_votes || 0);
                   pinVoteCounterState(
-                    `Selected: State House District ${districtNum}`,
+                    `State House District ${districtNum}`,
                     `${formatContestName(contestType, year)} ${year}`,
                     demVotes,
                     repVotes,
@@ -15150,7 +15153,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   const repVotes = Number(row.rep_votes || 0);
                   const otherVotes = Number(row.other_votes || 0);
                   pinVoteCounterState(
-                    `Selected: State Senate District ${districtNum}`,
+                    `State Senate District ${districtNum}`,
                     `${formatContestName(contestType, year)} ${year}`,
                     demVotes,
                     repVotes,
@@ -15677,7 +15680,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const repVotes = Number(row[`${contestType}_rep`] || 0);
         const otherVotes = Number(row[`${contestType}_other`] || 0);
         pinVoteCounterState(
-          `Selected: ${target}`,
+          target,
           `${formatContestName(contestType, year)} ${year}`,
           demVotes,
           repVotes,
@@ -15984,7 +15987,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const last = voteCounterLastHover;
           if (!last || !last.meta) return;
           try {
-            const pinnedTitle = String(last.title || '').replace(/^Hover:\s*/i, 'Selected: ');
+            const pinnedTitle = String(last.title || '').replace(/^Hover:\s*/i, '').trim();
             pinVoteCounterState(
               pinnedTitle,
               last.sub,
@@ -16306,13 +16309,13 @@ document.addEventListener('DOMContentLoaded', function() {
       return `
         <div style="margin-bottom: 12px;">
           <h5 style="margin:0 0 6px 0;">${year} ${formatContestName(contestType, year)}</h5>
-          <div style="font-size:15px;font-weight:800;color:${winColor};">Winner: ${winName} (${winnerParty})</div>
+          <div style="font-size:15px;font-weight:800;color:${winColor};">Winner: ${winName}</div>
           <div style="margin-top:4px;font-size:15px;font-weight:800;color:${winColor};">
             Margin: ${winnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate)} <span style="color:#64748b;font-weight:600;">(${Math.abs(repVotes - demVotes).toLocaleString()} votes)</span>
           </div>
           <div style="margin-top:8px;font-size:14px;">
-            <div><span style="color:#2563eb;font-weight:800;">${fullCandidateLabel(demCandidate, 'Democratic')} (D)</span>: ${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</div>
-            <div><span style="color:#dc2626;font-weight:800;">${fullCandidateLabel(repCandidate, 'Republican')} (R)</span>: ${repPct.toFixed(2)}% (${repVotes.toLocaleString()})</div>
+            <div><span style="color:#2563eb;font-weight:800;">${fullCandidateLabel(demCandidate, 'Democratic')}</span>: ${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</div>
+            <div><span style="color:#dc2626;font-weight:800;">${fullCandidateLabel(repCandidate, 'Republican')}</span>: ${repPct.toFixed(2)}% (${repVotes.toLocaleString()})</div>
             ${otherVotes > 0 ? `<div><span style="color:#6b7280;font-weight:800;">Other</span>: ${othPct.toFixed(2)}% (${otherVotes.toLocaleString()})</div>` : ''}
             <div style="margin-top:6px;color:#374151;font-weight:700;">Total Votes: ${totalVotes.toLocaleString()}</div>
           </div>
