@@ -479,6 +479,10 @@
       document.addEventListener('keydown', function(ev) {
         const t = (ev.target && ev.target.tagName) ? ev.target.tagName.toLowerCase() : '';
         if (t === 'input' || t === 'textarea' || t === 'select') return;
+        if (ev.key === 'Escape') {
+          try { clearSelectedPrecinctNorm(); } catch (_) {}
+          try { closeHoverUI({ force: true }); } catch (_) {}
+        }
         if (ev.key === 'p' || ev.key === 'P') {
           if (typeof togglePrecinctOverlay === 'function') togglePrecinctOverlay();
         }
@@ -7969,6 +7973,25 @@ document.addEventListener('DOMContentLoaded', function() {
       const f = map.queryRenderedFeatures(e.point, { layers });
       if (f && f.length) return;
       closeHoverUI({ force: true });
+      try { clearSelectedPrecinctNorm(); } catch (_) {}
+    });
+
+    // Desktop: clicking anywhere that's not a precinct clears a selected precinct highlight.
+    map.on('click', (e) => {
+      try {
+        if (IS_COARSE_POINTER) return;
+        if (!selectedPrecinctNorm) return;
+        const precinctLayers = [
+          'precinct-dot-selected',
+          'precinct-dot',
+          'precinct-dot-missing',
+          'precinct-fill'
+        ].filter(id => map.getLayer(id));
+        if (!precinctLayers.length) return;
+        const hit = map.queryRenderedFeatures(e.point, { layers: precinctLayers });
+        if (hit && hit.length) return;
+        clearSelectedPrecinctNorm();
+      } catch (_) {}
     });
     map.on('mousemove', (e) => {
       lastPointerPoint = e.point;
@@ -9498,6 +9521,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function clearPinnedVoteCounterState() {
       voteCounterPinned = null;
       voteCounterHoverActive = false;
+      try { clearSelectedPrecinctNorm(); } catch (_) {}
       if (voteCounterBaseline) {
         setVoteCounterContext(voteCounterBaseline.title, voteCounterBaseline.sub, { showClear: false, meta: voteCounterBaseline.meta });
         updateVoteCounter(
