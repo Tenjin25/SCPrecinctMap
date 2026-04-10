@@ -252,15 +252,15 @@
         if (detailsDiv) detailsDiv.style.display = 'block';
         // Ensure there's content to show
         if (contentEl && (!contentEl.innerHTML || contentEl.innerHTML.trim() === '')) {
-          contentEl.innerHTML = '<p>Select a contest or county to see results.</p>';
+          contentEl.innerHTML = '<p>Select a contest, then click a county to open the focus briefing.</p>';
         }
         if (minimizeBtn) {
           minimizeBtn.textContent = '-';
           minimizeBtn.title = 'Minimize sidebar';
         }
         if (floatBtn) {
-          floatBtn.textContent = '-';
-          floatBtn.title = 'Minimize sidebar';
+          floatBtn.textContent = 'Focus';
+          floatBtn.title = 'Open County Focus';
         }
       } else if (sidebar) {
         // Minimize sidebar
@@ -271,8 +271,8 @@
           minimizeBtn.title = 'Expand sidebar';
         }
         if (floatBtn) {
-          floatBtn.textContent = '+';
-          floatBtn.title = 'Expand sidebar';
+          floatBtn.textContent = 'Focus';
+          floatBtn.title = 'Open County Focus';
         }
       }
     }
@@ -442,9 +442,10 @@
         if (sidebar) sidebar.style.display = 'none';
         if (floatBtn) floatBtn.style.display = 'none';
       }
-      
-      // Sidebar is intentionally disabled; do not wire sidebar toggles unless explicitly enabled.
+
       if (sidebar) sidebar.classList.add('minimized');
+
+      // Sidebar is intentionally disabled; do not wire sidebar toggles unless explicitly enabled.
       if (SIDEBAR_ENABLED) {
         // Sidebar minimize button
         if (sidebarBtn) {
@@ -454,7 +455,7 @@
             toggleSidebar();
             // If no county is selected, show default message
             if (detailsDiv && contentEl && (!lastSelectedCounty || lastSelectedCounty === '')) {
-              contentEl.innerHTML = '<p>Select a contest or county to see results.</p>';
+              contentEl.innerHTML = '<p>Select a contest, then click a county to open the focus briefing.</p>';
               detailsDiv.style.display = 'block';
             }
           };
@@ -464,14 +465,8 @@
           floatBtn.onclick = function() {
             toggleSidebar();
           };
-          // Set initial float button text based on sidebar state
-          if (sidebar && !sidebar.classList.contains('minimized')) {
-            floatBtn.textContent = '-';
-            floatBtn.title = 'Minimize sidebar';
-          } else {
-            floatBtn.textContent = '+';
-            floatBtn.title = 'Expand sidebar';
-          }
+          floatBtn.textContent = 'Focus';
+          floatBtn.title = 'Open County Focus';
         }
       }
 
@@ -501,7 +496,7 @@
       
       // Show default message on load
       if (detailsDiv && contentEl) {
-        contentEl.innerHTML = '<p>Select a contest or county to see results.</p>';
+        contentEl.innerHTML = '<p>Select a contest, then click a county to open the focus briefing.</p>';
         detailsDiv.style.display = 'block';
       }
 
@@ -1196,6 +1191,12 @@ body { height: var(--app-height); }
   display: flex;
   flex-direction: column;
   gap: 12px;
+  animation: county-focus-in 160ms ease-out;
+}
+
+@keyframes county-focus-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .county-glance-card {
   background: rgba(255, 255, 255, 0.98);
@@ -1917,6 +1918,10 @@ body { height: var(--app-height); }
     }
     #sidebar-float-toggle:hover {
       background: #1746a0;
+    }
+    #sidebar-float-toggle:focus-visible {
+      outline: 2px solid rgba(147, 197, 253, 0.95);
+      outline-offset: 3px;
     }
     html.sidebar-enabled .sidebar.minimized ~ #sidebar-float-toggle {
       display: flex !important;
@@ -3348,262 +3353,172 @@ body { height: var(--app-height); }
     margin-bottom: 12px;
   }
 
-  /* NCMap-style "At a glance" + Story blocks (in the always-on focus panel) */
-  .focus-glance {
-    margin: 0 0 14px 0;
-    border-radius: 16px;
-    border: 1px solid rgba(15, 23, 42, 0.09);
-    background: rgba(248, 250, 252, 0.98);
-    padding: 14px 14px 12px;
-    display: grid;
-    gap: 8px;
-    animation: glance-in 0.18s ease-out;
-    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
-  }
-  .focus-glance.tone-rep {
-    border-color: rgba(220, 38, 38, 0.18);
-    background: linear-gradient(180deg, rgba(254, 242, 242, 0.72), rgba(248, 250, 252, 0.98));
-  }
-  .focus-glance.tone-dem {
-    border-color: rgba(37, 99, 235, 0.18);
-    background: linear-gradient(180deg, rgba(239, 246, 255, 0.74), rgba(248, 250, 252, 0.98));
-  }
-  .focus-glance.tone-neutral { border-color: rgba(148, 163, 184, 0.28); }
-  .focus-glance-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-  .focus-glance-kicker { font-size: 11px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: #0f172a; }
-  .focus-glance-meta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-  .focus-barometer {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 8px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 900;
-    background: rgba(15, 23, 42, 0.06);
-    color: #334155;
+  .focus-editorial {
+    margin: 10px 0 12px;
     border: 1px solid rgba(15, 23, 42, 0.10);
-    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 14px;
+    padding: 12px 14px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
   }
-  .focus-barometer[data-tone="rep"] {
-    background: rgba(239, 68, 68, 0.22);
-    border-color: rgba(252, 165, 165, 0.32);
-    color: rgba(254, 202, 202, 0.98);
-  }
-  .focus-barometer[data-tone="dem"] {
-    background: rgba(59, 130, 246, 0.22);
-    border-color: rgba(147, 197, 253, 0.34);
-    color: rgba(191, 219, 254, 0.98);
-  }
-  .focus-barometer[data-tone="neutral"] {
-    background: rgba(148, 163, 184, 0.18);
-    color: rgba(226, 232, 240, 0.98);
-    border-color: rgba(148, 163, 184, 0.26);
-  }
-  .focus-story .focus-barometer[data-tone="dem"] {
-    background: rgba(59, 130, 246, 0.34);
-    border-color: rgba(191, 219, 254, 0.52);
-    color: rgba(219, 234, 254, 0.98);
-  }
-  .focus-story .focus-barometer-track {
-    background: linear-gradient(90deg, rgba(147, 197, 253, 0.92), rgba(148, 163, 184, 0.45), rgba(254, 202, 202, 0.82));
-    border-color: rgba(226, 232, 240, 0.18);
-  }
-  .focus-barometer-track {
-    position: relative;
-    width: 64px;
-    height: 7px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, rgba(37, 99, 235, 0.70), rgba(148, 163, 184, 0.35), rgba(220, 38, 38, 0.70));
-    overflow: hidden;
-    border: 1px solid rgba(15, 23, 42, 0.10);
-  }
-  .focus-barometer-dot {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 9px;
-    height: 9px;
-    border-radius: 999px;
-    background: #f8fafc;
-    border: 2px solid currentColor;
-    box-shadow: 0 2px 7px rgba(15, 23, 42, 0.28);
-  }
-  .focus-barometer[data-strength="low"] .focus-barometer-dot { width: 8px; height: 8px; opacity: 0.92; }
-  .focus-barometer[data-strength="medium"] .focus-barometer-dot { width: 9px; height: 9px; opacity: 0.98; }
-  .focus-barometer[data-strength="high"] .focus-barometer-dot { width: 10px; height: 10px; opacity: 1; }
-  .focus-glance-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 4px 8px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 900;
-    background: rgba(15, 23, 42, 0.06);
-    color: #334155;
-    border: 1px solid rgba(15, 23, 42, 0.10);
-    white-space: nowrap;
-  }
-  .focus-glance-badge.rep { background: rgba(220, 38, 38, 0.10); color: #7f1d1d; border-color: rgba(220, 38, 38, 0.18); }
-  .focus-glance-badge.dem { background: rgba(37, 99, 235, 0.10); color: #1e3a8a; border-color: rgba(37, 99, 235, 0.18); }
-  .focus-glance-headline {
-    margin: 0;
-    font-size: 15px;
-    line-height: 1.35;
-    font-weight: 900;
-    color: #0f172a;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .focus-glance-bullets { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
-  .focus-glance-bullets li {
-    position: relative;
-    display: grid;
-    grid-template-columns: 88px minmax(0, 1fr);
-    gap: 8px;
-    align-items: baseline;
-    font-size: 12px;
-    line-height: 1.35;
-    color: #334155;
-    padding-left: 14px;
-  }
-  .focus-glance-bullets li::before { content: "•"; position: absolute; left: 0; top: 0.05em; color: rgba(71, 85, 105, 0.9); font-weight: 900; }
-  .focus-glance-label { font-weight: 900; color: #475569; letter-spacing: 0.02em; }
-  .focus-glance-value {
-    color: #0f172a;
-    font-weight: 800;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    word-break: break-word;
-  }
-  .focus-glance-micro {
-    font-size: 12px;
-    line-height: 1.35;
-    font-weight: 800;
-    color: #475569;
-    display: block;
-    -webkit-line-clamp: initial;
-    -webkit-box-orient: initial;
-    overflow: visible;
-  }
-  .focus-glance-micro strong { color: #0f172a; }
-  @keyframes glance-in { from { opacity: 0.0; transform: translateY(4px); } to { opacity: 1.0; transform: translateY(0); } }
-  @media (prefers-reduced-motion: reduce) { .focus-glance { animation: none; } }
 
-  .focus-story-fold {
-    margin: 0 0 14px 0;
-    border-radius: 16px;
-    border: 1px solid rgba(15, 23, 42, 0.10);
-    background: rgba(255, 255, 255, 0.55);
-    overflow: hidden;
+  .focus-editorial-kicker {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #64748b;
   }
-  .focus-story-fold summary {
-    list-style: none;
-    cursor: pointer;
-    user-select: none;
-    padding: 10px 12px;
+
+  .focus-editorial-headline {
+    margin-top: 6px;
+    font-size: 15px;
+    font-weight: 950;
+    color: #0f172a;
+    line-height: 1.25;
+  }
+
+  .focus-editorial-lines {
+    margin-top: 8px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    flex-direction: column;
+    gap: 6px;
     font-size: 12px;
+    color: #475569;
+    line-height: 1.35;
+  }
+
+  .focus-editorial-meta {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .focus-editorial-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(248, 250, 252, 0.88);
+  }
+
+  .focus-editorial-label {
+    font-size: 11px;
     font-weight: 900;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #0f172a;
+    color: #64748b;
+    white-space: nowrap;
+    flex: 0 0 auto;
   }
-  .focus-story-fold summary::-webkit-details-marker { display: none; }
-  .focus-story-fold summary::after { content: '+'; font-weight: 900; color: rgba(15, 23, 42, 0.55); }
-  .focus-story-fold[open] summary::after { content: '-'; }
-  .focus-story-fold .focus-story { margin: 0; border: none; border-radius: 0; }
 
-  .focus-story {
-    margin: 0 0 14px 0;
-    border-radius: 16px;
-    border: 1px solid rgba(15, 23, 42, 0.10);
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(30, 41, 59, 0.94));
-    color: #fff;
-    padding: 14px 16px 13px;
-    display: grid;
-    gap: 10px;
-    animation: glance-in 0.18s ease-out;
+  .focus-editorial-value {
+    font-size: 12px;
+    font-weight: 950;
+    color: #0f172a;
+    text-align: right;
+    line-height: 1.2;
+    flex: 1 1 auto;
+    min-width: 0;
   }
-  .focus-story.tone-rep { border-color: rgba(248, 113, 113, 0.30); }
-  .focus-story.tone-dem { border-color: rgba(96, 165, 250, 0.30); }
-  .focus-story.tone-neutral { border-color: rgba(148, 163, 184, 0.28); }
-  .focus-story-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
-  .focus-story-left, .focus-story-right, .focus-story-actions { display: inline-flex; align-items: center; gap: 8px; }
-  .focus-story-left { flex: 1 1 auto; min-width: 0; }
-  .focus-story-right { flex: 0 0 auto; }
-  .focus-story-copy {
-    border: 1px solid rgba(148, 163, 184, 0.28);
-    background: rgba(15, 23, 42, 0.32);
-    color: rgba(226, 232, 240, 0.98);
-    font-size: 11px;
-    font-weight: 900;
-    padding: 5px 10px;
-    border-radius: 999px;
+
+  .focus-editorial-value.small {
+    font-size: 12px;
+    font-weight: 850;
+    color: #334155;
+  }
+
+  .focus-editorial-details {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+  }
+
+  .focus-editorial-details > summary {
     cursor: pointer;
-    letter-spacing: 0.02em;
+    list-style: none;
+    padding: 8px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: rgba(15, 23, 42, 0.04);
+    font-size: 12px;
+    font-weight: 950;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
   }
-  .focus-story-copy:hover { background: rgba(15, 23, 42, 0.44); }
-  .focus-story-copy:active { transform: translateY(1px); }
-  .focus-story-copy:focus-visible { outline: 2px solid rgba(191, 219, 254, 0.75); outline-offset: 2px; }
-  .focus-story-kicker { font-size: 11px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(191, 219, 254, 0.96); }
-  .focus-story-title { margin: 0; font-size: 18px; line-height: 1.2; font-weight: 900; color: #fff; }
-  .focus-story-summary { margin: 0; font-size: 13px; line-height: 1.55; color: rgba(226, 232, 240, 0.98); }
-  .focus-story-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-  .focus-story-mini { border: 1px solid rgba(148, 163, 184, 0.22); border-radius: 14px; background: rgba(15, 23, 42, 0.30); padding: 10px 10px 9px; }
-  .focus-story-mini .k { display: block; font-size: 11px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(148, 163, 184, 0.94); margin-bottom: 6px; }
-  .focus-story-mini .v {
-    display: block;
+
+  .focus-editorial-details > summary::-webkit-details-marker { display: none; }
+  .focus-editorial-details > summary::marker { content: ''; }
+
+  .focus-editorial-details > summary::after {
+    content: '+';
+    color: #64748b;
+    font-weight: 950;
+  }
+
+  .focus-editorial-details[open] > summary::after { content: '–'; }
+
+  .focus-editorial-details-body {
+    padding: 10px 4px 2px 4px;
+  }
+
+  .focus-editorial-why-head {
     font-size: 13px;
-    font-weight: 900;
+    font-weight: 950;
+    color: #0f172a;
+    line-height: 1.25;
+  }
+
+  .focus-editorial-why-lines {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 12px;
+    color: #475569;
     line-height: 1.35;
-    color: rgba(248, 250, 252, 0.98);
+  }
+
+  .focus-trend-deep {
+    margin: 12px 0 6px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.96);
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    word-break: break-word;
   }
-  .focus-story-mini.compare .v {
-    display: block;
-    -webkit-line-clamp: initial;
-    -webkit-box-orient: initial;
-    overflow: visible;
-    text-overflow: unset;
+
+  .focus-trend-deep > summary {
+    cursor: pointer;
+    padding: 10px 12px;
+    font-size: 12px;
+    font-weight: 950;
+    color: #0f172a;
+    list-style: none;
   }
-  .focus-story-watch {
-    margin: 0;
-    padding-top: 8px;
-    border-top: 1px dashed rgba(148, 163, 184, 0.22);
-    font-size: 13px;
-    line-height: 1.5;
-    color: rgba(226, 232, 240, 0.98);
+
+  .focus-trend-deep > summary::-webkit-details-marker { display: none; }
+
+  .focus-trend-deep > summary::after {
+    content: '+';
+    float: right;
+    color: #64748b;
+    font-weight: 950;
   }
-  .focus-story-watch strong { color: #fff; }
-  @media (max-width: 768px) {
-    .focus-story { padding: 12px 12px 11px; }
-    .focus-story-title { font-size: 16px; }
-    .focus-story-grid { display: none; }
-    .focus-story-head { gap: 8px; }
-    .focus-story-copy { padding: 5px 9px; }
-    .focus-story-summary { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  .focus-trend-deep[open] > summary::after { content: '–'; }
+
+  .focus-trend-deep-body {
+    padding: 0 12px 12px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .focus-bar-head {
@@ -3904,6 +3819,28 @@ body { height: var(--app-height); }
     background: rgba(254, 243, 199, 0.9);
   }
 
+  .focus-trajectory-subtype,
+  .focus-trajectory-stage {
+    display: inline-flex;
+    align-items: center;
+    min-height: 22px;
+    padding: 0 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: rgba(255, 255, 255, 0.8);
+    color: #334155;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  }
+
+  .focus-trajectory-stage {
+    background: rgba(226, 232, 240, 0.7);
+    color: #475569;
+  }
+
   .trajectory-icon {
     display: inline-flex;
     align-items: center;
@@ -3930,6 +3867,13 @@ body { height: var(--app-height); }
     font-size: 12px;
     line-height: 1.45;
     color: #334155;
+    font-weight: 700;
+  }
+
+  .focus-trajectory-growth {
+    font-size: 11px;
+    line-height: 1.25;
+    color: #64748b;
     font-weight: 700;
   }
 
@@ -5406,6 +5350,31 @@ body { height: var(--app-height); }
     border: 1px solid rgba(148, 163, 184, 0.24);
     background: rgba(255, 255, 255, 0.92);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  }
+
+  .control-group-contest[data-loading="1"] #contestSelect {
+    cursor: progress;
+    opacity: 0.9;
+    padding-right: 46px;
+  }
+
+  .control-group-contest[data-loading="1"] .contest-select-wrap::after {
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    border-radius: 50%;
+    border: 2px solid rgba(148, 163, 184, 0.55);
+    border-top-color: rgba(37, 99, 235, 0.95);
+    animation: contest-spin 0.8s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes contest-spin {
+    to { transform: rotate(360deg); }
   }
 
   #help-btn,
@@ -7333,7 +7302,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="controls-heading">
               <span class="controls-kicker">Atlas controls</span>
               <h3 class="controls-title-pill">The Palmetto Explorer</h3>
-              <p class="controls-subtitle">Switch layers, jump to major regions, and compare contests without leaving the map.</p>
+              <p class="controls-subtitle">Pick a contest to color the map. Hover for a quick read; click a county for the focus briefing.</p>
             </div>
             <div class="controls-actions">
               <span class="controls-collapsed-label">The Palmetto Explorer</span>
@@ -7564,6 +7533,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="focus-bar-midpoint" aria-hidden="true"></div>
       </div>
     </div>
+      <div class="focus-editorial" id="focus-editorial" style="display:none;"></div>
       <div class="focus-trend" id="focus-trend">
         <div class="focus-trend-head">
           <span class="focus-trend-title">Trend</span>
@@ -8351,8 +8321,22 @@ document.addEventListener('DOMContentLoaded', function() {
       const panel = document.getElementById('status-panel');
       const msg = document.getElementById('status-message');
       if (!panel || !msg) return;
-      // Only log status messages to the console; do not show the floating status panel
       debugLog(text);
+      const t = (text || '').toString().trim();
+      if (!t) return;
+      // Keep status UI subtle: show only for loading/errors/no-data (avoid noisy "Applied" spam).
+      const shouldShow = (/^(loading|failed|error|no data)\b/i.test(t) || /\bfailed\b|\berror\b/i.test(t));
+      if (!shouldShow) return;
+      try {
+        msg.textContent = t;
+        panel.style.display = 'block';
+        if (timeout !== null && timeout !== undefined && Number(timeout) > 0) {
+          clearTimeout(panel.__hideTimer__);
+          panel.__hideTimer__ = setTimeout(() => {
+            try { panel.style.display = 'none'; } catch (_) {}
+          }, Number(timeout));
+        }
+      } catch (_) {}
     }
 
     // (saveUIState/restoreUIState defined above as no-ops)
@@ -8614,6 +8598,76 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
+    function updateVoteCounterSummary(demVotes, repVotes, otherVotes = 0, candidates = null, meta = null) {
+      const d = Number(demVotes || 0);
+      const r = Number(repVotes || 0);
+      const o = Number(otherVotes || 0);
+      const total = d + r + o;
+
+      const winnerEl = document.getElementById('focus-winner');
+      const marginEl = document.getElementById('focus-margin');
+      const totalEl = document.getElementById('focus-total');
+      const barDem = document.getElementById('focus-bar-dem');
+      const barOther = document.getElementById('focus-bar-other');
+      const barRep = document.getElementById('focus-bar-rep');
+      const barDemLabelEl = document.getElementById('focus-bar-label-dem');
+      const barMidLabelEl = document.getElementById('focus-bar-label-mid');
+      const barRepLabelEl = document.getElementById('focus-bar-label-rep');
+
+      if (!winnerEl || !marginEl || !totalEl || !barDem || !barOther || !barRep || !barDemLabelEl || !barMidLabelEl || !barRepLabelEl) return;
+
+      const resolvedCandidates = setVoteCounterLabels(candidates, meta);
+
+      if (total <= 0) {
+        winnerEl.textContent = 'No data';
+        winnerEl.className = 'focus-pill-value tie';
+        marginEl.textContent = 'Tie';
+        marginEl.className = 'focus-pill-value tie';
+        totalEl.textContent = '0';
+        barDem.style.width = '0%';
+        barOther.style.width = '0%';
+        barRep.style.width = '0%';
+        barDemLabelEl.textContent = 'Dem 0.00%';
+        barMidLabelEl.textContent = '50%';
+        barRepLabelEl.textContent = 'Rep 0.00%';
+        try { updateFocusEditorial(meta, { demVotes: d, repVotes: r, otherVotes: o, totalVotes: total }, resolvedCandidates); } catch (_) {}
+        return;
+      }
+
+      const demPct = (d / total) * 100;
+      const repPct = (r / total) * 100;
+      const otherPct = (o / total) * 100;
+      const winnerParty = repPct > demPct ? 'rep' : (demPct > repPct ? 'dem' : 'tie');
+      const winnerLabel = winnerParty === 'rep'
+        ? formatVoteCounterWinnerLabel(resolvedCandidates.repCandidate, 'R', 'Republican')
+        : (winnerParty === 'dem'
+          ? formatVoteCounterWinnerLabel(resolvedCandidates.demCandidate, 'D', 'Democratic')
+          : 'Tie');
+      const winnerTitle = winnerParty === 'rep'
+        ? formatVoteCounterCandidateLabel(resolvedCandidates.repCandidate, 'R', 'Republican')
+        : (winnerParty === 'dem'
+          ? formatVoteCounterCandidateLabel(resolvedCandidates.demCandidate, 'D', 'Democratic')
+          : 'Tie');
+      const leadLabel = winnerParty === 'tie'
+        ? 'Tie'
+        : leadMarginPctLabel(r, d, total, { includeParty: false });
+
+      winnerEl.textContent = winnerLabel;
+      winnerEl.className = `focus-pill-value ${winnerParty}`;
+      winnerEl.title = winnerTitle;
+      marginEl.textContent = leadLabel;
+      marginEl.className = `focus-pill-value ${winnerParty}`;
+      marginEl.title = leadLabel;
+      totalEl.textContent = total.toLocaleString();
+      barDem.style.width = `${demPct.toFixed(4)}%`;
+      barOther.style.width = `${otherPct.toFixed(4)}%`;
+      barRep.style.width = `${repPct.toFixed(4)}%`;
+      barDemLabelEl.textContent = formatFocusBarLabel(resolvedCandidates.demCandidate, demPct, 'Dem');
+      barMidLabelEl.textContent = '50%';
+      barRepLabelEl.textContent = formatFocusBarLabel(resolvedCandidates.repCandidate, repPct, 'Rep');
+      try { updateFocusEditorial(meta, { demVotes: d, repVotes: r, otherVotes: o, totalVotes: total, demPct, repPct, otherPct, winnerParty }, resolvedCandidates); } catch (_) {}
+    }
+
     function renderConfidenceMeterHTML(level) {
       const lvl = String(level || '').trim() || 'Low';
       const onCount = lvl === 'High' ? 3 : (lvl === 'Medium' ? 2 : 1);
@@ -8685,14 +8739,9 @@ document.addEventListener('DOMContentLoaded', function() {
       return { label: 'Competitive county', key: 'competitive' };
     }
 
-    function buildWhyItVotesThisWayStory({ archetypeMeta, winnerParty, absMarginPct, growthLine, prevYear, shiftSincePrev, flippedLast, reinforceGrowth, reinforceLine } = {}) {
+    function buildWhyItVotesThisWayStory({ archetypeMeta, winnerParty, absMarginPct, growthLine, prevYear, shiftSincePrev, flippedLast } = {}) {
       const lines = [];
       if (growthLine) lines.push(growthLine);
-      if (reinforceGrowth) {
-        const side = winnerParty === 'rep' ? 'Republican' : (winnerParty === 'dem' ? 'Democratic' : 'current');
-        lines.push(`Explosive growth appears to be strengthening the existing ${side} lean.`);
-      }
-      if (reinforceLine) lines.push(reinforceLine);
 
       if (flippedLast && Number.isFinite(prevYear)) {
         lines.push(`The county flipped since ${prevYear}, a sign of real movement rather than noise.`);
@@ -8727,156 +8776,119 @@ document.addEventListener('DOMContentLoaded', function() {
       return { headline, lines: lines.slice(0, 2) };
     }
 
-    function buildScViralFocusBlock({
-      focusName = 'This county',
-      winnerParty = 'tie',
-      badge = null, // { text, cls:'rep'|'dem'|'neutral' }
-      signedMarginPct = 0,
-      trendBullet = '',
-      longRunBullet = '',
-      populationBullet = '',
-      archetypeLabel = '',
-      comparedWith = '',
-      confidence = 'Low',
-      whyHeadline = '',
-      whyLines = [],
-      growthLine = '',
-      shiftLine = '',
-      watchLine = ''
-    } = {}) {
-      const toneClass = winnerParty === 'rep' ? 'tone-rep' : (winnerParty === 'dem' ? 'tone-dem' : 'tone-neutral');
-      const badgeText = String(badge?.text || '').trim();
-      const badgeClsRaw = String(badge?.cls || '').trim().toLowerCase();
-      const badgeCls = badgeClsRaw === 'rep' ? 'rep' : (badgeClsRaw === 'dem' ? 'dem' : '');
-      const badgeHtml = badgeText
-        ? `<span class="focus-glance-badge ${escapeHtml(badgeCls)}">${escapeHtml(badgeText)}</span>`
-        : '';
-      const confHtml = confidence ? renderConfidenceMeterHTML(confidence) : '';
+    function updateFocusEditorial(meta, metrics = {}, candidates = null) {
+      const host = document.getElementById('focus-editorial');
+      if (!host) return;
 
-      const barTone = (() => {
-        const signed = Number(signedMarginPct || 0);
-        if (!Number.isFinite(signed)) return 'neutral';
-        if (signed > 0.25) return 'rep';
-        if (signed < -0.25) return 'dem';
-        return 'neutral';
-      })();
-      const barStrength = (() => {
-        const lvl = String(confidence || '').trim().toLowerCase();
-        if (lvl === 'high') return 'high';
-        if (lvl === 'medium') return 'medium';
-        return 'low';
-      })();
-      const barLabel = (() => {
-        const tier = competitivenessTierMetaFromSignedMarginPct(Number(signedMarginPct || 0));
-        if (tier?.shortLabel) return tier.shortLabel;
-        if (barTone === 'rep') return 'R edge';
-        if (barTone === 'dem') return 'D edge';
-        return 'Even';
-      })();
-      const barPosPct = (() => {
-        const max = 25;
-        const signed = Number(signedMarginPct);
-        if (!Number.isFinite(signed)) return 50;
-        const clamped = Math.max(-max, Math.min(max, signed));
-        return 50 + (clamped / max) * 50;
+      const isPinnedCounty = !!(voteCounterPinned && meta && meta.kind === 'county');
+      if (!isPinnedCounty) {
+        host.style.display = 'none';
+        host.innerHTML = '';
+        return;
+      }
+
+      const contestType = String(meta?.contestType || '').trim();
+      const countyNorm = getCountyNormFromVoteMeta(meta);
+      const demVotes = Number(metrics?.demVotes || 0);
+      const repVotes = Number(metrics?.repVotes || 0);
+      const otherVotes = Number(metrics?.otherVotes || 0);
+      const totalVotes = Number(metrics?.totalVotes || (demVotes + repVotes + otherVotes));
+      const winnerParty = String(metrics?.winnerParty || '').trim() || (repVotes > demVotes ? 'rep' : (demVotes > repVotes ? 'dem' : 'tie'));
+      const absMarginPct = totalVotes > 0 ? Math.abs(((repVotes - demVotes) / totalVotes) * 100) : 0;
+
+      const growth = countyNorm ? getScCountyGrowthMeta(countyNorm) : { ok: false, pct: NaN, line: '' };
+      const archetypeMeta = countyNorm ? classifyScCountyArchetypeForStory(countyNorm, { winnerParty, absMarginPct, growthPct: growth.pct }) : { label: 'County', key: 'unknown' };
+
+      const prevYear = Number(vizPrevCache?.prevYear);
+      const prevTotals = countyNorm ? (vizPrevCache?.prevCountyTotals?.[countyNorm] || null) : null;
+      const prevSigned = prevTotals ? signedMarginPctFromVotes(prevTotals.dem, prevTotals.rep, prevTotals.total) : NaN;
+      const countySigned = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+      const shiftSincePrev = Number.isFinite(prevSigned) ? (countySigned - prevSigned) : NaN;
+      const flippedLast = !!(Number.isFinite(prevSigned) && Math.abs(prevSigned) >= 0.5 && Math.abs(countySigned) >= 0.5 && ((prevSigned > 0 && countySigned < 0) || (prevSigned < 0 && countySigned > 0)));
+
+      const statewideSigned = computeStatewideSignedMarginPctFromCurrentResults(contestType);
+      const delta = countySigned - statewideSigned;
+      const stateLabel = String(countyPopulationEstimates?.statewide?.label || 'South Carolina').trim() || 'South Carolina';
+      const comparedWith = (() => {
+        const abs = Math.abs(delta);
+        if (abs < 0.05) return `Essentially in line with ${stateLabel} overall.`;
+        if (delta > 0) return `${abs.toFixed(1)} points more Republican than ${stateLabel} overall.`;
+        return `${abs.toFixed(1)} points to the left of the statewide result.`;
       })();
 
-      const bullets = [
-        { label: 'Trend', value: trendBullet || '—', isHtml: false },
-        { label: 'Long run', value: longRunBullet || '—', isHtml: false },
-        { label: 'Population', value: populationBullet || '—', isHtml: false }
-      ];
+      const confidence = (() => {
+        let score = 0.0;
+        score += Math.min(1.0, absMarginPct / 20.0) * 0.70;
+        if (flippedLast) score -= 0.25;
+        if (Number.isFinite(shiftSincePrev)) score -= Math.min(1.0, Math.abs(shiftSincePrev) / 8.0) * 0.18;
+        if (absMarginPct < 2.0) score -= 0.18;
+        score = Math.max(0, Math.min(1, score));
+        return score >= 0.72 ? 'High' : (score >= 0.46 ? 'Medium' : 'Low');
+      })();
 
-      const microParts = [];
-      const whyTail = Array.isArray(whyLines) ? whyLines.filter(Boolean) : [];
-      if (whyTail.length) microParts.push(whyTail.join(' '));
-      if (archetypeLabel) microParts.push(`Archetype: ${archetypeLabel}.`);
-      if (comparedWith) microParts.push(`Compared: ${comparedWith}`);
-      if (confidence) microParts.push(`Confidence: ${confidence}.`);
-      const microText = microParts.filter(Boolean).join(' ');
-      const safeWhyHeadline = String(whyHeadline || '').trim();
+      const why = buildWhyItVotesThisWayStory({
+        archetypeMeta,
+        winnerParty,
+        absMarginPct,
+        growthLine: growth.ok ? growth.line : '',
+        prevYear,
+        shiftSincePrev,
+        flippedLast
+      });
 
-      const storyTitle = `The story in ${String(focusName || 'this place').trim() || 'this place'}`;
-      const storySummary = [safeWhyHeadline, ...whyTail].filter(Boolean).join(' ');
-      const storyWatch = String(watchLine || '').trim() || 'Watch whether the next comparable cycle reinforces the current lean or pulls it back toward the center.';
+      const shiftLine = (() => {
+        if (!Number.isFinite(prevYear) || !Number.isFinite(shiftSincePrev)) return 'No prior cycle loaded.';
+        const abs = Math.abs(shiftSincePrev);
+        if (abs < 0.35) return `Essentially unchanged since ${prevYear}.`;
+        return `${shiftSincePrev > 0 ? 'R' : 'D'}+${abs.toFixed(1)} since ${prevYear}.`;
+      })();
 
-      return `
-        <section class="focus-glance ${toneClass}" aria-label="At a glance">
-          <div class="focus-glance-head">
-            <span class="focus-glance-kicker">At a glance</span>
-            <span class="focus-glance-meta">
-              ${badgeHtml}
-              ${confHtml}
-            </span>
+      const repCandidate = stripRunningMateName(String(candidates?.repCandidate || '').trim());
+      const demCandidate = stripRunningMateName(String(candidates?.demCandidate || '').trim());
+      const winnerCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
+      const tierLabel = compactCompetitivenessLabel(absMarginPct, winnerParty);
+      const glanceHeadline = (() => {
+        if (winnerCall.party === 'tie' || absMarginPct < 0.5) return 'Too close to call — a true tossup.';
+        const leader = String(winnerCall.shortLabel || '').trim() || (winnerCall.party === 'rep' ? 'Republican' : 'Democratic');
+        const marginPts = Number.isFinite(winnerCall.marginPct) ? winnerCall.marginPct : absMarginPct;
+        const verb = (() => {
+          if (marginPts < 1.0) return 'edges ahead';
+          if (marginPts < 5.5) return 'leads narrowly';
+          if (marginPts < 10.0) return 'leads';
+          return 'leads comfortably';
+        })();
+        const shiftClause = (() => {
+          if (!Number.isFinite(prevYear) || !Number.isFinite(shiftSincePrev)) return '';
+          if (flippedLast) return ` · flipped since ${prevYear}`;
+          const abs = Math.abs(shiftSincePrev);
+          if (abs < 0.35) return ` · steady since ${prevYear}`;
+          return ` · moved ${shiftSincePrev > 0 ? 'right' : 'left'} since ${prevYear}`;
+        })();
+        return `${leader} ${verb} by ${marginPts.toFixed(1)} points${shiftClause}.`;
+      })();
+
+      host.innerHTML = `
+        <div class="focus-editorial-kicker">At a glance</div>
+        <div class="focus-editorial-headline">${escapeHtml(glanceHeadline)}</div>
+        <div class="focus-editorial-meta" aria-label="Key context">
+          <div class="focus-editorial-line">
+            <span class="focus-editorial-label">Profile</span>
+            <span class="focus-editorial-value">${escapeHtml(tierLabel)} · ${escapeHtml(archetypeMeta.label)} · ${renderConfidenceMeterHTML(confidence)}</span>
           </div>
-          <div class="focus-glance-headline">${escapeHtml(safeWhyHeadline || storyTitle)}</div>
-          <ul class="focus-glance-bullets">
-            ${bullets.map(item => `
-              <li>
-                <span class="focus-glance-label">${escapeHtml(item.label)}:</span>
-                <span class="focus-glance-value">${item.isHtml ? item.value : escapeHtml(item.value)}</span>
-              </li>
-            `).join('')}
-          </ul>
-          ${microText ? `<div class="focus-glance-micro"><strong>Why:</strong> ${escapeHtml(microText)}</div>` : ''}
-        </section>
-        <details class="focus-story-fold" aria-label="Deeper story">
-          <summary>Deeper story</summary>
-          <section class="focus-story ${toneClass}" aria-label="Story details">
-            <div class="focus-story-head">
-              <div class="focus-story-left">
-                <span class="focus-story-kicker">Story details</span>
-                <button class="focus-story-copy" type="button" data-action="copy-story" aria-label="Copy story summary" title="Copy story summary">Copy</button>
-              </div>
-              <div class="focus-story-right">
-                <span class="focus-barometer" data-tone="${escapeHtml(barTone)}" data-strength="${escapeHtml(barStrength)}" aria-label="${escapeHtml(`Barometer: ${barLabel}`)}" title="${escapeHtml('Barometer: partisan lean (dot) + strength (size)')}">
-                  <span>Barometer</span>
-                  <span class="focus-barometer-track" aria-hidden="true">
-                    <span class="focus-barometer-dot" style="left:${barPosPct.toFixed(2)}%;"></span>
-                  </span>
-                  <span>${escapeHtml(barLabel)}</span>
-                </span>
-              </div>
-            </div>
-            <h3 class="focus-story-title">${escapeHtml(storyTitle)}</h3>
-            <p class="focus-story-summary">${escapeHtml(storySummary || safeWhyHeadline || '')}</p>
-            <div class="focus-story-grid" aria-hidden="true">
-              <div class="focus-story-mini"><span class="k">Archetype</span><span class="v">${escapeHtml(archetypeLabel || '—')}</span></div>
-              <div class="focus-story-mini compare"><span class="k">Compared</span><span class="v">${escapeHtml(comparedWith || '—')}</span></div>
-              <div class="focus-story-mini"><span class="k">Confidence</span><span class="v">${escapeHtml(confidence || '—')}</span></div>
-              <div class="focus-story-mini"><span class="k">Trend</span><span class="v">${escapeHtml(trendBullet || shiftLine || '—')}</span></div>
-            </div>
-            <p class="focus-story-watch"><strong>What to watch next:</strong> ${escapeHtml(storyWatch)}</p>
-          </section>
+          <div class="focus-editorial-line">
+            <span class="focus-editorial-label">Signal</span>
+            <span class="focus-editorial-value small">${escapeHtml(comparedWith)} · ${escapeHtml(shiftLine)}</span>
+          </div>
+        </div>
+        <details class="focus-editorial-details">
+          <summary>Why it votes this way</summary>
+          <div class="focus-editorial-details-body">
+            <div class="focus-editorial-why-head">${escapeHtml(why.headline)}</div>
+            ${why.lines && why.lines.length ? `<div class="focus-editorial-why-lines">${why.lines.map(line => `<div>${escapeHtml(line)}</div>`).join('')}</div>` : ''}
+          </div>
         </details>
       `;
-    }
-
-    async function copyTextToClipboard(text) {
-      const value = String(text || '').trim();
-      if (!value) return false;
-      try {
-        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
-          await navigator.clipboard.writeText(value);
-          return true;
-        }
-      } catch (_) {}
-      try {
-        const ta = document.createElement('textarea');
-        ta.value = value;
-        ta.setAttribute('readonly', '');
-        ta.style.position = 'fixed';
-        ta.style.top = '-1000px';
-        ta.style.left = '-1000px';
-        document.body.appendChild(ta);
-        ta.select();
-        ta.setSelectionRange(0, ta.value.length);
-        const ok = document.execCommand && document.execCommand('copy');
-        document.body.removeChild(ta);
-        return !!ok;
-      } catch (_) {
-        return false;
-      }
+      host.style.display = 'block';
     }
 
     function updateVoteCounter(demVotes, repVotes, otherVotes = 0, candidates = null, meta = null) {
@@ -9265,147 +9277,17 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .join('');
 
-      const viralFocusHtml = (() => {
-        const focusKind = String(options?.focusKind || '').trim().toLowerCase();
-        if (focusKind !== 'county') return '';
-        const countyNormRaw = String(options?.county || '').trim();
-        if (!countyNormRaw) return '';
-
-        const winnerParty = summaryEntry?.winnerMeta?.partyClass || 'tie';
-        const absMarginPct = Math.abs(Number(summaryEntry?.signedPct || 0));
-        const badge = (() => {
-          const flip = summaryEntry?.flip || null;
-          const selectedYear = Number(summaryEntry?.item?.year);
-          const latestYear = Number(latest?.item?.year);
-          if (!flip || !flip.flipped || !Number.isFinite(selectedYear) || !Number.isFinite(latestYear) || selectedYear !== latestYear) return null;
-          const to = String(flip.to || '').trim().toUpperCase();
-          if (to === 'R') return { cls: 'rep', text: 'Recent flip → R' };
-          if (to === 'D') return { cls: 'dem', text: 'Recent flip → D' };
-          return { cls: 'neutral', text: 'Recent flip' };
-        })();
-
-        let countyNorm = normalizeCountyToken(countyNormRaw);
-        if (/\sCOUNTY$/i.test(countyNorm)) countyNorm = countyNorm.replace(/\s+COUNTY$/i, '').trim();
-
-        const contestType = String(options?.contestType || '').trim();
-        const countySigned = Number(summaryEntry?.signedPct || 0);
-        const statewideSigned = contestType ? computeStatewideSignedMarginPctFromCurrentResults(contestType) : 0;
-        const delta = countySigned - statewideSigned;
-        const stateLabel = String(countyPopulationEstimates?.statewide?.label || 'South Carolina').trim() || 'South Carolina';
-        const comparedWith = (() => {
-          const abs = Math.abs(delta);
-          if (!Number.isFinite(abs) || abs < 0.05) return `Essentially in line with ${stateLabel} overall.`;
-          if (delta > 0) return `${abs.toFixed(1)} points more Republican than ${stateLabel} overall.`;
-          return `${abs.toFixed(1)} points to the left of the statewide result.`;
-        })();
-
-        const growth = countyNorm ? getScCountyGrowthMeta(countyNorm) : { ok: false, pct: NaN, line: '' };
-        const prevYear = Number(summaryEntry?.prev?.item?.year);
-        const prevSigned = Number(summaryEntry?.prev?.signedPct);
-        const shiftSincePrev = Number.isFinite(prevSigned) ? (countySigned - prevSigned) : NaN;
-        const flippedLast = !!(summaryEntry?.flip && summaryEntry.flip.flipped);
-
-        const explosiveGrowth = growth?.ok && Number.isFinite(Number(growth.pct)) && Number(growth.pct) >= 5.0;
-        const baseYearNum = Number(earliest?.item?.year);
-        const recentEraOk = Number.isFinite(baseYearNum) ? baseYearNum >= 2000 : true;
-        const realignmentShift = Number.isFinite(longShiftTowardGop) && Math.abs(longShiftTowardGop) >= 3.0;
-
-        const confidence = (() => {
-          let score = 0.0;
-          score += Math.min(1.0, absMarginPct / 20.0) * 0.70;
-          if (flippedLast) score -= 0.25;
-          if (Number.isFinite(shiftSincePrev)) score -= Math.min(1.0, Math.abs(shiftSincePrev) / 8.0) * 0.18;
-          if (absMarginPct < 2.0) score -= 0.18;
-          score = Math.max(0, Math.min(1, score));
-          let level = score >= 0.72 ? 'High' : (score >= 0.46 ? 'Medium' : 'Low');
-          if (explosiveGrowth && realignmentShift && recentEraOk) level = 'High';
-          return level;
-        })();
-
-        const archetypeMeta = countyNorm
-          ? classifyScCountyArchetypeForStory(countyNorm, { winnerParty, absMarginPct, growthPct: Number(growth?.pct) })
-          : { label: 'County', key: 'unknown' };
-
-        const safeOrGreater = absMarginPct >= 10.0;
-        const prevAbs = Number.isFinite(prevSigned) ? Math.abs(prevSigned) : NaN;
-        const leapToSafe = (
-          Number.isFinite(prevAbs) &&
-          prevAbs >= 0.5 &&
-          prevAbs < 5.5 &&
-          absMarginPct >= 10.0 &&
-          Number.isFinite(prevSigned) &&
-          Number.isFinite(countySigned) &&
-          Math.sign(prevSigned) === Math.sign(countySigned)
-        );
-        const flipNarrowToSafe = (
-          flippedLast &&
-          Number.isFinite(prevAbs) &&
-          prevAbs < 2.0 &&
-          absMarginPct >= 10.0
-        );
-        const reinforceGrowth = explosiveGrowth && safeOrGreater && !(explosiveGrowth && realignmentShift && recentEraOk);
-        const reinforceLine = leapToSafe
-          ? 'The margin jumped from lean/tilt to safe in one cycle, reinforcing the current partisan lean.'
-          : (flipNarrowToSafe
-            ? 'After a narrow flip last cycle, the result snapped back to a safe margin — a clear consolidation.'
-            : '');
-
-        const why = buildWhyItVotesThisWayStory({
-          archetypeMeta,
-          winnerParty,
-          absMarginPct,
-          growthLine: growth?.ok ? String(growth.line || '') : '',
-          prevYear,
-          shiftSincePrev,
-          flippedLast,
-          reinforceGrowth,
-          reinforceLine
-        });
-        const realignHeadline = (explosiveGrowth && realignmentShift && recentEraOk)
-          ? `Explosive growth has reshaped the electorate and pushed this county ${longShiftTowardGop >= 0 ? 'toward the GOP' : 'toward Democrats'}.`
-          : '';
-
-        const shiftLine = (() => {
-          const raw = String(summaryEntry?.shiftMeta?.text || '').trim();
-          if (!raw) return '';
-          return raw.replace(/^Shift:\s*/i, '');
-        })();
-        const longRunBullet = (() => {
-          const raw = String(longShiftMeta?.text || '').trim();
-          if (!raw) return '';
-          return raw.replace(/^Shift:\s*/i, '');
-        })();
-        const populationBullet = growth?.ok ? String(growth.line || '').trim() : '';
-
-        const watchLine = (() => {
-          if (flippedLast && Number.isFinite(prevYear)) return `Next comparable cycle: does the ${winnerParty === 'rep' ? 'GOP' : (winnerParty === 'dem' ? 'Democratic' : 'new')} win hold, or does it snap back?`;
-          if (absMarginPct < 0.5) return 'True coin-flip territory: tiny turnout shifts can change the winner.';
-          if (absMarginPct < 5.5) return 'Small swings can change the winner — watch whether it breaks clearly toward one side.';
-          if (growth?.ok && Number.isFinite(Number(growth.pct)) && Math.abs(Number(growth.pct)) >= 3.0) return 'Watch whether population change shows up as a tighter margin in the next cycle.';
-          return 'Watch whether the next comparable cycle reinforces the current lean or pulls it back toward the statewide center.';
-        })();
-
-        return buildScViralFocusBlock({
-          focusName: String(options?.focusName || '').trim() || displayCountyName(countyNorm),
-          winnerParty,
-          badge,
-          signedMarginPct: countySigned,
-          trendBullet: shiftLine,
-          longRunBullet,
-          populationBullet,
-          archetypeLabel: String(archetypeMeta?.label || '').trim(),
-          comparedWith,
-          confidence,
-          whyHeadline: (realignHeadline || String(why?.headline || '').trim()),
-          whyLines: Array.isArray(why?.lines) ? why.lines : [],
-          growthLine: growth?.ok ? String(growth.line || '').trim() : '',
-          shiftLine,
-          watchLine
-        });
-      })();
+      const deepCollapse = !!options?.deepCollapse;
+      const deepOpen = !!options?.deepOpen;
+      const deepLabel = String(options?.deepLabel || 'Trajectory, census, and full history').trim() || 'Trajectory, census, and full history';
+      const deepBody = `
+        ${trajectoryHtml}
+        ${censusCheckHtml}
+        ${censusHtml}
+        <div class="focus-trend-list">${cards}</div>
+      `;
 
       chartEl.innerHTML = `
-        ${viralFocusHtml}
         <div class="focus-trend-plot">
           <div class="focus-trend-summary">
             <div class="focus-trend-summary-copy">
@@ -9424,16 +9306,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span class="focus-trend-stat-value ${closest.winnerMeta.partyClass}">${escapeHtml(`${closest.item.year}: ${winnerMarginLabelFn(closest.repVotes, closest.demVotes, closest.totalVotes, closest.item.rep_candidate, closest.item.dem_candidate)}`)}</span>
               </div>
               <div class="focus-trend-stat">
-                <span class="focus-trend-stat-label">History</span>
-                <span class="focus-trend-stat-value tie">${escapeHtml(`${earliest.item.year}\u2013${latest.item.year} (${annotated.length} elections)`)}</span>
+                <span class="focus-trend-stat-label">Since ${escapeHtml(earliest.item.year)}</span>
+                <span class="focus-trend-stat-value ${historyShift.cls}">${escapeHtml(historyShift.text)}</span>
               </div>
             </div>
           </div>
         </div>
-        ${trajectoryHtml}
-        ${censusCheckHtml}
-        ${censusHtml}
-        <div class="focus-trend-list">${cards}</div>
+        ${deepCollapse ? `
+          <details class="focus-trend-deep" ${deepOpen ? 'open' : ''}>
+            <summary>${escapeHtml(deepLabel)}</summary>
+            <div class="focus-trend-deep-body">${deepBody}</div>
+          </details>
+        ` : deepBody}
       `;
       try { updateMobileOverlayOffsets(); } catch (_) {}
     }
@@ -9533,14 +9417,18 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         let series = [];
         const trendOptions = {};
+        let censusContext = null;
         trendOptions.selectedYear = Number(year);
         trendOptions.contestType = contestType;
         trendOptions.marginPrecision = meta.kind === 'county' ? 'county' : 'default';
         trendOptions.focusKind = meta.kind || '';
-        if (meta.kind === 'county' && meta.county) trendOptions.focusName = displayCountyName(meta.county);
+        trendOptions.deepCollapse = meta.kind === 'county';
+        trendOptions.deepOpen = false;
+        if (meta.kind === 'county') trendOptions.deepLabel = 'Trajectory, census, and full history';
         if ((meta.kind === 'county' || meta.kind === 'precinct') && meta.county) {
           trendOptions.county = meta.county;
-          trendOptions.censusContext = getScCensusContext(meta.county);
+          censusContext = getScCensusContext(meta.county);
+          trendOptions.censusContext = censusContext;
         }
         if (meta.kind === 'county' && meta.county) {
           series = await getCountyTrendSeries(contestType, meta.county);
@@ -9566,7 +9454,21 @@ document.addEventListener('DOMContentLoaded', function() {
           series = await getStatewideTrendSeries(contestType);
         }
         if (meta.kind !== 'statewide' && series && series.length) {
-          trendOptions.trajectoryMeta = classifyCountyTrajectory(series);
+          const trajectoryUnit = meta.kind === 'district'
+            ? 'district'
+            : (meta.kind === 'region'
+              ? 'region'
+              : (meta.kind === 'precinct' ? (trendOptions.fallbackBadge ? 'county' : 'precinct') : 'county'));
+          let trajectoryMeta = classifyCountyTrajectory(series, trajectoryUnit);
+
+          if (trajectoryUnit === 'county' && meta.county) {
+            const resolvedCensus = getScCensusContext(meta.county, trajectoryMeta);
+            censusContext = resolvedCensus;
+            trendOptions.censusContext = resolvedCensus;
+            trajectoryMeta = applyScCensusContextToTrajectoryMeta(trajectoryMeta, resolvedCensus);
+          }
+
+          trendOptions.trajectoryMeta = trajectoryMeta;
         }
         if (reqId !== voteCounterTrendRequestId) return;
         renderFocusTrendSeries(series, baseCaption, trendOptions);
@@ -9807,6 +9709,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const startMinimized = (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) || window.innerWidth <= 768;
         setVoteCounterMinimizedState(startMinimized);
       }
+      const shareBtn = document.getElementById('share-link-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', async (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const shareUrl = buildShareUrlFromCurrentState();
+          const ok = await copyTextToClipboard(shareUrl);
+          if (!ok) return;
+          const original = shareBtn.innerHTML;
+          shareBtn.textContent = '✓';
+          setTimeout(() => { try { shareBtn.innerHTML = original; } catch (_) {} }, 1200);
+        }, { passive: false });
+      }
       window.addEventListener('resize', queueVoteBreakdownLayoutMeasure, { passive: true });
       queueVoteBreakdownLayoutMeasure();
 
@@ -9849,6 +9764,33 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => { try { btn.innerHTML = original; } catch (_) {} }, 1200);
       }, { passive: false });
     });
+
+    async function copyTextToClipboard(text) {
+      const value = String(text || '').trim();
+      if (!value) return false;
+      try {
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          await navigator.clipboard.writeText(value);
+          return true;
+        }
+      } catch (_) {}
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = value;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.top = '-1000px';
+        ta.style.left = '-1000px';
+        document.body.appendChild(ta);
+        ta.select();
+        ta.setSelectionRange(0, ta.value.length);
+        const ok = document.execCommand && document.execCommand('copy');
+        document.body.removeChild(ta);
+        return !!ok;
+      } catch (_) {
+        return false;
+      }
+    }
 
     async function loadJSON(path) {
       const r = await fetch(path);
@@ -10546,6 +10488,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (sel) sel.disabled = loading;
       } catch (_) {}
       try {
+        // Prevent conflicting interactions while a contest switch is mid-flight.
         const btns = document.querySelectorAll('.view-toggle-btn, .viz-mode-btn, #precinct-toggle');
         btns.forEach(btn => { try { btn.disabled = loading; } catch (_) {} });
       } catch (_) {}
@@ -12214,8 +12157,119 @@ document.addEventListener('DOMContentLoaded', function() {
       return out;
     }
 
+    function applyScCensusContextToTrajectoryMeta(trajectoryMeta, censusContext) {
+      if (!trajectoryMeta || typeof trajectoryMeta !== 'object') return trajectoryMeta;
+      const context = censusContext && typeof censusContext === 'object' ? censusContext : null;
+      if (!context) return trajectoryMeta;
 
-    function classifyCountyTrajectory(series) {
+      const meta = { ...trajectoryMeta };
+
+      const patternEmoji = String(context.patternEmoji || '').trim();
+      const patternLabel = String(context.patternLabel || '').trim();
+      const growthDynamic = `${patternEmoji} ${patternLabel}`.trim();
+      if (growthDynamic && patternLabel && !/^Could not read\b/i.test(patternLabel)) meta.growthDynamic = growthDynamic;
+
+      const note = String(context.noteLabel || '').trim();
+      if (note) {
+        meta.censusCheck = note.replace(/^Census check:\s*/i, '').trim();
+      }
+
+      return meta;
+    }
+
+    function getScPopulationDeltaLine(countyNormOrName) {
+      const raw = String(countyNormOrName || '').trim();
+      if (!raw) return '';
+      let norm = '';
+      try {
+        norm = normalizeCountyToken(raw).replace(/\s+COUNTY$/i, '').trim();
+      } catch (_) {
+        norm = raw.replace(/\s+COUNTY$/i, '').trim().toUpperCase();
+      }
+      if (!norm) return '';
+
+      const pop = countyPopulationEstimates?.counties?.[norm] || null;
+      if (!pop) return '';
+      const latestYear = Number(countyPopulationEstimates?.latestYear || 2025);
+      const estimates = pop.estimates || {};
+      if (!estimates || typeof estimates !== 'object') return '';
+
+      const y2020 = Number.isFinite(Number(estimates[2020])) ? 2020 : null;
+      const y2024 = Number.isFinite(Number(estimates[2024])) ? 2024 : null;
+      const y2025 = Number.isFinite(Number(estimates[2025])) ? 2025 : (Number.isFinite(Number(estimates[latestYear])) ? latestYear : null);
+      const resolved2020 = y2020;
+      const resolved2024 = y2024 || (Number.isFinite(Number(estimates[latestYear - 1])) ? (latestYear - 1) : null);
+      const resolved2025 = y2025;
+      if (!Number.isFinite(Number(resolved2020)) || !Number.isFinite(Number(resolved2024)) || !Number.isFinite(Number(resolved2025))) return '';
+
+      const pop2020 = Number(estimates[resolved2020]);
+      const pop2024 = Number(estimates[resolved2024]);
+      const pop2025 = Number(estimates[resolved2025]);
+      if (!Number.isFinite(pop2020) || !Number.isFinite(pop2024) || !Number.isFinite(pop2025)) return '';
+
+      const delta2020to2024 = Math.round(pop2024 - pop2020);
+      const delta2024to2025 = Math.round(pop2025 - pop2024);
+      const fmtDelta = (v) => `${v >= 0 ? '+' : '−'}${Math.abs(v).toLocaleString()}`;
+      return `Pop change: ${fmtDelta(delta2020to2024)} (${resolved2020}\u2192${resolved2024})\nPop change: ${fmtDelta(delta2024to2025)} (${resolved2024}\u2192${resolved2025})`;
+    }
+
+    function formatSignedCount(value) {
+      const v = Math.round(Number(value) || 0);
+      const abs = Math.abs(v);
+      const sign = v >= 0 ? '+' : '−';
+      return `${sign}${abs.toLocaleString()}`;
+    }
+
+    function buildTooltipDeltaInsightHTML({
+      voteShiftDeltaVotes = NaN,
+      voteShiftPrevYear = null,
+      repDeltaVotes = NaN,
+      demDeltaVotes = NaN,
+      populationLine = ''
+    } = {}) {
+      const lines = [];
+      const prevYear = Number(voteShiftPrevYear);
+      const deltaVotes = Number(voteShiftDeltaVotes);
+
+      if (Number.isFinite(prevYear)) {
+        const repDelta = Number(repDeltaVotes);
+        const demDelta = Number(demDeltaVotes);
+        const hasRep = Number.isFinite(repDelta);
+        const hasDem = Number.isFinite(demDelta);
+        if (hasRep || hasDem) {
+          const parts = [];
+          if (hasRep) parts.push(`<span class="rep">R ${escapeHtml(formatSignedCount(repDelta))}</span>`);
+          if (hasDem) parts.push(`<span class="dem">D ${escapeHtml(formatSignedCount(demDelta))}</span>`);
+          lines.push(`Votes \u0394 since ${escapeHtml(prevYear)}: ${parts.join(' \u2022 ')}`);
+        }
+
+        if (Number.isFinite(deltaVotes)) {
+          const signed = Math.round(deltaVotes);
+          const abs = Math.abs(signed);
+          if (abs < 1) {
+            lines.push(`Margin (R\u2212D): <span class="tie">unchanged</span> since ${escapeHtml(prevYear)}.`);
+          } else {
+            const party = signed > 0 ? 'R' : 'D';
+            const cls = signed > 0 ? 'rep' : 'dem';
+            lines.push(`Margin (R\u2212D): <span class="${cls}">${party} ${escapeHtml(formatSignedCount(abs))}</span> since ${escapeHtml(prevYear)}.`);
+          }
+        }
+      }
+      const popLine = String(populationLine || '').trim();
+      if (popLine) {
+        popLine
+          .split('\n')
+          .map(s => String(s || '').trim())
+          .filter(Boolean)
+          .map(s => s.replace(/^pop change:/i, 'Population:'))
+          .forEach(s => lines.push(escapeHtml(s)));
+      }
+      if (!lines.length) return '';
+      return `<div class="tooltip-delta" aria-label="Vote and population deltas">${lines.map(line => `<div class="tooltip-delta-line">${line}</div>`).join('')}</div>`;
+    }
+
+
+    function classifyCountyTrajectory(series, unitNoun = 'county') {
       if (!Array.isArray(series) || !series.length) {
         return {
           status: 'No trajectory data',
@@ -12380,30 +12434,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
 
-      let meaning = 'Both parties are close enough here that turnout or persuasion can still move the county.';
+      const noun = String(unitNoun || 'county').trim() || 'county';
+      let meaning = `Both parties are close enough here that turnout or persuasion can still move the ${noun}.`;
       if (originKey === 'Realigned') {
         if (side === 'Republican') {
-          meaning = 'Major long-term realignment toward Republicans has moved this county firmly into the GOP column.';
+          meaning = `Major long-term realignment toward Republicans has moved this ${noun} firmly into the GOP column.`;
         } else if (side === 'Democratic') {
-          meaning = 'Major long-term realignment toward Democrats has moved this county firmly into the Democratic column.';
+          meaning = `Major long-term realignment toward Democrats has moved this ${noun} firmly into the Democratic column.`;
         } else {
-          meaning = 'A major long-term realignment has made this county genuinely competitive.';
+          meaning = `A major long-term realignment has made this ${noun} genuinely competitive.`;
         }
       } else if (originKey === 'Emerging') {
         if (side === 'Republican') {
-          meaning = 'Republicans currently lead here, but the county is still emerging into that alignment over time.';
+          meaning = `Republicans currently lead here, but the ${noun} is still emerging into that alignment over time.`;
         } else if (side === 'Democratic') {
-          meaning = 'Democrats currently lead here, but the county is still emerging into that alignment over time.';
+          meaning = `Democrats currently lead here, but the ${noun} is still emerging into that alignment over time.`;
         } else {
-          meaning = 'The county is moving, but its longer-run direction is still unsettled.';
+          meaning = `The ${noun} is moving, but its longer-run direction is still unsettled.`;
         }
       } else if (originKey === 'Reinforcing') {
         if (side === 'Republican') {
-          meaning = 'Republicans already led here, and recent cycles are reinforcing that edge rather than weakening it.';
+          meaning = `Republicans already led here, and recent cycles are reinforcing that edge rather than weakening it.`;
         } else if (side === 'Democratic') {
-          meaning = 'Democrats already led here, and recent cycles are reinforcing that edge rather than weakening it.';
+          meaning = `Democrats already led here, and recent cycles are reinforcing that edge rather than weakening it.`;
         } else {
-          meaning = "Recent cycles are reinforcing the county's competitive balance rather than breaking it open.";
+          meaning = `Recent cycles are reinforcing the ${noun}'s competitive balance rather than breaking it open.`;
         }
       } else {
         if (side === 'Republican') {
@@ -12428,6 +12483,10 @@ document.addEventListener('DOMContentLoaded', function() {
         originKey,
         side,
         position,
+        subtype: '',
+        transitionStage: '',
+        growthDynamic: '',
+        censusCheck: '',
         details: [
           { label: 'Latest Result', value: formatWinnerLabel(latest, latestSigned), role: 'latest' },
           ...(previous ? [{ label: cycleShiftLabel, value: formatShiftLabel(recentShiftTowardGop), role: 'shift' }] : []),
@@ -12952,6 +13011,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const iconToneClass = trajectoryToneClass(meta.iconTone || 'neutral');
       const trendText = String(meta.trend || '↔ Little directional change');
       const meaningText = String(meta.meaning || '').trim();
+      const subtypeText = String(meta.subtype || '').trim();
+      const stageText = String(meta.transitionStage || '').trim();
+      const growthDynamicText = String(meta.growthDynamic || '').trim();
 
       // Normalize legacy diagonal arrows to horizontal so direction is always shown left/right.
       const normalizeTrajectoryArrow = (arrow) => {
@@ -12990,12 +13052,14 @@ document.addEventListener('DOMContentLoaded', function() {
       return `
         <div class="focus-trajectory status-${statusClass}" role="group" aria-label="Trajectory summary">
           <div class="focus-trajectory-head">
-            <span class="focus-trajectory-kicker">Trajectory Snapshot</span>
+            <span class="focus-trajectory-kicker">Long-term trend</span>
             <span class="focus-trajectory-status ${statusToneClass}">${iconText ? `<span class="trajectory-icon ${iconToneClass}">${escapeHtml(iconText)}</span>` : ""}${escapeHtml(statusText)}</span>
+            ${subtypeText ? `<span class="focus-trajectory-subtype">${escapeHtml(subtypeText)}</span>` : ''}
+            ${stageText ? `<span class="focus-trajectory-stage">${escapeHtml(stageText)}</span>` : ''}
           </div>
           ${meaningText ? `<p class="focus-trajectory-summary">${escapeHtml(meaningText)}</p>` : ''}
           <p class="focus-trajectory-trendline ${trendToneClass}">
-            <span class="trend-tag">Momentum</span>
+            <span class="trend-tag">Recent direction</span>
             <span class="trend-text">
               ${trendArrow ? `<span class="focus-trajectory-arrow is-trend ${trendToneClass} ${trendMomentumClass}">${escapeHtml(trendArrow)}</span>` : ''}
               ${escapeHtml(trendBody)}
@@ -13010,7 +13074,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const arrowMatch = valueRaw.trim().match(/^([←→↔↗↘])\s*/);
                 const arrow = arrowMatch ? normalizeTrajectoryArrow(arrowMatch[1]) : '';
                 const valueBody = arrow ? valueRaw.trim().replace(/^([←→↔↗↘])\s*/, '') : valueRaw;
-                const rowRole = label.toLowerCase() === 'latest result' ? 'latest' : 'shift';
+                const rowRole = String(item?.role || '').trim().toLowerCase() || (label.toLowerCase() === 'latest result' ? 'latest' : 'shift');
                 return `
                 <div class="focus-trajectory-item ${tone} ${rowRole}">
                   <span class="focus-trajectory-label">${escapeHtml(label)}</span>
@@ -13018,6 +13082,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ${arrow ? `<span class="focus-trajectory-arrow ${tone}">${escapeHtml(arrow)}</span>` : ''}
                     ${escapeHtml(valueBody)}
                   </span>
+                  ${(rowRole === 'latest' && growthDynamicText) ? `<span class="focus-trajectory-growth">${escapeHtml(growthDynamicText)}</span>` : ''}
                 </div>
               `;
               }).join('')}
@@ -13810,7 +13875,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (totalVotes <= 0) {
         const hoverTitle = buildTooltipTitleWithTier(`${districtLabel} ${districtNum}`);
         showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle,
-          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>'));
+          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>' + districtCvapHTML));
         wireTooltipButtons();
         return;
       }
@@ -14139,7 +14204,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function showCountyDetails(countyName) {
-      // --- NC Map Card-Style Sidebar ---
+      // --- County focus briefing card ---
       const sidebar = document.getElementById('sidebar');
       let sidebarContent = '';
       const detailsDiv = document.getElementById('county-details');
@@ -14152,8 +14217,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (sidebarContentEl) sidebarContentEl.style.display = 'block';
         const floatBtn = document.getElementById('sidebar-float-toggle');
         if (floatBtn) {
-          floatBtn.textContent = '-';
-          floatBtn.title = 'Minimize sidebar';
+          floatBtn.textContent = 'Focus';
+          floatBtn.title = 'Open County Focus';
         }
         const btn = document.getElementById('sidebar-minimize-btn');
         if (btn) {
@@ -14636,7 +14701,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
           }
 
-          const trajectoryMeta = classifyCountyTrajectory(series);
+          let trajectoryMeta = classifyCountyTrajectory(series, 'county');
+          try {
+            const censusContext = getScCensusContext(norm, trajectoryMeta);
+            trajectoryMeta = applyScCensusContextToTrajectoryMeta(trajectoryMeta, censusContext);
+          } catch (_) {}
           if (trajEl) trajEl.innerHTML = renderTrajectoryBlockHTML(trajectoryMeta);
           if (censusSlot) {
             try { censusSlot.innerHTML = renderCountyPopulationInsightHTML(norm, trajectoryMeta); } catch (_) {}
@@ -16506,7 +16575,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const last = voteCounterLastHover;
           if (!last || !last.meta) return;
           try {
-            const pinnedTitle = String(last.title || '').replace(/^Hover:\s*/i, '').trim();
+            const pinnedTitle = String(last.title || '').replace(/^Hover:\s*/i, 'Selected: ');
             pinVoteCounterState(
               pinnedTitle,
               last.sub,
@@ -17293,7 +17362,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const by = __cvapAgg.byDistrictByScope && __cvapAgg.byDistrictByScope[s] ? __cvapAgg.byDistrictByScope[s] : null;
       return by && by[n] ? by[n] : null;
     }
-
     function getCvapTotalsForDistrictSync(scope, districtNum) {
       const s = String(scope || '').trim().toLowerCase();
       const n = String(Number(districtNum));
@@ -18029,7 +18097,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	      function normalizeCountyName(name) {
 	        return (name || '')
 	          .toString()
-            .replace(/\s+COUNTY$/i, '')
+	          .replace(/\s+COUNTY$/i, '')
 	          .replace(/[^a-z0-9 .\-]/gi, '')
 	          .replace(/\s+/g, ' ')
 	          .trim()
@@ -18713,8 +18781,8 @@ document.addEventListener('DOMContentLoaded', function() {
       
       map.setPaintProperty('district-fill', 'fill-color', expr);
       setVoteCounterBaselineState('Statewide', `${formatContestName(contestType, year)} ${year}`, totals.dem, totals.rep, totalOther, { kind: 'statewide', contestType, year: Number(year) });
-  setStatewideContestTitle(`US House (${year})`);
-      setStatus(`Applied contest: NC US House ${year}`);
+      setStatewideContestTitle(`${formatContestName(contestType, year)} (${year})`);
+      setStatus(`Applied contest: ${formatContestName(contestType, year)} ${year}`);
     }
 
     async function applyStatewideContestToDistricts(contestType, year) {
