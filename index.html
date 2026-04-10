@@ -140,7 +140,7 @@
       left: 8px !important;
       right: 8px !important;
       top: auto !important;
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 8px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 8px) !important;
       max-width: none !important;
       width: auto !important;
       max-height: 42vh;
@@ -1551,7 +1551,7 @@ body { height: var(--app-height); }
   .viz-modes {
     position: fixed;
     top: auto;
-    bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 8px);
+    bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 8px);
     left: 50%;
     transform: translateX(-50%);
     padding: 6px;
@@ -1722,11 +1722,15 @@ body { height: var(--app-height); }
   .vote-counter {
     position: fixed;
     top: auto;
-    bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 58px);
+    bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 58px);
     min-width: auto;
     width: min(92vw, 420px);
     max-width: 92vw;
     padding: 12px 14px;
+    max-height: min(52vh, 520px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
   .vote-counter-row { gap: 14px; }
   .vote-count { font-size: 20px; }
@@ -2128,6 +2132,27 @@ body { height: var(--app-height); }
     color: rgba(226, 232, 240, 0.92);
   }
 
+  .hover-tooltip .tooltip-delta {
+    margin-top: 8px;
+    font-size: 11.5px;
+    line-height: 1.35;
+    color: rgba(226, 232, 240, 0.92);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hover-tooltip .tooltip-delta-line {
+    margin-top: 4px;
+    color: rgba(226, 232, 240, 0.92);
+  }
+
+  .hover-tooltip .tooltip-delta-line:first-child {
+    margin-top: 0;
+  }
+
+  .hover-tooltip .tooltip-delta-line .rep { color: #fecaca; font-weight: 850; }
+  .hover-tooltip .tooltip-delta-line .dem { color: #bfdbfe; font-weight: 850; }
+  .hover-tooltip .tooltip-delta-line .tie { color: rgba(226, 232, 240, 0.92); font-weight: 850; }
+
   .hover-tooltip .tooltip-more {
     margin-top: 10px;
     padding-top: 10px;
@@ -2507,11 +2532,11 @@ body { height: var(--app-height); }
     }
 
     html.android-mobile .vote-counter {
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 58px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 58px) !important;
     }
 
     html.android-mobile #hover-tooltip {
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 8px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 8px) !important;
     }
 
     .contest-toolbar {
@@ -5028,7 +5053,7 @@ body { height: var(--app-height); }
       right: 12px !important;
       width: auto !important;
       max-width: none !important;
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 68px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 68px) !important;
       transform: none !important;
     }
 
@@ -6567,7 +6592,7 @@ body { height: var(--app-height); }
     .vote-counter {
       left: 8px !important;
       right: 8px !important;
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 56px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 56px) !important;
     }
 
     .control-group select,
@@ -6593,7 +6618,7 @@ body { height: var(--app-height); }
     }
 
     .vote-counter {
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 50px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 50px) !important;
     }
   }
 
@@ -6717,6 +6742,13 @@ body { height: var(--app-height); }
   @media (min-width: 769px) {
     .mobile-thumb-dock {
       display: none !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* Selected/pinned geography: keep the vote counter closer to the dock (less map occlusion). */
+    .vote-counter[data-selected="1"] {
+      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 10px) !important;
     }
   }
 
@@ -8911,6 +8943,14 @@ document.addEventListener('DOMContentLoaded', function() {
     let voteCounterLastHover = null; // {title, sub, demVotes, repVotes, otherVotes, candidates, meta}
     let voteCounterUserMinimized = false; // respects user choice (auto-minimize on mobile is not a "choice")
 
+    function setVoteCounterSelectedState(selected) {
+      const counter = document.getElementById('vote-counter');
+      if (!counter) return;
+      if (selected) counter.setAttribute('data-selected', '1');
+      else counter.removeAttribute('data-selected');
+      try { updateMobileOverlayOffsets(); } catch (_) {}
+    }
+
     function getCountyNormFromVoteMeta(meta) {
       const raw = String(meta?.county || '').trim();
       if (!raw) return '';
@@ -9579,6 +9619,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function setVoteCounterBaselineState(title, sub, demVotes, repVotes, otherVotes, meta = null, candidates = null) {
       voteCounterBaseline = { title, sub, demVotes, repVotes, otherVotes, meta, candidates };
+      setVoteCounterSelectedState(false);
       if (!voteCounterPinned) {
         setVoteCounterContext(title, sub, { showClear: false, meta });
         updateVoteCounter(demVotes, repVotes, otherVotes, candidates, meta);
@@ -9590,6 +9631,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function pinVoteCounterState(title, sub, demVotes, repVotes, otherVotes, meta = null, candidates = null) {
       voteCounterPinned = { title, sub, demVotes, repVotes, otherVotes, meta, candidates };
       voteCounterHoverActive = false;
+      setVoteCounterSelectedState(true);
       setVoteCounterContext(title, sub, { showClear: true, meta });
       if (!voteCounterUserMinimized) {
         try { setVoteCounterMinimizedState(false); } catch (_) {}
@@ -9602,6 +9644,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function clearPinnedVoteCounterState() {
       voteCounterPinned = null;
       voteCounterHoverActive = false;
+      setVoteCounterSelectedState(false);
       try { clearSelectedPrecinctNorm(); } catch (_) {}
       if (voteCounterBaseline) {
         setVoteCounterContext(voteCounterBaseline.title, voteCounterBaseline.sub, { showClear: false, meta: voteCounterBaseline.meta });
@@ -9625,6 +9668,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (voteCounterPinned) return; // don't override a pinned selection
       voteCounterHoverActive = true;
       voteCounterLastHover = { title, sub, demVotes, repVotes, otherVotes, candidates, meta };
+      setVoteCounterSelectedState(false);
       setVoteCounterContext(title, sub, { showClear: false, meta });
       updateVoteCounter(demVotes, repVotes, otherVotes, candidates, meta);
     }
@@ -13115,27 +13159,34 @@ document.addEventListener('DOMContentLoaded', function() {
         const hasDem = Number.isFinite(demDelta);
         if (hasRep || hasDem) {
           const parts = [];
-          if (hasRep) parts.push(`R ${formatSignedCount(repDelta)}`);
-          if (hasDem) parts.push(`D ${formatSignedCount(demDelta)}`);
-          lines.push(`Vote Δ since ${prevYear}: ${parts.join(' · ')}`);
+          if (hasRep) parts.push(`<span class="rep">R ${escapeHtml(formatSignedCount(repDelta))}</span>`);
+          if (hasDem) parts.push(`<span class="dem">D ${escapeHtml(formatSignedCount(demDelta))}</span>`);
+          lines.push(`Votes Δ since ${escapeHtml(prevYear)}: ${parts.join(' • ')}`);
         }
 
         if (Number.isFinite(deltaVotes)) {
           const signed = Math.round(deltaVotes);
           const abs = Math.abs(signed);
           if (abs < 1) {
-            lines.push(`Margin Δ: unchanged since ${prevYear}.`);
+            lines.push(`Margin (R−D): <span class="tie">unchanged</span> since ${escapeHtml(prevYear)}.`);
           } else {
-            lines.push(`Margin Δ: ${signed > 0 ? 'R' : 'D'}+${abs.toLocaleString()} votes since ${prevYear}.`);
+            const party = signed > 0 ? 'R' : 'D';
+            const cls = signed > 0 ? 'rep' : 'dem';
+            lines.push(`Margin (R−D): <span class="${cls}">${party} ${escapeHtml(formatSignedCount(abs))}</span> since ${escapeHtml(prevYear)}.`);
           }
         }
       }
       const popLine = String(populationLine || '').trim();
       if (popLine) {
-        popLine.split('\n').map(s => String(s || '').trim()).filter(Boolean).forEach(s => lines.push(s));
+        popLine
+          .split('\n')
+          .map(s => String(s || '').trim())
+          .filter(Boolean)
+          .map(s => s.replace(/^pop change:/i, 'Population:'))
+          .forEach(s => lines.push(escapeHtml(s)));
       }
       if (!lines.length) return '';
-      return `<div class="tooltip-insight">${lines.map(line => `<div>${escapeHtml(line)}</div>`).join('')}</div>`;
+      return `<div class="tooltip-delta" aria-label="Vote and population deltas">${lines.map(line => `<div class="tooltip-delta-line">${line}</div>`).join('')}</div>`;
     }
 
     function winnerChipHTML(winner) {
@@ -14033,6 +14084,7 @@ document.addEventListener('DOMContentLoaded', function() {
           root.style.removeProperty('--legend-h');
           root.style.removeProperty('--controls-h');
           root.style.removeProperty('--thumb-dock-h');
+          root.style.removeProperty('--counter-h');
           syncMapViewportPadding({ isMobile: false });
           return;
         }
@@ -14040,6 +14092,8 @@ document.addEventListener('DOMContentLoaded', function() {
         root.style.setProperty('--legend-h', `${Math.max(0, lh)}px`);
         root.style.setProperty('--controls-h', `${Math.max(0, ch)}px`);
         root.style.setProperty('--thumb-dock-h', `${Math.max(0, dh)}px`);
+        if (counterVisible) root.style.setProperty('--counter-h', `${Math.max(0, vh)}px`);
+        else root.style.removeProperty('--counter-h');
         syncMapViewportPadding({
           isMobile: true,
           topHeight: th,
