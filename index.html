@@ -8408,8 +8408,28 @@ document.addEventListener('DOMContentLoaded', function() {
         .toUpperCase();
     }
 
+    function normalizeCountyKey(name) {
+      let norm = normalizeCountyToken(name);
+      if (!norm) return '';
+      if (/\sCOUNTY$/i.test(norm)) norm = norm.replace(/\s+COUNTY$/i, '').trim();
+      return norm;
+    }
+
+    function toFiniteNumber(value) {
+      const n = Number(value);
+      return Number.isFinite(n) ? n : NaN;
+    }
+
+    function pickFiniteNumber(...values) {
+      for (const value of values) {
+        const n = Number(value);
+        if (Number.isFinite(n)) return n;
+      }
+      return NaN;
+    }
+
     function isKnownPrecinctCodeForCounty(countyNameOrNorm, code) {
-      const countyNorm = normalizeCountyToken(countyNameOrNorm);
+      const countyNorm = normalizeCountyKey(countyNameOrNorm);
       const c = (code || '').toString().replace(/\s+/g, ' ').trim().toUpperCase();
       if (!countyNorm || !c || !precinctCodeIndexByCounty) return false;
       const codes = precinctCodeIndexByCounty.get(countyNorm);
@@ -8956,9 +8976,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function getCountyNormFromVoteMeta(meta) {
       const raw = String(meta?.county || '').trim();
       if (!raw) return '';
-      let norm = normalizeCountyToken(raw);
-      if (/\sCOUNTY$/i.test(norm)) norm = norm.replace(/\s+COUNTY$/i, '').trim();
-      return norm;
+      return normalizeCountyKey(raw);
     }
 
     function getVoteCounterCensusLine(meta) {
@@ -8969,12 +8987,14 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!county) return '';
       const startYear = Number(countyPopulationEstimates?.startYear || 2020);
       const latestYear = Number(countyPopulationEstimates?.latestYear || 2025);
-      const latestPopulation = Number(county.latestPopulation || 0);
-      const delta = Number(county.changePopulation || 0);
-      const deltaPct = Number(county.changePct || 0);
-      const signed = n => `${n >= 0 ? '+' : '-'}${Math.abs(Number(n) || 0).toLocaleString()}`;
-      const signedPct = n => `${n >= 0 ? '+' : '-'}${Math.abs(Number(n) || 0).toFixed(2)}%`;
-      return `Census ${latestYear}: ${latestPopulation.toLocaleString()} (${signed(delta)}, ${signedPct(deltaPct)} since ${startYear})`;
+      const latestPopulation = pickFiniteNumber(county.estimates?.[latestYear], county.latestPopulation);
+      const delta = pickFiniteNumber(county.changePopulation);
+      const deltaPct = pickFiniteNumber(county.changePct);
+      if (!Number.isFinite(latestPopulation) || !Number.isFinite(delta)) return '';
+      const signed = (n) => `${n >= 0 ? '+' : '−'}${Math.abs(Math.round(Number(n))).toLocaleString()}`;
+      const signedPct = (n) => `${n >= 0 ? '+' : '−'}${Math.abs(Number(n)).toFixed(2)}%`;
+      const pctText = Number.isFinite(deltaPct) ? `, ${signedPct(deltaPct)}` : '';
+      return `Census ${latestYear}: ${latestPopulation.toLocaleString()} (${signed(delta)}${pctText} ${startYear}\u2192${latestYear})`;
     }
 
     function setVoteCounterContext(title, sub, {showClear = false} = {}) {
@@ -9905,8 +9925,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	    }
 
       function parsePopulationEstimateValue(raw) {
-        const value = Number(String(raw ?? '').replace(/,/g, '').trim());
-        return Number.isFinite(value) ? value : 0;
+        const cleaned = String(raw ?? '').replace(/,/g, '').trim();
+        if (!cleaned) return NaN;
+        const value = Number(cleaned);
+        return Number.isFinite(value) ? value : NaN;
       }
 
       function cleanCensusAreaName(rawArea) {
@@ -9966,10 +9988,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 estimates[year] = parsePopulationEstimateValue(row?.[`estimate_${year}`]);
               });
 
-              const startPopulation = Number(estimates[startYear] || 0);
-              const latestPopulation = Number(estimates[latestYear] || 0);
-              const changePopulation = latestPopulation - startPopulation;
-              const changePct = startPopulation > 0 ? (changePopulation / startPopulation) * 100 : 0;
+              const startPopulation = toFiniteNumber(estimates[startYear]);
+              const latestPopulation = toFiniteNumber(estimates[latestYear]);
+              const changePopulation = (Number.isFinite(startPopulation) && Number.isFinite(latestPopulation))
+                ? (latestPopulation - startPopulation)
+                : NaN;
+              const changePct = (Number.isFinite(startPopulation) && startPopulation > 0 && Number.isFinite(changePopulation))
+                ? (changePopulation / startPopulation) * 100
+                : NaN;
 
               if (type === 'state' || /^south carolina$/i.test(name)) {
                 out.statewide = {
@@ -9983,10 +10009,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
               }
 
-              const countyNorm = normalizeCountyToken(name);
+              const countyLabel = name.replace(/\s+County$/i, '').trim();
+              const countyNorm = normalizeCountyKey(countyLabel);
               if (!countyNorm) return;
               out.counties[countyNorm] = {
-                county: name,
+                county: countyLabel || name,
                 estimates,
                 startPopulation,
                 latestPopulation,
@@ -10047,16 +10074,16 @@ document.addEventListener('DOMContentLoaded', function() {
           });
 
           if (/^south carolina$/i.test(area)) {
-            const stateStart = Number(estimates[startYear] || 0);
-            const stateLatest = Number(estimates[latestYear] || 0);
-            const stateDelta = stateLatest - stateStart;
+            const stateStart = toFiniteNumber(estimates[startYear]);
+            const stateLatest = toFiniteNumber(estimates[latestYear]);
+            const stateDelta = (Number.isFinite(stateStart) && Number.isFinite(stateLatest)) ? (stateLatest - stateStart) : NaN;
             out.statewide = {
               label: 'South Carolina',
               estimates,
               startPopulation: stateStart,
               latestPopulation: stateLatest,
               changePopulation: stateDelta,
-              changePct: stateStart > 0 ? (stateDelta / stateStart) * 100 : 0
+              changePct: (Number.isFinite(stateStart) && stateStart > 0 && Number.isFinite(stateDelta)) ? (stateDelta / stateStart) * 100 : NaN
             };
             continue;
           }
@@ -10065,10 +10092,14 @@ document.addEventListener('DOMContentLoaded', function() {
           const countyNorm = normalizeCountyToken(countyLabel);
           if (!countyNorm) continue;
 
-          const startPopulation = Number(estimates[startYear] || 0);
-          const latestPopulation = Number(estimates[latestYear] || 0);
-          const changePopulation = latestPopulation - startPopulation;
-          const changePct = startPopulation > 0 ? (changePopulation / startPopulation) * 100 : 0;
+          const startPopulation = toFiniteNumber(estimates[startYear]);
+          const latestPopulation = toFiniteNumber(estimates[latestYear]);
+          const changePopulation = (Number.isFinite(startPopulation) && Number.isFinite(latestPopulation))
+            ? (latestPopulation - startPopulation)
+            : NaN;
+          const changePct = (Number.isFinite(startPopulation) && startPopulation > 0 && Number.isFinite(changePopulation))
+            ? (changePopulation / startPopulation) * 100
+            : NaN;
 
           out.counties[countyNorm] = {
             county: countyLabel,
@@ -12512,17 +12543,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function getScCensusContext(countyNorm, trajectoryMeta = null) {
-      let norm = normalizeCountyToken(countyNorm);
-      let county = countyPopulationEstimates?.counties?.[norm] || null;
-      if (!county && /\sCOUNTY$/i.test(norm)) {
-        norm = norm.replace(/\s+COUNTY$/i, '').trim();
-        county = countyPopulationEstimates?.counties?.[norm] || null;
-      }
+      const norm = normalizeCountyKey(countyNorm);
+      const county = countyPopulationEstimates?.counties?.[norm] || null;
 
       const startYear = Number(countyPopulationEstimates?.startYear || 2020);
       const latestYear = Number(countyPopulationEstimates?.latestYear || 2025);
       const previousYear = latestYear - 1;
-      const signedPct = value => `${value >= 0 ? '+' : '-'}${Math.abs(Number(value) || 0).toFixed(1)}%`;
+      const signedPct = value => `${Number(value) >= 0 ? '+' : '−'}${Math.abs(Number(value) || 0).toFixed(1)}%`;
       const stateLabel = String(countyPopulationEstimates?.statewide?.label || 'South Carolina').trim() || 'South Carolina';
       const sourceNote = `Based on U.S. Census Bureau Vintage ${latestYear} ${stateLabel} county population estimates, released March 2026 (April 1, ${startYear} to July 1, ${latestYear}).`;
 
@@ -12539,22 +12566,38 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       const estimates = county.estimates || {};
-      const startPopulation = Number(estimates[startYear] ?? county.startPopulation ?? 0);
-      const latestPopulation = Number(estimates[latestYear] ?? county.latestPopulation ?? 0);
-      const previousPopulation = Number(estimates[previousYear] ?? 0);
+      const startPopulation = pickFiniteNumber(estimates[startYear], county.startPopulation);
+      const latestPopulation = pickFiniteNumber(estimates[latestYear], county.latestPopulation);
+      const previousPopulation = pickFiniteNumber(estimates[previousYear]);
+      if (!Number.isFinite(startPopulation) || !Number.isFinite(latestPopulation)) {
+        return {
+          title: 'County Census Insight',
+          signalEmoji: '📊',
+          signalLabel: 'County population estimate unavailable',
+          patternEmoji: '🧾',
+          patternLabel: `Missing ${startYear}\u2192${latestYear} estimate values for this county.`,
+          summaryText: `Population estimates exist for some years, but not for the ${startYear}\u2192${latestYear} endpoints needed to compute deltas.`,
+          sourceNote
+        };
+      }
       const changePopulation = latestPopulation - startPopulation;
-      const changePct = startPopulation > 0 ? (changePopulation / startPopulation) * 100 : 0;
-      const annualChangePopulation = latestPopulation - previousPopulation;
-      const annualChangePct = previousPopulation > 0 ? (annualChangePopulation / previousPopulation) * 100 : 0;
+      const changePct = startPopulation > 0 ? (changePopulation / startPopulation) * 100 : NaN;
+      const annualChangePopulation = Number.isFinite(previousPopulation) ? (latestPopulation - previousPopulation) : NaN;
+      const annualChangePct = (Number.isFinite(previousPopulation) && previousPopulation > 0 && Number.isFinite(annualChangePopulation))
+        ? (annualChangePopulation / previousPopulation) * 100
+        : NaN;
       const annualVsLongRun = changePct / Math.max(1, (latestYear - startYear));
       const countyName = displayCountyName(norm);
 
-      let signalEmoji = '➖';
-      let signalLabel = `Population was flat since ${startYear}`;
-      if (changePct > 0.15) {
+      let signalEmoji = '📊';
+      let signalLabel = `Population signal unavailable (${startYear}\u2192${latestYear})`;
+      if (Number.isFinite(changePct) && Math.abs(changePct) <= 0.15) {
+        signalEmoji = '➖';
+        signalLabel = `Population was flat since ${startYear}`;
+      } else if (Number.isFinite(changePct) && changePct > 0.15) {
         signalEmoji = '📈';
         signalLabel = `Population up ${Math.abs(changePct).toFixed(1)}% since ${startYear}`;
-      } else if (changePct < -0.15) {
+      } else if (Number.isFinite(changePct) && changePct < -0.15) {
         signalEmoji = '📉';
         signalLabel = `Population down ${Math.abs(changePct).toFixed(1)}% since ${startYear}`;
       }
@@ -12667,16 +12710,34 @@ document.addEventListener('DOMContentLoaded', function() {
           ? 'Republican'
           : (trajectoryMeta?.statusClass === 'dem' ? 'Democratic' : 'recent');
         noteEmoji = '✅';
-        if (changePct > 1.0) {
+        if (Number.isFinite(changePct) && changePct > 1.0) {
           noteLabel = `Census check: growth is reinforcing the county's recent ${partyWord} trajectory.`;
-        } else if (changePct < -1.0) {
+        } else if (Number.isFinite(changePct) && changePct < -1.0) {
           noteLabel = `Census check: population decline is reinforcing the county's recent ${partyWord} trajectory.`;
         } else {
           noteLabel = `Census check: recent census movement is reinforcing the county's existing political trajectory.`;
         }
       }
 
-      const summaryText = `${latestYear} estimate: ${latestPopulation.toLocaleString()}. The county is ${changePct >= 0 ? 'up' : 'down'} ${Math.abs(changePct).toFixed(1)}% since ${startYear} and ${annualChangePct >= 0 ? 'up' : 'down'} ${Math.abs(annualChangePct).toFixed(1)}% from ${previousYear} to ${latestYear}.`;
+      const summaryParts = [];
+      summaryParts.push(`${latestYear} estimate: ${latestPopulation.toLocaleString()}.`);
+      if (Number.isFinite(changePct)) {
+        summaryParts.push(`The county is ${changePct >= 0 ? 'up' : 'down'} ${Math.abs(changePct).toFixed(1)}% since ${startYear}.`);
+      }
+      if (Number.isFinite(annualChangePct)) {
+        summaryParts.push(`${annualChangePct >= 0 ? 'Up' : 'Down'} ${Math.abs(annualChangePct).toFixed(1)}% from ${previousYear} to ${latestYear}.`);
+      }
+      const popDeltaLines = getScPopulationDeltaLine(norm);
+      if (popDeltaLines) {
+        const extra = popDeltaLines
+          .split('\n')
+          .map(s => String(s || '').trim())
+          .filter(Boolean)
+          .map(s => `${s}.`)
+          .join(' ');
+        if (extra) summaryParts.push(extra);
+      }
+      const summaryText = summaryParts.join(' ');
 
       return {
         title: 'County Census Insight',
@@ -13115,52 +13176,71 @@ document.addEventListener('DOMContentLoaded', function() {
     function getScPopulationDeltaLine(countyNormOrName) {
       const raw = String(countyNormOrName || '').trim();
       if (!raw) return '';
-      let norm = '';
-      try {
-        norm = normalizeCountyToken(raw).replace(/\s+COUNTY$/i, '').trim();
-      } catch (_) {
-        norm = raw.replace(/\s+COUNTY$/i, '').trim().toUpperCase();
-      }
+      const norm = normalizeCountyKey(raw);
       if (!norm) return '';
 
       const pop = countyPopulationEstimates?.counties?.[norm] || null;
       if (!pop) return '';
-      const latestYear = Number(countyPopulationEstimates?.latestYear || 2025);
       const estimates = pop.estimates || {};
       if (!estimates || typeof estimates !== 'object') return '';
 
-      const y2020 = Number.isFinite(Number(estimates[2020])) ? 2020 : null;
-      const y2024 = Number.isFinite(Number(estimates[2024])) ? 2024 : null;
-      const y2025 = Number.isFinite(Number(estimates[2025])) ? 2025 : (Number.isFinite(Number(estimates[latestYear])) ? latestYear : null);
-      const resolved2020 = y2020;
-      const resolved2024 = y2024 || (Number.isFinite(Number(estimates[latestYear - 1])) ? (latestYear - 1) : null);
-      const resolved2025 = y2025;
-      if (!Number.isFinite(Number(resolved2020)) || !Number.isFinite(Number(resolved2024)) || !Number.isFinite(Number(resolved2025))) return '';
+      const startYear = Number(countyPopulationEstimates?.startYear);
+      const latestYear = Number(countyPopulationEstimates?.latestYear);
+      const midYear = Number.isFinite(latestYear) ? (latestYear - 1) : NaN;
 
-      const pop2020 = Number(estimates[resolved2020]);
-      const pop2024 = Number(estimates[resolved2024]);
-      const pop2025 = Number(estimates[resolved2025]);
-      if (!Number.isFinite(pop2020) || !Number.isFinite(pop2024) || !Number.isFinite(pop2025)) return '';
+      const lines = [];
+      const seenRanges = new Set();
+      const addRange = (fromYear, toYear) => {
+        const from = toFiniteNumber(estimates?.[fromYear]);
+        const to = toFiniteNumber(estimates?.[toYear]);
+        if (!Number.isFinite(from) || !Number.isFinite(to)) return false;
+        const key = `${fromYear}->${toYear}`;
+        if (seenRanges.has(key)) return false;
+        seenRanges.add(key);
+        const delta = Math.round(to - from);
+        lines.push(`Population: ${formatSignedCount(delta)} (${fromYear}\u2192${toYear})`);
+        return true;
+      };
 
-      const delta2020to2024 = Math.round(pop2024 - pop2020);
-      const delta2024to2025 = Math.round(pop2025 - pop2024);
-      const fmtDelta = (v) => `${v >= 0 ? '+' : '−'}${Math.abs(v).toLocaleString()}`;
-      return `Pop change: ${fmtDelta(delta2020to2024)} (${resolved2020}\u2192${resolved2024})\nPop change: ${fmtDelta(delta2024to2025)} (${resolved2024}\u2192${resolved2025})`;
+      // Prefer the SC-style explicit breakdown: long-run (start→mid) and most-recent (mid→latest).
+      if (Number.isFinite(startYear) && Number.isFinite(midYear) && midYear > startYear) addRange(startYear, midYear);
+      if (Number.isFinite(midYear) && Number.isFinite(latestYear) && latestYear > midYear) addRange(midYear, latestYear);
+
+      // Fallback: any available earliest→latest endpoints.
+      if (!lines.length) {
+        const candidateYears = Array.isArray(countyPopulationEstimates?.years) && countyPopulationEstimates.years.length
+          ? countyPopulationEstimates.years.slice()
+          : Object.keys(estimates || {}).map(k => Number(k));
+        const available = candidateYears
+          .map(y => Number(y))
+          .filter(y => Number.isInteger(y) && Number.isFinite(toFiniteNumber(estimates?.[y])))
+          .sort((a, b) => a - b);
+        if (available.length >= 2) {
+          addRange(available[0], available[available.length - 1]);
+        }
+      }
+
+      return lines.join('\n');
     }
 
     function formatSignedCount(value) {
-      const v = Math.round(Number(value) || 0);
+      const n = Number(value);
+      if (!Number.isFinite(n)) return '';
+      const v = Math.round(n);
       const abs = Math.abs(v);
       const sign = v >= 0 ? '+' : '−';
       return `${sign}${abs.toLocaleString()}`;
     }
+
+    const deltaComparisonLogSeen = new Set();
 
     function buildTooltipDeltaInsightHTML({
       voteShiftDeltaVotes = NaN,
       voteShiftPrevYear = null,
       repDeltaVotes = NaN,
       demDeltaVotes = NaN,
-      populationLine = ''
+      populationLine = '',
+      debugKey = ''
     } = {}) {
       const lines = [];
       const prevYear = Number(voteShiftPrevYear);
@@ -13171,23 +13251,40 @@ document.addEventListener('DOMContentLoaded', function() {
         const demDelta = Number(demDeltaVotes);
         const hasRep = Number.isFinite(repDelta);
         const hasDem = Number.isFinite(demDelta);
+        let emittedVoteLine = false;
+        let emittedMarginLine = false;
         if (hasRep || hasDem) {
           const parts = [];
           if (hasRep) parts.push(`<span class="rep">R ${escapeHtml(formatSignedCount(repDelta))}</span>`);
           if (hasDem) parts.push(`<span class="dem">D ${escapeHtml(formatSignedCount(demDelta))}</span>`);
-          lines.push(`Votes \u0394 since ${escapeHtml(prevYear)}: ${parts.join(' \u2022 ')}`);
+          lines.push(`Votes \u0394: ${parts.join(' \u2022 ')} vs ${escapeHtml(prevYear)}`);
+          emittedVoteLine = true;
         }
 
         if (Number.isFinite(deltaVotes)) {
           const signed = Math.round(deltaVotes);
           const abs = Math.abs(signed);
           if (abs < 1) {
-            lines.push(`Margin (R\u2212D): <span class="tie">unchanged</span> since ${escapeHtml(prevYear)}.`);
+            lines.push(`Margin (R\u2212D): <span class="tie">unchanged</span> since ${escapeHtml(prevYear)}`);
           } else {
             const party = signed > 0 ? 'R' : 'D';
             const cls = signed > 0 ? 'rep' : 'dem';
-            lines.push(`Margin (R\u2212D): <span class="${cls}">${party} ${escapeHtml(formatSignedCount(abs))}</span> since ${escapeHtml(prevYear)}.`);
+            lines.push(`Margin (R\u2212D): <span class="${cls}">${party} ${escapeHtml(formatSignedCount(abs))}</span> since ${escapeHtml(prevYear)}`);
           }
+          emittedMarginLine = true;
+        }
+
+        if (!emittedVoteLine && !emittedMarginLine) {
+          if (debugKey) {
+            try {
+              const logKey = `${prevYear}:${debugKey}`;
+              if (!deltaComparisonLogSeen.has(logKey)) {
+                deltaComparisonLogSeen.add(logKey);
+                debugLog('[delta] Comparison unavailable vs', prevYear, 'for', debugKey);
+              }
+            } catch (_) {}
+          }
+          lines.push(`Comparison: <span class="tie">unavailable</span> vs ${escapeHtml(prevYear)}`);
         }
       }
       const popLine = String(populationLine || '').trim();
@@ -13196,7 +13293,7 @@ document.addEventListener('DOMContentLoaded', function() {
           .split('\n')
           .map(s => String(s || '').trim())
           .filter(Boolean)
-          .map(s => s.replace(/^pop change:/i, 'Population:'))
+          .map(s => s.replace(/^pop change:/i, 'Population:')) // legacy support
           .forEach(s => lines.push(escapeHtml(s)));
       }
       if (!lines.length) return '';
@@ -13478,13 +13575,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const countyName = props.NAME20 || props.CountyName || props.COUNTYNAME || props.county_nam || props.NAME || props.name || 'Unknown County';
       const countyDisplay = displayCountyName(countyName);
       setCountyHoverOutline(countyName);
-      const norm = (countyName || '').toString().replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+      const norm = normalizeCountyKey(countyName);
       if (cvapByPrecinctNorm && !__cvapAgg.byCountyNorm) { try { void ensureCvapCountyAggregates(); } catch (_) {} }
       const countyCvapHTML = buildCvapHTMLFromTotals(getCvapTotalsForCountyNormSync(norm));
       let row = currentElectionResults ? currentElectionResults[norm] : null;
       if (!row && currentElectionResults) {
         for (const key of Object.keys(currentElectionResults)) {
-          const keyNorm = (key || '').toString().replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+          const keyNorm = normalizeCountyKey(key);
           if (keyNorm === norm) {
             row = currentElectionResults[key];
             break;
@@ -13566,27 +13663,28 @@ document.addEventListener('DOMContentLoaded', function() {
           ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
         </div>
         ${prevSignedForFlip !== null ? flipLineHTML(prevSignedForFlip, signedMarginPct, vizPrevCache?.prevYear || null, year) : ''}
-        ${buildTooltipDeltaInsightHTML({
-          voteShiftPrevYear: vizPrevCache?.prevYear || null,
-          repDeltaVotes: (() => {
-            const prev = vizPrevCache?.prevCountyTotals?.[norm] || null;
-            if (!prev) return NaN;
-            return Number(repVotes) - Number(prev.rep);
-          })(),
+         ${buildTooltipDeltaInsightHTML({
+           voteShiftPrevYear: vizPrevCache?.prevYear || null,
+           debugKey: 'county:' + norm,
+           repDeltaVotes: (() => {
+             const prev = vizPrevCache?.prevCountyTotals?.[norm] || null;
+             if (!prev) return NaN;
+             return Number(repVotes) - Number(prev.rep);
+           })(),
           demDeltaVotes: (() => {
             const prev = vizPrevCache?.prevCountyTotals?.[norm] || null;
             if (!prev) return NaN;
             return Number(demVotes) - Number(prev.dem);
           })(),
-          voteShiftDeltaVotes: (() => {
-            const prev = vizPrevCache?.prevCountyTotals?.[norm] || null;
-            if (!prev) return NaN;
-            const curMargin = Number(repVotes) - Number(demVotes);
-            const prevMargin = Number(prev.rep) - Number(prev.dem);
-            return curMargin - prevMargin;
-          })(),
-          populationLine: getScPopulationDeltaLine(countyName)
-        })}
+           voteShiftDeltaVotes: (() => {
+             const prev = vizPrevCache?.prevCountyTotals?.[norm] || null;
+             if (!prev) return NaN;
+             const curMargin = Number(repVotes) - Number(demVotes);
+             const prevMargin = Number(prev.rep) - Number(prev.dem);
+             return curMargin - prevMargin;
+           })(),
+           populationLine: getScPopulationDeltaLine(countyName)
+         })}
       `.trim();
 
       const expandedInner = `
@@ -13703,6 +13801,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ${prevSignedForFlip !== null ? flipLineHTML(prevSignedForFlip, curSigned, vizPrevCache?.prevYear || null, year) : ''}
         ${buildTooltipDeltaInsightHTML({
           voteShiftPrevYear: vizPrevCache?.prevYear || null,
+          debugKey: 'precinct:' + precinctNorm,
           repDeltaVotes: (() => {
             const prev = vizPrevCache?.prevPrecinctTotalsByNorm?.get(precinctNorm) || null;
             if (!prev) return NaN;
@@ -14248,13 +14347,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       // Normalize and find county data
       function normalizeCountyName(name) {
-        return (name || '')
-          .toString()
-          .replace(/\s+COUNTY$/i, '')
-          .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
-          .replace(/\s+/g, ' ')
-          .trim()
-          .toUpperCase();
+        return normalizeCountyKey(name);
       }
       let norm = normalizeCountyName(countyName);
       let countyData = currentElectionResults[norm];
@@ -14603,11 +14696,44 @@ document.addEventListener('DOMContentLoaded', function() {
         rows.push(`<div class="county-trend-row"><span>${escapeHtml(fullCandidateLabel(repCandidate, 'Republican'))} (R)</span><span>${repVotes.toLocaleString()} · ${repPct.toFixed(2)}%</span></div>`);
         if (otherVotes > 0) rows.push(`<div class="county-trend-row"><span>Other</span><span>${otherVotes.toLocaleString()} · ${otherPct.toFixed(2)}%</span></div>`);
         const voteMargin = Math.abs((repVotes - demVotes) || 0);
+
+        const deltaNotes = [];
+        if (Number.isFinite(prevYear)) {
+          if (prevTotals && Number.isFinite(Number(prevTotals.rep)) && Number.isFinite(Number(prevTotals.dem))) {
+            const repDelta = Number(repVotes) - Number(prevTotals.rep);
+            const demDelta = Number(demVotes) - Number(prevTotals.dem);
+            const parts = [];
+            if (Number.isFinite(repDelta)) parts.push(`R ${formatSignedCount(repDelta)}`);
+            if (Number.isFinite(demDelta)) parts.push(`D ${formatSignedCount(demDelta)}`);
+            if (parts.length) deltaNotes.push(`Votes \u0394 vs ${prevYear}: ${parts.join(' \u2022 ')}`);
+
+            const curMargin = Number(repVotes) - Number(demVotes);
+            const prevMargin = Number(prevTotals.rep) - Number(prevTotals.dem);
+            const marginDelta = curMargin - prevMargin;
+            if (Number.isFinite(marginDelta)) {
+              const signed = Math.round(marginDelta);
+              const abs = Math.abs(signed);
+              if (abs < 1) deltaNotes.push(`Margin (R\u2212D): unchanged since ${prevYear}`);
+              else deltaNotes.push(`Margin (R\u2212D): ${signed > 0 ? 'R' : 'D'} ${formatSignedCount(abs)} since ${prevYear}`);
+            }
+          } else {
+            deltaNotes.push(`Comparison unavailable vs ${prevYear}`);
+          }
+        }
+        const popDeltaLine = getScPopulationDeltaLine(norm);
+        if (popDeltaLine) {
+          popDeltaLine
+            .split('\n')
+            .map(s => String(s || '').trim())
+            .filter(Boolean)
+            .forEach(s => deltaNotes.push(s));
+        }
         return `
           <div class="county-deep-section">
             <div class="county-deep-kicker">Vote breakdown</div>
             <div class="county-trend-list">${rows.join('')}</div>
             <div class="county-deep-note">Vote margin: ${voteMargin.toLocaleString()}</div>
+            ${deltaNotes.length ? deltaNotes.map(line => `<div class="county-deep-note">${escapeHtml(line)}</div>`).join('') : ''}
           </div>
         `;
       })();
@@ -17738,11 +17864,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function ensurePrevContestCache(contestType, year, options = {}) {
       const includePrecinctMargins = !!options.includePrecinctMargins;
+      const includePrecinctTotals = !!options.includePrecinctTotals || includePrecinctMargins;
       const y = Number(year);
       if (
         vizPrevCache &&
         vizPrevCache.contestType === contestType &&
         Number(vizPrevCache.year) === y &&
+        (!includePrecinctTotals || vizPrevCache.hasPrecinctTotals) &&
         (!includePrecinctMargins || vizPrevCache.hasPrecinctMargins)
       ) return vizPrevCache;
 
@@ -17755,6 +17883,7 @@ document.addEventListener('DOMContentLoaded', function() {
           prevPrecinctMarginByNorm: new Map(),
           prevPrecinctTotalsByNorm: new Map(),
           prevCountyTotals: {},
+          hasPrecinctTotals: false,
           hasPrecinctMargins: false
         };
         return vizPrevCache;
@@ -17764,7 +17893,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	      const prevPrecinctTotalsByNorm = new Map();
 	      const prevCountyTotals = {};
 	      let precinctIdx = null;
-	      if (includePrecinctMargins) {
+	      if (includePrecinctTotals || includePrecinctMargins) {
 	        try { precinctIdx = await ensurePrecinctCodeIndex(); } catch (_) { precinctIdx = null; }
 	      }
 	      function isNonGeographicPrecinctCode(code, countyNorm = '') {
@@ -17778,7 +17907,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	      function precinctNormVariantsLite(rowName) {
 	        const raw = (rowName || '').toString();
 	        const out = new Set();
-	        const normalize = (s) => (s || '').toString().replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+	        const normalize = (s) => normalizeCountyKey(s);
 	        const primary = normalize(raw);
 	        if (primary) out.add(primary);
 	        if (!raw.includes(' - ')) return Array.from(out);
@@ -17875,7 +18004,7 @@ document.addEventListener('DOMContentLoaded', function() {
       prevCountyRows.forEach(r => {
         const rowName = (r.county || '').toString();
         const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
-        const countyNorm = (countyOnly || '').toString().replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+        const countyNorm = normalizeCountyKey(countyOnly);
         if (!countyNorm) return;
         const dem = Number(r[`${contestType}_dem`] || 0);
         const rep = Number(r[`${contestType}_rep`] || 0);
@@ -17886,7 +18015,7 @@ document.addEventListener('DOMContentLoaded', function() {
         prevCountyTotals[countyNorm].total += total;
       });
 
-      if (includePrecinctMargins) {
+      if (includePrecinctTotals || includePrecinctMargins) {
         (prevSplit.precinctRows || []).forEach(r => {
           const rowName = (r.county || '').toString();
           const mPct = Number(r[`${contestType}_margin_pct`] || 0);
@@ -17894,8 +18023,8 @@ document.addEventListener('DOMContentLoaded', function() {
           const rep = Number(r[`${contestType}_rep`] || 0);
           const other = Number(r[`${contestType}_other`] || 0);
           const total = Number(r[`${contestType}_total`] || 0);
-          precinctNormVariantsLite(rowName).forEach(n => prevPrecinctMarginByNorm.set(n, mPct));
-          precinctNormVariantsLite(rowName).forEach(n => prevPrecinctTotalsByNorm.set(n, { dem, rep, other, total }));
+          if (includePrecinctMargins) precinctNormVariantsLite(rowName).forEach(n => prevPrecinctMarginByNorm.set(n, mPct));
+          if (includePrecinctTotals) precinctNormVariantsLite(rowName).forEach(n => prevPrecinctTotalsByNorm.set(n, { dem, rep, other, total }));
         });
       }
 
@@ -17906,6 +18035,7 @@ document.addEventListener('DOMContentLoaded', function() {
         prevPrecinctMarginByNorm,
         prevPrecinctTotalsByNorm,
         prevCountyTotals,
+        hasPrecinctTotals: includePrecinctTotals,
         hasPrecinctMargins: includePrecinctMargins
       };
       return vizPrevCache;
@@ -18097,13 +18227,7 @@ document.addEventListener('DOMContentLoaded', function() {
       lastContestSliceMeta = { contestType, year: Number(year), rows: precinctRows.length ? precinctRows : countyRows };
 
 	      function normalizeCountyName(name) {
-	        return (name || '')
-	          .toString()
-            .replace(/\s+COUNTY$/i, '')
-	          .replace(/[^a-z0-9 .\-]/gi, '')
-	          .replace(/\s+/g, ' ')
-	          .trim()
-	          .toUpperCase();
+	        return normalizeCountyKey(name);
 	      }
 
       // Only build heavy precinct matching/color expressions when the overlay is enabled.
@@ -18351,6 +18475,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (needsPrevData) {
         try {
           vizPrevCache = await ensurePrevContestCache(contestType, Number(year), {
+            includePrecinctTotals: needsPrecinctDetail,
             includePrecinctMargins: needsPrevPrecinctMargins
           });
         } catch (_) {
@@ -18359,7 +18484,9 @@ document.addEventListener('DOMContentLoaded', function() {
             year: Number(year),
             prevYear: null,
             prevPrecinctMarginByNorm: new Map(),
+            prevPrecinctTotalsByNorm: new Map(),
             prevCountyTotals: {},
+            hasPrecinctTotals: false,
             hasPrecinctMargins: false
           };
         }
