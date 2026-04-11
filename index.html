@@ -140,7 +140,7 @@
       left: 8px !important;
       right: 8px !important;
       top: auto !important;
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 8px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 8px) !important;
       max-width: none !important;
       width: auto !important;
       max-height: 42vh;
@@ -1551,7 +1551,7 @@ body { height: var(--app-height); }
   .viz-modes {
     position: fixed;
     top: auto;
-    bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 8px);
+    bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 8px);
     left: 50%;
     transform: translateX(-50%);
     padding: 6px;
@@ -1718,11 +1718,11 @@ body { height: var(--app-height); }
   border-bottom: none;
 }
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
   .vote-counter {
     position: fixed;
     top: auto;
-    bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 58px);
+    bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 58px);
     min-width: auto;
     width: min(92vw, 420px);
     max-width: 92vw;
@@ -2115,10 +2115,11 @@ body { height: var(--app-height); }
   .hover-tooltip .tooltip-quickline .tie { color: #e2e8f0; }
 
   .hover-tooltip .tooltip-quickline .tier {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 900;
-    letter-spacing: 0.02em;
-    color: rgba(226, 232, 240, 0.86);
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.92);
+    margin-left: 4px;
   }
 
   .hover-tooltip .tooltip-insight {
@@ -2127,6 +2128,37 @@ body { height: var(--app-height); }
     line-height: 1.4;
     color: rgba(226, 232, 240, 0.92);
   }
+
+  .hover-tooltip .tooltip-delta {
+    margin-top: 8px;
+    font-size: 11.5px;
+    line-height: 1.35;
+    color: rgba(226, 232, 240, 0.92);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hover-tooltip .tooltip-delta-line {
+    margin-top: 4px;
+    color: rgba(226, 232, 240, 0.92);
+  }
+
+  .hover-tooltip .tooltip-delta-line:first-child {
+    margin-top: 0;
+  }
+
+  .hover-tooltip .tooltip-delta-line .rep { color: #fecaca; font-weight: 850; }
+  .hover-tooltip .tooltip-delta-line .dem { color: #bfdbfe; font-weight: 850; }
+  .hover-tooltip .tooltip-delta-line .tie { color: rgba(226, 232, 240, 0.92); font-weight: 850; }
+
+  .hover-tooltip .tooltip-flip {
+    margin-top: 6px;
+    font-size: 11.5px;
+    font-weight: 850;
+    letter-spacing: 0.01em;
+    color: rgba(226, 232, 240, 0.92);
+  }
+  .hover-tooltip .tooltip-flip.rep { color: #fecaca; }
+  .hover-tooltip .tooltip-flip.dem { color: #bfdbfe; }
 
   .hover-tooltip .tooltip-more {
     margin-top: 10px;
@@ -2174,6 +2206,16 @@ body { height: var(--app-height); }
   /* Allow interacting with tooltip buttons only when pinned. */
   #hover-tooltip[data-pinned="1"] {
     pointer-events: auto;
+  }
+
+  /* Mobile: make it easy to dismiss/expand without requiring a "pin" step. */
+  @media (max-width: 768px) {
+    #hover-tooltip:not([data-pinned="1"]) #tooltip-close-btn {
+      display: inline-flex;
+    }
+    #hover-tooltip:not([data-pinned="1"]) .tooltip-more {
+      display: block;
+    }
   }
 
   /* Help modal */
@@ -2507,11 +2549,11 @@ body { height: var(--app-height); }
     }
 
     html.android-mobile .vote-counter {
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 58px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 58px) !important;
     }
 
     html.android-mobile #hover-tooltip {
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 8px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 8px) !important;
     }
 
     .contest-toolbar {
@@ -5028,7 +5070,7 @@ body { height: var(--app-height); }
       right: 12px !important;
       width: auto !important;
       max-width: none !important;
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 68px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 68px) !important;
       transform: none !important;
     }
 
@@ -6567,7 +6609,7 @@ body { height: var(--app-height); }
     .vote-counter {
       left: 8px !important;
       right: 8px !important;
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 56px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 56px) !important;
     }
 
     .control-group select,
@@ -6593,7 +6635,7 @@ body { height: var(--app-height); }
     }
 
     .vote-counter {
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 50px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 50px) !important;
     }
   }
 
@@ -12056,6 +12098,22 @@ document.addEventListener('DOMContentLoaded', function() {
       return `<span class="meta-chip flip ${cls}"><span class="dot"></span>Flip ${labelFrom}\u2192${labelTo}</span>`;
     }
 
+    function flipLineHTML(prevSignedPct, curSignedPct, fromYear = null, toYear = null) {
+      const f = flipInfo(prevSignedPct, curSignedPct);
+      if (!f.flipped) return '';
+      const labelFrom = f.from === 'R' ? 'R' : 'D';
+      const labelTo = f.to === 'R' ? 'R' : 'D';
+      const cls = f.to === 'R' ? 'rep' : 'dem';
+      const fy = Number(fromYear);
+      const ty = Number(toYear);
+      const hasYears = Number.isFinite(fy) && Number.isFinite(ty);
+      const years = hasYears ? ` (${String(fy).slice(-2)}\u2192${String(ty).slice(-2)})` : '';
+      const title = hasYears
+        ? ` title="Flip ${labelFrom}\u2192${labelTo} (${fy}\u2192${ty})"`
+        : '';
+      return `<div class="tooltip-flip ${cls}"${title}>Flip: ${labelFrom}\u2192${labelTo}${years}</div>`;
+    }
+
     function buildResultCardHTML(title, subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate) {
       const d = Number(demVotes || 0);
       const r = Number(repVotes || 0);
@@ -13115,27 +13173,34 @@ document.addEventListener('DOMContentLoaded', function() {
         const hasDem = Number.isFinite(demDelta);
         if (hasRep || hasDem) {
           const parts = [];
-          if (hasRep) parts.push(`R ${formatSignedCount(repDelta)}`);
-          if (hasDem) parts.push(`D ${formatSignedCount(demDelta)}`);
-          lines.push(`Vote Δ since ${prevYear}: ${parts.join(' · ')}`);
+          if (hasRep) parts.push(`<span class="rep">R ${escapeHtml(formatSignedCount(repDelta))}</span>`);
+          if (hasDem) parts.push(`<span class="dem">D ${escapeHtml(formatSignedCount(demDelta))}</span>`);
+          lines.push(`Votes \u0394 since ${escapeHtml(prevYear)}: ${parts.join(' \u2022 ')}`);
         }
 
         if (Number.isFinite(deltaVotes)) {
           const signed = Math.round(deltaVotes);
           const abs = Math.abs(signed);
           if (abs < 1) {
-            lines.push(`Margin Δ: unchanged since ${prevYear}.`);
+            lines.push(`Margin (R\u2212D): <span class="tie">unchanged</span> since ${escapeHtml(prevYear)}.`);
           } else {
-            lines.push(`Margin Δ: ${signed > 0 ? 'R' : 'D'}+${abs.toLocaleString()} votes since ${prevYear}.`);
+            const party = signed > 0 ? 'R' : 'D';
+            const cls = signed > 0 ? 'rep' : 'dem';
+            lines.push(`Margin (R\u2212D): <span class="${cls}">${party} ${escapeHtml(formatSignedCount(abs))}</span> since ${escapeHtml(prevYear)}.`);
           }
         }
       }
       const popLine = String(populationLine || '').trim();
       if (popLine) {
-        popLine.split('\n').map(s => String(s || '').trim()).filter(Boolean).forEach(s => lines.push(s));
+        popLine
+          .split('\n')
+          .map(s => String(s || '').trim())
+          .filter(Boolean)
+          .map(s => s.replace(/^pop change:/i, 'Population:'))
+          .forEach(s => lines.push(escapeHtml(s)));
       }
       if (!lines.length) return '';
-      return `<div class="tooltip-insight">${lines.map(line => `<div>${escapeHtml(line)}</div>`).join('')}</div>`;
+      return `<div class="tooltip-delta" aria-label="Vote and population deltas">${lines.map(line => `<div class="tooltip-delta-line">${line}</div>`).join('')}</div>`;
     }
 
     function winnerChipHTML(winner) {
@@ -13500,6 +13565,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
           ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
         </div>
+        ${prevSignedForFlip !== null ? flipLineHTML(prevSignedForFlip, signedMarginPct, vizPrevCache?.prevYear || null, year) : ''}
         ${buildTooltipDeltaInsightHTML({
           voteShiftPrevYear: vizPrevCache?.prevYear || null,
           repDeltaVotes: (() => {
@@ -13634,6 +13700,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
           ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
         </div>
+        ${prevSignedForFlip !== null ? flipLineHTML(prevSignedForFlip, curSigned, vizPrevCache?.prevYear || null, year) : ''}
         ${buildTooltipDeltaInsightHTML({
           voteShiftPrevYear: vizPrevCache?.prevYear || null,
           repDeltaVotes: (() => {
@@ -14033,6 +14100,7 @@ document.addEventListener('DOMContentLoaded', function() {
           root.style.removeProperty('--legend-h');
           root.style.removeProperty('--controls-h');
           root.style.removeProperty('--thumb-dock-h');
+          root.style.removeProperty('--counter-h');
           syncMapViewportPadding({ isMobile: false });
           return;
         }
@@ -14040,6 +14108,8 @@ document.addEventListener('DOMContentLoaded', function() {
         root.style.setProperty('--legend-h', `${Math.max(0, lh)}px`);
         root.style.setProperty('--controls-h', `${Math.max(0, ch)}px`);
         root.style.setProperty('--thumb-dock-h', `${Math.max(0, dh)}px`);
+        if (counterVisible) root.style.setProperty('--counter-h', `${Math.max(0, vh)}px`);
+        else root.style.removeProperty('--counter-h');
         syncMapViewportPadding({
           isMobile: true,
           topHeight: th,
