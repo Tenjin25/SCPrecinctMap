@@ -7,6 +7,11 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 
 ## Recent Updates (April 2026)
 
+- **NC-style hover refinements + flip line + mobile docking (April 10, 2026):**
+  - Hover tooltip adds an explicit **Flip line** when the hovered geography’s winner changed since the prior comparable cycle (e.g., `Flip: D→R (2020→2024)`).
+  - Vote-delta + population-change insight lines are rendered with tighter **NC desk-hover aesthetics** (aligned, scan-friendly delta rows).
+  - Mobile layout: the hover card and selected **focus briefing panel** (`#vote-counter`) now account for the thumb-reach dock so they don’t overlap key controls; close/details are easier to access on touch.
+
 - **Hover tooltip deltas + NC-style pinning (April 9, 2026):**
   - Hover tooltip now opens with an NC-style **compact “quickline”** (candidate + margin%) plus an **insight** block.
   - Insight block adds raw deltas vs prior cycle (when available): `R Δ`, `D Δ`, and `Margin Δ` in **votes**.
@@ -58,6 +63,24 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 - Supports precinct overlays for deeper local detail.
 - Includes comparison modes (`Margins`, `Winners`, `Shift`, `Flips`) for election analysis.
 - Includes mobile-first controls so the map remains usable on smaller touch devices.
+
+## Interaction Model (Desktop + Mobile)
+
+This project intentionally follows the “election desk atlas” interaction pattern: a fast hover/tap read, an optional pin/freeze step, and a separate always-on “focus briefing” panel for selected geography.
+
+### Desktop basics
+
+- **Hover tooltip (fast read):** hover a county/precinct to see the compact quickline + deltas/insight.
+- **Pin (freeze):** click **Pin** in the tooltip to freeze the hovered feature so it won’t change as you move the mouse.
+- **Details on demand:** pinned tooltips expand to show deeper “Details” (chips + full result card + CVAP/VAP where available).
+- **Flips callout:** if a winner changed since the prior comparable cycle, the tooltip includes `Flip: … (year→year)` to make “why this is interesting” legible quickly.
+- **Focus briefing panel (`#vote-counter`):** clicking a geography pins it as the selected focus; **Clear** removes the selection.
+
+### Mobile basics
+
+- **Tap instead of hover:** tap a county/precinct to open the hover card (the touch equivalent of the desktop hover tooltip).
+- **Thumb dock:** the bottom “thumb-reach” dock exposes quick actions like **Controls** and **Search** without hiding map context.
+- **Safe-area + padding sync:** the map and floating panels account for iOS/Android safe areas and the thumb dock height so the hover card and focus panel remain readable.
 
 ## County Trajectory and Census Insights
 
@@ -138,6 +161,18 @@ Coverage varies by office and year. Always check both manifests for the latest a
 This project is served through GitHub Pages:
 
 https://tenjin25.github.io/SCPrecinctMap/
+
+## Running Locally
+
+Because the app fetches local JSON/GeoJSON/CSV assets, running through a local static server is the most reliable way to test:
+
+```bash
+python -m http.server 8000
+```
+
+Then open:
+
+- http://localhost:8000/
 
 ## Mapbox Token Setup
 
@@ -268,6 +303,8 @@ The current layout includes mobile-specific UI pieces, including:
 - Mobile top bar details toggle
 - Thumb-reach quick action dock (`Controls` and `Search`)
 - Map padding synchronization so overlays do not hide map context
+- Hover card / tooltip behavior tuned for touch (tap to open, easy Close access, and “Details” expansion without requiring a separate pin step)
+- Selected focus briefing panel placement tuned to sit above the bottom dock + legend on smaller screens
 
 Desktop layout remains available with the full side/control experience.
 
