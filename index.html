@@ -6240,6 +6240,214 @@ body { height: var(--app-height); }
     word-break: break-word;
   }
 
+  /* ===============================
+     Vote breakdown refinements begin
+     =============================== */
+
+  /* Keep vote breakdown typography aligned + scannable (NCMap-style). */
+  .vote-counter .vote-count,
+  .vote-counter .vote-percent,
+  .vote-counter .vote-total,
+  .vote-counter .vote-lead,
+  .vote-counter .focus-pill-value,
+  .vote-counter .focus-bar-label {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Tighten hierarchy within each vote item: count > percent > label. */
+  .vote-counter .vote-counter-row {
+    gap: 10px;
+  }
+
+  .vote-counter .vote-item {
+    padding: 8px 9px;
+    column-gap: 10px;
+    row-gap: 4px;
+    background: rgba(255, 255, 255, 0.80);
+    border-color: rgba(148, 163, 184, 0.14);
+  }
+
+  .vote-counter .vote-item-head {
+    gap: 7px;
+  }
+
+  .vote-counter .vote-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: rgba(100, 116, 139, 0.94);
+    line-height: 1.15;
+  }
+
+  .vote-counter .vote-count {
+    font-size: clamp(16px, 2.1vw, 20px);
+    font-weight: 950;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .vote-counter .vote-percent {
+    justify-self: end;
+    text-align: right;
+    font-size: 11px;
+    font-weight: 850;
+    color: rgba(71, 85, 105, 0.80);
+    line-height: 1.05;
+  }
+
+  .vote-counter .vote-share-track {
+    height: 7px;
+    background: rgba(226, 232, 240, 0.84);
+  }
+
+  /* Keep party color, but slightly calm it by default. */
+  .vote-counter .vote-count.dem { color: rgba(37, 99, 235, 0.86); }
+  .vote-counter .vote-count.rep { color: rgba(220, 38, 38, 0.86); }
+
+  /* Winner emphasis using existing #vote-lead[data-party] binding (no markup/JS changes). */
+  .vote-counter:has(#vote-lead[data-party="dem"]) .vote-item.dem {
+    background: rgba(239, 246, 255, 0.74);
+    border-color: rgba(37, 99, 235, 0.22);
+  }
+  .vote-counter:has(#vote-lead[data-party="dem"]) .vote-count.dem { color: #2563eb; }
+  .vote-counter:has(#vote-lead[data-party="dem"]) .vote-item.rep,
+  .vote-counter:has(#vote-lead[data-party="dem"]) .vote-item.other {
+    opacity: 0.88;
+  }
+
+  .vote-counter:has(#vote-lead[data-party="rep"]) .vote-item.rep {
+    background: rgba(254, 242, 242, 0.72);
+    border-color: rgba(220, 38, 38, 0.22);
+  }
+  .vote-counter:has(#vote-lead[data-party="rep"]) .vote-count.rep { color: #dc2626; }
+  .vote-counter:has(#vote-lead[data-party="rep"]) .vote-item.dem,
+  .vote-counter:has(#vote-lead[data-party="rep"]) .vote-item.other {
+    opacity: 0.88;
+  }
+
+  .vote-counter:has(#vote-lead[data-party="tie"]) .vote-item {
+    opacity: 0.96;
+  }
+
+  /* Winner + lead become instantly scannable without adding new UI. */
+  .vote-counter .vote-counter-meta {
+    padding: 9px 11px;
+    margin-bottom: 12px;
+    gap: 8px;
+  }
+
+  .vote-counter .vote-total {
+    font-size: 11px;
+    font-weight: 850;
+    color: rgba(15, 23, 42, 0.82);
+  }
+
+  .vote-counter .vote-lead {
+    font-size: 12px;
+    font-weight: 950;
+    letter-spacing: -0.01em;
+  }
+
+  .vote-counter .focus-summary {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .vote-counter .focus-pill {
+    padding: 9px 11px;
+  }
+
+  .vote-counter .focus-pill-label {
+    font-size: 9px;
+    letter-spacing: 0.10em;
+  }
+
+  /* Lift winner + margin above the (still-present) total votes pill. */
+  .vote-counter .focus-pill:not(.focus-pill-total) .focus-pill-value {
+    font-size: 16px;
+    font-weight: 950;
+    letter-spacing: -0.012em;
+  }
+  .vote-counter .focus-pill-total .focus-pill-value {
+    font-size: 14px;
+    font-weight: 900;
+    color: rgba(15, 23, 42, 0.90);
+  }
+
+  /* Desktop: allow candidate labels to wrap (max 2 lines) without distortion. */
+  @media (min-width: 769px) {
+    .vote-counter .vote-label.candidate {
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+  }
+
+  /* Mobile: keep the 3-column feel, but compress and quiet secondary elements. */
+  @media (max-width: 768px) {
+    .vote-counter .vote-counter-context {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      gap: 12px;
+    }
+
+    .vote-counter .vote-counter-meta {
+      margin-bottom: 10px;
+    }
+
+    .vote-counter .focus-summary {
+      gap: 7px;
+      margin-bottom: 9px;
+    }
+
+    .vote-counter .focus-bar-head {
+      margin-bottom: 5px;
+      gap: 6px;
+    }
+
+    .vote-counter .focus-bar-label {
+      font-size: 10px;
+    }
+
+    .vote-counter .focus-bar-label.midpoint {
+      opacity: 0.72;
+      font-weight: 750;
+    }
+
+    .vote-counter .focus-bar {
+      height: 12px;
+      margin-bottom: 10px;
+    }
+
+    .vote-counter .focus-bar-midpoint {
+      width: 1px;
+      opacity: 0.26;
+    }
+
+    .vote-counter .vote-counter-row {
+      gap: 6px;
+    }
+
+    .vote-counter .vote-item {
+      padding: 8px 8px 7px;
+      column-gap: 8px;
+      row-gap: 4px;
+    }
+
+    /* Reduce uneven column heights by keeping mobile labels single-line + clipped. */
+    .vote-counter .vote-label.candidate {
+      white-space: nowrap;
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
   @media (min-width: 769px) {
     .main-controls {
       display: flex;
