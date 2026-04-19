@@ -3067,6 +3067,7 @@ body { height: var(--app-height); }
     white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     word-break: break-word;
@@ -3199,6 +3200,7 @@ body { height: var(--app-height); }
     font-weight: 900;
     color: #0f172a;
     display: -webkit-box;
+    line-clamp: 3;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -3224,6 +3226,7 @@ body { height: var(--app-height); }
     text-overflow: ellipsis;
     white-space: normal;
     display: -webkit-box;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     word-break: break-word;
@@ -3234,6 +3237,7 @@ body { height: var(--app-height); }
     font-weight: 800;
     color: #475569;
     display: block;
+    line-clamp: initial;
     -webkit-line-clamp: initial;
     -webkit-box-orient: initial;
     overflow: visible;
@@ -3317,12 +3321,14 @@ body { height: var(--app-height); }
     text-overflow: ellipsis;
     white-space: normal;
     display: -webkit-box;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     word-break: break-word;
   }
   .focus-story-mini.compare .v {
     display: block;
+    line-clamp: initial;
     -webkit-line-clamp: initial;
     -webkit-box-orient: initial;
     overflow: visible;
@@ -3343,7 +3349,7 @@ body { height: var(--app-height); }
     .focus-story-grid { display: none; }
     .focus-story-head { gap: 8px; }
     .focus-story-copy { padding: 5px 9px; }
-    .focus-story-summary { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .focus-story-summary { display: -webkit-box; line-clamp: 2; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   }
 
   .focus-bar-head {
@@ -4839,6 +4845,7 @@ body { height: var(--app-height); }
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
+      line-clamp: 2;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       max-height: calc(1.2em * 2);
@@ -5932,6 +5939,7 @@ body { height: var(--app-height); }
   .vote-item.layout-stacked .vote-label.candidate {
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     white-space: normal;
     overflow-wrap: anywhere;
@@ -6078,6 +6086,7 @@ body { height: var(--app-height); }
       white-space: normal;
       display: -webkit-box;
       -webkit-box-orient: vertical;
+      line-clamp: 2;
       -webkit-line-clamp: 2;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -6828,6 +6837,7 @@ body { height: var(--app-height); }
     white-space: normal;
     display: -webkit-box;
     overflow: hidden;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
@@ -6922,6 +6932,7 @@ body { height: var(--app-height); }
   @media (max-width: 768px) {
     .vote-counter-context .context-sub {
       font-size: 14px;
+      line-clamp: 3;
       -webkit-line-clamp: 3;
     }
     .focus-trend-summary-call {
@@ -16542,8 +16553,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showDistrictDetails(districtNum) {
-      const contestValue = document.getElementById('contestSelect')?.value || '';
-      return showAndPinDistrictSelection('districts', districtNum, contestValue);
       const detailsDiv = document.getElementById('county-details');
       const nameEl = document.getElementById('county-name');
       const contentEl = document.getElementById('county-info-content');
@@ -16655,9 +16664,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showStateDistrictDetails(districtNum, chamber) {
-      const scope = chamber === 'house' ? 'state_house' : 'state_senate';
-      const contestValue = document.getElementById('contestSelect')?.value || '';
-      return showAndPinDistrictSelection(scope, districtNum, contestValue);
       const detailsDiv = document.getElementById('county-details');
       const nameEl = document.getElementById('county-name');
       const contentEl = document.getElementById('county-info-content');
@@ -16843,8 +16849,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showDistrictDetails(districtNum) {
-      const contestValue = document.getElementById('contestSelect')?.value || '';
-      return showAndPinDistrictSelection('districts', districtNum, contestValue);
       const detailsDiv = document.getElementById('county-details');
       const nameEl = document.getElementById('county-name');
       const contentEl = document.getElementById('county-info-content');
@@ -16925,9 +16929,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showStateDistrictDetails(districtNum, chamber) {
-      const scope = chamber === 'house' ? 'state_house' : 'state_senate';
-      const contestValue = document.getElementById('contestSelect')?.value || '';
-      return showAndPinDistrictSelection(scope, districtNum, contestValue);
       const detailsDiv = document.getElementById('county-details');
       const nameEl = document.getElementById('county-name');
       const contentEl = document.getElementById('county-info-content');
