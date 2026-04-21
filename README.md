@@ -7,6 +7,10 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 
 ## Recent Updates (April 2026)
 
+- **Precinct-mode visibility cleanup (April 21, 2026):**
+  - Increased precinct polygon fill opacity so underlying county colors no longer show through faintly during precinct browsing.
+  - This is a targeted visual polish for readability only; no contest logic or interaction behavior changed.
+
 - **NC-style hover refinements + flip line + mobile docking (April 10, 2026):**
   - Hover tooltip adds an explicit **Flip line** when the hovered geography’s winner changed since the prior comparable cycle (e.g., `Flip: D→R (2020→2024)`).
   - Vote-delta + population-change insight lines are rendered with tighter **NC desk-hover aesthetics** (aligned, scan-friendly delta rows).
