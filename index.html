@@ -6883,6 +6883,34 @@ body { height: var(--app-height); }
     background: rgba(15, 23, 42, 0.08);
   }
 
+  /* Keep long contest names readable; never let actions overlap text. */
+  .vote-counter .vote-counter-context {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: flex-start !important;
+  }
+
+  .vote-counter .vote-counter-context .context-left {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    padding-right: 6px;
+  }
+
+  .vote-counter .vote-counter-context .context-title,
+  .vote-counter .vote-counter-context .context-sub {
+    display: block;
+    max-width: 100%;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .vote-counter .vote-counter-context .context-actions {
+    flex-shrink: 0 !important;
+    justify-self: end;
+    margin-left: 8px;
+  }
+
   .vote-counter-meta {
     padding: 10px 12px;
     margin-bottom: 14px;
@@ -15068,7 +15096,15 @@ document.addEventListener('DOMContentLoaded', function() {
         source: 'precincts',
         minzoom: CONFIG.precincts?.minZoom || 8.5,
         layout: { visibility: 'none' },
-        paint: { 'fill-color': '#d1d5db', 'fill-opacity': 0.90 }
+        paint: {
+          'fill-color': '#d1d5db',
+          'fill-opacity': [
+            'case',
+            ['in', ['get', 'precinct_norm'], ['literal', ['AIKEN - SRS', 'BARNWELL - SRS']]],
+            0,
+            0.90
+          ]
+        }
       });
       map.addLayer({
         id: 'precinct-stroke',
