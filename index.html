@@ -94,64 +94,257 @@
     }
   }
   @media (max-width: 768px) {
-    /* Legend at bottom of screen on mobile */
-    .legend {
+    /* Mobile: panel dock + bottom sheets (ported from NC map). */
+    :root {
+      --mobile-dock-h: 62px;
+      --mobile-sheet-gap: 10px;
+    }
+
+    .mobile-dock {
+      position: fixed;
+      left: 8px;
+      right: 8px;
+      bottom: calc(8px + var(--safe-bottom, 0px));
+      z-index: 10030;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      padding: 8px;
+      border-radius: 16px;
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+    }
+
+    .mobile-dock-btn {
+      min-height: 44px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 12px;
+      background: rgba(248, 250, 252, 0.92);
+      color: #0f172a;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+
+    .mobile-dock-btn:focus-visible {
+      outline: 2px solid #1d4ed8;
+      outline-offset: 2px;
+    }
+
+    .mobile-dock-btn[aria-pressed="true"] {
+      background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+      border-color: rgba(37, 99, 235, 0.55);
+      color: #fff;
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.22);
+    }
+
+    .mobile-sheet-scrim {
+      position: fixed;
+      inset: 0;
+      z-index: 10019;
+      display: block;
+      background: rgba(15, 23, 42, 0.2);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    body.mobile-sheet-open .mobile-sheet-scrim {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-sheet-panel {
       position: fixed !important;
-      bottom: 0 !important;
-      left: 0 !important;
-      width: 100vw !important;
-      max-width: 100vw !important;
-      z-index: 10005 !important;
-      background: #fff !important;
-      box-shadow: 0 -4px 16px rgba(0,0,0,0.15) !important;
-      border-radius: 16px 16px 0 0 !important;
-      overflow-y: auto;
-      max-height: 50vh;
-      min-width: auto !important;
+      top: auto !important;
+      left: 8px !important;
+      right: 8px !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + var(--mobile-sheet-gap, 10px)) !important;
+      width: auto !important;
+      max-width: none !important;
+      transform: translateY(calc(100% + 28px));
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10020 !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      scroll-padding-top: 28px;
+      transition: transform 0.22s ease, opacity 0.2s ease, max-height 0.2s ease;
     }
-    .legend.minimized {
-      max-height: 56px !important;
-    }
-    .legend-header {
+
+    .mobile-sheet-grab {
       position: sticky;
       top: 0;
-      background: #fff;
-      z-index: 10006;
-      border-radius: 16px 16px 0 0;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: -2px auto 6px;
+      padding: 6px 0 4px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      touch-action: none;
     }
-    .legend-content {
-      padding: 16px !important;
+
+    .mobile-sheet-grab::before {
+      content: '';
+      width: 42px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(100, 116, 139, 0.58);
+      box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08);
     }
-    .legend-item {
-      font-size: 14px !important;
-      margin-bottom: 10px !important;
+
+    .mobile-sheet-grab.is-dragging::before {
+      background: rgba(30, 64, 175, 0.66);
+      box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.14), 0 1px 0 rgba(30, 64, 175, 0.35);
     }
-    .legend-color {
-      width: 20px !important;
-      height: 20px !important;
-      margin-right: 12px !important;
+
+    .mobile-sheet-grab:focus-visible {
+      outline: 2px solid #1d4ed8;
+      outline-offset: 2px;
+      border-radius: 12px;
     }
-  }
-  @media (max-width: 768px) {
-    /* Mobile: dock hover tooltip above bottom legend for easier reading/taps. */
+
+    .mobile-sheet-panel.mobile-sheet-active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-sheet-panel[data-mobile-snap="half"] {
+      max-height: min(56vh, 460px) !important;
+    }
+
+    .mobile-sheet-panel[data-mobile-snap="full"] {
+      max-height: min(84vh, 760px) !important;
+    }
+
+    .mobile-sheet-panel[data-mobile-snap="collapsed"] {
+      max-height: 58px !important;
+      overflow: hidden !important;
+    }
+
+    .map-topbar.mobile-sheet-panel {
+      border-radius: 18px !important;
+      padding: 12px !important;
+      min-height: 0 !important;
+    }
+
+    .map-topbar.mobile-sheet-panel .mobile-topbar-toggle {
+      display: none !important;
+    }
+
+    .map-topbar.mobile-sheet-panel .map-topbar-details {
+      display: block !important;
+    }
+
+    .map-topbar.mobile-sheet-panel[data-mobile-snap="collapsed"] .map-topbar-details,
+    .map-topbar.mobile-sheet-panel[data-mobile-snap="collapsed"] .map-topbar-copy span,
+    .map-topbar.mobile-sheet-panel[data-mobile-snap="collapsed"] .map-topbar-hints {
+      display: none !important;
+    }
+
+    .main-controls.mobile-sheet-panel,
+    .legend.mobile-sheet-panel {
+      border-radius: 18px !important;
+    }
+
+    .legend.mobile-sheet-panel .legend-header {
+      border-radius: 18px 18px 0 0 !important;
+    }
+
+    .vote-counter {
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px) !important;
+    }
+
     #hover-tooltip {
       position: fixed !important;
       left: 8px !important;
       right: 8px !important;
       top: auto !important;
-      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 8px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
       max-width: none !important;
       width: auto !important;
-      max-height: 42vh;
+      max-height: min(54vh, calc(100vh - 16px - var(--safe-top, 0px) - var(--safe-bottom, 0px) - var(--mobile-dock-h, 62px) - var(--vote-counter-h, 0px)));
       overflow: auto;
       -webkit-overflow-scrolling: touch;
       touch-action: pan-y;
     }
+
     #hover-tooltip .tooltip-btn {
       min-height: 44px;
       padding: 10px 12px;
       font-size: 13px;
       border-radius: 12px;
+    }
+
+    body.mobile-sheet-open #hover-tooltip {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(6px) !important;
+    }
+
+    body.mobile-sheet-open .vote-counter,
+    body.mobile-sheet-open .viz-modes {
+      opacity: 0.22;
+      pointer-events: none;
+      transform: translateY(6px) !important;
+    }
+
+    body.mobile-input-active .vote-counter {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px) !important;
+    }
+
+    body.mobile-input-active #hover-tooltip {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px) !important;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .mobile-sheet-scrim,
+    .mobile-dock,
+    .mobile-sheet-grab {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 900px) and (orientation: landscape) {
+    .mobile-dock {
+      left: 8px;
+      right: auto;
+      width: 126px;
+      grid-template-columns: 1fr;
+      bottom: calc(8px + var(--safe-bottom, 0px));
+    }
+
+    .mobile-sheet-panel {
+      left: 142px !important;
+      right: 8px !important;
+      bottom: 8px !important;
+      max-height: calc(100vh - 16px - var(--safe-top, 0px) - var(--safe-bottom, 0px)) !important;
+    }
+
+    .vote-counter {
+      left: 142px !important;
+      right: 8px !important;
+      bottom: 8px !important;
+    }
+
+    #hover-tooltip {
+      left: 142px !important;
+      right: 8px !important;
+      bottom: calc(8px + var(--vote-counter-h, 0px) + 8px) !important;
     }
   }
     .spinner svg {
@@ -251,37 +444,6 @@
         } catch (_) {}
       }
 
-      function syncMobileThumbDock() {
-        try {
-          const dock = document.getElementById('mobile-thumb-dock');
-          const controlsFab = document.getElementById('mobile-controls-fab');
-          const searchFab = document.getElementById('mobile-search-fab');
-          const topbar = document.getElementById('map-topbar');
-          const controls = document.getElementById('main-controls');
-          if (!dock || !controlsFab) return;
-
-          if (!isMobileViewport()) {
-            dock.style.display = 'none';
-            dock.classList.remove('controls-open', 'details-open');
-            if (searchFab) searchFab.setAttribute('aria-expanded', 'false');
-            return;
-          }
-          dock.style.display = 'flex';
-
-          const controlsExpanded = !!(controls && !controls.classList.contains('minimized'));
-          dock.classList.toggle('controls-open', controlsExpanded);
-          controlsFab.textContent = controlsExpanded ? 'Hide' : 'Controls';
-          controlsFab.setAttribute('aria-expanded', controlsExpanded ? 'true' : 'false');
-
-          if (searchFab) {
-            const detailsOpen = !!(topbar && topbar.classList.contains('topbar-expanded'));
-            dock.classList.toggle('details-open', detailsOpen);
-            searchFab.textContent = detailsOpen ? 'Close' : 'Search';
-            searchFab.setAttribute('aria-expanded', detailsOpen ? 'true' : 'false');
-          }
-        } catch (_) {}
-      }
-
       function collapseMobileTopbar() {
         try {
           if (!isMobileViewport()) return;
@@ -289,7 +451,7 @@
           if (!topbar) return;
           topbar.classList.remove('topbar-expanded');
           syncMobileTopbarToggle();
-          syncMobileThumbDock();
+          try { if (typeof window.syncMobileDockButtons === 'function') window.syncMobileDockButtons(); } catch (_) {}
           if (typeof window.syncInitialTopbarOffset === 'function') {
             window.syncInitialTopbarOffset();
           }
@@ -304,7 +466,7 @@
           const topbarHeight = Math.max(minTopbarHeight, Math.round(topbar.getBoundingClientRect().height || 0));
           document.documentElement.style.setProperty('--topbar-h', `${topbarHeight}px`);
           syncMobileTopbarToggle();
-          syncMobileThumbDock();
+          try { if (typeof window.syncMobileDockButtons === 'function') window.syncMobileDockButtons(); } catch (_) {}
           if (typeof window.updateMobileOverlayOffsets === 'function') {
             window.updateMobileOverlayOffsets();
           }
@@ -313,7 +475,6 @@
       window.syncInitialTopbarOffset = syncInitialTopbarOffset;
       window.collapseMobileTopbar = collapseMobileTopbar;
       window.syncMobileTopbarToggle = syncMobileTopbarToggle;
-      window.syncMobileThumbDock = syncMobileThumbDock;
 
       function prioritizeContestControl() {
         try {
@@ -331,56 +492,14 @@
       var statusExit = document.getElementById('status-exit');
       var mobileTopbarToggle = document.getElementById('mobile-topbar-toggle');
       var topbar = document.getElementById('map-topbar');
-      var mobileControlsFab = document.getElementById('mobile-controls-fab');
-      var mobileSearchFab = document.getElementById('mobile-search-fab');
 
       if (mobileTopbarToggle && topbar) {
         mobileTopbarToggle.addEventListener('click', function() {
           if (!isMobileViewport()) return;
           topbar.classList.toggle('topbar-expanded');
           syncMobileTopbarToggle();
-          syncMobileThumbDock();
+          try { if (typeof window.syncMobileDockButtons === 'function') window.syncMobileDockButtons(); } catch (_) {}
           syncInitialTopbarOffset();
-        });
-      }
-
-      if (mobileControlsFab) {
-        mobileControlsFab.addEventListener('click', function() {
-          if (!isMobileViewport()) return;
-          const controls = document.getElementById('main-controls');
-          const willExpand = !!(controls && controls.classList.contains('minimized'));
-          if (willExpand && topbar && topbar.classList.contains('topbar-expanded')) {
-            topbar.classList.remove('topbar-expanded');
-            syncMobileTopbarToggle();
-          }
-          toggleMainControls();
-          syncMobileThumbDock();
-          try { updateMobileOverlayOffsets(); } catch (_) {}
-        });
-      }
-
-      if (mobileSearchFab) {
-        mobileSearchFab.addEventListener('click', function() {
-          if (!isMobileViewport()) return;
-          const searchInput = document.getElementById('county-search');
-          const controls = document.getElementById('main-controls');
-          if (!topbar) return;
-          const shouldOpen = !topbar.classList.contains('topbar-expanded');
-          if (shouldOpen && controls && !controls.classList.contains('minimized')) {
-            toggleMainControls();
-          }
-          topbar.classList.toggle('topbar-expanded', shouldOpen);
-          syncMobileTopbarToggle();
-          syncMobileThumbDock();
-          syncInitialTopbarOffset();
-          if (shouldOpen && searchInput) {
-            setTimeout(() => {
-              try { searchInput.focus({ preventScroll: true }); } catch (_) { try { searchInput.focus(); } catch (_) {} }
-              try { searchInput.select(); } catch (_) {}
-            }, 20);
-          } else if (searchInput) {
-            try { searchInput.blur(); } catch (_) {}
-          }
         });
       }
 
@@ -409,12 +528,14 @@
       }
 
       syncMobileTopbarToggle();
-      syncMobileThumbDock();
+      try { if (typeof window.syncMobileDockButtons === 'function') window.syncMobileDockButtons(); } catch (_) {}
       syncInitialTopbarOffset();
+      try { if (typeof window.setupMobileDockAndSheets === 'function') window.setupMobileDockAndSheets(); } catch (_) {}
+      try { if (typeof window.setupMobileInputFocusBehavior === 'function') window.setupMobileInputFocusBehavior(); } catch (_) {}
       requestAnimationFrame(syncInitialTopbarOffset);
       setTimeout(syncInitialTopbarOffset, 180);
       window.addEventListener('resize', syncInitialTopbarOffset, { passive: true });
-      window.addEventListener('resize', syncMobileThumbDock, { passive: true });
+      window.addEventListener('resize', () => { try { if (typeof window.syncMobileDockButtons === 'function') window.syncMobileDockButtons(); } catch (_) {} }, { passive: true });
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(() => {
           try { syncInitialTopbarOffset(); } catch (_) {}
@@ -1325,7 +1446,7 @@ body { height: var(--app-height); }
   .viz-modes {
     position: fixed;
     top: auto;
-    bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 8px);
+    bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px);
     left: 50%;
     transform: translateX(-50%);
     padding: 6px;
@@ -1500,7 +1621,7 @@ body { height: var(--app-height); }
   .vote-counter {
     position: fixed;
     top: auto;
-    bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 58px);
+    bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px);
     min-width: auto;
     width: min(92vw, 420px);
     max-width: 92vw;
@@ -2234,7 +2355,7 @@ body { height: var(--app-height); }
   }
 
   @media (max-width: 768px) {
-    html.android-mobile .main-controls {
+    html.android-mobile .main-controls:not(.mobile-sheet-panel) {
       top: calc(var(--safe-top, 0px) + var(--android-vv-top, 0px)) !important;
       max-height: min(54vh, 430px) !important;
       padding-top: calc(10px + var(--safe-top, 0px)) !important;
@@ -2246,16 +2367,16 @@ body { height: var(--app-height); }
       html.android-mobile .main-controls { max-height: min(54dvh, 430px) !important; }
     }
 
-    html.android-mobile .legend {
+    html.android-mobile .legend:not(.mobile-sheet-panel) {
       padding-bottom: calc(8px + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px)) !important;
     }
 
     html.android-mobile .vote-counter {
-      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 58px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px) !important;
     }
 
     html.android-mobile #hover-tooltip {
-      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 8px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
     }
 
     .contest-toolbar {
@@ -4778,7 +4899,7 @@ body { height: var(--app-height); }
       right: 12px !important;
       width: auto !important;
       max-width: none !important;
-      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 68px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px) !important;
       transform: none !important;
     }
 
@@ -6539,7 +6660,7 @@ body { height: var(--app-height); }
     .vote-counter {
       left: 8px !important;
       right: 8px !important;
-      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 56px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px) !important;
     }
 
     .control-group select,
@@ -6565,13 +6686,13 @@ body { height: var(--app-height); }
     }
 
     .vote-counter {
-      bottom: calc(var(--legend-h, 56px) + var(--thumb-dock-h, 0px) + var(--safe-bottom, 0px) + 50px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px) !important;
     }
   }
 
   @media (max-width: 768px) {
-    .controls-content {
-      padding-bottom: calc(74px + var(--safe-bottom, 0px));
+    .main-controls.mobile-sheet-panel .controls-content {
+      padding-bottom: calc(12px + var(--safe-bottom, 0px));
     }
 
     .contest-toolbar {
@@ -6617,79 +6738,6 @@ body { height: var(--app-height); }
       padding-right: 2px;
     }
 
-    .mobile-thumb-dock {
-      position: fixed;
-      left: calc(10px + var(--safe-left, 0px));
-      right: calc(10px + var(--safe-right, 0px));
-      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + 8px);
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 8px;
-      max-width: min(420px, calc(100vw - 20px - var(--safe-left, 0px) - var(--safe-right, 0px)));
-      margin: 0 auto;
-      z-index: 10011;
-      pointer-events: auto;
-    }
-
-    .mobile-thumb-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 12px;
-      min-width: 86px;
-      border: 1px solid rgba(15, 23, 42, 0.16);
-      border-radius: 999px;
-      background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
-      color: #f8fafc;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.22);
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-    }
-
-    .mobile-thumb-btn.primary {
-      background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
-      border-color: rgba(37, 99, 235, 0.44);
-    }
-
-    .mobile-thumb-dock.controls-open .mobile-thumb-btn.primary,
-    .mobile-thumb-dock.details-open #mobile-search-fab {
-      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.28);
-      transform: translateY(-1px);
-    }
-
-    .mobile-thumb-btn:focus-visible {
-      outline: 2px solid rgba(147, 197, 253, 0.95);
-      outline-offset: 2px;
-    }
-
-    .mobile-thumb-btn:active {
-      transform: translateY(1px);
-    }
-  }
-
-  @media (max-width: 560px) {
-    .mobile-thumb-dock {
-      gap: 10px;
-      max-width: none;
-      justify-content: stretch;
-    }
-
-    .mobile-thumb-btn {
-      flex: 1 1 0;
-      min-width: 0;
-      font-size: 12.5px;
-    }
-  }
-
-  @media (min-width: 769px) {
-    .mobile-thumb-dock {
-      display: none !important;
-    }
   }
 
   .controls-content > .control-group-contest {
@@ -7227,10 +7275,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <div id="map"></div>
-<div class="mobile-thumb-dock" id="mobile-thumb-dock" aria-label="Quick mobile actions">
-  <button id="mobile-controls-fab" class="mobile-thumb-btn primary" type="button" aria-controls="main-controls" aria-expanded="false">Controls</button>
-  <button id="mobile-search-fab" class="mobile-thumb-btn" type="button" aria-controls="county-search">Search</button>
-</div>
+<div class="mobile-sheet-scrim" id="mobile-sheet-scrim" aria-hidden="true"></div>
+<nav class="mobile-dock" id="mobile-dock" aria-label="Mobile panel dock">
+  <button type="button" class="mobile-dock-btn" data-mobile-sheet-btn="search" aria-controls="map-topbar" aria-expanded="false" aria-pressed="false" title="Open search panel">Search</button>
+  <button type="button" class="mobile-dock-btn" data-mobile-sheet-btn="layers" aria-controls="main-controls" aria-expanded="false" aria-pressed="false" title="Open layers panel">Layers</button>
+  <button type="button" class="mobile-dock-btn" data-mobile-sheet-btn="legend" aria-controls="legend" aria-expanded="false" aria-pressed="false" title="Open legend panel">Legend</button>
+</nav>
 
   <div class="desktop-ui-left">
   <div class="map-topbar" id="map-topbar">
@@ -14020,6 +14070,14 @@ document.addEventListener('DOMContentLoaded', function() {
       detailsDiv.style.display = 'block';
     }
 
+    function isMobileViewportNow() {
+      try {
+        return !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+      } catch (_) {
+        return window.innerWidth <= 768;
+      }
+    }
+
     function toggleLegend() {
       const legend = document.getElementById('legend');
       const legendContent = document.getElementById('legend-content');
@@ -14038,11 +14096,517 @@ document.addEventListener('DOMContentLoaded', function() {
         minimizeBtn.textContent = '+';
         minimizeBtn.title = 'Expand legend';
       }
+      if (isMobileViewportNow() && legend) {
+        legend.classList.add('mobile-sheet-panel');
+        if (legend.classList.contains('minimized')) {
+          legend.classList.remove('mobile-sheet-active');
+          setMobileSheetSnap(legend, 'collapsed');
+          if (activeMobileSheetKey === 'legend') activeMobileSheetKey = null;
+        } else {
+          legend.classList.add('mobile-sheet-active');
+          setMobileSheetSnap(legend, 'half');
+          activeMobileSheetKey = 'legend';
+        }
+        syncMobileDockButtons();
+      }
       try { updateMobileOverlayOffsets(); } catch (_) {}
+    }
+
+    const MOBILE_SHEET_PANEL_IDS = Object.freeze({
+      search: 'map-topbar',
+      layers: 'main-controls',
+      legend: 'legend'
+    });
+    const MOBILE_SHEET_PANEL_LABELS = Object.freeze({
+      search: 'search',
+      layers: 'layers',
+      legend: 'legend'
+    });
+    const MOBILE_SHEET_SNAP_SEQUENCE = Object.freeze(['half', 'full', 'collapsed']);
+    const MOBILE_SHEET_SWIPE_THRESHOLD_PX = 24;
+    const MOBILE_SHEET_FLICK_VELOCITY_PX_PER_MS = 0.45;
+    const MOBILE_SHEET_FLICK_WINDOW_MS = 120;
+    const MOBILE_SHEET_FLICK_MIN_TRAVEL_PX = 10;
+    let activeMobileSheetKey = null;
+    let mobileSheetVoteCounterSnapshot = null; // null | boolean (was expanded when sheets opened)
+    let mobileSheetSystemReady = false;
+    let mobileInputFocusWired = false;
+    let mobileInputRestoreTimer = null;
+    let mobileInputFocusSnapshot = null;
+
+    function getMobileSheetPanel(key) {
+      const id = MOBILE_SHEET_PANEL_IDS[key];
+      return id ? document.getElementById(id) : null;
+    }
+
+    function getMobileSheetSnap(key) {
+      const panel = getMobileSheetPanel(key);
+      return panel?.dataset?.mobileSnap || 'collapsed';
+    }
+
+    function setMobileSheetSnap(panel, snap) {
+      if (!panel) return;
+      panel.dataset.mobileSnap = snap || 'collapsed';
+    }
+
+    function ensureMobileSheetGrab(panel, key) {
+      if (!panel || !key || panel.querySelector('.mobile-sheet-grab')) return;
+      const grab = document.createElement('button');
+      grab.type = 'button';
+      grab.className = 'mobile-sheet-grab';
+      grab.setAttribute('aria-label', 'Resize or close panel');
+      grab.title = 'Tap, swipe, or flick to resize panel';
+      let dragState = null;
+
+      function stampMs(rawTs) {
+        const t = Number(rawTs);
+        if (Number.isFinite(t) && t > 0) return t;
+        try {
+          if (typeof performance !== 'undefined' && performance && typeof performance.now === 'function') {
+            return performance.now();
+          }
+        } catch (_) {}
+        return Date.now();
+      }
+
+      function resetDragState() {
+        dragState = null;
+        grab.classList.remove('is-dragging');
+      }
+
+      function beginDrag(clientX, clientY, pointerId = null, rawTs = null) {
+        const t = stampMs(rawTs);
+        dragState = {
+          startX: Number(clientX) || 0,
+          startY: Number(clientY) || 0,
+          pointerId,
+          samples: [{ x: Number(clientX) || 0, y: Number(clientY) || 0, t }]
+        };
+        grab.classList.add('is-dragging');
+      }
+
+      function updateDrag(clientX, clientY, rawTs = null) {
+        if (!dragState) return;
+        const x = Number(clientX) || dragState.startX;
+        const y = Number(clientY) || dragState.startY;
+        const t = stampMs(rawTs);
+        dragState.lastX = x;
+        dragState.lastY = y;
+        dragState.samples.push({ x, y, t });
+        if (dragState.samples.length > 10) {
+          dragState.samples.splice(0, dragState.samples.length - 10);
+        }
+      }
+
+      function finishDrag(clientX, clientY, rawTs = null) {
+        if (!dragState) return;
+        const endX = Number(clientX) || dragState.lastX || dragState.startX;
+        const endY = Number(clientY) || dragState.lastY || dragState.startY;
+        const endT = stampMs(rawTs);
+        dragState.samples.push({ x: endX, y: endY, t: endT });
+        if (dragState.samples.length > 12) {
+          dragState.samples.splice(0, dragState.samples.length - 12);
+        }
+        const dy = endY - dragState.startY;
+        const dx = endX - dragState.startX;
+        const absDy = Math.abs(dy);
+        const absDx = Math.abs(dx);
+        const cutoff = endT - MOBILE_SHEET_FLICK_WINDOW_MS;
+        let ref = dragState.samples[0];
+        for (let i = dragState.samples.length - 1; i >= 0; i -= 1) {
+          const sample = dragState.samples[i];
+          if (sample.t <= cutoff) break;
+          ref = sample;
+        }
+        const refT = Number.isFinite(Number(ref?.t)) ? Number(ref.t) : endT;
+        const refY = Number.isFinite(Number(ref?.y)) ? Number(ref.y) : endY;
+        const vDt = Math.max(1, endT - refT);
+        const vy = (endY - refY) / vDt;
+        const absVy = Math.abs(vy);
+        const distanceSwipe = absDy >= MOBILE_SHEET_SWIPE_THRESHOLD_PX && absDy > absDx * 1.1;
+        const velocityFlick =
+          absVy >= MOBILE_SHEET_FLICK_VELOCITY_PX_PER_MS &&
+          absDy >= MOBILE_SHEET_FLICK_MIN_TRAVEL_PX &&
+          absDy > absDx * 0.65;
+        resetDragState();
+        if (!distanceSwipe && !velocityFlick) return;
+        grab.dataset.swiped = 'true';
+        if (dy < 0) {
+          swipeMobileSheet(key, 'up');
+        } else {
+          swipeMobileSheet(key, 'down');
+        }
+        window.setTimeout(() => {
+          if (grab) grab.dataset.swiped = '';
+        }, 160);
+      }
+
+      if (typeof window.PointerEvent !== 'undefined') {
+        grab.addEventListener('pointerdown', (event) => {
+          if (event.pointerType === 'mouse' && event.button !== 0) return;
+          event.preventDefault();
+          beginDrag(event.clientX, event.clientY, event.pointerId, event.timeStamp);
+          try { grab.setPointerCapture(event.pointerId); } catch (_) {}
+        });
+        grab.addEventListener('pointermove', (event) => {
+          if (!dragState) return;
+          if (dragState.pointerId !== null && event.pointerId !== dragState.pointerId) return;
+          updateDrag(event.clientX, event.clientY, event.timeStamp);
+        });
+        grab.addEventListener('pointerup', (event) => {
+          if (!dragState) return;
+          if (dragState.pointerId !== null && event.pointerId !== dragState.pointerId) return;
+          finishDrag(event.clientX, event.clientY, event.timeStamp);
+          try { grab.releasePointerCapture(event.pointerId); } catch (_) {}
+        });
+        grab.addEventListener('pointercancel', () => {
+          resetDragState();
+        });
+      } else {
+        grab.addEventListener('touchstart', (event) => {
+          const touches = event.touches;
+          if (!touches || !touches.length) return;
+          const touch = touches[0];
+          beginDrag(touch.clientX, touch.clientY, touch.identifier, event.timeStamp);
+        }, { passive: true });
+        grab.addEventListener('touchmove', (event) => {
+          if (!dragState) return;
+          const touches = event.touches;
+          if (!touches || !touches.length) {
+            resetDragState();
+            return;
+          }
+          let matched = false;
+          for (let i = 0; i < touches.length; i += 1) {
+            const touch = touches[i];
+            if (dragState.pointerId !== null && touch.identifier !== dragState.pointerId) continue;
+            updateDrag(touch.clientX, touch.clientY, event.timeStamp);
+            matched = true;
+            break;
+          }
+          if (!matched) resetDragState();
+        }, { passive: true });
+        grab.addEventListener('touchend', (event) => {
+          if (!dragState) return;
+          const touches = event.changedTouches;
+          if (!touches || !touches.length) {
+            resetDragState();
+            return;
+          }
+          let matched = false;
+          for (let i = 0; i < touches.length; i += 1) {
+            const touch = touches[i];
+            if (dragState.pointerId !== null && touch.identifier !== dragState.pointerId) continue;
+            finishDrag(touch.clientX, touch.clientY, event.timeStamp);
+            matched = true;
+            break;
+          }
+          if (!matched) resetDragState();
+        }, { passive: true });
+        grab.addEventListener('touchcancel', () => {
+          resetDragState();
+        }, { passive: true });
+      }
+
+      grab.addEventListener('click', (event) => {
+        if (grab.dataset.swiped === 'true') {
+          event.preventDefault();
+          event.stopPropagation();
+          return;
+        }
+        event.preventDefault();
+        event.stopPropagation();
+        toggleMobileSheet(key);
+      });
+      panel.insertBefore(grab, panel.firstChild);
+    }
+
+    function syncMobileDockButtons() {
+      const buttons = document.querySelectorAll('[data-mobile-sheet-btn]');
+      buttons.forEach(btn => {
+        const key = btn.getAttribute('data-mobile-sheet-btn') || '';
+        const pressed = key && key === activeMobileSheetKey;
+        btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+        btn.setAttribute('aria-expanded', pressed ? 'true' : 'false');
+        const panelId = MOBILE_SHEET_PANEL_IDS[key];
+        if (panelId) btn.setAttribute('aria-controls', panelId);
+        const panelLabel = MOBILE_SHEET_PANEL_LABELS[key] || 'panel';
+        btn.title = pressed ? `Collapse ${panelLabel} panel` : `Open ${panelLabel} panel`;
+      });
+      document.body.classList.toggle('mobile-sheet-open', !!activeMobileSheetKey && isMobileViewportNow());
+      try {
+        if (!activeMobileSheetKey && mobileSheetVoteCounterSnapshot !== null) {
+          const blocked = !!(document.body.classList.contains('mobile-input-active') || mobileInputFocusSnapshot);
+          if (!blocked && mobileSheetVoteCounterSnapshot) {
+            setVoteCounterMinimizedState(false);
+          }
+          mobileSheetVoteCounterSnapshot = null;
+        }
+      } catch (_) {}
+    }
+
+    function expandLegendOnMobile() {
+      const legend = document.getElementById('legend');
+      const legendContent = document.getElementById('legend-content');
+      const minimizeBtn = document.getElementById('legend-minimize-btn');
+      if (!legend || !legendContent || !minimizeBtn) return;
+      legend.classList.remove('minimized');
+      legendContent.style.display = 'block';
+      minimizeBtn.textContent = '-';
+      minimizeBtn.title = 'Minimize legend';
+    }
+
+    function expandMainControlsOnMobile() {
+      const controls = document.getElementById('main-controls');
+      const controlsContent = document.getElementById('controls-content');
+      const minimizeBtn = document.getElementById('controls-minimize-btn');
+      if (!controls || !controlsContent || !minimizeBtn) return;
+      controls.classList.remove('minimized');
+      controlsContent.style.display = 'block';
+      minimizeBtn.textContent = '-';
+      minimizeBtn.title = 'Minimize controls';
+    }
+
+    function closeMobileSheet(key) {
+      const panel = getMobileSheetPanel(key);
+      if (!panel) return;
+      panel.classList.remove('mobile-sheet-active');
+      setMobileSheetSnap(panel, 'collapsed');
+      if (key === 'search') {
+        try {
+          const topbar = document.getElementById('map-topbar');
+          if (topbar) topbar.classList.remove('topbar-expanded');
+          if (typeof window.syncMobileTopbarToggle === 'function') window.syncMobileTopbarToggle();
+        } catch (_) {}
+      } else if (key === 'layers') {
+        try { minimizeMainControlsOnMobile(); } catch (_) {}
+      } else if (key === 'legend') {
+        try { minimizeLegendOnMobile(); } catch (_) {}
+      }
+    }
+
+    function openMobileSheet(key, snap = 'half') {
+      if (!isMobileViewportNow()) return;
+      const panel = getMobileSheetPanel(key);
+      if (!panel) return;
+      try {
+        if (mobileSheetVoteCounterSnapshot === null) {
+          const counter = document.getElementById('vote-counter');
+          mobileSheetVoteCounterSnapshot = !!(counter && !counter.classList.contains('minimized'));
+        }
+        setVoteCounterMinimizedState(true);
+      } catch (_) {}
+      try { closeHoverUI({ force: true }); } catch (_) {}
+      Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(otherKey => {
+        if (otherKey === key) return;
+        closeMobileSheet(otherKey);
+      });
+      panel.classList.add('mobile-sheet-panel', 'mobile-sheet-active');
+      setMobileSheetSnap(panel, snap);
+      if (key === 'search') {
+        try {
+          const topbar = document.getElementById('map-topbar');
+          if (topbar) topbar.classList.add('topbar-expanded');
+          if (typeof window.syncMobileTopbarToggle === 'function') window.syncMobileTopbarToggle();
+        } catch (_) {}
+      } else if (key === 'layers') {
+        expandMainControlsOnMobile();
+      } else if (key === 'legend') {
+        expandLegendOnMobile();
+      }
+      if (snap === 'collapsed') {
+        closeMobileSheet(key);
+        activeMobileSheetKey = null;
+      } else {
+        activeMobileSheetKey = key;
+      }
+      syncMobileDockButtons();
+      try { updateMobileOverlayOffsets(); } catch (_) {}
+    }
+
+    function closeAllMobileSheets() {
+      Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => closeMobileSheet(key));
+      activeMobileSheetKey = null;
+      syncMobileDockButtons();
+      try { updateMobileOverlayOffsets(); } catch (_) {}
+    }
+
+    function swipeMobileSheet(key, direction = 'up') {
+      if (!isMobileViewportNow()) return;
+      if (!MOBILE_SHEET_PANEL_IDS[key]) return;
+      if (activeMobileSheetKey !== key) {
+        if (direction === 'up') openMobileSheet(key, 'half');
+        return;
+      }
+      const current = getMobileSheetSnap(key);
+      let next = current;
+      if (direction === 'up') {
+        next = current === 'collapsed' ? 'half' : 'full';
+      } else {
+        next = current === 'full' ? 'half' : 'collapsed';
+      }
+      if (next === 'collapsed') {
+        closeMobileSheet(key);
+        activeMobileSheetKey = null;
+        syncMobileDockButtons();
+        try { updateMobileOverlayOffsets(); } catch (_) {}
+        return;
+      }
+      openMobileSheet(key, next);
+    }
+
+    function toggleMobileSheet(key) {
+      if (!isMobileViewportNow()) return;
+      if (!MOBILE_SHEET_PANEL_IDS[key]) return;
+      if (activeMobileSheetKey !== key) {
+        openMobileSheet(key, 'half');
+        return;
+      }
+      const current = getMobileSheetSnap(key);
+      const idx = MOBILE_SHEET_SNAP_SEQUENCE.indexOf(current);
+      const next = MOBILE_SHEET_SNAP_SEQUENCE[(idx + 1) % MOBILE_SHEET_SNAP_SEQUENCE.length];
+      if (next === 'collapsed') {
+        closeMobileSheet(key);
+        activeMobileSheetKey = null;
+        syncMobileDockButtons();
+        try { updateMobileOverlayOffsets(); } catch (_) {}
+        return;
+      }
+      openMobileSheet(key, next);
+    }
+
+    function setupMobileDockAndSheets() {
+      if (mobileSheetSystemReady) return;
+      mobileSheetSystemReady = true;
+      try {
+        Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => {
+          const panel = getMobileSheetPanel(key);
+          if (!panel) return;
+          panel.classList.add('mobile-sheet-panel');
+          setMobileSheetSnap(panel, 'collapsed');
+          panel.classList.remove('mobile-sheet-active');
+          ensureMobileSheetGrab(panel, key);
+        });
+        document.querySelectorAll('[data-mobile-sheet-btn]').forEach(btn => {
+          if (btn.dataset.mobileSheetReady === 'true') return;
+          btn.dataset.mobileSheetReady = 'true';
+          btn.addEventListener('click', () => {
+            const key = btn.getAttribute('data-mobile-sheet-btn') || '';
+            toggleMobileSheet(key);
+          });
+        });
+        const scrim = document.getElementById('mobile-sheet-scrim');
+        if (scrim && scrim.dataset.mobileSheetReady !== 'true') {
+          scrim.dataset.mobileSheetReady = 'true';
+          scrim.addEventListener('click', () => { closeAllMobileSheets(); });
+        }
+        if (!window.__mobileSheetEscapeReady) {
+          window.__mobileSheetEscapeReady = true;
+          document.addEventListener('keydown', (event) => {
+            if (event.key !== 'Escape') return;
+            if (!isMobileViewportNow()) return;
+            if (!activeMobileSheetKey) return;
+            event.preventDefault();
+            closeAllMobileSheets();
+          });
+        }
+        window.addEventListener('resize', () => {
+          try {
+            if (!isMobileViewportNow()) {
+              closeAllMobileSheets();
+              document.body.classList.remove('mobile-sheet-open', 'mobile-input-active');
+              mobileInputFocusSnapshot = null;
+              if (mobileInputRestoreTimer) {
+                clearTimeout(mobileInputRestoreTimer);
+                mobileInputRestoreTimer = null;
+              }
+              Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => {
+                const panel = getMobileSheetPanel(key);
+                if (!panel) return;
+                panel.classList.remove('mobile-sheet-active');
+                setMobileSheetSnap(panel, 'collapsed');
+              });
+            } else {
+              Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => {
+                const panel = getMobileSheetPanel(key);
+                if (!panel) return;
+                panel.classList.add('mobile-sheet-panel');
+                ensureMobileSheetGrab(panel, key);
+                if (!panel.dataset.mobileSnap) setMobileSheetSnap(panel, 'collapsed');
+              });
+            }
+          } catch (_) {}
+        }, { passive: true });
+      } catch (_) {}
+      closeAllMobileSheets();
+    }
+
+    function isMobileEditableField(node) {
+      if (!node || !node.tagName) return false;
+      const tag = node.tagName.toLowerCase();
+      if (tag !== 'input' && tag !== 'textarea' && tag !== 'select') return false;
+      return !!(node.closest && (node.closest('#map-topbar') || node.closest('#main-controls')));
+    }
+
+    function restoreMobileInputFocusMode() {
+      if (!mobileInputFocusSnapshot) return;
+      const snap = mobileInputFocusSnapshot;
+      mobileInputFocusSnapshot = null;
+      document.body.classList.remove('mobile-input-active');
+      if (!isMobileViewportNow()) return;
+      try {
+        if (!snap.voteCounterWasMinimized) setVoteCounterMinimizedState(false);
+      } catch (_) {}
+      if (snap.activeSheetKey) {
+        openMobileSheet(snap.activeSheetKey, snap.activeSheetSnap || 'half');
+      } else {
+        closeAllMobileSheets();
+      }
+    }
+
+    function setupMobileInputFocusBehavior() {
+      if (mobileInputFocusWired) return;
+      mobileInputFocusWired = true;
+      document.addEventListener('focusin', (event) => {
+        const target = event.target;
+        if (!isMobileViewportNow()) return;
+        if (!isMobileEditableField(target)) return;
+        if (!mobileInputFocusSnapshot) {
+          const counter = document.getElementById('vote-counter');
+          mobileInputFocusSnapshot = {
+            voteCounterWasMinimized: !!(counter && counter.classList.contains('minimized')),
+            activeSheetKey: activeMobileSheetKey,
+            activeSheetSnap: activeMobileSheetKey ? getMobileSheetSnap(activeMobileSheetKey) : 'collapsed'
+          };
+        }
+        document.body.classList.add('mobile-input-active');
+        try { minimizeLegendOnMobile(); } catch (_) {}
+        try { setVoteCounterMinimizedState(true); } catch (_) {}
+        if (target.closest && target.closest('#map-topbar')) {
+          openMobileSheet('search', 'half');
+        }
+      }, true);
+      document.addEventListener('focusout', () => {
+        if (!isMobileViewportNow()) return;
+        if (mobileInputRestoreTimer) clearTimeout(mobileInputRestoreTimer);
+        mobileInputRestoreTimer = setTimeout(() => {
+          const active = document.activeElement;
+          if (isMobileEditableField(active)) return;
+          restoreMobileInputFocusMode();
+          mobileInputRestoreTimer = null;
+        }, 140);
+      }, true);
     }
 
     function elementIsLayoutVisible(el) {
       if (!el) return false;
+      try {
+        if (isMobileViewportNow && typeof isMobileViewportNow === 'function') {
+          if (isMobileViewportNow() && el.classList && el.classList.contains('mobile-sheet-panel') && !el.classList.contains('mobile-sheet-active')) {
+            return false;
+          }
+        }
+      } catch (_) {}
       if (!el.getClientRects || !el.getClientRects().length) return false;
       const cs = window.getComputedStyle ? window.getComputedStyle(el) : null;
       if (!cs) return true;
@@ -14090,18 +14654,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const legend = document.getElementById('legend');
         const controls = document.getElementById('main-controls');
         const voteCounter = document.getElementById('vote-counter');
-        const thumbDock = document.getElementById('mobile-thumb-dock');
+        const mobileDock = document.getElementById('mobile-dock');
         const topbarVisible = elementIsLayoutVisible(topbar);
         const legendVisible = elementIsLayoutVisible(legend);
         const controlsVisible = elementIsLayoutVisible(controls);
         const counterVisible = elementIsLayoutVisible(voteCounter);
-        const dockVisible = elementIsLayoutVisible(thumbDock);
+        const dockVisible = isMobile && elementIsLayoutVisible(mobileDock);
 
         const th = topbarVisible ? Math.round(topbar.getBoundingClientRect().height) : 0;
         const lh = legendVisible ? Math.round(legend.getBoundingClientRect().height) : 0;
         const ch = controlsVisible ? Math.round(controls.getBoundingClientRect().height) : 0;
         const vh = counterVisible ? Math.round(voteCounter.getBoundingClientRect().height) : 0;
-        const dh = dockVisible ? Math.round(thumbDock.getBoundingClientRect().height) : 0;
+        const dh = dockVisible ? Math.round(mobileDock.getBoundingClientRect().height) : 0;
         const voteBottom = counterVisible ? parseCssPx(window.getComputedStyle(voteCounter).bottom, 0) : 0;
         root.style.setProperty('--topbar-h', `${Math.max(0, th)}px`);
 
@@ -14114,20 +14678,27 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isMobile) {
           root.style.removeProperty('--legend-h');
           root.style.removeProperty('--controls-h');
-          root.style.removeProperty('--thumb-dock-h');
+          root.style.removeProperty('--mobile-dock-h');
           root.style.removeProperty('--counter-h');
+          root.style.removeProperty('--vote-counter-h');
           syncMapViewportPadding({ isMobile: false });
           return;
         }
 
         root.style.setProperty('--legend-h', `${Math.max(0, lh)}px`);
         root.style.setProperty('--controls-h', `${Math.max(0, ch)}px`);
-        root.style.setProperty('--thumb-dock-h', `${Math.max(0, dh)}px`);
-        if (counterVisible) root.style.setProperty('--counter-h', `${Math.max(0, vh)}px`);
-        else root.style.removeProperty('--counter-h');
+        root.style.setProperty('--mobile-dock-h', `${Math.max(0, dh)}px`);
+        if (counterVisible) {
+          root.style.setProperty('--counter-h', `${Math.max(0, vh)}px`);
+          root.style.setProperty('--vote-counter-h', `${Math.max(0, vh)}px`);
+        } else {
+          root.style.removeProperty('--counter-h');
+          root.style.removeProperty('--vote-counter-h');
+        }
+        const paddingTopHeight = (topbar && topbar.classList && topbar.classList.contains('mobile-sheet-panel')) ? 0 : th;
         syncMapViewportPadding({
           isMobile: true,
-          topHeight: th,
+          topHeight: paddingTopHeight,
           legendHeight: lh,
           voteBottom,
           voteHeight: vh,
@@ -14145,7 +14716,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('resize', () => { try { updateMobileOverlayOffsets(); } catch (_) {} }, { passive: true });
         window.addEventListener('orientationchange', () => { try { updateMobileOverlayOffsets(); } catch (_) {} }, { passive: true });
         if (typeof ResizeObserver !== 'undefined') {
-          const targets = ['map-topbar', 'main-controls', 'legend', 'vote-counter', 'mobile-thumb-dock']
+          const targets = ['map-topbar', 'main-controls', 'legend', 'vote-counter', 'mobile-dock']
             .map(id => document.getElementById(id))
             .filter(Boolean);
           if (targets.length) {
@@ -14173,9 +14744,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!legend || !legendContent || !minimizeBtn) return;
         if (legend.classList.contains('minimized')) return;
         legend.classList.add('minimized');
+        legend.classList.remove('mobile-sheet-active');
+        setMobileSheetSnap(legend, 'collapsed');
+        if (activeMobileSheetKey === 'legend') activeMobileSheetKey = null;
         legendContent.style.display = 'none';
         minimizeBtn.textContent = '+';
         minimizeBtn.title = 'Expand legend';
+        syncMobileDockButtons();
         try { updateMobileOverlayOffsets(); } catch (_) {}
       } catch (_) {}
     }
@@ -14190,11 +14765,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!controls || !controlsContent || !minimizeBtn) return;
         if (controls.classList.contains('minimized')) return;
         controls.classList.add('minimized');
+        controls.classList.remove('mobile-sheet-active');
+        setMobileSheetSnap(controls, 'collapsed');
+        if (activeMobileSheetKey === 'layers') activeMobileSheetKey = null;
         controlsContent.style.display = 'none';
         minimizeBtn.textContent = '+';
         minimizeBtn.title = 'Expand controls';
+        syncMobileDockButtons();
         try { updateMobileOverlayOffsets(); } catch (_) {}
-        try { if (typeof window.syncMobileThumbDock === 'function') window.syncMobileThumbDock(); } catch (_) {}
       } catch (_) {}
     }
 
@@ -14219,8 +14797,20 @@ document.addEventListener('DOMContentLoaded', function() {
         minimizeBtn.title = 'Expand controls';
       }
       saveUIState();
+      if (isMobileViewportNow() && controls) {
+        controls.classList.add('mobile-sheet-panel');
+        if (controls.classList.contains('minimized')) {
+          controls.classList.remove('mobile-sheet-active');
+          setMobileSheetSnap(controls, 'collapsed');
+          if (activeMobileSheetKey === 'layers') activeMobileSheetKey = null;
+        } else {
+          controls.classList.add('mobile-sheet-active');
+          setMobileSheetSnap(controls, 'half');
+          activeMobileSheetKey = 'layers';
+        }
+        syncMobileDockButtons();
+      }
       try { updateMobileOverlayOffsets(); } catch (_) {}
-      try { if (typeof window.syncMobileThumbDock === 'function') window.syncMobileThumbDock(); } catch (_) {}
     }
 
     async function showCountyDetails(countyName) {
@@ -17704,6 +18294,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Setup visualization mode switcher
         setupVizModes();
         try { wireMobileOverlayOffsets(); } catch (_) {}
+        try { setupMobileDockAndSheets(); } catch (_) {}
+        try { setupMobileInputFocusBehavior(); } catch (_) {}
         try { minimizeLegendOnMobile(); } catch (_) {}
         try { minimizeMainControlsOnMobile(); } catch (_) {}
         appReady = true;

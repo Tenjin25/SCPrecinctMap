@@ -7,6 +7,14 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 
 ## Recent Updates (April 2026)
 
+- **Mobile bottom dock + swipeable sheets (April 22, 2026):**
+  - Replaced the floating mobile “thumb” buttons with an **NC-style bottom dock**: **Search / Layers / Legend**.
+  - Panels open as **bottom sheets** and can be resized:
+    - Tap a dock button repeatedly to cycle **half → full → collapsed**.
+    - Use the top **grab handle** to swipe/flick up/down between snap states.
+    - Tap the scrim (or press **Escape** with a hardware keyboard) to close all sheets.
+  - When sheets open, the hover tooltip and vote counter auto-yield space to reduce overlaps.
+
 - **Precinct-mode visibility cleanup (April 21, 2026):**
   - Increased precinct polygon fill opacity so underlying county colors no longer show through faintly during precinct browsing.
   - This is a targeted visual polish for readability only; no contest logic or interaction behavior changed.
@@ -14,7 +22,7 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 - **NC-style hover refinements + flip line + mobile docking (April 10, 2026):**
   - Hover tooltip adds an explicit **Flip line** when the hovered geography’s winner changed since the prior comparable cycle (e.g., `Flip: D→R (2020→2024)`).
   - Vote-delta + population-change insight lines are rendered with tighter **NC desk-hover aesthetics** (aligned, scan-friendly delta rows).
-  - Mobile layout: the hover card and selected **focus briefing panel** (`#vote-counter`) now account for the thumb-reach dock so they don’t overlap key controls; close/details are easier to access on touch.
+  - Mobile layout: the hover card and selected **focus briefing panel** (`#vote-counter`) avoid the bottom dock so close/details are easier to access on touch.
 
 - **Hover tooltip deltas + NC-style pinning (April 9, 2026):**
   - Hover tooltip now opens with an NC-style **compact “quickline”** (candidate + margin%) plus an **insight** block.
@@ -172,6 +180,12 @@ Because the app fetches local JSON/GeoJSON/CSV assets, running through a local s
 
 ```bash
 python -m http.server 8000
+```
+
+Or (Node.js):
+
+```bash
+npx http-server . -p 8000
 ```
 
 Then open:
