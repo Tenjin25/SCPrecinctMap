@@ -8192,6 +8192,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Session persistence was removed to avoid surprises on shared/low-memory machines.
     let contestSearchQuery = '';
 
+    const NONRESIDENT_PRECINCT_NORMS = new Set(['AIKEN - SRS', 'BARNWELL - SRS']);
+
+    function isNonResidentPrecinctNorm(value) {
+      const norm = String(value || '').trim().toUpperCase();
+      return !!(norm && NONRESIDENT_PRECINCT_NORMS.has(norm));
+    }
+
     function saveUIState() {}
     async function restoreUIState() {}
 
@@ -15410,25 +15417,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function reinforceMapLabelHalos() {
       try {
-        const highCountyFill = currentView === 'counties' && getCountyFillOpacity() >= 0.55;
-        const textColor = highCountyFill ? 'rgba(15,23,42,0.98)' : 'rgba(15,23,42,0.92)';
-        const textOpacity = ['interpolate', ['linear'], ['zoom'], 7.0, 0.0, 7.8, highCountyFill ? 0.78 : 0.64, 9.6, highCountyFill ? 0.95 : 0.88, 11.8, 1.0];
-        const haloColor = highCountyFill ? 'rgba(255,255,255,0.96)' : 'rgba(255,255,255,0.88)';
-        const haloWidth = highCountyFill ? 1.5 : 1.25;
-        const haloBlur = highCountyFill ? 0.50 : 0.42;
+        const heavyOverlay = (currentView !== 'counties') || (currentView === 'counties' && getCountyFillOpacity() >= 0.55);
+        const settlementTextColor = 'rgba(15, 23, 42, 0.94)';
+        const settlementTextOpacity = heavyOverlay ? 1.0 : 0.96;
+        const settlementHaloColor = heavyOverlay ? 'rgba(255, 255, 255, 0.97)' : 'rgba(255, 255, 255, 0.92)';
+        const settlementHaloWidth = heavyOverlay ? 2.25 : 1.9;
+        const settlementHaloBlur = heavyOverlay ? 0.7 : 0.58;
+        const countyTextColor = 'rgba(15, 23, 42, 0.96)';
+        const countyTextOpacity = 1.0;
+        const countyHaloColor = heavyOverlay ? 'rgba(255, 255, 255, 0.94)' : 'rgba(255, 255, 255, 0.88)';
+        const countyHaloWidth = heavyOverlay ? 2.0 : 1.7;
+        const countyHaloBlur = heavyOverlay ? 0.62 : 0.52;
         const layers = map?.getStyle?.()?.layers || [];
         layers.forEach(layer => {
           if (!layer || layer.type !== 'symbol' || !layer.layout || layer.layout['text-field'] == null) return;
           const id = String(layer.id || '').toLowerCase();
-          if (!/(settlement|place|city|town|locality|village|hamlet|county)/.test(id)) return;
+          const isSettlementLabel = /(settlement|place|city|town|village|locality|hamlet)/.test(id);
+          const isCountyLabel = /(county-label|(^|[-_])county([-_]|$)|(^|[-_])counties([-_]|$))/.test(id);
+          if (!isSettlementLabel && !isCountyLabel) return;
           // Prevent duplicate/ghost labels when multiple place label layers overlap.
           try { map.setLayoutProperty(layer.id, 'text-allow-overlap', false); } catch (_) {}
           try { map.setLayoutProperty(layer.id, 'text-ignore-placement', false); } catch (_) {}
-          try { map.setPaintProperty(layer.id, 'text-color', textColor); } catch (_) {}
-          try { map.setPaintProperty(layer.id, 'text-opacity', textOpacity); } catch (_) {}
-          try { map.setPaintProperty(layer.id, 'text-halo-color', haloColor); } catch (_) {}
-          try { map.setPaintProperty(layer.id, 'text-halo-width', haloWidth); } catch (_) {}
-          try { map.setPaintProperty(layer.id, 'text-halo-blur', haloBlur); } catch (_) {}
+          if (isSettlementLabel) {
+            try { map.setPaintProperty(layer.id, 'text-color', settlementTextColor); } catch (_) {}
+            try { map.setPaintProperty(layer.id, 'text-opacity', settlementTextOpacity); } catch (_) {}
+            try { map.setPaintProperty(layer.id, 'text-halo-color', settlementHaloColor); } catch (_) {}
+            try { map.setPaintProperty(layer.id, 'text-halo-width', settlementHaloWidth); } catch (_) {}
+            try { map.setPaintProperty(layer.id, 'text-halo-blur', settlementHaloBlur); } catch (_) {}
+          } else {
+            try { map.setPaintProperty(layer.id, 'text-color', countyTextColor); } catch (_) {}
+            try { map.setPaintProperty(layer.id, 'text-opacity', countyTextOpacity); } catch (_) {}
+            try { map.setPaintProperty(layer.id, 'text-halo-color', countyHaloColor); } catch (_) {}
+            try { map.setPaintProperty(layer.id, 'text-halo-width', countyHaloWidth); } catch (_) {}
+            try { map.setPaintProperty(layer.id, 'text-halo-blur', countyHaloBlur); } catch (_) {}
+          }
         });
         if (map.getLayer('county-label')) {
           try { map.setLayoutProperty('county-label', 'text-allow-overlap', false); } catch (_) {}
@@ -15565,12 +15587,14 @@ document.addEventListener('DOMContentLoaded', function() {
           const precRaw = (original.prec_id || original.PREC_ID || '').toString().trim();
           const precinctRaw = countyRaw && precRaw ? `${countyRaw} - ${precRaw}` : countyRaw;
           const precinctNorm = (precinctRaw || '').replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+          const isNonResident = isNonResidentPrecinctNorm(precinctNorm) || String(precRaw || '').trim().toUpperCase() === 'SRS';
           feature.properties = {
             county_nam: countyRaw,
             county_norm: countyNorm,
             precinct_name: precinctRaw,
             precinct_norm: precinctNorm,
             prec_id: precRaw,
+            is_nonresident: isNonResident,
             id: original.id || original.objectid || null
           };
           return feature;
@@ -15713,7 +15737,7 @@ document.addEventListener('DOMContentLoaded', function() {
           'fill-color': '#d1d5db',
           'fill-opacity': [
             'case',
-            ['in', ['get', 'precinct_norm'], ['literal', ['AIKEN - SRS', 'BARNWELL - SRS']]],
+            ['boolean', ['get', 'is_nonresident'], false],
             0,
             0.90
           ]
@@ -15819,6 +15843,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       let count = 0;
       for (const feature of features) {
+        if (feature?.properties?.is_nonresident === true) continue;
         const coords = feature?.geometry?.type === 'Point' ? feature.geometry.coordinates : null;
         if (!coords || coords.length < 2) continue;
         const lng = Number(coords[0]);
@@ -15892,11 +15917,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 .replace(/\s+/g, ' ')
                 .trim()
                 .toUpperCase();
+              const isNonResident = isNonResidentPrecinctNorm(norm) || String(prec || '').trim().toUpperCase() === 'SRS';
               f.properties = {
                 ...p,
                 county_nam: county || p.county_nam || '',
                 prec_id: prec || p.prec_id || '',
                 precinct_norm: norm,
+                is_nonresident: isNonResident,
                 has_polygon: !!(norm && precinctPolygonNormSet && precinctPolygonNormSet.has(norm))
               };
               return f;
@@ -15980,6 +16007,7 @@ document.addEventListener('DOMContentLoaded', function() {
           source: 'precinct-centroids',
           // Visible at statewide zoom; polygons take over later.
           maxzoom: minZoom,
+          filter: ['!=', ['get', 'is_nonresident'], true],
           layout: { visibility: 'none' },
           paint: {
             'circle-radius': [
@@ -16004,7 +16032,7 @@ document.addEventListener('DOMContentLoaded', function() {
           type: 'circle',
           source: 'precinct-centroids',
           minzoom: minZoom,
-          filter: ['==', ['get', 'has_polygon'], false],
+          filter: ['all', ['==', ['get', 'has_polygon'], false], ['!=', ['get', 'is_nonresident'], true]],
           layout: { visibility: 'none' },
           paint: {
             'circle-radius': [
@@ -16025,7 +16053,7 @@ document.addEventListener('DOMContentLoaded', function() {
           id: 'precinct-dot-selected',
           type: 'circle',
           source: 'precinct-centroids',
-          filter: ['==', ['get', 'precinct_norm'], '__NO_SELECTED_PRECINCT__'],
+          filter: ['all', ['==', ['get', 'precinct_norm'], '__NO_SELECTED_PRECINCT__'], ['!=', ['get', 'is_nonresident'], true]],
           layout: { visibility: 'none' },
           paint: {
             'circle-radius': [
