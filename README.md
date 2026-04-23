@@ -7,6 +7,10 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 
 ## Recent Updates (April 2026)
 
+- **Basemap town labels above overlays (April 23, 2026):**
+  - Ensured Mapbox’s built-in place/town labels stay visible above county/district/precinct overlays by inserting overlay layers below the first basemap symbol layer.
+  - Removed the unused `vtds_2000` / “Precincts 2000” placeholder view (old share links fall back to counties).
+
 - **Viewport precinct quick-stats (April 23, 2026):**
   - Added a live **“Viewing N precincts”** line under the fly-to search UI (top bar + desktop controls).
   - Precinct centroid data preloads after first idle (to keep initial paint fast), then the count updates on pan/zoom.

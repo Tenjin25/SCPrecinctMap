@@ -8350,7 +8350,7 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         if (desiredFocus) {
           const view = String(currentView || '').toLowerCase();
-          if (view === 'counties' || view === 'vtds_2000') {
+          if (view === 'counties') {
             handleCountySelection(desiredFocus);
           } else {
             const m = desiredFocus.match(/\d+/);
@@ -8384,12 +8384,28 @@ document.addEventListener('DOMContentLoaded', function() {
       return null;
     }
 
+    function getFirstStyleSymbolLayerId() {
+      try {
+        const styleLayers = map.getStyle()?.layers || [];
+        const first = styleLayers.find(layer => layer && layer.type === 'symbol');
+        return first ? first.id : null;
+      } catch (_) {
+        return null;
+      }
+    }
+
     function addLayerWithOptionalSourceLayer(layerDef) {
       const src = map.getSource(layerDef.source);
       const isVectorSource = !!src && src.type === 'vector';
       const sourceLayer = isVectorSource ? getVectorSourceLayer(layerDef.source) : null;
+      const beforeId = layerDef.beforeId;
       if (sourceLayer) layerDef['source-layer'] = sourceLayer;
-      map.addLayer(layerDef);
+      if (Object.prototype.hasOwnProperty.call(layerDef, 'beforeId')) delete layerDef.beforeId;
+      if (beforeId && map.getLayer(beforeId)) {
+        map.addLayer(layerDef, beforeId);
+      } else {
+        map.addLayer(layerDef);
+      }
     }
 
 
@@ -10635,7 +10651,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const view = String(currentView || '').toLowerCase();
       return (
         view === 'counties' ||
-        view === 'vtds_2000' ||
         view === 'districts' ||
         view === 'state_house' ||
         view === 'state_senate'
@@ -10652,7 +10667,7 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
           const view = String(currentView || '').toLowerCase();
 
-          if (view === 'counties' || view === 'vtds_2000') {
+          if (view === 'counties') {
             showCountyDetails(selected);
             return;
           }
@@ -10879,7 +10894,7 @@ document.addEventListener('DOMContentLoaded', function() {
         (Array.isArray(districtManifest) && districtManifest.length > 0);
       let entries = null;
 
-      if (currentView === 'counties' || currentView === 'vtds_2000' || !currentView) {
+      if (currentView === 'counties' || !currentView) {
         entries = contestManifest || [];
       } else {
         const scope = currentView === 'districts'
@@ -10898,7 +10913,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       // If we have manifests but no matches for this view, don't fall back to county contests (they won't load here).
-      if (inManifestMode && currentView !== 'counties' && currentView !== 'vtds_2000') {
+      if (inManifestMode && currentView !== 'counties') {
         const sel = document.getElementById('contestSelect');
         if (sel) {
           sel.innerHTML = '<option value="">No contests available for this view</option>';
@@ -11407,14 +11422,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return showAndPinDistrictSelection(targetScope, targetDistrictNum, contestValue);
       }
 
-      if (meta.kind === 'county' && (view === 'counties' || view === 'vtds_2000')) {
+      if (meta.kind === 'county' && view === 'counties') {
         const countyName = (meta.county || '').toString().trim();
         if (!countyName) return false;
         showCountyDetails(countyName);
         return true;
       }
 
-      if (meta.kind === 'precinct' && (view === 'counties' || view === 'vtds_2000')) {
+      if (meta.kind === 'precinct' && view === 'counties') {
         const county = (meta.county || '').toString().trim();
         const precinct = (meta.precinct || '').toString().trim();
         if (!county || !precinct) return false;
@@ -11430,6 +11445,8 @@ document.addEventListener('DOMContentLoaded', function() {
         setStatus('Map is still loading. Try again in a moment.');
         return;
       }
+      // Removed: `vtds_2000` view (keep old share links working).
+      if (String(view || '').toLowerCase() === 'vtds_2000') view = 'counties';
       const contestSelect = document.getElementById('contestSelect');
       const previousContestValue = (contestSelect?.value || '').toString().trim();
       const previousPinnedState = voteCounterPinned ? {
@@ -11445,15 +11462,9 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('state-house-view')?.classList.toggle('active', view === 'state_house');
       document.getElementById('state-senate-view')?.classList.toggle('active', view === 'state_senate');
       
-      // Update 2000 VTDs button if available
-      const vtds2000Button = document.getElementById('vtds-2000-view');
-      if (vtds2000Button) {
-        vtds2000Button.classList.toggle('active', view === 'vtds_2000');
-      }
-      
       // Clear all map layers for the active view.
       // Precincts are an overlay; don't destroy precinct layers when switching views.
-      const layerTypes = ['county', 'district', 'state-house', 'state-senate', 'vtds-2000'];
+      const layerTypes = ['county', 'district', 'state-house', 'state-senate'];
       layerTypes.forEach(type => {
         if (map.getLayer(`${type}-fill`)) {
           map.removeLayer(`${type}-fill`);
@@ -11482,8 +11493,6 @@ document.addEventListener('DOMContentLoaded', function() {
         addStateHouseLayers();
       } else if (view === 'state_senate') {
         addStateSenatelayers();
-      } else if (view === 'vtds_2000') {
-        add2000VTDLayers();
       }
       reinforceMapLabelHalos();
       
@@ -13425,8 +13434,7 @@ document.addEventListener('DOMContentLoaded', function() {
         counties: 'Counties',
         districts: 'Congress',
         state_house: 'State House',
-        state_senate: 'State Senate',
-        vtds_2000: 'Precincts 2000'
+        state_senate: 'State Senate'
       };
       return labels[view] || 'Counties';
     }
@@ -14042,62 +14050,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const hoverTitle = buildTooltipTitleWithTier(`${districtLabel} ${districtNum}`);
       showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(hoverTitle, inner));
       wireTooltipButtons();
-    }
-
-    // Placeholder function for 2000 VTD layers (will be implemented when data is available)
-    function add2000VTDLayers() {
-      if (typeof window.vtds2000Data === 'undefined') {
-        setStatus('2000 VTD data not loaded. Please load VTD shapefiles and election data.');
-        // Switch back to counties view
-        setMapView('counties');
-        return;
-      }
-      
-      if (!map.getLayer('vtds-2000-fill')) {
-        map.addLayer({ 
-          id: 'vtds-2000-fill', 
-          type: 'fill', 
-          source: 'vtds-2000', 
-          paint: { 'fill-color': '#e0e0e0', 'fill-opacity': 0.3 } 
-        });
-        map.addLayer({ 
-          id: 'vtds-2000-stroke', 
-          type: 'line', 
-          source: 'vtds-2000', 
-          paint: { 'line-color': '#666', 'line-width': 0.5 } 
-        });
-        
-        // Add click handler for VTDs
-        map.on('click', 'vtds-2000-fill', (e) => {
-          if (e.features && e.features[0] && e.features[0].properties) {
-            const vtdProps = e.features[0].properties;
-            const vtdId = vtdProps.VTD || vtdProps.VTDST || vtdProps.NAME || 'Unknown';
-            
-            // Show VTD details
-            showVTDDetails(vtdId, vtdProps);
-          }
-        });
-        
-        setStatus('2000 VTD layer loaded');
-      }
-    }
-    
-    // Function to show VTD details (placeholder)
-    function showVTDDetails(vtdId, vtdProps) {
-      const detailsDiv = document.getElementById('area-details');
-      detailsDiv.innerHTML = `
-        <h4>2000 Precinct ${vtdId}</h4>
-        <div class="data-row">
-          <span class="label">VTD ID:</span>
-          <span class="value">${vtdId}</span>
-        </div>
-        <div class="data-row">
-          <span class="label">Properties:</span>
-          <span class="value">${Object.keys(vtdProps).length} attributes</span>
-        </div>
-        <p><em>Election results will be displayed when precinct-level data is loaded.</em></p>
-      `;
-      detailsDiv.style.display = 'block';
     }
 
     function isMobileViewportNow() {
@@ -15468,10 +15420,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function addCountyLayers() {
       if (!map.getLayer('county-fill')) {
+        const baseSymbolLayerId = getFirstStyleSymbolLayerId();
         addLayerWithOptionalSourceLayer({ 
           id: 'county-fill', 
           type: 'fill', 
           source: 'counties', 
+          beforeId: baseSymbolLayerId,
           // Keep the county layer for interactions/search, but don't paint a fill.
           // This lets precinct/block/district coloring read cleanly while still
           // showing county outlines.
@@ -15481,12 +15435,14 @@ document.addEventListener('DOMContentLoaded', function() {
           id: 'county-stroke', 
           type: 'line', 
           source: 'counties', 
+          beforeId: baseSymbolLayerId,
           paint: { 'line-color': '#333', 'line-width': 1 } 
         });
         addLayerWithOptionalSourceLayer({ 
           id: 'county-stroke-hover', 
           type: 'line', 
           source: 'counties',
+          beforeId: baseSymbolLayerId,
           layout: { visibility: 'none' },
           filter: ['==', ['get', '_'], '__'],
           paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 3, 'line-opacity': 0.95 }
@@ -15727,6 +15683,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function addPrecinctLayers() {
       if (!map.getSource('precincts') || map.getLayer('precinct-fill')) return;
+      const baseSymbolLayerId = getFirstStyleSymbolLayerId();
       map.addLayer({
         id: 'precinct-fill',
         type: 'fill',
@@ -15742,7 +15699,7 @@ document.addEventListener('DOMContentLoaded', function() {
             0.90
           ]
         }
-      });
+      }, (baseSymbolLayerId && map.getLayer(baseSymbolLayerId)) ? baseSymbolLayerId : undefined);
       map.addLayer({
         id: 'precinct-stroke',
         type: 'line',
@@ -15754,7 +15711,7 @@ document.addEventListener('DOMContentLoaded', function() {
           'line-width': ['case', ['boolean', ['feature-state', 'hover'], false], 2.25, 0.25],
           'line-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 0.95, 0.65]
         }
-      });
+      }, (baseSymbolLayerId && map.getLayer(baseSymbolLayerId)) ? baseSymbolLayerId : undefined);
       map.addLayer({
         id: 'precinct-selected-fill',
         type: 'fill',
@@ -15766,7 +15723,7 @@ document.addEventListener('DOMContentLoaded', function() {
           'fill-color': '#fde047',
           'fill-opacity': 0.2
         }
-      });
+      }, (baseSymbolLayerId && map.getLayer(baseSymbolLayerId)) ? baseSymbolLayerId : undefined);
       map.addLayer({
         id: 'precinct-selected-outline',
         type: 'line',
@@ -15779,7 +15736,7 @@ document.addEventListener('DOMContentLoaded', function() {
           'line-width': 3.4,
           'line-opacity': 0.98
         }
-      });
+      }, (baseSymbolLayerId && map.getLayer(baseSymbolLayerId)) ? baseSymbolLayerId : undefined);
       applySelectedPrecinctHighlightFilter();
 
       map.on('click', 'precinct-fill', (e) => {
@@ -15999,6 +15956,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function addPrecinctCentroidLayers() {
       if (!map.getSource('precinct-centroids')) return;
       const minZoom = CONFIG.precincts?.minZoom || 8.5;
+      const baseSymbolLayerId = getFirstStyleSymbolLayerId();
 
       if (!map.getLayer('precinct-dot')) {
         map.addLayer({
@@ -16022,7 +15980,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'circle-stroke-color': 'rgba(15,23,42,0.35)',
             'circle-stroke-width': 0.5
           }
-        });
+        }, (baseSymbolLayerId && map.getLayer(baseSymbolLayerId)) ? baseSymbolLayerId : undefined);
       }
 
       // When polygons are enabled at high zoom, keep showing centroids for precincts missing polygons.
@@ -16046,7 +16004,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'circle-stroke-color': 'rgba(15,23,42,0.45)',
             'circle-stroke-width': 0.75
           }
-        });
+        }, (baseSymbolLayerId && map.getLayer(baseSymbolLayerId)) ? baseSymbolLayerId : undefined);
       }
       if (!map.getLayer('precinct-dot-selected')) {
         map.addLayer({
@@ -16068,7 +16026,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'circle-stroke-color': '#92400e',
             'circle-stroke-width': 1.15
           }
-        });
+        }, (baseSymbolLayerId && map.getLayer(baseSymbolLayerId)) ? baseSymbolLayerId : undefined);
       }
 
       // If a contest was already applied before centroids loaded, apply cached colors.
@@ -16296,16 +16254,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function addDistrictLayers() {
       if (!map.getSource('districts')) return;
       if (!map.getLayer('district-fill')) {
+        const baseSymbolLayerId = getFirstStyleSymbolLayerId();
         addLayerWithOptionalSourceLayer({ 
           id: 'district-fill', 
           type: 'fill', 
           source: 'districts', 
+          beforeId: baseSymbolLayerId,
           paint: { 'fill-color': '#e0e0e0', 'fill-opacity': 0.83 } 
         });
         addLayerWithOptionalSourceLayer({ 
           id: 'district-stroke-casing', 
           type: 'line', 
           source: 'districts', 
+          beforeId: baseSymbolLayerId,
           layout: { 'line-join': 'round', 'line-cap': 'round' },
           paint: {
             'line-color': '#f8fafc',
@@ -16318,6 +16279,7 @@ document.addEventListener('DOMContentLoaded', function() {
           id: 'district-stroke', 
           type: 'line', 
           source: 'districts', 
+          beforeId: baseSymbolLayerId,
           layout: { 'line-join': 'round', 'line-cap': 'round' },
           paint: {
             'line-color': 'rgba(15, 23, 42, 0.84)',
@@ -16330,6 +16292,7 @@ document.addEventListener('DOMContentLoaded', function() {
           id: 'district-stroke-hover', 
           type: 'line', 
           source: 'districts',
+          beforeId: baseSymbolLayerId,
           layout: { visibility: 'none' },
           filter: ['==', ['get', '_'], '__'],
           paint: {
@@ -16416,16 +16379,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function addStateHouseLayers() {
       if (!map.getSource('state-house')) return;
       if (!map.getLayer('state-house-fill')) {
+        const baseSymbolLayerId = getFirstStyleSymbolLayerId();
         addLayerWithOptionalSourceLayer({ 
           id: 'state-house-fill', 
           type: 'fill', 
           source: 'state-house', 
+          beforeId: baseSymbolLayerId,
           paint: { 'fill-color': '#e0e0e0', 'fill-opacity': 0.81 } 
         });
         addLayerWithOptionalSourceLayer({ 
           id: 'state-house-stroke-casing', 
           type: 'line', 
           source: 'state-house', 
+          beforeId: baseSymbolLayerId,
           layout: { 'line-join': 'round', 'line-cap': 'round' },
           paint: {
             'line-color': '#f8fafc',
@@ -16438,6 +16404,7 @@ document.addEventListener('DOMContentLoaded', function() {
           id: 'state-house-stroke', 
           type: 'line', 
           source: 'state-house', 
+          beforeId: baseSymbolLayerId,
           layout: { 'line-join': 'round', 'line-cap': 'round' },
           paint: {
             'line-color': 'rgba(15, 23, 42, 0.82)',
@@ -16450,6 +16417,7 @@ document.addEventListener('DOMContentLoaded', function() {
           id: 'state-house-stroke-hover', 
           type: 'line', 
           source: 'state-house',
+          beforeId: baseSymbolLayerId,
           layout: { visibility: 'none' },
           filter: ['==', ['get', '_'], '__'],
           paint: {
@@ -16534,16 +16502,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function addStateSenatelayers() {
       if (!map.getSource('state-senate')) return;
       if (!map.getLayer('state-senate-fill')) {
+        const baseSymbolLayerId = getFirstStyleSymbolLayerId();
         addLayerWithOptionalSourceLayer({ 
           id: 'state-senate-fill', 
           type: 'fill', 
           source: 'state-senate', 
+          beforeId: baseSymbolLayerId,
           paint: { 'fill-color': '#e0e0e0', 'fill-opacity': 0.79 } 
         });
         addLayerWithOptionalSourceLayer({ 
           id: 'state-senate-stroke-casing', 
           type: 'line', 
           source: 'state-senate', 
+          beforeId: baseSymbolLayerId,
           layout: { 'line-join': 'round', 'line-cap': 'round' },
           paint: {
             'line-color': '#f8fafc',
@@ -16556,6 +16527,7 @@ document.addEventListener('DOMContentLoaded', function() {
           id: 'state-senate-stroke', 
           type: 'line', 
           source: 'state-senate', 
+          beforeId: baseSymbolLayerId,
           layout: { 'line-join': 'round', 'line-cap': 'round' },
           paint: {
             'line-color': 'rgba(15, 23, 42, 0.83)',
@@ -16568,6 +16540,7 @@ document.addEventListener('DOMContentLoaded', function() {
           id: 'state-senate-stroke-hover', 
           type: 'line', 
           source: 'state-senate',
+          beforeId: baseSymbolLayerId,
           layout: { visibility: 'none' },
           filter: ['==', ['get', '_'], '__'],
           paint: {
