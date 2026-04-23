@@ -7,6 +7,10 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 
 ## Recent Updates (April 2026)
 
+- **Viewport precinct quick-stats (April 23, 2026):**
+  - Added a live **“Viewing N precincts”** line under the fly-to search UI (top bar + desktop controls).
+  - Precinct centroid data preloads after first idle (to keep initial paint fast), then the count updates on pan/zoom.
+
 - **Mobile bottom dock + swipeable sheets (April 22, 2026):**
   - Replaced the floating mobile “thumb” buttons with an **NC-style bottom dock**: **Search / Layers / Legend**.
   - Panels open as **bottom sheets** and can be resized:

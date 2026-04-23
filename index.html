@@ -2650,6 +2650,14 @@ body { height: var(--app-height); }
     white-space: nowrap;
   }
 
+  .map-topbar-quick-stats {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(226, 232, 240, 0.90);
+    letter-spacing: 0.01em;
+  }
+
   .map-topbar-hints {
     display: flex;
     gap: 8px;
@@ -6563,6 +6571,17 @@ body { height: var(--app-height); }
       color: #475569;
     }
 
+    .desktop-quick-stats {
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(96, 165, 250, 0.38);
+      background: rgba(219, 234, 254, 0.66);
+      color: #1e3a8a;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
     .desktop-fly-chip-row {
       display: flex;
       flex-wrap: wrap;
@@ -7305,6 +7324,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
       <button type="submit" class="fly-search-submit">Fly to</button>
     </form>
+    <div class="map-topbar-quick-stats" data-viewport-precinct-count>Viewing precincts...</div>
     <button type="button" class="mobile-topbar-toggle" id="mobile-topbar-toggle" aria-controls="map-topbar-details" aria-expanded="false">Show details</button>
     <div class="map-topbar-details" id="map-topbar-details">
       <div class="map-topbar-hints" aria-label="Search examples">
@@ -7367,6 +7387,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <button id="desktop-fly-submit" class="desktop-fly-submit" type="button">Go</button>
                 </div>
                 <div class="desktop-fly-helper">Jump to counties, districts, or precincts without changing the selected contest.</div>
+                <div class="desktop-quick-stats" data-viewport-precinct-count>Viewing precincts...</div>
                 <div class="desktop-fly-chip-row" aria-label="Fly-to examples">
                   <button class="desktop-fly-chip" type="button" data-search-example="Lexington">Lexington</button>
                   <button class="desktop-fly-chip" type="button" data-search-example="CD 2">CD 2</button>
@@ -8160,6 +8181,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let lastPointerPoint = null;
     let hoverRefreshRaf = null;
     let hoverSuppressedUntil = 0;
+    let viewportPrecinctCountRaf = null;
+    let startupPrecinctCentroidPreloadScheduled = false;
     let appReady = false;
     let vizShiftCache = null; // { contestType, year, prevYear, prevPrecinctMarginByNorm: Map, prevCountyTotals: Object }
     const vizDistrictShiftCache = new Map(); // key: `${scope}_${contestType}_${year}` -> { prevYear, prevNode }
@@ -15757,6 +15780,100 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
+    function setViewportPrecinctCountText(text) {
+      const nextText = String(text || 'Viewing -- precincts');
+      document.querySelectorAll('[data-viewport-precinct-count]').forEach(node => {
+        node.textContent = nextText;
+      });
+    }
+
+    function refreshViewportPrecinctCount() {
+      const targets = document.querySelectorAll('[data-viewport-precinct-count]');
+      if (!targets.length) return;
+
+      if (!precinctCentroidsLoaded) {
+        setViewportPrecinctCountText(precinctCentroidsLoadInFlight ? 'Viewing precincts...' : 'Viewing -- precincts');
+        return;
+      }
+
+      const src = map.getSource('precinct-centroids');
+      const gj = src ? (src._data || src.data || precinctCentroidsData) : precinctCentroidsData;
+      const features = Array.isArray(gj?.features) ? gj.features : [];
+      if (!features.length) {
+        setViewportPrecinctCountText('Viewing -- precincts');
+        return;
+      }
+
+      let bounds = null;
+      try { bounds = map.getBounds(); } catch (_) { bounds = null; }
+      if (!bounds) {
+        setViewportPrecinctCountText('Viewing -- precincts');
+        return;
+      }
+
+      const west = bounds.getWest();
+      const east = bounds.getEast();
+      const south = bounds.getSouth();
+      const north = bounds.getNorth();
+      const wrapsAntimeridian = west > east;
+
+      let count = 0;
+      for (const feature of features) {
+        const coords = feature?.geometry?.type === 'Point' ? feature.geometry.coordinates : null;
+        if (!coords || coords.length < 2) continue;
+        const lng = Number(coords[0]);
+        const lat = Number(coords[1]);
+        if (!Number.isFinite(lng) || !Number.isFinite(lat)) continue;
+        const inLat = lat >= south && lat <= north;
+        const inLng = wrapsAntimeridian
+          ? (lng >= west || lng <= east)
+          : (lng >= west && lng <= east);
+        if (inLat && inLng) count += 1;
+      }
+
+      setViewportPrecinctCountText(`Viewing ${count.toLocaleString()} precinct${count === 1 ? '' : 's'}`);
+    }
+
+    function queueViewportPrecinctCountUpdate({ ensureLoaded = false } = {}) {
+      if (ensureLoaded && !precinctCentroidsLoaded && !precinctCentroidsLoadInFlight) {
+        setViewportPrecinctCountText('Viewing precincts...');
+        ensurePrecinctCentroidsLoaded()
+          .then(() => queueViewportPrecinctCountUpdate())
+          .catch(() => setViewportPrecinctCountText('Viewing -- precincts'));
+      }
+      if (viewportPrecinctCountRaf) return;
+      viewportPrecinctCountRaf = requestAnimationFrame(() => {
+        viewportPrecinctCountRaf = null;
+        refreshViewportPrecinctCount();
+      });
+    }
+
+    function scheduleStartupPrecinctCentroidPreload() {
+      const targets = document.querySelectorAll('[data-viewport-precinct-count]');
+      if (!targets.length) return;
+      if (startupPrecinctCentroidPreloadScheduled) return;
+      startupPrecinctCentroidPreloadScheduled = true;
+
+      const beginLoad = () => {
+        if (precinctCentroidsLoaded || precinctCentroidsLoadInFlight) return;
+        queueViewportPrecinctCountUpdate({ ensureLoaded: true });
+      };
+
+      setViewportPrecinctCountText('Viewing -- precincts');
+      let kicked = false;
+      const kick = () => {
+        if (kicked) return;
+        kicked = true;
+        if (typeof window.requestIdleCallback === 'function') {
+          window.requestIdleCallback(() => beginLoad(), { timeout: 4200 });
+        } else {
+          setTimeout(beginLoad, 900);
+        }
+      };
+      map.once('idle', kick);
+      setTimeout(kick, 2600);
+    }
+
 	    async function ensurePrecinctCentroidsLoaded() {
 	      if (precinctCentroidsLoaded || map.getSource('precinct-centroids')) return true;
 	      if (precinctCentroidsLoadInFlight) return false;
@@ -15810,8 +15927,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	          console.warn('Failed to build precinct code index:', err?.message || err);
 	        }
 	        addPrecinctCentroidLayers();
+          queueViewportPrecinctCountUpdate();
 	      } catch (err) {
 	        console.warn('Failed to load precinct centroids:', err?.message || err);
+          setViewportPrecinctCountText('Viewing -- precincts');
 	      } finally {
 	        precinctCentroidsLoadInFlight = false;
           if (loadedNow) {
@@ -18141,6 +18260,9 @@ document.addEventListener('DOMContentLoaded', function() {
         reinforceMapLabelHalos();
         await setupCountySearch();
         map.on('zoomend', updatePrecinctVisibility);
+        try { scheduleStartupPrecinctCentroidPreload(); } catch (_) {}
+        map.on('moveend', () => queueViewportPrecinctCountUpdate());
+        map.on('zoomend', () => queueViewportPrecinctCountUpdate());
         setStatus('Counties loaded');
 
         setStatus('Loading election index...');
