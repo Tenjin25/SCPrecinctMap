@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover'>
   <style>
   /* Mobile Styles - Enhanced for touch and small screens */
   @media (max-width: 768px) {
@@ -94,17 +93,8 @@
       font-size: 16px !important;
     }
   }
-  /* NCMap-style mobile dock + bottom sheets */
-  .mobile-sheet-scrim,
-  .mobile-dock {
-    display: none;
-  }
-
-  .mobile-sheet-grab {
-    display: none;
-  }
-
   @media (max-width: 768px) {
+    /* Mobile: panel dock + bottom sheets (ported from NC map). */
     :root {
       --mobile-dock-h: 62px;
       --mobile-sheet-gap: 10px;
@@ -146,10 +136,10 @@
     }
 
     .mobile-dock-btn[aria-pressed="true"] {
-      background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
-      border-color: rgba(37, 99, 235, 0.55);
+      background: var(--state-accent-gradient);
+      border-color: var(--state-blue-strong);
       color: #fff;
-      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.22);
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.22), 0 4px 12px rgba(220, 38, 38, 0.16);
     }
 
     .mobile-sheet-scrim {
@@ -271,11 +261,48 @@
     }
 
     .vote-counter {
-      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px) !important;
     }
 
     #hover-tooltip {
-      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
+      position: fixed !important;
+      left: 8px !important;
+      right: 8px !important;
+      top: auto !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
+      max-width: none !important;
+      width: auto !important;
+      max-height: min(54vh, calc(100vh - 16px - var(--safe-top, 0px) - var(--safe-bottom, 0px) - var(--mobile-dock-h, 62px) - var(--vote-counter-h, 0px)));
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+      z-index: 10031 !important;
+    }
+
+    @supports (height: 100svh) {
+      #hover-tooltip {
+        max-height: min(54svh, calc(100svh - 16px - var(--safe-top, 0px) - var(--safe-bottom, 0px) - var(--mobile-dock-h, 62px) - var(--vote-counter-h, 0px)));
+      }
+    }
+
+    #hover-tooltip .tooltip-btn {
+      min-height: 44px;
+      padding: 10px 12px;
+      font-size: 13px;
+      border-radius: 12px;
+    }
+
+    #hover-tooltip .tooltip-head {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    #hover-tooltip .tooltip-actions {
+      width: 100%;
+    }
+
+    #hover-tooltip .tooltip-btn {
+      flex: 1 1 auto;
     }
 
     body.mobile-sheet-open #hover-tooltip {
@@ -297,6 +324,12 @@
       transform: translateY(8px) !important;
     }
 
+    body.mobile-input-active #hover-tooltip {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px) !important;
+    }
+
     .map-topbar,
     .main-controls,
     .legend,
@@ -304,6 +337,116 @@
     #status-panel {
       backdrop-filter: blur(8px) !important;
       box-shadow: 0 8px 22px rgba(15, 23, 42, 0.16) !important;
+    }
+  }
+
+  @media (max-width: 375px) {
+    :root {
+      --mobile-dock-h: 56px;
+      --mobile-sheet-gap: 8px;
+    }
+
+    .mobile-dock {
+      left: 6px;
+      right: 6px;
+      bottom: calc(6px + var(--safe-bottom, 0px));
+      gap: 6px;
+      padding: 6px;
+      border-radius: 14px;
+    }
+
+    .mobile-dock-btn {
+      min-height: 40px;
+      font-size: 12px;
+      border-radius: 10px;
+    }
+
+    .mobile-sheet-panel {
+      left: 6px !important;
+      right: 6px !important;
+      border-radius: 14px !important;
+    }
+
+    .map-topbar.mobile-sheet-panel,
+    .main-controls.mobile-sheet-panel,
+    .legend.mobile-sheet-panel {
+      border-radius: 14px !important;
+    }
+
+    .legend.mobile-sheet-panel .legend-header {
+      border-radius: 14px 14px 0 0 !important;
+    }
+
+    .contest-toolbar {
+      grid-template-columns: 1fr !important;
+      gap: 6px !important;
+    }
+
+    .contest-toolbar .tool-chip-btn,
+    .contest-toolbar .tool-chip-select,
+    .contest-toolbar #precinct-toggle,
+    .contest-toolbar #snapshot-variant,
+    .contest-toolbar #split-ticket-toggle,
+    .contest-toolbar #gps-locate-btn,
+    .contest-toolbar #snapshot-share-btn,
+    .contest-toolbar #copy-link-btn,
+    .contest-toolbar #reset-view-btn,
+    .contest-toolbar #accessibility-toggle,
+    .contest-toolbar #label-toggle {
+      grid-column: 1 / -1;
+      width: 100% !important;
+      min-width: 0 !important;
+    }
+
+    .contest-toolbar .tool-chip-btn {
+      min-height: 38px;
+      font-size: 11px;
+    }
+
+    .contest-toolbar .tool-chip-select {
+      min-height: 38px;
+      font-size: 13px;
+      padding: 0 32px 0 10px;
+    }
+
+    .map-topbar.mobile-sheet-panel .map-topbar-hints {
+      grid-template-columns: 1fr !important;
+      gap: 6px;
+    }
+
+    #main-controls .control-group {
+      margin-bottom: 10px !important;
+    }
+
+    #main-controls .view-toggle-btn,
+    #main-controls .region-jump-btn,
+    .viz-mode-btn {
+      min-height: 40px !important;
+      font-size: 11px !important;
+      padding: 8px 10px !important;
+    }
+
+    #main-controls select,
+    #main-controls input[type="search"],
+    #main-controls input[type="text"] {
+      font-size: 15px !important;
+    }
+
+    .focus-trend-summary-call {
+      font-size: 14px;
+    }
+
+    .focus-trend-summary-note {
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .focus-trend-stat-label {
+      font-size: 10px;
+    }
+
+    .focus-trend-stat-value {
+      font-size: 12px;
     }
   }
 
@@ -318,6 +461,14 @@
     .view-toggle-btn,
     .viz-mode-btn {
       min-height: 44px;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .mobile-sheet-scrim,
+    .mobile-dock,
+    .mobile-sheet-grab {
+      display: none !important;
     }
   }
 
@@ -337,11 +488,16 @@
       max-height: calc(100vh - 16px - var(--safe-top, 0px) - var(--safe-bottom, 0px)) !important;
     }
 
-    .vote-counter,
-    #hover-tooltip {
+    .vote-counter {
       left: 142px !important;
       right: 8px !important;
       bottom: 8px !important;
+    }
+
+    #hover-tooltip {
+      left: 142px !important;
+      right: 8px !important;
+      bottom: calc(8px + var(--vote-counter-h, 0px) + 8px) !important;
     }
   }
     .spinner svg {
@@ -583,6 +739,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <title>The Palmetto Explorer</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover'>
     <meta name="author" content="Shamar Davis">
     <meta name="copyright" content="© 2026 Shamar Does Elections. All Rights Reserved.">
     <!-- Watermark: SDE Creator Attribution | Created by Shamar Davis | Copyright 2026 Shamar Does Elections -->
@@ -815,7 +972,6 @@ body { height: var(--app-height); }
     max-height: 56vh !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
   }
   /* Keep header + minimize button accessible while scrolling */
   #main-controls .controls-header {
@@ -1800,6 +1956,9 @@ body { height: var(--app-height); }
     --ui-muted: #475569;
     --ui-accent: #2563eb;
     --ui-accent-2: #1d4ed8;
+    /* NC mobile layout tokens (used by the dock + sheet styles). */
+    --state-accent-gradient: linear-gradient(180deg, var(--ui-accent) 0%, var(--ui-accent-2) 100%);
+    --state-blue-strong: rgba(37, 99, 235, 0.55);
   }
 
   body {
@@ -6711,47 +6870,6 @@ body { height: var(--app-height); }
       padding-bottom: calc(12px + var(--safe-bottom, 0px));
     }
 
-    /* Ensure the mobile controls sheet itself can always scroll. */
-    .main-controls.mobile-sheet-panel {
-      overflow-y: auto !important;
-      overflow-x: hidden !important;
-      -webkit-overflow-scrolling: touch !important;
-      overscroll-behavior-y: contain !important;
-      touch-action: pan-y !important;
-    }
-
-    /* Keep header actions in normal flow on mobile sheets (prevents overlap over title). */
-    .main-controls.mobile-sheet-panel .controls-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .main-controls.mobile-sheet-panel .controls-actions {
-      display: inline-flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 8px;
-      flex: 0 0 auto;
-      margin-left: 6px;
-    }
-
-    .main-controls.mobile-sheet-panel #controls-minimize-btn,
-    .main-controls.mobile-sheet-panel #help-btn {
-      position: static !important;
-      top: auto !important;
-      right: auto !important;
-      left: auto !important;
-    }
-
-    .main-controls.mobile-sheet-panel .controls-title-pill {
-      max-width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
     .contest-toolbar {
       position: sticky;
       bottom: calc(var(--safe-bottom, 0px) + 2px);
@@ -8084,13 +8202,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/light-v11', center: CONFIG.center, zoom: CONFIG.zoom, crossSourceCollisions: true });
 
-    map.on('error', (e) => {
-      const status = e?.error?.status;
-      if (status === 401 || status === 403) {
-        setStatus('Mapbox request rejected (401/403). Set `window.MAPBOX_TOKEN` to a valid Mapbox public token.', 8000);
-      }
-    });
-
     const IS_COARSE_POINTER = (() => {
       try { return window.matchMedia && window.matchMedia('(pointer: coarse)').matches; } catch (_) { return false; }
     })();
@@ -8203,7 +8314,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let countyPopulationEstimates = null; // Census county resident population estimates (2020-2025).
     let countyNameMap = {};
     let currentView = 'counties'; // 'counties', 'districts', 'state_house', 'state_senate'
-    let lastSelectedCounty = '';
     let currentElectionResults = null; // Current contest results for county details
     let currentPrecinctResults = null; // Current contest results keyed by precinct
     let currentVizMode = 'margins'; // 'margins', 'winners', 'shift', 'flips'
@@ -8459,26 +8569,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const panel = document.getElementById('status-panel');
       const msg = document.getElementById('status-message');
       if (!panel || !msg) return;
-      try {
-        msg.textContent = String(text ?? '');
-        panel.style.display = 'block';
-      } catch (_) {}
-
+      // Only log status messages to the console; do not show the floating status panel
       debugLog(text);
-
-      if (timeout !== false) {
-        const ms = Math.max(0, Number(timeout) || 0);
-        if (ms) {
-          window.clearTimeout(setStatus._t);
-          setStatus._t = window.setTimeout(() => {
-            try { panel.style.display = 'none'; } catch (_) {}
-          }, ms);
-        }
-      }
-    }
-
-    if (location && location.protocol === 'file:') {
-      setStatus('Opened via file:// — browsers block fetch() for local files. Run a local server (example: `py -m http.server 8000`) and open http://localhost:8000/scprecinctmap-gh/.', false);
     }
 
     // (saveUIState/restoreUIState defined above as no-ops)
@@ -9997,18 +10089,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     async function loadJSON(path) {
-      if (location && location.protocol === 'file:') {
-        throw new Error('This page must be served over http(s), not opened via file:// (browser blocks fetch() for local files).');
-      }
       const r = await fetch(path);
       if (!r.ok) throw new Error(`${path} fetch failed: ${r.status}`);
       return r.json();
     }
 
 	    async function loadCSV(path) {
-        if (location && location.protocol === 'file:') {
-          throw new Error('This page must be served over http(s), not opened via file:// (browser blocks fetch() for local files).');
-        }
 	      const r = await fetch(path);
 	      if (!r.ok) throw new Error(`${path} fetch failed: ${r.status}`);
 	      return r.text();
@@ -14310,22 +14396,17 @@ document.addEventListener('DOMContentLoaded', function() {
         grab.addEventListener('pointerdown', (event) => {
           if (event.pointerType === 'mouse' && event.button !== 0) return;
           event.preventDefault();
-          try { event.stopPropagation(); } catch (_) {}
           beginDrag(event.clientX, event.clientY, event.pointerId, event.timeStamp);
           try { grab.setPointerCapture(event.pointerId); } catch (_) {}
         });
         grab.addEventListener('pointermove', (event) => {
           if (!dragState) return;
           if (dragState.pointerId !== null && event.pointerId !== dragState.pointerId) return;
-          try { event.preventDefault(); } catch (_) {}
-          try { event.stopPropagation(); } catch (_) {}
           updateDrag(event.clientX, event.clientY, event.timeStamp);
         });
         grab.addEventListener('pointerup', (event) => {
           if (!dragState) return;
           if (dragState.pointerId !== null && event.pointerId !== dragState.pointerId) return;
-          try { event.preventDefault(); } catch (_) {}
-          try { event.stopPropagation(); } catch (_) {}
           finishDrag(event.clientX, event.clientY, event.timeStamp);
           try { grab.releasePointerCapture(event.pointerId); } catch (_) {}
         });
@@ -14334,24 +14415,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       } else {
         grab.addEventListener('touchstart', (event) => {
-          const touches = event.touches;
-          if (!touches || !touches.length) return;
-          const touch = touches[0];
-          // Non-passive so we can prevent scroll while initiating a drag (iOS/Android).
-          try { event.preventDefault(); } catch (_) {}
-          try { event.stopPropagation(); } catch (_) {}
+          const touch = event.changedTouches && event.changedTouches[0];
+          if (!touch) return;
           beginDrag(touch.clientX, touch.clientY, touch.identifier, event.timeStamp);
-        }, { passive: false });
+        }, { passive: true });
         grab.addEventListener('touchmove', (event) => {
           if (!dragState) return;
-          // Prevent the sheet content (or the page) from scrolling while dragging the grab handle.
-          try { event.preventDefault(); } catch (_) {}
-          try { event.stopPropagation(); } catch (_) {}
-          const touches = event.touches;
-          if (!touches || !touches.length) {
-            resetDragState();
-            return;
-          }
+          const touches = event.changedTouches;
+          if (!touches || !touches.length) return;
           let matched = false;
           for (let i = 0; i < touches.length; i += 1) {
             const touch = touches[i];
@@ -14361,7 +14432,7 @@ document.addEventListener('DOMContentLoaded', function() {
             break;
           }
           if (!matched) resetDragState();
-        }, { passive: false });
+        }, { passive: true });
         grab.addEventListener('touchend', (event) => {
           if (!dragState) return;
           const touches = event.changedTouches;
@@ -14410,11 +14481,6 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.title = pressed ? `Collapse ${panelLabel} panel` : `Open ${panelLabel} panel`;
       });
       document.body.classList.toggle('mobile-sheet-open', !!activeMobileSheetKey && isMobileViewportNow());
-      try {
-        if (typeof window.setMapMobileSheetSuppressed === 'function') {
-          window.setMapMobileSheetSuppressed(!!activeMobileSheetKey && isMobileViewportNow());
-        }
-      } catch (_) {}
       try {
         if (!activeMobileSheetKey && mobileSheetVoteCounterSnapshot !== null) {
           const blocked = !!(document.body.classList.contains('mobile-input-active') || mobileInputFocusSnapshot);
@@ -14504,31 +14570,6 @@ document.addEventListener('DOMContentLoaded', function() {
       syncMobileDockButtons();
       try { updateMobileOverlayOffsets(); } catch (_) {}
     }
-
-    // When mobile sheets are open, disable map gesture handlers so the sheet can scroll reliably.
-    // (Some mobile browsers + Mapbox GL combos otherwise interpret vertical swipes as a drag-pan.)
-    (function () {
-      let lastSuppressed = null;
-      window.setMapMobileSheetSuppressed = function (suppressed) {
-        try {
-          const next = !!suppressed;
-          if (lastSuppressed === next) return;
-          lastSuppressed = next;
-          if (!map) return;
-          const on = () => {
-            try { map.dragPan && map.dragPan.enable && map.dragPan.enable(); } catch (_) {}
-            try { map.touchZoomRotate && map.touchZoomRotate.enable && map.touchZoomRotate.enable(); } catch (_) {}
-            try { map.doubleClickZoom && map.doubleClickZoom.enable && map.doubleClickZoom.enable(); } catch (_) {}
-          };
-          const off = () => {
-            try { map.dragPan && map.dragPan.disable && map.dragPan.disable(); } catch (_) {}
-            try { map.touchZoomRotate && map.touchZoomRotate.disable && map.touchZoomRotate.disable(); } catch (_) {}
-            try { map.doubleClickZoom && map.doubleClickZoom.disable && map.doubleClickZoom.disable(); } catch (_) {}
-          };
-          if (next) off(); else on();
-        } catch (_) {}
-      };
-    })();
 
     function closeAllMobileSheets() {
       Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => closeMobileSheet(key));
@@ -14725,7 +14766,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     let lastMapViewportPaddingKey = '';
-    function syncMapViewportPadding({ isMobile, topHeight = 0, legendHeight = 0, controlsHeight = 0, topbarSheetHeight = 0, voteBottom = 0, voteHeight = 0, dockHeight = 0 } = {}) {
+    function syncMapViewportPadding({ isMobile, topHeight = 0, legendHeight = 0, voteBottom = 0, voteHeight = 0, dockHeight = 0 } = {}) {
       try {
         if (!map || typeof map.setPadding !== 'function') return;
 
@@ -14736,12 +14777,10 @@ document.addEventListener('DOMContentLoaded', function() {
           const rootStyles = window.getComputedStyle ? window.getComputedStyle(document.documentElement) : null;
           const safeBottom = parseCssPx(rootStyles ? rootStyles.getPropertyValue('--safe-bottom') : 0, 0);
           const top = Math.max(0, Math.round(topHeight + 8));
-          const legendBottomOffset = dockHeight > 0 ? Math.round(dockHeight + safeBottom + 12) : Math.round(safeBottom + 12);
-          const overlaySheetHeight = Math.max(0, Number(legendHeight) || 0, Number(controlsHeight) || 0, Number(topbarSheetHeight) || 0);
-          const overlayBottom = overlaySheetHeight > 0 ? Math.max(0, Math.round(overlaySheetHeight + legendBottomOffset)) : 0;
+          const legendBottom = Math.max(0, Math.round(legendHeight + safeBottom + 8));
           const counterBottom = voteHeight > 0 ? Math.max(0, Math.round(voteBottom + voteHeight + 8)) : 0;
-          const dockBottom = dockHeight > 0 ? Math.max(0, Math.round(dockHeight + safeBottom + 12)) : 0;
-          const bottom = Math.max(overlayBottom, counterBottom, dockBottom);
+          const dockBottom = dockHeight > 0 ? Math.max(0, Math.round(legendHeight + safeBottom + dockHeight + 12)) : 0;
+          const bottom = Math.max(legendBottom, counterBottom, dockBottom);
           padding = { top, right: 10, bottom, left: 10 };
         }
 
@@ -14803,14 +14842,11 @@ document.addEventListener('DOMContentLoaded', function() {
           root.style.removeProperty('--counter-h');
           root.style.removeProperty('--vote-counter-h');
         }
-        const topbarIsSheet = !!(topbar && topbar.classList && topbar.classList.contains('mobile-sheet-panel'));
-        const paddingTopHeight = topbarIsSheet ? 0 : th;
+        const paddingTopHeight = (topbar && topbar.classList && topbar.classList.contains('mobile-sheet-panel')) ? 0 : th;
         syncMapViewportPadding({
           isMobile: true,
           topHeight: paddingTopHeight,
           legendHeight: lh,
-          controlsHeight: ch,
-          topbarSheetHeight: topbarIsSheet ? th : 0,
           voteBottom,
           voteHeight: vh,
           dockHeight: dh
