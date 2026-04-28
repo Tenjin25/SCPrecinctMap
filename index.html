@@ -94,8 +94,17 @@
       font-size: 16px !important;
     }
   }
+  /* NCMap-style mobile dock + bottom sheets */
+  .mobile-sheet-scrim,
+  .mobile-dock {
+    display: none;
+  }
+
+  .mobile-sheet-grab {
+    display: none;
+  }
+
   @media (max-width: 768px) {
-    /* Mobile: panel dock + bottom sheets (ported from NC map). */
     :root {
       --mobile-dock-h: 62px;
       --mobile-sheet-gap: 10px;
@@ -174,8 +183,6 @@
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch;
       overscroll-behavior: contain;
-      overscroll-behavior-y: contain;
-      touch-action: pan-y;
       scroll-padding-top: 28px;
       transition: transform 0.22s ease, opacity 0.2s ease, max-height 0.2s ease;
     }
@@ -229,11 +236,6 @@
       max-height: min(84vh, 760px) !important;
     }
 
-    @supports (height: 100svh) {
-      .mobile-sheet-panel[data-mobile-snap="half"] { max-height: min(56svh, 460px) !important; }
-      .mobile-sheet-panel[data-mobile-snap="full"] { max-height: min(84svh, 760px) !important; }
-    }
-
     .mobile-sheet-panel[data-mobile-snap="collapsed"] {
       max-height: 58px !important;
       overflow: hidden !important;
@@ -269,28 +271,11 @@
     }
 
     .vote-counter {
-      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
     }
 
     #hover-tooltip {
-      position: fixed !important;
-      left: 8px !important;
-      right: 8px !important;
-      top: auto !important;
-      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
-      max-width: none !important;
-      width: auto !important;
-      max-height: min(54vh, calc(100vh - 16px - var(--safe-top, 0px) - var(--safe-bottom, 0px) - var(--mobile-dock-h, 62px) - var(--vote-counter-h, 0px)));
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
-      touch-action: pan-y;
-    }
-
-    #hover-tooltip .tooltip-btn {
-      min-height: 44px;
-      padding: 10px 12px;
-      font-size: 13px;
-      border-radius: 12px;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
     }
 
     body.mobile-sheet-open #hover-tooltip {
@@ -306,29 +291,33 @@
       transform: translateY(6px) !important;
     }
 
-    /* While a sheet is open, suppress map gestures so vertical swipes scroll the sheet instead of panning. */
-    body.mobile-sheet-open #map {
-      pointer-events: none;
-    }
-
     body.mobile-input-active .vote-counter {
       opacity: 0;
       pointer-events: none;
       transform: translateY(8px) !important;
     }
 
-    body.mobile-input-active #hover-tooltip {
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(8px) !important;
+    .map-topbar,
+    .main-controls,
+    .legend,
+    .vote-counter,
+    #status-panel {
+      backdrop-filter: blur(8px) !important;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.16) !important;
     }
   }
 
-  @media (min-width: 769px) {
-    .mobile-sheet-scrim,
-    .mobile-dock,
-    .mobile-sheet-grab {
-      display: none !important;
+  @media (pointer: coarse) and (max-width: 1180px) {
+    button,
+    select,
+    input[type="search"],
+    input[type="text"],
+    .fly-search-chip,
+    .desktop-fly-chip,
+    .region-jump-btn,
+    .view-toggle-btn,
+    .viz-mode-btn {
+      min-height: 44px;
     }
   }
 
@@ -348,16 +337,11 @@
       max-height: calc(100vh - 16px - var(--safe-top, 0px) - var(--safe-bottom, 0px)) !important;
     }
 
-    .vote-counter {
-      left: 142px !important;
-      right: 8px !important;
-      bottom: 8px !important;
-    }
-
+    .vote-counter,
     #hover-tooltip {
       left: 142px !important;
       right: 8px !important;
-      bottom: calc(8px + var(--vote-counter-h, 0px) + 8px) !important;
+      bottom: 8px !important;
     }
   }
     .spinner svg {
