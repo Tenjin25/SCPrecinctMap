@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover'>
   <style>
   /* Mobile Styles - Enhanced for touch and small screens */
   @media (max-width: 768px) {
@@ -173,6 +174,8 @@
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch;
       overscroll-behavior: contain;
+      overscroll-behavior-y: contain;
+      touch-action: pan-y;
       scroll-padding-top: 28px;
       transition: transform 0.22s ease, opacity 0.2s ease, max-height 0.2s ease;
     }
@@ -224,6 +227,11 @@
 
     .mobile-sheet-panel[data-mobile-snap="full"] {
       max-height: min(84vh, 760px) !important;
+    }
+
+    @supports (height: 100svh) {
+      .mobile-sheet-panel[data-mobile-snap="half"] { max-height: min(56svh, 460px) !important; }
+      .mobile-sheet-panel[data-mobile-snap="full"] { max-height: min(84svh, 760px) !important; }
     }
 
     .mobile-sheet-panel[data-mobile-snap="collapsed"] {
@@ -296,6 +304,11 @@
       opacity: 0.22;
       pointer-events: none;
       transform: translateY(6px) !important;
+    }
+
+    /* While a sheet is open, suppress map gestures so vertical swipes scroll the sheet instead of panning. */
+    body.mobile-sheet-open #map {
+      pointer-events: none;
     }
 
     body.mobile-input-active .vote-counter {
@@ -586,7 +599,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <title>The Palmetto Explorer</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover'>
     <meta name="author" content="Shamar Davis">
     <meta name="copyright" content="© 2026 Shamar Does Elections. All Rights Reserved.">
     <!-- Watermark: SDE Creator Attribution | Created by Shamar Davis | Copyright 2026 Shamar Does Elections -->
@@ -14240,17 +14252,22 @@ document.addEventListener('DOMContentLoaded', function() {
         grab.addEventListener('pointerdown', (event) => {
           if (event.pointerType === 'mouse' && event.button !== 0) return;
           event.preventDefault();
+          try { event.stopPropagation(); } catch (_) {}
           beginDrag(event.clientX, event.clientY, event.pointerId, event.timeStamp);
           try { grab.setPointerCapture(event.pointerId); } catch (_) {}
         });
         grab.addEventListener('pointermove', (event) => {
           if (!dragState) return;
           if (dragState.pointerId !== null && event.pointerId !== dragState.pointerId) return;
+          try { event.preventDefault(); } catch (_) {}
+          try { event.stopPropagation(); } catch (_) {}
           updateDrag(event.clientX, event.clientY, event.timeStamp);
         });
         grab.addEventListener('pointerup', (event) => {
           if (!dragState) return;
           if (dragState.pointerId !== null && event.pointerId !== dragState.pointerId) return;
+          try { event.preventDefault(); } catch (_) {}
+          try { event.stopPropagation(); } catch (_) {}
           finishDrag(event.clientX, event.clientY, event.timeStamp);
           try { grab.releasePointerCapture(event.pointerId); } catch (_) {}
         });
@@ -14262,10 +14279,16 @@ document.addEventListener('DOMContentLoaded', function() {
           const touches = event.touches;
           if (!touches || !touches.length) return;
           const touch = touches[0];
+          // Non-passive so we can prevent scroll while initiating a drag (iOS/Android).
+          try { event.preventDefault(); } catch (_) {}
+          try { event.stopPropagation(); } catch (_) {}
           beginDrag(touch.clientX, touch.clientY, touch.identifier, event.timeStamp);
-        }, { passive: true });
+        }, { passive: false });
         grab.addEventListener('touchmove', (event) => {
           if (!dragState) return;
+          // Prevent the sheet content (or the page) from scrolling while dragging the grab handle.
+          try { event.preventDefault(); } catch (_) {}
+          try { event.stopPropagation(); } catch (_) {}
           const touches = event.touches;
           if (!touches || !touches.length) {
             resetDragState();
@@ -14280,7 +14303,7 @@ document.addEventListener('DOMContentLoaded', function() {
             break;
           }
           if (!matched) resetDragState();
-        }, { passive: true });
+        }, { passive: false });
         grab.addEventListener('touchend', (event) => {
           if (!dragState) return;
           const touches = event.changedTouches;
@@ -14329,6 +14352,11 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.title = pressed ? `Collapse ${panelLabel} panel` : `Open ${panelLabel} panel`;
       });
       document.body.classList.toggle('mobile-sheet-open', !!activeMobileSheetKey && isMobileViewportNow());
+      try {
+        if (typeof window.setMapMobileSheetSuppressed === 'function') {
+          window.setMapMobileSheetSuppressed(!!activeMobileSheetKey && isMobileViewportNow());
+        }
+      } catch (_) {}
       try {
         if (!activeMobileSheetKey && mobileSheetVoteCounterSnapshot !== null) {
           const blocked = !!(document.body.classList.contains('mobile-input-active') || mobileInputFocusSnapshot);
@@ -14418,6 +14446,31 @@ document.addEventListener('DOMContentLoaded', function() {
       syncMobileDockButtons();
       try { updateMobileOverlayOffsets(); } catch (_) {}
     }
+
+    // When mobile sheets are open, disable map gesture handlers so the sheet can scroll reliably.
+    // (Some mobile browsers + Mapbox GL combos otherwise interpret vertical swipes as a drag-pan.)
+    (function () {
+      let lastSuppressed = null;
+      window.setMapMobileSheetSuppressed = function (suppressed) {
+        try {
+          const next = !!suppressed;
+          if (lastSuppressed === next) return;
+          lastSuppressed = next;
+          if (!map) return;
+          const on = () => {
+            try { map.dragPan && map.dragPan.enable && map.dragPan.enable(); } catch (_) {}
+            try { map.touchZoomRotate && map.touchZoomRotate.enable && map.touchZoomRotate.enable(); } catch (_) {}
+            try { map.doubleClickZoom && map.doubleClickZoom.enable && map.doubleClickZoom.enable(); } catch (_) {}
+          };
+          const off = () => {
+            try { map.dragPan && map.dragPan.disable && map.dragPan.disable(); } catch (_) {}
+            try { map.touchZoomRotate && map.touchZoomRotate.disable && map.touchZoomRotate.disable(); } catch (_) {}
+            try { map.doubleClickZoom && map.doubleClickZoom.disable && map.doubleClickZoom.disable(); } catch (_) {}
+          };
+          if (next) off(); else on();
+        } catch (_) {}
+      };
+    })();
 
     function closeAllMobileSheets() {
       Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => closeMobileSheet(key));
@@ -14614,7 +14667,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     let lastMapViewportPaddingKey = '';
-    function syncMapViewportPadding({ isMobile, topHeight = 0, legendHeight = 0, voteBottom = 0, voteHeight = 0, dockHeight = 0 } = {}) {
+    function syncMapViewportPadding({ isMobile, topHeight = 0, legendHeight = 0, controlsHeight = 0, topbarSheetHeight = 0, voteBottom = 0, voteHeight = 0, dockHeight = 0 } = {}) {
       try {
         if (!map || typeof map.setPadding !== 'function') return;
 
@@ -14625,10 +14678,12 @@ document.addEventListener('DOMContentLoaded', function() {
           const rootStyles = window.getComputedStyle ? window.getComputedStyle(document.documentElement) : null;
           const safeBottom = parseCssPx(rootStyles ? rootStyles.getPropertyValue('--safe-bottom') : 0, 0);
           const top = Math.max(0, Math.round(topHeight + 8));
-          const legendBottom = Math.max(0, Math.round(legendHeight + safeBottom + 8));
+          const legendBottomOffset = dockHeight > 0 ? Math.round(dockHeight + safeBottom + 12) : Math.round(safeBottom + 12);
+          const overlaySheetHeight = Math.max(0, Number(legendHeight) || 0, Number(controlsHeight) || 0, Number(topbarSheetHeight) || 0);
+          const overlayBottom = overlaySheetHeight > 0 ? Math.max(0, Math.round(overlaySheetHeight + legendBottomOffset)) : 0;
           const counterBottom = voteHeight > 0 ? Math.max(0, Math.round(voteBottom + voteHeight + 8)) : 0;
-          const dockBottom = dockHeight > 0 ? Math.max(0, Math.round(legendHeight + safeBottom + dockHeight + 12)) : 0;
-          const bottom = Math.max(legendBottom, counterBottom, dockBottom);
+          const dockBottom = dockHeight > 0 ? Math.max(0, Math.round(dockHeight + safeBottom + 12)) : 0;
+          const bottom = Math.max(overlayBottom, counterBottom, dockBottom);
           padding = { top, right: 10, bottom, left: 10 };
         }
 
@@ -14690,11 +14745,14 @@ document.addEventListener('DOMContentLoaded', function() {
           root.style.removeProperty('--counter-h');
           root.style.removeProperty('--vote-counter-h');
         }
-        const paddingTopHeight = (topbar && topbar.classList && topbar.classList.contains('mobile-sheet-panel')) ? 0 : th;
+        const topbarIsSheet = !!(topbar && topbar.classList && topbar.classList.contains('mobile-sheet-panel'));
+        const paddingTopHeight = topbarIsSheet ? 0 : th;
         syncMapViewportPadding({
           isMobile: true,
           topHeight: paddingTopHeight,
           legendHeight: lh,
+          controlsHeight: ch,
+          topbarSheetHeight: topbarIsSheet ? th : 0,
           voteBottom,
           voteHeight: vh,
           dockHeight: dh
