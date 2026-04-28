@@ -6727,6 +6727,47 @@ body { height: var(--app-height); }
       padding-bottom: calc(12px + var(--safe-bottom, 0px));
     }
 
+    /* Ensure the mobile controls sheet itself can always scroll. */
+    .main-controls.mobile-sheet-panel {
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      -webkit-overflow-scrolling: touch !important;
+      overscroll-behavior-y: contain !important;
+      touch-action: pan-y !important;
+    }
+
+    /* Keep header actions in normal flow on mobile sheets (prevents overlap over title). */
+    .main-controls.mobile-sheet-panel .controls-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .main-controls.mobile-sheet-panel .controls-actions {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex: 0 0 auto;
+      margin-left: 6px;
+    }
+
+    .main-controls.mobile-sheet-panel #controls-minimize-btn,
+    .main-controls.mobile-sheet-panel #help-btn {
+      position: static !important;
+      top: auto !important;
+      right: auto !important;
+      left: auto !important;
+    }
+
+    .main-controls.mobile-sheet-panel .controls-title-pill {
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .contest-toolbar {
       position: sticky;
       bottom: calc(var(--safe-bottom, 0px) + 2px);
@@ -8059,6 +8100,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/light-v11', center: CONFIG.center, zoom: CONFIG.zoom, crossSourceCollisions: true });
 
+    map.on('error', (e) => {
+      const status = e?.error?.status;
+      if (status === 401 || status === 403) {
+        setStatus('Mapbox request rejected (401/403). Set `window.MAPBOX_TOKEN` to a valid Mapbox public token.', 8000);
+      }
+    });
+
     const IS_COARSE_POINTER = (() => {
       try { return window.matchMedia && window.matchMedia('(pointer: coarse)').matches; } catch (_) { return false; }
     })();
@@ -8171,6 +8219,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let countyPopulationEstimates = null; // Census county resident population estimates (2020-2025).
     let countyNameMap = {};
     let currentView = 'counties'; // 'counties', 'districts', 'state_house', 'state_senate'
+    let lastSelectedCounty = '';
     let currentElectionResults = null; // Current contest results for county details
     let currentPrecinctResults = null; // Current contest results keyed by precinct
     let currentVizMode = 'margins'; // 'margins', 'winners', 'shift', 'flips'
@@ -8426,8 +8475,26 @@ document.addEventListener('DOMContentLoaded', function() {
       const panel = document.getElementById('status-panel');
       const msg = document.getElementById('status-message');
       if (!panel || !msg) return;
-      // Only log status messages to the console; do not show the floating status panel
+      try {
+        msg.textContent = String(text ?? '');
+        panel.style.display = 'block';
+      } catch (_) {}
+
       debugLog(text);
+
+      if (timeout !== false) {
+        const ms = Math.max(0, Number(timeout) || 0);
+        if (ms) {
+          window.clearTimeout(setStatus._t);
+          setStatus._t = window.setTimeout(() => {
+            try { panel.style.display = 'none'; } catch (_) {}
+          }, ms);
+        }
+      }
+    }
+
+    if (location && location.protocol === 'file:') {
+      setStatus('Opened via file:// — browsers block fetch() for local files. Run a local server (example: `py -m http.server 8000`) and open http://localhost:8000/scprecinctmap-gh/.', false);
     }
 
     // (saveUIState/restoreUIState defined above as no-ops)
@@ -9946,12 +10013,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     async function loadJSON(path) {
+      if (location && location.protocol === 'file:') {
+        throw new Error('This page must be served over http(s), not opened via file:// (browser blocks fetch() for local files).');
+      }
       const r = await fetch(path);
       if (!r.ok) throw new Error(`${path} fetch failed: ${r.status}`);
       return r.json();
     }
 
 	    async function loadCSV(path) {
+        if (location && location.protocol === 'file:') {
+          throw new Error('This page must be served over http(s), not opened via file:// (browser blocks fetch() for local files).');
+        }
 	      const r = await fetch(path);
 	      if (!r.ok) throw new Error(`${path} fetch failed: ${r.status}`);
 	      return r.text();
