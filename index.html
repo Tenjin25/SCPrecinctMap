@@ -132,44 +132,6 @@
       margin-right: 12px !important;
     }
   }
-  @media (max-width: 768px) {
-    /* Mobile: dock hover tooltip above the dock controls for easier reading/taps. */
-    #hover-tooltip {
-      position: fixed !important;
-      left: 8px !important;
-      right: 8px !important;
-      top: auto !important;
-        bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
-      max-width: none !important;
-      width: auto !important;
-      max-height: min(54vh, calc(100vh - 16px - var(--safe-top, 0px) - var(--safe-bottom, 0px) - var(--mobile-dock-h, 62px) - var(--vote-counter-h, 0px)));
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
-      touch-action: pan-y;
-      z-index: 10031 !important;
-    }
-    @supports (height: 100svh) {
-      #hover-tooltip {
-        max-height: min(54svh, calc(100svh - 16px - var(--safe-top, 0px) - var(--safe-bottom, 0px) - var(--mobile-dock-h, 62px) - var(--vote-counter-h, 0px)));
-      }
-    }
-    #hover-tooltip .tooltip-btn {
-      min-height: 44px;
-      padding: 10px 12px;
-      font-size: 13px;
-      border-radius: 12px;
-    }
-    #hover-tooltip .tooltip-head {
-      flex-direction: column;
-      gap: 8px;
-    }
-    #hover-tooltip .tooltip-actions {
-      width: 100%;
-    }
-    #hover-tooltip .tooltip-btn {
-      flex: 1 1 auto;
-    }
-  }
   .mobile-sheet-scrim,
   .mobile-dock {
     display: none;
@@ -179,7 +141,6 @@
     display: none;
   }
   @media (max-width: 768px) {
-    /* Mobile: panel dock + bottom sheets (ported from NC map). */
     :root {
       --mobile-dock-h: 62px;
       --mobile-sheet-gap: 10px;
@@ -346,11 +307,11 @@
     }
 
     .vote-counter {
-      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
     }
 
     #hover-tooltip {
-      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
     }
 
     body.mobile-sheet-open #hover-tooltip {
@@ -367,12 +328,6 @@
     }
 
     body.mobile-input-active .vote-counter {
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(8px) !important;
-    }
-
-    body.mobile-input-active #hover-tooltip {
       opacity: 0;
       pointer-events: none;
       transform: translateY(8px) !important;
@@ -645,7 +600,7 @@
     #hover-tooltip {
       left: 142px !important;
       right: 8px !important;
-      bottom: calc(8px + var(--vote-counter-h, 0px) + 8px) !important;
+      bottom: 8px !important;
     }
   }
     .spinner svg {
@@ -2677,11 +2632,11 @@ body { height: var(--app-height); }
     }
 
     html.android-mobile .vote-counter {
-      bottom: calc(var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
     }
 
     html.android-mobile #hover-tooltip {
-      bottom: calc(var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
     }
 
     .contest-toolbar {
@@ -14776,6 +14731,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function toggleMobileSheet(key) {
+      if (!isMobileViewportNow()) return;
       if (!MOBILE_SHEET_PANEL_IDS[key]) return;
       if (activeMobileSheetKey !== key) {
         openMobileSheet(key, 'half');
@@ -14806,7 +14762,6 @@ document.addEventListener('DOMContentLoaded', function() {
           panel.classList.remove('mobile-sheet-active');
           ensureMobileSheetGrab(panel, key);
         });
-
         document.querySelectorAll('[data-mobile-sheet-btn]').forEach(btn => {
           if (btn.dataset.mobileSheetReady === 'true') return;
           btn.dataset.mobileSheetReady = 'true';
@@ -14944,12 +14899,8 @@ document.addEventListener('DOMContentLoaded', function() {
           root.style.removeProperty('--legend-h');
           root.style.removeProperty('--controls-h');
           root.style.removeProperty('--mobile-dock-h');
-          root.style.removeProperty('--vote-counter-h');
           return;
         }
-        const counterVisibleMobile = !!(voteCounter && voteCounter.style.display !== 'none' && voteCounter.getClientRects().length);
-        const vhm = counterVisibleMobile ? Math.round(voteCounter.getBoundingClientRect().height || 0) : 0;
-        root.style.setProperty('--vote-counter-h', `${Math.max(0, vhm)}px`);
         const legend = document.getElementById('legend');
         const controls = document.getElementById('main-controls');
         const legendVisible = !!(legend && legend.classList.contains('mobile-sheet-active'));
