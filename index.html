@@ -7664,7 +7664,8 @@ document.addEventListener('DOMContentLoaded', function() {
   updateLegendColors(); // Ensure correct colors on load
 });
 </script>
-<div id="map"></div>
+<div id="map" data-testid="atlas-map"></div>
+<div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 <div class="mobile-sheet-scrim" id="mobile-sheet-scrim" aria-hidden="true"></div>
 <nav class="mobile-dock" id="mobile-dock" aria-label="Mobile panel dock">
   <button type="button" class="mobile-dock-btn" data-mobile-sheet-btn="search" aria-controls="map-topbar" aria-expanded="false" aria-pressed="false" title="Open search panel">Search</button>
@@ -7696,6 +7697,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <button type="submit" class="fly-search-submit">Fly to</button>
     </form>
     <div class="map-topbar-quick-stats" data-viewport-precinct-count>Viewing precincts...</div>
+    <div class="recount-radar-badge" id="recount-radar-badge" aria-live="polite"></div>
     <button type="button" class="mobile-topbar-toggle" id="mobile-topbar-toggle" aria-controls="map-topbar-details" aria-expanded="false">Show details</button>
     <div class="map-topbar-details" id="map-topbar-details">
       <div class="map-topbar-hints" aria-label="Search examples">
@@ -7724,6 +7726,24 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
     </div>
+  </div>
+
+  <div id="focus-details-cache" style="display:none;">
+    <div class="county-details" id="county-details" style="display: block;">
+      <h4 id="county-name">Select a County</h4>
+      <div class="focus-subhead" id="county-subhead" aria-live="polite"></div>
+      <div id="county-info-content">
+        Pick a contest, then click a county or district for an instant summary. Open "Vote details" or "History" for deeper context.
+      </div>
+    </div>
+    <div class="statewide-results" id="statewide-results" style="margin-top: 10px;">
+      <h4 id="contest-name" data-statewide-contest-name="true" style="margin:0 0 12px 0; font-size:14px; font-weight:800; color:#0f172a;"></h4>
+      <div id="statewide-content" data-statewide-content="true">
+        <p>Select a contest to see statewide results and margin.</p>
+        <div id="statewide-temperature-bar" style="width:100%;height:24px;margin:12px 0;display:none;"></div>
+      </div>
+    </div>
+    <div id="build-stamp" style="margin-top:4px;font-size:11px;color:#94a3b8;"></div>
   </div>
 
   <!-- Floating Status Panel -->
