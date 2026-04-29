@@ -55,8 +55,8 @@
       overscroll-behavior: none;
     }
 
-    /* Keep top-sheet controls clear of notches and avoid covering the full map. */
-    .main-controls {
+    /* Legacy/mobile fallback: if the sheet system is not wired yet, keep controls clear of notches. */
+    .main-controls:not(.mobile-sheet-panel) {
       top: var(--safe-top) !important;
       left: var(--safe-left) !important;
       right: var(--safe-right) !important;
@@ -67,14 +67,14 @@
       overscroll-behavior: contain;
     }
 
-    .main-controls.minimized {
+    .main-controls.minimized:not(.mobile-sheet-panel) {
       height: auto !important;
       max-height: none !important;
       padding: 10px 12px !important;
       border-radius: 14px !important;
     }
 
-    /* Bottom-sheet legend should clear the iOS home indicator. */
+    /* Bottom-sheet legend should clear the iOS home indicator (sheet + legacy). */
     .legend {
       padding-bottom: calc(8px + var(--safe-bottom)) !important;
       overscroll-behavior: contain;
@@ -82,8 +82,8 @@
 
     /* Prefer stable viewport units on mobile (helps Android Chrome with collapsing URL bar). */
     @supports (height: 100svh) {
-      .main-controls { max-height: 52svh !important; }
-      .legend { max-height: 45svh !important; }
+      .main-controls:not(.mobile-sheet-panel) { max-height: 52svh !important; }
+      .legend:not(.mobile-sheet-panel) { max-height: 45svh !important; }
     }
 
     /* Avoid iOS zoom-on-focus while keeping text readable. */
@@ -95,7 +95,7 @@
   }
   @media (max-width: 768px) {
     /* Legend at bottom of screen on mobile */
-    .legend {
+    .legend:not(.mobile-sheet-panel) {
       position: fixed !important;
       bottom: 0 !important;
       left: 0 !important;
@@ -109,24 +109,24 @@
       max-height: 50vh;
       min-width: auto !important;
     }
-    .legend.minimized {
+    .legend.minimized:not(.mobile-sheet-panel) {
       max-height: 56px !important;
     }
-    .legend-header {
+    .legend:not(.mobile-sheet-panel) .legend-header {
       position: sticky;
       top: 0;
       background: #fff;
       z-index: 10006;
       border-radius: 16px 16px 0 0;
     }
-    .legend-content {
+    .legend:not(.mobile-sheet-panel) .legend-content {
       padding: 16px !important;
     }
-    .legend-item {
+    .legend:not(.mobile-sheet-panel) .legend-item {
       font-size: 14px !important;
       margin-bottom: 10px !important;
     }
-    .legend-color {
+    .legend:not(.mobile-sheet-panel) .legend-color {
       width: 20px !important;
       height: 20px !important;
       margin-right: 12px !important;
@@ -327,6 +327,13 @@
       background: rgba(255, 255, 255, 0.98) !important;
       backdrop-filter: none !important;
       -webkit-backdrop-filter: none !important;
+    }
+
+    /* Mobile source-of-truth: if a panel is not part of the sheet system, keep it out of the way. */
+    #map-topbar:not(.mobile-sheet-panel),
+    #main-controls:not(.mobile-sheet-panel),
+    #legend:not(.mobile-sheet-panel) {
+      display: none !important;
     }
 
     .map-topbar.mobile-sheet-panel .mobile-topbar-toggle {
@@ -1158,7 +1165,7 @@ body { height: var(--app-height); }
 }
 /* Mobile: Full-width controls at top */
 @media (max-width: 768px) {
-  .main-controls {
+  .main-controls:not(.mobile-sheet-panel) {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -1175,7 +1182,7 @@ body { height: var(--app-height); }
     -webkit-overflow-scrolling: touch;
   }
   /* Keep header + minimize button accessible while scrolling */
-  #main-controls .controls-header {
+  #main-controls:not(.mobile-sheet-panel) .controls-header {
     position: sticky;
     top: 0;
     z-index: 2;
@@ -1183,7 +1190,7 @@ body { height: var(--app-height); }
     padding-bottom: 10px;
     margin-bottom: 10px;
   }
-  .main-controls.minimized {
+  .main-controls.minimized:not(.mobile-sheet-panel) {
     min-width: 60px !important;
     max-width: 60px !important;
     width: 60px !important;
@@ -2762,15 +2769,15 @@ body { height: var(--app-height); }
   }
 
   @media (max-width: 480px) {
-    .main-controls {
+    .main-controls:not(.mobile-sheet-panel) {
       padding: 12px !important;
       max-height: min(58vh, 460px) !important;
     }
     @supports (height: 100svh) {
-      .main-controls { max-height: min(58svh, 460px) !important; }
+      .main-controls:not(.mobile-sheet-panel) { max-height: min(58svh, 460px) !important; }
     }
     @supports (height: 100dvh) {
-      .main-controls { max-height: min(58dvh, 460px) !important; }
+      .main-controls:not(.mobile-sheet-panel) { max-height: min(58dvh, 460px) !important; }
     }
 
     .controls-header h3 {
@@ -2797,14 +2804,14 @@ body { height: var(--app-height); }
       font-size: 16px !important;
     }
 
-    .legend {
+    .legend:not(.mobile-sheet-panel) {
       max-height: min(46vh, 380px) !important;
     }
     @supports (height: 100svh) {
-      .legend { max-height: min(46svh, 380px) !important; }
+      .legend:not(.mobile-sheet-panel) { max-height: min(46svh, 380px) !important; }
     }
     @supports (height: 100dvh) {
-      .legend { max-height: min(46dvh, 380px) !important; }
+      .legend:not(.mobile-sheet-panel) { max-height: min(46dvh, 380px) !important; }
     }
     .legend-item {
       font-size: 13px !important;
@@ -14671,6 +14678,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function syncMobileDockButtons() {
+      try {
+        if (isMobileViewportNow && typeof isMobileViewportNow === 'function' && isMobileViewportNow()) {
+          let detectedActive = null;
+          Object.keys(MOBILE_SHEET_PANEL_IDS).some(key => {
+            const panel = getMobileSheetPanel(key);
+            if (
+              panel &&
+              panel.classList &&
+              panel.classList.contains('mobile-sheet-panel') &&
+              panel.classList.contains('mobile-sheet-active')
+            ) {
+              detectedActive = key;
+              return true;
+            }
+            return false;
+          });
+          if (detectedActive !== activeMobileSheetKey) activeMobileSheetKey = detectedActive;
+        }
+      } catch (_) {}
       const buttons = document.querySelectorAll('[data-mobile-sheet-btn]');
       buttons.forEach(btn => {
         const key = btn.getAttribute('data-mobile-sheet-btn') || '';
@@ -15017,9 +15043,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const controls = document.getElementById('main-controls');
         const voteCounter = document.getElementById('vote-counter');
         const mobileDock = document.getElementById('mobile-dock');
-        const topbarVisible = elementIsLayoutVisible(topbar);
-        const legendVisible = elementIsLayoutVisible(legend);
-        const controlsVisible = elementIsLayoutVisible(controls);
+
+        const isActiveMobileSheet = el =>
+          isMobileViewportNow() &&
+          el &&
+          el.classList &&
+          el.classList.contains('mobile-sheet-panel') &&
+          el.classList.contains('mobile-sheet-active');
+
+        const topbarVisible = isMobile ? isActiveMobileSheet(topbar) : elementIsLayoutVisible(topbar);
+        const legendVisible = isMobile ? isActiveMobileSheet(legend) : elementIsLayoutVisible(legend);
+        const controlsVisible = isMobile ? isActiveMobileSheet(controls) : elementIsLayoutVisible(controls);
         const counterVisible = elementIsLayoutVisible(voteCounter);
         const dockVisible = isMobile && elementIsLayoutVisible(mobileDock);
 
