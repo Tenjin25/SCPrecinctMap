@@ -838,8 +838,6 @@
       setTimeout(syncInitialTopbarOffset, 180);
       window.addEventListener('resize', syncInitialTopbarOffset, { passive: true });
       window.addEventListener('resize', () => { try { if (typeof window.syncMobileDockButtons === 'function') window.syncMobileDockButtons(); } catch (_) {} }, { passive: true });
-      window.addEventListener('resize', () => { try { if (typeof window.setupMobileDockAndSheets === 'function') window.setupMobileDockAndSheets(); } catch (_) {} }, { passive: true });
-      window.addEventListener('orientationchange', () => { try { if (typeof window.setupMobileDockAndSheets === 'function') window.setupMobileDockAndSheets(); } catch (_) {} }, { passive: true });
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(() => {
           try { syncInitialTopbarOffset(); } catch (_) {}
@@ -14918,52 +14916,6 @@ document.addEventListener('DOMContentLoaded', function() {
           mobileInputRestoreTimer = null;
         }, 140);
       }, true);
-    }
-
-    function elementIsLayoutVisible(el) {
-      if (!el) return false;
-      try {
-        if (isMobileViewportNow && typeof isMobileViewportNow === 'function') {
-          if (isMobileViewportNow() && el.classList && el.classList.contains('mobile-sheet-panel') && !el.classList.contains('mobile-sheet-active')) {
-            return false;
-          }
-        }
-      } catch (_) {}
-      if (!el.getClientRects || !el.getClientRects().length) return false;
-      const cs = window.getComputedStyle ? window.getComputedStyle(el) : null;
-      if (!cs) return true;
-      return cs.display !== 'none' && cs.visibility !== 'hidden';
-    }
-
-    function parseCssPx(value, fallback = 0) {
-      const n = Number.parseFloat(String(value || '').replace('px', '').trim());
-      return Number.isFinite(n) ? n : fallback;
-    }
-
-    let lastMapViewportPaddingKey = '';
-    function syncMapViewportPadding({ isMobile, topHeight = 0, legendHeight = 0, voteBottom = 0, voteHeight = 0, dockHeight = 0 } = {}) {
-      try {
-        if (!map || typeof map.setPadding !== 'function') return;
-
-        let padding;
-        if (!isMobile) {
-          padding = { top: 0, right: 0, bottom: 0, left: 0 };
-        } else {
-          const rootStyles = window.getComputedStyle ? window.getComputedStyle(document.documentElement) : null;
-          const safeBottom = parseCssPx(rootStyles ? rootStyles.getPropertyValue('--safe-bottom') : 0, 0);
-          const top = Math.max(0, Math.round(topHeight + 8));
-          const legendBottom = Math.max(0, Math.round(legendHeight + safeBottom + 8));
-          const counterBottom = voteHeight > 0 ? Math.max(0, Math.round(voteBottom + voteHeight + 8)) : 0;
-          const dockBottom = dockHeight > 0 ? Math.max(0, Math.round(legendHeight + safeBottom + dockHeight + 12)) : 0;
-          const bottom = Math.max(legendBottom, counterBottom, dockBottom);
-          padding = { top, right: 10, bottom, left: 10 };
-        }
-
-        const key = `${padding.top}|${padding.right}|${padding.bottom}|${padding.left}`;
-        if (key === lastMapViewportPaddingKey) return;
-        lastMapViewportPaddingKey = key;
-        map.setPadding(padding);
-      } catch (_) {}
     }
 
     function updateMobileOverlayOffsets() {
