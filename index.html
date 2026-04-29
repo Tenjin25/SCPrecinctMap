@@ -424,8 +424,10 @@
     }
 
     .map-topbar,
-    .main-controls,
-    .legend,
+    .main-controls.mobile-sheet-panel,
+    .main-controls:not(.mobile-sheet-panel),
+    .legend.mobile-sheet-panel,
+    .legend:not(.mobile-sheet-panel),
     .vote-counter,
     #status-panel {
       backdrop-filter: blur(8px) !important;
@@ -436,8 +438,10 @@
   /* Final mobile pass: prioritize touch targets, reduce clutter, and prevent cramped overlays. */
   @media (max-width: 768px) {
     .map-topbar,
-    .main-controls,
-    .legend,
+    .main-controls.mobile-sheet-panel,
+    .main-controls:not(.mobile-sheet-panel),
+    .legend.mobile-sheet-panel,
+    .legend:not(.mobile-sheet-panel),
     .vote-counter,
     #status-panel {
       left: 8px !important;
@@ -446,8 +450,10 @@
       max-width: none !important;
     }
 
-    .main-controls,
-    .legend,
+    .main-controls.mobile-sheet-panel,
+    .main-controls:not(.mobile-sheet-panel),
+    .legend.mobile-sheet-panel,
+    .legend:not(.mobile-sheet-panel),
     .vote-counter {
       overscroll-behavior: contain;
       -webkit-overflow-scrolling: touch;
@@ -14666,7 +14672,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         event.preventDefault();
         event.stopPropagation();
-        toggleMobileSheet(key);
+        cycleMobileSheetSnap(key);
       });
       panel.insertBefore(grab, panel.firstChild);
     }
@@ -14808,6 +14814,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleMobileSheet(key) {
       if (!isMobileViewportNow()) return;
       if (!MOBILE_SHEET_PANEL_IDS[key]) return;
+      if (activeMobileSheetKey === key) {
+        closeMobileSheet(key);
+        activeMobileSheetKey = null;
+        syncMobileDockButtons();
+        try { updateMobileOverlayOffsets(); } catch (_) {}
+        return;
+      }
+      openMobileSheet(key, 'half');
+    }
+
+    function cycleMobileSheetSnap(key) {
+      if (!isMobileViewportNow()) return;
+      if (!MOBILE_SHEET_PANEL_IDS[key]) return;
       if (activeMobileSheetKey !== key) {
         openMobileSheet(key, 'half');
         return;
@@ -14873,7 +14892,7 @@ document.addEventListener('DOMContentLoaded', function() {
             closeAllMobileSheets();
           });
         }
-        window.addEventListener('resize', () => {
+        const handleViewportChange = () => {
           try {
             if (!isMobileViewportNow()) {
               closeAllMobileSheets();
@@ -14899,7 +14918,9 @@ document.addEventListener('DOMContentLoaded', function() {
               });
             }
           } catch (_) {}
-        }, { passive: true });
+        };
+        window.addEventListener('resize', handleViewportChange, { passive: true });
+        window.addEventListener('orientationchange', handleViewportChange, { passive: true });
       } catch (_) {}
       closeAllMobileSheets();
     }
