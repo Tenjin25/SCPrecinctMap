@@ -903,6 +903,8 @@
       setTimeout(syncInitialTopbarOffset, 180);
       window.addEventListener('resize', syncInitialTopbarOffset, { passive: true });
       window.addEventListener('resize', () => { try { if (typeof window.syncMobileDockButtons === 'function') window.syncMobileDockButtons(); } catch (_) {} }, { passive: true });
+      window.addEventListener('resize', () => { try { if (typeof window.setupMobileDockAndSheets === 'function') window.setupMobileDockAndSheets(); } catch (_) {} }, { passive: true });
+      window.addEventListener('orientationchange', () => { try { if (typeof window.setupMobileDockAndSheets === 'function') window.setupMobileDockAndSheets(); } catch (_) {} }, { passive: true });
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(() => {
           try { syncInitialTopbarOffset(); } catch (_) {}
@@ -14859,14 +14861,21 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleMobileSheet(key) {
       if (!isMobileViewportNow()) return;
       if (!MOBILE_SHEET_PANEL_IDS[key]) return;
-      if (activeMobileSheetKey === key) {
+      if (activeMobileSheetKey !== key) {
+        openMobileSheet(key, 'half');
+        return;
+      }
+      const current = getMobileSheetSnap(key);
+      const idx = MOBILE_SHEET_SNAP_SEQUENCE.indexOf(current);
+      const next = MOBILE_SHEET_SNAP_SEQUENCE[(idx + 1) % MOBILE_SHEET_SNAP_SEQUENCE.length];
+      if (next === 'collapsed') {
         closeMobileSheet(key);
         activeMobileSheetKey = null;
         syncMobileDockButtons();
         try { updateMobileOverlayOffsets(); } catch (_) {}
         return;
       }
-      openMobileSheet(key, 'half');
+      openMobileSheet(key, next);
     }
 
     function cycleMobileSheetSnap(key) {
@@ -14901,18 +14910,6 @@ document.addEventListener('DOMContentLoaded', function() {
           panel.classList.remove('mobile-sheet-active');
           ensureMobileSheetGrab(panel, key);
         });
-
-        const mobileDock = document.getElementById('mobile-dock');
-        if (mobileDock && mobileDock.dataset.mobileSheetDockReady !== 'true') {
-          mobileDock.dataset.mobileSheetDockReady = 'true';
-          mobileDock.addEventListener('click', (event) => {
-            const target = event && event.target;
-            const btn = target && target.closest ? target.closest('[data-mobile-sheet-btn]') : null;
-            if (!btn) return;
-            const key = btn.getAttribute('data-mobile-sheet-btn') || '';
-            toggleMobileSheet(key);
-          });
-        }
 
         document.querySelectorAll('[data-mobile-sheet-btn]').forEach(btn => {
           if (btn.dataset.mobileSheetReady === 'true') return;
