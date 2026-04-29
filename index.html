@@ -170,6 +170,15 @@
       flex: 1 1 auto;
     }
   }
+  /* NCMap mobile dock + sheets are hidden by default and enabled only in the mobile media query. */
+  .mobile-sheet-scrim,
+  .mobile-dock {
+    display: none;
+  }
+
+  .mobile-sheet-grab {
+    display: none;
+  }
   @media (max-width: 768px) {
     /* Mobile: panel dock + bottom sheets (ported from NC map). */
     :root {
@@ -225,16 +234,14 @@
       inset: 0;
       z-index: 10019;
       display: block;
-      background: rgba(15, 23, 42, 0.08);
+      background: rgba(15, 23, 42, 0.2);
       opacity: 0;
-      visibility: hidden;
       pointer-events: none;
-      transition: opacity 0.2s ease, visibility 0.2s ease;
+      transition: opacity 0.2s ease;
     }
 
     body.mobile-sheet-open .mobile-sheet-scrim {
       opacity: 1;
-      visibility: visible;
       pointer-events: auto;
     }
 
@@ -250,12 +257,8 @@
       opacity: 0;
       pointer-events: none;
       z-index: 10020 !important;
-      background: rgba(255, 255, 255, 0.98) !important;
-      backdrop-filter: none !important;
-      -webkit-backdrop-filter: none !important;
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch;
-      touch-action: pan-y;
       overscroll-behavior: contain;
       scroll-padding-top: 28px;
       transition: transform 0.22s ease, opacity 0.2s ease, max-height 0.2s ease;
@@ -297,7 +300,7 @@
     }
 
     .mobile-sheet-panel.mobile-sheet-active {
-      transform: none;
+      transform: translateY(0);
       opacity: 1;
       pointer-events: auto;
     }
@@ -324,16 +327,7 @@
     .map-topbar.mobile-sheet-panel,
     .main-controls.mobile-sheet-panel,
     .legend.mobile-sheet-panel {
-      background: rgba(255, 255, 255, 0.98) !important;
-      backdrop-filter: none !important;
-      -webkit-backdrop-filter: none !important;
-    }
-
-    /* Mobile source-of-truth: if a panel is not part of the sheet system, keep it out of the way. */
-    #map-topbar:not(.mobile-sheet-panel),
-    #main-controls:not(.mobile-sheet-panel),
-    #legend:not(.mobile-sheet-panel) {
-      display: none !important;
+      /* keep panel skins consistent with the desktop UI tokens */
     }
 
     .map-topbar.mobile-sheet-panel .mobile-topbar-toggle {
@@ -14678,25 +14672,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function syncMobileDockButtons() {
-      try {
-        if (isMobileViewportNow && typeof isMobileViewportNow === 'function' && isMobileViewportNow()) {
-          let detectedActive = null;
-          Object.keys(MOBILE_SHEET_PANEL_IDS).some(key => {
-            const panel = getMobileSheetPanel(key);
-            if (
-              panel &&
-              panel.classList &&
-              panel.classList.contains('mobile-sheet-panel') &&
-              panel.classList.contains('mobile-sheet-active')
-            ) {
-              detectedActive = key;
-              return true;
-            }
-            return false;
-          });
-          if (detectedActive !== activeMobileSheetKey) activeMobileSheetKey = detectedActive;
-        }
-      } catch (_) {}
       const buttons = document.querySelectorAll('[data-mobile-sheet-btn]');
       buttons.forEach(btn => {
         const key = btn.getAttribute('data-mobile-sheet-btn') || '';
@@ -14986,52 +14961,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }, true);
     }
 
-    function elementIsLayoutVisible(el) {
-      if (!el) return false;
-      try {
-        if (isMobileViewportNow && typeof isMobileViewportNow === 'function') {
-          if (isMobileViewportNow() && el.classList && el.classList.contains('mobile-sheet-panel') && !el.classList.contains('mobile-sheet-active')) {
-            return false;
-          }
-        }
-      } catch (_) {}
-      if (!el.getClientRects || !el.getClientRects().length) return false;
-      const cs = window.getComputedStyle ? window.getComputedStyle(el) : null;
-      if (!cs) return true;
-      return cs.display !== 'none' && cs.visibility !== 'hidden';
-    }
-
-    function parseCssPx(value, fallback = 0) {
-      const n = Number.parseFloat(String(value || '').replace('px', '').trim());
-      return Number.isFinite(n) ? n : fallback;
-    }
-
-    let lastMapViewportPaddingKey = '';
-    function syncMapViewportPadding({ isMobile, topHeight = 0, legendHeight = 0, voteBottom = 0, voteHeight = 0, dockHeight = 0 } = {}) {
-      try {
-        if (!map || typeof map.setPadding !== 'function') return;
-
-        let padding;
-        if (!isMobile) {
-          padding = { top: 0, right: 0, bottom: 0, left: 0 };
-        } else {
-          const rootStyles = window.getComputedStyle ? window.getComputedStyle(document.documentElement) : null;
-          const safeBottom = parseCssPx(rootStyles ? rootStyles.getPropertyValue('--safe-bottom') : 0, 0);
-          const top = Math.max(0, Math.round(topHeight + 8));
-          const legendBottom = Math.max(0, Math.round(legendHeight + safeBottom + 8));
-          const counterBottom = voteHeight > 0 ? Math.max(0, Math.round(voteBottom + voteHeight + 8)) : 0;
-          const dockBottom = dockHeight > 0 ? Math.max(0, Math.round(legendHeight + safeBottom + dockHeight + 12)) : 0;
-          const bottom = Math.max(legendBottom, counterBottom, dockBottom);
-          padding = { top, right: 10, bottom, left: 10 };
-        }
-
-        const key = `${padding.top}|${padding.right}|${padding.bottom}|${padding.left}`;
-        if (key === lastMapViewportPaddingKey) return;
-        lastMapViewportPaddingKey = key;
-        map.setPadding(padding);
-      } catch (_) {}
-    }
-
     function updateMobileOverlayOffsets() {
       // Measure the floating UI so mobile overlays and the desktop right rail can avoid collisions.
       try {
@@ -15039,67 +14968,39 @@ document.addEventListener('DOMContentLoaded', function() {
         const isDesktop = window.matchMedia && window.matchMedia('(min-width: 769px)').matches;
         const root = document.documentElement;
         const topbar = document.getElementById('map-topbar');
-        const legend = document.getElementById('legend');
-        const controls = document.getElementById('main-controls');
         const voteCounter = document.getElementById('vote-counter');
         const mobileDock = document.getElementById('mobile-dock');
-
-        const isActiveMobileSheet = el =>
-          isMobileViewportNow() &&
-          el &&
-          el.classList &&
-          el.classList.contains('mobile-sheet-panel') &&
-          el.classList.contains('mobile-sheet-active');
-
-        const topbarVisible = isMobile ? isActiveMobileSheet(topbar) : elementIsLayoutVisible(topbar);
-        const legendVisible = isMobile ? isActiveMobileSheet(legend) : elementIsLayoutVisible(legend);
-        const controlsVisible = isMobile ? isActiveMobileSheet(controls) : elementIsLayoutVisible(controls);
-        const counterVisible = elementIsLayoutVisible(voteCounter);
-        const dockVisible = isMobile && elementIsLayoutVisible(mobileDock);
-
-        const th = topbarVisible ? Math.round(topbar.getBoundingClientRect().height) : 0;
-        const lh = legendVisible ? Math.round(legend.getBoundingClientRect().height) : 0;
-        const ch = controlsVisible ? Math.round(controls.getBoundingClientRect().height) : 0;
-        const vh = counterVisible ? Math.round(voteCounter.getBoundingClientRect().height) : 0;
-        const dh = dockVisible ? Math.round(mobileDock.getBoundingClientRect().height) : 0;
-        const voteBottom = counterVisible ? parseCssPx(window.getComputedStyle(voteCounter).bottom, 0) : 0;
+        const topbarVisible = !!(topbar && (!isMobile || topbar.classList.contains('mobile-sheet-active')));
+        const th = topbarVisible ? Math.round(topbar.getBoundingClientRect().height || 0) : 0;
+        const dockVisible = !!(isMobile && mobileDock && mobileDock.getClientRects().length);
+        const dh = dockVisible ? Math.round(mobileDock.getBoundingClientRect().height || 0) : 0;
         root.style.setProperty('--topbar-h', `${Math.max(0, th)}px`);
-
+        root.style.setProperty('--mobile-dock-h', `${Math.max(0, dh)}px`);
         if (isDesktop) {
+          const counterVisible = !!(voteCounter && voteCounter.style.display !== 'none' && voteCounter.getClientRects().length);
+          const vh = counterVisible ? Math.round(voteCounter.getBoundingClientRect().height) : 0;
           root.style.setProperty('--desktop-vote-counter-h', `${Math.max(0, vh)}px`);
         } else {
           root.style.removeProperty('--desktop-vote-counter-h');
         }
-
         if (!isMobile) {
           root.style.removeProperty('--legend-h');
           root.style.removeProperty('--controls-h');
           root.style.removeProperty('--mobile-dock-h');
-          root.style.removeProperty('--counter-h');
           root.style.removeProperty('--vote-counter-h');
-          syncMapViewportPadding({ isMobile: false });
           return;
         }
-
+        const counterVisibleMobile = !!(voteCounter && voteCounter.style.display !== 'none' && voteCounter.getClientRects().length);
+        const vhm = counterVisibleMobile ? Math.round(voteCounter.getBoundingClientRect().height || 0) : 0;
+        root.style.setProperty('--vote-counter-h', `${Math.max(0, vhm)}px`);
+        const legend = document.getElementById('legend');
+        const controls = document.getElementById('main-controls');
+        const legendVisible = !!(legend && legend.classList.contains('mobile-sheet-active'));
+        const controlsVisible = !!(controls && controls.classList.contains('mobile-sheet-active'));
+        const lh = legendVisible ? Math.round(legend.getBoundingClientRect().height) : 56;
+        const ch = controlsVisible ? Math.round(controls.getBoundingClientRect().height) : 0;
         root.style.setProperty('--legend-h', `${Math.max(0, lh)}px`);
         root.style.setProperty('--controls-h', `${Math.max(0, ch)}px`);
-        root.style.setProperty('--mobile-dock-h', `${Math.max(0, dh)}px`);
-        if (counterVisible) {
-          root.style.setProperty('--counter-h', `${Math.max(0, vh)}px`);
-          root.style.setProperty('--vote-counter-h', `${Math.max(0, vh)}px`);
-        } else {
-          root.style.removeProperty('--counter-h');
-          root.style.removeProperty('--vote-counter-h');
-        }
-        const paddingTopHeight = (topbar && topbar.classList && topbar.classList.contains('mobile-sheet-panel')) ? 0 : th;
-        syncMapViewportPadding({
-          isMobile: true,
-          topHeight: paddingTopHeight,
-          legendHeight: lh,
-          voteBottom,
-          voteHeight: vh,
-          dockHeight: dh
-        });
       } catch (_) {}
     }
 
