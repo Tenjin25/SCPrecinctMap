@@ -204,6 +204,7 @@
       font-weight: 800;
       letter-spacing: 0.01em;
       cursor: pointer;
+      touch-action: manipulation;
       transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
     }
 
@@ -224,14 +225,16 @@
       inset: 0;
       z-index: 10019;
       display: block;
-      background: rgba(15, 23, 42, 0.2);
+      background: rgba(15, 23, 42, 0.08);
       opacity: 0;
+      visibility: hidden;
       pointer-events: none;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
     }
 
     body.mobile-sheet-open .mobile-sheet-scrim {
       opacity: 1;
+      visibility: visible;
       pointer-events: auto;
     }
 
@@ -247,8 +250,12 @@
       opacity: 0;
       pointer-events: none;
       z-index: 10020 !important;
+      background: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
       overscroll-behavior: contain;
       scroll-padding-top: 28px;
       transition: transform 0.22s ease, opacity 0.2s ease, max-height 0.2s ease;
@@ -290,7 +297,7 @@
     }
 
     .mobile-sheet-panel.mobile-sheet-active {
-      transform: translateY(0);
+      transform: none;
       opacity: 1;
       pointer-events: auto;
     }
@@ -312,6 +319,14 @@
       border-radius: 18px !important;
       padding: 12px !important;
       min-height: 0 !important;
+    }
+
+    .map-topbar.mobile-sheet-panel,
+    .main-controls.mobile-sheet-panel,
+    .legend.mobile-sheet-panel {
+      background: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
     }
 
     .map-topbar.mobile-sheet-panel .mobile-topbar-toggle {
@@ -870,6 +885,7 @@
       syncInitialTopbarOffset();
       try { if (typeof window.setupMobileDockAndSheets === 'function') window.setupMobileDockAndSheets(); } catch (_) {}
       try { if (typeof window.setupMobileInputFocusBehavior === 'function') window.setupMobileInputFocusBehavior(); } catch (_) {}
+      try { if (typeof window.wireControlsMinimizeScrollGuard === 'function') window.wireControlsMinimizeScrollGuard(); } catch (_) {}
       requestAnimationFrame(syncInitialTopbarOffset);
       setTimeout(syncInitialTopbarOffset, 180);
       window.addEventListener('resize', syncInitialTopbarOffset, { passive: true });
@@ -5332,7 +5348,8 @@ body { height: var(--app-height); }
 
   /* Refined control, legend, and statewide surfaces */
   .main-controls {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     border-radius: 24px;
     border: 1px solid rgba(148, 163, 184, 0.18);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 252, 0.94) 100%);
@@ -7715,7 +7732,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="controls-actions">
               <span class="controls-collapsed-label">The Palmetto Explorer</span>
               <button id="help-btn" title="Help" type="button">?</button>
-              <button class="minimize-btn" onclick="toggleMainControls()" id="controls-minimize-btn" title="Minimize controls">-</button>
+              <button class="minimize-btn" id="controls-minimize-btn" title="Minimize controls">-</button>
             </div>
         </div>
         <div class="controls-content" id="controls-content">
@@ -14819,6 +14836,19 @@ document.addEventListener('DOMContentLoaded', function() {
           panel.classList.remove('mobile-sheet-active');
           ensureMobileSheetGrab(panel, key);
         });
+
+        const mobileDock = document.getElementById('mobile-dock');
+        if (mobileDock && mobileDock.dataset.mobileSheetDockReady !== 'true') {
+          mobileDock.dataset.mobileSheetDockReady = 'true';
+          mobileDock.addEventListener('click', (event) => {
+            const target = event && event.target;
+            const btn = target && target.closest ? target.closest('[data-mobile-sheet-btn]') : null;
+            if (!btn) return;
+            const key = btn.getAttribute('data-mobile-sheet-btn') || '';
+            toggleMobileSheet(key);
+          });
+        }
+
         document.querySelectorAll('[data-mobile-sheet-btn]').forEach(btn => {
           if (btn.dataset.mobileSheetReady === 'true') return;
           btn.dataset.mobileSheetReady = 'true';
@@ -15105,6 +15135,73 @@ document.addEventListener('DOMContentLoaded', function() {
         minimizeBtn.title = 'Expand controls';
         syncMobileDockButtons();
         try { updateMobileOverlayOffsets(); } catch (_) {}
+      } catch (_) {}
+    }
+
+    function wireControlsMinimizeScrollGuard() {
+      try {
+        const controls = document.getElementById('main-controls');
+        const btn = document.getElementById('controls-minimize-btn');
+        if (!controls || !btn) return;
+        if (btn.dataset.scrollGuardReady === 'true') return;
+        btn.dataset.scrollGuardReady = 'true';
+
+        let lastScrollAt = 0;
+        controls.addEventListener('scroll', () => {
+          lastScrollAt = Date.now();
+        }, { passive: true });
+
+        let startY = null;
+        let startX = null;
+        let moved = false;
+        const MOVE_PX = 8;
+
+        const reset = () => {
+          startY = null;
+          startX = null;
+          moved = false;
+        };
+
+        btn.addEventListener('touchstart', (event) => {
+          const t = event.touches && event.touches[0];
+          if (!t) return;
+          startY = t.clientY;
+          startX = t.clientX;
+          moved = false;
+        }, { passive: true });
+
+        btn.addEventListener('touchmove', (event) => {
+          const t = event.touches && event.touches[0];
+          if (!t || startY === null || startX === null) return;
+          const dy = Math.abs(t.clientY - startY);
+          const dx = Math.abs(t.clientX - startX);
+          if (dy > MOVE_PX || dx > MOVE_PX) moved = true;
+        }, { passive: true });
+
+        btn.addEventListener('touchend', () => {
+          // If the user was scrolling, suppress the synthetic click.
+          if (moved) {
+            btn.dataset.ignoreNextClick = 'true';
+            window.setTimeout(() => { try { btn.dataset.ignoreNextClick = ''; } catch (_) {} }, 220);
+          }
+          reset();
+        }, { passive: true });
+
+        btn.addEventListener('touchcancel', () => reset(), { passive: true });
+
+        btn.addEventListener('click', (event) => {
+          if (Date.now() - lastScrollAt < 280) {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+          if (btn.dataset.ignoreNextClick === 'true') {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+          toggleMainControls();
+        });
       } catch (_) {}
     }
 
