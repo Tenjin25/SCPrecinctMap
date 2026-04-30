@@ -9611,7 +9611,8 @@ document.addEventListener('DOMContentLoaded', function() {
           const flipChip = entry.flip && entry.flip.flipped
             ? `<span class="focus-trend-chip flip">${escapeHtml(`Flip ${entry.flip.from}->${entry.flip.to}`)}</span>`
             : '';
-          const leadSummary = entry.leadLabel === 'Tie' ? 'Even race' : entry.leadLabel;
+          const leadSummaryRaw = leadMarginPctLabel(entry.repVotes, entry.demVotes, entry.totalVotes, { includeParty: false });
+          const leadSummary = leadSummaryRaw === 'Tie' ? 'Even race' : leadSummaryRaw;
           const otherChip = entry.otherPct >= 0.05
             ? `<span class="focus-trend-chip">Other ${escapeHtml(entry.otherPct.toFixed(2))}%</span>`
             : '';
@@ -14903,7 +14904,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const dockVisible = !!(isMobile && mobileDock && mobileDock.getClientRects().length);
         const dh = dockVisible ? Math.round(mobileDock.getBoundingClientRect().height || 0) : 0;
         root.style.setProperty('--topbar-h', `${Math.max(0, th)}px`);
-        root.style.setProperty('--mobile-dock-h', `${Math.max(0, dh)}px`);
+        if (dockVisible && dh > 0) {
+          root.style.setProperty('--mobile-dock-h', `${Math.max(0, dh)}px`);
+        } else {
+          root.style.removeProperty('--mobile-dock-h');
+        }
         if (isDesktop) {
           const counterVisible = !!(voteCounter && voteCounter.style.display !== 'none' && voteCounter.getClientRects().length);
           const vh = counterVisible ? Math.round(voteCounter.getBoundingClientRect().height) : 0;
