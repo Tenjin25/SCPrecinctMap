@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset='utf-8'>
@@ -8945,7 +8945,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const abs = Math.abs(s);
       if (abs < 0.005) return 'No shift';
       const party = s > 0 ? 'R' : 'D';
-      return `${party}+${toFixedForDisplay(abs, digits)} pts`;
+      return `${party}+${toFixedForDisplay(abs, digits)}`;
     }
 
     function preservesTwoDecimalMargin(marginPct) {
@@ -13220,7 +13220,7 @@ document.addEventListener('DOMContentLoaded', function() {
       function formatWinnerLabel(row, signedMargin) {
         const absMargin = Math.abs(signedMargin);
         if (absMargin < 0.005) return `${row.year}: Tie`;
-        return `${row.year}: ${signedMargin > 0 ? 'R' : 'D'}+${formatPct(absMargin, 2)} pts`;
+        return `${row.year}: ${signedMargin > 0 ? 'R' : 'D'}+${formatPct(absMargin, 2)} %`;
       }
 
       const sorted = series
