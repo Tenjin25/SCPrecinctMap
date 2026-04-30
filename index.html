@@ -307,11 +307,21 @@
     }
 
     .vote-counter {
-      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px) !important;
     }
 
     #hover-tooltip {
-      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
+      position: fixed !important;
+      left: 8px !important;
+      right: 8px !important;
+      top: auto !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
+      max-height: 54vh;
+      max-height: 54svh;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+      z-index: 10031 !important;
     }
 
     body.mobile-sheet-open #hover-tooltip {
@@ -328,6 +338,12 @@
     }
 
     body.mobile-input-active .vote-counter {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px) !important;
+    }
+
+    body.mobile-input-active #hover-tooltip {
       opacity: 0;
       pointer-events: none;
       transform: translateY(8px) !important;
@@ -600,7 +616,7 @@
     #hover-tooltip {
       left: 142px !important;
       right: 8px !important;
-      bottom: 8px !important;
+      bottom: calc(8px + var(--vote-counter-h, 0px) + 8px) !important;
     }
   }
     .spinner svg {
@@ -2632,11 +2648,11 @@ body { height: var(--app-height); }
     }
 
     html.android-mobile .vote-counter {
-      bottom: calc(var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px) !important;
     }
 
     html.android-mobile #hover-tooltip {
-      bottom: calc(var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
     }
 
     .contest-toolbar {
@@ -14895,10 +14911,18 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           root.style.removeProperty('--desktop-vote-counter-h');
         }
+        if (isMobile) {
+          const counterVisible = !!(voteCounter && voteCounter.style.display !== 'none' && voteCounter.getClientRects().length);
+          const vh = counterVisible ? Math.round(voteCounter.getBoundingClientRect().height || 0) : 0;
+          root.style.setProperty('--vote-counter-h', `${Math.max(0, vh)}px`);
+        } else {
+          root.style.removeProperty('--vote-counter-h');
+        }
         if (!isMobile) {
           root.style.removeProperty('--legend-h');
           root.style.removeProperty('--controls-h');
           root.style.removeProperty('--mobile-dock-h');
+          root.style.removeProperty('--vote-counter-h');
           return;
         }
         const legend = document.getElementById('legend');

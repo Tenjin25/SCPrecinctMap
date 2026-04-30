@@ -23,6 +23,10 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
     - Tap the scrim (or press **Escape** with a hardware keyboard) to close all sheets.
   - When sheets open, the hover tooltip and vote counter auto-yield space to reduce overlaps.
 
+- **Mobile overlay spacing parity (April 30, 2026):**
+  - Mobile `#hover-tooltip` is now a fixed, scrollable card that sits above the bottom dock **and** above the focus briefing panel (`#vote-counter`) using measured `--vote-counter-h` spacing.
+  - Android mobile uses the same visualViewport inset offsets while keeping the `+ 24px` dock gap so the tooltip/counter don’t drift under the URL bar.
+
 - **Precinct-mode visibility cleanup (April 21, 2026):**
   - Increased precinct polygon fill opacity so underlying county colors no longer show through faintly during precinct browsing.
   - This is a targeted visual polish for readability only; no contest logic or interaction behavior changed.
