@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset='utf-8'>
@@ -8945,7 +8945,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const abs = Math.abs(s);
       if (abs < 0.005) return 'No shift';
       const party = s > 0 ? 'R' : 'D';
-      return `${party}+${toFixedForDisplay(abs, digits)}`;
+      return `${party}+${toFixedForDisplay(abs, digits)} pts`;
     }
 
     function preservesTwoDecimalMargin(marginPct) {
@@ -13220,7 +13220,7 @@ document.addEventListener('DOMContentLoaded', function() {
       function formatWinnerLabel(row, signedMargin) {
         const absMargin = Math.abs(signedMargin);
         if (absMargin < 0.005) return `${row.year}: Tie`;
-        return `${row.year}: ${signedMargin > 0 ? 'R' : 'D'}+${formatPct(absMargin, 2)} %`;
+        return `${row.year}: ${signedMargin > 0 ? 'R' : 'D'}+${formatPct(absMargin, 2)} pts`;
       }
 
       const sorted = series
@@ -13756,7 +13756,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const none = t.match(/^Shift:\s*No shift since\s*(\d{4})/i);
         if (none) return `Since ${none[1]}: No shift`;
         const match = t.match(/^Shift:\s*([RD])\+([0-9.]+)\s*since\s*(\d{4})/i);
-        if (match) return `Since ${match[3]}: ${match[1].toUpperCase()}+${match[2]}%`;
+        if (match) return `Since ${match[3]}: ${match[1].toUpperCase()}+${match[2]} pts`;
         return t.replace(/^Shift:\s*/i, '').trim();
       };
 
