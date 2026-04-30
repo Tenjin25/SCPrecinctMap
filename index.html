@@ -13756,7 +13756,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const none = t.match(/^Shift:\s*No shift since\s*(\d{4})/i);
         if (none) return `Since ${none[1]}: No shift`;
         const match = t.match(/^Shift:\s*([RD])\+([0-9.]+)\s*since\s*(\d{4})/i);
-        if (match) return `Since ${match[3]}: ${match[1].toUpperCase()}+${match[2]} %`;
+        if (match) return `Since ${match[3]}: ${match[1].toUpperCase()}+${match[2]}%`;
         return t.replace(/^Shift:\s*/i, '').trim();
       };
 
