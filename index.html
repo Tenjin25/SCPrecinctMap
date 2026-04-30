@@ -8938,14 +8938,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Shared shift formatter (NCMap-style rounding + display).
+    // Shift values are Rep−Dem margin changes measured in percentage points,
+    // but the UI label should read as a percent shift everywhere (county,
+    // congressional, legislative, timeline rows, and Trend at a glance).
     // Positive shift = more Republican; negative shift = more Democratic.
-    function formatShiftValue(shiftTowardGopPts, digits = 2) {
-      const s = Number(shiftTowardGopPts);
+    function formatShiftValue(shiftTowardGopPct, digits = 2) {
+      const s = Number(shiftTowardGopPct);
       if (!Number.isFinite(s)) return 'No shift';
       const abs = Math.abs(s);
       if (abs < 0.005) return 'No shift';
       const party = s > 0 ? 'R' : 'D';
-      return `${party}+${toFixedForDisplay(abs, digits)} pts`;
+      return `${party}+${toFixedForDisplay(abs, digits)}%`;
     }
 
     function preservesTwoDecimalMargin(marginPct) {
@@ -13751,13 +13754,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const prettifyShiftEvidence = (text) => {
         const t = String(text || '').trim();
         if (!t) return '';
-        if (/^Since\\s+\\d{4}\\s*:/i.test(t)) return t;
         if (/^No shift$/i.test(t)) return 'No shift';
         const none = t.match(/^Shift:\s*No shift since\s*(\d{4})/i);
         if (none) return `Since ${none[1]}: No shift`;
-        const match = t.match(/^Shift:\s*([RD])\+([0-9.]+)\s*since\s*(\d{4})/i);
-        if (match) return `Since ${match[3]}: ${match[1].toUpperCase()}+${match[2]} pts`;
-        return t.replace(/^Shift:\s*/i, '').trim();
+        const match = t.match(/^Shift:\s*([RD])\+([0-9.]+)\s*(?:pts?|points?|%)?\s*since\s*(\d{4})/i);
+        if (match) return `Since ${match[3]}: ${match[1].toUpperCase()}+${match[2]}%`;
+        const sinceMatch = t.match(/^Since\s+(\d{4})\s*:\s*([RD])\+([0-9.]+)\s*(?:pts?|points?|%)?$/i);
+        if (sinceMatch) return `Since ${sinceMatch[1]}: ${sinceMatch[2].toUpperCase()}+${sinceMatch[3]}%`;
+        return t.replace(/^Shift:\s*/i, '').replace(/\s+(?:pts?|points?)\b/i, '%').trim();
       };
 
       const estimates = county?.estimates || {};
