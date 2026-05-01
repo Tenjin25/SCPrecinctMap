@@ -8949,6 +8949,15 @@ document.addEventListener('DOMContentLoaded', function() {
       return `${party}+${toFixedForDisplay(abs, digits)}%`;
     }
 
+    function formatShiftPlainLanguage(shiftTowardGopPct, digits = 2) {
+      const s = Number(shiftTowardGopPct);
+      if (!Number.isFinite(s)) return 'No shift';
+      const abs = Math.abs(s);
+      if (abs < 0.005) return 'No shift';
+      const toward = s > 0 ? 'Republicans' : 'Democrats';
+      return `Shifted ${toFixedForDisplay(abs, digits)}% toward ${toward}`;
+    }
+
     function normalizeShiftLineText(text) {
       const raw = String(text || '').trim();
       if (!raw) return '';
@@ -9813,7 +9822,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return { cls: 'tie', text: 'First available result' };
       }
       const shift = (Number(currentSignedPct) || 0) - (Number(prevSignedPct) || 0);
-      const value = formatShiftValue(shift, 2);
+      const value = formatShiftPlainLanguage(shift, 2);
       const since = String(prevYear || '').trim();
       if (value === 'No shift') {
         return { cls: 'tie', text: since ? `Since ${since}: No shift` : 'No shift' };
@@ -13227,7 +13236,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       function formatShiftLabel(delta) {
-        return formatShiftValue(delta, 2);
+        return formatShiftPlainLanguage(delta, 2);
       }
 
       function formatWinnerLabel(row, signedMargin) {
@@ -13768,9 +13777,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const none = t.match(/^Shift:\s*No shift since\s*(\d{4})/i);
         if (none) return `Since ${none[1]}: No shift`;
         const match = t.match(/^Shift:\s*([RD])\+([0-9.]+)\s*(?:pts?|points?|%)?\s*since\s*(\d{4})/i);
-        if (match) return `Since ${match[3]}: ${match[1].toUpperCase()}+${match[2]}%`;
+        if (match) {
+          const party = match[1].toUpperCase() === 'R' ? 'Republicans' : 'Democrats';
+          return `Since ${match[3]}: Shifted ${match[2]}% toward ${party}`;
+        }
         const sinceMatch = t.match(/^Since\s+(\d{4})\s*:\s*([RD])\+([0-9.]+)\s*(?:pts?|points?|%)?$/i);
-        if (sinceMatch) return `Since ${sinceMatch[1]}: ${sinceMatch[2].toUpperCase()}+${sinceMatch[3]}%`;
+        if (sinceMatch) {
+          const party = sinceMatch[2].toUpperCase() === 'R' ? 'Republicans' : 'Democrats';
+          return `Since ${sinceMatch[1]}: Shifted ${sinceMatch[3]}% toward ${party}`;
+        }
         return normalizeShiftLineText(t);
       };
 
@@ -14058,7 +14073,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function shiftChipHTML(shiftPct, prevYear, year) {
       const s = Number(shiftPct) || 0;
-      const label = formatShiftValue(s, 2);
+      const label = formatShiftPlainLanguage(s, 2);
       const dotColor = colorForShiftMode(s);
       const years = (prevYear && year) ? `${prevYear}->${year}` : '';
       return `<span class="meta-chip shift"><span class="dot" style="background:${dotColor};"></span>Shift: ${label}${years ? ` <span style="color:#64748b;font-weight:800;">(${years})</span>` : ''}</span>`;
