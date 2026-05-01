@@ -13235,8 +13235,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return 0;
       }
 
-      function formatShiftLabel(delta) {
-        return formatShiftPlainLanguage(delta, 2);
+      function formatShiftLabel(delta, sinceYear = null) {
+        const d = Number(delta);
+        const since = Number.isFinite(Number(sinceYear)) ? String(Math.trunc(Number(sinceYear))) : '';
+        if (!Number.isFinite(d) || Math.abs(d) < 0.005) {
+          return since ? `No shift since ${since}` : 'No shift';
+        }
+        const compact = `${d > 0 ? 'R' : 'D'}+${toFixedForDisplay(Math.abs(d), 2)}%`;
+        return since ? `${compact} since ${since}` : compact;
       }
 
       function formatWinnerLabel(row, signedMargin) {
@@ -13418,12 +13424,12 @@ document.addEventListener('DOMContentLoaded', function() {
         position,
         details: [
           { label: 'Latest Result', value: formatWinnerLabel(latest, latestSigned), role: 'latest' },
-          ...(previous ? [{ label: cycleShiftLabel, value: formatShiftLabel(recentShiftTowardGop), role: 'shift' }] : []),
+          ...(previous ? [{ label: 'Shift', value: formatShiftLabel(recentShiftTowardGop, previous.year), role: 'shift' }] : []),
           ...(previous && Number(first.year) !== Number(previous.year)
-            ? [{ label: `Since ${first.year}`, value: formatShiftLabel(longShiftTowardGop), role: 'shift' }]
+            ? [{ label: 'Shift', value: formatShiftLabel(longShiftTowardGop, first.year), role: 'shift' }]
             : []),
           ...(row2008 && Number(row2008.year) !== Number(first.year)
-            ? [{ label: 'Since 2008', value: formatShiftLabel(shiftSince2008), role: 'shift' }]
+            ? [{ label: 'Shift', value: formatShiftLabel(shiftSince2008, 2008), role: 'shift' }]
             : [])
         ]
       };
