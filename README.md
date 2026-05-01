@@ -7,6 +7,10 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 
 ## Recent Updates (April 2026)
 
+- **Shift summary wording trim (April 30, 2026):**
+  - Updated only the county Census Check summary line format `Since YYYY: Shifted X% toward ...` to use shorter party wording (`GOP` / `Dems`).
+  - Left other timeline/legend/momentum party labels unchanged.
+
 - **Basemap town labels above overlays (April 23, 2026):**
   - Ensured Mapbox’s built-in place/town labels stay visible above county/district/precinct overlays by inserting overlay layers below the first basemap symbol layer.
   - Removed the unused `vtds_2000` / “Precincts 2000” placeholder view (old share links fall back to counties).

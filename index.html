@@ -13796,12 +13796,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (none) return `Since ${none[1]}: No shift`;
         const match = t.match(/^Shift:\s*([RD])\+([0-9.]+)\s*(?:pts?|points?|%)?\s*since\s*(\d{4})/i);
         if (match) {
-          const party = match[1].toUpperCase() === 'R' ? 'Republicans' : 'Democrats';
+          const party = match[1].toUpperCase() === 'R' ? 'GOP' : 'Dems';
           return `Since ${match[3]}: Shifted ${match[2]}% toward ${party}`;
         }
         const sinceMatch = t.match(/^Since\s+(\d{4})\s*:\s*([RD])\+([0-9.]+)\s*(?:pts?|points?|%)?$/i);
         if (sinceMatch) {
-          const party = sinceMatch[2].toUpperCase() === 'R' ? 'Republicans' : 'Democrats';
+          const party = sinceMatch[2].toUpperCase() === 'R' ? 'GOP' : 'Dems';
           return `Since ${sinceMatch[1]}: Shifted ${sinceMatch[3]}% toward ${party}`;
         }
         return normalizeShiftLineText(t);
