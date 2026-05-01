@@ -2792,13 +2792,11 @@ body { height: var(--app-height); }
     pointer-events: auto;
   }
 
-  /* Mobile: remove the pointer-events "wrapper" to avoid touch hit-testing bugs.
-     (NCMap.html uses the same approach.) */
-  @media (max-width: 768px) {
+  /* Desktop: remove the pointer-events wrapper to keep card sizing consistent. */
+  @media (min-width: 769px) {
     .desktop-ui-left,
     .desktop-ui-right {
       display: contents;
-      pointer-events: auto;
     }
   }
 
@@ -8951,6 +8949,18 @@ document.addEventListener('DOMContentLoaded', function() {
       return `${party}+${toFixedForDisplay(abs, digits)}%`;
     }
 
+    function normalizeShiftLineText(text) {
+      const raw = String(text || '').trim();
+      if (!raw) return '';
+      if (/^No shift$/i.test(raw)) return 'No shift';
+      if (/^Shift:\s*No shift since\s*\d{4}/i.test(raw)) {
+        return raw.replace(/^Shift:\s*/i, '').trim();
+      }
+      const cleaned = raw.replace(/^Shift:\s*/i, '').trim();
+      const normalized = cleaned.replace(/\b([RD])\+([0-9.]+)\s*(?:pts?|points?|%)?\b/i, '$1+$2%');
+      return normalized.replace(/%{2,}/g, '%').trim();
+    }
+
     function preservesTwoDecimalMargin(marginPct) {
       const pct = Math.abs(Number(marginPct) || 0);
       return roundForDisplay(pct, 2) >= 0.02;
@@ -10101,12 +10111,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const shiftLine = (() => {
           const raw = String(summaryEntry?.shiftMeta?.text || '').trim();
           if (!raw) return '';
-          return raw.replace(/^Shift:\s*/i, '');
+          return normalizeShiftLineText(raw);
         })();
         const longRunBullet = (() => {
           const raw = String(longShiftMeta?.text || '').trim();
           if (!raw) return '';
-          return raw.replace(/^Shift:\s*/i, '');
+          return normalizeShiftLineText(raw);
         })();
         const populationBullet = growth?.ok ? String(growth.line || '').trim() : '';
 
@@ -13761,7 +13771,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (match) return `Since ${match[3]}: ${match[1].toUpperCase()}+${match[2]}%`;
         const sinceMatch = t.match(/^Since\s+(\d{4})\s*:\s*([RD])\+([0-9.]+)\s*(?:pts?|points?|%)?$/i);
         if (sinceMatch) return `Since ${sinceMatch[1]}: ${sinceMatch[2].toUpperCase()}+${sinceMatch[3]}%`;
-        return t.replace(/^Shift:\s*/i, '').replace(/\s+(?:pts?|points?)\b/i, '%').trim();
+        return normalizeShiftLineText(t);
       };
 
       const estimates = county?.estimates || {};
@@ -15929,7 +15939,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const shiftLine = (() => {
         if (!Number.isFinite(prevYear) || !Number.isFinite(prevSigned)) return 'Recent shift: no prior cycle loaded';
-        const value = formatShiftValue(shiftSincePrev, 2);
+        const value = normalizeShiftLineText(formatShiftValue(shiftSincePrev, 2));
         return `Recent shift: ${value} since ${prevYear}`;
       })();
 
