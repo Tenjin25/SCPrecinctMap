@@ -8966,7 +8966,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!Number.isFinite(s)) return 'No shift';
       const abs = Math.abs(s);
       if (abs < 0.005) return 'No shift';
-      const toward = s > 0 ? 'Republicans' : 'Democrats';
+      const toward = s > 0 ? 'GOP' : 'Dems';
       return `Shifted ${toFixedForDisplay(abs, digits)}% toward ${toward}`;
     }
 
