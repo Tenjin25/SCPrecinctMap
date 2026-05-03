@@ -9470,7 +9470,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const storyTitle = `The story in ${String(focusName || 'this place').trim() || 'this place'}`;
       const storySummary = [safeWhyHeadline, ...whyTail].filter(Boolean).join(' ');
-      const storyWatch = String(watchLine || '').trim() || 'Watch whether the next comparable cycle reinforces the current lean or pulls it back toward the center.';
+      const storyWatch = String(watchLine || '').trim() || 'Watch whether the next comparable cycle reinforces the current lean or pulls it back toward balance.';
 
       return `
         <section class="focus-glance ${toneClass}" aria-label="At a glance">
@@ -9740,14 +9740,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return { cls: 'tie', text: 'First available result' };
       }
       const shift = (Number(currentSignedPct) || 0) - (Number(prevSignedPct) || 0);
-      const value = formatShiftPlainLanguage(shift, 2);
       const since = String(prevYear || '').trim();
-      if (value === 'No shift') {
-        return { cls: 'tie', text: since ? `Since ${since}: No shift` : 'No shift' };
+      if (Math.abs(shift) < 0.01) {
+        return { cls: 'tie', text: since ? `Shift: No shift since ${since}` : 'No shift' };
       }
+      const value = formatShift(shift, 2, { zeroLabel: '0.00%', noDataLabel: '0.00%' });
       return {
         cls: shift > 0 ? 'rep' : 'dem',
-        text: since ? `Since ${since}: ${value}` : value
+        text: since ? `Shift: ${value} since ${since}` : `Shift: ${value}`
       };
     }
 
@@ -12906,7 +12906,7 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
               <div class="statewide-stat">
                 <span>Margin</span>
-                <strong>${toFixedForDisplay(marginPct, 2)} pts</strong>
+                <strong>${toFixedForDisplay(marginPct, 2)}%</strong>
               </div>
             </div>
           </div>
@@ -13696,16 +13696,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!t) return '';
         if (/^No shift$/i.test(t)) return 'No shift';
         const none = t.match(/^Shift:\s*No shift since\s*(\d{4})/i);
-        if (none) return `Since ${none[1]}: No shift`;
+        if (none) return `Shift: No shift since ${none[1]}`;
         const match = t.match(/^Shift:\s*([RD])\+([0-9.]+)\s*(?:pts?|points?|%)?\s*since\s*(\d{4})/i);
         if (match) {
           const signed = (match[1].toUpperCase() === 'R' ? 1 : -1) * Number(match[2]);
-          return `Since ${match[3]}: ${formatShift(signed, 2, { zeroLabel: '0.00%', noDataLabel: '0.00%' })}`;
+          return `Shift: ${formatShift(signed, 2, { zeroLabel: '0.00%', noDataLabel: '0.00%' })} since ${match[3]}`;
         }
         const sinceMatch = t.match(/^Since\s+(\d{4})\s*:\s*([RD])\+([0-9.]+)\s*(?:pts?|points?|%)?$/i);
         if (sinceMatch) {
           const signed = (sinceMatch[2].toUpperCase() === 'R' ? 1 : -1) * Number(sinceMatch[3]);
-          return `Since ${sinceMatch[1]}: ${formatShift(signed, 2, { zeroLabel: '0.00%', noDataLabel: '0.00%' })}`;
+          return `Shift: ${formatShift(signed, 2, { zeroLabel: '0.00%', noDataLabel: '0.00%' })} since ${sinceMatch[1]}`;
         }
         return normalizeShiftLineText(t);
       };
