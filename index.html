@@ -13188,6 +13188,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const first = sorted[0];
       const firstSigned = getSignedMarginTowardGop(first);
       const longShiftTowardGop = latestSigned - firstSigned;
+      const row2020 = sorted.find(row => Number(row.year) === 2020);
+      const shiftSince2020 = row2020 ? latestSigned - getSignedMarginTowardGop(row2020) : null;
       const row2008 = sorted.find(row => Number(row.year) === 2008);
       const shiftSince2008 = row2008 ? latestSigned - getSignedMarginTowardGop(row2008) : null;
 
@@ -13327,6 +13329,14 @@ document.addEventListener('DOMContentLoaded', function() {
         else if ((recentShiftTowardGop ?? 0) <= -5) meaning += ' Recent elections show continued Democratic acceleration.';
       }
 
+      const primaryShiftDetail = previous
+        ? { label: 'Shift', value: formatShiftLabel(recentShiftTowardGop, previous.year), role: 'shift' }
+        : (row2020 && Number(row2020.year) !== Number(latest.year)
+          ? { label: 'Shift', value: formatShiftLabel(shiftSince2020, 2020), role: 'shift' }
+          : (Number(first.year) !== Number(latest.year)
+            ? { label: 'Shift', value: formatShiftLabel(longShiftTowardGop, first.year), role: 'shift' }
+            : null));
+
       return {
         status,
         statusClass,
@@ -13339,7 +13349,7 @@ document.addEventListener('DOMContentLoaded', function() {
         position,
         details: [
           { label: 'Latest Result', value: formatWinnerLabel(latest, latestSigned), role: 'latest' },
-          ...(previous ? [{ label: 'Shift', value: formatShiftLabel(recentShiftTowardGop, previous.year), role: 'shift' }] : []),
+          ...(primaryShiftDetail ? [primaryShiftDetail] : []),
           ...(previous && Number(first.year) !== Number(previous.year)
             ? [{ label: 'Shift', value: formatShiftLabel(longShiftTowardGop, first.year), role: 'shift' }]
             : []),
