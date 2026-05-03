@@ -55,81 +55,11 @@
       overscroll-behavior: none;
     }
 
-    /* Keep legacy (non-sheet) controls clear of notches and avoid covering the full map. */
-    .main-controls:not(.mobile-sheet-panel) {
-      top: var(--safe-top) !important;
-      left: var(--safe-left) !important;
-      right: var(--safe-right) !important;
-      padding-top: calc(12px + var(--safe-top)) !important;
-      padding-left: calc(16px + var(--safe-left)) !important;
-      padding-right: calc(16px + var(--safe-right)) !important;
-      max-height: calc(52vh - var(--safe-bottom)) !important;
-      overscroll-behavior: contain;
-    }
-
-    .main-controls.minimized:not(.mobile-sheet-panel) {
-      height: auto !important;
-      max-height: none !important;
-      padding: 10px 12px !important;
-      border-radius: 14px !important;
-    }
-
-    /* Legacy (non-sheet) legend should clear the iOS home indicator. */
-    .legend:not(.mobile-sheet-panel) {
-      padding-bottom: calc(8px + var(--safe-bottom)) !important;
-      overscroll-behavior: contain;
-    }
-
-    /* Prefer stable viewport units on mobile (helps Android Chrome with collapsing URL bar). */
-    @supports (height: 100svh) {
-      .main-controls:not(.mobile-sheet-panel) { max-height: 52svh !important; }
-      .legend:not(.mobile-sheet-panel) { max-height: 45svh !important; }
-    }
-
     /* Avoid iOS zoom-on-focus while keeping text readable. */
     .control-group select,
     .main-controls input[type="search"],
     .main-controls input[type="text"] {
       font-size: 16px !important;
-    }
-  }
-  @media (max-width: 768px) {
-    /* Legend at bottom of screen on mobile */
-    .legend:not(.mobile-sheet-panel) {
-      position: fixed !important;
-      bottom: 0 !important;
-      left: 0 !important;
-      width: 100vw !important;
-      max-width: 100vw !important;
-      z-index: 10005 !important;
-      background: #fff !important;
-      box-shadow: 0 -4px 16px rgba(0,0,0,0.15) !important;
-      border-radius: 16px 16px 0 0 !important;
-      overflow-y: auto;
-      max-height: 50vh;
-      min-width: auto !important;
-    }
-    .legend.minimized:not(.mobile-sheet-panel) {
-      max-height: 56px !important;
-    }
-    .legend:not(.mobile-sheet-panel) .legend-header {
-      position: sticky;
-      top: 0;
-      background: #fff;
-      z-index: 10006;
-      border-radius: 16px 16px 0 0;
-    }
-    .legend:not(.mobile-sheet-panel) .legend-content {
-      padding: 16px !important;
-    }
-    .legend:not(.mobile-sheet-panel) .legend-item {
-      font-size: 14px !important;
-      margin-bottom: 10px !important;
-    }
-    .legend:not(.mobile-sheet-panel) .legend-color {
-      width: 20px !important;
-      height: 20px !important;
-      margin-right: 12px !important;
     }
   }
   .mobile-sheet-scrim,
@@ -275,6 +205,21 @@
     .mobile-sheet-panel[data-mobile-snap="collapsed"] {
       max-height: 58px !important;
       overflow: hidden !important;
+    }
+
+    .main-controls.mobile-sheet-panel {
+      top: calc(var(--safe-top, 0px) + 8px) !important;
+      bottom: auto !important;
+      transform: translateY(calc(-100% - 24px));
+    }
+
+    .main-controls.mobile-sheet-panel.mobile-sheet-active {
+      transform: translateY(0);
+    }
+
+    .main-controls.mobile-sheet-panel[data-mobile-snap="collapsed"] .controls-content,
+    .legend.mobile-sheet-panel[data-mobile-snap="collapsed"] .legend-content {
+      display: none !important;
     }
 
     .map-topbar.mobile-sheet-panel {
@@ -1076,42 +1021,6 @@ body { height: var(--app-height); }
 }
 /* Mobile: Full-width controls at top */
 @media (max-width: 768px) {
-  /* Only applies before/without the NC-style mobile sheet system. When the sheet
-     system is active it adds `.mobile-sheet-panel` and those rules take over. */
-  .main-controls:not(.mobile-sheet-panel) {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-    border-radius: 0 0 16px 16px !important;
-    padding: 16px !important;
-    margin: 0 !important;
-    z-index: 10004 !important;
-    max-height: 56vh !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
-  }
-  /* Keep header + minimize button accessible while scrolling */
-  #main-controls:not(.mobile-sheet-panel) .controls-header {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.96);
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-  }
-  .main-controls.minimized:not(.mobile-sheet-panel) {
-    min-width: 60px !important;
-    max-width: 60px !important;
-    width: 60px !important;
-    left: 8px !important;
-    top: 8px !important;
-    right: auto !important;
-    border-radius: 12px !important;
-  }
   .controls-header h3 {
     font-size: 16px !important;
     padding-right: 12px;
@@ -8947,27 +8856,24 @@ document.addEventListener('DOMContentLoaded', function() {
       return roundForDisplay(value, d).toFixed(d);
     }
 
-    // Shared shift formatter (NCMap-style rounding + display).
-    // Shift values are Rep−Dem margin changes measured in percentage points,
-    // but the UI label should read as a percent shift everywhere (county,
-    // congressional, legislative, timeline rows, and Trend at a glance).
-    // Positive shift = more Republican; negative shift = more Democratic.
+    // Shared shift formatter for all UI surfaces.
     function formatShiftValue(shiftTowardGopPct, digits = 2) {
+      return formatShift(shiftTowardGopPct, digits, { zeroLabel: 'No shift', noDataLabel: 'No shift' });
+    }
+
+    function formatShift(shiftTowardGopPct, digits = 2, options = {}) {
+      const zeroLabel = Object.prototype.hasOwnProperty.call(options, 'zeroLabel') ? String(options.zeroLabel) : '0.00%';
+      const noDataLabel = Object.prototype.hasOwnProperty.call(options, 'noDataLabel') ? String(options.noDataLabel) : zeroLabel;
       const s = Number(shiftTowardGopPct);
-      if (!Number.isFinite(s)) return 'No shift';
+      if (!Number.isFinite(s)) return noDataLabel;
       const abs = Math.abs(s);
-      if (abs < 0.005) return 'No shift';
+      if (abs < 0.005) return zeroLabel;
       const party = s > 0 ? 'R' : 'D';
       return `${party}+${toFixedForDisplay(abs, digits)}%`;
     }
 
     function formatShiftPlainLanguage(shiftTowardGopPct, digits = 2) {
-      const s = Number(shiftTowardGopPct);
-      if (!Number.isFinite(s)) return 'No shift';
-      const abs = Math.abs(s);
-      if (abs < 0.005) return 'No shift';
-      const toward = s > 0 ? 'GOP' : 'Dems';
-      return `Shifted ${toFixedForDisplay(abs, digits)}% toward ${toward}`;
+      return formatShift(shiftTowardGopPct, digits, { zeroLabel: 'No shift', noDataLabel: 'No shift' });
     }
 
     function normalizeShiftLineText(text) {
@@ -12724,18 +12630,18 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="legend-scale-shell">
           ${buildLegendSpectrum(colors, 'shift')}
           <div class="legend-scale-caption">
-            <span class="dem">Toward Democrats</span>
-            <span>No shift</span>
-            <span class="rep">Toward Republicans</span>
+            <span class="dem">D+ direction</span>
+            <span>0.00%</span>
+            <span class="rep">R+ direction</span>
           </div>
           <div class="legend-axis shift">
-            <span class="dem">D +15</span>
-            <span class="dem">D +10</span>
-            <span class="dem">D +5</span>
-            <span>0</span>
-            <span class="rep">R +5</span>
-            <span class="rep">R +10</span>
-            <span class="rep">R +15</span>
+            <span class="dem">D+15%</span>
+            <span class="dem">D+10%</span>
+            <span class="dem">D+5%</span>
+            <span>0.00%</span>
+            <span class="rep">R+5%</span>
+            <span class="rep">R+10%</span>
+            <span class="rep">R+15%</span>
           </div>
         </div>
       `;
@@ -12772,7 +12678,7 @@ document.addEventListener('DOMContentLoaded', function() {
             : 'Shows the change in Rep − Dem margin relative to the prior comparable election.';
         }
         if (badge) badge.textContent = meta?.fromYear ? shiftRange : 'Shift';
-        if (footer) footer.textContent = 'Blue means movement toward Democrats; red means movement toward Republicans.';
+        if (footer) footer.textContent = 'Blue tones indicate D+ shift; red tones indicate R+ shift.';
         content.innerHTML = buildShiftLegendHTML();
       } else {
         if (header) header.textContent = 'Margin categories';
@@ -13250,10 +13156,7 @@ document.addEventListener('DOMContentLoaded', function() {
       function formatShiftLabel(delta, sinceYear = null) {
         const d = Number(delta);
         const since = Number.isFinite(Number(sinceYear)) ? String(Math.trunc(Number(sinceYear))) : '';
-        if (!Number.isFinite(d) || Math.abs(d) < 0.005) {
-          return since ? `No shift since ${since}` : 'No shift';
-        }
-        const compact = `${d > 0 ? 'R' : 'D'}+${toFixedForDisplay(Math.abs(d), 2)}%`;
+        const compact = formatShift(d, 2, { zeroLabel: '0.00%', noDataLabel: '0.00%' });
         return since ? `${compact} since ${since}` : compact;
       }
 
@@ -13796,13 +13699,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (none) return `Since ${none[1]}: No shift`;
         const match = t.match(/^Shift:\s*([RD])\+([0-9.]+)\s*(?:pts?|points?|%)?\s*since\s*(\d{4})/i);
         if (match) {
-          const party = match[1].toUpperCase() === 'R' ? 'GOP' : 'Dems';
-          return `Since ${match[3]}: Shifted ${match[2]}% toward ${party}`;
+          const signed = (match[1].toUpperCase() === 'R' ? 1 : -1) * Number(match[2]);
+          return `Since ${match[3]}: ${formatShift(signed, 2, { zeroLabel: '0.00%', noDataLabel: '0.00%' })}`;
         }
         const sinceMatch = t.match(/^Since\s+(\d{4})\s*:\s*([RD])\+([0-9.]+)\s*(?:pts?|points?|%)?$/i);
         if (sinceMatch) {
-          const party = sinceMatch[2].toUpperCase() === 'R' ? 'GOP' : 'Dems';
-          return `Since ${sinceMatch[1]}: Shifted ${sinceMatch[3]}% toward ${party}`;
+          const signed = (sinceMatch[2].toUpperCase() === 'R' ? 1 : -1) * Number(sinceMatch[3]);
+          return `Since ${sinceMatch[1]}: ${formatShift(signed, 2, { zeroLabel: '0.00%', noDataLabel: '0.00%' })}`;
         }
         return normalizeShiftLineText(t);
       };
@@ -14091,7 +13994,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function shiftChipHTML(shiftPct, prevYear, year) {
       const s = Number(shiftPct) || 0;
-      const label = formatShiftPlainLanguage(s, 2);
+      const label = formatShift(s, 2, { zeroLabel: '0.00%', noDataLabel: '0.00%' });
       const dotColor = colorForShiftMode(s);
       const years = (prevYear && year) ? `${prevYear}->${year}` : '';
       return `<span class="meta-chip shift"><span class="dot" style="background:${dotColor};"></span>Shift: ${label}${years ? ` <span style="color:#64748b;font-weight:800;">(${years})</span>` : ''}</span>`;
@@ -15074,9 +14977,9 @@ document.addEventListener('DOMContentLoaded', function() {
       if (isMobileViewportNow() && legend) {
         legend.classList.add('mobile-sheet-panel');
         if (legend.classList.contains('minimized')) {
-          legend.classList.remove('mobile-sheet-active');
+          legend.classList.add('mobile-sheet-active');
           setMobileSheetSnap(legend, 'collapsed');
-          if (activeMobileSheetKey === 'legend') activeMobileSheetKey = null;
+          activeMobileSheetKey = 'legend';
         } else {
           legend.classList.add('mobile-sheet-active');
           setMobileSheetSnap(legend, 'half');
@@ -15350,9 +15253,9 @@ document.addEventListener('DOMContentLoaded', function() {
           if (typeof window.syncMobileTopbarToggle === 'function') window.syncMobileTopbarToggle();
         } catch (_) {}
       } else if (key === 'layers') {
-        try { minimizeMainControlsOnMobile(); } catch (_) {}
+        try { minimizeMainControlsOnMobile({ hidePanel: true }); } catch (_) {}
       } else if (key === 'legend') {
-        try { minimizeLegendOnMobile(); } catch (_) {}
+        try { minimizeLegendOnMobile({ hidePanel: true }); } catch (_) {}
       }
     }
 
@@ -15647,19 +15550,24 @@ document.addEventListener('DOMContentLoaded', function() {
       } catch (_) {}
     }
 
-    function minimizeLegendOnMobile() {
+    function minimizeLegendOnMobile(options = {}) {
       try {
+        const hidePanel = !!options.hidePanel;
         const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
         if (!isMobile) return;
         const legend = document.getElementById('legend');
         const legendContent = document.getElementById('legend-content');
         const minimizeBtn = document.getElementById('legend-minimize-btn');
         if (!legend || !legendContent || !minimizeBtn) return;
-        if (legend.classList.contains('minimized')) return;
-        legend.classList.add('minimized');
-        legend.classList.remove('mobile-sheet-active');
+        if (!legend.classList.contains('minimized')) legend.classList.add('minimized');
         setMobileSheetSnap(legend, 'collapsed');
-        if (activeMobileSheetKey === 'legend') activeMobileSheetKey = null;
+        if (hidePanel) {
+          legend.classList.remove('mobile-sheet-active');
+          if (activeMobileSheetKey === 'legend') activeMobileSheetKey = null;
+        } else {
+          legend.classList.add('mobile-sheet-active');
+          activeMobileSheetKey = 'legend';
+        }
         legendContent.style.display = 'none';
         minimizeBtn.textContent = '+';
         minimizeBtn.title = 'Expand legend';
@@ -15668,19 +15576,24 @@ document.addEventListener('DOMContentLoaded', function() {
       } catch (_) {}
     }
 
-    function minimizeMainControlsOnMobile() {
+    function minimizeMainControlsOnMobile(options = {}) {
       try {
+        const hidePanel = !!options.hidePanel;
         const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
         if (!isMobile) return;
         const controls = document.getElementById('main-controls');
         const controlsContent = document.getElementById('controls-content');
         const minimizeBtn = document.getElementById('controls-minimize-btn');
         if (!controls || !controlsContent || !minimizeBtn) return;
-        if (controls.classList.contains('minimized')) return;
-        controls.classList.add('minimized');
-        controls.classList.remove('mobile-sheet-active');
+        if (!controls.classList.contains('minimized')) controls.classList.add('minimized');
         setMobileSheetSnap(controls, 'collapsed');
-        if (activeMobileSheetKey === 'layers') activeMobileSheetKey = null;
+        if (hidePanel) {
+          controls.classList.remove('mobile-sheet-active');
+          if (activeMobileSheetKey === 'layers') activeMobileSheetKey = null;
+        } else {
+          controls.classList.add('mobile-sheet-active');
+          activeMobileSheetKey = 'layers';
+        }
         controlsContent.style.display = 'none';
         minimizeBtn.textContent = '+';
         minimizeBtn.title = 'Expand controls';
@@ -15780,9 +15693,9 @@ document.addEventListener('DOMContentLoaded', function() {
       if (isMobileViewportNow() && controls) {
         controls.classList.add('mobile-sheet-panel');
         if (controls.classList.contains('minimized')) {
-          controls.classList.remove('mobile-sheet-active');
+          controls.classList.add('mobile-sheet-active');
           setMobileSheetSnap(controls, 'collapsed');
-          if (activeMobileSheetKey === 'layers') activeMobileSheetKey = null;
+          activeMobileSheetKey = 'layers';
         } else {
           controls.classList.add('mobile-sheet-active');
           setMobileSheetSnap(controls, 'half');
