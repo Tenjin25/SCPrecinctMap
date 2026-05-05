@@ -26,6 +26,7 @@ at ~99%, so almost every precinct gets individual coloring.
 """
 
 import csv
+import difflib
 import io
 import json
 import os
@@ -472,7 +473,7 @@ def load_precinct_aliases(precinct_display_by_norm: dict[str, str] | None = None
         return {}
 
 
-_DIR_PREFIX = re.compile(r'^(N|S|E|W)\s+', re.IGNORECASE)
+_DIR_PREFIX = re.compile(r'^(N|S|E|W)\.?\s+', re.IGNORECASE)
 _MT_PREFIX = re.compile(r'^MT\s+', re.IGNORECASE)
 _ST_PREFIX = re.compile(r'^ST\s+', re.IGNORECASE)
 _TRAILING_NUM = re.compile(r'^(.*\D)\s+(\d+[A-Z]{0,2})$', re.IGNORECASE)
@@ -612,6 +613,7 @@ def precinct_label_variants(label: str) -> list[str]:
 def aggregate_all(
     rows: list,
     precinct_norm_set: set[str] | None = None,
+    precinct_display_by_norm: dict[str, str] | None = None,
     precinct_aliases: dict[str, str] | None = None,
 ) -> tuple[dict, dict]:
     """
@@ -624,6 +626,56 @@ def aggregate_all(
     county_agg   = {}
     precinct_agg = {}
     precinct_aliases = precinct_aliases or {}
+    precinct_display_by_norm = precinct_display_by_norm or {}
+
+    # Pre-index polygon precinct labels by county for a (very conservative) fuzzy fallback.
+    # This is mainly to catch abbreviation/punctuation drift that isn't covered by variants
+    # (e.g., "N. Charleston 1" vs "North Charleston 1").
+    county_candidates: dict[str, list[tuple[str, str]]] = {}
+    if precinct_norm_set and precinct_display_by_norm:
+        for pn_norm, display in precinct_display_by_norm.items():
+            if not pn_norm or pn_norm not in precinct_norm_set:
+                continue
+            disp = (display or '').strip()
+            if not disp or ' - ' not in disp:
+                continue
+            c_part, p_part = disp.split(' - ', 1)
+            c_norm = normalize(c_part)
+            p_part = p_part.strip()
+            if not c_norm or not p_part:
+                continue
+            county_candidates.setdefault(c_norm, []).append((disp, p_part))
+
+    def _fuzzy_key(s: str) -> str:
+        return re.sub(r'[^A-Z0-9]', '', normalize(s))
+
+    def _maybe_fuzzy_match(county_title: str, prec_label: str) -> str | None:
+        if not (precinct_norm_set and county_candidates):
+            return None
+        target = _fuzzy_key(prec_label)
+        if not target:
+            return None
+
+        cands = county_candidates.get(normalize(county_title))
+        if not cands:
+            return None
+
+        best_ratio = 0.0
+        best_disp: str | None = None
+        second_ratio = 0.0
+        for disp, poly_label in cands:
+            r = difflib.SequenceMatcher(None, target, _fuzzy_key(poly_label)).ratio()
+            if r > best_ratio:
+                second_ratio = best_ratio
+                best_ratio = r
+                best_disp = disp
+            elif r > second_ratio:
+                second_ratio = r
+
+        # Extremely conservative acceptance: require a very high score and a clear gap.
+        if best_disp and best_ratio >= 0.92 and (best_ratio - second_ratio) >= 0.03:
+            return best_disp
+        return None
 
     # If the input includes explicit county-level rows (precinct blank), use those for county totals
     # to avoid double counting when precinct-level rows are also present.
@@ -687,6 +739,11 @@ def aggregate_all(
                         break
                 if chosen:
                     prec_key = chosen
+                else:
+                    # Final fallback: fuzzy match within county to catch minor drift.
+                    fm = _maybe_fuzzy_match(ct, prec_label)
+                    if fm and normalize(fm) in precinct_norm_set:
+                        prec_key = fm
             # Manual alias mapping (results -> polygon).
             try:
                 nkey = normalize(prec_key)
@@ -738,6 +795,7 @@ def build_election_data():
     manifest_entries = []
     precinct_norm_set, precinct_display_by_norm = load_precinct_polygon_index()
     precinct_aliases = load_precinct_aliases(precinct_display_by_norm)
+    debug_unmatched = (os.environ.get('PRECINCT_MATCH_DEBUG') or '').strip().lower() in {'1', 'true', 'yes', 'y'}
 
     for year, csv_path in sorted(ELECTION_FILES.items()):
         if not os.path.exists(csv_path):
@@ -760,9 +818,15 @@ def build_election_data():
             by_contest.setdefault(ct, []).append(row)
 
         for ct, ct_rows in by_contest.items():
-            county_agg, precinct_agg = aggregate_all(ct_rows, precinct_norm_set, precinct_aliases)
+            county_agg, precinct_agg = aggregate_all(ct_rows, precinct_norm_set, precinct_display_by_norm, precinct_aliases)
             if not county_agg:
                 continue
+            if debug_unmatched and precinct_norm_set and precinct_agg:
+                unmatched = [k for k in precinct_agg.keys() if normalize(k) not in precinct_norm_set]
+                if unmatched:
+                    print(f'    [debug] {ct} {year}: {len(unmatched)} unmatched precinct(s) (showing up to 25)')
+                    for k in sorted(unmatched)[:25]:
+                        print(f'      - {k}')
 
             # Build sorted result rows:  county rows first, then precinct rows
             county_rows   = [make_row(k, v, year) for k, v in sorted(county_agg.items())]
