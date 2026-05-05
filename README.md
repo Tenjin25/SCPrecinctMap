@@ -296,19 +296,6 @@ Build all generated outputs:
 python build_data.py
 ```
 
-Debug precinct matching (prints unmatched precinct keys per contest/year):
-
-```bash
-PRECINCT_MATCH_DEBUG=1 python build_data.py
-```
-
-On Windows, if `python` isn’t on PATH, run the explicit interpreter:
-
-```powershell
-$env:PRECINCT_MATCH_DEBUG = "1"
-& "C:\Users\Shama\AppData\Local\Programs\Python\Python314\python.exe" build_data.py
-```
-
 Apply precinct aliases/splits across all contest slices:
 
 ```powershell
