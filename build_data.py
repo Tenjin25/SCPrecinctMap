@@ -101,6 +101,15 @@ _ELSTATS_2024_OE = os.path.join(DATA_SRC, '20241105__sc__general__precinct__from
 if os.path.exists(_ELSTATS_2024_OE):
     ELECTION_FILES[2024] = _ELSTATS_2024_OE
 
+# Local override: SEB "list" export conversion (often includes split precincts like
+# Charleston "Deer Park 1A/1B/2A/2B/2C" that may be aggregated away in other feeds).
+_SEB_LIST_2024_OE = os.path.join(DATA_SRC, '20241105__sc__general__precinct__from_seb_list.csv')
+_SEB_LIST_2024_OE_ALT = os.path.join(DATA_OUT, '20241105__sc__general__precinct__from_seb_list.csv')
+if os.path.exists(_SEB_LIST_2024_OE):
+    ELECTION_FILES[2024] = _SEB_LIST_2024_OE
+elif os.path.exists(_SEB_LIST_2024_OE_ALT):
+    ELECTION_FILES[2024] = _SEB_LIST_2024_OE_ALT
+
 # Optional: ELSTATS "search export" conversions (county + precinct where inferable).
 _ELSTATS_SEARCH_2010_OE = os.path.join(DATA_SRC, '_tmpdata', '20101102__sc__general__precinct__from_elstats_search.csv')
 if os.path.exists(_ELSTATS_SEARCH_2010_OE):

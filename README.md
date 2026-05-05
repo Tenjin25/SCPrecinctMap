@@ -315,6 +315,12 @@ Apply precinct aliases/splits across all contest slices:
 python scripts/apply_precinct_aliases_to_slice.py --all
 ```
 
+Convert SEB "list" export to OpenElections-style precinct CSV (example: contest 7131 / President 2024):
+
+```powershell
+& "C:\Users\Shama\AppData\Local\Programs\Python\Python314\python.exe" scripts\seb_list_to_openelections.py --input data\7131_list.csv --output data\20241105__sc__general__precinct__from_seb_list.csv
+```
+
 Check likely precinct name mismatches for a contest/year:
 
 ```powershell
