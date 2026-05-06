@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":51587,"rep_votes":94872,"other_votes":94,"total_votes":146553,"dem_candidate":"Robert Barber","rep_candidate":"Richard A. Eckstrom","margin":43285,"margin_pct":29.5354,"winner":"R","color":"#cb181d"},"2":{"dem_votes":71685,"rep_votes":101305,"other_votes":110,"total_votes":173100,"dem_candidate":"Robert Barber","rep_candidate":"Richard A. Eckstrom","margin":29620,"margin_pct":17.1115,"winner":"R","color":"#ef3b2c"},"6":{"dem_votes":109825,"rep_votes":51773,"other_votes":73,"total_votes":161671,"dem_candidate":"Robert Barber","rep_candidate":"Richard A. Eckstrom","margin":-58052,"margin_pct":-35.9075,"winner":"D","color":"#2171b5"},"1":{"dem_votes":59486,"rep_votes":93604,"other_votes":75,"total_votes":153165,"dem_candidate":"Robert Barber","rep_candidate":"Richard A. Eckstrom","margin":34118,"margin_pct":22.2753,"winner":"R","color":"#cb181d"},"5":{"dem_votes":66566,"rep_votes":89295,"other_votes":55,"total_votes":155916,"dem_candidate":"Robert Barber","rep_candidate":"Richard A. Eckstrom","margin":22729,"margin_pct":14.5777,"winner":"R","color":"#ef3b2c"},"7":{"dem_votes":71207,"rep_votes":91408,"other_votes":56,"total_votes":162671,"dem_candidate":"Robert Barber","rep_candidate":"Richard A. Eckstrom","margin":20201,"margin_pct":12.4183,"winner":"R","color":"#ef3b2c"},"4":{"dem_votes":57067,"rep_votes":109446,"other_votes":142,"total_votes":166655,"dem_candidate":"Robert Barber","rep_candidate":"Richard A. Eckstrom","margin":52379,"margin_pct":31.4296,"winner":"R","color":"#a50f15"}}},"meta":{"match_coverage_pct":96.9726,"precinct_rows_total":2081,"precinct_rows_matched":2018,"precinct_rows_block_weighted":2018}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 49920,
+        "rep_votes": 93153,
+        "other_votes": 94,
+        "total_votes": 143167,
+        "dem_candidate": "Robert Barber",
+        "rep_candidate": "Richard A. Eckstrom",
+        "margin": 43233,
+        "margin_pct": 30.1976,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "2": {
+        "dem_votes": 71685,
+        "rep_votes": 101305,
+        "other_votes": 110,
+        "total_votes": 173100,
+        "dem_candidate": "Robert Barber",
+        "rep_candidate": "Richard A. Eckstrom",
+        "margin": 29620,
+        "margin_pct": 17.1115,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "6": {
+        "dem_votes": 109714,
+        "rep_votes": 51565,
+        "other_votes": 72,
+        "total_votes": 161351,
+        "dem_candidate": "Robert Barber",
+        "rep_candidate": "Richard A. Eckstrom",
+        "margin": -58149,
+        "margin_pct": -36.0388,
+        "winner": "D",
+        "color": "#2171b5"
+      },
+      "1": {
+        "dem_votes": 59193,
+        "rep_votes": 93152,
+        "other_votes": 74,
+        "total_votes": 152419,
+        "dem_candidate": "Robert Barber",
+        "rep_candidate": "Richard A. Eckstrom",
+        "margin": 33959,
+        "margin_pct": 22.28,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "5": {
+        "dem_votes": 65368,
+        "rep_votes": 87324,
+        "other_votes": 52,
+        "total_votes": 152744,
+        "dem_candidate": "Robert Barber",
+        "rep_candidate": "Richard A. Eckstrom",
+        "margin": 21956,
+        "margin_pct": 14.3744,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "7": {
+        "dem_votes": 70999,
+        "rep_votes": 90634,
+        "other_votes": 56,
+        "total_votes": 161689,
+        "dem_candidate": "Robert Barber",
+        "rep_candidate": "Richard A. Eckstrom",
+        "margin": 19635,
+        "margin_pct": 12.1437,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "4": {
+        "dem_votes": 54762,
+        "rep_votes": 107083,
+        "other_votes": 139,
+        "total_votes": 161984,
+        "dem_candidate": "Robert Barber",
+        "rep_candidate": "Richard A. Eckstrom",
+        "margin": 52321,
+        "margin_pct": 32.3001,
+        "winner": "R",
+        "color": "#a50f15"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 94.9048,
+    "precinct_rows_total": 2100,
+    "precinct_rows_matched": 1993,
+    "precinct_rows_block_weighted": 1993
+  }
+}

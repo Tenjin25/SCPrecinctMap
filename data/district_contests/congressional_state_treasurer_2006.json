@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":55856,"rep_votes":75159,"other_votes":55,"total_votes":131070,"dem_candidate":"Grady L Patterson Jr","rep_candidate":"Thomas Ravenel","margin":19303,"margin_pct":14.7272,"winner":"R","color":"#ef3b2c"},"2":{"dem_votes":68321,"rep_votes":81662,"other_votes":62,"total_votes":150045,"dem_candidate":"Grady L Patterson Jr","rep_candidate":"Thomas Ravenel","margin":13341,"margin_pct":8.8913,"winner":"R","color":"#fc8a6a"},"6":{"dem_votes":87095,"rep_votes":40017,"other_votes":54,"total_votes":127166,"dem_candidate":"Grady L Patterson Jr","rep_candidate":"Thomas Ravenel","margin":-47078,"margin_pct":-37.0209,"winner":"D","color":"#2171b5"},"1":{"dem_votes":63730,"rep_votes":83006,"other_votes":66,"total_votes":146802,"dem_candidate":"Grady L Patterson Jr","rep_candidate":"Thomas Ravenel","margin":19276,"margin_pct":13.1306,"winner":"R","color":"#ef3b2c"},"5":{"dem_votes":65662,"rep_votes":67369,"other_votes":46,"total_votes":133077,"dem_candidate":"Grady L Patterson Jr","rep_candidate":"Thomas Ravenel","margin":1707,"margin_pct":1.2827,"winner":"R","color":"#fcbba1"},"7":{"dem_votes":64529,"rep_votes":60910,"other_votes":21,"total_votes":125460,"dem_candidate":"Grady L Patterson Jr","rep_candidate":"Thomas Ravenel","margin":-3619,"margin_pct":-2.8846,"winner":"D","color":"#c6dbef"},"4":{"dem_votes":39443,"rep_votes":68393,"other_votes":53,"total_votes":107889,"dem_candidate":"Grady L Patterson Jr","rep_candidate":"Thomas Ravenel","margin":28950,"margin_pct":26.8331,"winner":"R","color":"#cb181d"}}},"meta":{"match_coverage_pct":85.5201,"precinct_rows_total":2134,"precinct_rows_matched":1825,"precinct_rows_block_weighted":1825}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 47899,
+        "rep_votes": 64784,
+        "other_votes": 44,
+        "total_votes": 112727,
+        "dem_candidate": "Grady L Patterson Jr",
+        "rep_candidate": "Thomas Ravenel",
+        "margin": 16885,
+        "margin_pct": 14.9787,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "2": {
+        "dem_votes": 50955,
+        "rep_votes": 60255,
+        "other_votes": 40,
+        "total_votes": 111250,
+        "dem_candidate": "Grady L Patterson Jr",
+        "rep_candidate": "Thomas Ravenel",
+        "margin": 9300,
+        "margin_pct": 8.3596,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "6": {
+        "dem_votes": 76605,
+        "rep_votes": 34193,
+        "other_votes": 46,
+        "total_votes": 110844,
+        "dem_candidate": "Grady L Patterson Jr",
+        "rep_candidate": "Thomas Ravenel",
+        "margin": -42412,
+        "margin_pct": -38.2628,
+        "winner": "D",
+        "color": "#2171b5"
+      },
+      "1": {
+        "dem_votes": 58568,
+        "rep_votes": 76048,
+        "other_votes": 61,
+        "total_votes": 134677,
+        "dem_candidate": "Grady L Patterson Jr",
+        "rep_candidate": "Thomas Ravenel",
+        "margin": 17480,
+        "margin_pct": 12.9792,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "5": {
+        "dem_votes": 50556,
+        "rep_votes": 50598,
+        "other_votes": 35,
+        "total_votes": 101189,
+        "dem_candidate": "Grady L Patterson Jr",
+        "rep_candidate": "Thomas Ravenel",
+        "margin": 42,
+        "margin_pct": 0.0415,
+        "winner": "R",
+        "color": "#fcbba1"
+      },
+      "7": {
+        "dem_votes": 49820,
+        "rep_votes": 46768,
+        "other_votes": 18,
+        "total_votes": 96606,
+        "dem_candidate": "Grady L Patterson Jr",
+        "rep_candidate": "Thomas Ravenel",
+        "margin": -3052,
+        "margin_pct": -3.1592,
+        "winner": "D",
+        "color": "#c6dbef"
+      },
+      "4": {
+        "dem_votes": 33241,
+        "rep_votes": 58689,
+        "other_votes": 48,
+        "total_votes": 91978,
+        "dem_candidate": "Grady L Patterson Jr",
+        "rep_candidate": "Thomas Ravenel",
+        "margin": 25448,
+        "margin_pct": 27.6675,
+        "winner": "R",
+        "color": "#cb181d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 72.1811,
+    "precinct_rows_total": 2164,
+    "precinct_rows_matched": 1562,
+    "precinct_rows_block_weighted": 1562
+  }
+}
