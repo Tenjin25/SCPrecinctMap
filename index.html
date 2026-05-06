@@ -11364,6 +11364,15 @@ document.addEventListener('DOMContentLoaded', function() {
           if (demTotal > 0 || repTotal > 0) return demTotal > 0 && repTotal > 0;
           return true;
         }
+
+        function shouldKeepUncontestedDistrictRace(entry) {
+          const scope = (entry?.scope || '').toString().trim().toLowerCase();
+          const contestType = (entry?.contest_type || '').toString().trim();
+          if (scope === 'congressional' && contestType === 'us_house') return true;
+          if (scope === 'state_house' && contestType === 'state_house') return true;
+          if (scope === 'state_senate' && contestType === 'state_senate') return true;
+          return false;
+        }
 	      (manifestEntries || []).forEach(entry => {
 	        const contestType = entry.contest_type;
 	        const year = Number(entry.year);
@@ -11378,9 +11387,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
           const key = `${contestType}_${year}`;
           if (!showUncontestedContests) {
-            if (contestUncontestedCache.get(key) === true) return;
-            // For contest types that are frequently uncontested, hide them until scanned to avoid clutter.
-            if (maybeUncontestedTypes.has(contestType) && !contestUncontestedCache.has(key)) return;
+            if (!shouldKeepUncontestedDistrictRace(entry)) {
+              if (contestUncontestedCache.get(key) === true) return;
+              // For contest types that are frequently uncontested, hide them until scanned to avoid clutter.
+              if (maybeUncontestedTypes.has(contestType) && !contestUncontestedCache.has(key)) return;
+            }
           }
 
           // Hide older NC judicial contests until we have reliable D/R-alignment (endorsement) data.
@@ -11742,34 +11753,11 @@ document.addEventListener('DOMContentLoaded', function() {
           debugLog('DEBUG Candidate Lookup:', { demKey, demCandidate, repKey, repCandidate });
         }
 
-        // Calculate competitiveness
-        let compLabel = '';
-        let compColor = '#6b7280';
-        if (marginPct >= 40) {
-          compLabel = winner === 'Republican' ? "Annihilation Republican (40%+)" : "Annihilation Democratic (40%+)";
-          compColor = winner === 'Republican' ? '#7f1d1d' : '#1e3a8a';
-        } else if (marginPct >= 30 && marginPct <= 39.99) {
-          compLabel = winner === 'Republican' ? "Dominant Republican (30.00-39.99%)" : "Dominant Democratic (30.00-39.99%)";
-          compColor = winner === 'Republican' ? '#7f1d1d' : '#1e3a8a';
-        } else if (marginPct >= 20 && marginPct <= 29.99) {
-          compLabel = winner === 'Republican' ? "Stronghold Republican (20.00-29.99%)" : "Stronghold Democratic (20.00-29.99%)";
-          compColor = winner === 'Republican' ? '#dc2626' : '#2563eb';
-        } else if (marginPct >= 10 && marginPct <= 19.99) {
-          compLabel = winner === 'Republican' ? "Safe Republican (10.00-19.99%)" : "Safe Democratic (10.00-19.99%)";
-          compColor = winner === 'Republican' ? '#dc2626' : '#3b82f6';
-        } else if (marginPct >= 5.50 && marginPct <= 9.99) {
-          compLabel = winner === 'Republican' ? "Likely Republican (5.50-9.99%)" : "Likely Democratic (5.51-9.99%)";
-          compColor = winner === 'Republican' ? '#ef4444' : '#60a5fa';
-        } else if (marginPct >= 1 && marginPct <= 5.49) {
-          compLabel = winner === 'Republican' ? "Lean Republican (1.00-5.49%)" : "Lean Democratic (1.00-5.49%)";
-          compColor = winner === 'Republican' ? '#f87171' : '#93c5fd';
-        } else if (marginPct >= 0.50 && marginPct <= 0.99) {
-          compLabel = winner === 'Republican' ? "Tilt Republican (0.50-0.99%)" : "Tilt Democratic (0.50-0.99%)";
-          compColor = winner === 'Republican' ? '#fff1f2' : '#dbeafe';
-        } else {
-          compLabel = winner === 'Democratic' ? 'Tossup (Democratic Win - <0.50%)' : 'Tossup (Republican Win - <0.50%)';
-          compColor = winner === 'Democratic' ? '#2563eb' : '#dc2626';
-        }
+        const winnerParty = winner === 'Republican' ? 'rep' : 'dem';
+        const uncontestedSeat = isUncontestedMajorPartyResult(repVotes, demVotes, repCandidate, demCandidate);
+        const compMeta = competitivenessMeta(marginPct, winnerParty, { uncontested: uncontestedSeat });
+        let compLabel = compMeta.label;
+        let compColor = compMeta.color;
 
         // Build the horizontal bar with D/R/Other if present.
         // On narrow screens, tiny Other shares can be visually invisible, so we add a marker.
@@ -12450,6 +12438,14 @@ document.addEventListener('DOMContentLoaded', function() {
       return !((name || '').toString().trim());
     }
 
+    function isUncontestedMajorPartyResult(repVotes, demVotes, repCandidate, demCandidate) {
+      const repV = safeNumber(repVotes, 0);
+      const demV = safeNumber(demVotes, 0);
+      const repBlank = isBlankCandidateName(repCandidate);
+      const demBlank = isBlankCandidateName(demCandidate);
+      return (demV <= 0 && demBlank && repV > 0) || (repV <= 0 && repBlank && demV > 0);
+    }
+
     function leadMarginPctLabel(repVotes, demVotes, totalVotes, options = {}) {
       const margin = safeNumber(repVotes, 0) - safeNumber(demVotes, 0);
       if (!margin) return 'Tie';
@@ -12459,11 +12455,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function compactWinnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
-      const repCandBlank = isBlankCandidateName(repCandidate);
-      const demCandBlank = isBlankCandidateName(demCandidate);
       const repV = safeNumber(repVotes, 0);
       const demV = safeNumber(demVotes, 0);
-      if ((demV <= 0 && demCandBlank && repV > 0) || (repV <= 0 && repCandBlank && demV > 0)) {
+      if (isUncontestedMajorPartyResult(repV, demV, repCandidate, demCandidate)) {
         const winner = repV > demV ? shortCandidateLabel(repCandidate, 'R') : shortCandidateLabel(demCandidate, 'D');
         return `${winner} (Uncontested)`;
       }
@@ -12512,26 +12506,30 @@ document.addEventListener('DOMContentLoaded', function() {
     function winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
       const marginPct = totalVotes > 0 ? Math.abs((repVotes - demVotes) / totalVotes * 100) : 0;
       const marginPctLabel = formatPctForCloseRace(marginPct, marginPct);
+      const uncontested = isUncontestedMajorPartyResult(repVotes, demVotes, repCandidate, demCandidate);
       if (repVotes > demVotes) {
         return {
           party: 'rep',
+          uncontested,
           winnerName: fullCandidateLabel(repCandidate, 'Republican'),
           shortLabel: shortCandidateLabel(repCandidate, 'Republican'),
           marginPct,
-          text: `${shortCandidateLabel(repCandidate, 'Republican')} +${marginPctLabel}%`
+          text: uncontested ? `${shortCandidateLabel(repCandidate, 'Republican')} (Uncontested)` : `${shortCandidateLabel(repCandidate, 'Republican')} +${marginPctLabel}%`
         };
       }
       if (demVotes > repVotes) {
         return {
           party: 'dem',
+          uncontested,
           winnerName: fullCandidateLabel(demCandidate, 'Democratic'),
           shortLabel: shortCandidateLabel(demCandidate, 'Democratic'),
           marginPct,
-          text: `${shortCandidateLabel(demCandidate, 'Democratic')} +${marginPctLabel}%`
+          text: uncontested ? `${shortCandidateLabel(demCandidate, 'Democratic')} (Uncontested)` : `${shortCandidateLabel(demCandidate, 'Democratic')} +${marginPctLabel}%`
         };
       }
       return {
         party: 'tie',
+        uncontested: false,
         winnerName: 'Tie',
         shortLabel: 'Even',
         marginPct,
@@ -12539,8 +12537,76 @@ document.addEventListener('DOMContentLoaded', function() {
       };
     }
 
-    function compactCompetitivenessLabel(marginPct, party) {
+    function competitivenessMeta(marginPct, party, options = {}) {
+      if (options?.uncontested === true) {
+        const side = party === 'rep' ? 'R' : (party === 'dem' ? 'D' : '');
+        return {
+          label: side ? `Uncontested (${side})` : 'Uncontested',
+          compactLabel: side ? `Uncontested ${side}` : 'Uncontested',
+          color: '#64748b'
+        };
+      }
+
+      const compactLabel = compactCompetitivenessLabel(marginPct, party);
+      if (marginPct >= 40) {
+        return {
+          label: party === 'rep' ? 'Annihilation Republican (40%+)' : 'Annihilation Democratic (40%+)',
+          compactLabel,
+          color: party === 'rep' ? '#7f1d1d' : '#1e3a8a'
+        };
+      }
+      if (marginPct >= 30) {
+        return {
+          label: party === 'rep' ? 'Dominant Republican (30.00-39.99%)' : 'Dominant Democratic (30.00-39.99%)',
+          compactLabel,
+          color: party === 'rep' ? '#7f1d1d' : '#1e3a8a'
+        };
+      }
+      if (marginPct >= 20) {
+        return {
+          label: party === 'rep' ? 'Stronghold Republican (20.00-29.99%)' : 'Stronghold Democratic (20.00-29.99%)',
+          compactLabel,
+          color: party === 'rep' ? '#dc2626' : '#2563eb'
+        };
+      }
+      if (marginPct >= 10) {
+        return {
+          label: party === 'rep' ? 'Safe Republican (10.00-19.99%)' : 'Safe Democratic (10.00-19.99%)',
+          compactLabel,
+          color: party === 'rep' ? '#dc2626' : '#3b82f6'
+        };
+      }
+      if (marginPct >= 5.5) {
+        return {
+          label: party === 'rep' ? 'Likely Republican (5.50-9.99%)' : 'Likely Democratic (5.50-9.99%)',
+          compactLabel,
+          color: party === 'rep' ? '#ef4444' : '#60a5fa'
+        };
+      }
+      if (marginPct >= 1) {
+        return {
+          label: party === 'rep' ? 'Lean Republican (1.00-5.49%)' : 'Lean Democratic (1.00-5.49%)',
+          compactLabel,
+          color: party === 'rep' ? '#f87171' : '#93c5fd'
+        };
+      }
+      if (marginPct >= 0.5) {
+        return {
+          label: party === 'rep' ? 'Tilt Republican (0.50-0.99%)' : 'Tilt Democratic (0.50-0.99%)',
+          compactLabel,
+          color: party === 'rep' ? '#fff1f2' : '#dbeafe'
+        };
+      }
+      return {
+        label: party === 'dem' ? 'Tossup (Democratic Win - <0.50%)' : (party === 'rep' ? 'Tossup (Republican Win - <0.50%)' : 'Tossup'),
+        compactLabel,
+        color: party === 'dem' ? '#2563eb' : (party === 'rep' ? '#dc2626' : '#64748b')
+      };
+    }
+
+    function compactCompetitivenessLabel(marginPct, party, options = {}) {
       const side = party === 'rep' ? 'R' : (party === 'dem' ? 'D' : '');
+      if (options?.uncontested === true) return side ? `Uncontested ${side}` : 'Uncontested';
       if (marginPct >= 40) return side ? `Annihilation ${side}` : 'Annihilation';
       if (marginPct >= 30) return side ? `Dominant ${side}` : 'Dominant';
       if (marginPct >= 20) return side ? `Stronghold ${side}` : 'Stronghold';
@@ -12806,33 +12872,9 @@ document.addEventListener('DOMContentLoaded', function() {
         repCandidate = stripRunningMateName(repCandidate);
 
         const winnerCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
-        let compLabel = '';
-        let compColor = '#6b7280';
-        if (marginPct >= 40) {
-          compLabel = winnerCall.party === 'rep' ? 'Annihilation Republican (40%+)' : 'Annihilation Democratic (40%+)';
-          compColor = winnerCall.party === 'rep' ? '#7f1d1d' : '#1e3a8a';
-        } else if (marginPct >= 30) {
-          compLabel = winnerCall.party === 'rep' ? 'Dominant Republican (30.00-39.99%)' : 'Dominant Democratic (30.00-39.99%)';
-          compColor = winnerCall.party === 'rep' ? '#7f1d1d' : '#1e3a8a';
-        } else if (marginPct >= 20) {
-          compLabel = winnerCall.party === 'rep' ? 'Stronghold Republican (20.00-29.99%)' : 'Stronghold Democratic (20.00-29.99%)';
-          compColor = winnerCall.party === 'rep' ? '#dc2626' : '#2563eb';
-        } else if (marginPct >= 10) {
-          compLabel = winnerCall.party === 'rep' ? 'Safe Republican (10.00-19.99%)' : 'Safe Democratic (10.00-19.99%)';
-          compColor = winnerCall.party === 'rep' ? '#dc2626' : '#3b82f6';
-        } else if (marginPct >= 5.5) {
-          compLabel = winnerCall.party === 'rep' ? 'Likely Republican (5.50-9.99%)' : 'Likely Democratic (5.50-9.99%)';
-          compColor = winnerCall.party === 'rep' ? '#ef4444' : '#60a5fa';
-        } else if (marginPct >= 1) {
-          compLabel = winnerCall.party === 'rep' ? 'Lean Republican (1.00-5.49%)' : 'Lean Democratic (1.00-5.49%)';
-          compColor = winnerCall.party === 'rep' ? '#f87171' : '#93c5fd';
-        } else if (marginPct >= 0.5) {
-          compLabel = winnerCall.party === 'rep' ? 'Tilt Republican (0.50-0.99%)' : 'Tilt Democratic (0.50-0.99%)';
-          compColor = winnerCall.party === 'rep' ? '#fff1f2' : '#dbeafe';
-        } else {
-          compLabel = winnerCall.party === 'dem' ? 'Tossup (Democratic Win - <0.50%)' : (winnerCall.party === 'rep' ? 'Tossup (Republican Win - <0.50%)' : 'Tossup');
-          compColor = winnerCall.party === 'dem' ? '#2563eb' : (winnerCall.party === 'rep' ? '#dc2626' : '#64748b');
-        }
+        const compMeta = competitivenessMeta(marginPct, winnerCall.party, { uncontested: winnerCall.uncontested });
+        let compLabel = compMeta.label;
+        let compColor = compMeta.color;
 
         const breakdownItems = [
           {
@@ -12894,7 +12936,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="statewide-call" data-party="${winnerCall.party}">${winnerCall.text}</div>
                 <div class="statewide-subline">${winnerSummary} | ${Math.abs(repVotes - demVotes).toLocaleString()} vote margin</div>
               </div>
-              <div class="statewide-competitive" style="color:${compColor};" title="${compLabel}">${compactCompetitivenessLabel(marginPct, winnerCall.party)}</div>
+              <div class="statewide-competitive" style="color:${compColor};" title="${compLabel}">${compMeta.compactLabel}</div>
             </div>
             <div class="statewide-share-row">${shareChips}</div>
             <div class="statewide-bar">${barSegments.join('')}</div>
@@ -18435,52 +18477,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const demVotes = result.us_house_dem || 0;
             const repVotes = result.us_house_rep || 0;
             const totalVotes = result.us_house_total || 0;
+            const demCandidate = (result.us_house_dem_candidate || '').toString().trim();
+            const repCandidate = (result.us_house_rep_candidate || '').toString().trim();
             
             const demPct = totalVotes > 0 ? (demVotes / totalVotes) * 100 : 0;
             const repPct = totalVotes > 0 ? (repVotes / totalVotes) * 100 : 0;
             const marginPct = Math.abs(demPct - repPct);
             const winner = demPct > repPct ? 'Democratic' : 'Republican';
             
-            // Determine competitiveness
-            let competitiveness;
-            if (marginPct >= 40) {
-              competitiveness = winner === 'Republican' ? 'Annihilation Republican' : 'Annihilation Democratic';
-            } else if (marginPct >= 30 && marginPct <= 39.99) {
-              competitiveness = winner === 'Republican' ? 'Dominant Republican' : 'Dominant Democratic';
-            } else if (marginPct >= 20 && marginPct <= 29.99) {
-              competitiveness = winner === 'Republican' ? 'Stronghold Republican' : 'Stronghold Democratic';
-            } else if (marginPct >= 10 && marginPct <= 19.99) {
-              competitiveness = winner === 'Republican' ? 'Safe Republican' : 'Safe Democratic';
-            } else if (marginPct >= 5.51 && marginPct <= 9.99) {
-              competitiveness = winner === 'Republican' ? 'Likely Republican' : 'Likely Democratic';
-            } else if (marginPct >= 1 && marginPct <= 5.5) {
-              competitiveness = winner === 'Republican' ? 'Lean Republican' : 'Lean Democratic';
-            } else if (marginPct >= 0.51 && marginPct <= 0.99) {
-              competitiveness = winner === 'Republican' ? 'Tilt Republican' : 'Tilt Democratic';
-            } else {
-              competitiveness = winner === 'Democratic' ? 'Tossup (Democratic Win)' : 'Tossup (Republican Win)';
-            }
-            let compColor = '#6b7280';
-            // Handle tossup cases with better colors and formatting like index (1).html
-            if (competitiveness.includes('Tossup')) {
-              compColor = winner === 'Democratic' ? '#2563eb' : '#dc2626';
-            } else if (competitiveness.includes('Rep')) {
-              if (competitiveness.includes('Annihilation')) compColor = '#7f1d1d';
-              else if (competitiveness.includes('Dominant')) compColor = '#b91c1c';
-              else if (competitiveness.includes('Stronghold')) compColor = '#dc2626';
-              else if (competitiveness.includes('Safe')) compColor = '#ef4444';
-              else if (competitiveness.includes('Likely')) compColor = '#f87171';
-              else if (competitiveness.includes('Lean')) compColor = '#fecaca';
-              else if (competitiveness.includes('Tilt')) compColor = '#fff1f2';
-            } else if (competitiveness.includes('Dem')) {
-              if (competitiveness.includes('Annihilation')) compColor = '#1e3a8a';
-              else if (competitiveness.includes('Dominant')) compColor = '#1d4ed8';
-              else if (competitiveness.includes('Stronghold')) compColor = '#2563eb';
-              else if (competitiveness.includes('Safe')) compColor = '#3b82f6';
-              else if (competitiveness.includes('Likely')) compColor = '#60a5fa';
-              else if (competitiveness.includes('Lean')) compColor = '#93c5fd';
-              else if (competitiveness.includes('Tilt')) compColor = '#dbeafe';
-            }
+            const winnerParty = winner === 'Republican' ? 'rep' : 'dem';
+            const uncontestedSeat = isUncontestedMajorPartyResult(repVotes, demVotes, repCandidate, demCandidate);
+            const compMeta = competitivenessMeta(marginPct, winnerParty, { uncontested: uncontestedSeat });
+            const competitiveness = compMeta.label;
+            const compColor = compMeta.color;
             
             electionInfo = `
               <div style="margin-bottom: 16px;">
