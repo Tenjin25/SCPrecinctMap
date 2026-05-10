@@ -12441,9 +12441,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function isUncontestedMajorPartyResult(repVotes, demVotes, repCandidate, demCandidate) {
       const repV = safeNumber(repVotes, 0);
       const demV = safeNumber(demVotes, 0);
-      const repBlank = isBlankCandidateName(repCandidate);
-      const demBlank = isBlankCandidateName(demCandidate);
-      return (demV <= 0 && demBlank && repV > 0) || (repV <= 0 && repBlank && demV > 0);
+      return (demV <= 0 && repV > 0) || (repV <= 0 && demV > 0);
     }
 
     function leadMarginPctLabel(repVotes, demVotes, totalVotes, options = {}) {
