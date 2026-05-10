@@ -12513,7 +12513,7 @@ document.addEventListener('DOMContentLoaded', function() {
           winnerName: fullCandidateLabel(repCandidate, 'Republican'),
           shortLabel: shortCandidateLabel(repCandidate, 'Republican'),
           marginPct,
-          text: uncontested ? `${shortCandidateLabel(repCandidate, 'Republican')} (Uncontested)` : `${shortCandidateLabel(repCandidate, 'Republican')} +${marginPctLabel}%`
+          text: uncontested ? 'Uncontested R' : `${shortCandidateLabel(repCandidate, 'Republican')} +${marginPctLabel}%`
         };
       }
       if (demVotes > repVotes) {
@@ -12523,7 +12523,7 @@ document.addEventListener('DOMContentLoaded', function() {
           winnerName: fullCandidateLabel(demCandidate, 'Democratic'),
           shortLabel: shortCandidateLabel(demCandidate, 'Democratic'),
           marginPct,
-          text: uncontested ? `${shortCandidateLabel(demCandidate, 'Democratic')} (Uncontested)` : `${shortCandidateLabel(demCandidate, 'Democratic')} +${marginPctLabel}%`
+          text: uncontested ? 'Uncontested D' : `${shortCandidateLabel(demCandidate, 'Democratic')} +${marginPctLabel}%`
         };
       }
       return {
@@ -18166,6 +18166,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const totalVotes = data.us_house_total || 0;
             
             if (totalVotes > 0) {
+              const uncontested = (demVotes <= 0 && repVotes > 0) || (repVotes <= 0 && demVotes > 0);
               const demPct = (demVotes / totalVotes) * 100;
               const repPct = (repVotes / totalVotes) * 100;
               const margin = demPct - repPct;
@@ -18174,7 +18175,7 @@ document.addEventListener('DOMContentLoaded', function() {
               
               trends.push({
                 year: year,
-                display: `${year}: ${winner}+${toFixedForDisplay(marginAbs, 2)}`,
+                display: uncontested ? `${year}: Uncontested ${winner}` : `${year}: ${winner}+${toFixedForDisplay(marginAbs, 2)}`,
                 margin: margin,
                 type: 'house'
               });
@@ -18267,6 +18268,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const totalVotes = data.state_house_total || 0;
             
             if (totalVotes > 0) {
+              const uncontested = (demVotes <= 0 && repVotes > 0) || (repVotes <= 0 && demVotes > 0);
               const demPct = (demVotes / totalVotes) * 100;
               const repPct = (repVotes / totalVotes) * 100;
               const margin = demPct - repPct;
@@ -18275,7 +18277,7 @@ document.addEventListener('DOMContentLoaded', function() {
               
               trends.push({
                 year: year,
-                display: `${year}: ${winner}+${toFixedForDisplay(marginAbs, 2)} (House)`,
+                display: uncontested ? `${year}: Uncontested ${winner} (House)` : `${year}: ${winner}+${toFixedForDisplay(marginAbs, 2)} (House)`,
                 margin: margin,
                 type: 'state_house'
               });
