@@ -12458,8 +12458,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const repV = safeNumber(repVotes, 0);
       const demV = safeNumber(demVotes, 0);
       if (isUncontestedMajorPartyResult(repV, demV, repCandidate, demCandidate)) {
-        const winner = repV > demV ? shortCandidateLabel(repCandidate, 'R') : shortCandidateLabel(demCandidate, 'D');
-        return `${winner} (Uncontested)`;
+        return repV > demV ? 'Uncontested R' : 'Uncontested D';
       }
       const margin = safeNumber(repVotes, 0) - safeNumber(demVotes, 0);
       const rawMarginPct = marginPctValue(repVotes, demVotes, totalVotes);
