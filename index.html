@@ -4,109 +4,7 @@
   <style>
   /* Mobile Styles - Enhanced for touch and small screens */
   @media (max-width: 768px) {
-    /* Make minimize buttons touch-friendly */
-    #main-controls .controls-header #controls-minimize-btn,
-    #legend-minimize-btn {
-      position: absolute !important;
-      top: 8px !important;
-      right: 8px !important;
-      z-index: 10002 !important;
-      font-size: 20px !important;
-      background: #2563eb !important;
-      color: #fff !important;
-      border-radius: 8px !important;
-      min-width: 44px !important;
-      min-height: 44px !important;
-      border: none !important;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
-      padding: 8px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      font-weight: 700 !important;
-      transition: background 0.2s;
-      cursor: pointer;
-    }
-    #main-controls .controls-header #controls-minimize-btn {
-      left: 8px !important;
-      right: auto !important;
-    }
-    .legend-header {
-      position: relative !important;
-      min-height: 56px;
-      padding: 12px 60px 12px 16px !important;
-    }
-    .legend-header h4 {
-      margin: 0 !important;
-      font-size: 16px !important;
-    }
-  }
-  /* Mobile safe-area + scroll ergonomics (iOS notch, bottom gesture bar). */
-  @media (max-width: 768px) {
-    :root {
-      --safe-top: env(safe-area-inset-top, 0px);
-      --safe-right: env(safe-area-inset-right, 0px);
-      --safe-bottom: env(safe-area-inset-bottom, 0px);
-      --safe-left: env(safe-area-inset-left, 0px);
-    }
-
-    body {
-      overscroll-behavior: none;
-    }
-
-    /* Avoid iOS zoom-on-focus while keeping text readable. */
-    .control-group select,
-    .main-controls input[type="search"],
-    .main-controls input[type="text"] {
-      font-size: 16px !important;
-    }
-  }
-  .mobile-sheet-scrim,
-  .mobile-dock {
-    display: none;
-  }
-
-  .mobile-sheet-grab {
-    display: none;
-  }
-  @media (max-width: 768px) {
-    :root {
-      --mobile-dock-h: 62px;
-      --mobile-sheet-gap: 10px;
-    }
-
-    .mobile-dock {
-      position: fixed;
-      left: 8px;
-      right: 8px;
-      bottom: calc(8px + var(--safe-bottom, 0px));
-      z-index: 10030;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      padding: 8px;
-      border-radius: 16px;
-      border: 1px solid rgba(15, 23, 42, 0.12);
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
-    }
-
-    .mobile-dock-btn {
-      min-height: 44px;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      border-radius: 12px;
-      background: rgba(248, 250, 252, 0.92);
-      color: #0f172a;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.01em;
-      cursor: pointer;
-      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
-    }
-
     .mobile-dock-btn:focus-visible {
-      outline: 2px solid #1d4ed8;
       outline-offset: 2px;
     }
 
@@ -2654,7 +2552,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 }
 
 .vote-counter-context {
-  /* Use grid to prevent long context titles (e.g., "Mecklenburg County") from being
+  /* Use grid to prevent long context titles (e.g., long county names) from being
      visually covered by the Clear/Reset actions while keeping actions on the same row. */
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -2713,7 +2611,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   text-transform: uppercase;
   color: #111827;
   line-height: 1.15;
-  /* Allow long names (e.g., "Mecklenburg County") to show without being overly
+  /* Allow long names (e.g., long county names) to show without being overly
      truncated while still preventing the header from growing unbounded. */
   overflow: hidden;
   white-space: normal;
@@ -9887,7 +9785,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="map-topbar-badge">The Palmetto Explorer</div>
       <div class="map-topbar-copy">
         <strong>Fly to a county, district, or precinct</strong>
-        <span>Try Wake, CD 13, HD 73, SD 18, or Wake 01-14.</span>
+        <span>Try Lexington, CD 2, HD 85, SD 22, or Lexington 01.</span>
       </div>
     </div>
     <form class="fly-search-bar" id="fly-search-form" role="search">
@@ -9899,7 +9797,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <path d="M16 16L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
           </svg>
         </span>
-        <input type="search" id="county-search" placeholder="Fly to Wake, CD 13, HD 73..." autocomplete="off" spellcheck="false" />
+        <input type="search" id="county-search" placeholder="Fly to Lexington, CD 2, HD 85..." autocomplete="off" spellcheck="false" />
         <button type="button" class="fly-search-clear" id="fly-search-clear" aria-label="Clear search">x</button>
       </div>
       <button type="submit" class="fly-search-submit" data-testid="fly-submit">Fly to</button>
@@ -9909,11 +9807,11 @@ document.addEventListener('DOMContentLoaded', function() {
     <button type="button" class="mobile-topbar-toggle" id="mobile-topbar-toggle" aria-controls="map-topbar-details" aria-expanded="false">Show details</button>
     <div class="map-topbar-details" id="map-topbar-details">
       <div class="map-topbar-hints" aria-label="Search examples">
-        <button type="button" class="fly-search-chip" data-search-example="Wake">Wake</button>
-        <button type="button" class="fly-search-chip" data-search-example="CD 13">CD 13</button>
-        <button type="button" class="fly-search-chip" data-search-example="HD 73">HD 73</button>
-        <button type="button" class="fly-search-chip" data-search-example="SD 18">SD 18</button>
-        <button type="button" class="fly-search-chip" data-search-example="Wake 01-14">Wake 01-14</button>
+        <button type="button" class="fly-search-chip" data-search-example="Lexington">Lexington</button>
+        <button type="button" class="fly-search-chip" data-search-example="CD 2">CD 2</button>
+        <button type="button" class="fly-search-chip" data-search-example="HD 85">HD 85</button>
+        <button type="button" class="fly-search-chip" data-search-example="SD 22">SD 22</button>
+        <button type="button" class="fly-search-chip" data-search-example="Lexington 01">Lexington 01</button>
       </div>
       <div class="context-banner" id="context-banner" aria-label="Current map state">
         <div class="context-banner-item">
@@ -9981,18 +9879,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 <label class="control-section-label" for="desktop-fly-search">Fly to</label>
                 <div class="desktop-fly-search-wrap">
                   <div class="desktop-fly-search-field fly-search-field">
-                    <input id="desktop-fly-search" type="search" placeholder="Wake County, CD 13, HD 73, SD 18, Wake 01-14" autocomplete="off" spellcheck="false" inputmode="search" />
+                    <input id="desktop-fly-search" type="search" placeholder="Lexington County, CD 2, HD 85, SD 22, Lexington 01" autocomplete="off" spellcheck="false" inputmode="search" />
                   </div>
                   <button id="desktop-fly-submit" class="desktop-fly-submit" type="button">Go</button>
                 </div>
                 <div class="desktop-fly-helper">Jump to counties, districts, or precincts without changing the selected contest.</div>
                 <div class="desktop-quick-stats" data-viewport-precinct-count>Viewing precincts...</div>
                 <div class="desktop-fly-chip-row" aria-label="Fly-to examples">
-                  <button class="desktop-fly-chip" type="button" data-search-example="Wake">Wake</button>
-                  <button class="desktop-fly-chip" type="button" data-search-example="CD 13">CD 13</button>
-                  <button class="desktop-fly-chip" type="button" data-search-example="HD 73">HD 73</button>
-                  <button class="desktop-fly-chip" type="button" data-search-example="SD 18">SD 18</button>
-                  <button class="desktop-fly-chip" type="button" data-search-example="Wake 01-14">Wake 01-14</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="Lexington">Lexington</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="CD 2">CD 2</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="HD 85">HD 85</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="SD 22">SD 22</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="Lexington 01">Lexington 01</button>
                 </div>
             </div>
             <div class="control-group control-group-contest control-group-primary">
@@ -10122,7 +10020,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 <label for="scenario-scope">Scope</label>
                 <select id="scenario-scope" data-testid="scenario-scope" aria-label="Scenario scope">
                   <option value="statewide">Statewide</option>
-                  <option value="wake">Wake County only</option>
                 </select>
               </div>
               <div class="scenario-row">
@@ -11451,7 +11348,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Session persistence was removed to avoid surprises on shared/low-memory machines.
     let contestSearchQuery = '';
     let scenarioSwingPct = 0;
-    let scenarioScope = 'statewide'; // statewide | wake
+    let scenarioScope = 'statewide'; // statewide
     let turnoutBivariateEnabled = false;
     let demographicsHighContrastEnabled = false;
     let overlayOpacityPreset = 'focus'; // reveal | balanced | focus
@@ -11635,59 +11532,16 @@ document.addEventListener('DOMContentLoaded', function() {
         repCandidate: 'Michael Whatley',
         description: 'Blended 2022 + 2020 Senate anchors with a 2024 President climate and calibrated 55–60% turnout'
       },
-      'nc_supreme_court_model_2026': {
-        contestType: 'nc_supreme_court_model',
-        year: 2026,
-        displayName: 'NC Supreme Court Model',
-        optionLabel: 'NC Supreme Court Associate Justice Seat 1 (2026) Model',
-        groupLabel: 'NC Supreme Court',
-        // Judicial models are intentionally more cautious: more shrinkage, less trend chasing,
-        // and extra brakes for counties that behave noisily in downballot races.
-        judicialModel: true,
-        baseContestType: 'nc_supreme_court_associate_justice_seat_05',
-        baseYear: 2022,
-        // Optional base blend: Seat 03 + Seat 05, then blend with the 2024 cycle.
-        baseMixContestType: 'nc_supreme_court_associate_justice_seat_03',
-        baseMixYear: 2022,
-        baseMixWeight: 0.5, // 0 => pure baseMix (Seat 03), 1 => pure base (Seat 05)
-        climateContestType: 'nc_supreme_court_associate_justice_seat_06',
-        climateYear: 2024,
-        // Calibration refinement (2026-04): judicial baselines can be noisier; keep more shrinkage to climate,
-        // apply stronger statewide recentering, and cap trend nudges.
-        blendWeight: 0.60, // roughly 40% climate + 30% Seat05 + 30% Seat03 (after baseMix)
-        statewideRecenterStrength: 0.95,
-        trendNudgeMaxPts: 0.45,
-        baselineReliabilityMinVotes: 15000,
-        baselineReliabilityMaxVotes: 110000,
-        baselineReliabilityFloor: 0.42,
-        stableCountyBrakeMin: 0.46,
-        safeCountyBrakeMargin: 16,
-        judicialNoiseSeatSplitBrakeEnabled: true,
-        judicialNoiseShareBrakeEnabled: true,
-        // Partisan anchor floor (minority share): prevents one noisy judicial cycle from overdriving crossover behavior.
-        partisanAnchorEnabled: true,
-        partisanAnchorWeight: 0.20, // 0.15..0.25 recommended; judicial blend should still dominate
-        partisanAnchorContestType: 'president',
-        partisanAnchorYear: 2024,
-        partisanAnchorSecondContestType: 'us_senate',
-        partisanAnchorSecondYear: 2022,
-        partisanAnchorSecondWeight: 0.40, // 0..1 share for the second anchor inside the partisan floor
-        demCandidate: 'Anita Earls',
-        repCandidate: 'Sarah Stevens',
-        description: 'Blend of 2022 Seat 03 + Seat 05 with a 2024 climate adjustment'
-      }
     };
     const MODELED_SENATE_UX_FEATURES = {
       historicalAnalogEnabled: true,
       baselineVsCandidateEnabled: true
     };
     const MODELED_SENATE_ANALOG_YEARS = [2014, 2020, 2022];
-    const MODELED_SENATE_ANALOG_METRO_COUNTIES = new Set([
-      'WAKE', 'MECKLENBURG', 'DURHAM', 'ORANGE', 'GUILFORD', 'BUNCOMBE', 'NEW HANOVER', 'FORSYTH'
-    ]);
-    // Senate guardrails: metro/outer-suburb elasticity caps.
-    const SENATE_MAJOR_METROS = new Set(['WAKE', 'MECKLENBURG', 'DURHAM', 'ORANGE']);
-    const SENATE_OUTER_SUBURBS = new Set(['CABARRUS', 'UNION', 'JOHNSTON']);
+    const MODELED_SENATE_ANALOG_METRO_COUNTIES = new Set();
+    // Senate guardrails are intentionally empty until SC-specific groups are defined.
+    const SENATE_MAJOR_METROS = new Set();
+    const SENATE_OUTER_SUBURBS = new Set();
     let modeledSenateAnalogHistoryCache = null;
     let modeledSenateAnalogHistoryInflight = null;
     let modeledSenateLatestInsights = null;
@@ -11751,11 +11605,6 @@ document.addEventListener('DOMContentLoaded', function() {
           label: 'Volatile / low-confidence',
           patch: { blendWeight: 0.62, turnoutFactor: 0.57, bonusScale: 1.05, countyBehaviorMode: 'volatile', uncertaintyBoost: 1.2 }
         }
-      ],
-      nc_supreme_court_model: [
-        { id: 'default', label: 'Default', kind: 'reset' },
-        { id: 'more_climate', label: 'More climate', patch: { blendWeight: 0.45 } },
-        { id: 'more_base', label: 'More base', patch: { blendWeight: 0.75 } }
       ]
     };
 
@@ -11788,7 +11637,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const swingRaw = String(params.get('swing') || '').trim();
       const swing = swingRaw ? Number(swingRaw) : null;
       const sscopeRaw = String(params.get('sscope') || '').trim().toLowerCase();
-      const sscope = sscopeRaw ? (sscopeRaw === 'wake' ? 'wake' : 'statewide') : null;
+      const sscope = sscopeRaw ? 'statewide' : null;
       const barometerRaw = String(params.get('barometer') || params.get('bar') || '').trim().toLowerCase();
       const barometerEnabled = barometerRaw
         ? (barometerRaw === '1' || barometerRaw === 'true' || barometerRaw === 'on' || barometerRaw === 'yes')
@@ -11866,9 +11715,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (linesYear !== 2022) params.set('lines', String(linesYear));
       if (Number.isFinite(Number(scenarioSwingPct)) && Math.abs(Number(scenarioSwingPct)) >= 0.05) {
         params.set('swing', Number(scenarioSwingPct).toFixed(1));
-      }
-      if (String(scenarioScope || '').toLowerCase() === 'wake') {
-        params.set('sscope', 'wake');
       }
       if (barometerOverlayEnabled) params.set('barometer', '1');
       if (demographicsHighContrastEnabled) params.set('democontrast', 'high');
@@ -12022,7 +11868,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (state.sscope !== null) {
-          scenarioScope = String(state.sscope || 'statewide').toLowerCase() === 'wake' ? 'wake' : 'statewide';
+          scenarioScope = 'statewide';
           const scopeEl = document.getElementById('scenario-scope');
           if (scopeEl) scopeEl.value = scenarioScope;
         }
@@ -13158,7 +13004,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function getScenarioCountyNorm() {
-      return scenarioScope === 'wake' ? 'WAKE' : '';
+      return '';
     }
 
     function shouldApplyScenarioToCounty(countyNorm) {
@@ -13768,7 +13614,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (v) addVariantFn(v);
       };
 
-      // Wake-style legacy labels like "PRECINCT 01-14A".
+      // Legacy labels like "PRECINCT 01-14A".
       const codeLike = t.match(/\b(\d{2}-\d{2}[A-Z]{0,2})\b/);
       if (codeLike) {
         const code = codeLike[1];
@@ -14017,18 +13863,15 @@ document.addEventListener('DOMContentLoaded', function() {
       if (c.includes('ACCUM')) return true;
       if (c.startsWith('OS ') || c.startsWith('OS-') || c.startsWith('OS_')) return true;
       if (/(^|[\s\-_])OS($|[\s\-_])/.test(c)) return true;
-      // Wake (and others) sometimes use compact one-stop bucket codes like "OSAB 1-40" or "OSNB81-91".
+      // Some legacy exports use compact one-stop bucket codes like "OSAB 1-40" or "OSNB81-91".
       if (/^OS[A-Z0-9]/.test(c)) return true;
-      // Buncombe legacy exports sometimes use 4-letter early-vote site abbreviations.
-      if (countyNorm === 'BUNCOMBE' && /^[A-Z]{4}$/.test(c)) return true;
+      if (/^[A-Z]{4}$/.test(c)) return true;
       // Bladen 2020 exports include vote-center style site labels that are not precinct IDs.
       if (countyNorm === 'BLADEN' && /^(BAY TREE FIRE DEPT|BLAD COUNTY GYM|BOOK T\.? WASHINGTON|EAST ARCADIA|SPAULDING MONROE|TAR HEEL MUNI BLD)$/.test(c)) return true;
       // Lee legacy exports include vote-center site labels.
       if (countyNorm === 'LEE' && /^(LEE COUNTY BOE|MCSWAIN CENTER)$/.test(c)) return true;
       // Richmond 2020 exports include four vote-center site labels.
       if (countyNorm === 'RICHMOND' && /^(BROWDER|CO OP|ELLERBE|HAMLET)$/.test(c)) return true;
-      // Orange legacy exports include one-stop site labels.
-      if (countyNorm === 'ORANGE' && /^(BOE|CHAPEL OF THE CROSS|SEYMOUR SENIOR CENTER)$/.test(c)) return true;
       // Henderson exports include a Carolina Village vote-center bucket.
       if (countyNorm === 'HENDERSON' && /^(CV|CV CAROLINA VILLAGE|CAROLINA VILLAGE)$/.test(c)) return true;
       // Surry one-stop shorthand buckets.
@@ -14830,7 +14673,7 @@ document.addEventListener('DOMContentLoaded', function() {
         streakCount += 1;
       }
       const latestStreakLabel = latest.winnerMeta.partyClass === 'tie'
-        ? 'Latest result was an even race.'
+        ? 'Latest result was a tie.'
         : `${latest.winnerMeta.partyClass === 'rep' ? 'Republican' : 'Democratic'} streak: ${streakCount} election${streakCount === 1 ? '' : 's'}.`;
       const summaryNoteSuffix = selectedEntry && selectedEntry !== latest
         ? `Selected year ${summaryEntry.item.year}; latest available ${latest.item.year}.`
@@ -14920,7 +14763,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const flipChip = entry.flip && entry.flip.flipped
             ? `<span class="focus-trend-chip flip">${escapeHtml(`Flip ${entry.flip.from}->${entry.flip.to}`)}</span>`
             : '';
-          const leadSummary = entry.leadLabel === 'Tie' ? 'Even race' : entry.leadLabel;
+          const leadSummary = entry.leadLabel === 'Tie' ? 'Tie' : entry.leadLabel;
           const otherChip = entry.otherPct >= 0.05
             ? `<span class="focus-trend-chip">Other ${escapeHtml(entry.otherPct.toFixed(2))}%</span>`
             : '';
@@ -15133,7 +14976,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (meta.kind === 'region' && meta.regionKey) {
           trendOptions.focusName = String(meta.regionKey || 'This region').replace(/[-_]/g, ' ');
         } else if (meta.kind === 'statewide') {
-          trendOptions.focusName = 'North Carolina';
+          trendOptions.focusName = 'South Carolina';
         }
 
         if (meta.kind !== 'statewide' && series && series.length) {
@@ -15824,7 +15667,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const useBlend = Number.isFinite(blendWeight) && blendWeight >= 0 && blendWeight <= 1;
         const modeledType = String(modeledDef?.contestType || '').trim();
         const isSenateDeviationModel = modeledType === 'us_senate_model';
-        const isJudicialModel = !!modeledDef?.judicialModel || modeledType === 'nc_supreme_court_model';
+        const isJudicialModel = !!modeledDef?.judicialModel;
         const modeledDefSignature = getModeledDefSignature(modeledDef) || '';
 
         // Optional secondary baseline (used by the US Senate model): add a presidential-year Senate anchor (2020)
@@ -15904,8 +15747,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         const classifyCountyBehaviorType = (county, totals = null) => {
-          // Senate calibration: force Wake into metro-core routing even if a context label is missing/noisy.
-          if (isSenateDeviationModel && county === 'WAKE') return 'urban';
           const ctx = getCountyCensusContextSafe(county);
           const pattern = String(ctx?.patternLabel || '').toLowerCase();
           const pop = Number(countyPopulationEstimatesByNorm?.get(county)?.population2025 || 0);
@@ -15917,23 +15758,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // County cluster classifier (used for optional calibration + diagnostics).
         // These are intentionally coarse buckets (not an ontology), to keep model behavior stable and readable.
-        const COLLEGE_COUNTIES = new Set([
-          'ORANGE', 'DURHAM', 'WATAUGA', 'PITT', 'NEW HANOVER',
-          'BUNCOMBE', 'FORSYTH', 'WAKE', 'GUILFORD', 'MECKLENBURG'
-        ]);
-        const APPALACHIAN_COUNTIES = new Set([
-          'ASHE', 'AVERY', 'BURKE', 'CALDWELL', 'CHEROKEE', 'CLAY', 'GRAHAM',
-          'HAYWOOD', 'HENDERSON', 'JACKSON', 'MCDOWELL', 'MITCHELL', 'POLK',
-          'RUTHERFORD', 'SWAIN', 'TRANSYLVANIA', 'WATAUGA', 'YANCEY', 'WILKES'
-        ]);
-        const EASTERN_NC_COUNTIES = new Set([
-          'BEAUFORT', 'BERTIE', 'BLADEN', 'BRUNSWICK', 'CAMDEN', 'CARTERET', 'CHOWAN',
-          'CRAVEN', 'CURRITUCK', 'DARE', 'DUPLIN', 'EDGECOMBE', 'GATES', 'GREENE',
-          'HALIFAX', 'HERTFORD', 'HYDE', 'JONES', 'LENOIR', 'MARTIN', 'NASH',
-          'NEW HANOVER', 'NORTHAMPTON', 'ONSLOW', 'PAMLICO', 'PASQUOTANK', 'PENDER',
-          'PERQUIMANS', 'PITT', 'ROBESON', 'SAMPSON', 'SCOTLAND', 'TYRRELL',
-          'WASHINGTON', 'WAYNE', 'WILSON'
-        ]);
+        const COLLEGE_COUNTIES = new Set();
+        const APPALACHIAN_COUNTIES = new Set();
+        const EASTERN_NC_COUNTIES = new Set();
 
         const inferCountyCluster = (county, totals = null) => {
           const ctx = getCountyCensusContextSafe(county);
@@ -15942,9 +15769,6 @@ document.addEventListener('DOMContentLoaded', function() {
           const note = String(ctx?.noteLabel || '').toLowerCase();
           const pop = Number(countyPopulationEstimatesByNorm?.get(county)?.population2025 || 0);
           const countyType = classifyCountyBehaviorType(county, totals);
-
-          // Senate calibration: Wake should route with Mecklenburg/Durham-style urban-core handling.
-          if (isSenateDeviationModel && county === 'WAKE') return 'urban_core';
 
           if (COLLEGE_COUNTIES.has(county) && countyType !== 'urban') return 'college';
           if (/military|institutional hubs/i.test(note)) return 'military_institutional';
@@ -15963,7 +15787,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Senate-only archetype labeling used for internal calibration/diagnostics.
         // This keeps county-family evaluation explicit without adding any new UI surfaces.
         const classifySenateCountyFamily = (county, countyType, cluster, isRealignedFormerDemFederalCounty) => {
-          if (county === 'WAKE' || cluster === 'urban_core') return 'urban_core';
+          if (cluster === 'urban_core') return 'urban_core';
           if (cluster === 'inner_suburb') return 'metro_suburban';
           if (cluster === 'outer_suburb_exurb' || countyType === 'exurban') return 'growth_exurban';
           if (isRealignedFormerDemFederalCounty) return 'realigned_former_d_federal';
@@ -18654,7 +18478,6 @@ document.addEventListener('DOMContentLoaded', function() {
           scopeKey === 'state_senate' &&
           normalizeDistrictLinesYear(linesYear) === 2022 &&
           (
-            String(modeledDef?.contestType || '') === 'nc_supreme_court_model' ||
             String(modeledDef?.contestType || '') === 'us_senate_model'
           )
         ) {
@@ -19238,29 +19061,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	      if (contestType.startsWith('d')) {
 	        return `Judicial Retention ${contestType.toUpperCase()}`;
-	      }
-
-	      if (contestType.startsWith('nc_court_of_appeals_judge_seat_')) {
-	        const seat = contestType.replace('nc_court_of_appeals_judge_seat_', '').replace(/^0+/, '');
-	        return `NC Court of Appeals Judge Seat ${seat || contestType}`;
-	      }
-	      if (contestType.startsWith('nc_court_of_appeals_judge_') && contestType.endsWith('_seat')) {
-	        const who = contestType.replace('nc_court_of_appeals_judge_', '').replace(/_seat$/i, '').replace(/_/g, ' ').trim();
-	        const label = who ? (typeof toTitleCaseName === 'function' ? toTitleCaseName(who) : who) : contestType;
-	        return `NC Court of Appeals Judge (${label})`;
-	      }
-	      if (contestType.startsWith('nc_supreme_court_associate_justice_seat_')) {
-	        const seat = contestType.replace('nc_supreme_court_associate_justice_seat_', '').replace(/^0+/, '');
-	        return `NC Supreme Court Associate Justice Seat ${seat || contestType}`;
-	      }
-	      if (contestType.startsWith('nc_supreme_court_chief_justice_seat_')) {
-	        const seat = contestType.replace('nc_supreme_court_chief_justice_seat_', '').replace(/^0+/, '');
-	        return `NC Supreme Court Chief Justice Seat ${seat || contestType}`;
-	      }
-	      if (contestType.startsWith('nc_supreme_court_chief_justice_') && contestType.endsWith('_seat')) {
-	        const who = contestType.replace('nc_supreme_court_chief_justice_', '').replace(/_seat$/i, '').replace(/_/g, ' ').trim();
-	        const label = who ? (typeof toTitleCaseName === 'function' ? toTitleCaseName(who) : who) : contestType;
-	        return `NC Supreme Court Chief Justice (${label})`;
 	      }
 
 	      return nameMap[contestType] || contestType.toUpperCase();
@@ -20958,7 +20758,6 @@ document.addEventListener('DOMContentLoaded', function() {
         addNumericBaseVariantsFromAlphaSuffix(codeNorm, addVariant);
         addEmbeddedPrecinctCodeVariants(codeNorm, addVariant);
         addPrefixStrippedNumericVariants(codeNorm, codeSet, addVariant);
-        if (countyNorm === 'WAKE') addClosestHyphenCodeVariants(codeNorm, codeSet, addVariant);
       } catch (_) {}
 
       for (const cand of candidates) {
@@ -21321,9 +21120,9 @@ document.addEventListener('DOMContentLoaded', function() {
       return {
         party: 'tie',
         winnerName: 'Tie',
-        shortLabel: 'Even',
+        shortLabel: 'Tie',
         marginPct,
-        text: `Even ${marginLabel}%`
+        text: 'Tie'
       };
     }
 
@@ -21715,7 +21514,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (totalMetaEl) totalMetaEl.textContent = `${total.toLocaleString()} total votes`;
       if (leadMetaEl) {
         leadMetaEl.textContent = winnerParty === 'tie'
-          ? 'Even race'
+          ? 'Tie'
           : (winnerCallMeta?.text || (isCountyContext
             ? compactCountyWinnerMarginLabel(r, d, total, resolvedCandidates.repCandidate, resolvedCandidates.demCandidate)
             : compactWinnerMarginLabel(r, d, total, resolvedCandidates.repCandidate, resolvedCandidates.demCandidate)));
@@ -22053,7 +21852,7 @@ document.addEventListener('DOMContentLoaded', function() {
         )).join('');
 
         const winnerSummary = winnerCall.party === 'tie'
-          ? 'Even race'
+          ? 'Tie'
           : `${winnerCall.winnerName} (${winnerCall.party === 'rep' ? 'R' : 'D'})`;
         const isModeledSenate = isModeledSenateEnhancementContest(contestType, year);
         const modeledBadgeHtml = isModeledSenate ? `<span class="modeled-context-badge modeled-senate">Modeled race</span>` : '';
@@ -22368,7 +22167,8 @@ document.addEventListener('DOMContentLoaded', function() {
           changePct2023To2024: Number.isFinite(changePct2023To2024) ? changePct2023To2024 : NaN
         };
 
-        if (countyNorm === 'NORTH CAROLINA') statewide = entry;
+        const geographyType = (row?.geography_type || '').toString().trim().toLowerCase();
+        if (geographyType === 'state') statewide = entry;
         else byNorm.set(countyNorm, entry);
       });
       return { byNorm, statewide };
@@ -22383,20 +22183,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function getNcCensusContext(countyNorm) {
       const norm = String(countyNorm || '').trim().toUpperCase();
-      const urbanAnchor = new Set(['WAKE', 'MECKLENBURG', 'DURHAM', 'ORANGE', 'GUILFORD', 'FORSYTH', 'BUNCOMBE']);
-      const metroSpillover = new Set(['JOHNSTON', 'UNION', 'CABARRUS', 'IREDELL', 'HARNETT', 'CHATHAM', 'PENDER', 'FRANKLIN', 'GASTON', 'CLEVELAND']);
-      const coastalGrowth = new Set(['BRUNSWICK', 'NEW HANOVER', 'PENDER', 'ONSLOW', 'CURRITUCK', 'CARTERET']);
-      const ruralSlowdown = new Set(['ROBESON', 'BLADEN', 'RICHMOND', 'ANSON', 'MARTIN', 'GATES', 'HALIFAX', 'SCOTLAND', 'WASHINGTON', 'BERTIE', 'NORTHAMPTON']);
-      const mixedTransition = new Set(['PASQUOTANK', 'ALAMANCE', 'DAVIDSON', 'ROWAN', 'NASH', 'PITT', 'CUMBERLAND', 'RANDOLPH', 'CATAWBA', 'WAYNE', 'CRAVEN']);
-      const institutionalHub = new Set(['CUMBERLAND', 'HOKE', 'ONSLOW', 'WAYNE', 'CRAVEN']);
-
-      let signalEmoji = '📊';
-      let signalLabel = 'Steady population signal';
-      let patternEmoji = '🧭';
-      let patternLabel = 'Mixed local and regional forces';
-      let noteEmoji = '🗳️';
-      let noteLabel = 'Population change may shape the electorate over time, even when margins remain stable in the short run.';
-      let sourceNote = 'Qualitative context inspired by recent Census population-estimate patterns; not a raw population table.';
+      if (!norm) return null;
 
       const estimate = countyPopulationEstimatesByNorm?.get(norm) || null;
       const statewide = countyPopulationEstimateStatewide || null;
@@ -22404,117 +22191,45 @@ document.addEventListener('DOMContentLoaded', function() {
       const recentPct = Number(estimate?.changePct2024To2025);
       const priorPct = Number(estimate?.changePct2023To2024);
       const stateTotalPct = Number(statewide?.changePct2020To2025);
+      const population2025 = Number(estimate?.population2025 || 0);
       const slowedIn2025 = Number.isFinite(recentPct) && Number.isFinite(priorPct) && recentPct + 0.05 < priorPct;
       const aboveStatewide = Number.isFinite(totalPct) && Number.isFinite(stateTotalPct) && totalPct > stateTotalPct + 1.25;
+      const wellAboveStatewide = Number.isFinite(totalPct) && Number.isFinite(stateTotalPct) && totalPct > stateTotalPct + 3;
       const belowStatewide = Number.isFinite(totalPct) && Number.isFinite(stateTotalPct) && totalPct < stateTotalPct - 1.25;
-      const isFlatOrDeclining = (Number.isFinite(totalPct) && totalPct < 1) || (Number.isFinite(recentPct) && recentPct < 0);
-      const isUrbanish = urbanAnchor.has(norm) || metroSpillover.has(norm) || mixedTransition.has(norm) || (Number(estimate?.population2025) >= 150000);
-      const isInstitutionalHub = institutionalHub.has(norm);
+      const fastGrowth = Number.isFinite(totalPct) && (totalPct >= 8 || wellAboveStatewide);
+      const slowGrowth = (Number.isFinite(totalPct) && totalPct < 1) || (Number.isFinite(recentPct) && recentPct < 0);
+      const flatOrDeclining = (Number.isFinite(totalPct) && totalPct <= 0) || (Number.isFinite(recentPct) && recentPct < 0);
 
-      if (estimate) {
-        signalLabel = `Population ${formatPopulationChangePct(totalPct)} since 2020`;
-        noteLabel = `2025 estimate: ${Number(estimate.population2025 || 0).toLocaleString()}. 2024 to 2025 change: ${formatPopulationChangePct(recentPct)}.`;
-        sourceNote = 'Based on U.S. Census Bureau Vintage 2025 North Carolina county population estimates, released March 26, 2026 (April 1, 2020 to July 1, 2025).';
+      if (!estimate) return null;
 
-        if (urbanAnchor.has(norm)) {
-          signalEmoji = '🏙️';
-          patternEmoji = '🧲';
-          patternLabel = slowedIn2025
-            ? 'Urban anchor with slower 2025 growth'
-            : 'Urban anchor with continued growth';
-          noteLabel = `2025 estimate: ${Number(estimate.population2025 || 0).toLocaleString()}. Growth since 2020 is ${formatPopulationChangePct(totalPct)}, versus ${formatPopulationChangePct(stateTotalPct)} statewide. ${slowedIn2025 ? 'Growth cooled compared with 2023 to 2024.' : 'The county is still adding residents at a steady clip.'}`;
-        } else if (coastalGrowth.has(norm) && !belowStatewide) {
-          signalEmoji = '🌊';
-          patternEmoji = '🏖️';
-          patternLabel = slowedIn2025
-            ? 'Coastal growth still positive but cooling in 2025'
-            : 'Coastal growth running above the statewide pace';
-          noteLabel = `2025 estimate: ${Number(estimate.population2025 || 0).toLocaleString()}. Since 2020, this county is ${formatPopulationChangePct(totalPct)}${aboveStatewide ? ', faster than the statewide pace.' : '.'}`;
-        } else if (metroSpillover.has(norm) && (aboveStatewide || Number(totalPct) >= 8)) {
-          signalEmoji = '📈';
-          patternEmoji = '🌆';
-          patternLabel = slowedIn2025
-            ? 'Metro spillover growth with a slower 2025 pace'
-            : 'Metro spillover / outer-suburban expansion';
-          noteLabel = `2025 estimate: ${Number(estimate.population2025 || 0).toLocaleString()}. The county is ${formatPopulationChangePct(totalPct)} since 2020 and ${formatPopulationChangePct(recentPct)} from 2024 to 2025.`;
-        } else if (mixedTransition.has(norm) && !isFlatOrDeclining) {
-          signalEmoji = aboveStatewide ? '📈' : '⚖️';
-          patternEmoji = '🏡';
-          patternLabel = slowedIn2025
-            ? 'Small-metro / outer-suburban transition with cooling growth'
-            : 'Small-metro / outer-suburban transition';
-          const statewideClause = Number.isFinite(stateTotalPct)
-            ? ` versus ${formatPopulationChangePct(stateTotalPct)} statewide`
-            : '';
-          const slowdownClause = slowedIn2025 ? ' Growth cooled compared with 2023 to 2024.' : '';
-          noteLabel = `2025 estimate: ${Number(estimate.population2025 || 0).toLocaleString()}. Growth since 2020 is ${formatPopulationChangePct(totalPct)}${statewideClause}. 2024 to 2025 change: ${formatPopulationChangePct(recentPct)}.${slowdownClause} Counties in this bucket often sit between metro growth and rural stability, so partisan change can be gradual.`;
-        } else if (isUrbanish && (belowStatewide || slowedIn2025) && !isFlatOrDeclining) {
-          signalEmoji = '🏙️';
-          patternEmoji = '🧭';
-          patternLabel = 'Urban county with slower growth than statewide';
-          const slowdownClause = slowedIn2025 ? 'Growth cooled compared with 2023 to 2024.' : '';
-          noteLabel = `2025 estimate: ${Number(estimate.population2025 || 0).toLocaleString()}. Growth since 2020 is ${formatPopulationChangePct(totalPct)}, versus ${formatPopulationChangePct(stateTotalPct)} statewide. ${slowdownClause} Slower growth can mean less in-migration-driven electorate churn, so political change may show up more through turnout, registration, and coalition shifts than sheer population inflow.`;
-        } else if (isUrbanish && isFlatOrDeclining) {
-          signalEmoji = '🏙️';
-          patternEmoji = '📉';
-          patternLabel = 'Urban county with flat/declining population';
-          const hubClause = isInstitutionalHub
-            ? 'In institutional hubs (e.g., military-heavy counties like Cumberland/Fayetteville), year-to-year estimates can be choppy, and political change may track voter turnover and participation as much as net in-migration.'
-            : 'Flat or declining growth often means less in-migration-driven electorate churn, so shifts may show up more through turnout and coalition change than sheer population inflow.';
-          noteLabel = `2025 estimate: ${Number(estimate.population2025 || 0).toLocaleString()}. Since 2020 this county is ${formatPopulationChangePct(totalPct)}, while the 2024 to 2025 change was ${formatPopulationChangePct(recentPct)}. ${hubClause}`;
-        } else if (ruralSlowdown.has(norm) || isFlatOrDeclining) {
-          signalEmoji = Number.isFinite(totalPct) && totalPct < 0 ? '📉' : '🌾';
-          patternEmoji = '⬇️';
-          patternLabel = 'Slow-growth or declining county';
-          noteLabel = `2025 estimate: ${Number(estimate.population2025 || 0).toLocaleString()}. Since 2020 this county is ${formatPopulationChangePct(totalPct)}, while the 2024 to 2025 change was ${formatPopulationChangePct(recentPct)}.`;
-        } else {
-          signalEmoji = '⚖️';
-          patternEmoji = '🏡';
-          patternLabel = aboveStatewide
-            ? 'Above-state growth county'
-            : 'Mixed-growth county';
-          noteLabel = `2025 estimate: ${Number(estimate.population2025 || 0).toLocaleString()}. Growth since 2020 is ${formatPopulationChangePct(totalPct)}${Number.isFinite(stateTotalPct) ? ` versus ${formatPopulationChangePct(stateTotalPct)} statewide` : ''}.`;
-        }
+      let signalEmoji = '📊';
+      let signalLabel = `Population ${formatPopulationChangePct(totalPct)} since 2020`;
+      let patternEmoji = '🧭';
+      let patternLabel = 'Mixed-growth county';
+      let noteEmoji = '🗳️';
+      let noteLabel = `2025 estimate: ${population2025.toLocaleString()}. 2024 to 2025 change: ${formatPopulationChangePct(recentPct)}.`;
+      let sourceNote = 'Based on U.S. Census Bureau Vintage 2025 South Carolina county population estimates (April 1, 2020 to July 1, 2025).';
 
-        if (isInstitutionalHub && !/institutional hubs|military/i.test(noteLabel)) {
-          noteLabel += ' Military hubs can show choppy year-to-year estimates; political change may track turnover as much as net in-migration.';
-        }
-      }
-
-      if (!estimate && urbanAnchor.has(norm)) {
-        signalEmoji = '🏙️';
-        signalLabel = 'Urban anchor county';
-        patternEmoji = '🧲';
-        patternLabel = 'Jobs and institutions pull in growth';
-        noteLabel = 'Large urban counties often absorb new voters first, which can reshape both county margins and nearby suburbs.';
-      } else if (!estimate && coastalGrowth.has(norm)) {
+      if (fastGrowth) {
         signalEmoji = '📈';
-        signalLabel = 'High-growth coastal county';
-        patternEmoji = '🏖️';
-        patternLabel = 'Coastal migration and retirement growth';
-        noteLabel = 'Coastal growth can boost raw turnout quickly and may either strengthen or soften the existing partisan lean depending on who is moving in.';
-      } else if (!estimate && metroSpillover.has(norm)) {
-        signalEmoji = '📈';
-        signalLabel = 'High-growth county';
-        patternEmoji = '🌆';
-        patternLabel = 'Metro spillover / outer-suburban expansion';
-        noteLabel = 'Fast-growing outer-ring counties often show the clearest link between Census-era growth and changing election results.';
-      } else if (!estimate && ruralSlowdown.has(norm)) {
-        signalEmoji = '🌾';
-        signalLabel = 'Slow-growth or declining county';
-        patternEmoji = '⬇️';
-        patternLabel = 'Rural slowdown / Black Belt population loss';
-        noteLabel = 'Places with slower growth or population loss can still shift sharply when the electorate changes composition rather than simply adding new residents.';
-      } else if (!estimate && mixedTransition.has(norm)) {
-        signalEmoji = '⚖️';
-        signalLabel = 'Mixed-growth county';
         patternEmoji = '🏡';
-        patternLabel = 'Small-metro / outer-suburban transition';
-        noteLabel = 'These counties often sit between metro growth and rural stability, making them useful early-warning signs for political change.';
-      }
-
-      if (!/institutional hubs|military/i.test(noteLabel) && isInstitutionalHub) {
-        noteLabel += ' Military hubs can show choppy year-to-year estimates; political change may track turnover as much as net in-migration.';
+        patternLabel = 'Above-state growth county';
+        noteLabel = `2025 estimate: ${population2025.toLocaleString()}. Growth since 2020 is ${formatPopulationChangePct(totalPct)}${Number.isFinite(stateTotalPct) ? ` versus ${formatPopulationChangePct(stateTotalPct)} statewide` : ''}. ${slowedIn2025 ? 'Growth cooled somewhat in the latest year.' : 'Growth has remained solid through the latest year.'}`;
+      } else if (belowStatewide && !slowGrowth) {
+        signalEmoji = '⚖️';
+        patternEmoji = '🧭';
+        patternLabel = 'Mixed-growth county';
+        noteLabel = `2025 estimate: ${population2025.toLocaleString()}. Growth since 2020 is ${formatPopulationChangePct(totalPct)}${Number.isFinite(stateTotalPct) ? ` versus ${formatPopulationChangePct(stateTotalPct)} statewide` : ''}. ${slowedIn2025 ? 'The latest year came in softer than the prior year.' : 'Growth is positive but running below the statewide pace.'}`;
+      } else if (slowGrowth) {
+        signalEmoji = flatOrDeclining ? '📉' : '🌾';
+        patternEmoji = '⬇️';
+        patternLabel = 'Slow-growth or declining county';
+        noteLabel = `2025 estimate: ${population2025.toLocaleString()}. Since 2020 this county is ${formatPopulationChangePct(totalPct)}, while the 2024 to 2025 change was ${formatPopulationChangePct(recentPct)}.`;
+      } else {
+        signalEmoji = aboveStatewide ? '📈' : '📊';
+        patternEmoji = aboveStatewide ? '🏡' : '🧭';
+        patternLabel = aboveStatewide ? 'Above-state growth county' : 'Mixed-growth county';
+        noteLabel = `2025 estimate: ${population2025.toLocaleString()}. Growth since 2020 is ${formatPopulationChangePct(totalPct)}${Number.isFinite(stateTotalPct) ? ` versus ${formatPopulationChangePct(stateTotalPct)} statewide` : ''}.`;
       }
 
       return {
@@ -23184,27 +22899,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	    }
 
 	    function classifyGrowthType(countyName, growthRate) {
-	      const norm = String(countyName || '').trim().toUpperCase();
-	      if (!norm) return '🏭 Stable / Local Growth';
-
-	      const coastal = new Set([
-	        'BRUNSWICK', 'NEW HANOVER', 'PENDER', 'ONSLOW', 'CARTERET', 'CRAVEN',
-	        'PAMLICO', 'BEAUFORT', 'HYDE', 'DARE', 'TYRRELL', 'CURRITUCK',
-	        'PASQUOTANK', 'CAMDEN', 'CHOWAN', 'PERQUIMANS'
-	      ]);
-	      const charlotteMetro = new Set([
-	        'MECKLENBURG', 'UNION', 'CABARRUS', 'GASTON', 'IREDELL', 'ROWAN',
-	        'LINCOLN', 'STANLY', 'CLEVELAND', 'CATAWBA'
-	      ]);
-	      const i95Corridor = new Set([
-	        'NORTHAMPTON', 'HALIFAX', 'EDGECOMBE', 'NASH', 'WILSON', 'JOHNSTON',
-	        'HARNETT', 'CUMBERLAND', 'ROBESON', 'SAMPSON', 'WAYNE', 'DUPLIN'
-	      ]);
-
-	      if (coastal.has(norm)) return '🌊 Coastal Growth';
-	      if (charlotteMetro.has(norm)) return '🌆 Metro Spillover';
-	      if (i95Corridor.has(norm)) return '🛣️ Corridor Growth';
-
+        void countyName;
+        const rate = Number(growthRate);
+        if (!Number.isFinite(rate)) return '🏭 Stable / Local Growth';
+        if (rate >= 8) return '📈 Fast Growth';
+        if (rate >= 3) return '🏡 Steady Growth';
+        if (rate <= 0) return '📉 Flat / Declining';
+        if (rate < 1) return '🌾 Slow Growth';
 	      void growthRate;
 	      return '🏭 Stable / Local Growth';
 	    }
@@ -23241,7 +22942,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	        let subtype = 'Stable / Mixed';
 	        let momentum = '↔ Mixed movement';
 
-	        // --- ACTIVE TRANSITION (Cabarrus-type)
+          // --- ACTIVE TRANSITION
 	        if (Number.isFinite(shift_since_2000) && shift_since_2000 <= -20 && Number.isFinite(shift_since_2020) && shift_since_2020 <= -1.5 && current_margin > 5 && current_margin < 12) {
 	          subtype = 'Active Suburban Transition';
 	          momentum = '← Moving left faster';
@@ -23251,7 +22952,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	          subtype = 'Active Republican Transition';
 	          momentum = '→ Moving right faster';
 	        }
-	        // --- SUBURBANIZING (Union-type)
+          // --- SUBURBANIZING
 	        else if (Number.isFinite(shift_since_2000) && shift_since_2000 <= -5 && Number.isFinite(shift_since_2020) && shift_since_2020 > 0) {
 	          subtype = 'Suburbanizing (Lagging)';
 	          momentum = '↔ Long run left, short run right';
@@ -23261,7 +22962,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	          subtype = 'Counter-Suburbanizing (Lagging)';
 	          momentum = '↔ Long run right, short run left';
 	        }
-	        // --- SOFTENING RED (Brunswick-type)
+          // --- SOFTENING RED
 	        else if (Number.isFinite(shift_since_2020) && shift_since_2020 <= -2 && current_margin > 10) {
 	          subtype = 'Red-leaning, cooling';
 	          momentum = '← Moving left';
@@ -23271,7 +22972,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	          subtype = 'Blue-leaning, cooling';
 	          momentum = '→ Moving right';
 	        }
-	        // --- REINFORCING REPUBLICAN (Randolph-type)
+          // --- REINFORCING REPUBLICAN
 	        else if (Number.isFinite(shift_since_2000) && shift_since_2000 >= 10 && Number.isFinite(shift_since_2020) && shift_since_2020 >= 1.25) {
 	          subtype = 'Moving right';
 	          momentum = '→ Moving right';
@@ -23957,7 +23658,6 @@ document.addEventListener('DOMContentLoaded', function() {
             addCompactCodeVariants(baseToken, countyCodes, addCode);
             addPrefixStrippedNumericVariants(baseToken, countyCodes, addCode);
           }
-          if (countyNorm === 'WAKE') addClosestHyphenCodeVariants(raw, countyCodes, addCode);
         }
 
         if (countyAliases) {
@@ -27650,10 +27350,10 @@ document.addEventListener('DOMContentLoaded', function() {
           const stateSigned = ((sr - sd) / two) * 100;
           const delta = Number(signedMarginPct) - stateSigned;
           if (!Number.isFinite(delta)) return '';
-          if (Math.abs(delta) < 0.15) return 'About even with North Carolina.';
+          if (Math.abs(delta) < 0.15) return 'About even with South Carolina.';
           const a = Math.abs(delta);
           return delta > 0
-            ? `This county is ${a.toFixed(1)} points more Republican than North Carolina.`
+            ? `This county is ${a.toFixed(1)} points more Republican than South Carolina.`
             : `This county voted ${a.toFixed(1)} points to the left of the statewide result.`;
         } catch (_) {
           return '';
@@ -29106,11 +28806,21 @@ document.addEventListener('DOMContentLoaded', function() {
       return toTitleCaseName(withoutPrecinctPrefix || normalized);
     }
 
+    function formatRawPrecinctCodeLabel(codeRaw) {
+      const cleaned = String(codeRaw || '').replace(/[_]+/g, ' ').replace(/\s+/g, ' ').trim();
+      if (!cleaned) return '';
+      const compact = cleaned.replace(/[^A-Z0-9]/gi, '').toUpperCase();
+      if (!compact) return '';
+      const looksHumanReadable = /[A-Z]/i.test(cleaned) && /[\s-]/.test(cleaned);
+      if (looksHumanReadable) return toTitleCaseName(cleaned);
+      return `Precinct ${compact}`;
+    }
+
     function formatPrecinctDisplayLabel(countyNameOrNorm, precinctCodeRaw) {
       const code = resolvePrecinctCanonicalCode(countyNameOrNorm, precinctCodeRaw);
       if (!code) return '';
       const friendly = getPrecinctFriendlyName(countyNameOrNorm, code);
-      if (!friendly) return `Precinct ${code}`;
+      if (!friendly) return formatRawPrecinctCodeLabel(code);
       return friendly;
     }
 
@@ -29165,7 +28875,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       const codeOnly = canonicalCode || rawCode;
-      return displayFull || displayFallbackFull || friendlyLabel || (codeOnly ? `Precinct ${codeOnly}` : '');
+      return displayFull || displayFallbackFull || friendlyLabel || formatRawPrecinctCodeLabel(codeOnly);
     }
 
     async function ensurePrecinctVariantOverrides() {
@@ -30199,7 +29909,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const sd = q.match(/^(SD|SENATE)\s*[-#:]?\s*(\d{1,3})$/i);
       if (sd) return { kind: 'sd', num: Number(sd[2]), raw };
 
-      // Precinct: "WAKE 01-14" or "WAKE - 01-14".
+      // Precinct: "COUNTY 01-14" or "COUNTY - 01-14".
       const p1 = q.match(/^([A-Z .'-]+)\s*-\s*([0-9A-Z .'-]+)$/);
       if (p1) return { kind: 'precinct', county: p1[1].trim(), code: p1[2].trim(), raw };
       const p2 = q.match(/^([A-Z .'-]+)\s+(\d{1,3}-\d{1,3}[A-Z]?)$/);
@@ -30319,7 +30029,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (codes) {
           addCompactCodeVariants(code, codes, addTargetVariant);
           addPrefixStrippedNumericVariants(code, codes, addTargetVariant);
-          if (countyNorm === 'WAKE') addClosestHyphenCodeVariants(code, codes, addTargetVariant);
         }
       } catch (_) {}
 
@@ -32160,7 +31869,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 addPrefixStrippedNumericVariants(baseToken, codes, addKey);
               }
             }
-            if (codes && countyNorm === 'WAKE') addClosestHyphenCodeVariants(precRaw, codes, addKey);
 	          const baseCompact = (baseToken || precRaw).replace(/\s+/g, '');
 	          if (codes && baseCompact) {
 	            const baseNum = baseCompact.match(/^0*([0-9]+)$/);
@@ -32199,7 +31907,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	        // include the bare code as a matching variant.
 	        try {
 	          if (baseToken) {
-	            // Decimal codes like Buncombe "08.1".
+              // Decimal codes like "08.1".
 	            const md = baseToken.match(/^0*([0-9]{1,3})\.([0-9]{1,3})$/);
 	            if (md) {
 	              const a = String(parseInt(md[1], 10)).padStart(2, '0');
@@ -32594,7 +32302,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   addKey(`${String(n).padStart(4, '0')}${suf}`);
                 }
               }
-              // Decimal codes like Buncombe "08.1".
+              // Decimal codes like "08.1".
               const md = token.match(/^0*([0-9]{1,3})\.([0-9]{1,3})$/);
               if (md) {
                 const a = String(parseInt(md[1], 10)).padStart(2, '0');
@@ -32632,7 +32340,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	        // base to any known precinct IDs that extend it by a short suffix.
 	        try {
 	          const codes = precinctIdx && countyNorm ? precinctIdx.get(countyNorm) : null;
-            if (codes && countyNorm === 'WAKE') addClosestHyphenCodeVariants(precRaw, codes, addKey);
 	          const baseCompact = (baseToken || precRaw).replace(/\s+/g, '');
 	          if (codes && baseCompact) {
 	            const baseNum = baseCompact.match(/^0*([0-9]+)$/);
