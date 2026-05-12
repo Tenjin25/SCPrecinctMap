@@ -28315,13 +28315,26 @@ document.addEventListener('DOMContentLoaded', function() {
       const repLabel = stripRunningMateName((repName || 'Republican').toString().trim()) || 'Republican';
       const otherLabel = (otherName || 'Other').toString().trim() || 'Other';
 
-      rows.push(`<div class="vhr-row rep"><span class="vhr-dot"></span><span class="vhr-name">${escapeHtml(repLabel)}</span><span class="vhr-votes">${escapeHtml(formatVotehubVotes(rVotes))}</span><span class="vhr-pct">${escapeHtml(pctFormatter(repPct))}%</span></div>`);
-      rows.push(`<div class="vhr-row dem"><span class="vhr-dot"></span><span class="vhr-name">${escapeHtml(demLabel)}</span><span class="vhr-votes">${escapeHtml(formatVotehubVotes(dVotes))}</span><span class="vhr-pct">${escapeHtml(pctFormatter(demPct))}%</span></div>`);
-      if (oVotes > 0) {
-        rows.push(`<div class="vhr-row other"><span class="vhr-dot"></span><span class="vhr-name">${escapeHtml(otherLabel)}</span><span class="vhr-votes">${escapeHtml(formatVotehubVotes(oVotes))}</span><span class="vhr-pct">${escapeHtml(pctFormatter(otherPct))}%</span></div>`);
-      }
-
       const winnerPartyKey = String(winnerParty || '').toLowerCase();
+      const rowItems = [
+        { party: 'rep', label: repLabel, votes: rVotes, pct: repPct },
+        { party: 'dem', label: demLabel, votes: dVotes, pct: demPct }
+      ];
+      if (oVotes > 0) {
+        rowItems.push({ party: 'other', label: otherLabel, votes: oVotes, pct: otherPct });
+      }
+      rowItems.sort((a, b) => {
+        const voteDiff = Number(b.votes || 0) - Number(a.votes || 0);
+        if (voteDiff !== 0) return voteDiff;
+        const aWinner = a.party === winnerPartyKey ? 1 : 0;
+        const bWinner = b.party === winnerPartyKey ? 1 : 0;
+        if (bWinner !== aWinner) return bWinner - aWinner;
+        return a.label.localeCompare(b.label);
+      });
+      rowItems.forEach(item => {
+        rows.push(`<div class="vhr-row ${escapeHtml(item.party)}"><span class="vhr-dot"></span><span class="vhr-name">${escapeHtml(item.label)}</span><span class="vhr-votes">${escapeHtml(formatVotehubVotes(item.votes))}</span><span class="vhr-pct">${escapeHtml(pctFormatter(item.pct))}%</span></div>`);
+      });
+
       const winnerShort = winnerPartyKey === 'rep' ? 'Trump' : (winnerPartyKey === 'dem' ? 'Harris' : 'Tie');
       const winnerText = stripRunningMateName((winnerName || winnerShort || '').toString().trim()) || winnerShort;
       const winnerToneClass = winnerPartyKey === 'rep' ? 'rep' : (winnerPartyKey === 'dem' ? 'dem' : 'tie');
