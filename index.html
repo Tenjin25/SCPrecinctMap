@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <style>
@@ -3057,12 +3057,36 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   }
 
   .hover-tooltip {
-    border: 1px solid rgba(15, 23, 42, 0.20);
-    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.25);
+    background: rgba(15, 23, 42, 0.95);
+    color: #e2e8f0;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    box-shadow: 0 18px 44px rgba(2, 6, 23, 0.55);
     backdrop-filter: blur(14px);
     border-radius: 14px;
     max-width: 280px;
     animation: tooltip-in 140ms ease-out;
+  }
+
+  .hover-tooltip .tooltip-title {
+    color: #f8fafc;
+  }
+
+  .hover-tooltip .tooltip-title-badge.rep {
+    color: #991b1b;
+    background: rgba(239, 68, 68, 0.16);
+    border-color: rgba(220, 38, 38, 0.35);
+  }
+
+  .hover-tooltip .tooltip-title-badge.dem {
+    color: #1e3a8a;
+    background: rgba(59, 130, 246, 0.16);
+    border-color: rgba(37, 99, 235, 0.35);
+  }
+
+  .hover-tooltip .tooltip-title-badge.tie {
+    color: #e2e8f0;
+    background: rgba(100, 116, 139, 0.28);
+    border-color: rgba(148, 163, 184, 0.38);
   }
 
   .hover-tooltip .tooltip-head {
@@ -3078,17 +3102,17 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   }
 
   .hover-tooltip .tooltip-btn {
-    border: 1px solid rgba(15, 23, 42, 0.16);
-    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(148, 163, 184, 0.32);
+    background: rgba(30, 41, 59, 0.84);
     border-radius: 10px;
     padding: 6px 8px;
     font-size: 12px;
     cursor: pointer;
-    color: #0f172a;
+    color: #f1f5f9;
   }
 
   .hover-tooltip .tooltip-btn:hover {
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(51, 65, 85, 0.96);
   }
 
   /* Allow interacting with tooltip buttons only when pinned. */
@@ -6176,9 +6200,9 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     margin: 0;
     padding: 0 14px;
     border-radius: 999px;
-    background: linear-gradient(135deg, rgba(185, 28, 28, 0.96) 0%, rgba(29, 78, 216, 0.92) 100%);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.96) 0%, rgba(37, 99, 235, 0.9) 100%);
     border: 1px solid rgba(148, 163, 184, 0.18);
-    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.16), 0 8px 22px rgba(185, 28, 28, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.16);
     color: #f8fafc !important;
     font-size: 14px;
     font-weight: 800;
@@ -6191,8 +6215,8 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     width: 8px;
     height: 8px;
     border-radius: 999px;
-    background: linear-gradient(135deg, var(--state-red) 0%, var(--state-blue) 100%);
-    box-shadow: 0 0 0 4px rgba(248, 250, 252, 0.12);
+    background: linear-gradient(135deg, #38bdf8 0%, #bfdbfe 100%);
+    box-shadow: 0 0 0 4px rgba(191, 219, 254, 0.12);
     flex: 0 0 auto;
   }
 
@@ -6678,8 +6702,8 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   }
 
   .desktop-statewide-tag {
-    background: linear-gradient(135deg, rgba(220, 38, 38, 0.12) 0%, rgba(37, 99, 235, 0.12) 100%);
-    color: #1e3a8a;
+    background: rgba(37, 99, 235, 0.10);
+    color: #1d4ed8;
   }
 
   .desktop-statewide-title {
@@ -7021,8 +7045,8 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     min-height: 30px;
     padding: 0 10px;
     border-radius: 999px;
-    background: linear-gradient(135deg, rgba(220, 38, 38, 0.10) 0%, rgba(37, 99, 235, 0.12) 100%);
-    color: #1e3a8a;
+    background: rgba(37, 99, 235, 0.10);
+    color: #1d4ed8;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.03em;
@@ -10635,6 +10659,17 @@ document.addEventListener('DOMContentLoaded', function() {
       return new Set(counties.map(normalizeRegionCountyName).filter(Boolean));
     }
 
+      function splitContestRowsByLevel(rows = []) {
+        const countySummaryRows = [];
+        const precinctRows = [];
+        (rows || []).forEach(row => {
+          const countyField = (row?.county || '').toString();
+          if (countyField.includes(' - ')) precinctRows.push(row);
+          else countySummaryRows.push(row);
+        });
+        return { countySummaryRows, precinctRows };
+      }
+
     function aggregateContestRowsForRegion(rows, contestType, regionKey) {
       const countySet = getRegionCountySet(regionKey);
       let dem = 0;
@@ -10645,7 +10680,10 @@ document.addEventListener('DOMContentLoaded', function() {
       let repCandidate = '';
       const matchedCounties = new Set();
 
-      (rows || []).forEach(row => {
+      const split = splitContestRowsByLevel(rows || []);
+      const rollupRows = split.countySummaryRows.length ? split.countySummaryRows : (rows || []);
+
+      rollupRows.forEach(row => {
         const countyRaw = ((row?.county || '').toString().split(' - ')[0] || '').trim();
         const countyNorm = normalizeRegionCountyName(countyRaw);
         if (!countyNorm || !countySet.has(countyNorm)) return;
@@ -15006,9 +15044,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!bundle) continue;
         const year = Number(bundle.year);
         const rows = bundle.rows || [];
+        const split = splitContestRowsByLevel(rows || []);
+        const rollupRows = split.countySummaryRows.length ? split.countySummaryRows : rows;
         let dem = 0, rep = 0, oth = 0, tot = 0;
         let demCand = '', repCand = '';
-        rows.forEach(r => {
+        rollupRows.forEach(r => {
           dem += Number(r[`${contestType}_dem`]) || 0;
           rep += Number(r[`${contestType}_rep`]) || 0;
           oth += Number(r[`${contestType}_other`]) || 0;
@@ -18738,7 +18778,8 @@ document.addEventListener('DOMContentLoaded', function() {
         };
       }
 
-	    async function loadContestSlice(contestType, year) {
+	    async function loadContestSlice(contestType, year, options = {}) {
+        const preferCounty = !!options.preferCounty;
         const modeledDef = getModeledContestDefinition(contestType, year);
         if (modeledDef) {
           const sig = getModeledDefSignature(modeledDef);
@@ -18757,7 +18798,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
 
-	      const key = `${contestType}_${year}`;
+        const key = `${contestType}_${year}_${preferCounty ? 'county' : 'default'}`;
 	      if (contestSliceCache.has(key)) return contestSliceCache.get(key);
         if (contestSliceInflight.has(key)) return contestSliceInflight.get(key);
 
@@ -18770,7 +18811,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const manifestFile = (manifestEntry?.file || '').toString().trim();
 
           // Prefer OpenElections CSV for older presidential cycles to avoid a known-missing JSON fetch (and console 404 noise).
-          if (contestType === 'president' && getOpenElectionsCsvPath(contestType, Number(year))) {
+          if (!preferCounty && contestType === 'president' && getOpenElectionsCsvPath(contestType, Number(year))) {
             try {
               const rows = await loadPresidentSliceFromOpenElectionsCSV(Number(year));
               contestSliceCache.set(key, rows);
@@ -26163,8 +26204,6 @@ document.addEventListener('DOMContentLoaded', function() {
         : '';
 
       const marginCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate, signedMarginPct, { precision: 'county' });
-      const tierShort = tierMeta?.shortLabel || tierMeta?.label || '';
-      const tierLong = tierMeta?.label || '';
       const flipLine = (prevSignedForFlip !== null)
         ? flipLineHTML(prevSignedForFlip, signedMarginPct, vizPrevCache?.prevYear || null, Number(year))
         : '';
@@ -26205,76 +26244,60 @@ document.addEventListener('DOMContentLoaded', function() {
       })();
       const finalInsight = tooltipInsight || smartInsight;
       const pinnedShell = !!(tooltipPinned || (forceTooltip && isTouchInteractionMode()));
-      const desktopCollapsed = isDesktopTooltipMode() && !pinnedShell;
-      const deltaBlock = buildCountyDeltaBlockHTML(norm, contestType, { presentation: desktopCollapsed ? 'desktop-collapsed' : 'desktop-expanded' });
+      const deltaBlock = buildCountyDeltaBlockHTML(norm, contestType, { presentation: pinnedShell ? 'desktop-expanded' : 'desktop-collapsed' });
       const useCompact = isMobileTooltipMode();
-
-      const classicInner = `
-        <div class="hover-meta">${chips.join('')}</div>
-        ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, { precision: 'county' })}
-        ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
-        ${deltaBlock}
-        ${splitInsightLine}
-        ${demoLine}
-      `.trim();
-
-      const desktopCollapsedInner = `
-        <div class="tooltip-quickline">
-          <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
-          ${tierLong ? `<span class="tier">${escapeHtml(tierLong)}</span>` : ''}
-        </div>
-        ${shiftLine}
-        ${flipLine}
-        ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
-        ${deltaBlock}
-      `.trim();
-
-      const compactInner = `
-        <div class="tooltip-quickline">
-          <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
-          ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
-        </div>
-        ${shiftLine}
-        ${flipLine}
-        ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
-        ${deltaBlock}
-        <details class="tooltip-more" aria-label="More details">
-          <summary>Details</summary>
-          <div class="tooltip-more-body">
-            <div class="hover-meta">${chips.join('')}</div>
-            ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, { precision: 'county' })}
-            ${splitInsightLine}
-            ${demoLine}
-          </div>
-        </details>
-      `.trim();
+      const winnerName = signedMarginPct > 0
+        ? shortCandidateLabel(repCandidate, 'Republican')
+        : (signedMarginPct < 0 ? shortCandidateLabel(demCandidate, 'Democratic') : 'Tie');
+      const winnerParty = signedMarginPct > 0 ? 'rep' : (signedMarginPct < 0 ? 'dem' : 'tie');
+      const votehubInner = buildVotehubResultsTooltip({
+        title: `${countyDisplay} County`,
+        subtitle,
+        demName: demCandidate,
+        repName: repCandidate,
+        otherName: 'Other',
+        demVotes,
+        repVotes,
+        otherVotes,
+        totalVotes,
+        winnerName,
+        winnerParty,
+        marginPct: Math.abs(signedMarginPct),
+        winnerLineText: marginCall?.text || '',
+        prevSignedMarginPct: prevSignedForFlip,
+        currentSignedMarginPct: signedMarginPct,
+        flipYearLabel: vizPrevCache?.prevYear || null,
+        districtType: 'County',
+        showWinnerLine: true
+      });
+      const detailsBody = [
+        chips.length ? `<div class="hover-meta">${chips.join('')}</div>` : '',
+        deltaBlock,
+        splitInsightLine,
+        demoLine
+      ].filter(Boolean).join('');
+      const detailsPanel = detailsBody && (pinnedShell || useCompact)
+        ? `<details class="tooltip-more" aria-label="More details"><summary>Details</summary><div class="tooltip-more-body">${detailsBody}</div></details>`
+        : '';
       const actionHint = useCompact
         ? (pinnedShell ? 'Pinned • tap Close to dismiss' : (isTouchInteractionMode() ? 'Tap to pin details' : 'Click to pin details'))
         : '';
-      const inner = isDesktopTooltipMode()
-        ? (desktopCollapsed ? desktopCollapsedInner : classicInner)
-        : `${useCompact ? compactInner : classicInner}${actionHint ? `<div class="tooltip-hint">${escapeHtml(actionHint)}</div>` : ''}`;
+      const inner = `
+        ${votehubInner}
+        ${shiftLine}
+        ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
+        ${detailsPanel}
+        ${actionHint ? `<div class="tooltip-hint">${escapeHtml(actionHint)}</div>` : ''}
+      `.trim();
 
-      const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
       const copyText = `${countyDisplay} County`;
       showHoverTooltip(
         e.point.x,
         e.point.y,
-        buildTooltipShell(hoverTitle, inner, { pinned: pinnedShell, showClose: pinnedShell, copyText }),
-        { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
+        buildTooltipShell('', inner, { pinned: pinnedShell, showClose: pinnedShell, copyText }),
+        { force: !!forceTooltip, pinned: pinnedShell, context: 'votehub-results', copyText }
       );
-      if (desktopCollapsed) {
-        desktopHoverExpandState = {
-          kind: 'county',
-          x: e.point.x,
-          y: e.point.y,
-          title: hoverTitle,
-          expandedInner: classicInner,
-          copyText
-        };
-      } else {
-        clearDesktopHoverExpandState();
-      }
+      clearDesktopHoverExpandState();
       wireTooltipButtons();
       try { markOnboardingSeen(); } catch (_) {}
     }
@@ -26684,7 +26707,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ? 'Congressional District'
         : (scope === 'state_senate' ? 'State Senate' : 'State House');
       const districtTitle = scope === 'congressional'
-        ? `NC-${String(districtNum).padStart(2, '0')}`
+        ? `SC-${String(districtNum).padStart(2, '0')}`
         : `${districtLabel} ${districtNum}`;
       const winnerName = signedMarginPct > 0
         ? shortCandidateLabel(repCandidate, 'Republican')
@@ -28625,8 +28648,8 @@ document.addEventListener('DOMContentLoaded', function() {
         return formatVotehubPct(v, 2);
       };
       const rows = [];
-      const demLabel = (demName || 'Democratic').toString().trim() || 'Democratic';
-      const repLabel = (repName || 'Republican').toString().trim() || 'Republican';
+      const demLabel = stripRunningMateName((demName || 'Democratic').toString().trim()) || 'Democratic';
+      const repLabel = stripRunningMateName((repName || 'Republican').toString().trim()) || 'Republican';
       const otherLabel = (otherName || 'Other').toString().trim() || 'Other';
 
       rows.push(`<div class="vhr-row rep"><span class="vhr-dot"></span><span class="vhr-name">${escapeHtml(repLabel)}</span><span class="vhr-votes">${escapeHtml(formatVotehubVotes(rVotes))}</span><span class="vhr-pct">${escapeHtml(pctFormatter(repPct))}%</span></div>`);
@@ -28637,7 +28660,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const winnerPartyKey = String(winnerParty || '').toLowerCase();
       const winnerShort = winnerPartyKey === 'rep' ? 'Trump' : (winnerPartyKey === 'dem' ? 'Harris' : 'Tie');
-      const winnerText = (winnerName || winnerShort || '').toString().trim();
+      const winnerText = stripRunningMateName((winnerName || winnerShort || '').toString().trim()) || winnerShort;
       const winnerToneClass = winnerPartyKey === 'rep' ? 'rep' : (winnerPartyKey === 'dem' ? 'dem' : 'tie');
       const winnerDisplayText = (winnerLineText || '').toString().trim() || `${winnerText} +${marginFormatter(marginAbs)}%`;
       const winnerLine = showWinnerLine
@@ -29149,8 +29172,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const friendly = rawCode ? getPrecinctFriendlyName(countyName, rawCode) : '';
       const friendlyLabel = (canonicalCode && friendly) ? `${friendly} (${canonicalCode})` : '';
 
-      const full = String(fullName || '').replace(/\s+/g, ' ').trim();
-      const fallbackFull = String(fallbackFullName || '').replace(/\s+/g, ' ').trim();
+      const cleanPrecinctFullName = (value) => String(value || '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .replace(/^precinct\s+/i, '')
+        .trim();
+      const full = cleanPrecinctFullName(fullName);
+      const fallbackFull = cleanPrecinctFullName(fallbackFullName);
 
       // If the shapefile's "full name" is just a code-ish token (or a "VOTING DISTRICT" placeholder),
       // prefer a real friendly label when we have it.
@@ -32472,16 +32500,19 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       if (staleCheck()) return;
 
-      // Filter data for this contest and year
+      // Split county rollups from precinct-detail rows so mixed slices do not double count statewide totals.
       const contestData = await loadContestSlice(contestType, year);
       if (staleCheck()) return;
+      const contestSplit = splitContestRowsByLevel(contestData || []);
+      const countyRows = contestSplit.countySummaryRows.length ? contestSplit.countySummaryRows : (contestData || []);
+      const precinctDetailRows = contestSplit.precinctRows.length ? contestSplit.precinctRows : countyRows;
       
-      debugLog(`Applying ${contestType} for ${year}:`, contestData.length, 'counties found');
+      debugLog(`Applying ${contestType} for ${year}:`, countyRows.length, 'county rows');
       
-      if (contestData.length === 0) {
+      if (countyRows.length === 0) {
         return setStatus('No data found for this contest');
       }
-      lastContestSliceMeta = { contestType, year: Number(year), rows: contestData };
+      lastContestSliceMeta = { contestType, year: Number(year), rows: precinctDetailRows.length ? precinctDetailRows : countyRows };
 
 	      function normalizeCountyName(name) {
 	        return (name || '')
@@ -32731,27 +32762,23 @@ document.addEventListener('DOMContentLoaded', function() {
           : (needsPrecinctDetail && !skipPrecinctRowBuild ? `precinct.match.build:${precinctCacheKey}` : '');
         const perfT0 = (perfOn && perfLabel) ? atlasPerfNow() : 0;
 
-        for (const row of contestData) {
-          if (staleCheck()) return;
-          const rowName = (row.county || '').toString();
-          const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
-          const countyNorm = normalizeCountyName(countyOnly);
-          if (!countyNorm) continue;
+        if (needsPrecinctDetail && !skipPrecinctRowBuild) {
+          for (const row of precinctDetailRows) {
+            if (staleCheck()) return;
+            const rowName = (row.county || '').toString();
+            const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
+            const countyNorm = normalizeCountyName(countyOnly);
+            if (!countyNorm) continue;
 
-          const rawDemVotes = Number(row[`${contestType}_dem`] || 0);
-          const rawRepVotes = Number(row[`${contestType}_rep`] || 0);
-          const rawOtherVotes = Number(row[`${contestType}_other`] || 0);
-          const rawTotalVotes = Number(row[`${contestType}_total`] || 0);
-          const adjusted = applyScenarioShiftToVotes(countyNorm, rawDemVotes, rawRepVotes, rawOtherVotes, rawTotalVotes);
-          const demVotes = Number(adjusted.dem || 0);
-          const repVotes = Number(adjusted.rep || 0);
-          const otherVotes = Number(adjusted.other || 0);
-          const totalVotes = Number(adjusted.total || 0);
-          const demCand = (row[`${contestType}_dem_candidate`] || '').toString();
-          const repCand = (row[`${contestType}_rep_candidate`] || '').toString();
-
-          if (needsPrecinctDetail && !skipPrecinctRowBuild) {
-            const norms = precinctNormVariants(rowName);
+            const rawDemVotes = Number(row[`${contestType}_dem`] || 0);
+            const rawRepVotes = Number(row[`${contestType}_rep`] || 0);
+            const rawOtherVotes = Number(row[`${contestType}_other`] || 0);
+            const rawTotalVotes = Number(row[`${contestType}_total`] || 0);
+            const adjusted = applyScenarioShiftToVotes(countyNorm, rawDemVotes, rawRepVotes, rawOtherVotes, rawTotalVotes);
+            const demVotes = Number(adjusted.dem || 0);
+            const repVotes = Number(adjusted.rep || 0);
+            const otherVotes = Number(adjusted.other || 0);
+            const totalVotes = Number(adjusted.total || 0);
             const adjustedSigned = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
             const adjustedWinner = adjustedSigned > 0 ? 'REPUBLICAN' : (adjustedSigned < 0 ? 'DEMOCRAT' : 'TIE');
             const adjustedRow = {
@@ -32763,12 +32790,33 @@ document.addEventListener('DOMContentLoaded', function() {
               [`${contestType}_margin_pct`]: adjustedSigned,
               [`${contestType}_winner`]: adjustedWinner
             };
+            const norms = precinctNormVariants(rowName);
             norms.forEach(n => {
               currentPrecinctResults.set(n, adjustedRow);
             });
           }
+        }
 
-          if (!cachedAggBundle) {
+        if (!cachedAggBundle) {
+          for (const row of countyRows) {
+            if (staleCheck()) return;
+            const rowName = (row.county || '').toString();
+            const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
+            const countyNorm = normalizeCountyName(countyOnly);
+            if (!countyNorm) continue;
+
+            const rawDemVotes = Number(row[`${contestType}_dem`] || 0);
+            const rawRepVotes = Number(row[`${contestType}_rep`] || 0);
+            const rawOtherVotes = Number(row[`${contestType}_other`] || 0);
+            const rawTotalVotes = Number(row[`${contestType}_total`] || 0);
+            const adjusted = applyScenarioShiftToVotes(countyNorm, rawDemVotes, rawRepVotes, rawOtherVotes, rawTotalVotes);
+            const demVotes = Number(adjusted.dem || 0);
+            const repVotes = Number(adjusted.rep || 0);
+            const otherVotes = Number(adjusted.other || 0);
+            const totalVotes = Number(adjusted.total || 0);
+            const demCand = (row[`${contestType}_dem_candidate`] || '').toString();
+            const repCand = (row[`${contestType}_rep_candidate`] || '').toString();
+
             statewidedemVotes += demVotes;
             statewidrepVotes += repVotes;
             statewidotherVotes += otherVotes;
@@ -32803,7 +32851,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 __model_explain_tags: (row.__model_explain_tags || '').toString()
               };
             }
-            // Keep candidate labels at county level for sidebar/hover margin readability.
             if (!countyAgg[countyNorm][`${contestType}_dem_candidate`] && demCand) countyAgg[countyNorm][`${contestType}_dem_candidate`] = demCand;
             if (!countyAgg[countyNorm][`${contestType}_rep_candidate`] && repCand) countyAgg[countyNorm][`${contestType}_rep_candidate`] = repCand;
             if (!Number.isFinite(Number(countyAgg[countyNorm].__model_baseline_margin_pct)) && Number.isFinite(Number(row.__model_baseline_margin_pct))) {
