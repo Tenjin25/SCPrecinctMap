@@ -10903,8 +10903,14 @@ document.addEventListener('DOMContentLoaded', function() {
       let stateOther = 0;
       let stateTotal = 0;
 
+      const hasCountySummaryRows = (rows || []).some(r => {
+        const rowName = (r?.county || '').toString().trim();
+        return !!rowName && !rowName.includes(' - ');
+      });
+
       (rows || []).forEach(r => {
         const rowName = (r?.county || '').toString();
+        if (hasCountySummaryRows && rowName.includes(' - ')) return;
         const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
         const countyNorm = normalizeCountyToken(countyOnly);
         if (!countyNorm) return;
@@ -10962,7 +10968,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const p = (async () => {
         try {
-          const rows = strict ? await tryLoadContestSliceStrict(ct, y) : await loadContestSlice(ct, y);
+          const rows = strict
+            ? await tryLoadContestSliceStrict(ct, y)
+            : await loadContestSlice(ct, y, { preferCounty: true });
           if (!rows || !rows.length) {
             countyAggregateByContestYearCache.set(key, null);
             return null;
@@ -13950,6 +13958,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function formatVoteCounterWinnerLabel(name, partyCode, fallbackText) {
+      const full = fullCandidateLabel(name, '');
+      if (canonicalCandidateDisplayName(full || name)) {
+        return `${full} (${partyCode})`;
+      }
       if (!shouldUseCompactVoteCounterWinnerLabel()) {
         return formatVoteCounterCandidateLabel(name, partyCode, fallbackText);
       }
@@ -14665,6 +14677,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         return `${winnerLast} +${marginLabel}%`;
       })();
+      const closestLine = (() => {
+        if (!closest || closest.winnerMeta.partyClass === 'tie') return 'Tie';
+        const marginAbs = useCountyMarginPrecision
+          ? countyMarginPctDisplayValue(closest.repVotes, closest.demVotes, closest.totalVotes)
+          : marginPctDisplayValue(closest.repVotes, closest.demVotes, closest.totalVotes);
+        const marginLabel = useCountyMarginPrecision
+          ? formatCountyMarginPctForDisplay(marginAbs)
+          : formatMarginPctForDisplay(marginAbs);
+        const winnerLast = getWinnerLastName(closest.item, {
+          contestType: contestTypeHint,
+          year: Number(closest.item?.year),
+          office: contestTypeHint ? formatContestName(contestTypeHint, Number(closest.item?.year)) : ''
+        });
+        return `${winnerLast} +${marginLabel}%`;
+      })();
       const earliest = annotated[0];
       const historyShift = describeTrendShift(summaryEntry.signedPct, earliest ? earliest.signedPct : NaN, earliest ? earliest.item.year : '');
       let streakCount = 0;
@@ -14815,7 +14842,7 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
               <div class="focus-trend-stat">
                 <span class="focus-trend-stat-label">Closest</span>
-                <span class="focus-trend-stat-value ${closest.winnerMeta.partyClass}">${escapeHtml(`${closest.item.year}: ${winnerMarginLabelFn(closest.repVotes, closest.demVotes, closest.totalVotes, closest.item.rep_candidate, closest.item.dem_candidate)}`)}</span>
+                <span class="focus-trend-stat-value ${closest.winnerMeta.partyClass}">${escapeHtml(`${closest.item.year}: ${closestLine}`)}</span>
               </div>
               <div class="focus-trend-stat">
                 <span class="focus-trend-stat-label">History</span>
@@ -20354,12 +20381,27 @@ document.addEventListener('DOMContentLoaded', function() {
       return getCandidateLastName(row, party || '', contestMeta);
     }
 
+    function canonicalCandidateDisplayName(name) {
+      const raw = (name || '').toString().trim();
+      if (!raw) return '';
+      const key = raw
+        .toUpperCase()
+        .replace(/[^A-Z ]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (/^(?:JOE|JOSEPH)\s+(?:R\s+)?BIDEN$/.test(key)) return 'Joseph R. Biden';
+      if (/^DONALD\s+(?:J\s+)?TRUMP$/.test(key)) return 'Donald J. Trump';
+      return '';
+    }
+
     function fullCandidateLabel(name, fallback = '') {
       const raw = (name || '').toString().trim();
       if (!raw) return fallback;
       const ticketLead = stripRunningMateName(raw);
       const cleaned = ticketLead.replace(/\([^)]*\)/g, ' ').replace(/[^A-Za-z .,\'-]/g, ' ').replace(/\s+/g, ' ').trim();
       if (!cleaned) return fallback;
+      const canonical = canonicalCandidateDisplayName(cleaned);
+      if (canonical) return canonical;
       return toTitleCaseName(cleaned);
     }
 
@@ -20788,12 +20830,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if (/donald\s+\w*\s*trump\s+michael\s+\w*\s*pence/i.test(cleanedRaw)) return 'Donald Trump';
       if (/donald\s+\w*\s*trump\s+jd\s+vance/i.test(cleanedRaw) || /donald\s+\w*\s*trump\s+james\s+\w*\s*vance/i.test(cleanedRaw)) return 'Donald Trump';
       if (/kamala\s+\w*\s*harris\s+tim\s+\w*\s*walz/i.test(cleanedRaw)) return 'Kamala Harris';
-      if (/joe\s+\w*\s*biden\s+kamala\s+\w*\s*harris/i.test(cleanedRaw)) return 'Joe Biden';
+      if (/(?:joe|joseph)\s+\w*\s*biden\s+kamala\s+\w*\s*harris/i.test(cleanedRaw)) return 'Joe Biden';
       // Remove common "running mate" annotation formats.
       const runningMateSplit = cleanedRaw.split(/\b(?:running\s+mate|with\s+running\s+mate|vp|vice\s+president)\b/i, 1)[0].trim();
       const normalizedRaw = runningMateSplit || cleanedRaw;
       // Common presidential ticket separators (case-insensitive).
-      const splitBySep = normalizedRaw.split(/\s*(?:\/|&|\+| and | - | – | — )\s*/i, 1)[0].trim();
+      const splitBySep = normalizedRaw.split(/\s*(?:,|\/|&|\+| and | - | – | — )\s*/i, 1)[0].trim();
       if (splitBySep) {
         return expandLegacyCandidateShorthand(
           splitBySep
@@ -22064,7 +22106,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!totals || !(Number(totals.total || 0) > 0)) {
           // Fallback (modeled / missing bundles): aggregate just this county from rows.
           try {
-            const rows = await loadContestSlice(contestType, year);
+            const rows = await loadContestSlice(contestType, year, { preferCounty: true });
             let dem = 0, rep = 0, other = 0, total = 0;
             (rows || []).forEach(r => {
               const rowName = (r?.county || '').toString();
@@ -23372,17 +23414,7 @@ document.addEventListener('DOMContentLoaded', function() {
             add('Latest Result', formatWinnerLabel(latest, latestSigned), 'latest');
             if (previous) add(cycleShiftLabel, formatShiftLabel(recentShiftTowardGop), 'shift');
             if (row2020 && Number(row2020.year) !== Number(latest.year)) add('Since 2020', formatShiftLabel(shiftSince2020), 'shift');
-            // Avoid duplicating "Since 2020" when the first available row is also 2020 (common for midterm-only series).
-            if (
-              previous &&
-              Number(first.year) !== Number(previous.year) &&
-              Number(first.year) !== 2000 &&
-              !(Number(first.year) === 2020)
-            ) {
-              add(`Since ${first.year}`, formatShiftLabel(longShiftTowardGop), 'shift');
-            }
             if (row2008 && Number(row2008.year) !== Number(first.year)) add('Since 2008', formatShiftLabel(shiftSince2008), 'shift');
-            if (row2000 && Number(row2000.year) !== Number(latest.year)) add('Since 2000', formatShiftLabel(shiftSince2000), 'shift');
             return out;
           })()
       };
@@ -28311,8 +28343,8 @@ document.addEventListener('DOMContentLoaded', function() {
         return formatVotehubPct(v, 2);
       };
       const rows = [];
-      const demLabel = stripRunningMateName((demName || 'Democratic').toString().trim()) || 'Democratic';
-      const repLabel = stripRunningMateName((repName || 'Republican').toString().trim()) || 'Republican';
+      const demLabel = fullCandidateLabel((demName || 'Democratic').toString().trim(), 'Democratic') || 'Democratic';
+      const repLabel = fullCandidateLabel((repName || 'Republican').toString().trim(), 'Republican') || 'Republican';
       const otherLabel = (otherName || 'Other').toString().trim() || 'Other';
 
       const winnerPartyKey = String(winnerParty || '').toLowerCase();
@@ -28335,10 +28367,13 @@ document.addEventListener('DOMContentLoaded', function() {
         rows.push(`<div class="vhr-row ${escapeHtml(item.party)}"><span class="vhr-dot"></span><span class="vhr-name">${escapeHtml(item.label)}</span><span class="vhr-votes">${escapeHtml(formatVotehubVotes(item.votes))}</span><span class="vhr-pct">${escapeHtml(pctFormatter(item.pct))}%</span></div>`);
       });
 
-      const winnerShort = winnerPartyKey === 'rep' ? 'Trump' : (winnerPartyKey === 'dem' ? 'Harris' : 'Tie');
-      const winnerText = stripRunningMateName((winnerName || winnerShort || '').toString().trim()) || winnerShort;
+      const winnerShort = winnerPartyKey === 'rep' ? 'Republican' : (winnerPartyKey === 'dem' ? 'Democratic' : 'Tie');
+      const winnerText = fullCandidateLabel((winnerName || winnerShort || '').toString().trim(), winnerShort) || winnerShort;
       const winnerToneClass = winnerPartyKey === 'rep' ? 'rep' : (winnerPartyKey === 'dem' ? 'dem' : 'tie');
-      const winnerDisplayText = (winnerLineText || '').toString().trim() || `${winnerText} +${marginFormatter(marginAbs)}%`;
+      const rawWinnerLineText = (winnerLineText || '').toString().trim();
+      const winnerDisplayText = (rawWinnerLineText && (/^uncontested\b/i.test(rawWinnerLineText) || /^tie$/i.test(rawWinnerLineText)))
+        ? rawWinnerLineText
+        : `${winnerText} +${marginFormatter(marginAbs)}%`;
       const winnerLine = showWinnerLine
         ? `<div class="vhr-winner ${winnerToneClass}">${escapeHtml(winnerDisplayText)}</div>`
         : '';
@@ -31772,6 +31807,9 @@ document.addEventListener('DOMContentLoaded', function() {
         return null;
       }
       const candidates = (() => {
+        if (String(contestType || '').trim() === 'president') {
+          return [y - 4, y - 8, y - 12].filter(v => v >= 2000);
+        }
         const base = [y - 4, y - 6, y - 2, y - 8, y - 12].filter(v => v >= 2000);
         // US Senate: prefer the last time the *same seat* was up (typically y-6) when available.
         // If that slice doesn't exist, fall back to the nearest earlier available year.
@@ -32007,6 +32045,9 @@ document.addEventListener('DOMContentLoaded', function() {
         return null;
       }
       const candidates = (() => {
+        if (String(contestType || '').trim() === 'president') {
+          return [y - 4, y - 8, y - 12].filter(v => v >= 2000);
+        }
         const base = [y - 4, y - 6, y - 2, y - 8, y - 12].filter(v => v >= 2000);
         if (String(contestType || '').trim() !== 'us_senate') return base;
         const preferred = [y - 6, y - 12].filter(v => v >= 2000);
