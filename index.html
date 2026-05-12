@@ -10071,18 +10071,14 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="control-group" style="margin-bottom:12px;">
                 <span class="section-kicker">Quick Jumps</span>
                 <div class="region-jumps" id="region-jumps">
-                  <button type="button" class="region-jump-btn" data-region-jump="triangle">Triangle</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="triad">Triad</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="charlotte">Charlotte</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="asheville">Asheville</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="mountains">Mountains</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="coast">Coast</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="innerbanks">Inner Banks</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="sandhills">Sandhills</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="fayetteville">Fayetteville</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="capefear">Cape Fear</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="i95">I-95</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="foothills">Foothills</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="upstate">Upstate</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="piedmont">Piedmont</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="charlotte_metro">Charlotte Metro</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="charleston_metro">Charleston Metro</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="midlands">Midlands</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="pee_dee">Pee Dee</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="grand_strand">Grand Strand</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="lowcountry">Lowcountry</button>
                 </div>
             </div>
             <div class="control-group" style="margin-bottom:10px;">
@@ -10567,81 +10563,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // County memberships back the regional quick jumps so they can drive
     // real regional rollups instead of only camera movement.
-    // Definitions used:
-    // - Triangle: Research Triangle Regional Partnership
-    // - Triad: Piedmont Triad Regional Council
-    // - Charlotte: Expanded greater-Charlotte NC footprint
-    //   (Charlotte-Concord-Gastonia NC metro counties plus nearby commuter counties)
-    // - Asheville: Asheville metro-area counties
-    // - Mountains: NC Office of State Archaeology mountain region
-    // - Inner Banks: NC inland coastal plain counties east of I-95
-    // - Coast: NC DEQ CAMA counties
-    // - Sandhills: NCGS 143B-28.1 Sandhills (South Central) region
-    // - Fayetteville: Greater Fayetteville commuting footprint
-    // - Cape Fear: Lower Cape Fear counties
-    // - I-95: Core NC counties along the I-95 corridor
-    // - Foothills: Unifour and adjacent foothills counties
     const REGION_JUMPS = {
-      triangle: {
-        label: 'Research Triangle',
-        bounds: [[-79.90, 35.25], [-77.55, 36.60]],
-        counties: ['Chatham', 'Durham', 'Franklin', 'Granville', 'Harnett', 'Johnston', 'Lee', 'Nash', 'Orange', 'Person', 'Vance', 'Wake', 'Warren', 'Wilson']
-      },
-      triad: {
-        label: 'Piedmont Triad',
-        bounds: [[-81.10, 35.15], [-79.15, 36.62]],
-        counties: ['Alamance', 'Caswell', 'Davidson', 'Davie', 'Forsyth', 'Guilford', 'Montgomery', 'Randolph', 'Rockingham', 'Stokes', 'Surry', 'Yadkin']
-      },
-      charlotte: {
-        label: 'Charlotte Metro',
-        bounds: [[-81.95, 34.55], [-79.95, 35.95]],
-        counties: ['Alexander', 'Anson', 'Cabarrus', 'Catawba', 'Cleveland', 'Gaston', 'Iredell', 'Lincoln', 'Mecklenburg', 'Rowan', 'Stanly', 'Union']
-      },
-      asheville: {
-        label: 'Asheville Metro',
-        bounds: [[-83.05, 34.92], [-82.10, 36.25]],
-        counties: ['Buncombe', 'Haywood', 'Henderson', 'Madison', 'Transylvania']
-      },
-      mountains: {
-        label: 'Western Mountains',
-        bounds: [[-84.45, 34.90], [-81.30, 36.65]],
-        counties: ['Alleghany', 'Ashe', 'Avery', 'Buncombe', 'Burke', 'Caldwell', 'Clay', 'Cherokee', 'Graham', 'Haywood', 'Henderson', 'Jackson', 'Macon', 'Madison', 'McDowell', 'Mitchell', 'Polk', 'Rutherford', 'Swain', 'Transylvania', 'Watauga', 'Wilkes', 'Yancey']
-      },
-      innerbanks: {
-        label: 'Inner Banks',
-        bounds: [[-78.85, 34.75], [-76.25, 36.35]],
-        counties: ['Beaufort', 'Carteret', 'Craven', 'Lenoir', 'Pitt']
-      },
-      coast: {
-        label: 'NC Coast',
-        bounds: [[-78.75, 33.80], [-75.30, 36.58]],
-        counties: ['Beaufort', 'Bertie', 'Brunswick', 'Camden', 'Carteret', 'Chowan', 'Craven', 'Currituck', 'Dare', 'Gates', 'Hertford', 'Hyde', 'New Hanover', 'Onslow', 'Pamlico', 'Pasquotank', 'Pender', 'Perquimans', 'Tyrrell', 'Washington']
-      },
-      sandhills: {
-        label: 'Sandhills',
-        bounds: [[-79.95, 33.90], [-77.35, 35.55]],
-        counties: ['Bladen', 'Columbus', 'Cumberland', 'Hoke', 'Montgomery', 'Moore', 'Richmond', 'Robeson', 'Sampson', 'Scotland']
-      },
-      fayetteville: {
-        label: 'Fayetteville Metro',
-        bounds: [[-79.95, 34.55], [-78.35, 35.55]],
-        counties: ['Cumberland', 'Harnett', 'Hoke', 'Moore', 'Robeson']
-      },
-      capefear: {
-        label: 'Cape Fear',
-        bounds: [[-79.75, 33.70], [-77.35, 35.35]],
-        counties: ['Bladen', 'Brunswick', 'Columbus', 'New Hanover', 'Pender']
-      },
-      i95: {
-        label: 'I-95 Corridor',
-        bounds: [[-78.55, 34.20], [-77.05, 36.60]],
-        counties: ['Cumberland', 'Halifax', 'Johnston', 'Nash', 'Northampton', 'Robeson', 'Wilson']
-      },
-      foothills: {
-        label: 'Foothills / Unifour',
-        bounds: [[-82.10, 35.45], [-80.60, 36.30]],
-        counties: ['Alexander', 'Burke', 'Caldwell', 'Catawba']
-      }
+        upstate: {
+          label: 'Upstate',
+          bounds: [[-83.49, 33.48], [-81.23, 35.33]],
+          counties: ['Abbeville', 'Anderson', 'Cherokee', 'Greenville', 'Greenwood', 'Laurens', 'McCormick', 'Oconee', 'Pickens', 'Spartanburg', 'Union']
+        },
+        piedmont: {
+          label: 'Piedmont',
+          bounds: [[-83.6, 33.41], [-79.53, 35.33]],
+          counties: ['Abbeville', 'Anderson', 'Cherokee', 'Chester', 'Chesterfield', 'Edgefield', 'Fairfield', 'Greenville', 'Greenwood', 'Kershaw', 'Lancaster', 'Laurens', 'Lexington', 'McCormick', 'Newberry', 'Oconee', 'Pickens', 'Richland', 'Saluda', 'Spartanburg', 'Union', 'York']
+        },
+        charlotte_metro: {
+          label: 'Charlotte Metro',
+          bounds: [[-81.61, 34.36], [-80.29, 35.26]],
+          counties: ['Chester', 'Lancaster', 'York']
+        },
+        charleston_metro: {
+          label: 'Charleston Metro',
+          bounds: [[-80.91, 32.38], [-79.14, 33.61]],
+          counties: ['Berkeley', 'Charleston', 'Dorchester']
+        },
+        midlands: {
+          label: 'Midlands',
+          bounds: [[-82.32, 32.95], [-80.15, 35.31]],
+          counties: ['Aiken', 'Barnwell', 'Chester', 'Edgefield', 'Fairfield', 'Kershaw', 'Lancaster', 'Lexington', 'Newberry', 'Richland', 'Saluda', 'York']
+        },
+        pee_dee: {
+          label: 'Pee Dee',
+          bounds: [[-80.8, 32.93], [-78.35, 34.94]],
+          counties: ['Chesterfield', 'Clarendon', 'Darlington', 'Dillon', 'Florence', 'Georgetown', 'Horry', 'Lee', 'Marion', 'Marlboro', 'Sumter', 'Williamsburg']
+        },
+        grand_strand: {
+          label: 'Grand Strand',
+          bounds: [[-79.8, 32.95], [-78.38, 34.4]],
+          counties: ['Georgetown', 'Horry']
+        },
+        lowcountry: {
+          label: 'Lowcountry',
+          bounds: [[-81.78, 31.86], [-79.1, 34.01]],
+          counties: ['Allendale', 'Bamberg', 'Beaufort', 'Berkeley', 'Calhoun', 'Charleston', 'Colleton', 'Dorchester', 'Hampton', 'Jasper', 'Orangeburg']
+        }
     };
 
     function normalizeRegionCountyName(name) {
