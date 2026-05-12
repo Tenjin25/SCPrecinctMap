@@ -2720,6 +2720,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   overflow-wrap: anywhere;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
 }
 
@@ -29132,7 +29133,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const rawCode = String(code || '').trim().toUpperCase();
       const canonicalCode = rawCode ? resolvePrecinctCanonicalCode(countyName, rawCode) : '';
       const friendly = rawCode ? getPrecinctFriendlyName(countyName, rawCode) : '';
-      const friendlyLabel = (canonicalCode && friendly) ? `${friendly} (${canonicalCode})` : '';
+      const canonicalCodeCompact = String(canonicalCode || '').replace(/[^A-Z0-9]/g, '');
+      const friendlyCompact = String(friendly || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+      const friendlyLabel = friendly
+        ? ((canonicalCode && canonicalCodeCompact && canonicalCodeCompact !== friendlyCompact)
+          ? `${friendly} (${canonicalCode})`
+          : friendly)
+        : '';
 
       const cleanPrecinctFullName = (value) => String(value || '')
         .replace(/\s+/g, ' ')
@@ -29141,6 +29148,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .trim();
       const full = cleanPrecinctFullName(fullName);
       const fallbackFull = cleanPrecinctFullName(fallbackFullName);
+      const displayFull = toTitleCaseName(full);
+      const displayFallbackFull = toTitleCaseName(fallbackFull);
 
       // If the shapefile's "full name" is just a code-ish token (or a "VOTING DISTRICT" placeholder),
       // prefer a real friendly label when we have it.
@@ -29156,7 +29165,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       const codeOnly = canonicalCode || rawCode;
-      return full || fallbackFull || friendlyLabel || (codeOnly ? `Precinct ${codeOnly}` : '');
+      return displayFull || displayFallbackFull || friendlyLabel || (codeOnly ? `Precinct ${codeOnly}` : '');
     }
 
     async function ensurePrecinctVariantOverrides() {
