@@ -33347,13 +33347,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
 
-      // For statewide contests in district views, aggregate from county-level contest rows only.
-      // Using mixed county+precinct rows can double count totals in legacy fallback paths.
-      const loadedRows = await loadContestSlice(contestType, year, { preferCounty: true });
+      // For statewide contests in district views, choose one row level only (never mixed),
+      // to avoid county+precinct double counting in fallback paths.
+      //
+      // US House benefits from precinct-detail rows when available; other contests use county summaries.
+      const preferPrecinctDetail = (String(contestType || '').trim() === 'us_house');
+      const loadedRows = await loadContestSlice(contestType, year, { preferCounty: !preferPrecinctDetail });
       const splitRows = splitContestRowsByLevel(loadedRows || []);
-      const contestData = splitRows.countySummaryRows.length
-        ? splitRows.countySummaryRows
-        : (loadedRows || []);
+      const contestData = preferPrecinctDetail
+        ? (splitRows.precinctRows.length ? splitRows.precinctRows : (splitRows.countySummaryRows.length ? splitRows.countySummaryRows : (loadedRows || [])))
+        : (splitRows.countySummaryRows.length ? splitRows.countySummaryRows : (loadedRows || []));
       currentDistrictTurnoutTotals = {};
       currentCountyTurnoutTotals = {};
       currentPrecinctTurnoutTotals = new Map();
