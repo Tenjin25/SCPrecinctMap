@@ -7,6 +7,10 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 
 ## Recent Updates (May 2026)
 
+- **Precinct matching carryover sync (May 12, 2026):**
+  - Ported the precinct key-matching variant logic from `index - copy.html` into the primary `index.html` code path.
+  - Updated both `precinctNormVariantsLite(...)` and `precinctNormVariants(...)` to keep county/precinct matching behavior consistent in the live app.
+
 - **NCMap-style mobile sheet simplification + global shift formatting standardization (May 3, 2026):**
   - Unified mobile panel behavior to the sheet system (no legacy dual-mode fallback split):
     - `Layers` (`.main-controls`) uses top-sheet behavior.
