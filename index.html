@@ -22745,9 +22745,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const stateSigned = ((sr - sd) / two) * 100;
         const delta = Number(selectedSigned) - stateSigned;
         if (!Number.isFinite(delta)) return '';
-        if (Math.abs(delta) < 0.005) return 'Compared with NC: about even';
+        if (Math.abs(delta) < 0.005) return 'Compared with SC: about even';
         const word = delta > 0 ? 'redder' : 'bluer';
-        return `Compared with NC: ${Math.abs(delta).toFixed(2)} pts ${word}`;
+        return `Compared with SC: ${Math.abs(delta).toFixed(2)} pts ${word}`;
       })();
 
       function buildNarrativeSentence(options = {}) {
@@ -27459,7 +27459,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         `
       });
-      miniCards.push({ k: 'Compared with NC', v: vsNcShort || '—' });
+      miniCards.push({ k: 'Compared with SC', v: vsNcShort || '—' });
       miniCards.push({ k: 'Total votes', v: totalVotes.toLocaleString() });
       miniCards.push({ k: 'What to watch', v: 'Whether the next cycle confirms this direction.', id: 'county-watch' });
 
@@ -33347,8 +33347,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
 
-      // For statewide contests in district views, we need to aggregate county data by district
-      const contestData = electionData.filter(row => row.year == year);
+      // For statewide contests in district views, aggregate from county-level contest rows only.
+      // Using mixed county+precinct rows can double count totals in legacy fallback paths.
+      const loadedRows = await loadContestSlice(contestType, year, { preferCounty: true });
+      const splitRows = splitContestRowsByLevel(loadedRows || []);
+      const contestData = splitRows.countySummaryRows.length
+        ? splitRows.countySummaryRows
+        : (loadedRows || []);
       currentDistrictTurnoutTotals = {};
       currentCountyTurnoutTotals = {};
       currentPrecinctTurnoutTotals = new Map();
