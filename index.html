@@ -33189,6 +33189,60 @@ document.addEventListener('DOMContentLoaded', function() {
         })()
       });
 
+      async function warnIfUsHouseParityMismatch(sourceLabel, districtTotals) {
+        if (String(contestType || '').trim() !== 'us_house') return;
+        try {
+          const baselineRowsRaw = await loadContestSlice(contestType, year, { preferCounty: true });
+          const baselineSplit = splitContestRowsByLevel(baselineRowsRaw || []);
+          const baselineRows = baselineSplit.countySummaryRows.length
+            ? baselineSplit.countySummaryRows
+            : (baselineRowsRaw || []);
+
+          const baseline = baselineRows.reduce((acc, row) => {
+            const countyNorm = normalizeCountyToken(row?.county || '');
+            const fallbackTotal = (Number(row[`${contestType}_dem`]) || 0) + (Number(row[`${contestType}_rep`]) || 0);
+            const adjusted = applyScenarioShiftToVotes(
+              countyNorm,
+              Number(row[`${contestType}_dem`]) || 0,
+              Number(row[`${contestType}_rep`]) || 0,
+              Number(row[`${contestType}_other`]) || 0,
+              Number(row[`${contestType}_total`]) || fallbackTotal
+            );
+            acc.dem += Number(adjusted.dem || 0);
+            acc.rep += Number(adjusted.rep || 0);
+            acc.total += Number(adjusted.total || 0);
+            return acc;
+          }, { dem: 0, rep: 0, total: 0 });
+
+          const got = {
+            dem: Number(districtTotals?.dem || 0),
+            rep: Number(districtTotals?.rep || 0),
+            total: Number(districtTotals?.total || 0)
+          };
+          const diff = {
+            dem: got.dem - baseline.dem,
+            rep: got.rep - baseline.rep,
+            total: got.total - baseline.total
+          };
+
+          const absTotal = Math.abs(diff.total);
+          const baselineTotal = Math.max(1, Number(baseline.total || 0));
+          const pctTotal = (absTotal / baselineTotal) * 100;
+          if (absTotal > 1 || pctTotal > 0.01) {
+            console.warn('[US House parity warning]', {
+              year: Number(year),
+              source: sourceLabel,
+              districtTotals: got,
+              statewideCountyBaseline: baseline,
+              difference: diff,
+              totalDifferencePct: Number(pctTotal.toFixed(4))
+            });
+          }
+        } catch (err) {
+          console.warn('[US House parity warning] failed to compare totals:', err?.message || err);
+        }
+      }
+
       // Prefer district-level results reallocated to 2024 lines when available.
       if (currentView === 'districts' || currentView === 'state_house' || currentView === 'state_senate') {
         const districtScope = currentView === 'districts'
@@ -33323,6 +33377,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const repPct = totalVotes ? (totalRep / totalVotes) * 100 : 0;
           const totalOther = Math.max(0, totalVotes - totalDem - totalRep);
           const otherPct = totalVotes ? ((totalVotes - totalDem - totalRep) / totalVotes) * 100 : 0;
+          await warnIfUsHouseParityMismatch('district_crosswalk', { dem: totalDem, rep: totalRep, total: totalVotes });
           const coverageText = (coveragePct !== undefined && coveragePct !== null)
             ? ` | match coverage ${Number(coveragePct).toFixed(2)}%`
             : '';
@@ -33472,6 +33527,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const repPct = (totalRep / totalVotes) * 100;
       const totalOther = Math.max(0, totalVotes - totalDem - totalRep);
       const otherPct = ((totalVotes - totalDem - totalRep) / totalVotes) * 100;
+      await warnIfUsHouseParityMismatch(preferPrecinctDetail ? 'fallback_precinct_rows' : 'fallback_county_rows', { dem: totalDem, rep: totalRep, total: totalVotes });
       const winner = repPct > demPct ? 'R' : 'D';
       const marginPct = Math.abs(repPct - demPct);
       const color = colorForMarginMode(marginPct, winner);
