@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <style>
@@ -743,7 +743,7 @@
           window.__topbarResizeObserver.observe(topbar);
         }
       } catch (_) {}
-      setupRegionJumpButtons();
+      if (typeof setupRegionJumpButtons === "function") setupRegionJumpButtons();
       updateContextBanner();
     });
     // Zoom to county by name using turf.js
@@ -11365,7 +11365,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let scenarioScope = 'statewide'; // statewide
     let turnoutBivariateEnabled = false;
     let demographicsHighContrastEnabled = false;
-    let overlayOpacityPreset = 'focus'; // reveal | balanced | focus
+    var overlayOpacityPreset = 'focus'; // reveal | balanced | focus
     let smartInsightsEnabled = false; // session-only toggle; default off
     let smartInsightsLastOverlayKey = '';
     let smartInsightsActiveCountySet = null; // Set<string countyNorm> (UPPERCASE) for the current contest
@@ -23281,8 +23281,8 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (origin === 'Emerging') {
         const awayFromLeaderLong = awayFromCurrentSideLong >= 4;
         const awayFromLeaderRecent = awayFromCurrentSide >= 2;
-        const trendTowardDem = /?/.test(trend) || /left/i.test(trend);
-        const trendTowardRep = /?/.test(trend) || /right/i.test(trend);
+        const trendTowardDem = /left|dem/i.test(String(trend || ""));
+        const trendTowardRep = /right|rep/i.test(String(trend || ""));
         if (side === 'Republican') {
           meaning = (awayFromLeaderLong || awayFromLeaderRecent || trendTowardDem)
             ? 'Republicans still lead, but Democrats have been steadily closing the gap over the last few cycles.'
