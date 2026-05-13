@@ -20911,6 +20911,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return roundPct2((Number(votes || 0) / t) * 100.0);
     }
 
+    function safeNumber(value, fallback = 0) {
+      const n = Number(value);
+      return Number.isFinite(n) ? n : Number(fallback || 0);
+    }
+
     function marginPctValue(repVotes, demVotes, totalVotes) {
       const t = safeNumber(totalVotes, 0);
       if (t <= 0) return 0;
