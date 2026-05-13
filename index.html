@@ -20906,9 +20906,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function marginPctValue(repVotes, demVotes, totalVotes) {
-      const t = Number(totalVotes) || 0;
+      const t = safeNumber(totalVotes, 0);
       if (t <= 0) return 0;
-      return Math.abs((Number(repVotes || 0) - Number(demVotes || 0)) / t * 100.0);
+      return Math.abs(((safeNumber(repVotes, 0) - safeNumber(demVotes, 0)) / t) * 100);
     }
 
     function preservesTwoDecimalMargin(marginPct) {
@@ -20943,14 +20943,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function marginPctDisplayValue(repVotes, demVotes, totalVotes) {
       const rawMarginPct = marginPctValue(repVotes, demVotes, totalVotes);
-      const t = Number(totalVotes) || 0;
+      const t = safeNumber(totalVotes, 0);
       if (t <= 0) return 0;
-      const repPctDisplay = Number(formatPctForCloseRace((Number(repVotes || 0) / t) * 100, rawMarginPct));
-      const demPctDisplay = Number(formatPctForCloseRace((Number(demVotes || 0) / t) * 100, rawMarginPct));
+      const repPctDisplay = Number(formatPctForCloseRace((safeNumber(repVotes, 0) / t) * 100, rawMarginPct));
+      const demPctDisplay = Number(formatPctForCloseRace((safeNumber(demVotes, 0) / t) * 100, rawMarginPct));
       if (!Number.isFinite(repPctDisplay) || !Number.isFinite(demPctDisplay)) return rawMarginPct;
       const diff = Math.abs(repPctDisplay - demPctDisplay);
-      // If rounding causes both sides to display equal, fall back to the true margin so we don't
-      // incorrectly show a tie (or 0.000%) when there is a non-zero lead.
       if (diff === 0 && rawMarginPct > 0) return rawMarginPct;
       return diff;
     }
@@ -21006,29 +21004,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function compactWinnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
-      const margin = Number(repVotes || 0) - Number(demVotes || 0);
-      const pctLabel = `${formatMarginPctForDisplay(marginPctDisplayValue(repVotes, demVotes, totalVotes))}%`;
+      const repV = safeNumber(repVotes, 0);
+      const demV = safeNumber(demVotes, 0);
+      if (isUncontestedMajorPartyResult(repV, demV, repCandidate, demCandidate)) {
+        return repV > demV ? 'Uncontested R' : 'Uncontested D';
+      }
+      const margin = safeNumber(repVotes, 0) - safeNumber(demVotes, 0);
+      const rawMarginPct = marginPctValue(repVotes, demVotes, totalVotes);
+      const displayMarginPct = marginPctDisplayValue(repVotes, demVotes, totalVotes);
+      const pctLabel = `${formatPctForCloseRace(displayMarginPct, rawMarginPct)}%`;
       if (margin > 0) {
-        const repName = (repCandidate || '').toString().trim();
-        const demName = (demCandidate || '').toString().trim();
-        const demMissing = !demName || /no\s+democratic\s+candidate/i.test(demName);
-        const repVoteNum = Number(repVotes) || 0;
-        const demVoteNum = Number(demVotes) || 0;
-        const totalVoteNum = Number(totalVotes) || 0;
-        const demMissingByVotes = totalVoteNum > 0 && demVoteNum <= 0 && repVoteNum > 0;
-        if (demMissing || demMissingByVotes) return 'Uncontested R';
-        return `${shortCandidateLabel(repName || repCandidate, 'R')} +${pctLabel}`;
+        return `${shortCandidateLabel(repCandidate, 'R')} +${pctLabel}`;
       }
       if (margin < 0) {
-        const repName = (repCandidate || '').toString().trim();
-        const demName = (demCandidate || '').toString().trim();
-        const repMissing = !repName || /no\s+republican\s+candidate/i.test(repName);
-        const repVoteNum = Number(repVotes) || 0;
-        const demVoteNum = Number(demVotes) || 0;
-        const totalVoteNum = Number(totalVotes) || 0;
-        const repMissingByVotes = totalVoteNum > 0 && repVoteNum <= 0 && demVoteNum > 0;
-        if (repMissing || repMissingByVotes) return 'Uncontested D';
-        return `${shortCandidateLabel(demName || demCandidate, 'D')} +${pctLabel}`;
+        return `${shortCandidateLabel(demCandidate, 'D')} +${pctLabel}`;
       }
       return 'Tie';
     }
@@ -21094,7 +21083,39 @@ document.addEventListener('DOMContentLoaded', function() {
       return { flipped, from, to };
     }
 
-    function winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate, signedPctOverride = NaN, options = {}) {
+    function winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
+      const marginPct = totalVotes > 0 ? Math.abs((repVotes - demVotes) / totalVotes * 100) : 0;
+      const marginPctLabel = formatPctForCloseRace(marginPct, marginPct);
+      const uncontested = isUncontestedMajorPartyResult(repVotes, demVotes, repCandidate, demCandidate);
+      if (repVotes > demVotes) {
+        return {
+          party: 'rep',
+          uncontested,
+          winnerName: fullCandidateLabel(repCandidate, 'Republican'),
+          shortLabel: shortCandidateLabel(repCandidate, 'Republican'),
+          marginPct,
+          text: uncontested ? 'Uncontested R' : `${shortCandidateLabel(repCandidate, 'Republican')} +${marginPctLabel}%`
+        };
+      }
+      if (demVotes > repVotes) {
+        return {
+          party: 'dem',
+          uncontested,
+          winnerName: fullCandidateLabel(demCandidate, 'Democratic'),
+          shortLabel: shortCandidateLabel(demCandidate, 'Democratic'),
+          marginPct,
+          text: uncontested ? 'Uncontested D' : `${shortCandidateLabel(demCandidate, 'Democratic')} +${marginPctLabel}%`
+        };
+      }
+      return {
+        party: 'tie',
+        uncontested: false,
+        winnerName: 'Tie',
+        shortLabel: 'Even',
+        marginPct,
+        text: `Even ${marginPctLabel}`
+      };
+    }) {
       const signedFromVotes = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
       const signed = Number.isFinite(Number(signedPctOverride)) ? Number(signedPctOverride) : signedFromVotes;
       const repVoteNum = Number(repVotes) || 0;
