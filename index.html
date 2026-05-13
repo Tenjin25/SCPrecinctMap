@@ -15453,9 +15453,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	    const OPEN_ELECTIONS_CSV = {
 	      president: {
-	        2008: withBase('./data/openelections-data-sc/2008/20081104__sc__general__precinct.csv'),
-	        2012: withBase('./data/openelections-data-sc/2012/20121106__sc__general__precinct.csv'),
-	        2024: withBase('./data/openelections-data-sc/2024/20241105__sc__general__precinct.csv')
+          2008: withBase('./data/_tmpdata/20081104__sc__general__precinct__from_elstats_search.csv'),
+          2012: withBase('./data/_tmpdata/20121106__sc__general__precinct__from_elstats_search.csv'),
+          2024: withBase('./data/20241105__sc__general__precinct.csv')
 	      }
 	    };
 
@@ -20430,6 +20430,18 @@ document.addEventListener('DOMContentLoaded', function() {
       // Remove any trailing "COUNTY" if present; UI will add "County".
       const cleaned = s.replace(/\s+COUNTY$/i, '').trim();
       return toTitleCaseName(cleaned);
+    }
+
+    function standardizePrecinctDisplayName(countyNameOrNorm, rawName) {
+      const countyNorm = normalizeCountyToken(countyNameOrNorm);
+      const cleaned = (rawName || '').toString().replace(/[_]+/g, ' ').replace(/\s+/g, ' ').trim();
+      if (!cleaned) return '';
+      const withoutPrefix = cleaned.replace(/^precinct\s+/i, '').trim();
+      let display = toTitleCaseName(withoutPrefix || cleaned);
+      if (countyNorm === 'DORCHESTER' && /^Four Hole$/i.test(display)) {
+        display = 'Four Holes';
+      }
+      return display;
     }
 
     function numericOrNull(value) {
@@ -28886,9 +28898,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const perCounty = precinctFriendlyNameByCountyCode ? precinctFriendlyNameByCountyCode.get(countyNorm) : null;
       const rawName = perCounty ? (perCounty.get(code) || '') : '';
       if (!rawName) return '';
-      const normalized = String(rawName).replace(/[_]+/g, ' ').replace(/\s+/g, ' ').trim();
-      const withoutPrecinctPrefix = normalized.replace(/^precinct\s+/i, '').trim();
-      return toTitleCaseName(withoutPrecinctPrefix || normalized);
+      return standardizePrecinctDisplayName(countyNorm, rawName);
     }
 
     function formatRawPrecinctCodeLabel(codeRaw) {
@@ -28897,7 +28907,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const compact = cleaned.replace(/[^A-Z0-9]/gi, '').toUpperCase();
       if (!compact) return '';
       const looksHumanReadable = /[A-Z]/i.test(cleaned) && /[\s-]/.test(cleaned);
-      if (looksHumanReadable) return toTitleCaseName(cleaned);
+      if (looksHumanReadable) return standardizePrecinctDisplayName('', cleaned);
+      if (/^[A-Z]+$/i.test(compact) && compact.length > 4) {
+        return standardizePrecinctDisplayName('', cleaned);
+      }
       return `Precinct ${compact}`;
     }
 
@@ -28905,8 +28918,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const code = resolvePrecinctCanonicalCode(countyNameOrNorm, precinctCodeRaw);
       if (!code) return '';
       const friendly = getPrecinctFriendlyName(countyNameOrNorm, code);
-      if (!friendly) return formatRawPrecinctCodeLabel(code);
-      return friendly;
+      const label = friendly || formatRawPrecinctCodeLabel(code);
+      return standardizePrecinctDisplayName(countyNameOrNorm, label);
     }
 
     function isNoisyPrecinctFullName(fullRaw, codeRaw = '') {
@@ -28943,8 +28956,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .trim();
       const full = cleanPrecinctFullName(fullName);
       const fallbackFull = cleanPrecinctFullName(fallbackFullName);
-      const displayFull = toTitleCaseName(full);
-      const displayFallbackFull = toTitleCaseName(fallbackFull);
+      const displayFull = standardizePrecinctDisplayName(countyName, full);
+      const displayFallbackFull = standardizePrecinctDisplayName(countyName, fallbackFull);
 
       // If the shapefile's "full name" is just a code-ish token (or a "VOTING DISTRICT" placeholder),
       // prefer a real friendly label when we have it.
@@ -32990,6 +33003,138 @@ document.addEventListener('DOMContentLoaded', function() {
           return fb;
         })();
 
+        const centroidData = (() => {
+          if (precinctCentroidsData && Array.isArray(precinctCentroidsData.features)) return precinctCentroidsData;
+          try {
+            const src = map.getSource('precinct-centroids');
+            const gj = src ? (src._data || src.data) : null;
+            if (gj && Array.isArray(gj.features)) return gj;
+          } catch (_) {}
+          return null;
+        })();
+
+        const centroidNormSet = new Set();
+        const centroidNormsByCounty = new Map();
+        (centroidData?.features || []).forEach(f => {
+          const p = f?.properties || {};
+          const precinctNorm = (p.precinct_norm || '').toString().trim().toUpperCase();
+          if (!precinctNorm) return;
+          centroidNormSet.add(precinctNorm);
+          const countyNorm = normalizeCountyName(p.county_nam || '');
+          if (!countyNorm) return;
+          if (!centroidNormsByCounty.has(countyNorm)) centroidNormsByCounty.set(countyNorm, new Set());
+          centroidNormsByCounty.get(countyNorm).add(precinctNorm);
+        });
+
+        const precinctVoteAgg = new Map();
+        const unmatchedCountyGeoAgg = new Map();
+
+        function addPrecinctVotes(norm, demVotes, repVotes, otherVotes, demCand, repCand) {
+          if (!norm) return;
+          if (!precinctVoteAgg.has(norm)) {
+            precinctVoteAgg.set(norm, {
+              year: Number(year),
+              county: norm,
+              [`${contestType}_dem`]: 0,
+              [`${contestType}_rep`]: 0,
+              [`${contestType}_other`]: 0,
+              [`${contestType}_total`]: 0,
+              [`${contestType}_dem_candidate`]: demCand || '',
+              [`${contestType}_rep_candidate`]: repCand || ''
+            });
+          }
+          const node = precinctVoteAgg.get(norm);
+          const d = Number(demVotes || 0);
+          const r = Number(repVotes || 0);
+          const o = Number(otherVotes || 0);
+          node[`${contestType}_dem`] += d;
+          node[`${contestType}_rep`] += r;
+          node[`${contestType}_other`] += o;
+          node[`${contestType}_total`] += d + r + o;
+          if (!node[`${contestType}_dem_candidate`] && demCand) node[`${contestType}_dem_candidate`] = demCand;
+          if (!node[`${contestType}_rep_candidate`] && repCand) node[`${contestType}_rep_candidate`] = repCand;
+        }
+
+        precinctDetailRows.forEach(row => {
+          const rowName = (row.county || '').toString();
+          const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
+          const countyNorm = normalizeCountyName(countyOnly);
+          if (!countyNorm) return;
+
+          const demVotes = Number(row[`${contestType}_dem`] || 0);
+          const repVotes = Number(row[`${contestType}_rep`] || 0);
+          const otherVotes = Number(row[`${contestType}_other`] || 0);
+          const demCand = (row[`${contestType}_dem_candidate`] || '').toString();
+          const repCand = (row[`${contestType}_rep_candidate`] || '').toString();
+
+          const candidateNorms = precinctNormVariants(rowName);
+          if (!candidateNorms.length) return;
+
+          let matchedNorms = candidateNorms;
+          if (centroidNormSet.size) {
+            matchedNorms = candidateNorms.filter(n => centroidNormSet.has(n));
+          }
+          matchedNorms = Array.from(new Set(matchedNorms));
+
+          if (matchedNorms.length) {
+            const share = 1 / matchedNorms.length;
+            matchedNorms.forEach(n => addPrecinctVotes(n, demVotes * share, repVotes * share, otherVotes * share, demCand, repCand));
+            return;
+          }
+
+          if (!unmatchedCountyGeoAgg.has(countyNorm)) {
+            unmatchedCountyGeoAgg.set(countyNorm, {
+              dem: 0,
+              rep: 0,
+              other: 0,
+              demCand: demCand || '',
+              repCand: repCand || ''
+            });
+          }
+          const miss = unmatchedCountyGeoAgg.get(countyNorm);
+          miss.dem += demVotes;
+          miss.rep += repVotes;
+          miss.other += otherVotes;
+          if (!miss.demCand && demCand) miss.demCand = demCand;
+          if (!miss.repCand && repCand) miss.repCand = repCand;
+        });
+
+        unmatchedCountyGeoAgg.forEach((miss, countyNorm) => {
+          const countyNorms = centroidNormsByCounty?.get(countyNorm)
+            ? Array.from(centroidNormsByCounty.get(countyNorm))
+            : [];
+          if (!countyNorms.length) return;
+
+          let denom = 0;
+          const weightBase = new Map();
+          countyNorms.forEach(n => {
+            const node = precinctVoteAgg.get(n);
+            const base = Number(node?.[`${contestType}_total`] || 0);
+            const adj = base > 0 ? base : 1;
+            weightBase.set(n, adj);
+            denom += adj;
+          });
+          const fallbackW = countyNorms.length ? (1 / countyNorms.length) : 0;
+
+          countyNorms.forEach(n => {
+            const w = denom > 0 ? ((weightBase.get(n) || 0) / denom) : fallbackW;
+            addPrecinctVotes(n, miss.dem * w, miss.rep * w, miss.other * w, miss.demCand, miss.repCand);
+          });
+        });
+
+        precinctVoteAgg.forEach((node, norm) => {
+          const demVotes = Number(node[`${contestType}_dem`] || 0);
+          const repVotes = Number(node[`${contestType}_rep`] || 0);
+          const totalVotes = Number(node[`${contestType}_total`] || 0);
+          const signed = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+          const winner = signed > 0 ? 'REPUBLICAN' : (signed < 0 ? 'DEMOCRAT' : 'TIE');
+          currentPrecinctResults.set(norm, {
+            ...node,
+            [`${contestType}_margin_pct`]: signed,
+            [`${contestType}_winner`]: winner
+          });
+        });
+
         const geomMode = String(getDesiredPrecinctGeometryMode() || '');
         const precinctExprKey = `${aggCacheKey}|precinctExpr|countyExpr:${countyExprKey}|mode:${mode}|prev:${prevYearKey}|geom:${geomMode}|useVtd:${useVtdCountyBackfill ? 1 : 0}`;
         const cachedPrecinctExpr = precinctColorExprCache.get(precinctExprKey) || null;
@@ -32997,20 +33142,8 @@ document.addEventListener('DOMContentLoaded', function() {
           const out = ['match', ['get', 'precinct_norm']];
           const turnout = new Map();
 
-          // Group by row object so all naming variants for the same precinct row share the same color,
-          // preserving prior behavior while avoiding re-running `precinctNormVariants()` here.
-          const normsByRow = new Map(); // adjustedRow -> string[] norms
-          try {
-            (currentPrecinctResults || new Map()).forEach((rowObj, norm) => {
-              if (!rowObj || !norm) return;
-              const arr = normsByRow.get(rowObj) || [];
-              arr.push(norm);
-              normsByRow.set(rowObj, arr);
-            });
-          } catch (_) {}
-
-          normsByRow.forEach((precinctNames, row) => {
-            if (!row || !Array.isArray(precinctNames) || !precinctNames.length) return;
+          (currentPrecinctResults || new Map()).forEach((row, precinctName) => {
+            if (!row || !precinctName) return;
             const demVotes = Number(row[`${contestType}_dem`] || 0);
             const repVotes = Number(row[`${contestType}_rep`] || 0);
             const totalVotes = Number(row[`${contestType}_total`] || 0);
@@ -33042,10 +33175,8 @@ document.addEventListener('DOMContentLoaded', function() {
               color = colorForMarginMode(Math.abs(curSigned), winner === 'T' ? 'R' : winner);
             }
 
-            precinctNames.forEach(precinctName => {
-              out.push(precinctName, color);
-              turnout.set(precinctName, totalVotes);
-            });
+            out.push(precinctName, color);
+            turnout.set(precinctName, totalVotes);
           });
 
           out.push(countyFallbackExpr);
