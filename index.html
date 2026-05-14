@@ -30341,6 +30341,7 @@ document.addEventListener('DOMContentLoaded', function() {
               else if (year === 2016) candidateInfo = margin > 0 ? getCandidateName(year, 'President of the United States', 'Democrat') : getCandidateName(year, 'President of the United States', 'Republican');
               else if (year === 2012) candidateInfo = margin > 0 ? getCandidateName(year, 'President of the United States', 'Democrat') : getCandidateName(year, 'President of the United States', 'Republican');
               else if (year === 2008) candidateInfo = margin > 0 ? getCandidateName(year, 'President of the United States', 'Democrat') : getCandidateName(year, 'President of the United States', 'Republican');
+              candidateInfo = shortCandidateLabel(candidateInfo, margin > 0 ? 'D' : 'R');
               
               trends.push({
                 year: year,
