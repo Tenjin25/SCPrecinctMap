@@ -26043,7 +26043,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (/growth/i.test(primary)) return 'Smart Insights: one of the fastest-growing counties.';
         return 'Smart Insights: one of today’s key counties.';
       })();
-      const finalInsight = tooltipInsight || smartInsight;
+      const finalInsight = (currentVizMode === 'shift')
+        ? smartInsight
+        : (tooltipInsight || smartInsight);
       const pinnedShell = !!(tooltipPinned || (forceTooltip && isTouchInteractionMode()));
       const deltaBlock = buildCountyDeltaBlockHTML(norm, contestType, { presentation: pinnedShell ? 'desktop-expanded' : 'desktop-collapsed' });
       const useCompact = isMobileTooltipMode();
