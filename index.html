@@ -28443,7 +28443,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       const winnerShort = winnerPartyKey === 'rep' ? 'Republican' : (winnerPartyKey === 'dem' ? 'Democratic' : 'Tie');
-      const winnerText = fullCandidateLabel((winnerName || winnerShort || '').toString().trim(), winnerShort) || winnerShort;
+      const winnerText = shortCandidateLabel((winnerName || winnerShort || '').toString().trim(), winnerShort);
       const winnerToneClass = winnerPartyKey === 'rep' ? 'rep' : (winnerPartyKey === 'dem' ? 'dem' : 'tie');
       const rawWinnerLineText = (winnerLineText || '').toString().trim();
       const winnerDisplayText = (rawWinnerLineText && (/^uncontested\b/i.test(rawWinnerLineText) || /^tie$/i.test(rawWinnerLineText)))
