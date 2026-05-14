@@ -26027,8 +26027,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const abs = Math.abs(Number(signedMarginPct) || 0);
         if (abs < 0.5) return 'Tiny changes can flip it.';
         if (!Number.isFinite(shiftDelta) || Math.abs(shiftDelta) < 1.25) return '';
-        if (signedMarginPct > 0 && shiftDelta < 0) return 'Still Republican, but weakening.';
-        if (signedMarginPct < 0 && shiftDelta > 0) return 'Still Democratic, but slipping.';
         if (shiftDelta < 0) return 'Democrats gaining ground lately.';
         if (shiftDelta > 0) return 'Republicans gaining ground lately.';
         return '';
