@@ -1037,13 +1037,22 @@ body.focus-active.hover-preview-active .vote-counter {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-votes,
 #hover-tooltip[data-context="votehub-results"] .vhr-pct {
   font-variant-numeric: tabular-nums;
-  color: #cbd5e1;
+}
+
+#hover-tooltip[data-context="votehub-results"] .vhr-votes {
+  font-weight: 800;
+  color: #f1f5f9;
+}
+
+#hover-tooltip[data-context="votehub-results"] .vhr-pct {
+  font-weight: 900;
+  color: #e2e8f0;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-total {
@@ -3500,18 +3509,19 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   }
 
   .result-card .rc-chip .k {
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    color: #64748b;
-    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    color: #0f172a;
+    font-weight: 900;
     text-transform: none;
     white-space: normal;
-    line-height: 1.15;
+    line-height: 1.2;
   }
 
   .result-card .rc-chip .v {
     margin-top: 4px;
     font-weight: 900;
+    font-size: 12.5px;
     color: #0f172a;
   }
 
@@ -22030,8 +22040,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const marginLabel = useCountyPrecision
         ? compactCountyWinnerMarginLabel(r, d, total, repCandidate || '', demCandidate || '')
         : winnerMarginLabel(r, d, total, repCandidate || '', demCandidate || '');
-      const demFull = fullCandidateLabel(demCandidate, 'Democratic');
-      const repFull = fullCandidateLabel(repCandidate, 'Republican');
+      const demLast = shortCandidateLabel(demCandidate, 'Democratic');
+      const repLast = shortCandidateLabel(repCandidate, 'Republican');
+      const winnerParty = r > d ? 'R' : (d > r ? 'D' : 'T');
+      const winnerLast = winnerParty === 'R' ? repLast : (winnerParty === 'D' ? demLast : 'Tie');
+      const winnerLineColor = winnerParty === 'R' ? '#b91c1c' : (winnerParty === 'D' ? '#1d4ed8' : '#475569');
+      const winnerLineSuffix = winnerParty === 'R' ? ' (R)' : (winnerParty === 'D' ? ' (D)' : '');
 
       const safeTitle = (title || '').toString();
       const safeSubtitle = (subtitle || '').toString();
@@ -22050,13 +22064,14 @@ document.addEventListener('DOMContentLoaded', function() {
             <div>
               ${safeTitle ? `<div class="rc-title">${safeTitle}</div>` : ''}
               <div class="rc-sub">${safeSubtitle}</div>
+              <div style="margin-top:2px;font-size:12px;font-weight:900;color:${winnerLineColor};">Winner: ${winnerLast}${winnerLineSuffix}</div>
             </div>
             <div style="font-weight:900;color:#0f172a;white-space:nowrap;">${marginLabel}</div>
           </div>
           ${bar}
           <div class="rc-row">
             <div class="rc-chip">
-              <div class="k">D: ${demFull}</div>
+              <div class="k">${demLast} (D)</div>
               <div class="v" style="color:#1d4ed8;">${d.toLocaleString()} (${demPct.toFixed(2)}%)</div>
             </div>
             <div class="rc-chip">
@@ -22064,7 +22079,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <div class="v" style="color:#475569;">${o.toLocaleString()} (${otherPct.toFixed(2)}%)</div>
             </div>
             <div class="rc-chip">
-              <div class="k">R: ${repFull}</div>
+              <div class="k">${repLast} (R)</div>
               <div class="v" style="color:#b91c1c;">${r.toLocaleString()} (${repPct.toFixed(2)}%)</div>
             </div>
           </div>
@@ -33721,5 +33736,3 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
-
-
