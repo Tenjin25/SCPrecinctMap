@@ -28418,8 +28418,8 @@ document.addEventListener('DOMContentLoaded', function() {
         return formatVotehubPct(v, 2);
       };
       const rows = [];
-      const demLabel = fullCandidateLabel((demName || 'Democratic').toString().trim(), 'Democratic') || 'Democratic';
-      const repLabel = fullCandidateLabel((repName || 'Republican').toString().trim(), 'Republican') || 'Republican';
+      const demLabel = shortCandidateLabel(stripRunningMateName((demName || 'Democratic').toString().trim()), 'Democratic') || 'Democratic';
+      const repLabel = shortCandidateLabel(stripRunningMateName((repName || 'Republican').toString().trim()), 'Republican') || 'Republican';
       const otherLabel = (otherName || 'Other').toString().trim() || 'Other';
 
       const winnerPartyKey = String(winnerParty || '').toLowerCase();
@@ -28443,7 +28443,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       const winnerShort = winnerPartyKey === 'rep' ? 'Republican' : (winnerPartyKey === 'dem' ? 'Democratic' : 'Tie');
-      const winnerText = shortCandidateLabel((winnerName || winnerShort || '').toString().trim(), winnerShort);
+      const winnerText = shortCandidateLabel(stripRunningMateName((winnerName || winnerShort || '').toString().trim()), winnerShort);
       const winnerToneClass = winnerPartyKey === 'rep' ? 'rep' : (winnerPartyKey === 'dem' ? 'dem' : 'tie');
       const rawWinnerLineText = (winnerLineText || '').toString().trim();
       const winnerDisplayText = (rawWinnerLineText && (/^uncontested\b/i.test(rawWinnerLineText) || /^tie$/i.test(rawWinnerLineText)))
