@@ -20863,11 +20863,13 @@ document.addEventListener('DOMContentLoaded', function() {
       // Remove party-prefix artifacts in source labels, e.g. "REP Tim Scott".
       const withoutPartyPrefix = raw.replace(/^\s*(?:REP|REPUBLICAN|DEM|DEMOCRAT|DEMOCRATIC|GOP)\s+[:\-]?\s*/i, '').trim();
       const cleanedRaw = withoutPartyPrefix || raw;
-      // Handle concatenated full-ticket strings without separators.
-      if (/donald\s+\w*\s*trump\s+michael\s+\w*\s*pence/i.test(cleanedRaw)) return 'Donald Trump';
-      if (/donald\s+\w*\s*trump\s+jd\s+vance/i.test(cleanedRaw) || /donald\s+\w*\s*trump\s+james\s+\w*\s*vance/i.test(cleanedRaw)) return 'Donald Trump';
-      if (/kamala\s+\w*\s*harris\s+tim\s+\w*\s*walz/i.test(cleanedRaw)) return 'Kamala Harris';
-      if (/(?:joe|joseph)\s+\w*\s*biden\s+kamala\s+\w*\s*harris/i.test(cleanedRaw)) return 'Joe Biden';
+      // Handle concatenated or noisy full-ticket strings without reliable separators.
+      // Use tolerant surname-pair detection so variants like
+      // "Donald J Trump Michael R Pence" normalize consistently.
+      if (/\btrump\b[\s\S]*\bpence\b/i.test(cleanedRaw)) return 'Donald J. Trump';
+      if (/\btrump\b[\s\S]*\bvance\b/i.test(cleanedRaw)) return 'Donald Trump';
+      if (/\bbiden\b[\s\S]*\bharris\b/i.test(cleanedRaw)) return 'Joseph R. Biden';
+      if (/\bharris\b[\s\S]*\bwalz\b/i.test(cleanedRaw)) return 'Kamala Harris';
       // Remove common "running mate" annotation formats.
       const runningMateSplit = cleanedRaw.split(/\b(?:running\s+mate|with\s+running\s+mate|vp|vice\s+president)\b/i, 1)[0].trim();
       const normalizedRaw = runningMateSplit || cleanedRaw;
