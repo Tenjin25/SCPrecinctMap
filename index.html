@@ -19005,6 +19005,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const officeType = officeMap[office] || office.toLowerCase().replace(/ /g, '_');
       const partyKey = party === 'Democrat' ? 'dem' : 'rep';
       const candidateField = `${officeType}_${partyKey}_candidate`;
+      const normalizeCandidateName = (rawName) => {
+        const value = (rawName || '').toString().trim();
+        if (!value) return value;
+        // Keep presidential labels top-of-ticket only when source rows include full tickets.
+        if (officeType === 'president') return stripRunningMateName(value);
+        return value;
+      };
       
       // Find any county record for this year/office and get the candidate name
       const record = electionData.find(r => r.year == year && r[candidateField]);
@@ -19015,8 +19022,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       if (record && record[candidateField]) {
-        candidateNameCache.set(cacheKey, record[candidateField]);
-        return record[candidateField];
+        const normalizedName = normalizeCandidateName(record[candidateField]);
+        candidateNameCache.set(cacheKey, normalizedName);
+        return normalizedName;
       }
       
       const fallback = party === 'Democrat' ? 'D' : 'R';
