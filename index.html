@@ -21140,8 +21140,10 @@ document.addEventListener('DOMContentLoaded', function() {
       return compactCountyWinnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
     }
 
-    function winnerFromSignedMarginPct(signedPct) {
+    function winnerFromSignedMarginPct(signedPct, tieEpsilon = 0.01) {
       const v = Number(signedPct) || 0;
+      const eps = Math.max(0, Number(tieEpsilon) || 0);
+      if (Math.abs(v) <= eps) return 'T';
       if (v > 0) return 'R';
       if (v < 0) return 'D';
       return 'T';
@@ -25927,7 +25929,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let prevSignedForFlip = null;
       if (vizPrevCache?.prevYear && vizPrevCache?.prevCountyTotals) {
         const prev = vizPrevCache.prevCountyTotals[norm] || null;
-        prevSignedForFlip = prev ? signedCountyMarginPctDisplayValue(prev.dem, prev.rep, prev.total) : 0;
+        prevSignedForFlip = prev ? signedCountyMarginPctDisplayValue(prev.dem, prev.rep, prev.total) : null;
       }
 
       const signedDisplayMarginPct = signedCountyMarginPctDisplayValue(demVotes, repVotes, totalVotes);
