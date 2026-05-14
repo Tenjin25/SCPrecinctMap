@@ -33137,6 +33137,59 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         });
 
+        centroidNormsByCounty.forEach((normSet, countyNorm) => {
+          const norms = Array.from(normSet || []);
+          if (!norms.length) return;
+          const countyNode = countyAgg[countyNorm];
+          if (!countyNode) return;
+
+          const countyDem = Number(countyNode[`${contestType}_dem`] || 0);
+          const countyRep = Number(countyNode[`${contestType}_rep`] || 0);
+          const countyOther = Number(countyNode[`${contestType}_other`] || 0);
+          const countyTotal = Number(countyNode[`${contestType}_total`] || 0);
+          if (countyTotal <= 0) return;
+
+          const zeroNorms = norms.filter(n => Number(precinctVoteAgg.get(n)?.[`${contestType}_total`] || 0) <= 0);
+          if (!zeroNorms.length) return;
+
+          const assigned = norms.reduce((acc, n) => {
+            const node = precinctVoteAgg.get(n);
+            acc.dem += Number(node?.[`${contestType}_dem`] || 0);
+            acc.rep += Number(node?.[`${contestType}_rep`] || 0);
+            acc.other += Number(node?.[`${contestType}_other`] || 0);
+            acc.total += Number(node?.[`${contestType}_total`] || 0);
+            return acc;
+          }, { dem: 0, rep: 0, other: 0, total: 0 });
+
+          let residualDem = Math.max(0, countyDem - assigned.dem);
+          let residualRep = Math.max(0, countyRep - assigned.rep);
+          let residualOther = Math.max(0, countyOther - assigned.other);
+          let residualTotal = residualDem + residualRep + residualOther;
+
+          if (residualTotal <= 0) {
+            const tinyTotal = Math.max(1, Math.round(countyTotal * 0.0001));
+            const demFrac = countyTotal > 0 ? (countyDem / countyTotal) : 0;
+            const repFrac = countyTotal > 0 ? (countyRep / countyTotal) : 0;
+            const otherFrac = countyTotal > 0 ? (countyOther / countyTotal) : 0;
+            residualTotal = tinyTotal;
+            residualDem = tinyTotal * demFrac;
+            residualRep = tinyTotal * repFrac;
+            residualOther = tinyTotal * otherFrac;
+          }
+
+          const share = 1 / zeroNorms.length;
+          zeroNorms.forEach(norm => {
+            addPrecinctVotes(
+              norm,
+              residualDem * share,
+              residualRep * share,
+              residualOther * share,
+              countyNode[`${contestType}_dem_candidate`] || '',
+              countyNode[`${contestType}_rep_candidate`] || ''
+            );
+          });
+        });
+
         precinctVoteAgg.forEach((node, norm) => {
           const demVotes = Number(node[`${contestType}_dem`] || 0);
           const repVotes = Number(node[`${contestType}_rep`] || 0);
