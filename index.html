@@ -31932,6 +31932,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	      const prevPrecinctMarginByNorm = new Map();
 	      const prevCountyTotals = {};
+        const prevCountiesWithExplicitRows = new Set();
 	      let precinctIdx = null;
         let precinctAliasIdx = null;
 	      if (includePrecinctMargins) {
@@ -32043,17 +32044,44 @@ document.addEventListener('DOMContentLoaded', function() {
 	        return Array.from(out);
 	      }
       (prevMeta.rows || []).forEach(r => {
+        const rowName = (r?.county || '').toString();
+        const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
+        const countyNorm = normalizeCountyToken(countyOnly);
+        if (!countyNorm) return;
+        const isCountyRow = !rowName.includes(' - ');
+        if (isCountyRow) prevCountiesWithExplicitRows.add(countyNorm);
+      });
+      (prevMeta.rows || []).forEach(r => {
         const rowName = (r.county || '').toString();
         const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
-        const countyNorm = (countyOnly || '').toString().replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+        const countyNorm = normalizeCountyToken(countyOnly);
         if (!countyNorm) return;
+        const isCountyRow = !rowName.includes(' - ');
+        const hasExplicitCountyRows = prevCountiesWithExplicitRows.has(countyNorm);
+        if ((hasExplicitCountyRows && !isCountyRow) || (!hasExplicitCountyRows && isCountyRow)) {
+          if (includePrecinctMargins) {
+            const mPct = Number(r[`${contestType}_margin_pct`] || 0);
+            precinctNormVariantsLite(rowName).forEach(n => prevPrecinctMarginByNorm.set(n, mPct));
+          }
+          return;
+        }
         const dem = Number(r[`${contestType}_dem`] || 0);
         const rep = Number(r[`${contestType}_rep`] || 0);
         const total = Number(r[`${contestType}_total`] || 0);
-        if (!prevCountyTotals[countyNorm]) prevCountyTotals[countyNorm] = { dem: 0, rep: 0, total: 0 };
-        prevCountyTotals[countyNorm].dem += dem;
-        prevCountyTotals[countyNorm].rep += rep;
-        prevCountyTotals[countyNorm].total += total;
+        const countyAliasKeys = (() => {
+          const out = new Set();
+          const base = normalizeCountyToken(countyNorm.replace(/\s+COUNTY$/i, ''));
+          if (countyNorm) out.add(countyNorm);
+          if (base) out.add(base);
+          if (base) out.add(`${base} COUNTY`);
+          return Array.from(out);
+        })();
+        countyAliasKeys.forEach(key => {
+          if (!prevCountyTotals[key]) prevCountyTotals[key] = { dem: 0, rep: 0, total: 0 };
+          prevCountyTotals[key].dem += dem;
+          prevCountyTotals[key].rep += rep;
+          prevCountyTotals[key].total += total;
+        });
 
         if (includePrecinctMargins) {
           const mPct = Number(r[`${contestType}_margin_pct`] || 0);
