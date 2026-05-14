@@ -19009,7 +19009,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const value = (rawName || '').toString().trim();
         if (!value) return value;
         // Keep presidential labels top-of-ticket only when source rows include full tickets.
-        if (officeType === 'president') return stripRunningMateName(value);
+        if (officeType === 'president') {
+          const topOfTicket = stripRunningMateName(value);
+          if (Number(year) === 2020) {
+            const key = topOfTicket.toUpperCase().replace(/[^A-Z ]/g, ' ').replace(/\s+/g, ' ').trim();
+            if (/(?:^| )TRUMP(?: |$)/.test(key)) return 'Donald J. Trump';
+            if (/(?:^| )BIDEN(?: |$)/.test(key)) return 'Joseph R. Biden';
+          }
+          return topOfTicket;
+        }
         return value;
       };
       
