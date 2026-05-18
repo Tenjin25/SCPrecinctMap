@@ -263,8 +263,8 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,,Charleston - Johns Island 4,Charleston - Johns Island 4,1.0000,approved,medium,generated_from_legacy_split_mapping
 2024,president,,Charleston - Kiawah Island,Charleston - Kiawah Island,1.0000,approved,medium,generated_from_legacy_split_mapping
 2024,president,,Charleston - Kiawah Island,Charleston - Town Of Seabrook,1.0000,approved,medium,generated_from_legacy_split_mapping
-2024,president,,Charleston - Lincolnville,Charleston - Licolnville,1.0000,approved,medium,generated_from_legacy_alias_mapping
-2024,president,,Charleston - Mcclellanville,Charleston - Licolnville,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Charleston - Licolnville,Charleston - Lincolnville,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - Mcclellanville,Charleston - Lincolnville,1.0000,approved,medium,generated_from_legacy_split_mapping
 2024,president,,Charleston - Mcclellanville,Charleston - Mcclellanville,1.0000,approved,medium,generated_from_legacy_split_mapping
 2024,president,,Charleston - Charleston 10,Charleston - Charleston 10,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_autofix_likely_safe
 2024,president,,Charleston - Charleston 11,Charleston - Charleston 11,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_autofix_likely_safe
