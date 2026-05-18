@@ -24,5 +24,99 @@
   "Union - Buffalo Box 1": [
     "UNION - BUFFALO BOX 1",
     "UNION - EAST BUFFALO"
+  ],
+  "Charleston - Deer Park 3": [
+    "CHARLESTON - DEER PARK 3",
+    "CHARLESTON - DEER PARK 1A",
+    "CHARLESTON - DEER PARK 1B",
+    "CHARLESTON - DEER PARK 2A",
+    "CHARLESTON - DEER PARK 2B",
+    "CHARLESTON - DEER PARK 2C"
+  ],
+  "Charleston - Johns Island 4": [
+    "CHARLESTON - JOHNS ISLAND 4",
+    "CHARLESTON - JOHNS ISLAND 1A",
+    "CHARLESTON - JOHNS ISLAND 1B",
+    "CHARLESTON - JOHNS ISLAND 3A",
+    "CHARLESTON - JOHNS ISLAND 3B"
+  ],
+  "Charleston - James Island 20": [
+    "CHARLESTON - JAMES ISLAND 20",
+    "CHARLESTON - JAMES ISLAND 1A",
+    "CHARLESTON - JAMES ISLAND 1B",
+    "CHARLESTON - JAMES ISLAND 2",
+    "CHARLESTON - JAMES ISLAND 5A",
+    "CHARLESTON - JAMES ISLAND 5B",
+    "CHARLESTON - JAMES ISLAND 8A",
+    "CHARLESTON - JAMES ISLAND 8B"
+  ],
+  "Charleston - James Island 22": [
+    "CHARLESTON - JAMES ISLAND 22",
+    "CHARLESTON - JAMES ISLAND 1A",
+    "CHARLESTON - JAMES ISLAND 1B",
+    "CHARLESTON - JAMES ISLAND 2",
+    "CHARLESTON - JAMES ISLAND 5A",
+    "CHARLESTON - JAMES ISLAND 5B",
+    "CHARLESTON - JAMES ISLAND 8A",
+    "CHARLESTON - JAMES ISLAND 8B"
+  ],
+  "Charleston - St. Pauls 3": [
+    "CHARLESTON - ST. PAULS 3",
+    "CHARLESTON - ST. PAULS 2A",
+    "CHARLESTON - ST. PAULS 2B"
+  ],
+  "Charleston - Mcclellanville": [
+    "CHARLESTON - MCCLELLANVILLE",
+    "CHARLESTON - LICOLNVILLE"
+  ],
+  "Charleston - Kiawah Island": [
+    "CHARLESTON - KIAWAH ISLAND",
+    "CHARLESTON - TOWN OF SEABROOK"
+  ],
+  "Berkeley - Cane Bay": [
+    "BERKELEY - CANE BAY",
+    "BERKELEY - CANE BAY EAST",
+    "BERKELEY - CANE BAY NORTH",
+    "BERKELEY - CANE BAY SOUTH"
+  ],
+  "York - Bethel School": [
+    "YORK - BETHEL SCHOOL",
+    "YORK - BETHEL"
+  ],
+  "York - Gold Hill": [
+    "YORK - GOLD HILL",
+    "LANCASTER - GOLD HILL"
+  ],
+  "York - Springfield": [
+    "YORK - SPRINGFIELD",
+    "YORK - SPRINGDALE"
+  ],
+  "York - Six Mile": [
+    "YORK - SIX MILE",
+    "YORK - MILL CREEK"
+  ],
+  "York - Oakwood": [
+    "YORK - OAKWOOD",
+    "YORK - EDGEWOOD"
+  ],
+  "York - Hopewell": [
+    "YORK - HOPEWELL",
+    "YORK - FRIENDSHIP"
+  ],
+  "Berkeley - Hanahan 5": [
+    "BERKELEY - HANAHAN 5",
+    "BERKELEY - WESTVIEW 4"
+  ],
+  "Berkeley - Moultrie": [
+    "BERKELEY - MOULTRIE",
+    "BERKELEY - NORTH CREEK"
+  ],
+  "Berkeley - Stone Lake": [
+    "BERKELEY - STONE LAKE",
+    "BERKELEY - HARBOUR LAKE"
+  ],
+  "Berkeley - Discovery": [
+    "BERKELEY - DISCOVERY",
+    "BERKELEY - COBBLESTONE"
   ]
 }

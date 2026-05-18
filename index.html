@@ -160,7 +160,11 @@
       bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
       max-width: none !important;
       width: auto !important;
+<<<<<<< Updated upstream
       max-height: min(57vh, calc(100vh - 12px - var(--safe-top, 0px) - var(--safe-bottom, 0px) - var(--mobile-dock-h, 62px) - var(--vote-counter-h, 0px)));
+=======
+      max-height: min(58vh, calc(100vh - 12px - var(--safe-top, 0px) - var(--safe-bottom, 0px) - var(--mobile-dock-h, 62px) - var(--vote-counter-h, 0px)));
+>>>>>>> Stashed changes
       overflow: auto;
       -webkit-overflow-scrolling: touch;
       touch-action: pan-y;
@@ -170,6 +174,7 @@
       border-radius: 12px !important;
       font-size: 13.5px !important;
       line-height: 1.5 !important;
+<<<<<<< Updated upstream
       background: rgba(3, 7, 18, 0.97) !important;
       color: #f8fafc !important;
       border: 1px solid rgba(148, 163, 184, 0.24) !important;
@@ -190,27 +195,53 @@
       margin: 5px 0;
     }
 
+=======
+    }
+    @supports (height: 100svh) {
+      #hover-tooltip {
+        max-height: min(58svh, calc(100svh - 12px - var(--safe-top, 0px) - var(--safe-bottom, 0px) - var(--mobile-dock-h, 62px) - var(--vote-counter-h, 0px)));
+      }
+    }
+    #hover-tooltip .tooltip-trends {
+      font-size: 13.5px;
+    }
+    #hover-tooltip .tooltip-vote-line {
+      margin: 5px 0;
+    }
+>>>>>>> Stashed changes
     #hover-tooltip .tooltip-vote-pct {
       padding: 1px 6px;
       font-size: 0.94em;
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     #hover-tooltip .tooltip-btn {
       min-height: 44px;
       padding: 10px 12px;
       font-size: 13px;
       border-radius: 12px;
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     #hover-tooltip .tooltip-head {
       flex-direction: column;
       gap: 8px;
     }
+<<<<<<< Updated upstream
 
     #hover-tooltip .tooltip-actions {
       width: 100%;
     }
 
+=======
+    #hover-tooltip .tooltip-actions {
+      width: 100%;
+    }
+>>>>>>> Stashed changes
     #hover-tooltip .tooltip-btn {
       flex: 1 1 auto;
     }
@@ -966,6 +997,7 @@ a:focus-visible {
   transition: opacity 0.15s ease;
 }
 
+<<<<<<< Updated upstream
 /* UI hierarchy helpers: keep one dominant layer at a time. */
 body.hover-preview-active .main-controls,
 body.hover-preview-active .vote-counter,
@@ -1190,6 +1222,23 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   font-weight: 750;
   color: rgba(226, 232, 240, 0.92);
   opacity: 0.95;
+=======
+.hover-tooltip .tooltip-vote-line {
+  margin: 4px 0;
+}
+
+.hover-tooltip .tooltip-vote-pct {
+  display: inline-block;
+  padding: 1px 6px;
+  margin-left: 2px;
+  border-radius: 999px;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(226, 232, 240, 0.42);
+  color: #ffffff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+>>>>>>> Stashed changes
 }
 
 .hover-tooltip .tooltip-title {
@@ -3066,6 +3115,68 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 
   .hover-tooltip .tooltip-title {
     color: #f8fafc;
+  }
+
+  #hover-tooltip[data-context="preview"] {
+    max-width: 252px;
+    opacity: 0.88;
+    border-color: rgba(148, 163, 184, 0.18);
+  }
+
+  #hover-tooltip[data-context="votehub-results"] {
+    background: rgba(3, 7, 18, 0.96);
+    color: #e5e7eb;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 8px;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.22);
+    padding: 0;
+    max-width: 310px;
+    min-width: 250px;
+    backdrop-filter: blur(10px);
+    opacity: 1;
+  }
+
+  #hover-tooltip[data-context="votehub-results"] .votehub-results-card {
+    padding: 12px 14px;
+    font-family: inherit;
+  }
+
+  #hover-tooltip[data-context="votehub-results"][data-pinned="0"] .tooltip-head {
+    display: none;
+  }
+
+  #hover-tooltip[data-context="votehub-results"] .vhr-row {
+    display: grid;
+    grid-template-columns: 10px minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 0;
+    font-size: 12.5px;
+    color: #e2e8f0;
+  }
+
+  #hover-tooltip[data-context="votehub-results"] .vhr-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 800;
+  }
+
+  #hover-tooltip[data-context="votehub-results"] .vhr-votes,
+  #hover-tooltip[data-context="votehub-results"] .vhr-pct {
+    font-variant-numeric: tabular-nums;
+  }
+
+  #hover-tooltip[data-context="votehub-results"] .vhr-votes {
+    font-weight: 800;
+    color: #f1f5f9;
+  }
+
+  #hover-tooltip[data-context="votehub-results"] .vhr-pct {
+    font-weight: 900;
+    font-size: inherit;
+    color: #e2e8f0;
+    line-height: inherit;
   }
 
   .hover-tooltip .tooltip-title-badge.rep {
@@ -22150,9 +22261,23 @@ document.addEventListener('DOMContentLoaded', function() {
       const repPct = (r / total) * 100.0;
       const otherPct = (o / total) * 100.0;
 
+<<<<<<< Updated upstream
       const marginLabel = useCountyPrecision
         ? compactCountyWinnerMarginLabel(r, d, total, repCandidate || '', demCandidate || '')
         : winnerMarginLabel(r, d, total, repCandidate || '', demCandidate || '');
+=======
+      // Display pct: keep extra precision for close races (avoids rounding into a false tie).
+      const demPct = formatPctForCloseRace(demPctRaw, rawMarginPctForDisplay);
+      const repPct = formatPctForCloseRace(repPctRaw, rawMarginPctForDisplay);
+      const otherPct = formatPctForCloseRace(otherPctRaw, rawMarginPctForDisplay);
+
+      // Bar widths: keep more precision to avoid visible "drift" from label rounding.
+      const demPctBar = roundForDisplay(demPctRaw, 4);
+      const repPctBar = roundForDisplay(repPctRaw, 4);
+      const otherPctBar = roundForDisplay(otherPctRaw, 4);
+
+      const marginLabel = winnerMarginLabel(r, d, total, repCandidate || '', demCandidate || '');
+>>>>>>> Stashed changes
       const demLast = shortCandidateLabel(demCandidate, 'Democratic');
       const repLast = shortCandidateLabel(repCandidate, 'Republican');
       const winnerParty = r > d ? 'R' : (d > r ? 'D' : 'T');
@@ -22185,7 +22310,11 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="rc-row">
             <div class="rc-chip">
               <div class="k">${demLast} (D)</div>
+<<<<<<< Updated upstream
               <div class="v" style="color:#1d4ed8;">${d.toLocaleString()} (${demPct.toFixed(2)}%)</div>
+=======
+              <div class="v" style="color:#1d4ed8;">${d.toLocaleString()} (${demPct}%)</div>
+>>>>>>> Stashed changes
             </div>
             <div class="rc-chip">
               <div class="k">OTHER</div>
@@ -22193,7 +22322,11 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="rc-chip">
               <div class="k">${repLast} (R)</div>
+<<<<<<< Updated upstream
               <div class="v" style="color:#b91c1c;">${r.toLocaleString()} (${repPct.toFixed(2)}%)</div>
+=======
+              <div class="v" style="color:#b91c1c;">${r.toLocaleString()} (${repPct}%)</div>
+>>>>>>> Stashed changes
             </div>
           </div>
           <div style="margin-top:10px;font-size:12px;color:#64748b;">
