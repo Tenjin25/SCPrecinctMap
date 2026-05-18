@@ -12116,6 +12116,14 @@ document.addEventListener('DOMContentLoaded', function() {
       return `${normalizeDistrictLinesYear(linesYear)} lines`;
     }
 
+    function isDistrictLinesYearAllowedForView(view, linesYear) {
+      const y = normalizeDistrictLinesYear(linesYear);
+      const v = String(view || '').trim();
+      if (y === 2024) return v === 'state_house';
+      if (y === 2026) return v === 'districts';
+      return true;
+    }
+
     function getActiveDistrictContestsDir(linesYear = currentDistrictLinesYear, scope = null) {
       const y = normalizeDistrictLinesYear(linesYear);
       const dirs = CONFIG.paths?.district_contests_dirs || {};
@@ -12761,17 +12769,19 @@ document.addEventListener('DOMContentLoaded', function() {
       const btn2022 = document.getElementById('district-lines-2022');
       const btn2024 = document.getElementById('district-lines-2024');
       const btn2026 = document.getElementById('district-lines-2026');
+      const canUse2024 = isDistrictLinesYearAllowedForView(currentView, 2024);
+      const canUse2026 = isDistrictLinesYearAllowedForView(currentView, 2026);
       if (btn2022) {
         btn2022.classList.toggle('active', y === 2022);
         btn2022.setAttribute('aria-pressed', y === 2022 ? 'true' : 'false');
       }
       if (btn2024) {
+        btn2024.style.display = canUse2024 ? '' : 'none';
         btn2024.classList.toggle('active', y === 2024);
         btn2024.setAttribute('aria-pressed', y === 2024 ? 'true' : 'false');
       }
       if (btn2026) {
-        const congressView = currentView === 'districts';
-        btn2026.style.display = congressView ? '' : 'none';
+        btn2026.style.display = canUse2026 ? '' : 'none';
         btn2026.classList.toggle('active', y === 2026);
         btn2026.setAttribute('aria-pressed', y === 2026 ? 'true' : 'false');
       }
@@ -12855,8 +12865,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function setDistrictLinesMode(linesYear) {
       const nextYear = normalizeDistrictLinesYear(linesYear);
-      if (nextYear === 2026 && currentView !== 'districts') {
-        setStatus('2026 lines are only available for congressional view.');
+      if (!isDistrictLinesYearAllowedForView(currentView, nextYear)) {
+        if (nextYear === 2024) setStatus('2024 lines are only available for state house view.');
+        if (nextYear === 2026) setStatus('2026 lines are only available for congressional view.');
         updateDistrictLinesToggleUI();
         return;
       }
@@ -20282,8 +20293,8 @@ document.addEventListener('DOMContentLoaded', function() {
         candidates: voteCounterPinned.candidates ? { ...voteCounterPinned.candidates } : null
       } : null;
       currentView = view;
-      if (currentView !== 'districts' && normalizeDistrictLinesYear(currentDistrictLinesYear) === 2026) {
-        currentDistrictLinesYear = 2024;
+      if (!isDistrictLinesYearAllowedForView(currentView, currentDistrictLinesYear)) {
+        currentDistrictLinesYear = 2022;
       }
       updateDistrictLinesToggleUI();
       
