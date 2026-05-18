@@ -3,6 +3,7 @@ import json
 import os
 import re
 from collections import OrderedDict
+from precinct_crosswalk import load_crosswalk_mappings
 
 
 def norm(s: str) -> str:
@@ -282,6 +283,9 @@ def main():
     ap.add_argument("--all", action="store_true", help="Process all files in data/contests (ignores --contest/--year)")
     ap.add_argument("--aliases", default="precinct_aliases.json", help="Alias JSON path relative to base")
     ap.add_argument("--splits", default="precinct_splits_2024.json", help="Optional split mapping JSON path relative to base")
+    ap.add_argument("--crosswalk", default="precinct_crosswalk_2024.csv", help="Versioned crosswalk CSV path relative to base")
+    ap.add_argument("--crosswalk-min-confidence", default="medium", choices=["low", "medium", "high"], help="Minimum confidence from crosswalk rows")
+    ap.add_argument("--no-crosswalk", action="store_true", help="Disable crosswalk-derived mappings")
     ap.add_argument(
         "--weighted-splits",
         default="precinct_weighted_splits_2024.json",
@@ -289,6 +293,7 @@ def main():
     )
     ap.add_argument("--no-splits", action="store_true", help="Disable split mappings")
     ap.add_argument("--no-weighted-splits", action="store_true", help="Disable weighted split mappings")
+    ap.add_argument("--debug-mapping-source", action="store_true", help="Print crosswalk vs legacy mapping attribution")
     args = ap.parse_args()
 
     base = os.path.abspath(args.base)
@@ -296,6 +301,7 @@ def main():
     voting_precincts = os.path.join(base, "data", "Voting_Precincts.geojson")
     aliases_path = os.path.join(base, args.aliases)
     splits_path = os.path.join(base, args.splits)
+    crosswalk_path = os.path.join(base, args.crosswalk)
     weighted_splits_path = os.path.join(base, args.weighted_splits)
     manifest_path = os.path.join(base, "data", "contests", "manifest.json")
 
@@ -303,9 +309,39 @@ def main():
         raise SystemExit(f"Missing {voting_precincts}")
 
     display_by_norm = load_precinct_display_by_norm(voting_precincts)
-    aliases = load_aliases(aliases_path, display_by_norm)
-    splits = {} if args.no_splits else load_splits(splits_path, display_by_norm)
-    weighted_splits = {} if args.no_weighted_splits else load_weighted_splits(weighted_splits_path, display_by_norm)
+    aliases = {}
+    splits = {}
+    weighted_splits = {}
+    cw_aliases: dict[str, str] = {}
+    cw_splits: dict[str, list[str]] = {}
+    cw_weighted: dict[str, list[tuple[str, float]]] = {}
+    if not args.no_crosswalk:
+        cw_aliases, cw_splits, cw_weighted = load_crosswalk_mappings(
+            crosswalk_path,
+            year=int(str(args.year).strip()) if not args.all else None,
+            contest_type=(str(args.contest).strip() if not args.all else None),
+            min_confidence=args.crosswalk_min_confidence,
+            display_by_norm=display_by_norm,
+        )
+        aliases.update(cw_aliases)
+        splits.update(cw_splits)
+        weighted_splits.update(cw_weighted)
+
+    legacy_aliases = load_aliases(aliases_path, display_by_norm)
+    for k, v in legacy_aliases.items():
+        aliases.setdefault(k, v)
+    if not args.no_splits:
+        legacy_splits = load_splits(splits_path, display_by_norm)
+        for k, v in legacy_splits.items():
+            splits.setdefault(k, v)
+    if not args.no_weighted_splits:
+        legacy_weighted = load_weighted_splits(weighted_splits_path, display_by_norm)
+        for k, v in legacy_weighted.items():
+            weighted_splits.setdefault(k, v)
+
+    legacy_alias_only = set(legacy_aliases.keys()) - set(cw_aliases.keys())
+    legacy_split_only = (set(load_splits(splits_path, display_by_norm).keys()) if not args.no_splits else set()) - set(cw_splits.keys())
+    legacy_weighted_only = (set(load_weighted_splits(weighted_splits_path, display_by_norm).keys()) if not args.no_weighted_splits else set()) - set(cw_weighted.keys())
 
     contests_dir = os.path.join(base, "data", "contests")
     if not os.path.isdir(contests_dir):
@@ -330,13 +366,21 @@ def main():
             return None, None
         return contest, year
 
-    def process_one(slice_path: str, contest: str, year: int) -> tuple[int, int, int]:
+    def process_one(slice_path: str, contest: str, year: int) -> tuple[int, int, int, dict[str, int]]:
         with open(slice_path, encoding="utf-8") as fh:
             payload = json.load(fh) or {}
         rows = payload.get("rows") or []
 
         remapped = 0
         split_expanded = 0
+        stats = {
+            "alias_crosswalk_hits": 0,
+            "alias_legacy_hits": 0,
+            "weighted_crosswalk_hits": 0,
+            "weighted_legacy_hits": 0,
+            "split_crosswalk_hits": 0,
+            "split_legacy_hits": 0,
+        }
         out_rows: list[dict] = []
         for r in rows:
             if not isinstance(r, dict):
@@ -349,9 +393,18 @@ def main():
             mapped = aliases.get(nk, key)
             if mapped != key:
                 remapped += 1
+            if nk in cw_aliases:
+                stats["alias_crosswalk_hits"] += 1
+            elif nk in legacy_alias_only:
+                stats["alias_legacy_hits"] += 1
 
             weighted_targets = weighted_splits.get(norm(mapped), [])
             if weighted_targets:
+                mk = norm(mapped)
+                if mk in cw_weighted:
+                    stats["weighted_crosswalk_hits"] += 1
+                elif mk in legacy_weighted_only:
+                    stats["weighted_legacy_hits"] += 1
                 targets = [t for t, _ in weighted_targets]
                 weights = [w for _, w in weighted_targets]
                 dem_parts = split_integer_by_weights(int(r.get("dem_votes") or 0), weights)
@@ -370,6 +423,11 @@ def main():
 
             split_targets = splits.get(norm(mapped), [])
             if split_targets:
+                mk = norm(mapped)
+                if mk in cw_splits:
+                    stats["split_crosswalk_hits"] += 1
+                elif mk in legacy_split_only:
+                    stats["split_legacy_hits"] += 1
                 # One source result row can paint multiple polygons when the source is merged.
                 for t in split_targets:
                     rr = dict(r)
@@ -391,7 +449,7 @@ def main():
         os.replace(tmp, slice_path)
 
         update_manifest(manifest_path, contest, year, len(merged_rows))
-        return remapped, split_expanded, len(merged_rows)
+        return remapped, split_expanded, len(merged_rows), stats
 
     if not args.all:
         contest = str(args.contest).strip()
@@ -399,29 +457,53 @@ def main():
         slice_path = os.path.join(contests_dir, f"{contest}_{year}.json")
         if not os.path.exists(slice_path):
             raise SystemExit(f"Missing {slice_path}")
-        remapped, split_expanded, rows_out = process_one(slice_path, contest, year)
+        remapped, split_expanded, rows_out, stats = process_one(slice_path, contest, year)
         print(f"Updated {slice_path}")
         print(f"Remapped rows: {remapped}")
         print(f"Split rows expanded: {split_expanded}")
         print(f"Rows after merge: {rows_out}")
+        if args.debug_mapping_source:
+            print(
+                "Mapping source hits: "
+                f"alias(crosswalk={stats['alias_crosswalk_hits']},legacy={stats['alias_legacy_hits']}), "
+                f"weighted(crosswalk={stats['weighted_crosswalk_hits']},legacy={stats['weighted_legacy_hits']}), "
+                f"split(crosswalk={stats['split_crosswalk_hits']},legacy={stats['split_legacy_hits']})"
+            )
         return
 
     total_files = 0
     total_remapped = 0
     total_split_expanded = 0
+    total_stats = {
+        "alias_crosswalk_hits": 0,
+        "alias_legacy_hits": 0,
+        "weighted_crosswalk_hits": 0,
+        "weighted_legacy_hits": 0,
+        "split_crosswalk_hits": 0,
+        "split_legacy_hits": 0,
+    }
     for fn in sorted(os.listdir(contests_dir)):
         contest, year = parse_contest_and_year(fn)
         if not contest:
             continue
         slice_path = os.path.join(contests_dir, fn)
-        remapped, split_expanded, _ = process_one(slice_path, contest, year)
+        remapped, split_expanded, _, stats = process_one(slice_path, contest, year)
         total_files += 1
         total_remapped += remapped
         total_split_expanded += split_expanded
+        for k in total_stats:
+            total_stats[k] += int(stats.get(k) or 0)
 
     print(f"Updated files: {total_files}")
     print(f"Remapped rows: {total_remapped}")
     print(f"Split rows expanded: {total_split_expanded}")
+    if args.debug_mapping_source:
+        print(
+            "Mapping source hits: "
+            f"alias(crosswalk={total_stats['alias_crosswalk_hits']},legacy={total_stats['alias_legacy_hits']}), "
+            f"weighted(crosswalk={total_stats['weighted_crosswalk_hits']},legacy={total_stats['weighted_legacy_hits']}), "
+            f"split(crosswalk={total_stats['split_crosswalk_hits']},legacy={total_stats['split_legacy_hits']})"
+        )
 
 
 if __name__ == "__main__":

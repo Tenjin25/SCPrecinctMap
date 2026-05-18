@@ -1,0 +1,28 @@
+county,source_result_key,pair_count,example_target_polygon_key,candidate_1,score_1,candidate_2,score_2,candidate_3,score_3,score_gap_1_2
+Georgetown,Georgetown - Georgetown No. 2-Dream Keepers,1,Georgetown - Dream Keepers,Georgetown - Georgetown No. 1,0.7778,Georgetown - Georgetown No. 3,0.7778,Georgetown - Georgetown No. 4,0.7778,0.0000
+Spartanburg,Spartanburg - Inman Mills Baptist Church,1,Spartanburg - Anderson Mill Baptist,Spartanburg - Anderson Mill Baptist,0.7733,Spartanburg - Mt. Moriah Baptist,0.7222,Spartanburg - Apalache Baptist,0.6857,0.0511
+Spartanburg,Spartanburg - Woodruff Armory Drive Fire Station,1,Spartanburg - Woodruff Leisure Center,Spartanburg - Wellford Fire Station,0.7711,Spartanburg - Poplar Springs Fire Station,0.7416,Spartanburg - Cross Anchor Fire Station,0.7356,0.0295
+Horry,Horry - Joyner Swamp,1,Horry - Methodist-Mill Swamp,Horry - Tilly Swamp,0.7692,Horry - Pawley'S Swamp,0.7317,Horry - Juniper Bay,0.7179,0.0375
+Horry,Horry - Floyds,1,Horry - Mt. Olive,Horry - Leon,0.7692,Horry - Horry,0.7407,Horry - Failsafe,0.7333,0.0285
+Spartanburg,Spartanburg - Rebirth Missionary Baptist,1,Spartanburg - Apalache Baptist,Spartanburg - Cornerstone Baptist,0.7671,Spartanburg - Mt. Moriah Baptist,0.7500,Spartanburg - Eastside Baptist,0.7429,0.0171
+Spartanburg,Spartanburg - T.W. Edwards Recreation Center,1,Spartanburg - Pacolet Elementary,Spartanburg - C.C. Woodson Recreation,0.7654,Spartanburg - Woodland Heights Recreation Center,0.7391,Spartanburg - Woodruff Leisure Center,0.6667,0.0263
+Georgetown,Georgetown - Emergency,1,Georgetown - Lambert Town,Georgetown - Pee Dee,0.7619,Georgetown - Myersville,0.7556,Georgetown - Bethel,0.7317,0.0063
+Spartanburg,Spartanburg - Pine Street Elementary School,1,Spartanburg - River Ridge Elementary,Spartanburg - River Ridge Elementary,0.7595,Spartanburg - West View Elementary,0.7532,Spartanburg - Pacolet Elementary,0.7467,0.0062
+Berkeley,Berkeley - 78,1,Berkeley - Seventy Eight,Berkeley - Alvin,0.7586,Berkeley - Cross,0.7586,Berkeley - Huger,0.7586,0.0000
+Berkeley,Berkeley - Emergency,1,Berkeley - Medway,Berkeley - Medway,0.7568,Berkeley - Bethera,0.7368,Berkeley - Huger,0.7222,0.0199
+Laurens,Laurens - Emergency 2,1,Laurens - Laurens 2,Laurens - Laurens 2,0.7500,Laurens - Laurens 1,0.7000,Laurens - Laurens 3,0.7000,0.0500
+Georgetown,Georgetown - Cedar Creek,1,Georgetown - Lambert Town,Georgetown - Santee,0.7442,Georgetown - Andrews,0.7273,Georgetown - Choppee,0.7273,0.0169
+Lancaster,Lancaster - Belair Number 2,1,Lancaster - Black Horse Run,Lancaster - Elgin,0.7273,Lancaster - Lake House,0.6939,Lancaster - Mcilwain,0.6809,0.0334
+Oconee,Oconee - Emergency,1,Oconee - Westminster 1,Oconee - Keowee,0.7273,Oconee - Return,0.7273,Oconee - Ravenel,0.7059,0.0000
+Sumter,Sumter - Emergency 2,1,Sumter - Ebenezer 2,Sumter - Rembert,0.7222,Sumter - Ebenezer 2,0.7179,Sumter - Sumter High 2,0.7143,0.0043
+Berkeley,Berkeley - Emergency 2,1,Berkeley - Macedonia 2,Berkeley - Medway,0.7179,Berkeley - Sedgefield 2,0.7111,Berkeley - Bethera,0.7000,0.0068
+Edgefield,Edgefield - Kendall,1,Edgefield - Edgefield No. 2,Edgefield - Westside,0.7179,Edgefield - Provisional,0.7143,Edgefield - Harmony,0.6842,0.0037
+Spartanburg,Spartanburg - Woodruff Town Hall,1,Spartanburg - Woodruff Elementary,Spartanburg - Drayton,0.7170,Spartanburg - Woodruff Leisure Center,0.6957,Spartanburg - Moore Duncan,0.6897,0.0213
+Dillon,Dillon - Gaddys Mill,1,Dillon - Pleasant Hill,Dillon - Pleasant Hill,0.7143,Dillon - East Dillon,0.7000,Dillon - West Dillon,0.6500,0.0143
+Jasper,Jasper - Emergency,1,Jasper - Sun City,Jasper - Levy,0.7097,Jasper - Grays,0.6875,Jasper - Sun City,0.6857,0.0222
+Kershaw,Kershaw - E Camden-Hermitage,1,Kershaw - E. Camden-Hermitage,Kershaw - Camden No. 5-A,0.6923,Kershaw - Camden No. 1,0.6400,Kershaw - Camden No. 5,0.6400,0.0523
+Lancaster,Lancaster - Goochs Cross Roads,1,Lancaster - Goochs Cross Road,Lancaster - River Road,0.6923,Lancaster - Osceola,0.6531,Lancaster - Provisional,0.6415,0.0392
+Horry,Horry - Spring Branch,1,Horry - Mt. Olive,Horry - Adrian,0.6857,Horry - Inland,0.6857,Horry - Cool Springs,0.6829,0.0000
+Spartanburg,Spartanburg - Woodruff American Legion,1,Spartanburg - Woodruff Elementary,Spartanburg - Cudd Memorial,0.6769,Spartanburg - Swofford Career Center,0.6757,Spartanburg - Woodruff Leisure Center,0.6667,0.0012
+Horry,Horry - Methodist Rehobeth,1,Horry - Methodist-Mill Swamp,Horry - Methodist-Mill Swamp,0.6667,Horry - Jamestown,0.6047,Horry - Toddville,0.6047,0.0620
+Lancaster,Lancaster - Goochs Cross Rds,1,Lancaster - Goochs Cross Road,Lancaster - Buford,0.6522,Lancaster - Camp Creek,0.6400,Lancaster - River Road,0.6400,0.0122

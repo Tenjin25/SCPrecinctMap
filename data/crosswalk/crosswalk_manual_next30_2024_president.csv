@@ -1,0 +1,31 @@
+county,source_result_key,pair_count,example_target_polygon_key,candidate_1,score_1,candidate_2,score_2,candidate_3,score_3,score_gap_1_2
+Spartanburg,Spartanburg - Drayton Fire Station,1,Spartanburg - Dayton Fire Station,Spartanburg - Startex Fire Station,0.8529,Spartanburg - Converse Fire Station,0.8406,Spartanburg - Pelham Fire Station,0.8358,0.0124
+Lexington,Lexington - 7 Oaks,1,Lexington - Seven Oaks,Lexington - Seven Oaks,0.8500,Lexington - Oakwood,0.8108,Lexington - Red Bank,0.7895,0.0392
+Colleton,Colleton - Ashton,1,Colleton - Ashton-Lodge,Colleton - Ashton-Lodge,0.8500,Colleton - Edisto,0.8235,Colleton - Stokes,0.8235,0.0265
+Spartanburg,Spartanburg - Reidville A,1,Spartanburg - Reidville Elementary,Spartanburg - Reidville Elementary,0.8475,Spartanburg - Reidville Fire Station,0.8197,Spartanburg - Valley Falls,0.7843,0.0278
+Spartanburg,Spartanburg - Arrowood Baptist,1,Spartanburg - Chesnee Elementary,Spartanburg - Croft Baptist,0.8421,Spartanburg - Lake Bowen Baptist,0.8065,Spartanburg - Eastside Baptist,0.8000,0.0357
+Spartanburg,Spartanburg - Silverhill Methodist,1,Spartanburg - Victor Mill Methodist,Spartanburg - Victor Mill Methodist,0.8406,Spartanburg - Silverhill Memorial Umc,0.8169,Spartanburg - Trinity Methodist,0.8000,0.0237
+Horry,Horry - 4 Mile,1,Horry - Four Mile,Horry - Four Mile,0.8387,Horry - Maple,0.8148,Horry - Leon,0.7692,0.0239
+Spartanburg,Spartanburg - Gramling,1,Spartanburg - Gramling Methodist,Spartanburg - Rainbow,0.8372,Spartanburg - Gramling Methodist,0.8148,Spartanburg - Drayton,0.7907,0.0224
+Spartanburg,Spartanburg - Roebuck A,1,Spartanburg - Roebuck Elementary,Spartanburg - Roebuck Elementary,0.8364,Spartanburg - Roebuck Bethlehem,0.8148,Spartanburg - Hope,0.7805,0.0215
+Spartanburg,Spartanburg - Canaan Baptist,1,Spartanburg - Canaan,Spartanburg - Croft Baptist,0.8364,Spartanburg - Canaan,0.8333,Spartanburg - Cornerstone Baptist,0.8197,0.0030
+Greenwood,Greenwood - Greenwood No. 1,1,Greenwood - Loblolly Pines,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,Greenwood - Stonewood,0.7083,0.0000
+Greenwood,Greenwood - Greenwood No. 2,1,Greenwood - Bees Ferry,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,Greenwood - Stonewood,0.7083,0.0000
+Greenwood,Greenwood - Greenwood No. 3,1,Greenwood - Levis Knoll,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,Greenwood - Stonewood,0.7083,0.0000
+Greenwood,Greenwood - Greenwood No. 4,1,Greenwood - Grandiflora Glen,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,Greenwood - Stonewood,0.7083,0.0000
+Greenwood,Greenwood - Greenwood No. 5,1,Greenwood - Ashley River Run,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,Greenwood - Stonewood,0.7083,0.0000
+Greenwood,Greenwood - Greenwood No. 7,1,Greenwood - Fairhope Ferry,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,Greenwood - Stonewood,0.7083,0.0000
+Greenwood,Greenwood - Greenwood No. 8,1,Greenwood - Pebble Stone Way,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,Greenwood - Stonewood,0.7083,0.0000
+Aiken,Aiken - Oak Grove No. 30,1,Aiken - Oak Grove,Aiken - Oak Grove,0.8293,Aiken - Aiken No. 3,0.7907,Aiken - Aiken No. 1,0.7442,0.0386
+Pickens,Pickens - Central I,1,Pickens - West Central,Pickens - West Central,0.8293,Pickens - North Central,0.8095,Pickens - South Central,0.8095,0.0197
+Aiken,Aiken - Jackson No. 17,1,Aiken - Jackson,Aiken - Aiken No. 1,0.8293,Aiken - Jackson,0.8108,Aiken - Aiken No. 47,0.8095,0.0185
+Aiken,Aiken - Wagener No. 39,1,Aiken - Wagener,Aiken - Aiken No. 3,0.8293,Aiken - Wagener,0.8108,Aiken - Aiken No. 1,0.7805,0.0185
+Pickens,Pickens - Liberty I,1,Pickens - East Liberty,Pickens - West Liberty,0.8293,Pickens - East Liberty,0.8293,Pickens - North Liberty,0.8095,0.0000
+Spartanburg,Spartanburg - Cleveland Elementary Sch,1,Spartanburg - Cleveland Elementary,Spartanburg - Oakland Elementary,0.8286,Spartanburg - Lyman Elementary,0.8235,Spartanburg - Arcadia Elementary,0.8000,0.0050
+Spartanburg,Spartanburg - North Spartanburg Fire Station,1,Spartanburg - Fairforest Elementary,Spartanburg - Poplar Springs Fire Station,0.8235,Spartanburg - Startex Fire Station,0.7949,Spartanburg - Cherokee Springs Fire Station,0.7816,0.0287
+Spartanburg,Spartanburg - Powell Saxon Una Fire Station,1,Spartanburg - Powell Saxon Una,Spartanburg - Powell Saxon Una,0.8219,Spartanburg - Wellford Fire Station,0.8205,Spartanburg - Pelham Fire Station,0.8158,0.0014
+Colleton,Colleton - Lodge,1,Colleton - Ashton-Lodge,Colleton - Ashton-Lodge,0.8205,Colleton - Stokes,0.7879,Colleton - Peeples,0.7647,0.0326
+Colleton,Colleton - Berea,1,Colleton - Berea-Smoaks,Colleton - Berea-Smoaks,0.8205,Colleton - Bells,0.8125,Colleton - Peniel,0.7879,0.0080
+Aiken,Aiken - 6 Points 35,1,Aiken - Six Points No. 35,Aiken - Six Points No. 35,0.8182,Aiken - Six Points No. 46,0.7273,,,0.0909
+Aiken,Aiken - 6 Points 46,1,Aiken - Six Points No. 46,Aiken - Six Points No. 46,0.8182,Aiken - Six Points No. 35,0.7273,,,0.0909
+Spartanburg,Spartanburg - Beaumont Methodist Church,1,Spartanburg - Beaumont Methodist,Spartanburg - Ben Avon Methodist,0.8169,Spartanburg - Gramling Methodist,0.7606,Spartanburg - Landrum United Methodist,0.7532,0.0563

@@ -1,0 +1,31 @@
+priority_tier,county,source_result_key,pair_count,example_target_polygon_key,candidate_1,score_1,candidate_2,score_2,candidate_3,score_3,score_gap_1_2
+manual_hard,York,York - Clover No. 1,4,York - Bethel School,York - York No. 1,0.8333,York - Clover,0.8125,York - York No. 2,0.7778,0.0208
+manual_hard,York,York - Clover No. 2,3,York - Clover,York - York No. 2,0.8333,York - Clover,0.8125,York - York No. 1,0.7778,0.0208
+manual_hard,Greenwood,Greenwood - Greenwood No. 6,3,Greenwood - Hopes Ferry,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,Greenwood - Stonewood,0.7083,0.0000
+manual_medium,Edgefield,Edgefield - Trenton,2,Edgefield - Trenton No. 1,Edgefield - Trenton No.1,0.8837,Edgefield - Trenton No.2,0.8837,Edgefield - Brunson,0.8421,0.0000
+manual_hard,Aiken,Aiken - Ascauga Lake,2,Aiken - Ascauga Lake No. 63,Aiken - Ascauga Lake No. 63,0.8511,Aiken - Ascauga Lake No. 84,0.8511,Aiken - Misty Lakes,0.7179,0.0000
+manual_hard,Aiken,Aiken - Gem Lakes,2,Aiken - Gem Lakes No. 60,Aiken - Misty Lakes,0.8333,Aiken - Gem Lakes No. 60,0.8293,Aiken - Gem Lakes No. 77,0.8293,0.0040
+manual_hard,Aiken,Aiken - Hammond,2,Aiken - Hammond No. 48,Aiken - Hammond No. 48,0.8108,Aiken - Hammond No. 81,0.8108,Aiken - Ward,0.7407,0.0000
+manual_hard,Aiken,Aiken - Levels,2,Aiken - Levels No. 52,Aiken - Levels No. 52,0.8000,Aiken - Levels No. 72,0.8000,Aiken - Levels No. 83,0.8000,0.0000
+manual_hard,Pickens,Pickens - Park Street,2,Pickens - Fruit Mountain,Pickens - Praters Creek,0.7727,Pickens - Pike,0.7429,Pickens - Rices Creek,0.7143,0.0298
+manual_medium,Berkeley,Berkeley - Goose Creek 1,1,Berkeley - Foster Creek 1,Berkeley - Foster Creek 1,0.8980,Berkeley - Foster Creek 2,0.8571,Berkeley - Foster Creek 3,0.8571,0.0409
+manual_medium,Berkeley,Berkeley - Goose Creek 2,1,Berkeley - Foster Creek 2,Berkeley - Foster Creek 2,0.8980,Berkeley - Foster Creek 1,0.8571,Berkeley - Foster Creek 3,0.8571,0.0409
+manual_medium,Berkeley,Berkeley - Goose Creek 3,1,Berkeley - Foster Creek 3,Berkeley - Foster Creek 3,0.8980,Berkeley - Foster Creek 1,0.8571,Berkeley - Foster Creek 2,0.8571,0.0409
+manual_medium,Florence,Florence - Florence 10,1,Florence - Florence Ward 10,Florence - Florence Ward 10,0.8980,Florence - Florence Ward 1,0.8750,Florence - West Florence 1,0.8750,0.0230
+manual_medium,Florence,Florence - Florence 11,1,Florence - Florence Ward 11,Florence - Florence Ward 11,0.8980,Florence - Florence Ward 1,0.8750,Florence - West Florence 1,0.8750,0.0230
+manual_medium,Florence,Florence - Florence 12,1,Florence - Florence Ward 12,Florence - Florence Ward 12,0.8980,Florence - Florence Ward 1,0.8750,Florence - Florence Ward 2,0.8750,0.0230
+manual_medium,Florence,Florence - Florence 3,1,Florence - Florence Ward 3,Florence - Florence Ward 3,0.8936,Florence - Florence Ward 1,0.8511,Florence - Florence Ward 2,0.8511,0.0425
+manual_medium,Florence,Florence - Florence 6,1,Florence - Florence Ward 6,Florence - Florence Ward 6,0.8936,Florence - Florence Ward 1,0.8511,Florence - Florence Ward 2,0.8511,0.0425
+manual_medium,Florence,Florence - Florence 7,1,Florence - Florence Ward 7,Florence - Florence Ward 7,0.8936,Florence - Florence Ward 1,0.8511,Florence - Florence Ward 2,0.8511,0.0425
+manual_medium,Florence,Florence - Florence 8,1,Florence - Florence Ward 8,Florence - Florence Ward 8,0.8936,Florence - Florence Ward 1,0.8511,Florence - Florence Ward 2,0.8511,0.0425
+manual_medium,Florence,Florence - Florence 9,1,Florence - Florence Ward 9,Florence - Florence Ward 9,0.8936,Florence - Florence Ward 1,0.8511,Florence - Florence Ward 2,0.8511,0.0425
+manual_medium,Spartanburg,Spartanburg - Cornerstone,1,Spartanburg - Cornerstone Baptist,Spartanburg - Converse,0.8936,Spartanburg - Cornerstone Baptist,0.8621,Spartanburg - Cowpens,0.7826,0.0315
+manual_medium,Florence,Florence - Florence 4,1,Florence - Florence Ward 4,Florence - Florence Ward 4,0.8936,Florence - Florence Ward 14,0.8750,Florence - Florence Ward 1,0.8511,0.0186
+manual_medium,Florence,Florence - Florence 5,1,Florence - Florence Ward 5,Florence - Florence Ward 5,0.8936,Florence - Florence Ward 15,0.8750,Florence - Florence Ward 1,0.8511,0.0186
+manual_medium,Florence,Florence - Florence 1,1,Florence - Florence Ward 1,Florence - Florence Ward 1,0.8936,Florence - West Florence 1,0.8936,Florence - Florence Ward 10,0.8750,0.0000
+manual_medium,Florence,Florence - Florence 2,1,Florence - Florence Ward 2,Florence - Florence Ward 2,0.8936,Florence - West Florence 2,0.8936,Florence - Florence Ward 12,0.8750,0.0000
+manual_medium,Berkeley,Berkeley - Boulder Bluff No. 1,1,Berkeley - Central,Berkeley - Boulder Bluff,0.8889,,,,,0.8889
+manual_medium,Lexington,Lexington - Saint David,1,Lexington - St. Davids,Lexington - St. Davids,0.8889,Lexington - Springdale,0.7556,Lexington - Fairview,0.7442,0.1333
+manual_medium,Spartanburg,Spartanburg - Fairforest,1,Spartanburg - Fairforest Elementary,Spartanburg - Airport,0.8889,Spartanburg - Failsafe,0.8261,Spartanburg - Fairgrounds,0.8163,0.0628
+manual_medium,Sumter,Sumter - Oakland Plant. 1,1,Sumter - Oakland Plantation 1,Sumter - Oakland Plantation 1,0.8889,Sumter - Oakland Plantation 2,0.8519,,,0.0370
+manual_medium,Sumter,Sumter - Oakland Plant. 2,1,Sumter - Oakland Plantation 2,Sumter - Oakland Plantation 2,0.8889,Sumter - Oakland Plantation 1,0.8519,,,0.0370

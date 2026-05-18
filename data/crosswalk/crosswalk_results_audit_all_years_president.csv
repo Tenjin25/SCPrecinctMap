@@ -1,0 +1,8 @@
+year,results_csv,crosswalk_source_keys,results_president_keys,found_in_results,missing_from_results
+2006,Data/_tmpdata/openelections-data-sc/2006/20061107__sc__general__precinct.csv,0,0,0,0
+2008,Data/_tmpdata/openelections-data-sc/2008/20081104__sc__general__precinct.csv,1063,1467,1063,0
+2016,Data/_tmpdata/openelections-data-sc/2016/20161108__sc__general__precinct.csv,2087,2464,2087,0
+2018,Data/_tmpdata/openelections-data-sc/2018/20181106__sc__general__precinct.csv,0,0,0,0
+2020,Data/_tmpdata/openelections-data-sc/2020/20201103__sc__general__precinct.csv,2169,2399,2169,0
+2022,Data/_tmpdata/openelections-data-sc/2022/20221108__sc__general__precinct.csv,0,0,0,0
+2024,Data/_tmpdata/openelections-data-sc/2024/20241105__sc__general__precinct.csv,551,2446,533,18
