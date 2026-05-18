@@ -1,163 +1,492 @@
 {
-  "_comment": "Optional weighted one-to-many mappings that preserve vote totals while splitting a source precinct row.",
-  "_format": "Map a source key string to an object of target key -> weight.",
-  "_note": "Weights use 2020 total-vote share within each proposed source+missing pair.",
-  "Lancaster - Lancaster East": {
-    "LANCASTER - LANCASTER EAST": 0.6595,
-    "LANCASTER - LANCASTER WEST": 0.3405
+  "_comment": "Auto-generated weighted split mapping from approved crosswalk multi-target rows and precinct CVAP.",
+  "_source_crosswalk": "precinct_crosswalk_2024.csv",
+  "_source_cvap": "Data/sc_cvap_2024_by_precinct_norm.json",
+  "_year": 2024,
+  "_contest_type": "president",
+  "_cvap_field": "CVAP_TOT24",
+  "_stats": {
+    "multi_source_count": 108,
+    "used_cvap_count": 108,
+    "equal_fallback_count": 0
   },
-  "Saluda - Pleasant Grove": {
-    "SALUDA - PLEASANT GROVE": 0.8093,
-    "SALUDA - PLEASANT CROSS": 0.1907
+  "Aiken - Ascauga Lake No. 63": {
+    "AIKEN - ASCAUGA LAKE NO. 63": 0.564103,
+    "AIKEN - ASCAUGA LAKE NO. 84": 0.435897
   },
-  "Saluda - Fruit Hill": {
-    "SALUDA - FRUIT HILL": 0.7364,
-    "SALUDA - MT. WILLING": 0.2636
+  "Aiken - Hammond No. 48": {
+    "AIKEN - HAMMOND NO. 48": 0.425681,
+    "AIKEN - HAMMOND NO. 81": 0.574319
   },
-  "Saluda - Holstons": {
-    "SALUDA - HOLSTONS": 0.6706,
-    "SALUDA - MAYSON": 0.3294
+  "Aiken - Levels No. 52": {
+    "AIKEN - LEVELS NO. 52": 0.530864,
+    "AIKEN - LEVELS NO. 83": 0.469136
   },
-  "Saluda - Richland": {
-    "SALUDA - RICHLAND": 0.6963,
-    "SALUDA - CLYDE": 0.3037
+  "Aiken - Misty Lakes": {
+    "AIKEN - GEM LAKES NO. 60": 0.29114770885229113,
+    "AIKEN - GEM LAKES NO. 77": 0.37770462229537766,
+    "AIKEN - MISTY LAKES": 0.3311476688523311
   },
-  "Saluda - Ward": {
-    "SALUDA - WARD": 0.4928,
-    "SALUDA - DELMAR": 0.5072
+  "Beaufort - Bluffton 3": {
+    "BEAUFORT - BLUFFTON 3": 0.405491,
+    "BEAUFORT - MOSS CREEK": 0.594509
   },
-  "Spartanburg - Cowpens": {
-    "SPARTANBURG - COWPENS DEPOT MUSEUM": 0.397,
-    "SPARTANBURG - COWPENS FIRE STATION": 0.603
+  "Beaufort - Hilton Head 6": {
+    "BEAUFORT - HILTON HEAD 6": 0.515236,
+    "BEAUFORT - HILTON HEAD 7A": 0.484764
   },
-  "Spartanburg - Shoally": {
-    "SPARTANBURG - BOILING SPRINGS 9TH GRADE": 0.808059,
-    "SPARTANBURG - WHITLOCK JR. HIGH": 0.191941
+  "Beaufort - Hilton Head 8": {
+    "BEAUFORT - HILTON HEAD 13": 0.674146,
+    "BEAUFORT - HILTON HEAD 8": 0.325854
   },
-  "Spartanburg - Southside Baptist": {
-    "SPARTANBURG - SOUTHSIDE BAPTIST": 0.8,
-    "SPARTANBURG - BEAUMONT METHODIST": 0.2
+  "Beaufort - Sun City 1": {
+    "BEAUFORT - SUN CITY 6": 0.506088,
+    "BEAUFORT - SUN CITY 7": 0.493912
+  },
+  "Beaufort - Sun City 3": {
+    "BEAUFORT - SUN CITY 2": 0.287944,
+    "BEAUFORT - SUN CITY 8": 0.712056
+  },
+  "Beaufort - Sun City 4": {
+    "BEAUFORT - SUN CITY 3": 0.552913,
+    "BEAUFORT - SUN CITY 5": 0.447087
+  },
+  "Berkeley - Cane Bay": {
+    "BERKELEY - CANE BAY": 0.510042,
+    "BERKELEY - CANE BAY EAST": 0.134964,
+    "BERKELEY - CANE BAY NORTH": 0.206016,
+    "BERKELEY - CANE BAY SOUTH": 0.148978
+  },
+  "Berkeley - Discovery": {
+    "BERKELEY - COBBLESTONE": 0.540432,
+    "BERKELEY - DISCOVERY": 0.459568
+  },
+  "Berkeley - Foster Creek 1": {
+    "BERKELEY - FOSTER CREEK 1": 0.437198,
+    "BERKELEY - FOSTER CREEK 3": 0.562802
+  },
+  "Berkeley - Hanahan 5": {
+    "BERKELEY - HANAHAN 5": 0.535387,
+    "BERKELEY - WESTVIEW 4": 0.464613
+  },
+  "Berkeley - Medway": {
+    "BERKELEY - MACEDONIA 2": 0.084881,
+    "BERKELEY - MEDWAY": 0.915119
+  },
+  "Berkeley - Moultrie": {
+    "BERKELEY - MOULTRIE": 0.603482,
+    "BERKELEY - NORTH CREEK": 0.396518
+  },
+  "Berkeley - Stone Lake": {
+    "BERKELEY - HARBOUR LAKE": 0.682466,
+    "BERKELEY - STONE LAKE": 0.317534
+  },
+  "Berkeley - Yeaman'S Club": {
+    "BERKELEY - PINE GROVE": 0.0,
+    "BERKELEY - POMFLANT": 1.0
+  },
+  "Charleston - Charleston 2": {
+    "CHARLESTON - NORTH CHARLESTON 23": 0.461477,
+    "CHARLESTON - NORTH CHARLESTON 27": 0.226494,
+    "CHARLESTON - NORTH CHARLESTON 29": 0.312029
+  },
+  "Charleston - Deer Park 3": {
+    "CHARLESTON - DEER PARK 1A": 0.064967,
+    "CHARLESTON - DEER PARK 1B": 0.350841,
+    "CHARLESTON - DEER PARK 2A": 0.20102,
+    "CHARLESTON - DEER PARK 2B": 0.109026,
+    "CHARLESTON - DEER PARK 2C": 0.055533,
+    "CHARLESTON - DEER PARK 3": 0.218613
+  },
+  "Charleston - James Island 20": {
+    "CHARLESTON - JAMES ISLAND 1A": 0.158392,
+    "CHARLESTON - JAMES ISLAND 1B": 0.07018,
+    "CHARLESTON - JAMES ISLAND 2": 0.352787,
+    "CHARLESTON - JAMES ISLAND 20": 0.08943,
+    "CHARLESTON - JAMES ISLAND 5A": 0.065915,
+    "CHARLESTON - JAMES ISLAND 5B": 0.061407,
+    "CHARLESTON - JAMES ISLAND 8A": 0.106062,
+    "CHARLESTON - JAMES ISLAND 8B": 0.095827
+  },
+  "Charleston - James Island 22": {
+    "CHARLESTON - JAMES ISLAND 1A": 0.15749,
+    "CHARLESTON - JAMES ISLAND 1B": 0.06978,
+    "CHARLESTON - JAMES ISLAND 2": 0.350778,
+    "CHARLESTON - JAMES ISLAND 22": 0.094615,
+    "CHARLESTON - JAMES ISLAND 5A": 0.06554,
+    "CHARLESTON - JAMES ISLAND 5B": 0.061058,
+    "CHARLESTON - JAMES ISLAND 8A": 0.105458,
+    "CHARLESTON - JAMES ISLAND 8B": 0.095281
+  },
+  "Charleston - Johns Island 4": {
+    "CHARLESTON - JOHNS ISLAND 1A": 0.15283415283415283,
+    "CHARLESTON - JOHNS ISLAND 1B": 0.17464217464217463,
+    "CHARLESTON - JOHNS ISLAND 3A": 0.4136504136504136,
+    "CHARLESTON - JOHNS ISLAND 3B": 0.14532914532914534,
+    "CHARLESTON - JOHNS ISLAND 4": 0.11354411354411353
+  },
+  "Charleston - Kiawah Island": {
+    "CHARLESTON - KIAWAH ISLAND": 0.50131,
+    "CHARLESTON - TOWN OF SEABROOK": 0.49869
+  },
+  "Charleston - Mcclellanville": {
+    "CHARLESTON - LICOLNVILLE": 0.605882,
+    "CHARLESTON - MCCLELLANVILLE": 0.394118
+  },
+  "Charleston - St. Pauls 3": {
+    "CHARLESTON - ST. PAULS 2A": 0.205145,
+    "CHARLESTON - ST. PAULS 2B": 0.271548,
+    "CHARLESTON - ST. PAULS 3": 0.523307
+  },
+  "Chester - Lando/Lansford": {
+    "CHESTER - LANDO": 0.270578,
+    "CHESTER - LANDO LANSFORD": 0.729422
+  },
+  "Colleton - Walterboro No. 1": {
+    "COLLETON - PENIEL": 0.515782,
+    "COLLETON - WALTERBORO NO. 1": 0.484218
+  },
+  "Colleton - Walterboro No. 2": {
+    "COLLETON - PEEPLES": 0.39797,
+    "COLLETON - WALTERBORO NO. 2": 0.29756,
+    "COLLETON - WALTERBORO NO. 6": 0.30447
+  },
+  "Colleton - Walterboro No. 3": {
+    "COLLETON - WALTERBORO NO. 3": 0.391979,
+    "COLLETON - WALTERBORO NO. 6": 0.608021
+  },
+  "Colleton - Walterboro No. 4": {
+    "COLLETON - PEEPLES": 0.386049,
+    "COLLETON - WALTERBORO NO. 4": 0.292208,
+    "COLLETON - WALTERBORO NO. 5": 0.321743
+  },
+  "Edgefield - Trenton No.1": {
+    "EDGEFIELD - TRENTON NO. 1": 0.359683,
+    "EDGEFIELD - TRENTON NO. 2": 0.640317
+  },
+  "Georgetown - Georgetown No. 1": {
+    "GEORGETOWN - DREAM KEEPERS": 0.502212,
+    "GEORGETOWN - GEORGETOWN NO. 1": 0.497788
+  },
+  "Greenwood - Greenwood High": {
+    "GREENWOOD - ASHLEY RIVER RUN": 0.06693693306306694,
+    "GREENWOOD - BEES FERRY": 0.1103968896031104,
+    "GREENWOOD - FAIRHOPE FERRY": 0.12360287639712361,
+    "GREENWOOD - GRANDIFLORA GLEN": 0.054079945920054086,
+    "GREENWOOD - HOPES FERRY": 0.08594191405808595,
+    "GREENWOOD - LACO": 0.10403889596110405,
+    "GREENWOOD - LEVIS KNOLL": 0.19794580205419798,
+    "GREENWOOD - LOBLOLLY PINES": 0.0964919035080965,
+    "GREENWOOD - MOUNTAIN LAUREL": 0.08440491559508441,
+    "GREENWOOD - PEBBLE STONE WAY": 0.07615992384007617
+  },
+  "Horry - Aynor": {
+    "HORRY - BAYBORO-GURLEY": 0.548661,
+    "HORRY - MT. OLIVE": 0.451339
   },
   "Horry - Burgess #2": {
-    "HORRY - BURGESS #2": 0.6161,
-    "HORRY - BURGESS #5": 0.3839
+    "HORRY - BURGESS 2": 0.587581,
+    "HORRY - BURGESS 5": 0.412419
   },
   "Horry - Enterprise #2": {
-    "HORRY - ENTERPRISE #2": 0.6711,
-    "HORRY - ENTERPRISE #1": 0.3289
+    "HORRY - ENTERPRISE 1": 0.541021,
+    "HORRY - ENTERPRISE 2": 0.458979
   },
   "Horry - Jet Port #2": {
-    "HORRY - JET PORT #2": 0.7003,
-    "HORRY - JET PORT #4": 0.1859,
-    "HORRY - JET PORT #3": 0.1138
+    "HORRY - JET PORT 2": 0.213503,
+    "HORRY - JET PORT 3": 0.323444,
+    "HORRY - JET PORT 4": 0.463053
+  },
+  "Horry - Nixons X Roads #1": {
+    "HORRY - NIXONS XROADS 1": 0.30352,
+    "HORRY - NIXONS XROADS 2": 0.466007,
+    "HORRY - NIXONS XROADS 3": 0.230473
+  },
+  "Horry - Nixons X Roads #2": {
+    "HORRY - NIXONS XROADS 1": 0.394425,
+    "HORRY - NIXONS XROADS 2": 0.605575
   },
   "Horry - Ocean Drive #2": {
-    "HORRY - OCEAN DRIVE #2": 0.3643,
-    "HORRY - OCEAN DRIVE #3": 0.6357
+    "HORRY - OCEAN DRIVE 2": 0.485209,
+    "HORRY - OCEAN DRIVE 3": 0.514791
+  },
+  "Horry - Toddville": {
+    "HORRY - CEDAR GROVE": 0.719939,
+    "HORRY - PLEASANT VIEW": 0.280061
   },
   "Jasper - Hardeeville 1": {
-    "JASPER - HARDEEVILLE 1": 0.4407,
-    "JASPER - HARDEEVILLE 3": 0.5547
+    "JASPER - HARDEEVILLE 1": 0.572554,
+    "JASPER - HARDEEVILLE 3": 0.427446
   },
-  "Jasper - Oakatie": {
-    "JASPER - OAKATIE": 0.547,
-    "JASPER - OAKATIE 2": 0.4239
+  "Jasper - Okatie": {
+    "JASPER - OAKATIE": 0.341244,
+    "JASPER - OAKATIE 2": 0.658756
   },
-  "York - Palmetto": {
-    "YORK - PALMETTO": 0.2846,
-    "YORK - CRESCENT": 0.7143
+  "Kershaw - Camden No. 1": {
+    "KERSHAW - CAMDEN NO. 1": 0.463554,
+    "KERSHAW - HOBKIRKS HILL": 0.536446
+  },
+  "Kershaw - Camden No. 2 & 3": {
+    "KERSHAW - CAMDEN NO. 2 3": 0.242156,
+    "KERSHAW - HOBKIRKS HILL": 0.757844
+  },
+  "Kershaw - Camden No. 5-A": {
+    "KERSHAW - CAMDEN NO. 5-A": 0.405109,
+    "KERSHAW - E. CAMDEN-HERMITAGE": 0.594891
+  },
+  "Kershaw - Salt Pond": {
+    "KERSHAW - GATES FORD": 0.238537,
+    "KERSHAW - SALT POND": 0.761463
+  },
+  "Lancaster - Buford": {
+    "LANCASTER - BUFORD": 0.0,
+    "LANCASTER - DWIGHT": 0.42455,
+    "LANCASTER - GOOCHS CROSS ROAD": 0.57545
+  },
+  "Lancaster - Elgin": {
+    "LANCASTER - BLACK HORSE RUN": 0.799004,
+    "LANCASTER - GOLD HILL": 0.200996
+  },
+  "Lancaster - Flat Creek": {
+    "LANCASTER - FLAT CREEK": 0.0,
+    "LANCASTER - MIDWAY": 1.0
+  },
+  "Lancaster - Jim Wilson": {
+    "LANCASTER - JACKSONHAM": 1.0,
+    "LANCASTER - JIM WILSON": 0.0
+  },
+  "Lancaster - Lancaster East": {
+    "LANCASTER - LANCASTER EAST": 0.678069,
+    "LANCASTER - LANCASTER WEST": 0.321931
+  },
+  "Lancaster - Mcilwain": {
+    "LANCASTER - LYNWOOD DRIVE": 1.0,
+    "LANCASTER - MCILWAIN": 0.0
+  },
+  "Lancaster - Springdale": {
+    "LANCASTER - GOOCHS CROSS ROAD": 1.0,
+    "LANCASTER - SPRINGDALE": 0.0
+  },
+  "Lancaster - Tradesville": {
+    "LANCASTER - SPRING HILL": 1.0,
+    "LANCASTER - TRADESVILLE": 0.0
+  },
+  "Lexington - Cayce No. 2": {
+    "LEXINGTON - CAYCE 2A": 0.470504,
+    "LEXINGTON - CAYCE NO. 2": 0.529496
+  },
+  "Newberry - Pomaria": {
+    "NEWBERRY - LITTLE MOUNTAIN": 0.68163,
+    "NEWBERRY - POMARIA": 0.31837
+  },
+  "Oconee - Tokeena-Providence": {
+    "OCONEE - OAKWAY": 0.506337,
+    "OCONEE - TOKEENA-PROVIDENCE": 0.493663
+  },
+  "Orangeburg - Orangeburg Wd 1": {
+    "ORANGEBURG - ORANGEBURG WARD 1": 0.465605,
+    "ORANGEBURG - ORANGEBURG WARD 7": 0.534395
+  },
+  "Pickens - Albert R. Lewis": {
+    "PICKENS - ALBERT R. LEWIS": 0.47007,
+    "PICKENS - MOUNTAIN VIEW": 0.52993
+  },
+  "Pickens - Praters Creek": {
+    "PICKENS - FRUIT MOUNTAIN": 0.294993294993295,
+    "PICKENS - PRATERS CREEK": 0.3142083142083142,
+    "PICKENS - SIMPSON": 0.3907983907983908
+  },
+  "Richland - Parkridge 1": {
+    "RICHLAND - PARKRIDGE 1": 0.532714,
+    "RICHLAND - PARKRIDGE 2": 0.467286
+  },
+  "Richland - Riversprings 1": {
+    "RICHLAND - RIVERSPRINGS 1": 0.27325,
+    "RICHLAND - RIVERSPRINGS 2": 0.37,
+    "RICHLAND - RIVERSPRINGS 3": 0.35675
+  },
+  "Richland - Springville 1": {
+    "RICHLAND - SPRING HILL": 0.47268447268447267,
+    "RICHLAND - SPRINGVILLE 1": 0.2665992665992666,
+    "RICHLAND - SPRINGVILLE 2": 0.26071626071626075
+  },
+  "Saluda - Fruit Hill": {
+    "SALUDA - FRUIT HILL": 0.715566,
+    "SALUDA - MT. WILLING": 0.284434
+  },
+  "Saluda - Holstons": {
+    "SALUDA - HOLSTONS": 0.573061,
+    "SALUDA - MAYSON": 0.426939
+  },
+  "Saluda - Pleasant Grove": {
+    "SALUDA - PLEASANT CROSS": 0.20056,
+    "SALUDA - PLEASANT GROVE": 0.79944
+  },
+  "Saluda - Richland": {
+    "SALUDA - CLYDE": 0.25308,
+    "SALUDA - RICHLAND": 0.74692
+  },
+  "Saluda - Ward": {
+    "SALUDA - DELMAR": 0.510324,
+    "SALUDA - WARD": 0.489676
+  },
+  "Spartanburg - Airport": {
+    "SPARTANBURG - FAIRFOREST ELEMENTARY": 0.77974,
+    "SPARTANBURG - MT. ZION GOSPEL BAPTIST": 0.22026
+  },
+  "Spartanburg - Beacon": {
+    "SPARTANBURG - BEACON": 0.0,
+    "SPARTANBURG - SOUTHSIDE BAPTIST": 1.0
+  },
+  "Spartanburg - Boling Springs Jr. High": {
+    "SPARTANBURG - BOILING SPRINGS HIGH SCHOOL": 0.48767,
+    "SPARTANBURG - BOLING SPRINGS JR. HIGH": 0.51233
+  },
+  "Spartanburg - C.C. Woodson Recreation": {
+    "SPARTANBURG - C.C. WOODSON RECREATION": 0.340231,
+    "SPARTANBURG - PACOLET ELEMENTARY": 0.659769
+  },
+  "Spartanburg - Chestnut Lake": {
+    "SPARTANBURG - BOILING SPRINGS INTERMEDIATE": 1.0,
+    "SPARTANBURG - CHESTNUT LAKE": 0.0
+  },
+  "Spartanburg - Clifton Glendale": {
+    "SPARTANBURG - CLIFTON GLENDALE": 0.0,
+    "SPARTANBURG - GLENDALE FIRE STATION": 1.0
+  },
+  "Spartanburg - Converse": {
+    "SPARTANBURG - CONVERSE FIRE STATION": 0.496464,
+    "SPARTANBURG - CORNERSTONE BAPTIST": 0.503536
+  },
+  "Spartanburg - Cowpens": {
+    "SPARTANBURG - COWPENS": 0.0,
+    "SPARTANBURG - COWPENS DEPOT MUSEUM": 0.334743,
+    "SPARTANBURG - COWPENS FIRE STATION": 0.665257
+  },
+  "Spartanburg - Croft Baptist": {
+    "SPARTANBURG - CANAAN": 0.349422,
+    "SPARTANBURG - CHESNEE ELEMENTARY": 0.650578
+  },
+  "Spartanburg - Drayton": {
+    "SPARTANBURG - DAYTON FIRE STATION": 0.322565,
+    "SPARTANBURG - DRAYTON": 0.0,
+    "SPARTANBURG - WOODRUFF ELEMENTARY": 0.677435
+  },
+  "Spartanburg - Eastside Baptist": {
+    "SPARTANBURG - BEAUMONT METHODIST": 0.231347,
+    "SPARTANBURG - HOLY COMMUNION": 0.546696,
+    "SPARTANBURG - SOUTHSIDE BAPTIST": 0.221957
+  },
+  "Spartanburg - Enoree River": {
+    "SPARTANBURG - ENOREE RIVER": 0.0,
+    "SPARTANBURG - WOODRUFF FIRE STATION": 1.0
+  },
+  "Spartanburg - Fairgrounds": {
+    "SPARTANBURG - CLEVELAND ELEMENTARY": 1.0,
+    "SPARTANBURG - FAIRGROUNDS": 0.0
+  },
+  "Spartanburg - Holly Springs Motlow": {
+    "SPARTANBURG - HOLLY SPRINGS BAPTIST": 1.0,
+    "SPARTANBURG - HOLLY SPRINGS MOTLOW": 0.0
+  },
+  "Spartanburg - Lake Cooley": {
+    "SPARTANBURG - FAIRFOREST ELEMENTARY": 1.0,
+    "SPARTANBURG - LAKE COOLEY": 0.0
+  },
+  "Spartanburg - Mccracken Middle School": {
+    "SPARTANBURG - MCCRACKEN MIDDLE SCHOOL": 0.0,
+    "SPARTANBURG - SPARTANBURG HIGH SCHOOL": 1.0
+  },
+  "Spartanburg - Moore Duncan": {
+    "SPARTANBURG - BETHANY WESLEYAN": 1.0,
+    "SPARTANBURG - MOORE DUNCAN": 0.0
+  },
+  "Spartanburg - Mt. Moriah Baptist": {
+    "SPARTANBURG - D. R. HILL MIDDLE SCHOOL": 0.609464,
+    "SPARTANBURG - MT. MORIAH BAPTIST": 0.390536
+  },
+  "Spartanburg - New Prospect": {
+    "SPARTANBURG - NEW PROSPECT": 0.0,
+    "SPARTANBURG - SWOFFORD CAREER CENTER": 1.0
+  },
+  "Spartanburg - Palmetto": {
+    "SPARTANBURG - COWPENS DEPOT MUSEUM": 0.329256,
+    "SPARTANBURG - PACOLET ELEMENTARY": 0.670744,
+    "SPARTANBURG - PALMETTO": 0.0
+  },
+  "Spartanburg - Poplar Springs Fire Station": {
+    "SPARTANBURG - FAIRFOREST ELEMENTARY": 0.576252,
+    "SPARTANBURG - POPLAR SPRINGS FIRE STATION": 0.423748
+  },
+  "Spartanburg - Rainbow": {
+    "SPARTANBURG - GRAMLING METHODIST": 0.252332,
+    "SPARTANBURG - LAKE BOWEN BAPTIST": 0.747668
+  },
+  "Spartanburg - Shoally": {
+    "SPARTANBURG - BOILING SPRINGS 9TH GRADE": 0.699754,
+    "SPARTANBURG - WHITLOCK JR. HIGH": 0.300246
+  },
+  "Spartanburg - Southport": {
+    "SPARTANBURG - SOUTHPORT": 0.0,
+    "SPARTANBURG - WHITE STONE METHODIST": 1.0
+  },
+  "Spartanburg - Spartangreen": {
+    "SPARTANBURG - SPARTANGREEN": 0.0,
+    "SPARTANBURG - TRAVELERS REST BAPTIST": 1.0
+  },
+  "Spartanburg - Wade Hampton": {
+    "SPARTANBURG - CEDAR GROVE BAPTIST": 1.0,
+    "SPARTANBURG - WADE HAMPTON": 0.0
+  },
+  "Union - Buffalo Box 1": {
+    "UNION - BUFFALO BOX 1": 0.735837,
+    "UNION - EAST BUFFALO": 0.264163
+  },
+  "Union - Monarch": {
+    "UNION - MONARCH BOX 1": 0.688735,
+    "UNION - MONARCH BOX 2": 0.311265
   },
   "York - Allison Creek": {
-    "YORK - ALLISON CREEK": 0.6082,
-    "YORK - HANDS MILL": 0.3918
+    "YORK - ALLISON CREEK": 0.403336,
+    "YORK - HANDS MILL": 0.596664
   },
-  "Aiken - Ascauga Lake": {
-    "AIKEN - ASCAUGA LAKE NO. 84": 0.798289,
-    "AIKEN - ASCAUGA LAKE NO. 63": 0.201711
+  "York - Bethel School": {
+    "YORK - BETHEL": 0.246092,
+    "YORK - BETHEL SCHOOL": 0.753908
   },
-  "Aiken - Gem Lakes": {
-    "AIKEN - GEM LAKES NO. 77": 0.578627,
-    "AIKEN - GEM LAKES NO. 60": 0.421373
+  "York - Gold Hill": {
+    "LANCASTER - GOLD HILL": 0.299533,
+    "YORK - GOLD HILL": 0.700467
   },
-  "Aiken - Hammond": {
-    "AIKEN - HAMMOND NO. 81": 0.779514,
-    "AIKEN - HAMMOND NO. 48": 0.220486
+  "York - Hopewell": {
+    "YORK - FRIENDSHIP": 0.375587,
+    "YORK - HOPEWELL": 0.624413
   },
-  "Aiken - Levels": {
-    "AIKEN - LEVELS NO. 52": 0.688098,
-    "AIKEN - LEVELS NO. 83": 0.311902
+  "York - Oakwood": {
+    "YORK - EDGEWOOD": 0.594497,
+    "YORK - OAKWOOD": 0.405503
   },
-  "Colleton - Walterboro No 1": {
-    "COLLETON - WALTERBORO NO. 1": 0.801638,
-    "COLLETON - PENIEL": 0.198362
+  "York - Palmetto": {
+    "YORK - CRESCENT": 0.472363,
+    "YORK - PALMETTO": 0.527637
   },
-  "Colleton - Walterboro No 2": {
-    "COLLETON - WALTERBORO NO. 2": 0.54973,
-    "COLLETON - WALTERBORO NO. 6": 0.321026,
-    "COLLETON - PEEPLES": 0.129245
+  "York - Six Mile": {
+    "YORK - MILL CREEK": 0.561359,
+    "YORK - SIX MILE": 0.438641
   },
-  "Colleton - Walterboro No 3": {
-    "COLLETON - WALTERBORO NO. 6": 0.507897,
-    "COLLETON - WALTERBORO NO. 3": 0.492103
+  "York - Springfield": {
+    "YORK - SPRINGDALE": 0.403207,
+    "YORK - SPRINGFIELD": 0.596793
   },
-  "Colleton - Walterboro No 4": {
-    "COLLETON - WALTERBORO NO. 5": 0.490502,
-    "COLLETON - WALTERBORO NO. 4": 0.403187,
-    "COLLETON - PEEPLES": 0.106312
+  "York - York No. 1": {
+    "YORK - BETHEL SCHOOL": 0.440353,
+    "YORK - CLOVER": 0.204098,
+    "YORK - LARNE": 0.170217,
+    "YORK - ROOSEVELT": 0.185332
   },
-  "Edgefield - Trenton": {
-    "EDGEFIELD - TRENTON NO. 1": 0.689382,
-    "EDGEFIELD - TRENTON NO. 2": 0.310618
-  },
-  "Greenwood - Greenwood No. 6": {
-    "GREENWOOD - MOUNTAIN LAUREL": 0.442442,
-    "GREENWOOD - HOPES FERRY": 0.438207,
-    "GREENWOOD - LACO": 0.119351
-  },
-  "Oconee - Tokeena Providence": {
-    "OCONEE - TOKEENA-PROVIDENCE": 0.875534,
-    "OCONEE - OAKWAY": 0.124466
-  },
-  "Pickens - Albert R Lewis": {
-    "PICKENS - ALBERT R. LEWIS": 0.547267,
-    "PICKENS - MOUNTAIN VIEW": 0.452733
-  },
-  "Pickens - Park Street": {
-    "PICKENS - FRUIT MOUNTAIN": 0.538422,
-    "PICKENS - SIMPSON": 0.461578
-  },
-  "Richland - Parkridge": {
-    "RICHLAND - PARKRIDGE 2": 0.58733,
-    "RICHLAND - PARKRIDGE 1": 0.41267
-  },
-  "Richland - River Springs": {
-    "RICHLAND - RIVERSPRINGS 3": 0.373368,
-    "RICHLAND - RIVERSPRINGS 2": 0.355466,
-    "RICHLAND - RIVERSPRINGS 1": 0.271166
-  },
-  "Richland - Springville": {
-    "RICHLAND - SPRING HILL": 0.506676,
-    "RICHLAND - SPRINGVILLE 2": 0.250797,
-    "RICHLAND - SPRINGVILLE 1": 0.242527
-  },
-  "York - Clover No. 1": {
-    "YORK - CLOVER": 0.370597,
-    "YORK - LARNE": 0.363185,
-    "YORK - ROOSEVELT": 0.14533,
-    "YORK - BETHEL SCHOOL": 0.120889
-  },
-  "York - Clover No. 2": {
-    "YORK - HAMPTON MILL": 0.402225,
-    "YORK - ROOSEVELT": 0.356388,
-    "YORK - CLOVER": 0.241388
-  },
-  "Horry - Nixons X Roads 1": {
-    "HORRY - NIXONS XROADS 3": 0.531277,
-    "HORRY - NIXONS XROADS 2": 0.264709,
-    "HORRY - NIXONS XROADS 1": 0.204015
-  },
-  "Horry - Nixons X Roads 2": {
-    "HORRY - NIXONS XROADS 2": 0.877013,
-    "HORRY - NIXONS XROADS 1": 0.122378
+  "York - York No. 2": {
+    "YORK - CLOVER": 0.369242,
+    "YORK - HAMPTON MILL": 0.295467,
+    "YORK - ROOSEVELT": 0.335291
   }
 }
