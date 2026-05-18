@@ -1,0 +1,31 @@
+county,source_result_key,pair_count,example_target_polygon_key,candidate_1,score_1,candidate_2,score_2,candidate_3,score_3,score_gap_1_2
+Horry,Horry - Norton,1,Horry - Mt. Olive,Horry - Aynor,0.8148,Horry - North Conway #1,0.7778,Horry - North Conway #2,0.7778,0.0370
+Spartanburg,Spartanburg - C C Woodson Center,1,Spartanburg - C.C. Woodson Recreation,Spartanburg - C.C. Woodson Recreation,0.8116,Spartanburg - Woodruff Leisure Center,0.7536,Spartanburg - Converse,0.7037,0.0580
+Aiken,Aiken - Lynwood No. 19,1,Aiken - Lynwood,Aiken - Lynwood,0.8108,Aiken - Aiken No. 1,0.7317,Aiken - Hammond No. 81,0.7273,0.0791
+Aiken,Aiken - Talatha No. 37,1,Aiken - Talatha,Aiken - Talatha,0.8108,Aiken - Aiken No. 3,0.7317,Aiken - Aiken No. 47,0.7143,0.0791
+Horry,Horry - Taylorsville,1,Horry - Pleasant View,Horry - Toddville,0.8108,Horry - Brooksville #1,0.7317,Horry - Brooksville #2,0.7317,0.0791
+Aiken,Aiken - Monetta No. 21,1,Aiken - Monetta,Aiken - Monetta,0.8108,Aiken - Hammond No. 81,0.7727,Aiken - Montmorenci No. 22,0.7500,0.0381
+Aiken,Aiken - Langley No. 18,1,Aiken - Langley,Aiken - Langley,0.8108,Aiken - Midland Valley No. 51,0.7843,Aiken - Midland Valley No. 71,0.7843,0.0265
+Florence,Florence - Emergency 1,1,Florence - Evergreen,Florence - Evergreen,0.8095,Florence - Delmae No. 1,0.7556,Florence - West Florence 1,0.7500,0.0540
+Greenwood,Greenwood - Merrywood,1,Greenwood - Parsons Mill,Greenwood - Stonewood,0.8095,Greenwood - Verdery,0.8000,Greenwood - Emerald,0.8000,0.0095
+Spartanburg,Spartanburg - Chesnee Senior Center,1,Spartanburg - Chesnee Elementary,Spartanburg - Chesnee Elementary,0.8060,Spartanburg - Enoree River,0.7213,Spartanburg - Swofford Career Center,0.7042,0.0847
+Spartanburg,Spartanburg - Park Hills Elementary Sch,1,Spartanburg - Park Hills Elementary,Spartanburg - Anderson Mill Elementary,0.8052,Spartanburg - Reidville Elementary,0.7945,Spartanburg - Arcadia Elementary,0.7887,0.0107
+Aiken,Aiken - Shiloh No. 34,1,Aiken - Shiloh,Aiken - Shiloh,0.8000,Aiken - Aiken No. 3,0.7500,Aiken - Aiken No. 4,0.7500,0.0500
+Newberry,Newberry - Midway,1,Newberry - Little Mountain,Newberry - Pomaria,0.8000,Newberry - Maybinton,0.7568,Newberry - Peak,0.7500,0.0432
+Laurens,Laurens - Ward 3,1,Laurens - Laurens 3,Laurens - Laurens 3,0.8000,Laurens - Waterloo,0.7647,Laurens - Laurens 1,0.7429,0.0353
+Aiken,Aiken - Eureka No. 14,1,Aiken - Eureka,Aiken - Eureka,0.8000,Aiken - Creek No. 85,0.7805,Aiken - Cedar Creek No. 64,0.7660,0.0195
+Aiken,Aiken - Salley No. 32,1,Aiken - Salley,Aiken - Aiken No. 2,0.8000,Aiken - Aiken No. 3,0.8000,Aiken - Salley,0.8000,0.0000
+Greenwood,Greenwood - Emergency,1,Greenwood - Bees Ferry,Greenwood - Verdery,0.8000,Greenwood - Emerald,0.8000,Greenwood - Georgetown,0.7907,0.0000
+Spartanburg,Spartanburg - Cleveland Elementary School,1,Spartanburg - Cleveland Elementary,Spartanburg - Oakland Elementary,0.7945,Spartanburg - Lyman Elementary,0.7887,Spartanburg - Arcadia Elementary,0.7671,0.0058
+Spartanburg,Spartanburg - Pacolet Town Hall,1,Spartanburg - Pacolet Elementary,Spartanburg - Palmetto,0.7925,Spartanburg - Pacolet Elementary,0.7619,Spartanburg - Provisional,0.7143,0.0305
+Laurens,Laurens - Brewerton,1,Laurens - Brewerton - Princeton,Laurens - Brewerton-Princeton,0.7917,Laurens - Greenpond,0.7895,Laurens - Waterloo,0.7568,0.0022
+Laurens,Laurens - Princeton,1,Laurens - Brewerton - Princeton,Laurens - Brewerton-Princeton,0.7917,Laurens - Clinton 1,0.7895,Laurens - Clinton 2,0.7895,0.0022
+Anderson,Anderson - Grove School,1,Anderson - Jackson Mill,Anderson - Hammond School,0.7917,Anderson - Wright'S School,0.7917,Anderson - Provisional,0.7556,0.0000
+Cherokee,Cherokee - Central,1,Cherokee - Gaffney Ward No. 5,Cherokee - Macedonia,0.7895,Cherokee - Allens,0.7429,Cherokee - Provisional,0.7000,0.0466
+Lancaster,Lancaster - Belair Ii,1,Lancaster - Black Horse Run,Lancaster - Elgin,0.7895,Lancaster - Osceola,0.7500,Lancaster - Mcilwain,0.7317,0.0395
+Georgetown,Georgetown - Georgetown No. 2-Dreamkeepers,1,Georgetown - Dream Keepers,Georgetown - Georgetown No. 1,0.7887,Georgetown - Georgetown No. 3,0.7887,Georgetown - Georgetown No. 4,0.7887,0.0000
+Aiken,Aiken - Perry No. 31,1,Aiken - Perry,Aiken - Perry,0.7879,Aiken - Aiken No. 1,0.7692,Aiken - Aiken No. 3,0.7692,0.0186
+Spartanburg,Spartanburg - Friendship Baptist,1,Spartanburg - D. R. Hill Middle School,Spartanburg - Mt. Moriah Baptist,0.7812,Spartanburg - Croft Baptist,0.7797,Spartanburg - Holly Springs Baptist,0.7761,0.0016
+Horry,Horry - Hickory Hill,1,Horry - Live Oak,Horry - Hickory Grove,0.7805,Horry - Poplar Hill,0.7692,Horry - Windy Hill #1,0.7500,0.0113
+Anderson,Anderson - 3 And 20,1,Anderson - Three And Twenty,Anderson - Anderson 1/2,0.7805,Anderson - Anderson 2/1,0.7805,Anderson - Anderson 2/2,0.7805,0.0000
+Horry,Horry - Gurley,1,Horry - Bayboro-Gurley,Horry - Bayboro-Gurley,0.7778,Horry - Four Mile,0.7742,Horry - Leon,0.7692,0.0036

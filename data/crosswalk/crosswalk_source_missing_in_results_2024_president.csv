@@ -1,0 +1,491 @@
+year,contest_type,county,source_result_key,target_polygon_key,score,status,confidence,notes
+2024,president,,Abbeville - Abbeville 3,Abbeville - Abbeville No. 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - 6 Points 35,Aiken - Six Points No. 35,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - 6 Points 46,Aiken - Six Points No. 46,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Ascauga Lake,Aiken - Ascauga Lake No. 63,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Aiken - Ascauga Lake,Aiken - Ascauga Lake No. 84,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Aiken - Beech Island 8,Aiken - Beech Island,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Carolina Heights 10,Aiken - Carolina Heights,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Cedar Creek No.64,Aiken - Cedar Creek No. 64,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - China Springs 11,Aiken - China Springs,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Clearwater 12,Aiken - Clearwater,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - College Acres 13,Aiken - College Acres,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Couchton No. 56,Aiken - Couchton,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Eureka No. 14,Aiken - Eureka,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Fox Creek No 58,Aiken - Fox Creek No. 58,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Gem Lakes,Aiken - Gem Lakes No. 60,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Aiken - Gem Lakes,Aiken - Gem Lakes No. 77,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Aiken - Gloverville 15,Aiken - Gloverville,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Graniteville 16,Aiken - Graniteville,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Hammond,Aiken - Hammond No. 48,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Aiken - Hammond,Aiken - Hammond No. 81,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Aiken - Hitchcock No.66,Aiken - Hitchcock No. 66,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Hollow Creek 53,Aiken - Hollow Creek,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Jackson No. 17,Aiken - Jackson,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Langley No. 18,Aiken - Langley,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Levels,Aiken - Levels No. 52,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Aiken - Levels,Aiken - Levels No. 83,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Aiken - Levels No.72,Aiken - Levels No. 72,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Lynwood No. 19,Aiken - Lynwood,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Millbrook No 20,Aiken - Millbrook,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Millbrook No. 20,Aiken - Millbrook,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Misty Lakes No 45,Aiken - Misty Lakes,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Misty Lakes No. 45,Aiken - Misty Lakes,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Monetta No. 21,Aiken - Monetta,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - N Augusta No 25,Aiken - N. Augusta No. 25,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - N Augusta No 27,Aiken - N. Augusta No. 27,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - N Augusta No 28,Aiken - N. Augusta No. 28,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - N Augusta No 29,Aiken - N. Augusta No. 29,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - N Augusta No 54,Aiken - N. Augusta No. 54,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - N Augusta No 55,Aiken - N. Augusta No. 55,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - N Augusta No.67,Aiken - N. Augusta No. 67,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - N Augusta No.68,Aiken - N. Augusta No. 68,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - New Ellenton 23,Aiken - New Holland,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - New Holland 24,Aiken - New Holland,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Oak Grove No 30,Aiken - Oak Grove,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Oak Grove No. 30,Aiken - Oak Grove,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Perry No. 31,Aiken - Perry,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Pine Forest 59,Aiken - Pine Forest,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Redds Branch 57,Aiken - Redds Branch,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Salley No. 32,Aiken - Salley,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Shaws Fork 33,Aiken - Shaws Fork,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Shiloh No. 34,Aiken - Shiloh,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Silver Bluff 61,Aiken - Silver Bluff,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Tabernacle 36,Aiken - Tabernacle,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Talatha No. 37,Aiken - Talatha,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Vaucluse No. 38,Aiken - Vaucluse,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Wagener No. 39,Aiken - Wagener,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Warrenville 41,Aiken - Wagener,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - White Pond 42,Aiken - White Pond,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Aiken - Willow Springs 49,Aiken - Willow Springs,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Anderson - 3 And 20,Anderson - Three And Twenty,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Anderson - 5 Forks,Anderson - Five Forks,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Anderson - Anderson 5A,Anderson - Anderson 62,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Anderson - Centerville Sta A,Anderson - Centerville Station A,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Anderson - Centerville Sta B,Anderson - Centerville Station B,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Anderson - Edgewood Sta B,Anderson - Edgewood Station B,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Anderson - Fork No.1,Anderson - Fork No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Anderson - Fork No.2,Anderson - Fork No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Anderson - Green Pond Sta A,Anderson - Green Pond Station A,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Anderson - Grove School,Anderson - Jackson Mill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Anderson - Lafrance,Anderson - La France,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Anderson - Rock Springs,Anderson - Rock Spring,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Anderson - Three Twenty,Anderson - Three And Twenty,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Bluffton 3A,Beaufort - Moss Creek,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Bluffton 3B,Beaufort - Bluffton 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Bluffton 5,Beaufort - Bluffton 5A,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Chechessee,Beaufort - Chechessee 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Hilton Head 6A,Beaufort - Hilton Head 6,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Hilton Head 6B,Beaufort - Hilton Head 7A,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Hilton Head 8A,Beaufort - Hilton Head 13,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Hilton Head 8B,Beaufort - Hilton Head 8,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Saint Helena 1A,Beaufort - St. Helena 1A,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Saint Helena 1B,Beaufort - St. Helena 1B,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Saint Helena 1C,Beaufort - St. Helena 1C,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Saint Helena 2A,Beaufort - St. Helena 2A,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Saint Helena 2B,Beaufort - St. Helena 2B,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Saint Helena 2C,Beaufort - St. Helena 2C,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Sun City 1A,Beaufort - Sun City 7,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Sun City 1B,Beaufort - Sun City 6,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Sun City 3A,Beaufort - Sun City 8,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Sun City 3B,Beaufort - Sun City 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Sun City 4A,Beaufort - Sun City 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Beaufort - Sun City 4B,Beaufort - Sun City 5,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - 52,Berkeley - Fifty-Two,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - 78,Berkeley - Seventy Eight,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Boulder Bluff No. 1,Berkeley - Central,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Carnes Cross Road 1,Berkeley - Carnes Cross Roads 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Daniel Island,Berkeley - Daniel Island 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Devon Forest,Berkeley - Devon Forest 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Emergency,Berkeley - Medway,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Emergency 2,Berkeley - Macedonia 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Foster Creek,Berkeley - Foster Creek 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Goose Creek 1,Berkeley - Foster Creek 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Goose Creek 2,Berkeley - Foster Creek 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Goose Creek 3,Berkeley - Foster Creek 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Hilton Cross Road,Berkeley - Hilton Cross Rd,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Howe Hall,Berkeley - Howe Hall 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Macbeth,Berkeley - Mcbeth,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - St. Stephen,Berkeley - St. Stephen 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Berkeley - Whitesville,Berkeley - Whitesville 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Calhoun - Murph Mill,Calhoun - Murph Hill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 10,Charleston - Charleston 10,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 11,Charleston - Charleston 11,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 12,Charleston - Charleston 12,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 13,Charleston - Charleston 13,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 14,Charleston - Charleston 14,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 15,Charleston - Charleston 15,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 16,Charleston - Charleston 16,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 17,Charleston - Charleston 17,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 19,Charleston - Charleston 19,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 20,Charleston - Charleston 20,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 21,Charleston - Charleston 21,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 23,Charleston - North Charleston 23,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 27,Charleston - North Charleston 27,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 29,Charleston - North Charleston 29,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 3,Charleston - Charleston 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 4,Charleston - Charleston 4,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 5,Charleston - Charleston 5,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 6,Charleston - Charleston 6,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 7,Charleston - Charleston 7,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - N. Charleston 9,Charleston - Charleston 9,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Charleston - Town Of Seabrook Island,Charleston - Town Of Seabrook,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Cherokee - 99 And Cherokee Falls,Cherokee - Ninety Nine And Cherokee Falls,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Cherokee - Blacksburg Ward No. 3,Cherokee - Blacksburg Ward No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Cherokee - Blacksburg Ward No. 4,Cherokee - Blacksburg Ward No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Cherokee - Central,Cherokee - Gaffney Ward No. 5,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Cherokee - Ezellsbutler,Cherokee - Ezells And Butler,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Cherokee - Littlejohns And Sarratt,Cherokee - Little John And Sarratts,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Cherokee - Musgrove,Cherokee - Musgrove Mill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Chester - Great Falls 3,Chester - Great Falls,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Chester - Lando Lansford,Chester - Lando,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Chester - Lando Lansford,Chester - Lando Lansford,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Chester - Landolandsford,Chester - Lando Lansford,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Chester - Landsford,Chester - Lando Lansford,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Chesterfield - Angelus-Catarrh,Chesterfield - Angelus-Cararrh,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Chesterfield - Center Point,Chesterfield - Cheraw No. 4,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Chesterfield - Pageland,Chesterfield - Pageland No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Chesterfield - Snow Hill,Chesterfield - Snow Hill-Vaughn,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Clarendon - Sardinia-Gable,Clarendon - Sardina-Gable,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Clarendon - Wilson-Foreston,Clarendon - Wilson Foreston,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Colleton - Ashton,Colleton - Ashton-Lodge,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Colleton - Berea,Colleton - Berea-Smoaks,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Colleton - Hudsons Mill,Colleton - Hudson Mill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Colleton - Lodge,Colleton - Ashton-Lodge,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Colleton - Peoples,Colleton - Peeples,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Colleton - Sidney,Colleton - Sidneys,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Colleton - Smoaks,Colleton - Berea-Smoaks,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Colleton - Walterboro No 1,Colleton - Peniel,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Colleton - Walterboro No 1,Colleton - Walterboro No. 1,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Colleton - Walterboro No 2,Colleton - Peeples,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Colleton - Walterboro No 2,Colleton - Walterboro No. 2,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Colleton - Walterboro No 2,Colleton - Walterboro No. 6,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Colleton - Walterboro No 3,Colleton - Walterboro No. 3,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Colleton - Walterboro No 3,Colleton - Walterboro No. 6,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Colleton - Walterboro No 4,Colleton - Peeples,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Colleton - Walterboro No 4,Colleton - Walterboro No. 4,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Colleton - Walterboro No 4,Colleton - Walterboro No. 5,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Darlington - Darlington No 1,Darlington - Darlington No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Darlington - Darlington No 2,Darlington - Darlington No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Darlington - Darlington No 3,Darlington - Darlington No. 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Darlington - Darlington No 4,Darlington - Darlington No. 4,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Darlington - Darlington No 5,Darlington - Darlington No. 5,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Darlington - Darlington No 6,Darlington - Darlington No. 6,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Darlington - Hartsville No 1,Darlington - Hartsville No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Darlington - Hartsville No 4,Darlington - Hartsville No. 4,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Darlington - Hartsville No 5,Darlington - Hartsville No. 5,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Darlington - Hartsville No 6,Darlington - Hartsville No. 6,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Darlington - Hartsville No 7,Darlington - Hartsville No. 7,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Darlington - Hartsville No 8,Darlington - Hartsville No. 8,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Darlington - Hartsville No 9,Darlington - Hartsville No. 9,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Dillon - Gaddys Mill,Dillon - Pleasant Hill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Dorchester - 4 Hole,Dorchester - Four Hole,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Dorchester - Miles-Jamison,Dorchester - Milesjamison,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Dorchester - St. George No 1,Dorchester - St. George No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Dorchester - St. George No 2,Dorchester - St. George No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Edgefield - Kendall,Edgefield - Edgefield No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Edgefield - Trenton,Edgefield - Trenton No. 1,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Edgefield - Trenton,Edgefield - Trenton No. 2,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Fairfield - Gladde3N Grove,Fairfield - Garden Grove,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Coles Cr Roads,Florence - Coles Crossroads,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Coward No. 1,Florence - Cowards No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Coward No. 2,Florence - Cowards No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Emergency,Florence - Evergreen,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Emergency 1,Florence - Evergreen,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence 1,Florence - Florence Ward 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence 10,Florence - Florence Ward 10,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence 11,Florence - Florence Ward 11,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence 12,Florence - Florence Ward 12,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence 2,Florence - Florence Ward 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence 3,Florence - Florence Ward 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence 4,Florence - Florence Ward 4,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence 5,Florence - Florence Ward 5,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence 6,Florence - Florence Ward 6,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence 7,Florence - Florence Ward 7,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence 8,Florence - Florence Ward 8,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence 9,Florence - Florence Ward 9,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 1,Florence - Florence Ward 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 10,Florence - Florence Ward 10,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 11,Florence - Florence Ward 11,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 12,Florence - Florence Ward 12,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 14,Florence - Florence Ward 14,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 15,Florence - Florence Ward 15,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 2,Florence - Florence Ward 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 3,Florence - Florence Ward 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 4,Florence - Florence Ward 4,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 5,Florence - Florence Ward 5,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 6,Florence - Florence Ward 6,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 7,Florence - Florence Ward 7,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 8,Florence - Florence Ward 8,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Florence No. 9,Florence - Florence Ward 9,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - South Florence No. 1,Florence - South Florence 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - South Florence No. 2,Florence - South Florence 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Timmonsville No. 1,Florence - Timmonsville 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - Timmonsville No. 2,Florence - Timmonsville 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - West Florence No. 1,Florence - West Florence 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Florence - West Florence No. 2,Florence - West Florence 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Georgetown - Cedar Creek,Georgetown - Lambert Town,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Georgetown - Dreamkeepers,Georgetown - Dream Keepers,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Georgetown - Emergency,Georgetown - Lambert Town,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Georgetown - Georgetown 1,Georgetown - Georgetown No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Georgetown - Georgetown No. 2-Dream Keepers,Georgetown - Dream Keepers,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Georgetown - Georgetown No. 2-Dreamkeepers,Georgetown - Dream Keepers,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Georgetown - Pawleys Isl 1,Georgetown - Pawleys Island No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Georgetown - Pawleys Isl 2,Georgetown - Pawleys Island No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Georgetown - Pawleys Isl 3,Georgetown - Pawleys Island No. 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Georgetown - Pawleys Isl 4,Georgetown - Pawleys Island No. 4,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Georgetown - Pawleys Isl 5,Georgetown - Pawleys Island No. 5,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenville - Brook Glenn,Greenville - Brookglenn,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenville - River Walk,Greenville - Riverwalk,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenville - Travelers Rest,Greenville - Travelers Rest 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Emergency,Greenwood - Bees Ferry,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Emergency Provisional,Greenwood - Angel Oaks Crossing,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Glendale 9,Greenwood - Gideons Way,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Greenwood No. 1,Greenwood - Loblolly Pines,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Greenwood No. 2,Greenwood - Bees Ferry,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Greenwood No. 3,Greenwood - Levis Knoll,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Greenwood No. 4,Greenwood - Grandiflora Glen,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Greenwood No. 5,Greenwood - Ashley River Run,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Greenwood No. 6,Greenwood - Hopes Ferry,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Greenwood - Greenwood No. 6,Greenwood - Laco,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Greenwood - Greenwood No. 6,Greenwood - Mountain Laurel,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Greenwood - Greenwood No. 7,Greenwood - Fairhope Ferry,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Greenwood No. 8,Greenwood - Pebble Stone Way,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Merrywood,Greenwood - Parsons Mill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Newcastle,Greenwood - New Castle,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Ninety Six Depot,Greenwood - Ninety Six,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Rutherford,Greenwood - Rutherford Shoals,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Greenwood - Rutherford Ford,Greenwood - Rutherford Shoals,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Hampton - Crocketville-Miley,Hampton - Crocket-Miley,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Hampton - Hampton Courthouse No. 1,Hampton - Hampton No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Hampton - Hampton Courthouse No. 2,Hampton - Hampton No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Hampton - Hampton Cthse 2,Hampton - Hampton No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - 4 Mile,Horry - Four Mile,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Bayboro,Horry - Bayboro-Gurley,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Brooksville,Horry - Brooksville 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Crescent,Horry - Cresent,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Enterprise,Horry - Enterprise 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Floyds,Horry - Mt. Olive,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Galivants Ferry,Horry - Gallivants Ferry,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Gurley,Horry - Bayboro-Gurley,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Hickory Hill,Horry - Live Oak,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Jernigans Xroads,Horry - Jerigans Crossroads,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Jordanville,Horry - Cedar Grove,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Joyner Swamp,Horry - Methodist-Mill Swamp,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Lake Park,Horry - Lake Park 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Marlowe,Horry - Marlowe 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Methodist Rehobeth,Horry - Methodist-Mill Swamp,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Mill Swamp,Horry - Methodist-Mill Swamp,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Norton,Horry - Mt. Olive,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Spring Branch,Horry - Mt. Olive,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Horry - Taylorsville,Horry - Pleasant View,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Jasper - Emergency,Jasper - Sun City,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Jasper - Oakatie,Jasper - Oakatie,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Jasper - Oakatie,Jasper - Oakatie 2,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Kershaw - Camden No 1,Kershaw - Camden No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Camden No 2,Kershaw - Camden No. 2 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Camden No 3,Kershaw - Hobkirks Hill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Camden No 4,Kershaw - Hobkirks Hill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Camden No 5,Kershaw - Camden No. 5,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Camden No 5-A,Kershaw - Camden No. 5-A,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Camden No 6,Kershaw - Camden No. 6,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Camden No. 2,Kershaw - Camden No. 2 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Camden No. 3,Kershaw - Hobkirks Hill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Camden No. 4,Kershaw - Hobkirks Hill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Camden No. 5A,Kershaw - Camden No. 5-A,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - E Camden-Hermitage,Kershaw - E. Camden-Hermitage,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Elgin No 1,Kershaw - Elgin No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Elgin No 2,Kershaw - Elgin No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Lugoff No 1,Kershaw - Lugoff No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Lugoff No 2,Kershaw - Lugoff No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Kershaw - Lugoff No 3,Kershaw - Lugoff No. 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lancaster - 6 Mile Creek,Lancaster - Shelley Mullis,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lancaster - Belair,Lancaster - Gold Hill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lancaster - Belair Ii,Lancaster - Black Horse Run,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lancaster - Belair Number 2,Lancaster - Black Horse Run,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lancaster - Goochs Cross Rds,Lancaster - Goochs Cross Road,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lancaster - Goochs Cross Roads,Lancaster - Goochs Cross Road,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lancaster - Wylie Park,Lancaster - University,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Laurens - Barksdale-Narnie,Laurens - Barksdale-Narine,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Laurens - Brewerton,Laurens - Brewerton - Princeton,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Laurens - Clinton No. 1,Laurens - Clinton 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Laurens - Clinton No. 2,Laurens - Clinton 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Laurens - Clinton No. 3,Laurens - Clinton 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Laurens - Emergency 2,Laurens - Laurens 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Laurens - Martins-Poplar Spring,Laurens - Martins-Poplar Springs,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Laurens - Mt. Olive,Laurens - Mount Olive,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Laurens - Princeton,Laurens - Brewerton - Princeton,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Laurens - Ward 3,Laurens - Laurens 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lee - Elliot,Lee - Elliott,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lee - S. Lynchburg,Lee - South Lynchburg,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - 7 Oaks,Lexington - Seven Oaks,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Barr Road,Lexington - Barr Road 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Cayce No. 2-A,Lexington - Cayce 2A,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Cayce No. 2A,Lexington - Cayce 2A,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Cayce Ward No.1,Lexington - Cayce No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Cayce Ward No.2,Lexington - Cayce No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Cayce Ward No.3,Lexington - Cayce No. 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Cedar Crest,Lexington - Cedarcrest,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Edmund,Lexington - Edmund 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Lexington 3,Lexington - Lexington No. 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Lexington 4,Lexington - Lexington No. 4,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Old Barnwell,Lexington - Old Barnwell Road,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Old Barnwell Rd,Lexington - Old Barnwell Road,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Park Road,Lexington - Park Road 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Pilgrim Church,Lexington - Pilgrim Chruch,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Pine Ridge,Lexington - Pine Ridge 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Pineridge 1,Lexington - Pine Ridge 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Pineridge 2,Lexington - Pine Ridge 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Red Bank South,Lexington - Red Bank South 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Redbank South 2,Lexington - Red Bank South 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Saint David,Lexington - St. Davids,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - Sandhill,Lexington - Sand Hill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - St. Michaels,Lexington - St. Michael,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - W Columbia No 1,Lexington - West Columbia No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - W Columbia No 2,Lexington - West Columbia No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - W Columbia No 3,Lexington - West Columbia No. 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Lexington - W Columbia No 4,Lexington - West Columbia No. 4,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Beth-Eden,Newberry - Beth - Eden,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Consolidated 5,Newberry - Consolidated Number 5,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Kinards Jalapa,Newberry - Kinards-Jalapa,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Midway,Newberry - Little Mountain,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Mt. Bethel Garmany,Newberry - Mt. Bethel-Garmany,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Mt. Betherl Garmany,Newberry - Mt. Bethel-Garmany,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Newberry Wd 1,Newberry - Newberry Ward 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Newberry Wd 2,Newberry - Newberry Ward 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Newberry Wd 3,Newberry - Newberry Ward 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Newberry Wd 4,Newberry - Newberry Ward 4,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Newberry Wd 5,Newberry - Newberry Ward 5,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Newberry Wd 6,Newberry - Newberry Ward 6,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Ponaria,Newberry - Pomaria,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - Prosperity,Newberry - Prosperity Outside,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Newberry - St Phillips Jolly St.,Newberry - St. Phillips-Jolly Street,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Oconee - Emergency,Oconee - Westminster 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Oconee - Newry Corinth,Oconee - Newry-Corinth,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Oconee - Newry Cornith,Oconee - Newry-Corinth,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Oconee - Seneca,Oconee - Seneca 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Oconee - Tokeena Providence,Oconee - Oakway,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Oconee - Tokeena Providence,Oconee - Tokeena-Providence,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Oconee - Walhalla,Oconee - Walhalla 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Orangeburg - 4 Holes,Orangeburg - Four Holes,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Orangeburg - Orangeburg Wd 7,Orangeburg - Orangeburg Ward 7,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Orangeburg - Orangeburg Wd10,Orangeburg - Orangeburg Ward 10,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Orangeburg - Pinehill,Orangeburg - Pine Hill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Pickens - 6 Mile Mountain,Pickens - Six Mile Mountain,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Pickens - 9 Forks,Pickens - Nine Forks,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Pickens - Albert R Lewis,Pickens - Albert R. Lewis,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Pickens - Albert R Lewis,Pickens - Mountain View,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Pickens - Central I,Pickens - West Central,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Pickens - Clemson I,Pickens - Clemson,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Pickens - Crosswell I,Pickens - Crosswell,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Pickens - Dacusville I,Pickens - Dacusville,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Pickens - Liberty I,Pickens - East Liberty,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Pickens - Park Street,Pickens - Fruit Mountain,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Pickens - Park Street,Pickens - Simpson,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Pickens - Pickens I,Pickens - East Pickens,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Pickens - Praters Creek I,Pickens - Praters Creek,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Pickens - Praters Creek Ii,Pickens - Praters Creek,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Pickens - Rice Creek,Pickens - Rices Creek,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Richland - Brandon,Richland - Brandon 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Richland - Hopkins,Richland - Hopkins 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Richland - Keels,Richland - Keels 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Richland - Parkridge,Richland - Parkridge 1,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Richland - Parkridge,Richland - Parkridge 2,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Richland - Parkway,Richland - Parkway 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Richland - Pennington,Richland - Pennington 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Richland - Pine Lakes,Richland - Pine Lakes 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Richland - Pontiac,Richland - Pontiac 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Richland - Rice Creek,Richland - Rice Creek 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Richland - Ridge View,Richland - Ridge View 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Richland - River Springs,Richland - Riversprings 1,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Richland - River Springs,Richland - Riversprings 2,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Richland - River Springs,Richland - Riversprings 3,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Richland - River Springs 1,Richland - Riversprings 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Richland - River Springs 2,Richland - Riversprings 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Richland - River Springs 3,Richland - Riversprings 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Richland - Springville,Richland - Spring Hill,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Richland - Springville,Richland - Springville 1,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Richland - Springville,Richland - Springville 2,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Saluda - Higgins-Zoar,Saluda - Higginszoar,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Saluda - Ridge Spring - Monetta,Saluda - Ridge Springmonetta,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Saluda - Ridge Spring-Monetta,Saluda - Ridge Springmonetta,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - 2 Mile Creek,Spartanburg - Woodruff Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Arrowood Baptist,Spartanburg - Chesnee Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Beaumont Methodist Church,Spartanburg - Beaumont Methodist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Bishop,Spartanburg - Hope,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Boiling Springs A,Spartanburg - Boiling Springs 9Th Grade,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Boiling Springs High,Spartanburg - Boiling Springs High School,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Boiling Springs Junior High,Spartanburg - Boling Springs Jr. High,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - C C Woodson Center,Spartanburg - C.C. Woodson Recreation,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Canaan Baptist,Spartanburg - Canaan,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Cavins-Hobbysville,Spartanburg - Cavins Hobbysville,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Cherokee Springs,Spartanburg - Cherokee Springs Fire Station,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Cherokee Springs A,Spartanburg - Cherokee Springs Fire Station,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Chesnee Senior Center,Spartanburg - Chesnee Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Cleveland Elementary Sch,Spartanburg - Cleveland Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Cleveland Elementary School,Spartanburg - Cleveland Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Clifdale Elementary,Spartanburg - Broome High School,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Cornerstone,Spartanburg - Cornerstone Baptist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Drayton Fire Station,Spartanburg - Dayton Fire Station,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Enoree 1St Baptist,Spartanburg - Enoree First Baptist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Fairforest,Spartanburg - Fairforest Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Friendship Baptist,Spartanburg - D. R. Hill Middle School,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Grace Baptist,Spartanburg - Duncan United Methodist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Gramling,Spartanburg - Gramling Methodist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Holly Springs,Spartanburg - Holly Springs Baptist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Inman Mills Baptist Church,Spartanburg - Anderson Mill Baptist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Mountain View Baptist,Spartanburg - Carlisle Wesleyan,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Mt. Moriah,Spartanburg - Mt. Moriah Baptist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - North Spartanburg Fire Station,Spartanburg - Fairforest Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Pacolet Town Hall,Spartanburg - Pacolet Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Park Hills Elementary Sch,Spartanburg - Park Hills Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Pine Street Elementary School,Spartanburg - River Ridge Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Poplar Springs A,Spartanburg - Poplar Springs Fire Station,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Powell Saxon Una Fire Station,Spartanburg - Powell Saxon Una,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Powell-Saxon,Spartanburg - Powell Saxon Una,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Rebirth Missionary Baptist,Spartanburg - Apalache Baptist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Reidville A,Spartanburg - Reidville Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Roebuck A,Spartanburg - Roebuck Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Roebuck B,Spartanburg - Roebuck Bethlehem,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Silverhill Methodist,Spartanburg - Victor Mill Methodist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Silverhill United Methodist,Spartanburg - Duncan United Methodist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Southside Baptist,Spartanburg - Beaumont Methodist,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Spartanburg - Southside Baptist,Spartanburg - Southside Baptist,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,Spartanburg - T.W. Edwards Recreation Center,Spartanburg - Pacolet Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Trinity Methodist Church,Spartanburg - Trinity Methodist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Una Fire Station,Spartanburg - Powell Saxon Una,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - West View A,Spartanburg - West View Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Westside Baptist,Spartanburg - Holy Communion,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Whitlock Junior High,Spartanburg - Whitlock Jr. High,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Woodruff American Legion,Spartanburg - Woodruff Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Woodruff Armory Drive Fire Station,Spartanburg - Woodruff Leisure Center,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Woodruff Town Hall,Spartanburg - Woodruff Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Sumter - 2Nd Mill,Sumter - Second Mill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Sumter - Burns-Downs,Sumter - Bunrs-Downs,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Sumter - Causeway Branch,Sumter - Causeway Branch 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Sumter - Dalzell,Sumter - Dalzell 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Sumter - Ebenezer No. 1,Sumter - Ebenezer 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Sumter - Ebenezer No. 2,Sumter - Ebenezer 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Sumter - Emergency 2,Sumter - Ebenezer 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Sumter - Green Swamp 1,Sumter - Green Swamp,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Sumter - Oakland Plant. 1,Sumter - Oakland Plantation 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Sumter - Oakland Plant. 2,Sumter - Oakland Plantation 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Sumter - St. John,Sumter - Saint John,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Union - Putman,Union - Putnam,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Union - Ward 1 Box 1,Union - Union Ward 1 Box 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Union - Ward 1 Box 2,Union - Union Ward 1 Box 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Union - Ward 4 Box 1,Union - Union Ward 4 Box 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Union - Ward 4 Box 2,Union - Union Ward 4 Box 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Williamsburg - Henry-Poplar Hl,Williamsburg - Henry-Poplar Hill,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,York - Clover No. 1,York - Bethel School,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,York - Clover No. 1,York - Clover,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,York - Clover No. 1,York - Larne,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,York - Clover No. 1,York - Roosevelt,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,York - Clover No. 2,York - Clover,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,York - Clover No. 2,York - Hampton Mill,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,York - Clover No. 2,York - Roosevelt,1.0000,approved,medium,generated_from_legacy_split_mapping
+2024,president,,York - Fort Mill 1,York - Fort Mill No. 1,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,York - Fort Mill 2,York - Fort Mill No. 2,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,York - Fort Mill 3,York - Fort Mill No. 3,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,York - Oak Ridge,York - Oakridge,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,York - Rock Hill No.3,York - Rock Hill No. 3,1.0000,approved,medium,generated_from_legacy_alias_mapping

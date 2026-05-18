@@ -1,0 +1,462 @@
+source_result_key,source_norm,candidate_1,score_1,candidate_2,score_2,candidate_3,score_3,recommendation
+Abbeville - Abbeville 3,ABBEVILLE - ABBEVILLE 3,Abbeville - Abbeville No. 3,0.9200,Abbeville - Abbeville No. 1,0.8800,Abbeville - Abbeville No. 2,0.8800,likely_safe
+Aiken - 6 Points 35,AIKEN - 6 POINTS 35,Aiken - Six Points No. 35,0.8182,Aiken - Six Points No. 46,0.7273,,,review
+Aiken - 6 Points 46,AIKEN - 6 POINTS 46,Aiken - Six Points No. 46,0.8182,Aiken - Six Points No. 35,0.7273,,,review
+Aiken - Ascauga Lake,AIKEN - ASCAUGA LAKE,Aiken - Ascauga Lake No. 63,0.8511,Aiken - Ascauga Lake No. 84,0.8511,,,review
+Aiken - Beech Island 8,AIKEN - BEECH ISLAND 8,Aiken - Beech Island,0.9524,,,,,likely_safe
+Aiken - Carolina Heights 10,AIKEN - CAROLINA HEIGHTS 10,Aiken - Carolina Heights,0.9412,,,,,likely_safe
+Aiken - Cedar Creek No.64,AIKEN - CEDAR CREEK NO.64,Aiken - Cedar Creek No. 64,0.9804,Aiken - Creek No. 85,0.7556,Aiken - Fox Creek No. 58,0.7347,likely_safe
+Aiken - China Springs 11,AIKEN - CHINA SPRINGS 11,Aiken - China Springs,0.9333,Aiken - Willow Springs,0.7391,,,likely_safe
+Aiken - Clearwater 12,AIKEN - CLEARWATER 12,Aiken - Clearwater,0.9231,,,,,likely_safe
+Aiken - College Acres 13,AIKEN - COLLEGE ACRES 13,Aiken - College Acres,0.9333,,,,,likely_safe
+Aiken - Couchton No. 56,AIKEN - COUCHTON NO. 56,Aiken - Couchton,0.8205,Aiken - Community No. 86,0.7660,Aiken - South Aiken No. 75,0.7347,review
+Aiken - Eureka No. 14,AIKEN - EUREKA NO. 14,Aiken - Eureka,0.8000,Aiken - Creek No. 85,0.7805,Aiken - Cedar Creek No. 64,0.7660,review
+Aiken - Fox Creek No 58,AIKEN - FOX CREEK NO 58,Aiken - Fox Creek No. 58,0.9787,Aiken - Fox Creek No. 73,0.8936,Aiken - Creek No. 85,0.8372,likely_safe
+Aiken - Gem Lakes,AIKEN - GEM LAKES,Aiken - Misty Lakes,0.8333,Aiken - Gem Lakes No. 60,0.8293,Aiken - Gem Lakes No. 77,0.8293,review
+Aiken - Gloverville 15,AIKEN - GLOVERVILLE 15,Aiken - Gloverville,0.9268,,,,,likely_safe
+Aiken - Graniteville 16,AIKEN - GRANITEVILLE 16,Aiken - Graniteville,0.9302,,,,,likely_safe
+Aiken - Hammond,AIKEN - HAMMOND,Aiken - Hammond No. 48,0.8108,Aiken - Hammond No. 81,0.8108,Aiken - Ward,0.7407,review
+Aiken - Hitchcock No.66,AIKEN - HITCHCOCK NO.66,Aiken - Hitchcock No. 66,0.9787,,,,,likely_safe
+Aiken - Hollow Creek 53,AIKEN - HOLLOW CREEK 53,Aiken - Hollow Creek,0.9302,Lexington - Hollow Creek,0.7234,Aiken - Fox Creek No. 58,0.7234,likely_safe
+Aiken - Jackson No. 17,AIKEN - JACKSON NO. 17,Aiken - Aiken No. 1,0.8293,Aiken - Jackson,0.8108,Aiken - Aiken No. 47,0.8095,review
+Aiken - Langley No. 18,AIKEN - LANGLEY NO. 18,Aiken - Langley,0.8108,Aiken - Midland Valley No. 51,0.7843,Aiken - Midland Valley No. 71,0.7843,review
+Aiken - Levels,AIKEN - LEVELS,Aiken - Levels No. 52,0.8000,Aiken - Levels No. 72,0.8000,Aiken - Levels No. 83,0.8000,review
+Aiken - Levels No.72,AIKEN - LEVELS NO.72,Aiken - Levels No. 72,0.9756,Aiken - Levels No. 52,0.9268,Aiken - Levels No. 83,0.8780,likely_safe
+Aiken - Lynwood No. 19,AIKEN - LYNWOOD NO. 19,Aiken - Lynwood,0.8108,Aiken - Aiken No. 1,0.7317,Aiken - Hammond No. 81,0.7273,review
+Aiken - Millbrook No 20,AIKEN - MILLBROOK NO 20,Aiken - Millbrook,0.8500,,,,,review
+Aiken - Millbrook No. 20,AIKEN - MILLBROOK NO. 20,Aiken - Millbrook,0.8293,Aiken - Aiken No. 2,0.7442,,,review
+Aiken - Misty Lakes No 45,AIKEN - MISTY LAKES NO 45,Aiken - Misty Lakes,0.8636,Aiken - Gem Lakes No. 60,0.7755,Aiken - Gem Lakes No. 77,0.7755,review
+Aiken - Misty Lakes No. 45,AIKEN - MISTY LAKES NO. 45,Aiken - Misty Lakes,0.8444,Aiken - Gem Lakes No. 60,0.8000,Aiken - Gem Lakes No. 77,0.8000,review
+Aiken - Monetta No. 21,AIKEN - MONETTA NO. 21,Aiken - Monetta,0.8108,Aiken - Hammond No. 81,0.7727,Aiken - Montmorenci No. 22,0.7500,review
+Aiken - N Augusta No 25,AIKEN - N AUGUSTA NO 25,Aiken - N. Augusta No. 25,0.9583,Aiken - N. Augusta No. 26,0.9167,Aiken - N. Augusta No. 27,0.9167,likely_safe
+Aiken - N Augusta No 27,AIKEN - N AUGUSTA NO 27,Aiken - N. Augusta No. 27,0.9583,Aiken - N. Augusta No. 25,0.9167,Aiken - N. Augusta No. 26,0.9167,likely_safe
+Aiken - N Augusta No 28,AIKEN - N AUGUSTA NO 28,Aiken - N. Augusta No. 28,0.9583,Aiken - N. Augusta No. 25,0.9167,Aiken - N. Augusta No. 26,0.9167,likely_safe
+Aiken - N Augusta No 29,AIKEN - N AUGUSTA NO 29,Aiken - N. Augusta No. 29,0.9583,Aiken - N. Augusta No. 25,0.9167,Aiken - N. Augusta No. 26,0.9167,likely_safe
+Aiken - N Augusta No 54,AIKEN - N AUGUSTA NO 54,Aiken - N. Augusta No. 54,0.9583,Aiken - N. Augusta No. 25,0.9167,Aiken - N. Augusta No. 55,0.9167,likely_safe
+Aiken - N Augusta No 55,AIKEN - N AUGUSTA NO 55,Aiken - N. Augusta No. 55,0.9583,Aiken - N. Augusta No. 25,0.9167,Aiken - N. Augusta No. 54,0.9167,likely_safe
+Aiken - N Augusta No.67,AIKEN - N AUGUSTA NO.67,Aiken - N. Augusta No. 67,0.9583,Aiken - N. Augusta No. 26,0.9167,Aiken - N. Augusta No. 27,0.9167,likely_safe
+Aiken - N Augusta No.68,AIKEN - N AUGUSTA NO.68,Aiken - N. Augusta No. 68,0.9583,Aiken - N. Augusta No. 26,0.9167,Aiken - N. Augusta No. 28,0.9167,likely_safe
+Aiken - New Ellenton 23,AIKEN - NEW ELLENTON 23,Aiken - New Ellenton,0.9302,,,,,likely_safe
+Aiken - New Holland 24,AIKEN - NEW HOLLAND 24,Aiken - New Holland,0.9268,,,,,likely_safe
+Aiken - Oak Grove No 30,AIKEN - OAK GROVE NO 30,Aiken - Oak Grove,0.8500,Aiken - Aiken No. 3,0.7619,,,review
+Aiken - Oak Grove No. 30,AIKEN - OAK GROVE NO. 30,Aiken - Oak Grove,0.8293,Aiken - Aiken No. 3,0.7907,Aiken - Aiken No. 1,0.7442,review
+Aiken - Perry No. 31,AIKEN - PERRY NO. 31,Aiken - Perry,0.7879,Aiken - Aiken No. 1,0.7692,Aiken - Aiken No. 3,0.7692,review
+Aiken - Pine Forest 59,AIKEN - PINE FOREST 59,Aiken - Pine Forest,0.9268,,,,,likely_safe
+Aiken - Redds Branch 57,AIKEN - REDDS BRANCH 57,Aiken - Redds Branch,0.9302,,,,,likely_safe
+Aiken - Salley No. 32,AIKEN - SALLEY NO. 32,Aiken - Aiken No. 2,0.8000,Aiken - Aiken No. 3,0.8000,Aiken - Salley,0.8000,review
+Aiken - Shaws Fork 33,AIKEN - SHAWS FORK 33,Aiken - Shaws Fork,0.9231,,,,,likely_safe
+Aiken - Shiloh No. 34,AIKEN - SHILOH NO. 34,Aiken - Shiloh,0.8000,Aiken - Aiken No. 3,0.7500,Aiken - Aiken No. 4,0.7500,review
+Aiken - Silver Bluff 61,AIKEN - SILVER BLUFF 61,Aiken - Silver Bluff,0.9302,,,,,likely_safe
+Aiken - Tabernacle 36,AIKEN - TABERNACLE 36,Aiken - Tabernacle,0.9231,,,,,likely_safe
+Aiken - Talatha No. 37,AIKEN - TALATHA NO. 37,Aiken - Talatha,0.8108,Aiken - Aiken No. 3,0.7317,,,review
+Aiken - Vaucluse No. 38,AIKEN - VAUCLUSE NO. 38,Aiken - Vaucluse,0.8205,Aiken - Levels No. 83,0.7727,Aiken - Aiken No. 3,0.7619,review
+Aiken - Wagener No. 39,AIKEN - WAGENER NO. 39,Aiken - Aiken No. 3,0.8293,Aiken - Wagener,0.8108,Aiken - Aiken No. 1,0.7805,review
+Aiken - Warrenville 41,AIKEN - WARRENVILLE 41,Aiken - Warrenville,0.9268,,,,,likely_safe
+Aiken - White Pond 42,AIKEN - WHITE POND 42,Aiken - White Pond,0.9231,,,,,likely_safe
+Aiken - Willow Springs 49,AIKEN - WILLOW SPRINGS 49,Aiken - Willow Springs,0.9362,Aiken - China Springs,0.7391,,,likely_safe
+Anderson - 3 And 20,ANDERSON - 3 AND 20,Anderson - Anderson 1/2,0.7805,Anderson - Anderson 2/1,0.7805,Anderson - Anderson 2/2,0.7805,review
+Anderson - 5 Forks,ANDERSON - 5 FORKS,Anderson - Five Forks,0.8718,Anderson - Fork No 1,0.7895,Anderson - Fork No 2,0.7895,review
+Anderson - Anderson 5A,ANDERSON - ANDERSON 5A,Anderson - Anderson 5/B,0.9545,Anderson - Anderson 1/1,0.9091,Anderson - Anderson 1/2,0.9091,likely_safe
+Anderson - Centerville Sta A,ANDERSON - CENTERVILLE STA A,Anderson - Centerville Station A,0.9333,Anderson - Centerville Station B,0.9000,Anderson - Center Rock,0.7200,likely_safe
+Anderson - Centerville Sta B,ANDERSON - CENTERVILLE STA B,Anderson - Centerville Station B,0.9333,Anderson - Centerville Station A,0.9000,Anderson - Center Rock,0.7200,likely_safe
+Anderson - Edgewood Sta B,ANDERSON - EDGEWOOD STA B,Anderson - Edgewood Station B,0.9259,Anderson - Edgewood Station A,0.8889,,,likely_safe
+Anderson - Fork No.1,ANDERSON - FORK NO.1,Anderson - Fork No 1,0.9500,Anderson - Fork No 2,0.9000,Anderson - Five Forks,0.7317,likely_safe
+Anderson - Fork No.2,ANDERSON - FORK NO.2,Anderson - Fork No 2,0.9500,Anderson - Fork No 1,0.9000,Anderson - Five Forks,0.7317,likely_safe
+Anderson - Green Pond Sta A,ANDERSON - GREEN POND STA A,Anderson - Green Pond Station A,0.9310,Anderson - Edgewood Station A,0.7500,,,likely_safe
+Anderson - Grove School,ANDERSON - GROVE SCHOOL,Anderson - Hammond School,0.7917,Anderson - Wright'S School,0.7917,Anderson - Provisional,0.7556,review
+Anderson - Lafrance,ANDERSON - LAFRANCE,Anderson - La France,0.9744,Anderson - Varennes,0.7895,Anderson - Failsafe,0.7895,likely_safe
+Anderson - Rock Springs,ANDERSON - ROCK SPRINGS,Anderson - Rock Spring,0.9778,Anderson - Rock Mill,0.7907,Pickens - Rock Springs,0.7556,likely_safe
+Anderson - Three Twenty,ANDERSON - THREE TWENTY,Anderson - Three And Twenty,0.9200,Anderson - South Fant,0.7273,,,likely_safe
+Beaufort - Bluffton 3A,BEAUFORT - BLUFFTON 3A,Beaufort - Bluffton 3,0.9767,Beaufort - Bluffton 1A,0.9545,Beaufort - Bluffton 2A,0.9545,likely_safe
+Beaufort - Bluffton 3B,BEAUFORT - BLUFFTON 3B,Beaufort - Bluffton 3,0.9767,Beaufort - Bluffton 1B,0.9545,Beaufort - Bluffton 2B,0.9545,likely_safe
+Beaufort - Bluffton 5,BEAUFORT - BLUFFTON 5,Beaufort - Bluffton 5A,0.9767,Beaufort - Bluffton 5B,0.9767,Beaufort - Bluffton 5C,0.9767,likely_safe
+Beaufort - Chechessee,BEAUFORT - CHECHESSEE,Beaufort - Chechessee 1,0.9545,Beaufort - Chechessee 2,0.9545,Beaufort - Chechessee 3,0.9545,likely_safe
+Beaufort - Hilton Head 6A,BEAUFORT - HILTON HEAD 6A,Beaufort - Hilton Head 6,0.9796,Beaufort - Hilton Head 1A,0.9600,Beaufort - Hilton Head 2A,0.9600,likely_safe
+Beaufort - Hilton Head 6B,BEAUFORT - HILTON HEAD 6B,Beaufort - Hilton Head 6,0.9796,Beaufort - Hilton Head 1B,0.9600,Beaufort - Hilton Head 2B,0.9600,likely_safe
+Beaufort - Hilton Head 8A,BEAUFORT - HILTON HEAD 8A,Beaufort - Hilton Head 8,0.9796,Beaufort - Hilton Head 1A,0.9600,Beaufort - Hilton Head 2A,0.9600,likely_safe
+Beaufort - Hilton Head 8B,BEAUFORT - HILTON HEAD 8B,Beaufort - Hilton Head 8,0.9796,Beaufort - Hilton Head 1B,0.9600,Beaufort - Hilton Head 2B,0.9600,likely_safe
+Beaufort - Saint Helena 1A,BEAUFORT - SAINT HELENA 1A,Beaufort - St. Helena 1A,0.9200,Beaufort - St. Helena 1B,0.8800,Beaufort - St. Helena 1C,0.8800,likely_safe
+Beaufort - Saint Helena 1B,BEAUFORT - SAINT HELENA 1B,Beaufort - St. Helena 1B,0.9200,Beaufort - St. Helena 1A,0.8800,Beaufort - St. Helena 1C,0.8800,likely_safe
+Beaufort - Saint Helena 1C,BEAUFORT - SAINT HELENA 1C,Beaufort - St. Helena 1C,0.9200,Beaufort - St. Helena 1A,0.8800,Beaufort - St. Helena 1B,0.8800,likely_safe
+Beaufort - Saint Helena 2A,BEAUFORT - SAINT HELENA 2A,Beaufort - St. Helena 2A,0.9200,Beaufort - St. Helena 1A,0.8800,Beaufort - St. Helena 2B,0.8800,likely_safe
+Beaufort - Saint Helena 2B,BEAUFORT - SAINT HELENA 2B,Beaufort - St. Helena 2B,0.9200,Beaufort - St. Helena 1B,0.8800,Beaufort - St. Helena 2A,0.8800,likely_safe
+Beaufort - Saint Helena 2C,BEAUFORT - SAINT HELENA 2C,Beaufort - St. Helena 2C,0.9200,Beaufort - St. Helena 1C,0.8800,Beaufort - St. Helena 2A,0.8800,likely_safe
+Beaufort - Sun City 1A,BEAUFORT - SUN CITY 1A,Beaufort - Sun City 1,0.9767,Beaufort - Sun City 10,0.9545,Beaufort - Sun City 2,0.9302,likely_safe
+Beaufort - Sun City 1B,BEAUFORT - SUN CITY 1B,Beaufort - Sun City 1,0.9767,Beaufort - Sun City 10,0.9545,Beaufort - Sun City 2,0.9302,likely_safe
+Beaufort - Sun City 3A,BEAUFORT - SUN CITY 3A,Beaufort - Sun City 3,0.9767,Beaufort - Sun City 1,0.9302,Beaufort - Sun City 2,0.9302,likely_safe
+Beaufort - Sun City 3B,BEAUFORT - SUN CITY 3B,Beaufort - Sun City 3,0.9767,Beaufort - Sun City 1,0.9302,Beaufort - Sun City 2,0.9302,likely_safe
+Beaufort - Sun City 4A,BEAUFORT - SUN CITY 4A,Beaufort - Sun City 4,0.9767,Beaufort - Sun City 1,0.9302,Beaufort - Sun City 2,0.9302,likely_safe
+Beaufort - Sun City 4B,BEAUFORT - SUN CITY 4B,Beaufort - Sun City 4,0.9767,Beaufort - Sun City 1,0.9302,Beaufort - Sun City 2,0.9302,likely_safe
+Berkeley - 52,BERKELEY - 52,Berkeley - Old 52,0.8667,Berkeley - Alvin,0.7586,Berkeley - Cross,0.7586,review
+Berkeley - 78,BERKELEY - 78,Berkeley - Alvin,0.7586,Berkeley - Cross,0.7586,Berkeley - Huger,0.7586,review
+Berkeley - Boulder Bluff No. 1,BERKELEY - BOULDER BLUFF NO. 1,Berkeley - Boulder Bluff,0.8889,,,,,review
+Berkeley - Carnes Cross Road 1,BERKELEY - CARNES CROSS ROAD 1,Berkeley - Carnes Cross Roads 1,0.9836,Berkeley - Carnes Cross Roads 2,0.9508,Berkeley - Hilton Cross Rd,0.7500,likely_safe
+Berkeley - Daniel Island,BERKELEY - DANIEL ISLAND,Berkeley - Daniel Island 1,0.9600,Berkeley - Daniel Island 2,0.9600,Berkeley - Daniel Island 3,0.9600,likely_safe
+Berkeley - Devon Forest,BERKELEY - DEVON FOREST,Berkeley - Devon Forest 1,0.9583,Berkeley - Devon Forest 2,0.9583,Berkeley - Seventy Eight,0.7234,likely_safe
+Berkeley - Emergency,BERKELEY - EMERGENCY,Berkeley - Medway,0.7568,Berkeley - Bethera,0.7368,Berkeley - Huger,0.7222,review
+Berkeley - Emergency 2,BERKELEY - EMERGENCY 2,,,,,,,no_confident_match
+Berkeley - Foster Creek,BERKELEY - FOSTER CREEK,Berkeley - Foster Creek 1,0.9583,Berkeley - Foster Creek 2,0.9583,Berkeley - Foster Creek 3,0.9583,likely_safe
+Berkeley - Goose Creek 1,BERKELEY - GOOSE CREEK 1,Berkeley - Foster Creek 1,0.8980,Berkeley - Foster Creek 2,0.8571,Berkeley - Foster Creek 3,0.8571,review
+Berkeley - Goose Creek 2,BERKELEY - GOOSE CREEK 2,Berkeley - Foster Creek 2,0.8980,Berkeley - Foster Creek 1,0.8571,Berkeley - Foster Creek 3,0.8571,review
+Berkeley - Goose Creek 3,BERKELEY - GOOSE CREEK 3,Berkeley - Foster Creek 3,0.8980,Berkeley - Foster Creek 1,0.8571,Berkeley - Foster Creek 2,0.8571,review
+Berkeley - Hilton Cross Road,BERKELEY - HILTON CROSS ROAD,Berkeley - Hilton Cross Rd,0.9630,Berkeley - Carnes Cross Roads 1,0.7797,Berkeley - Carnes Cross Roads 2,0.7797,likely_safe
+Berkeley - Howe Hall,BERKELEY - HOWE HALL,Berkeley - Howe Hall 1,0.9524,Berkeley - Howe Hall 2,0.9524,Berkeley - Liberty Hall,0.7907,likely_safe
+Berkeley - Macbeth,BERKELEY - MACBETH,Berkeley - Mcbeth,0.9714,Berkeley - Bethera,0.8333,Berkeley - Macedonia,0.7895,likely_safe
+Berkeley - St. Stephen,BERKELEY - ST. STEPHEN,Berkeley - St. Stephen 1,0.9565,Berkeley - St. Stephen 2,0.9565,Berkeley - St. James,0.7619,likely_safe
+Berkeley - Whitesville,BERKELEY - WHITESVILLE,Berkeley - Whitesville 1,0.9565,Berkeley - Whitesville 2,0.9565,Berkeley - Cordesville,0.8182,likely_safe
+Calhoun - Murph Mill,CALHOUN - MURPH MILL,Calhoun - Murph Hill,0.9500,Calhoun - Center Hill,0.7317,,,likely_safe
+Charleston - N. Charleston 10,CHARLESTON - N. CHARLESTON 10,Charleston - Charleston 10,0.9455,Charleston - Charleston 1,0.9259,Charleston - North Charleston 10,0.9180,likely_safe
+Charleston - N. Charleston 11,CHARLESTON - N. CHARLESTON 11,Charleston - Charleston 11,0.9455,Charleston - Charleston 1,0.9259,Charleston - North Charleston 11,0.9180,likely_safe
+Charleston - N. Charleston 12,CHARLESTON - N. CHARLESTON 12,Charleston - Charleston 12,0.9455,Charleston - Charleston 1,0.9259,Charleston - Charleston 2,0.9259,likely_safe
+Charleston - N. Charleston 13,CHARLESTON - N. CHARLESTON 13,Charleston - Charleston 13,0.9455,Charleston - Charleston 1,0.9259,Charleston - Charleston 3,0.9259,likely_safe
+Charleston - N. Charleston 14,CHARLESTON - N. CHARLESTON 14,Charleston - Charleston 14,0.9455,Charleston - Charleston 1,0.9259,Charleston - Charleston 4,0.9259,likely_safe
+Charleston - N. Charleston 15,CHARLESTON - N. CHARLESTON 15,Charleston - Charleston 15,0.9455,Charleston - Charleston 1,0.9259,Charleston - Charleston 5,0.9259,likely_safe
+Charleston - N. Charleston 16,CHARLESTON - N. CHARLESTON 16,Charleston - Charleston 16,0.9455,Charleston - Charleston 1,0.9259,Charleston - Charleston 6,0.9259,likely_safe
+Charleston - N. Charleston 17,CHARLESTON - N. CHARLESTON 17,Charleston - Charleston 17,0.9455,Charleston - Charleston 1,0.9259,Charleston - Charleston 7,0.9259,likely_safe
+Charleston - N. Charleston 19,CHARLESTON - N. CHARLESTON 19,Charleston - Charleston 19,0.9455,Charleston - Charleston 1,0.9259,Charleston - Charleston 9,0.9259,likely_safe
+Charleston - N. Charleston 20,CHARLESTON - N. CHARLESTON 20,Charleston - Charleston 20,0.9455,Charleston - Charleston 2,0.9259,Charleston - North Charleston 20,0.9180,likely_safe
+Charleston - N. Charleston 21,CHARLESTON - N. CHARLESTON 21,Charleston - Charleston 21,0.9455,Charleston - Charleston 1,0.9259,Charleston - Charleston 2,0.9259,likely_safe
+Charleston - N. Charleston 23,CHARLESTON - N. CHARLESTON 23,Charleston - Charleston 2,0.9259,Charleston - Charleston 3,0.9259,Charleston - North Charleston 23,0.9180,likely_safe
+Charleston - N. Charleston 27,CHARLESTON - N. CHARLESTON 27,Charleston - Charleston 2,0.9259,Charleston - Charleston 7,0.9259,Charleston - North Charleston 27,0.9180,likely_safe
+Charleston - N. Charleston 29,CHARLESTON - N. CHARLESTON 29,Charleston - Charleston 2,0.9259,Charleston - Charleston 9,0.9259,Charleston - North Charleston 29,0.9180,likely_safe
+Charleston - N. Charleston 3,CHARLESTON - N. CHARLESTON 3,Charleston - Charleston 3,0.9434,Charleston - Charleston 13,0.9259,Charleston - North Charleston 3,0.9153,likely_safe
+Charleston - N. Charleston 4,CHARLESTON - N. CHARLESTON 4,Charleston - Charleston 4,0.9434,Charleston - Charleston 14,0.9259,Charleston - North Charleston 4,0.9153,likely_safe
+Charleston - N. Charleston 5,CHARLESTON - N. CHARLESTON 5,Charleston - Charleston 5,0.9434,Charleston - Charleston 15,0.9259,Charleston - North Charleston 5,0.9153,likely_safe
+Charleston - N. Charleston 6,CHARLESTON - N. CHARLESTON 6,Charleston - Charleston 6,0.9434,Charleston - Charleston 16,0.9259,Charleston - North Charleston 6,0.9153,likely_safe
+Charleston - N. Charleston 7,CHARLESTON - N. CHARLESTON 7,Charleston - Charleston 7,0.9434,Charleston - Charleston 17,0.9259,Charleston - North Charleston 7,0.9153,likely_safe
+Charleston - N. Charleston 9,CHARLESTON - N. CHARLESTON 9,Charleston - Charleston 9,0.9434,Charleston - Charleston 19,0.9259,Charleston - North Charleston 9,0.9153,likely_safe
+Charleston - Town Of Seabrook Island,CHARLESTON - TOWN OF SEABROOK ISLAND,Charleston - Town Of Seabrook,0.8923,Charleston - Johns Island 2,0.7302,Charleston - Johns Island 4,0.7302,review
+Cherokee - 99 And Cherokee Falls,CHEROKEE - 99 AND CHEROKEE FALLS,Cherokee - Ninety Nine And Cherokee Falls,0.8219,,,,,review
+Cherokee - Blacksburg Ward No. 3,CHEROKEE - BLACKSBURG WARD NO. 3,Cherokee - Blacksburg Ward No. 1,0.9688,Cherokee - Blacksburg Ward No. 2,0.9688,Cherokee - Gaffney Ward No. 3,0.7541,likely_safe
+Cherokee - Blacksburg Ward No. 4,CHEROKEE - BLACKSBURG WARD NO. 4,Cherokee - Blacksburg Ward No. 1,0.9688,Cherokee - Blacksburg Ward No. 2,0.9688,Cherokee - Gaffney Ward No. 4,0.7541,likely_safe
+Cherokee - Central,CHEROKEE - CENTRAL,Berkeley - Central,0.8333,Cherokee - Macedonia,0.7895,Cherokee - Allens,0.7429,review
+Cherokee - Ezellsbutler,CHEROKEE - EZELLSBUTLER,Cherokee - Ezells And Butler,0.9020,,,,,likely_safe
+Cherokee - Littlejohns And Sarratt,CHEROKEE - LITTLEJOHNS AND SARRATT,Cherokee - Littlejohn'S And Sarratt'S,0.9855,,,,,likely_safe
+Cherokee - Musgrove,CHEROKEE - MUSGROVE,Cherokee - Musgrove Mill,0.8837,Cherokee - Pleasant Grove,0.7727,Cherokee - Morgan,0.7222,review
+Chester - Great Falls 3,CHESTER - GREAT FALLS 3,Chester - Great Falls,0.9545,Chester - Eureka Mill,0.7273,,,likely_safe
+Chester - Lando Lansford,CHESTER - LANDO LANSFORD,Chester - Lando/Lansford,0.9787,,,,,likely_safe
+Chester - Landolandsford,CHESTER - LANDOLANDSFORD,Chester - Lando/Lansford,0.9787,,,,,likely_safe
+Chester - Landsford,CHESTER - LANDSFORD,Chester - Lando/Lansford,0.9048,Dorchester - Windsor,0.7692,Dorchester - Windsor 2,0.7317,likely_safe
+Chesterfield - Angelus-Catarrh,CHESTERFIELD - ANGELUS-CATARRH,Chesterfield - Angelus-Cararrh,0.9667,Chesterfield - Cash,0.7347,,,likely_safe
+Chesterfield - Center Point,CHESTERFIELD - CENTER POINT,Chesterfield - Center Grove-Winzo,0.8333,Chesterfield - Jefferson,0.7843,Chesterfield - Mcbee,0.7660,review
+Chesterfield - Pageland,CHESTERFIELD - PAGELAND,Chesterfield - Pageland No. 1,0.8846,Chesterfield - Pageland No. 2,0.8846,Chesterfield - Pee Dee,0.8000,review
+Chesterfield - Snow Hill,CHESTERFIELD - SNOW HILL,Chesterfield - Snow Hill-Vaughn,0.8727,Chesterfield - Shiloh,0.8444,Chesterfield - Brocks Mill,0.8000,review
+Clarendon - Sardinia-Gable,CLARENDON - SARDINIA-GABLE,Clarendon - Sardina-Gable,0.9804,Clarendon - Oakdale,0.7556,Clarendon - Barrineau,0.7234,likely_safe
+Clarendon - Wilson-Foreston,CLARENDON - WILSON-FORESTON,Clarendon - Wilson Foreston,0.9630,Clarendon - Failsafe,0.7234,,,likely_safe
+Colleton - Ashton,COLLETON - ASHTON,Colleton - Ashton-Lodge,0.8500,Colleton - Edisto,0.8235,Colleton - Stokes,0.8235,review
+Colleton - Berea,COLLETON - BEREA,Colleton - Berea-Smoaks,0.8205,Colleton - Bells,0.8125,Colleton - Peniel,0.7879,review
+Colleton - Hudsons Mill,COLLETON - HUDSONS MILL,Colleton - Hudson Mill,0.9778,Colleton - Hendersonville,0.7917,,,likely_safe
+Colleton - Lodge,COLLETON - LODGE,Colleton - Ashton-Lodge,0.8205,Colleton - Stokes,0.7879,Colleton - Peeples,0.7647,review
+Colleton - Peoples,COLLETON - PEOPLES,Colleton - Peeples,0.9444,Colleton - Bells,0.8235,Colleton - Petits,0.8000,likely_safe
+Colleton - Sidney,COLLETON - SIDNEY,Colleton - Sidneys,0.9714,Colleton - Sniders,0.8571,Colleton - Peniel,0.7647,likely_safe
+Colleton - Smoaks,COLLETON - SMOAKS,Colleton - Stokes,0.8824,Colleton - Berea-Smoaks,0.8500,Colleton - Edisto,0.7647,review
+Colleton - Walterboro No 1,COLLETON - WALTERBORO NO 1,Colleton - Walterboro No. 1,0.9811,Colleton - Walterboro No. 2,0.9434,Colleton - Walterboro No. 3,0.9434,likely_safe
+Colleton - Walterboro No 2,COLLETON - WALTERBORO NO 2,Colleton - Walterboro No. 2,0.9811,Colleton - Walterboro No. 1,0.9434,Colleton - Walterboro No. 3,0.9434,likely_safe
+Colleton - Walterboro No 3,COLLETON - WALTERBORO NO 3,Colleton - Walterboro No. 3,0.9811,Colleton - Walterboro No. 1,0.9434,Colleton - Walterboro No. 2,0.9434,likely_safe
+Colleton - Walterboro No 4,COLLETON - WALTERBORO NO 4,Colleton - Walterboro No. 4,0.9811,Colleton - Walterboro No. 1,0.9434,Colleton - Walterboro No. 2,0.9434,likely_safe
+Darlington - Darlington No 1,DARLINGTON - DARLINGTON NO 1,Darlington - Darlington No. 1,0.9825,Darlington - Darlington No. 2,0.9474,Darlington - Darlington No. 4,0.9474,likely_safe
+Darlington - Darlington No 2,DARLINGTON - DARLINGTON NO 2,Darlington - Darlington No. 2,0.9825,Darlington - Darlington No. 1,0.9474,Darlington - Darlington No. 4,0.9474,likely_safe
+Darlington - Darlington No 3,DARLINGTON - DARLINGTON NO 3,Darlington - Darlington No. 3,0.9825,Darlington - Darlington No. 1,0.9474,Darlington - Darlington No. 2,0.9474,likely_safe
+Darlington - Darlington No 4,DARLINGTON - DARLINGTON NO 4,Darlington - Darlington No. 4,0.9825,Darlington - Darlington No. 1,0.9474,Darlington - Darlington No. 2,0.9474,likely_safe
+Darlington - Darlington No 5,DARLINGTON - DARLINGTON NO 5,Darlington - Darlington No. 5,0.9825,Darlington - Darlington No. 1,0.9474,Darlington - Darlington No. 2,0.9474,likely_safe
+Darlington - Darlington No 6,DARLINGTON - DARLINGTON NO 6,Darlington - Darlington No. 6,0.9825,Darlington - Darlington No. 1,0.9474,Darlington - Darlington No. 2,0.9474,likely_safe
+Darlington - Hartsville No 1,DARLINGTON - HARTSVILLE NO 1,Darlington - Hartsville No. 1,0.9825,Darlington - Hartsville No. 4,0.9474,Darlington - Hartsville No. 5,0.9474,likely_safe
+Darlington - Hartsville No 4,DARLINGTON - HARTSVILLE NO 4,Darlington - Hartsville No. 4,0.9825,Darlington - Hartsville No. 1,0.9474,Darlington - Hartsville No. 5,0.9474,likely_safe
+Darlington - Hartsville No 5,DARLINGTON - HARTSVILLE NO 5,Darlington - Hartsville No. 5,0.9825,Darlington - Hartsville No. 1,0.9474,Darlington - Hartsville No. 4,0.9474,likely_safe
+Darlington - Hartsville No 6,DARLINGTON - HARTSVILLE NO 6,Darlington - Hartsville No. 6,0.9825,Darlington - Hartsville No. 1,0.9474,Darlington - Hartsville No. 4,0.9474,likely_safe
+Darlington - Hartsville No 7,DARLINGTON - HARTSVILLE NO 7,Darlington - Hartsville No. 7,0.9825,Darlington - Hartsville No. 1,0.9474,Darlington - Hartsville No. 4,0.9474,likely_safe
+Darlington - Hartsville No 8,DARLINGTON - HARTSVILLE NO 8,Darlington - Hartsville No. 8,0.9825,Darlington - Hartsville No. 1,0.9474,Darlington - Hartsville No. 4,0.9474,likely_safe
+Darlington - Hartsville No 9,DARLINGTON - HARTSVILLE NO 9,Darlington - Hartsville No. 9,0.9825,Darlington - Hartsville No. 1,0.9474,Darlington - Hartsville No. 4,0.9474,likely_safe
+Dillon - Gaddys Mill,DILLON - GADDYS MILL,,,,,,,no_confident_match
+Dorchester - 4 Hole,DORCHESTER - 4 HOLE,Dorchester - Four Hole,0.8780,Dorchester - Trolley,0.8205,Dorchester - Archdale,0.8000,review
+Dorchester - Miles-Jamison,DORCHESTER - MILES-JAMISON,Dorchester - Miles/Jamison,0.9804,Dorchester - Clemson,0.8261,Dorchester - Clemson 2,0.7917,likely_safe
+Dorchester - St. George No 1,DORCHESTER - ST. GEORGE NO 1,Dorchester - St. George No. 1,0.9825,Dorchester - St. George No. 2,0.9474,,,likely_safe
+Dorchester - St. George No 2,DORCHESTER - ST. GEORGE NO 2,Dorchester - St. George No. 2,0.9825,Dorchester - St. George No. 1,0.9474,Dorchester - King'S Grant 2,0.7407,likely_safe
+Edgefield - Kendall,EDGEFIELD - KENDALL,,,,,,,no_confident_match
+Edgefield - Trenton,EDGEFIELD - TRENTON,Edgefield - Trenton No.1,0.8837,Edgefield - Trenton No.2,0.8837,Edgefield - Brunson,0.8421,review
+Fairfield - Gladde3N Grove,FAIRFIELD - GLADDE3N GROVE,Fairfield - Gladden Grove,0.9804,,,,,likely_safe
+Florence - Coles Cr Roads,FLORENCE - COLES CR ROADS,Florence - Coles Crossroads,0.9231,,,,,likely_safe
+Florence - Coward No. 1,FLORENCE - COWARD NO. 1,Florence - Cowards No. 1,0.9787,Florence - Cowards No. 2,0.9362,Florence - Pamplico No. 1,0.7917,likely_safe
+Florence - Coward No. 2,FLORENCE - COWARD NO. 2,Florence - Cowards No. 2,0.9787,Florence - Cowards No. 1,0.9362,Florence - Pamplico No. 2,0.7917,likely_safe
+Florence - Emergency,FLORENCE - EMERGENCY,Florence - Evergreen,0.8500,Florence - Elim-Glenwood,0.7273,Florence - Salem,0.7222,review
+Florence - Emergency 1,FLORENCE - EMERGENCY 1,Florence - Evergreen,0.8095,Florence - Delmae No. 1,0.7556,Florence - West Florence 1,0.7500,review
+Florence - Florence 1,FLORENCE - FLORENCE 1,Florence - Florence Ward 1,0.8936,Florence - West Florence 1,0.8936,Florence - Florence Ward 10,0.8750,review
+Florence - Florence 10,FLORENCE - FLORENCE 10,Florence - Florence Ward 10,0.8980,Florence - Florence Ward 1,0.8750,Florence - West Florence 1,0.8750,review
+Florence - Florence 11,FLORENCE - FLORENCE 11,Florence - Florence Ward 11,0.8980,Florence - Florence Ward 1,0.8750,Florence - West Florence 1,0.8750,review
+Florence - Florence 12,FLORENCE - FLORENCE 12,Florence - Florence Ward 12,0.8980,Florence - Florence Ward 1,0.8750,Florence - Florence Ward 2,0.8750,review
+Florence - Florence 2,FLORENCE - FLORENCE 2,Florence - Florence Ward 2,0.8936,Florence - West Florence 2,0.8936,Florence - Florence Ward 12,0.8750,review
+Florence - Florence 3,FLORENCE - FLORENCE 3,Florence - Florence Ward 3,0.8936,Florence - Florence Ward 1,0.8511,Florence - Florence Ward 2,0.8511,review
+Florence - Florence 4,FLORENCE - FLORENCE 4,Florence - Florence Ward 4,0.8936,Florence - Florence Ward 14,0.8750,Florence - Florence Ward 1,0.8511,review
+Florence - Florence 5,FLORENCE - FLORENCE 5,Florence - Florence Ward 5,0.8936,Florence - Florence Ward 15,0.8750,Florence - Florence Ward 1,0.8511,review
+Florence - Florence 6,FLORENCE - FLORENCE 6,Florence - Florence Ward 6,0.8936,Florence - Florence Ward 1,0.8511,Florence - Florence Ward 2,0.8511,review
+Florence - Florence 7,FLORENCE - FLORENCE 7,Florence - Florence Ward 7,0.8936,Florence - Florence Ward 1,0.8511,Florence - Florence Ward 2,0.8511,review
+Florence - Florence 8,FLORENCE - FLORENCE 8,Florence - Florence Ward 8,0.8936,Florence - Florence Ward 1,0.8511,Florence - Florence Ward 2,0.8511,review
+Florence - Florence 9,FLORENCE - FLORENCE 9,Florence - Florence Ward 9,0.8936,Florence - Florence Ward 1,0.8511,Florence - Florence Ward 2,0.8511,review
+Florence - Florence No. 1,FLORENCE - FLORENCE NO. 1,Florence - Florence Ward 1,0.8627,Florence - Florence Ward 10,0.8462,Florence - Florence Ward 11,0.8462,review
+Florence - Florence No. 10,FLORENCE - FLORENCE NO. 10,Florence - Florence Ward 10,0.8679,Florence - Florence Ward 1,0.8462,Florence - Florence Ward 11,0.8302,review
+Florence - Florence No. 11,FLORENCE - FLORENCE NO. 11,Florence - Florence Ward 11,0.8679,Florence - Florence Ward 1,0.8462,Florence - Florence Ward 10,0.8302,review
+Florence - Florence No. 12,FLORENCE - FLORENCE NO. 12,Florence - Florence Ward 12,0.8679,Florence - Florence Ward 1,0.8462,Florence - Florence Ward 2,0.8462,review
+Florence - Florence No. 14,FLORENCE - FLORENCE NO. 14,Florence - Florence Ward 14,0.8679,Florence - Florence Ward 1,0.8462,Florence - Florence Ward 4,0.8462,review
+Florence - Florence No. 15,FLORENCE - FLORENCE NO. 15,Florence - Florence Ward 15,0.8679,Florence - Florence Ward 1,0.8462,Florence - Florence Ward 5,0.8462,review
+Florence - Florence No. 2,FLORENCE - FLORENCE NO. 2,Florence - Florence Ward 2,0.8627,Florence - Florence Ward 12,0.8462,Florence - Florence Ward 1,0.8235,review
+Florence - Florence No. 3,FLORENCE - FLORENCE NO. 3,Florence - Florence Ward 3,0.8627,Florence - Florence Ward 1,0.8235,Florence - Florence Ward 2,0.8235,review
+Florence - Florence No. 4,FLORENCE - FLORENCE NO. 4,Florence - Florence Ward 4,0.8627,Florence - Florence Ward 14,0.8462,Florence - Florence Ward 1,0.8235,review
+Florence - Florence No. 5,FLORENCE - FLORENCE NO. 5,Florence - Florence Ward 5,0.8627,Florence - Florence Ward 15,0.8462,Florence - Florence Ward 1,0.8235,review
+Florence - Florence No. 6,FLORENCE - FLORENCE NO. 6,Florence - Florence Ward 6,0.8627,Florence - Florence Ward 1,0.8235,Florence - Florence Ward 2,0.8235,review
+Florence - Florence No. 7,FLORENCE - FLORENCE NO. 7,Florence - Florence Ward 7,0.8627,Florence - Florence Ward 1,0.8235,Florence - Florence Ward 2,0.8235,review
+Florence - Florence No. 8,FLORENCE - FLORENCE NO. 8,Florence - Florence Ward 8,0.8627,Florence - Florence Ward 1,0.8235,Florence - Florence Ward 2,0.8235,review
+Florence - Florence No. 9,FLORENCE - FLORENCE NO. 9,Florence - Florence Ward 9,0.8627,Florence - Florence Ward 1,0.8235,Florence - Florence Ward 2,0.8235,review
+Florence - South Florence No. 1,FLORENCE - SOUTH FLORENCE NO. 1,Florence - South Florence 1,0.9310,Florence - South Florence 2,0.8966,Florence - West Florence 1,0.8421,likely_safe
+Florence - South Florence No. 2,FLORENCE - SOUTH FLORENCE NO. 2,Florence - South Florence 2,0.9310,Florence - South Florence 1,0.8966,Florence - West Florence 2,0.8421,likely_safe
+Florence - Timmonsville No. 1,FLORENCE - TIMMONSVILLE NO. 1,Florence - Timmonsville 1,0.9259,Florence - Timmonsville 2,0.8889,Florence - Delmae No. 1,0.7308,likely_safe
+Florence - Timmonsville No. 2,FLORENCE - TIMMONSVILLE NO. 2,Florence - Timmonsville 2,0.9259,Florence - Timmonsville 1,0.8889,Florence - Delmae No. 2,0.7308,likely_safe
+Florence - West Florence No. 1,FLORENCE - WEST FLORENCE NO. 1,Florence - West Florence 1,0.9286,Florence - West Florence 2,0.8929,Florence - South Florence 1,0.8421,likely_safe
+Florence - West Florence No. 2,FLORENCE - WEST FLORENCE NO. 2,Florence - West Florence 2,0.9286,Florence - West Florence 1,0.8929,Florence - South Florence 2,0.8421,likely_safe
+Georgetown - Cedar Creek,GEORGETOWN - CEDAR CREEK,Lee - Cedar Creek,0.7805,Georgetown - Santee,0.7442,Georgetown - Andrews,0.7273,review
+Georgetown - Dreamkeepers,GEORGETOWN - DREAMKEEPERS,Georgetown - Dream Keepers,0.9804,Georgetown - Andrews,0.7556,Georgetown - Sampit,0.7273,likely_safe
+Georgetown - Emergency,GEORGETOWN - EMERGENCY,Georgetown - Pee Dee,0.7619,Georgetown - Myersville,0.7556,Georgetown - Bethel,0.7317,review
+Georgetown - Georgetown 1,GEORGETOWN - GEORGETOWN 1,Georgetown - Georgetown No. 1,0.9259,Georgetown - Georgetown No. 3,0.8889,Georgetown - Georgetown No. 4,0.8889,likely_safe
+Georgetown - Georgetown No. 2-Dream Keepers,GEORGETOWN - GEORGETOWN NO. 2-DREAM KEEPERS,Georgetown - Georgetown No. 1,0.7778,Georgetown - Georgetown No. 3,0.7778,Georgetown - Georgetown No. 4,0.7778,review
+Georgetown - Georgetown No. 2-Dreamkeepers,GEORGETOWN - GEORGETOWN NO. 2-DREAMKEEPERS,Georgetown - Georgetown No. 1,0.7887,Georgetown - Georgetown No. 3,0.7887,Georgetown - Georgetown No. 4,0.7887,review
+Georgetown - Pawleys Isl 1,GEORGETOWN - PAWLEYS ISL 1,Georgetown - Pawley'S Island No. 1,0.8814,Georgetown - Pawley'S Island No. 2,0.8475,Georgetown - Pawley'S Island No. 3,0.8475,review
+Georgetown - Pawleys Isl 2,GEORGETOWN - PAWLEYS ISL 2,Georgetown - Pawley'S Island No. 2,0.8814,Georgetown - Pawley'S Island No. 1,0.8475,Georgetown - Pawley'S Island No. 3,0.8475,review
+Georgetown - Pawleys Isl 3,GEORGETOWN - PAWLEYS ISL 3,Georgetown - Pawley'S Island No. 3,0.8814,Georgetown - Pawley'S Island No. 1,0.8475,Georgetown - Pawley'S Island No. 2,0.8475,review
+Georgetown - Pawleys Isl 4,GEORGETOWN - PAWLEYS ISL 4,Georgetown - Pawley'S Island No. 4,0.8814,Georgetown - Pawley'S Island No. 1,0.8475,Georgetown - Pawley'S Island No. 2,0.8475,review
+Georgetown - Pawleys Isl 5,GEORGETOWN - PAWLEYS ISL 5,Georgetown - Pawley'S Island No. 5,0.8814,Georgetown - Pawley'S Island No. 1,0.8475,Georgetown - Pawley'S Island No. 2,0.8475,review
+Greenville - Brook Glenn,GREENVILLE - BROOK GLENN,Greenville - Brookglenn,0.9787,Greenville - Rock Hill,0.7826,Greenville - Aiken,0.7619,likely_safe
+Greenville - River Walk,GREENVILLE - RIVER WALK,Greenville - Riverwalk,0.9778,Greenville - Riverside,0.8000,Greenville - Silverleaf,0.7826,likely_safe
+Greenville - Travelers Rest,GREENVILLE - TRAVELERS REST,Greenville - Travelers Rest 1,0.9643,Greenville - Travelers Rest 2,0.9643,Greenville - Riverside,0.7755,likely_safe
+Greenwood - Emergency,GREENWOOD - EMERGENCY,Greenwood - Verdery,0.8000,Greenwood - Emerald,0.8000,Greenwood - Georgetown,0.7907,review
+Greenwood - Emergency Provisional,GREENWOOD - EMERGENCY PROVISIONAL,Greenwood - Provisional,0.8214,Greenwood - Failsafe Provisional,0.7692,,,review
+Greenwood - Glendale 9,GREENWOOD - GLENDALE 9,Greenwood - Glendale,0.9524,Greenwood - Laco,0.7368,Greenwood - Verdery,0.7317,likely_safe
+Greenwood - Greenwood No. 1,GREENWOOD - GREENWOOD NO. 1,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,,,review
+Greenwood - Greenwood No. 2,GREENWOOD - GREENWOOD NO. 2,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,,,review
+Greenwood - Greenwood No. 3,GREENWOOD - GREENWOOD NO. 3,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,,,review
+Greenwood - Greenwood No. 4,GREENWOOD - GREENWOOD NO. 4,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,,,review
+Greenwood - Greenwood No. 5,GREENWOOD - GREENWOOD NO. 5,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,,,review
+Greenwood - Greenwood No. 6,GREENWOOD - GREENWOOD NO. 6,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,,,review
+Greenwood - Greenwood No. 7,GREENWOOD - GREENWOOD NO. 7,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,,,review
+Greenwood - Greenwood No. 8,GREENWOOD - GREENWOOD NO. 8,Greenwood - Greenwood High,0.8302,Greenwood - Greenwood Mill,0.8302,,,review
+Greenwood - Merrywood,GREENWOOD - MERRYWOOD,Greenwood - Stonewood,0.8095,Greenwood - Verdery,0.8000,Greenwood - Emerald,0.8000,review
+Greenwood - Newcastle,GREENWOOD - NEWCASTLE,Greenwood - New Castle,0.9767,Greenwood - Pinecrest,0.8095,Greenwood - New Market,0.7907,likely_safe
+Greenwood - Ninety Six Depot,GREENWOOD - NINETY SIX DEPOT,Greenwood - Ninety Six,0.8800,Greenwood - Ninety Six Mill,0.8364,,,review
+Greenwood - Rutherford,GREENWOOD - RUTHERFORD,Greenwood - Rutherford Shoals,0.8627,Greenwood - Stonewood,0.7442,Greenwood - Troy,0.7368,review
+Greenwood - Rutherford Ford,GREENWOOD - RUTHERFORD FORD,Greenwood - Rutherford Shoals,0.8571,,,,,review
+Hampton - Crocketville-Miley,HAMPTON - CROCKETVILLE-MILEY,Hampton - Crocket-Miley,0.9020,,,,,likely_safe
+Hampton - Hampton Courthouse No. 1,HAMPTON - HAMPTON COURTHOUSE NO. 1,Hampton - Hampton Courthouse No.1,0.9851,Hampton - Hampton Courthouse No.2,0.9552,,,likely_safe
+Hampton - Hampton Courthouse No. 2,HAMPTON - HAMPTON COURTHOUSE NO. 2,Hampton - Hampton Courthouse No.2,0.9851,Hampton - Hampton Courthouse No.1,0.9552,,,likely_safe
+Hampton - Hampton Cthse 2,HAMPTON - HAMPTON CTHSE 2,Hampton - Hampton Courthouse No.2,0.8621,Hampton - Hampton Courthouse No.1,0.8276,,,review
+Horry - 4 Mile,HORRY - 4 MILE,Horry - Four Mile,0.8387,Horry - Maple,0.8148,Horry - Leon,0.7692,review
+Horry - Bayboro,HORRY - BAYBORO,Horry - Aynor,0.8571,Horry - Bayboro-Gurley,0.8108,,,review
+Horry - Brooksville,HORRY - BROOKSVILLE,Horry - Brooksville #1,0.9500,Horry - Brooksville #2,0.9500,Horry - Toddville,0.7778,likely_safe
+Horry - Crescent,HORRY - CRESCENT,Horry - Cresent,0.9677,York - Crescent,0.8387,Horry - Green Sea,0.7273,likely_safe
+Horry - Enterprise,HORRY - ENTERPRISE,Horry - Enterprise #1,0.9474,Horry - Enterprise #2,0.9474,Horry - Deerfield,0.7429,likely_safe
+Horry - Floyds,HORRY - FLOYDS,Horry - Leon,0.7692,Horry - Horry,0.7407,Horry - Failsafe,0.7333,review
+Horry - Galivants Ferry,HORRY - GALIVANTS FERRY,Horry - Gallivants Ferry,0.9787,,,,,likely_safe
+Horry - Gurley,HORRY - GURLEY,Horry - Bayboro-Gurley,0.7778,Horry - Four Mile,0.7742,Horry - Leon,0.7692,review
+Horry - Hickory Hill,HORRY - HICKORY HILL,Lee - Hickory Hill,0.7895,Horry - Hickory Grove,0.7805,Horry - Poplar Hill,0.7692,review
+Horry - Jernigans Xroads,HORRY - JERNIGANS XROADS,Horry - Jerigans X Roads,0.9583,Horry - Nixons X Roads #1,0.7917,Horry - Nixons X Roads #2,0.7917,likely_safe
+Horry - Jordanville,HORRY - JORDANVILLE,Horry - Toddville,0.8333,Horry - Four Mile,0.7222,,,review
+Horry - Joyner Swamp,HORRY - JOYNER SWAMP,Horry - Tilly Swamp,0.7692,Horry - Pawley'S Swamp,0.7317,,,review
+Horry - Lake Park,HORRY - LAKE PARK,Horry - Lake Park #1,0.9444,Horry - Lake Park #2,0.9444,Horry - Lake Park #3,0.9444,likely_safe
+Horry - Marlowe,HORRY - MARLOWE,Horry - Marlowe #1,0.9375,Horry - Marlowe #2,0.9375,Horry - Marlowe #3,0.9375,likely_safe
+Horry - Methodist Rehobeth,HORRY - METHODIST REHOBETH,,,,,,,no_confident_match
+Horry - Mill Swamp,HORRY - MILL SWAMP,Horry - Tilly Swamp,0.9189,Horry - Methodist-Mill Swamp,0.7826,Horry - Pawley'S Swamp,0.7692,likely_safe
+Horry - Norton,HORRY - NORTON,Horry - Aynor,0.8148,Horry - North Conway #1,0.7778,Horry - North Conway #2,0.7778,review
+Horry - Spring Branch,HORRY - SPRING BRANCH,,,,,,,no_confident_match
+Horry - Taylorsville,HORRY - TAYLORSVILLE,Horry - Toddville,0.8108,Horry - Brooksville #1,0.7317,Horry - Brooksville #2,0.7317,review
+Jasper - Emergency,JASPER - EMERGENCY,,,,,,,no_confident_match
+Jasper - Oakatie,JASPER - OAKATIE,Jasper - Okatie,0.9677,Jasper - Okatie 2,0.9091,Jasper - Coosawhatchie,0.7895,likely_safe
+Kershaw - Camden No 1,KERSHAW - CAMDEN NO 1,Kershaw - Camden No. 1,0.9767,Kershaw - Camden No. 5,0.9302,Kershaw - Camden No. 6,0.9302,likely_safe
+Kershaw - Camden No 2,KERSHAW - CAMDEN NO 2,Kershaw - Camden No. 2 & 3,0.9333,Kershaw - Camden No. 1,0.9302,Kershaw - Camden No. 5,0.9302,likely_safe
+Kershaw - Camden No 3,KERSHAW - CAMDEN NO 3,Kershaw - Camden No. 2 & 3,0.9333,Kershaw - Camden No. 1,0.9302,Kershaw - Camden No. 5,0.9302,likely_safe
+Kershaw - Camden No 4,KERSHAW - CAMDEN NO 4,Kershaw - Camden No. 1,0.9302,Kershaw - Camden No. 5,0.9302,Kershaw - Camden No. 6,0.9302,likely_safe
+Kershaw - Camden No 5,KERSHAW - CAMDEN NO 5,Kershaw - Camden No. 5,0.9767,Kershaw - Camden No. 5-A,0.9333,Kershaw - Camden No. 1,0.9302,likely_safe
+Kershaw - Camden No 5-A,KERSHAW - CAMDEN NO 5-A,Kershaw - Camden No. 5-A,0.9787,Kershaw - Camden No. 5,0.9333,Kershaw - Camden No. 1,0.8889,likely_safe
+Kershaw - Camden No 6,KERSHAW - CAMDEN NO 6,Kershaw - Camden No. 6,0.9767,Kershaw - Camden No. 1,0.9302,Kershaw - Camden No. 5,0.9302,likely_safe
+Kershaw - Camden No. 2,KERSHAW - CAMDEN NO. 2,Kershaw - Camden No. 2 & 3,0.9565,Kershaw - Camden No. 1,0.9545,Kershaw - Camden No. 5,0.9545,likely_safe
+Kershaw - Camden No. 3,KERSHAW - CAMDEN NO. 3,Kershaw - Camden No. 2 & 3,0.9565,Kershaw - Camden No. 1,0.9545,Kershaw - Camden No. 5,0.9545,likely_safe
+Kershaw - Camden No. 4,KERSHAW - CAMDEN NO. 4,Kershaw - Camden No. 1,0.9545,Kershaw - Camden No. 5,0.9545,Kershaw - Camden No. 6,0.9545,likely_safe
+Kershaw - Camden No. 5A,KERSHAW - CAMDEN NO. 5A,Kershaw - Camden No. 5-A,0.9787,Kershaw - Camden No. 5,0.9778,Kershaw - Camden No. 1,0.9333,likely_safe
+Kershaw - E Camden-Hermitage,KERSHAW - E CAMDEN-HERMITAGE,,,,,,,no_confident_match
+Kershaw - Elgin No 1,KERSHAW - ELGIN NO 1,Kershaw - Elgin No. 1,0.9756,Kershaw - Elgin No. 2,0.9268,Kershaw - Elgin No. 3,0.9268,likely_safe
+Kershaw - Elgin No 2,KERSHAW - ELGIN NO 2,Kershaw - Elgin No. 2,0.9756,Kershaw - Elgin No. 1,0.9268,Kershaw - Elgin No. 3,0.9268,likely_safe
+Kershaw - Lugoff No 1,KERSHAW - LUGOFF NO 1,Kershaw - Lugoff No. 1,0.9767,Kershaw - Lugoff No. 2,0.9302,Kershaw - Lugoff No. 3,0.9302,likely_safe
+Kershaw - Lugoff No 2,KERSHAW - LUGOFF NO 2,Kershaw - Lugoff No. 2,0.9767,Kershaw - Lugoff No. 1,0.9302,Kershaw - Lugoff No. 3,0.9302,likely_safe
+Kershaw - Lugoff No 3,KERSHAW - LUGOFF NO 3,Kershaw - Lugoff No. 3,0.9767,Kershaw - Lugoff No. 1,0.9302,Kershaw - Lugoff No. 2,0.9302,likely_safe
+Lancaster - 6 Mile Creek,LANCASTER - 6 MILE CREEK,Lancaster - Six Mile Creek,0.9200,Lancaster - Camp Creek,0.8261,Lancaster - Flat Creek,0.8261,likely_safe
+Lancaster - Belair,LANCASTER - BELAIR,Lancaster - Elgin,0.8571,Lancaster - Osceola,0.8108,Lancaster - Mcilwain,0.7895,review
+Lancaster - Belair Ii,LANCASTER - BELAIR II,Lancaster - Elgin,0.7895,Lancaster - Osceola,0.7500,Lancaster - Mcilwain,0.7317,review
+Lancaster - Belair Number 2,LANCASTER - BELAIR NUMBER 2,Lancaster - Elgin,0.7273,,,,,review
+Lancaster - Goochs Cross Rds,LANCASTER - GOOCHS CROSS RDS,,,,,,,no_confident_match
+Lancaster - Goochs Cross Roads,LANCASTER - GOOCHS CROSS ROADS,,,,,,,no_confident_match
+Lancaster - Wylie Park,LANCASTER - WYLIE PARK,Lancaster - Hyde Park,0.8837,Lancaster - College Park,0.8261,Lancaster - Erwin Farm,0.7727,review
+Laurens - Barksdale-Narnie,LAURENS - BARKSDALE-NARNIE,Laurens - Barksdale-Narine,0.9615,,,,,likely_safe
+Laurens - Brewerton,LAURENS - BREWERTON,Laurens - Brewerton-Princeton,0.7917,Laurens - Greenpond,0.7895,Laurens - Waterloo,0.7568,review
+Laurens - Clinton No. 1,LAURENS - CLINTON NO. 1,Laurens - Clinton 1,0.9048,Laurens - Clinton 2,0.8571,Laurens - Clinton 3,0.8571,likely_safe
+Laurens - Clinton No. 2,LAURENS - CLINTON NO. 2,Laurens - Clinton 2,0.9048,Laurens - Clinton 1,0.8571,Laurens - Clinton 3,0.8571,likely_safe
+Laurens - Clinton No. 3,LAURENS - CLINTON NO. 3,Laurens - Clinton 3,0.9048,Laurens - Clinton 1,0.8571,Laurens - Clinton 2,0.8571,likely_safe
+Laurens - Emergency 2,LAURENS - EMERGENCY 2,Laurens - Laurens 2,0.7500,,,,,review
+Laurens - Martins-Poplar Spring,LAURENS - MARTINS-POPLAR SPRING,Laurens - Martins-Poplar Springs,0.9841,,,,,likely_safe
+Laurens - Mt. Olive,LAURENS - MT. OLIVE,Laurens - Mount Olive,0.9000,Horry - Mt. Olive,0.7222,,,likely_safe
+Laurens - Princeton,LAURENS - PRINCETON,Laurens - Brewerton-Princeton,0.7917,Laurens - Clinton 1,0.7895,Laurens - Clinton 2,0.7895,review
+Laurens - Ward 3,LAURENS - WARD 3,Laurens - Laurens 3,0.8000,Laurens - Waterloo,0.7647,Laurens - Laurens 1,0.7429,review
+Lee - Elliot,LEE - ELLIOT,Lee - Elliott,0.9600,,,,,likely_safe
+Lee - S. Lynchburg,LEE - S. LYNCHBURG,Lee - Lynchburg,0.9091,Lee - South Lynchburg,0.8718,,,likely_safe
+Lexington - 7 Oaks,LEXINGTON - 7 OAKS,Lexington - Seven Oaks,0.8500,Lexington - Oakwood,0.8108,Lexington - Red Bank,0.7895,review
+Lexington - Barr Road,LEXINGTON - BARR ROAD,Lexington - Barr Road 1,0.9545,Lexington - Barr Road 2,0.9545,Lexington - Park Road 1,0.8636,likely_safe
+Lexington - Cayce No. 2-A,LEXINGTON - CAYCE NO. 2-A,Lexington - Cayce No. 2,0.9583,Lexington - Cayce No. 1,0.9167,Lexington - Cayce No. 3,0.9167,likely_safe
+Lexington - Cayce No. 2A,LEXINGTON - CAYCE NO. 2A,Lexington - Cayce No. 2,0.9787,Lexington - Cayce No. 1,0.9362,Lexington - Cayce No. 3,0.9362,likely_safe
+Lexington - Cayce Ward No.1,LEXINGTON - CAYCE WARD NO.1,Lexington - Cayce No. 1,0.8800,Lexington - Cayce No. 2,0.8400,Lexington - Cayce No. 3,0.8400,review
+Lexington - Cayce Ward No.2,LEXINGTON - CAYCE WARD NO.2,Lexington - Cayce No. 2,0.8800,Lexington - Cayce No. 1,0.8400,Lexington - Cayce No. 3,0.8400,review
+Lexington - Cayce Ward No.3,LEXINGTON - CAYCE WARD NO.3,Lexington - Cayce No. 3,0.8800,Lexington - Cayce No. 1,0.8400,Lexington - Cayce No. 2,0.8400,review
+Lexington - Cedar Crest,LEXINGTON - CEDAR CREST,Lexington - Cedarcrest,0.9778,Lexington - Mack-Edisto,0.7391,Lexington - Cromer,0.7317,likely_safe
+Lexington - Edmund,LEXINGTON - EDMUND,Lexington - Edmund 1,0.9474,Lexington - Edmund 2,0.9474,Lexington - Edenwood,0.8421,likely_safe
+Lexington - Lexington 3,LEXINGTON - LEXINGTON 3,Lexington - Lexington No. 3,0.9200,Lexington - Lexington No. 1,0.8800,Lexington - Lexington No. 2,0.8800,likely_safe
+Lexington - Lexington 4,LEXINGTON - LEXINGTON 4,Lexington - Lexington No. 4,0.9200,Lexington - Lexington No. 1,0.8800,Lexington - Lexington No. 2,0.8800,likely_safe
+Lexington - Old Barnwell,LEXINGTON - OLD BARNWELL,Lexington - Old Barnwell Road,0.9057,Lexington - Red Bank,0.7727,Lexington - Pond Branch,0.7660,likely_safe
+Lexington - Old Barnwell Rd,LEXINGTON - OLD BARNWELL RD,Lexington - Old Barnwell Road,0.9643,Lexington - Red Bank,0.7234,Lexington - Pond Branch,0.7200,likely_safe
+Lexington - Park Road,LEXINGTON - PARK ROAD,Lexington - Park Road 1,0.9545,Lexington - Park Road 2,0.9545,Lexington - Leaphart Road,0.8696,likely_safe
+Lexington - Pilgrim Church,LEXINGTON - PILGRIM CHURCH,Lexington - Pilgrim Chruch,0.9615,Lexington - Faith Church,0.8000,Lexington - Beulah  Church,0.7843,likely_safe
+Lexington - Pine Ridge,LEXINGTON - PINE RIDGE,Lexington - Pine Ridge 1,0.9565,Lexington - Pine Ridge 2,0.9565,Lexington - Pineview,0.8571,likely_safe
+Lexington - Pineridge 1,LEXINGTON - PINERIDGE 1,Lexington - Pine Ridge 1,0.9787,Lexington - Pine Ridge 2,0.9362,Lexington - Pineview,0.8372,likely_safe
+Lexington - Pineridge 2,LEXINGTON - PINERIDGE 2,Lexington - Pine Ridge 2,0.9787,Lexington - Pine Ridge 1,0.9362,Lexington - Pineview,0.8372,likely_safe
+Lexington - Red Bank South,LEXINGTON - RED BANK SOUTH,Lexington - Red Bank South 1,0.9630,Lexington - Red Bank South 2,0.9630,Lexington - Red Bank,0.8696,likely_safe
+Lexington - Redbank South 2,LEXINGTON - REDBANK SOUTH 2,Lexington - Red Bank South 2,0.9818,Lexington - Red Bank South 1,0.9455,Lexington - Red Bank,0.8085,likely_safe
+Lexington - Saint David,LEXINGTON - SAINT DAVID,Lexington - St. Davids,0.8889,Lexington - Springdale,0.7556,Lexington - Fairview,0.7442,review
+Lexington - Sandhill,LEXINGTON - SANDHILL,Lexington - Sand Hill,0.9756,Lexington - Round Hill,0.8571,Lexington - Woodland Hills,0.8261,likely_safe
+Lexington - St. Michaels,LEXINGTON - ST. MICHAELS,Lexington - St. Michael,0.9787,Lexington - St. Davids,0.7826,Lexington - Mims,0.7500,likely_safe
+Lexington - W Columbia No 1,LEXINGTON - W COLUMBIA NO 1,Lexington - West Columbia No. 1,0.9310,Lexington - West Columbia No. 2,0.8966,Lexington - West Columbia No. 3,0.8966,likely_safe
+Lexington - W Columbia No 2,LEXINGTON - W COLUMBIA NO 2,Lexington - West Columbia No. 2,0.9310,Lexington - West Columbia No. 1,0.8966,Lexington - West Columbia No. 3,0.8966,likely_safe
+Lexington - W Columbia No 3,LEXINGTON - W COLUMBIA NO 3,Lexington - West Columbia No. 3,0.9310,Lexington - West Columbia No. 1,0.8966,Lexington - West Columbia No. 2,0.8966,likely_safe
+Lexington - W Columbia No 4,LEXINGTON - W COLUMBIA NO 4,Lexington - West Columbia No. 4,0.9310,Lexington - West Columbia No. 1,0.8966,Lexington - West Columbia No. 2,0.8966,likely_safe
+Newberry - Beth-Eden,NEWBERRY - BETH-EDEN,Newberry - Beth - Eden,0.9524,Newberry - Helena,0.7568,,,likely_safe
+Newberry - Consolidated 5,NEWBERRY - CONSOLIDATED 5,Newberry - Consolidated Number 5,0.8772,,,,,review
+Newberry - Kinards Jalapa,NEWBERRY - KINARDS JALAPA,Newberry - Kinards-Jalapa,0.9600,,,,,likely_safe
+Newberry - Midway,NEWBERRY - MIDWAY,Newberry - Pomaria,0.8000,Newberry - Maybinton,0.7568,Newberry - Peak,0.7500,review
+Newberry - Mt. Bethel Garmany,NEWBERRY - MT. BETHEL GARMANY,Newberry - Mt. Bethel-Garmany,0.9655,,,,,likely_safe
+Newberry - Mt. Betherl Garmany,NEWBERRY - MT. BETHERL GARMANY,Newberry - Mt. Bethel-Garmany,0.9492,,,,,likely_safe
+Newberry - Newberry Wd 1,NEWBERRY - NEWBERRY WD 1,Newberry - Newberry Ward 1,0.9600,Newberry - Newberry Ward 2,0.9200,Newberry - Newberry Ward 3,0.9200,likely_safe
+Newberry - Newberry Wd 2,NEWBERRY - NEWBERRY WD 2,Newberry - Newberry Ward 2,0.9600,Newberry - Newberry Ward 1,0.9200,Newberry - Newberry Ward 3,0.9200,likely_safe
+Newberry - Newberry Wd 3,NEWBERRY - NEWBERRY WD 3,Newberry - Newberry Ward 3,0.9600,Newberry - Newberry Ward 1,0.9200,Newberry - Newberry Ward 2,0.9200,likely_safe
+Newberry - Newberry Wd 4,NEWBERRY - NEWBERRY WD 4,Newberry - Newberry Ward 4,0.9600,Newberry - Newberry Ward 1,0.9200,Newberry - Newberry Ward 2,0.9200,likely_safe
+Newberry - Newberry Wd 5,NEWBERRY - NEWBERRY WD 5,Newberry - Newberry Ward 5,0.9600,Newberry - Newberry Ward 1,0.9200,Newberry - Newberry Ward 2,0.9200,likely_safe
+Newberry - Newberry Wd 6,NEWBERRY - NEWBERRY WD 6,Newberry - Newberry Ward 6,0.9600,Newberry - Newberry Ward 1,0.9200,Newberry - Newberry Ward 2,0.9200,likely_safe
+Newberry - Ponaria,NEWBERRY - PONARIA,Newberry - Pomaria,0.9444,Newberry - O'Neal,0.8235,Newberry - Peak,0.7879,likely_safe
+Newberry - Prosperity,NEWBERRY - PROSPERITY,Newberry - Prosperity City,0.8936,Newberry - Prosperity Outside,0.8400,Newberry - Pomaria,0.7692,review
+Newberry - St Phillips Jolly St.,NEWBERRY - ST PHILLIPS JOLLY ST.,Newberry - St. Phillips-Jolly Street,0.8824,,,,,review
+Oconee - Emergency,OCONEE - EMERGENCY,Oconee - Keowee,0.7273,Oconee - Return,0.7273,,,review
+Oconee - Newry Corinth,OCONEE - NEWRY CORINTH,Oconee - Newry-Corinth,0.9545,,,,,likely_safe
+Oconee - Newry Cornith,OCONEE - NEWRY CORNITH,Oconee - Newry-Corinth,0.9091,,,,,likely_safe
+Oconee - Seneca,OCONEE - SENECA,Oconee - Seneca 1,0.9375,Oconee - Seneca 2,0.9375,Oconee - Seneca 3,0.9375,likely_safe
+Oconee - Tokeena Providence,OCONEE - TOKEENA PROVIDENCE,Oconee - Tokeena-Providence,0.9630,,,,,likely_safe
+Oconee - Walhalla,OCONEE - WALHALLA,Oconee - Walhalla 1,0.9444,Oconee - Walhalla 2,0.9444,,,likely_safe
+Orangeburg - 4 Holes,ORANGEBURG - 4 HOLES,Orangeburg - Four Holes,0.8837,Orangeburg - Cope,0.8108,Orangeburg - Bethel,0.7692,review
+Orangeburg - Orangeburg Wd 7,ORANGEBURG - ORANGEBURG WD 7,Orangeburg - Orangeburg Wd 1,0.9643,Orangeburg - Orangeburg Wd 2,0.9643,Orangeburg - Orangeburg Wd 3,0.9643,likely_safe
+Orangeburg - Orangeburg Wd10,ORANGEBURG - ORANGEBURG WD10,Orangeburg - Orangeburg Wd 10,0.9825,Orangeburg - Orangeburg Wd 1,0.9643,Orangeburg - Orangeburg Wd 2,0.9286,likely_safe
+Orangeburg - Pinehill,ORANGEBURG - PINEHILL,Orangeburg - Pine Hill,0.9767,Orangeburg - Bethel,0.8000,Orangeburg - Springfield,0.8000,likely_safe
+Pickens - 6 Mile Mountain,PICKENS - 6 MILE MOUNTAIN,Pickens - Six Mile Mountain,0.9231,Pickens - Fruit Mountain,0.8163,Pickens - Glassy Mountain,0.8000,likely_safe
+Pickens - 9 Forks,PICKENS - 9 FORKS,Pickens - Nine Forks,0.8649,Pickens - Norris,0.7879,Pickens - Morrison,0.7429,review
+Pickens - Albert R Lewis,PICKENS - ALBERT R LEWIS,Pickens - Albert R. Lewis,0.9796,Pickens - Abel,0.7368,,,likely_safe
+Pickens - Central I,PICKENS - CENTRAL I,Pickens - West Central,0.8293,Pickens - North Central,0.8095,Pickens - South Central,0.8095,review
+Pickens - Clemson I,PICKENS - CLEMSON I,Pickens - Clemson,0.9444,Pickens - Calhoun,0.7778,Pickens - Simpson,0.7778,likely_safe
+Pickens - Crosswell I,PICKENS - CROSSWELL I,Pickens - Crosswell,0.9500,Pickens - Crossroads,0.7317,Pickens - Crescent Hill,0.7273,likely_safe
+Pickens - Dacusville I,PICKENS - DACUSVILLE I,Pickens - Dacusville,0.9524,Pickens - Pickensville,0.7727,Pickens - Easley,0.7368,likely_safe
+Pickens - Liberty I,PICKENS - LIBERTY I,Pickens - West Liberty,0.8293,Pickens - East Liberty,0.8293,Pickens - North Liberty,0.8095,review
+Pickens - Park Street,PICKENS - PARK STREET,Pickens - Praters Creek,0.7727,Pickens - Pike,0.7429,,,review
+Pickens - Pickens I,PICKENS - PICKENS I,Pickens - Pickensville,0.8780,Pickens - Pike,0.8485,Pickens - West Pickens,0.8293,review
+Pickens - Praters Creek I,PICKENS - PRATERS CREEK I,Pickens - Praters Creek,0.9583,Pickens - Rices Creek,0.8261,Pickens - Georges Creek,0.7917,likely_safe
+Pickens - Praters Creek Ii,PICKENS - PRATERS CREEK II,Pickens - Praters Creek,0.9388,Pickens - Rices Creek,0.8085,Pickens - Georges Creek,0.7755,likely_safe
+Pickens - Rice Creek,PICKENS - RICE CREEK,Pickens - Rices Creek,0.9756,Pickens - Praters Creek,0.8372,Pickens - Georges Creek,0.8372,likely_safe
+Richland - Brandon,RICHLAND - BRANDON,Richland - Brandon 1,0.9474,Richland - Brandon 2,0.9474,Richland - Briarwood,0.7895,likely_safe
+Richland - Hopkins,RICHLAND - HOPKINS,Richland - Hopkins 1,0.9474,Richland - Hopkins 2,0.9474,Richland - Kingswood,0.7895,likely_safe
+Richland - Keels,RICHLAND - KEELS,Richland - Keels 1,0.9412,Richland - Keels 2,0.9412,Richland - Keenan,0.8485,likely_safe
+Richland - Parkridge,RICHLAND - PARKRIDGE,Richland - Parkridge 1,0.9524,Richland - Parkridge 2,0.9524,Richland - Ridgewood,0.8000,likely_safe
+Richland - Parkway,RICHLAND - PARKWAY,Richland - Parkway 1,0.9474,Richland - Parkway 2,0.9474,Richland - Parkway 3,0.9474,likely_safe
+Richland - Pennington,RICHLAND - PENNINGTON,Richland - Pennington 1,0.9545,Richland - Pennington 2,0.9545,Richland - Hampton,0.7692,likely_safe
+Richland - Pine Lakes,RICHLAND - PINE LAKES,Richland - Pine Lakes 1,0.9545,Richland - Pine Lakes 2,0.9545,Richland - Pine Grove,0.8095,likely_safe
+Richland - Pontiac,RICHLAND - PONTIAC,Richland - Pontiac 1,0.9474,Richland - Pontiac 2,0.9474,Richland - Monticello,0.8205,likely_safe
+Richland - Rice Creek,RICHLAND - RICE CREEK,Richland - Rice Creek 1,0.9545,Richland - Rice Creek 2,0.9545,Richland - Bridge Creek,0.9091,likely_safe
+Richland - Ridge View,RICHLAND - RIDGE VIEW,Richland - Ridge View 1,0.9545,Richland - Ridge View 2,0.9545,Richland - Greenview,0.8293,likely_safe
+Richland - River Springs,RICHLAND - RIVER SPRINGS,Richland - Riversprings 1,0.9388,Richland - Riversprings 2,0.9388,Richland - Riversprings 3,0.9388,likely_safe
+Richland - River Springs 1,RICHLAND - RIVER SPRINGS 1,Richland - Riversprings 1,0.9804,Richland - Riversprings 2,0.9412,Richland - Riversprings 3,0.9412,likely_safe
+Richland - River Springs 2,RICHLAND - RIVER SPRINGS 2,Richland - Riversprings 2,0.9804,Richland - Riversprings 1,0.9412,Richland - Riversprings 3,0.9412,likely_safe
+Richland - River Springs 3,RICHLAND - RIVER SPRINGS 3,Richland - Riversprings 3,0.9804,Richland - Riversprings 1,0.9412,Richland - Riversprings 2,0.9412,likely_safe
+Richland - Springville,RICHLAND - SPRINGVILLE,Richland - Springville 1,0.9565,Richland - Springville 2,0.9565,Richland - Spring Valley,0.9130,likely_safe
+Saluda - Higgins-Zoar,SALUDA - HIGGINS-ZOAR,Saluda - Higgins/Zoar,0.9756,,,,,likely_safe
+Saluda - Ridge Spring - Monetta,SALUDA - RIDGE SPRING - MONETTA,Saluda - Ridge Spring/Monetta,0.9492,,,,,likely_safe
+Saluda - Ridge Spring-Monetta,SALUDA - RIDGE SPRING-MONETTA,Saluda - Ridge Spring/Monetta,0.9825,,,,,likely_safe
+Spartanburg - 2 Mile Creek,SPARTANBURG - 2 MILE CREEK,Spartanburg - Two Mile Creek,0.9259,Spartanburg - Willow Creek,0.8462,Spartanburg - Middle Tyger,0.7692,likely_safe
+Spartanburg - Arrowood Baptist,SPARTANBURG - ARROWOOD BAPTIST,Spartanburg - Croft Baptist,0.8421,Spartanburg - Lake Bowen Baptist,0.8065,Spartanburg - Eastside Baptist,0.8000,review
+Spartanburg - Beaumont Methodist Church,SPARTANBURG - BEAUMONT METHODIST CHURCH,Spartanburg - Ben Avon Methodist,0.8169,Spartanburg - Gramling Methodist,0.7606,Spartanburg - Landrum United Methodist,0.7532,review
+Spartanburg - Bishop,SPARTANBURG - BISHOP,Spartanburg - Hope,0.8947,Spartanburg - Shoally,0.8293,Spartanburg - Beacon,0.8000,review
+Spartanburg - Boiling Springs A,SPARTANBURG - BOILING SPRINGS A,Spartanburg - Boiling Springs 9Th Grade,0.8857,Spartanburg - Boiling Springs Elementary,0.8732,Spartanburg - Boling Springs Jr. High,0.8529,review
+Spartanburg - Boiling Springs High,SPARTANBURG - BOILING SPRINGS HIGH,Spartanburg - Boling Springs Jr. High,0.9296,Spartanburg - Boiling Springs High School,0.9067,Spartanburg - Boiling Springs 9Th Grade,0.8767,likely_safe
+Spartanburg - Boiling Springs Junior High,SPARTANBURG - BOILING SPRINGS JUNIOR HIGH,Spartanburg - Boling Springs Jr. High,0.9231,Spartanburg - Boiling Springs High School,0.8293,Spartanburg - Boiling Springs Elementary,0.7901,likely_safe
+Spartanburg - C C Woodson Center,SPARTANBURG - C C WOODSON CENTER,Spartanburg - C.C. Woodson Recreation,0.8116,Spartanburg - Woodruff Leisure Center,0.7536,,,review
+Spartanburg - Canaan Baptist,SPARTANBURG - CANAAN BAPTIST,Spartanburg - Croft Baptist,0.8364,Spartanburg - Canaan,0.8333,Spartanburg - Cornerstone Baptist,0.8197,review
+Spartanburg - Cavins-Hobbysville,SPARTANBURG - CAVINS-HOBBYSVILLE,Spartanburg - Cavins Hobbysville,0.9688,,,,,likely_safe
+Spartanburg - Cherokee Springs,SPARTANBURG - CHEROKEE SPRINGS,Spartanburg - Cherokee Springs Fire Station,0.8219,Spartanburg - Enoree River,0.7500,Spartanburg - Holly Springs Motlow,0.7500,review
+Spartanburg - Cherokee Springs A,SPARTANBURG - CHEROKEE SPRINGS A,Spartanburg - Cherokee Springs Fire Station,0.8533,Spartanburg - Holly Springs Baptist,0.7761,Spartanburg - Cooley Springs Baptist,0.7647,review
+Spartanburg - Chesnee Senior Center,SPARTANBURG - CHESNEE SENIOR CENTER,Spartanburg - Chesnee Elementary,0.8060,Spartanburg - Enoree River,0.7213,,,review
+Spartanburg - Cleveland Elementary Sch,SPARTANBURG - CLEVELAND ELEMENTARY SCH,Spartanburg - Oakland Elementary,0.8286,Spartanburg - Lyman Elementary,0.8235,Spartanburg - Arcadia Elementary,0.8000,review
+Spartanburg - Cleveland Elementary School,SPARTANBURG - CLEVELAND ELEMENTARY SCHOOL,Spartanburg - Oakland Elementary,0.7945,Spartanburg - Lyman Elementary,0.7887,Spartanburg - Arcadia Elementary,0.7671,review
+Spartanburg - Clifdale Elementary,SPARTANBURG - CLIFDALE ELEMENTARY,Spartanburg - Arcadia Elementary,0.8615,Spartanburg - Pacolet Elementary,0.8615,Spartanburg - Lyman Elementary,0.8571,review
+Spartanburg - Cornerstone,SPARTANBURG - CORNERSTONE,Spartanburg - Converse,0.8936,Spartanburg - Cornerstone Baptist,0.8621,Spartanburg - Cowpens,0.7826,review
+Spartanburg - Drayton Fire Station,SPARTANBURG - DRAYTON FIRE STATION,Spartanburg - Startex Fire Station,0.8529,Spartanburg - Converse Fire Station,0.8406,Spartanburg - Pelham Fire Station,0.8358,review
+Spartanburg - Enoree 1St Baptist,SPARTANBURG - ENOREE 1ST BAPTIST,Spartanburg - Enoree First Baptist,0.9394,Spartanburg - Cornerstone Baptist,0.8308,Spartanburg - Croft Baptist,0.8136,likely_safe
+Spartanburg - Fairforest,SPARTANBURG - FAIRFOREST,Spartanburg - Airport,0.8889,Spartanburg - Failsafe,0.8261,Spartanburg - Fairgrounds,0.8163,review
+Spartanburg - Friendship Baptist,SPARTANBURG - FRIENDSHIP BAPTIST,Spartanburg - Mt. Moriah Baptist,0.7812,Spartanburg - Croft Baptist,0.7797,Spartanburg - Holly Springs Baptist,0.7761,review
+Spartanburg - Grace Baptist,SPARTANBURG - GRACE BAPTIST,Spartanburg - Apalache Baptist,0.8772,Spartanburg - Croft Baptist,0.8519,Spartanburg - Eastside Baptist,0.8421,review
+Spartanburg - Gramling,SPARTANBURG - GRAMLING,Spartanburg - Rainbow,0.8372,Spartanburg - Gramling Methodist,0.8148,Spartanburg - Drayton,0.7907,review
+Spartanburg - Holly Springs,SPARTANBURG - HOLLY SPRINGS,Spartanburg - Holly Springs Motlow,0.8852,Spartanburg - Holly Springs Baptist,0.8710,Spartanburg - Cooley Springs Baptist,0.7937,review
+Spartanburg - Inman Mills Baptist Church,SPARTANBURG - INMAN MILLS BAPTIST CHURCH,Spartanburg - Anderson Mill Baptist,0.7733,Spartanburg - Mt. Moriah Baptist,0.7222,,,review
+Spartanburg - Mountain View Baptist,SPARTANBURG - MOUNTAIN VIEW BAPTIST,Spartanburg - Morningside Baptist,0.8529,Spartanburg - Cornerstone Baptist,0.7941,Spartanburg - Motlow Creek Baptist,0.7826,review
+Spartanburg - Mt. Moriah,SPARTANBURG - MT. MORIAH,Spartanburg - Mt. Moriah Baptist,0.8571,Spartanburg - Cudd Memorial,0.7843,Spartanburg - Lyman,0.7442,review
+Spartanburg - North Spartanburg Fire Station,SPARTANBURG - NORTH SPARTANBURG FIRE STATION,Spartanburg - Poplar Springs Fire Station,0.8235,Spartanburg - Startex Fire Station,0.7949,Spartanburg - Cherokee Springs Fire Station,0.7816,review
+Spartanburg - Pacolet Town Hall,SPARTANBURG - PACOLET TOWN HALL,Spartanburg - Palmetto,0.7925,Spartanburg - Pacolet Elementary,0.7619,,,review
+Spartanburg - Park Hills Elementary Sch,SPARTANBURG - PARK HILLS ELEMENTARY SCH,Spartanburg - Anderson Mill Elementary,0.8052,Spartanburg - Reidville Elementary,0.7945,Spartanburg - Arcadia Elementary,0.7887,review
+Spartanburg - Pine Street Elementary School,SPARTANBURG - PINE STREET ELEMENTARY SCHOOL,Spartanburg - River Ridge Elementary,0.7595,Spartanburg - West View Elementary,0.7532,Spartanburg - Pacolet Elementary,0.7467,review
+Spartanburg - Poplar Springs A,SPARTANBURG - POPLAR SPRINGS A,Spartanburg - Poplar Springs Fire Station,0.8451,Spartanburg - Holly Springs Baptist,0.8000,Spartanburg - Cooley Springs Baptist,0.7879,review
+Spartanburg - Powell Saxon Una Fire Station,SPARTANBURG - POWELL SAXON UNA FIRE STATION,Spartanburg - Powell Saxon Una,0.8219,Spartanburg - Wellford Fire Station,0.8205,Spartanburg - Pelham Fire Station,0.8158,review
+Spartanburg - Powell-Saxon,SPARTANBURG - POWELL-SAXON,Spartanburg - Powell Saxon Una,0.8929,Spartanburg - Beacon,0.7826,Spartanburg - Cowpens,0.7660,review
+Spartanburg - Rebirth Missionary Baptist,SPARTANBURG - REBIRTH MISSIONARY BAPTIST,Spartanburg - Cornerstone Baptist,0.7671,Spartanburg - Mt. Moriah Baptist,0.7500,Spartanburg - Eastside Baptist,0.7429,review
+Spartanburg - Reidville A,SPARTANBURG - REIDVILLE A,Spartanburg - Reidville Elementary,0.8475,Spartanburg - Reidville Fire Station,0.8197,Spartanburg - Valley Falls,0.7843,review
+Spartanburg - Roebuck A,SPARTANBURG - ROEBUCK A,Spartanburg - Roebuck Elementary,0.8364,Spartanburg - Roebuck Bethlehem,0.8148,Spartanburg - Hope,0.7805,review
+Spartanburg - Roebuck B,SPARTANBURG - ROEBUCK B,Spartanburg - Roebuck Bethlehem,0.8519,Spartanburg - Roebuck Elementary,0.8000,Spartanburg - Hope,0.7805,review
+Spartanburg - Silverhill Methodist,SPARTANBURG - SILVERHILL METHODIST,Spartanburg - Victor Mill Methodist,0.8406,Spartanburg - Silverhill Memorial Umc,0.8169,Spartanburg - Trinity Methodist,0.8000,review
+Spartanburg - Silverhill United Methodist,SPARTANBURG - SILVERHILL UNITED METHODIST,Spartanburg - Landrum United Methodist,0.8354,Spartanburg - Duncan United Methodist,0.7949,Spartanburg - Trinity Methodist,0.7778,review
+Spartanburg - Southside Baptist,SPARTANBURG - SOUTHSIDE BAPTIST,Spartanburg - Eastside Baptist,0.9180,Spartanburg - Morningside Baptist,0.8438,Spartanburg - Croft Baptist,0.8276,likely_safe
+Spartanburg - T.W. Edwards Recreation Center,SPARTANBURG - T.W. EDWARDS RECREATION CENTER,Spartanburg - C.C. Woodson Recreation,0.7654,Spartanburg - Woodland Heights Recreation Center,0.7391,,,review
+Spartanburg - Trinity Methodist Church,SPARTANBURG - TRINITY METHODIST CHURCH,Spartanburg - Trinity Methodist,0.8986,Spartanburg - Gramling Methodist,0.7714,Spartanburg - Victor Mill Methodist,0.7397,review
+Spartanburg - Una Fire Station,SPARTANBURG - UNA FIRE STATION,Spartanburg - Pelham Fire Station,0.8889,Spartanburg - Startex Fire Station,0.8750,Spartanburg - Converse Fire Station,0.8615,review
+Spartanburg - West View A,SPARTANBURG - WEST VIEW A,Spartanburg - West View Elementary,0.8475,Spartanburg - Cowpens,0.7391,Spartanburg - Chestnut Lake,0.7308,review
+Spartanburg - Westside Baptist,SPARTANBURG - WESTSIDE BAPTIST,Spartanburg - Eastside Baptist,0.9667,Spartanburg - Morningside Baptist,0.8254,Spartanburg - Cornerstone Baptist,0.8254,likely_safe
+Spartanburg - Whitlock Junior High,SPARTANBURG - WHITLOCK JUNIOR HIGH,Spartanburg - Whitlock Jr. High,0.9231,,,,,likely_safe
+Spartanburg - Woodruff American Legion,SPARTANBURG - WOODRUFF AMERICAN LEGION,,,,,,,no_confident_match
+Spartanburg - Woodruff Armory Drive Fire Station,SPARTANBURG - WOODRUFF ARMORY DRIVE FIRE STATION,Spartanburg - Wellford Fire Station,0.7711,Spartanburg - Poplar Springs Fire Station,0.7416,Spartanburg - Cross Anchor Fire Station,0.7356,review
+Spartanburg - Woodruff Town Hall,SPARTANBURG - WOODRUFF TOWN HALL,,,,,,,no_confident_match
+Sumter - 2Nd Mill,SUMTER - 2ND MILL,Sumter - Second Mill,0.8649,Sumter - Stone Hill,0.7778,Sumter - Millwood,0.7647,review
+Sumter - Burns-Downs,SUMTER - BURNS-DOWNS,Sumter - Bunrs-Downs,0.9500,,,,,likely_safe
+Sumter - Causeway Branch,SUMTER - CAUSEWAY BRANCH,Sumter - Causeway Branch 1,0.9600,Sumter - Causeway Branch 2,0.9600,,,likely_safe
+Sumter - Dalzell,SUMTER - DALZELL,Sumter - Dalzell 1,0.9412,Sumter - Dalzell 2,0.9412,Sumter - Salem,0.8000,likely_safe
+Sumter - Ebenezer No. 1,SUMTER - EBENEZER NO. 1,Sumter - Ebenezer 1,0.9048,Sumter - Ebenezer 2,0.8571,Florence - Ebenezer No. 1,0.7500,likely_safe
+Sumter - Ebenezer No. 2,SUMTER - EBENEZER NO. 2,Sumter - Ebenezer 2,0.9048,Sumter - Ebenezer 1,0.8571,Florence - Ebenezer No. 2,0.7500,likely_safe
+Sumter - Emergency 2,SUMTER - EMERGENCY 2,Sumter - Rembert,0.7222,,,,,review
+Sumter - Green Swamp 1,SUMTER - GREEN SWAMP 1,Sumter - Green Swamp 2,0.9545,Sumter - Green Swamp,0.9524,,,likely_safe
+Sumter - Oakland Plant. 1,SUMTER - OAKLAND PLANT. 1,Sumter - Oakland Plantation 1,0.8889,Sumter - Oakland Plantation 2,0.8519,,,review
+Sumter - Oakland Plant. 2,SUMTER - OAKLAND PLANT. 2,Sumter - Oakland Plantation 2,0.8889,Sumter - Oakland Plantation 1,0.8519,,,review
+Sumter - St. John,SUMTER - ST. JOHN,Sumter - St.John,0.9697,Sumter - St. Paul,0.7647,Sumter - Shaw,0.7333,likely_safe
+Union - Putman,UNION - PUTMAN,Union - Putnam,0.8571,,,,,review
+Union - Ward 1 Box 1,UNION - WARD 1 BOX 1,Union - Union Ward 1 Box 1,0.8696,Union - Union Ward 1 Box 2,0.8261,Union - Union Ward 4 Box 1,0.8261,review
+Union - Ward 1 Box 2,UNION - WARD 1 BOX 2,Union - Union Ward 1 Box 2,0.8696,Union - Union Ward 1 Box 1,0.8261,Union - Union Ward 4 Box 2,0.8261,review
+Union - Ward 4 Box 1,UNION - WARD 4 BOX 1,Union - Union Ward 4 Box 1,0.8696,Union - Union Ward 1 Box 1,0.8261,Union - Union Ward 4 Box 2,0.8261,review
+Union - Ward 4 Box 2,UNION - WARD 4 BOX 2,Union - Union Ward 4 Box 2,0.8696,Union - Union Ward 1 Box 2,0.8261,Union - Union Ward 4 Box 1,0.8261,review
+Williamsburg - Henry-Poplar Hl,WILLIAMSBURG - HENRY-POPLAR HL,Williamsburg - Henry-Poplar Hill,0.9677,Williamsburg - Earles,0.7451,Williamsburg - Central,0.7308,likely_safe
+York - Clover No. 1,YORK - CLOVER NO. 1,York - York No. 1,0.8333,York - Clover,0.8125,York - York No. 2,0.7778,review
+York - Clover No. 2,YORK - CLOVER NO. 2,York - York No. 2,0.8333,York - Clover,0.8125,York - York No. 1,0.7778,review
+York - Fort Mill 1,YORK - FORT MILL 1,York - Fort Mill No. 1,0.9000,York - Fort Mill No. 3,0.8500,York - Fort Mill No. 4,0.8500,likely_safe
+York - Fort Mill 2,YORK - FORT MILL 2,York - Fort Mill No. 2,0.9000,York - Fort Mill No. 1,0.8500,York - Fort Mill No. 3,0.8500,likely_safe
+York - Fort Mill 3,YORK - FORT MILL 3,York - Fort Mill No. 3,0.9000,York - Fort Mill No. 1,0.8500,York - Fort Mill No. 4,0.8500,likely_safe
+York - Oak Ridge,YORK - OAK RIDGE,York - Oakridge,0.9677,York - Dobys Bridge,0.8000,York - Northside,0.7500,likely_safe
+York - Rock Hill No.3,YORK - ROCK HILL NO.3,York - Rock Hill No. 3,0.9767,York - Rock Hill No. 2,0.9302,York - Rock Hill No. 4,0.9302,likely_safe
