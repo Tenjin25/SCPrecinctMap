@@ -56,17 +56,35 @@ SHP_COUNTY   = os.path.join(DATA_SRC, 'census', 'tl_2020_45_county20',
 SHP_VTD      = os.path.join(DATA_SRC, 'census', 'tl_2020_45_vtd20',
                              'tl_2020_45_vtd20.shp')
 
+def _first_existing(*paths):
+    for p in paths:
+        if p and os.path.exists(p):
+            return p
+    return paths[0] if paths else ''
+
 # District shapefiles (inside zips)
 DISTRICT_ZIPS = [
     # (zip_path, base_name, scope, district_number_field, label)
-    (os.path.join(DATA_SRC, 'census', 'tl_2022_45_cd118.zip'),
+    (_first_existing(
+        os.path.join(DATA_SRC, 'census', 'tl_2022_45_cd118.zip'),
+        os.path.join(DATA_OUT, 'tl_2022_45_cd118.zip'),
+    ),
      'tl_2022_45_cd118', 'congressional', 'CD118FP',
      'Congressional District', 'sc_cd118_tileset.geojson'),
-    (os.path.join(DATA_SRC, 'census', 'tl_2024_45_sldl.zip'),
+    (_first_existing(
+        os.path.join(DATA_SRC, 'census', 'tl_2024_45_sldl.zip'),
+        os.path.join(DATA_OUT, 'tl_2024_45_sldl.zip'),
+        os.path.join(DATA_SRC, 'census', 'tl_2022_45_sldl.zip'),
+        os.path.join(DATA_OUT, 'tl_2022_45_sldl.zip'),
+    ),
      'tl_2024_45_sldl',  'state_house',   'SLDLST',
      'State House District', 'sc_state_house_2022_lines_tileset.geojson'),
-    (os.path.join(DATA_SRC, 'census', 'tl_2024_45_sldu.zip'),
-     'tl_2024_45_sldu',  'state_senate',  'SLDUST',
+    (_first_existing(
+        os.path.join(DATA_SRC, 'census', 'tl_2022_45_sldu.zip'),
+        os.path.join(DATA_OUT, 'tl_2022_45_sldu.zip'),
+        os.path.join(DATA_SRC, 'census', 'tl_2024_45_sldu.zip'),
+    ),
+     'tl_2022_45_sldu',  'state_senate',  'SLDUST',
      'State Senate District', 'sc_state_senate_2022_lines_tileset.geojson'),
 ]
 
