@@ -6,8 +6,8 @@
   "_contest_type": "president",
   "_cvap_field": "CVAP_TOT24",
   "_stats": {
-    "multi_source_count": 108,
-    "used_cvap_count": 108,
+    "multi_source_count": 90,
+    "used_cvap_count": 90,
     "equal_fallback_count": 0
   },
   "Aiken - Ascauga Lake No. 63": {
@@ -130,8 +130,8 @@
     "CHARLESTON - TOWN OF SEABROOK": 0.49869
   },
   "Charleston - Mcclellanville": {
-    "CHARLESTON - LICOLNVILLE": 0.605882,
-    "CHARLESTON - MCCLELLANVILLE": 0.394118
+    "CHARLESTON - LINCOLNVILLE": 0.0,
+    "CHARLESTON - MCCLELLANVILLE": 1.0
   },
   "Charleston - St. Pauls 3": {
     "CHARLESTON - ST. PAULS 2A": 0.205145,
@@ -239,7 +239,6 @@
     "KERSHAW - SALT POND": 0.761463
   },
   "Lancaster - Buford": {
-    "LANCASTER - BUFORD": 0.0,
     "LANCASTER - DWIGHT": 0.42455,
     "LANCASTER - GOOCHS CROSS ROAD": 0.57545
   },
@@ -247,29 +246,9 @@
     "LANCASTER - BLACK HORSE RUN": 0.799004,
     "LANCASTER - GOLD HILL": 0.200996
   },
-  "Lancaster - Flat Creek": {
-    "LANCASTER - FLAT CREEK": 0.0,
-    "LANCASTER - MIDWAY": 1.0
-  },
-  "Lancaster - Jim Wilson": {
-    "LANCASTER - JACKSONHAM": 1.0,
-    "LANCASTER - JIM WILSON": 0.0
-  },
   "Lancaster - Lancaster East": {
     "LANCASTER - LANCASTER EAST": 0.678069,
     "LANCASTER - LANCASTER WEST": 0.321931
-  },
-  "Lancaster - Mcilwain": {
-    "LANCASTER - LYNWOOD DRIVE": 1.0,
-    "LANCASTER - MCILWAIN": 0.0
-  },
-  "Lancaster - Springdale": {
-    "LANCASTER - GOOCHS CROSS ROAD": 1.0,
-    "LANCASTER - SPRINGDALE": 0.0
-  },
-  "Lancaster - Tradesville": {
-    "LANCASTER - SPRING HILL": 1.0,
-    "LANCASTER - TRADESVILLE": 0.0
   },
   "Lexington - Cayce No. 2": {
     "LEXINGTON - CAYCE 2A": 0.470504,
@@ -334,10 +313,6 @@
     "SPARTANBURG - FAIRFOREST ELEMENTARY": 0.77974,
     "SPARTANBURG - MT. ZION GOSPEL BAPTIST": 0.22026
   },
-  "Spartanburg - Beacon": {
-    "SPARTANBURG - BEACON": 0.0,
-    "SPARTANBURG - SOUTHSIDE BAPTIST": 1.0
-  },
   "Spartanburg - Boling Springs Jr. High": {
     "SPARTANBURG - BOILING SPRINGS HIGH SCHOOL": 0.48767,
     "SPARTANBURG - BOLING SPRINGS JR. HIGH": 0.51233
@@ -346,20 +321,11 @@
     "SPARTANBURG - C.C. WOODSON RECREATION": 0.340231,
     "SPARTANBURG - PACOLET ELEMENTARY": 0.659769
   },
-  "Spartanburg - Chestnut Lake": {
-    "SPARTANBURG - BOILING SPRINGS INTERMEDIATE": 1.0,
-    "SPARTANBURG - CHESTNUT LAKE": 0.0
-  },
-  "Spartanburg - Clifton Glendale": {
-    "SPARTANBURG - CLIFTON GLENDALE": 0.0,
-    "SPARTANBURG - GLENDALE FIRE STATION": 1.0
-  },
   "Spartanburg - Converse": {
     "SPARTANBURG - CONVERSE FIRE STATION": 0.496464,
     "SPARTANBURG - CORNERSTONE BAPTIST": 0.503536
   },
   "Spartanburg - Cowpens": {
-    "SPARTANBURG - COWPENS": 0.0,
     "SPARTANBURG - COWPENS DEPOT MUSEUM": 0.334743,
     "SPARTANBURG - COWPENS FIRE STATION": 0.665257
   },
@@ -369,7 +335,6 @@
   },
   "Spartanburg - Drayton": {
     "SPARTANBURG - DAYTON FIRE STATION": 0.322565,
-    "SPARTANBURG - DRAYTON": 0.0,
     "SPARTANBURG - WOODRUFF ELEMENTARY": 0.677435
   },
   "Spartanburg - Eastside Baptist": {
@@ -377,42 +342,13 @@
     "SPARTANBURG - HOLY COMMUNION": 0.546696,
     "SPARTANBURG - SOUTHSIDE BAPTIST": 0.221957
   },
-  "Spartanburg - Enoree River": {
-    "SPARTANBURG - ENOREE RIVER": 0.0,
-    "SPARTANBURG - WOODRUFF FIRE STATION": 1.0
-  },
-  "Spartanburg - Fairgrounds": {
-    "SPARTANBURG - CLEVELAND ELEMENTARY": 1.0,
-    "SPARTANBURG - FAIRGROUNDS": 0.0
-  },
-  "Spartanburg - Holly Springs Motlow": {
-    "SPARTANBURG - HOLLY SPRINGS BAPTIST": 1.0,
-    "SPARTANBURG - HOLLY SPRINGS MOTLOW": 0.0
-  },
-  "Spartanburg - Lake Cooley": {
-    "SPARTANBURG - FAIRFOREST ELEMENTARY": 1.0,
-    "SPARTANBURG - LAKE COOLEY": 0.0
-  },
-  "Spartanburg - Mccracken Middle School": {
-    "SPARTANBURG - MCCRACKEN MIDDLE SCHOOL": 0.0,
-    "SPARTANBURG - SPARTANBURG HIGH SCHOOL": 1.0
-  },
-  "Spartanburg - Moore Duncan": {
-    "SPARTANBURG - BETHANY WESLEYAN": 1.0,
-    "SPARTANBURG - MOORE DUNCAN": 0.0
-  },
   "Spartanburg - Mt. Moriah Baptist": {
     "SPARTANBURG - D. R. HILL MIDDLE SCHOOL": 0.609464,
     "SPARTANBURG - MT. MORIAH BAPTIST": 0.390536
   },
-  "Spartanburg - New Prospect": {
-    "SPARTANBURG - NEW PROSPECT": 0.0,
-    "SPARTANBURG - SWOFFORD CAREER CENTER": 1.0
-  },
   "Spartanburg - Palmetto": {
     "SPARTANBURG - COWPENS DEPOT MUSEUM": 0.329256,
-    "SPARTANBURG - PACOLET ELEMENTARY": 0.670744,
-    "SPARTANBURG - PALMETTO": 0.0
+    "SPARTANBURG - PACOLET ELEMENTARY": 0.670744
   },
   "Spartanburg - Poplar Springs Fire Station": {
     "SPARTANBURG - FAIRFOREST ELEMENTARY": 0.576252,
@@ -425,18 +361,6 @@
   "Spartanburg - Shoally": {
     "SPARTANBURG - BOILING SPRINGS 9TH GRADE": 0.699754,
     "SPARTANBURG - WHITLOCK JR. HIGH": 0.300246
-  },
-  "Spartanburg - Southport": {
-    "SPARTANBURG - SOUTHPORT": 0.0,
-    "SPARTANBURG - WHITE STONE METHODIST": 1.0
-  },
-  "Spartanburg - Spartangreen": {
-    "SPARTANBURG - SPARTANGREEN": 0.0,
-    "SPARTANBURG - TRAVELERS REST BAPTIST": 1.0
-  },
-  "Spartanburg - Wade Hampton": {
-    "SPARTANBURG - CEDAR GROVE BAPTIST": 1.0,
-    "SPARTANBURG - WADE HAMPTON": 0.0
   },
   "Union - Buffalo Box 1": {
     "UNION - BUFFALO BOX 1": 0.735837,

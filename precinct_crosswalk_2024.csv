@@ -21,21 +21,9 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,Charleston,,Charleston - St. Pauls 2A,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Charleston,,Charleston - St. Pauls 2B,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Charleston,,Charleston - Town Of Seabrook,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
-2024,president,Lancaster,Lancaster - Buford,Lancaster - Buford,1.0000,approved,high,manual_override user_confirmed_town_coverage; refresh_2026-03-05 source_exists_target_missing reset_target_to_source
-2024,president,Lancaster,Lancaster - Jim Wilson,Lancaster - Jim Wilson,1.0000,approved,high,mutual_best gap=0.1000; refresh_2026-03-05 source_exists_target_missing reset_target_to_source
-2024,president,Lancaster,Lancaster - Flat Creek,Lancaster - Flat Creek,1.0000,approved,high,manual_override user_confirmed; refresh_2026-03-05 source_exists_target_missing reset_target_to_source
-2024,president,Lancaster,Lancaster - Mcilwain,Lancaster - Mcilwain,1.0000,approved,high,manual_override user_confirmed; refresh_2026-03-05 source_exists_target_missing reset_target_to_source
-2024,president,Lancaster,Lancaster - Springdale,Lancaster - Springdale,1.0000,approved,high,manual_override user_corrected_target; refresh_2026-03-05 source_exists_target_missing reset_target_to_source
 2024,president,Saluda,,Saluda - Richland,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Saluda,,Saluda - Ridge Springmonetta,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,Saluda,,Saluda - Ward,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
-2024,president,Spartanburg,Spartanburg - Beacon,Spartanburg - Beacon,1.0000,approved,high,auto_suggested_from_crossref score_1=0.8333; nosplit_refresh_2026-03-05 reset_target_to_source
-2024,president,Spartanburg,Spartanburg - Holly Springs Motlow,Spartanburg - Holly Springs Motlow,1.0000,approved,high,auto_suggested_from_crossref score_1=0.8148; nosplit_refresh_2026-03-05 reset_target_to_source
-2024,president,Spartanburg,Spartanburg - Clifton Glendale,Spartanburg - Clifton Glendale,1.0000,approved,high,auto_suggested_from_crossref score_1=0.7895; nosplit_refresh_2026-03-05 reset_target_to_source
-2024,president,Spartanburg,Spartanburg - Chestnut Lake,Spartanburg - Chestnut Lake,1.0000,approved,high,mutual_best gap=0.0065; refresh_2026-03-05 source_exists_target_missing reset_target_to_source
-2024,president,Spartanburg,Spartanburg - Mccracken Middle School,Spartanburg - Mccracken Middle School,1.0000,approved,high,auto_suggested_from_crossref score_1=0.7442; nosplit_refresh_2026-03-05 reset_target_to_source
-2024,president,Spartanburg,Spartanburg - Southport,Spartanburg - Southport,1.0000,approved,high,auto_suggested_from_crossref score_1=0.8485; nosplit_refresh_2026-03-05 reset_target_to_source
-2024,president,Spartanburg,Spartanburg - Moore Duncan,Spartanburg - Moore Duncan,1.0000,approved,high,auto_suggested_from_crossref score_1=0.7143; nosplit_refresh_2026-03-05 reset_target_to_source
 2024,president,York,,York - Airport,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,York,,York - Bethany,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,York,,York - Bethel,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
@@ -53,17 +41,7 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,York,,York - Springdale,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,York,,York - Springfield,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
 2024,president,York,,York - University,,missing_in_source,n/a,No extra result-row key in county to map from; needs source data.
-2024,president,Spartanburg,Spartanburg - Cowpens,Spartanburg - Cowpens,1.0000,approved,high,generated_by_worklist mutual_best blockassign_source_unknown; refresh_2026-03-05 source_exists_target_missing reset_target_to_source
-2024,president,Spartanburg,Spartanburg - Wade Hampton,Spartanburg - Wade Hampton,1.0000,approved,high,auto_suggested_from_crossref score_1=0.6667; nosplit_refresh_2026-03-05 reset_target_to_source
-2024,president,Spartanburg,Spartanburg - Drayton,Spartanburg - Drayton,1.0000,approved,high,auto_suggested_from_crossref score_1=0.7500; nosplit_refresh_2026-03-05 reset_target_to_source
-2024,president,Spartanburg,Spartanburg - Enoree River,Spartanburg - Enoree River,1.0000,approved,high,manual_override user_confirmed; moved_to_alias_2026-03-05; nosplit_refresh_2026-03-05 reset_target_to_source
-2024,president,Spartanburg,Spartanburg - Palmetto,Spartanburg - Palmetto,1.0000,approved,high,auto_suggested_from_crossref score_1=0.8235; nosplit_refresh_2026-03-05 reset_target_to_source
-2024,president,Spartanburg,Spartanburg - Spartangreen,Spartanburg - Spartangreen,1.0000,approved,high,auto_suggested_from_crossref score_1=0.7143; nosplit_refresh_2026-03-05 reset_target_to_source
-2024,president,Spartanburg,Spartanburg - New Prospect,Spartanburg - New Prospect,1.0000,approved,high,auto_suggested_from_crossref score_1=0.7222; nosplit_refresh_2026-03-05 reset_target_to_source
-2024,president,Spartanburg,Spartanburg - Fairgrounds,Spartanburg - Fairgrounds,1.0000,approved,high,auto_suggested_from_crossref score_1=0.7556; nosplit_refresh_2026-03-05 reset_target_to_source
-2024,president,Spartanburg,Spartanburg - Lake Cooley,Spartanburg - Lake Cooley,1.0000,approved,high,auto_suggested_from_crossref score_1=0.7442; nosplit_refresh_2026-03-05 reset_target_to_source
 2024,president,Lancaster,Lancaster - 521 North,Lancaster - Osceola,,pending,review,manual_hypothesis user_preference_521_corridor
-2024,president,Lancaster,Lancaster - Tradesville,Lancaster - Tradesville,1.0000,approved,high,manual_override user_confirmed; refresh_2026-03-05 source_exists_target_missing reset_target_to_source
 2024,president,,Abbeville - Abbeville No. 3,Abbeville - Abbeville No. 3,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_autofix_likely_safe
 2024,president,,Aiken - Six Points No. 35,Aiken - Six Points No. 35,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_manual_next30_applied
 2024,president,,Aiken - Six Points No. 46,Aiken - Six Points No. 46,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_manual_next30_applied
