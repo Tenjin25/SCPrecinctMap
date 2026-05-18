@@ -31599,6 +31599,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 files = filtered.concat(shFiles);
               } catch (_) {}
             }
+            // Keep 2024 lines on the existing district manifest/files.
+            if (linesYear === 2024) {
+              files = (files || []).filter(e => {
+                const scope = (e?.scope || '').toString().trim();
+                const file = (e?.file || '').toString();
+                if (scope !== 'state_house') return true;
+                return !file.includes('_2022_lines');
+              });
+            }
             districtManifestByLines[String(linesYear)] = files;
             if (files.length > 0) loadedAnyDistrictManifest = true;
           } catch (err) {
