@@ -10605,6 +10605,7 @@ document.addEventListener('DOMContentLoaded', function() {
         election: withBase('./data/sc_elections_aggregated.json'),
         district_election: withBase('./data/sc_district_results_2022_lines.json'),
         district_contests_dir: withBase('./data/district_contests'),
+        district_contests_state_house_2022_lines_dir: withBase('./data/district_contests/state_house_2022_lines'),
         districts_info: withBase('./data/sc_congressional_districts.csv'),
         state_house_info: withBase('./data/sc_state_house_districts.csv'),
         state_senate_info: withBase('./data/sc_state_senate_districts.csv'),
@@ -12119,6 +12120,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const y = normalizeDistrictLinesYear(linesYear);
       const dirs = CONFIG.paths?.district_contests_dirs || {};
       const scopeKey = (scope || '').toString().trim();
+      if (y === 2022 && scopeKey === 'state_house') {
+        return CONFIG.paths?.district_contests_state_house_2022_lines_dir
+          || dirs['2022']
+          || CONFIG.paths.district_contests_dir;
+      }
       if (y === 2026 && scopeKey && scopeKey !== 'congressional') {
         return dirs['2024'] || dirs[String(y)] || CONFIG.paths.district_contests_dir;
       }
@@ -12137,6 +12143,9 @@ document.addEventListener('DOMContentLoaded', function() {
       // Legislative scopes continue to use the primary district_contests data.
       if (ly === 2022 && scope === 'congressional' && Number.isFinite(y) && y >= 2020 && calibrated2020Dir) {
         out.push(`${calibrated2020Dir}/${key}.json`);
+      }
+      if (ly === 2022 && scope === 'state_house' && baseDir) {
+        out.push(`${baseDir}/${key}_2022_lines.json`);
       }
       if (baseDir) out.push(`${baseDir}/${key}.json`);
 
@@ -31581,7 +31590,15 @@ document.addEventListener('DOMContentLoaded', function() {
           if (!dir) continue;
           try {
             const dManifest = await loadJSON(`${dir}/manifest.json`);
-            const files = dManifest?.files || [];
+            let files = dManifest?.files || [];
+            if (linesYear === 2022 && CONFIG.paths?.district_contests_state_house_2022_lines_dir) {
+              try {
+                const sh2022 = await loadJSON(`${CONFIG.paths.district_contests_state_house_2022_lines_dir}/manifest_2022_lines.json`);
+                const shFiles = sh2022?.files || [];
+                const filtered = files.filter(e => (e?.scope || '').toString().trim() !== 'state_house');
+                files = filtered.concat(shFiles);
+              } catch (_) {}
+            }
             districtManifestByLines[String(linesYear)] = files;
             if (files.length > 0) loadedAnyDistrictManifest = true;
           } catch (err) {
