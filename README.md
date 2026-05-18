@@ -5,7 +5,28 @@ It is the successor project to the original SCPrecinctMap release.
 
 Its user experience is intentionally inspired by the NC Election Atlas UI, then adapted for South Carolina boundaries, contests, and workflows.
 
+## Recent Updates (May 2026)
+
+- **Precinct matching carryover sync (May 12, 2026):**
+  - Ported the precinct key-matching variant logic from `index - copy.html` into the primary `index.html` code path.
+  - Updated both `precinctNormVariantsLite(...)` and `precinctNormVariants(...)` to keep county/precinct matching behavior consistent in the live app.
+
+- **NCMap-style mobile sheet simplification + global shift formatting standardization (May 3, 2026):**
+  - Unified mobile panel behavior to the sheet system (no legacy dual-mode fallback split):
+    - `Layers` (`.main-controls`) uses top-sheet behavior.
+    - `Legend` (`.legend`) uses bottom-sheet behavior.
+  - Fixed minimized-state rendering so collapsed panels still retain their visible header + action button (no blank/empty minimized shells).
+  - Preserved mobile dock behavior (`Search / Layers / Legend`), vote-counter spacing/positioning, and tooltip stacking behavior.
+  - Standardized shift text formatting everywhere to concise election-style party deltas:
+    - `R+X.XX%` / `D+X.XX%`
+    - Example: `Shift: R+6.63% since 2020`
+  - Kept underlying shift calculations, margin math, and winner logic unchanged.
+
 ## Recent Updates (April 2026)
+
+- **Shift summary wording trim (April 30, 2026):**
+  - Updated only the county Census Check summary line format `Since YYYY: Shifted X% toward ...` to use shorter party wording (`GOP` / `Dems`).
+  - Left other timeline/legend/momentum party labels unchanged.
 
 - **Basemap town labels above overlays (April 23, 2026):**
   - Ensured Mapbox’s built-in place/town labels stay visible above county/district/precinct overlays by inserting overlay layers below the first basemap symbol layer.
