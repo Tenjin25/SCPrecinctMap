@@ -1,0 +1,1241 @@
+{
+  "summary": {
+    "files": 41,
+    "max_abs_total_vote_delta": 1212606.0,
+    "max_abs_total_pct_error": 57.72115815,
+    "min_match_coverage_pct": 84.6664,
+    "max_centroid_fallback_rows": 0
+  },
+  "records": [
+    {
+      "file": "state_house_president_2024_2022_lines.json",
+      "contest_type": "president",
+      "year": 2024,
+      "district_count": 124,
+      "source_precinct_rows": 2220,
+      "matched_precinct_rows": 2219,
+      "block_weighted_rows": 2219,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 99.955,
+      "source_totals": {
+        "dem_votes": 1201221.0,
+        "rep_votes": 1671386.0,
+        "other_votes": 42804.0,
+        "total_votes": 2915411.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 1192831.0,
+        "rep_votes": 1665040.0,
+        "other_votes": 42650.0,
+        "total_votes": 2900521.0
+      },
+      "conservation_delta": {
+        "dem_votes": -8390.0,
+        "rep_votes": -6346.0,
+        "other_votes": -154.0,
+        "total_votes": -14890.0,
+        "total_pct_error": -0.51073416
+      }
+    },
+    {
+      "file": "state_house_attorney_general_2022_2022_lines.json",
+      "contest_type": "attorney_general",
+      "year": 2022,
+      "district_count": 124,
+      "source_precinct_rows": 2269,
+      "matched_precinct_rows": 2269,
+      "block_weighted_rows": 2269,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 100.0,
+      "source_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1294689.0,
+        "other_votes": 36498.0,
+        "total_votes": 1331187.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1294686.0,
+        "other_votes": 36496.0,
+        "total_votes": 1331182.0
+      },
+      "conservation_delta": {
+        "dem_votes": 0.0,
+        "rep_votes": -3.0,
+        "other_votes": -2.0,
+        "total_votes": -5.0,
+        "total_pct_error": -0.0003756
+      }
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2022_2022_lines.json",
+      "contest_type": "commissioner_agriculture",
+      "year": 2022,
+      "district_count": 124,
+      "source_precinct_rows": 2269,
+      "matched_precinct_rows": 2269,
+      "block_weighted_rows": 2269,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 100.0,
+      "source_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1148383.0,
+        "other_votes": 337182.0,
+        "total_votes": 1485565.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1148379.0,
+        "other_votes": 337182.0,
+        "total_votes": 1485561.0
+      },
+      "conservation_delta": {
+        "dem_votes": 0.0,
+        "rep_votes": -4.0,
+        "other_votes": 0.0,
+        "total_votes": -4.0,
+        "total_pct_error": -0.00026926
+      }
+    },
+    {
+      "file": "state_house_comptroller_general_2022_2022_lines.json",
+      "contest_type": "comptroller_general",
+      "year": 2022,
+      "district_count": 124,
+      "source_precinct_rows": 2269,
+      "matched_precinct_rows": 2269,
+      "block_weighted_rows": 2269,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 100.0,
+      "source_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1302161.0,
+        "other_votes": 24273.0,
+        "total_votes": 1326434.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1302165.0,
+        "other_votes": 24273.0,
+        "total_votes": 1326438.0
+      },
+      "conservation_delta": {
+        "dem_votes": 0.0,
+        "rep_votes": 4.0,
+        "other_votes": 0.0,
+        "total_votes": 4.0,
+        "total_pct_error": 0.00030156
+      }
+    },
+    {
+      "file": "state_house_governor_2022_2022_lines.json",
+      "contest_type": "governor",
+      "year": 2022,
+      "district_count": 124,
+      "source_precinct_rows": 2269,
+      "matched_precinct_rows": 2269,
+      "block_weighted_rows": 2269,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 100.0,
+      "source_totals": {
+        "dem_votes": 743182.0,
+        "rep_votes": 1042357.0,
+        "other_votes": 23393.0,
+        "total_votes": 1808932.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 743185.0,
+        "rep_votes": 1042358.0,
+        "other_votes": 23390.0,
+        "total_votes": 1808933.0
+      },
+      "conservation_delta": {
+        "dem_votes": 3.0,
+        "rep_votes": 1.0,
+        "other_votes": -3.0,
+        "total_votes": 1.0,
+        "total_pct_error": 5.528e-05
+      }
+    },
+    {
+      "file": "state_house_secretary_of_state_2022_2022_lines.json",
+      "contest_type": "secretary_of_state",
+      "year": 2022,
+      "district_count": 124,
+      "source_precinct_rows": 2269,
+      "matched_precinct_rows": 2269,
+      "block_weighted_rows": 2269,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 100.0,
+      "source_totals": {
+        "dem_votes": 662214.0,
+        "rep_votes": 1132701.0,
+        "other_votes": 1123.0,
+        "total_votes": 1796038.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 662212.0,
+        "rep_votes": 1132700.0,
+        "other_votes": 1123.0,
+        "total_votes": 1796035.0
+      },
+      "conservation_delta": {
+        "dem_votes": -2.0,
+        "rep_votes": -1.0,
+        "other_votes": 0.0,
+        "total_votes": -3.0,
+        "total_pct_error": -0.00016703
+      }
+    },
+    {
+      "file": "state_house_state_treasurer_2022_2022_lines.json",
+      "contest_type": "state_treasurer",
+      "year": 2022,
+      "district_count": 124,
+      "source_precinct_rows": 2269,
+      "matched_precinct_rows": 2269,
+      "block_weighted_rows": 2269,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 100.0,
+      "source_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1195621.0,
+        "other_votes": 310596.0,
+        "total_votes": 1506217.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1195618.0,
+        "other_votes": 310590.0,
+        "total_votes": 1506208.0
+      },
+      "conservation_delta": {
+        "dem_votes": 0.0,
+        "rep_votes": -3.0,
+        "other_votes": -6.0,
+        "total_votes": -9.0,
+        "total_pct_error": -0.00059752
+      }
+    },
+    {
+      "file": "state_house_us_senate_2022_2022_lines.json",
+      "contest_type": "us_senate",
+      "year": 2022,
+      "district_count": 124,
+      "source_precinct_rows": 2269,
+      "matched_precinct_rows": 2269,
+      "block_weighted_rows": 2269,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 100.0,
+      "source_totals": {
+        "dem_votes": 670817.0,
+        "rep_votes": 1127559.0,
+        "other_votes": 1911.0,
+        "total_votes": 1800287.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 670813.0,
+        "rep_votes": 1127561.0,
+        "other_votes": 1909.0,
+        "total_votes": 1800283.0
+      },
+      "conservation_delta": {
+        "dem_votes": -4.0,
+        "rep_votes": 2.0,
+        "other_votes": -2.0,
+        "total_votes": -4.0,
+        "total_pct_error": -0.00022219
+      }
+    },
+    {
+      "file": "state_house_president_2020_2022_lines.json",
+      "contest_type": "president",
+      "year": 2020,
+      "district_count": 124,
+      "source_precinct_rows": 2268,
+      "matched_precinct_rows": 2268,
+      "block_weighted_rows": 2268,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 100.0,
+      "source_totals": {
+        "dem_votes": 1161163.0,
+        "rep_votes": 1466212.0,
+        "other_votes": 39302.0,
+        "total_votes": 2666677.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 1161163.0,
+        "rep_votes": 1466210.0,
+        "other_votes": 39302.0,
+        "total_votes": 2666675.0
+      },
+      "conservation_delta": {
+        "dem_votes": 0.0,
+        "rep_votes": -2.0,
+        "other_votes": 0.0,
+        "total_votes": -2.0,
+        "total_pct_error": -7.5e-05
+      }
+    },
+    {
+      "file": "state_house_us_senate_2020_2022_lines.json",
+      "contest_type": "us_senate",
+      "year": 2020,
+      "district_count": 124,
+      "source_precinct_rows": 2268,
+      "matched_precinct_rows": 2268,
+      "block_weighted_rows": 2268,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 100.0,
+      "source_totals": {
+        "dem_votes": 1180965.0,
+        "rep_votes": 1450058.0,
+        "other_votes": 37552.0,
+        "total_votes": 2668575.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 1180966.0,
+        "rep_votes": 1450058.0,
+        "other_votes": 37550.0,
+        "total_votes": 2668574.0
+      },
+      "conservation_delta": {
+        "dem_votes": 1.0,
+        "rep_votes": 0.0,
+        "other_votes": -2.0,
+        "total_votes": -1.0,
+        "total_pct_error": -3.747e-05
+      }
+    },
+    {
+      "file": "state_house_attorney_general_2018_2022_lines.json",
+      "contest_type": "attorney_general",
+      "year": 2018,
+      "district_count": 124,
+      "source_precinct_rows": 2315,
+      "matched_precinct_rows": 2259,
+      "block_weighted_rows": 2259,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 97.581,
+      "source_totals": {
+        "dem_votes": 614064.0,
+        "rep_votes": 853289.0,
+        "other_votes": 33554.0,
+        "total_votes": 1500907.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 612423.0,
+        "rep_votes": 850707.0,
+        "other_votes": 33498.0,
+        "total_votes": 1496628.0
+      },
+      "conservation_delta": {
+        "dem_votes": -1641.0,
+        "rep_votes": -2582.0,
+        "other_votes": -56.0,
+        "total_votes": -4279.0,
+        "total_pct_error": -0.28509428
+      }
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2018_2022_lines.json",
+      "contest_type": "commissioner_agriculture",
+      "year": 2018,
+      "district_count": 124,
+      "source_precinct_rows": 2315,
+      "matched_precinct_rows": 2259,
+      "block_weighted_rows": 2259,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 97.581,
+      "source_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 920964.0,
+        "other_votes": 290742.0,
+        "total_votes": 1211706.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 918286.0,
+        "other_votes": 290070.0,
+        "total_votes": 1208356.0
+      },
+      "conservation_delta": {
+        "dem_votes": 0.0,
+        "rep_votes": -2678.0,
+        "other_votes": -672.0,
+        "total_votes": -3350.0,
+        "total_pct_error": -0.2764697
+      }
+    },
+    {
+      "file": "state_house_comptroller_general_2018_2022_lines.json",
+      "contest_type": "comptroller_general",
+      "year": 2018,
+      "district_count": 124,
+      "source_precinct_rows": 2315,
+      "matched_precinct_rows": 2259,
+      "block_weighted_rows": 2259,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 97.581,
+      "source_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1034366.0,
+        "other_votes": 23036.0,
+        "total_votes": 1057402.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1031502.0,
+        "other_votes": 22980.0,
+        "total_votes": 1054482.0
+      },
+      "conservation_delta": {
+        "dem_votes": 0.0,
+        "rep_votes": -2864.0,
+        "other_votes": -56.0,
+        "total_votes": -2920.0,
+        "total_pct_error": -0.27614852
+      }
+    },
+    {
+      "file": "state_house_governor_2018_2022_lines.json",
+      "contest_type": "governor",
+      "year": 2018,
+      "district_count": 124,
+      "source_precinct_rows": 2315,
+      "matched_precinct_rows": 2259,
+      "block_weighted_rows": 2259,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 97.581,
+      "source_totals": {
+        "dem_votes": 665392.0,
+        "rep_votes": 836579.0,
+        "other_votes": 1941.0,
+        "total_votes": 1503912.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 663650.0,
+        "rep_votes": 834059.0,
+        "other_votes": 1937.0,
+        "total_votes": 1499646.0
+      },
+      "conservation_delta": {
+        "dem_votes": -1742.0,
+        "rep_votes": -2520.0,
+        "other_votes": -4.0,
+        "total_votes": -4266.0,
+        "total_pct_error": -0.28366021
+      }
+    },
+    {
+      "file": "state_house_secretary_of_state_2018_2022_lines.json",
+      "contest_type": "secretary_of_state",
+      "year": 2018,
+      "district_count": 124,
+      "source_precinct_rows": 2315,
+      "matched_precinct_rows": 2259,
+      "block_weighted_rows": 2259,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 97.581,
+      "source_totals": {
+        "dem_votes": 613910.0,
+        "rep_votes": 881788.0,
+        "other_votes": 928.0,
+        "total_votes": 1496626.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 612267.0,
+        "rep_votes": 879156.0,
+        "other_votes": 926.0,
+        "total_votes": 1492349.0
+      },
+      "conservation_delta": {
+        "dem_votes": -1643.0,
+        "rep_votes": -2632.0,
+        "other_votes": -2.0,
+        "total_votes": -4277.0,
+        "total_pct_error": -0.28577614
+      }
+    },
+    {
+      "file": "state_house_state_treasurer_2018_2022_lines.json",
+      "contest_type": "state_treasurer",
+      "year": 2018,
+      "district_count": 124,
+      "source_precinct_rows": 2315,
+      "matched_precinct_rows": 2259,
+      "block_weighted_rows": 2259,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 97.581,
+      "source_totals": {
+        "dem_votes": 581580.0,
+        "rep_votes": 864101.0,
+        "other_votes": 52986.0,
+        "total_votes": 1498667.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 579991.0,
+        "rep_votes": 861522.0,
+        "other_votes": 52893.0,
+        "total_votes": 1494406.0
+      },
+      "conservation_delta": {
+        "dem_votes": -1589.0,
+        "rep_votes": -2579.0,
+        "other_votes": -93.0,
+        "total_votes": -4261.0,
+        "total_pct_error": -0.28431933
+      }
+    },
+    {
+      "file": "state_house_president_2016_2022_lines.json",
+      "contest_type": "president",
+      "year": 2016,
+      "district_count": 124,
+      "source_precinct_rows": 2260,
+      "matched_precinct_rows": 2241,
+      "block_weighted_rows": 2241,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 99.1593,
+      "source_totals": {
+        "dem_votes": 644651.0,
+        "rep_votes": 959169.0,
+        "other_votes": 83743.0,
+        "total_votes": 1687563.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 643899.0,
+        "rep_votes": 958321.0,
+        "other_votes": 83685.0,
+        "total_votes": 1685905.0
+      },
+      "conservation_delta": {
+        "dem_votes": -752.0,
+        "rep_votes": -848.0,
+        "other_votes": -58.0,
+        "total_votes": -1658.0,
+        "total_pct_error": -0.09824818
+      }
+    },
+    {
+      "file": "state_house_us_senate_2016_2022_lines.json",
+      "contest_type": "us_senate",
+      "year": 2016,
+      "district_count": 124,
+      "source_precinct_rows": 2260,
+      "matched_precinct_rows": 2241,
+      "block_weighted_rows": 2241,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 99.1593,
+      "source_totals": {
+        "dem_votes": 524419.0,
+        "rep_votes": 1027340.0,
+        "other_votes": 94333.0,
+        "total_votes": 1646092.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 523788.0,
+        "rep_votes": 1026444.0,
+        "other_votes": 94241.0,
+        "total_votes": 1644473.0
+      },
+      "conservation_delta": {
+        "dem_votes": -631.0,
+        "rep_votes": -896.0,
+        "other_votes": -92.0,
+        "total_votes": -1619.0,
+        "total_pct_error": -0.09835416
+      }
+    },
+    {
+      "file": "state_house_attorney_general_2014_2022_lines.json",
+      "contest_type": "attorney_general",
+      "year": 2014,
+      "district_count": 124,
+      "source_precinct_rows": 2207,
+      "matched_precinct_rows": 2155,
+      "block_weighted_rows": 2155,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 97.6439,
+      "source_totals": {
+        "dem_votes": 400742.0,
+        "rep_votes": 642082.0,
+        "other_votes": 761.0,
+        "total_votes": 1043585.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 399174.0,
+        "rep_votes": 639974.0,
+        "other_votes": 764.0,
+        "total_votes": 1039912.0
+      },
+      "conservation_delta": {
+        "dem_votes": -1568.0,
+        "rep_votes": -2108.0,
+        "other_votes": 3.0,
+        "total_votes": -3673.0,
+        "total_pct_error": -0.35195983
+      }
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2014_2022_lines.json",
+      "contest_type": "commissioner_agriculture",
+      "year": 2014,
+      "district_count": 124,
+      "source_precinct_rows": 2207,
+      "matched_precinct_rows": 2155,
+      "block_weighted_rows": 2155,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 97.6439,
+      "source_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 659046.0,
+        "other_votes": 168266.0,
+        "total_votes": 827312.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 656914.0,
+        "other_votes": 167714.0,
+        "total_votes": 824628.0
+      },
+      "conservation_delta": {
+        "dem_votes": 0.0,
+        "rep_votes": -2132.0,
+        "other_votes": -552.0,
+        "total_votes": -2684.0,
+        "total_pct_error": -0.32442416
+      }
+    },
+    {
+      "file": "state_house_comptroller_general_2014_2022_lines.json",
+      "contest_type": "comptroller_general",
+      "year": 2014,
+      "district_count": 124,
+      "source_precinct_rows": 2207,
+      "matched_precinct_rows": 2155,
+      "block_weighted_rows": 2155,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 97.6439,
+      "source_totals": {
+        "dem_votes": 403380.0,
+        "rep_votes": 633819.0,
+        "other_votes": 606.0,
+        "total_votes": 1037805.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 401786.0,
+        "rep_votes": 631738.0,
+        "other_votes": 609.0,
+        "total_votes": 1034133.0
+      },
+      "conservation_delta": {
+        "dem_votes": -1594.0,
+        "rep_votes": -2081.0,
+        "other_votes": 3.0,
+        "total_votes": -3672.0,
+        "total_pct_error": -0.3538237
+      }
+    },
+    {
+      "file": "state_house_governor_2014_2022_lines.json",
+      "contest_type": "governor",
+      "year": 2014,
+      "district_count": 124,
+      "source_precinct_rows": 2207,
+      "matched_precinct_rows": 2155,
+      "block_weighted_rows": 2155,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 97.6439,
+      "source_totals": {
+        "dem_votes": 426841.0,
+        "rep_votes": 607120.0,
+        "other_votes": 27741.0,
+        "total_votes": 1061702.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 425281.0,
+        "rep_votes": 605036.0,
+        "other_votes": 27667.0,
+        "total_votes": 1057984.0
+      },
+      "conservation_delta": {
+        "dem_votes": -1560.0,
+        "rep_votes": -2084.0,
+        "other_votes": -74.0,
+        "total_votes": -3718.0,
+        "total_pct_error": -0.35019243
+      }
+    },
+    {
+      "file": "state_house_secretary_of_state_2014_2022_lines.json",
+      "contest_type": "secretary_of_state",
+      "year": 2014,
+      "district_count": 124,
+      "source_precinct_rows": 2207,
+      "matched_precinct_rows": 2155,
+      "block_weighted_rows": 2155,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 97.6439,
+      "source_totals": {
+        "dem_votes": 409552.0,
+        "rep_votes": 635704.0,
+        "other_votes": 711.0,
+        "total_votes": 1045967.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 407994.0,
+        "rep_votes": 633589.0,
+        "other_votes": 711.0,
+        "total_votes": 1042294.0
+      },
+      "conservation_delta": {
+        "dem_votes": -1558.0,
+        "rep_votes": -2115.0,
+        "other_votes": 0.0,
+        "total_votes": -3673.0,
+        "total_pct_error": -0.35115831
+      }
+    },
+    {
+      "file": "state_house_state_treasurer_2014_2022_lines.json",
+      "contest_type": "state_treasurer",
+      "year": 2014,
+      "district_count": 124,
+      "source_precinct_rows": 2207,
+      "matched_precinct_rows": 2155,
+      "block_weighted_rows": 2155,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 97.6439,
+      "source_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 746751.0,
+        "other_votes": 9145.0,
+        "total_votes": 755896.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 744304.0,
+        "other_votes": 9132.0,
+        "total_votes": 753436.0
+      },
+      "conservation_delta": {
+        "dem_votes": 0.0,
+        "rep_votes": -2447.0,
+        "other_votes": -13.0,
+        "total_votes": -2460.0,
+        "total_pct_error": -0.3254416
+      }
+    },
+    {
+      "file": "state_house_us_senate_2014_2022_lines.json",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "district_count": 124,
+      "source_precinct_rows": 2207,
+      "matched_precinct_rows": 2155,
+      "block_weighted_rows": 2155,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 97.6439,
+      "source_totals": {
+        "dem_votes": 753094.0,
+        "rep_votes": 1241466.0,
+        "other_votes": 117286.0,
+        "total_votes": 2111846.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 750105.0,
+        "rep_votes": 1237426.0,
+        "other_votes": 116923.0,
+        "total_votes": 2104454.0
+      },
+      "conservation_delta": {
+        "dem_votes": -2989.0,
+        "rep_votes": -4040.0,
+        "other_votes": -363.0,
+        "total_votes": -7392.0,
+        "total_pct_error": -0.35002552
+      }
+    },
+    {
+      "file": "state_house_president_2012_2022_lines.json",
+      "contest_type": "president",
+      "year": 2012,
+      "district_count": 124,
+      "source_precinct_rows": 2108,
+      "matched_precinct_rows": 2043,
+      "block_weighted_rows": 2043,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 96.9165,
+      "source_totals": {
+        "dem_votes": 630557.0,
+        "rep_votes": 862365.0,
+        "other_votes": 22666.0,
+        "total_votes": 1515588.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 624659.0,
+        "rep_votes": 854501.0,
+        "other_votes": 22487.0,
+        "total_votes": 1501647.0
+      },
+      "conservation_delta": {
+        "dem_votes": -5898.0,
+        "rep_votes": -7864.0,
+        "other_votes": -179.0,
+        "total_votes": -13941.0,
+        "total_pct_error": -0.91984101
+      }
+    },
+    {
+      "file": "state_house_attorney_general_2010_2022_lines.json",
+      "contest_type": "attorney_general",
+      "year": 2010,
+      "district_count": 124,
+      "source_precinct_rows": 2081,
+      "matched_precinct_rows": 2018,
+      "block_weighted_rows": 2018,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 96.9726,
+      "source_totals": {
+        "dem_votes": 507263.0,
+        "rep_votes": 619447.0,
+        "other_votes": 24474.0,
+        "total_votes": 1151184.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 499436.0,
+        "rep_votes": 605418.0,
+        "other_votes": 23953.0,
+        "total_votes": 1128807.0
+      },
+      "conservation_delta": {
+        "dem_votes": -7827.0,
+        "rep_votes": -14029.0,
+        "other_votes": -521.0,
+        "total_votes": -22377.0,
+        "total_pct_error": -1.94382479
+      }
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2010_2022_lines.json",
+      "contest_type": "commissioner_agriculture",
+      "year": 2010,
+      "district_count": 124,
+      "source_precinct_rows": 2081,
+      "matched_precinct_rows": 2018,
+      "block_weighted_rows": 2018,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 96.9726,
+      "source_totals": {
+        "dem_votes": 450498.0,
+        "rep_votes": 687524.0,
+        "other_votes": 437.0,
+        "total_votes": 1138459.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 443864.0,
+        "rep_votes": 672048.0,
+        "other_votes": 423.0,
+        "total_votes": 1116335.0
+      },
+      "conservation_delta": {
+        "dem_votes": -6634.0,
+        "rep_votes": -15476.0,
+        "other_votes": -14.0,
+        "total_votes": -22124.0,
+        "total_pct_error": -1.94332866
+      }
+    },
+    {
+      "file": "state_house_comptroller_general_2010_2022_lines.json",
+      "contest_type": "comptroller_general",
+      "year": 2010,
+      "district_count": 124,
+      "source_precinct_rows": 2081,
+      "matched_precinct_rows": 2018,
+      "block_weighted_rows": 2018,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 96.9726,
+      "source_totals": {
+        "dem_votes": 495142.0,
+        "rep_votes": 646158.0,
+        "other_votes": 622.0,
+        "total_votes": 1141922.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 487419.0,
+        "rep_votes": 631711.0,
+        "other_votes": 598.0,
+        "total_votes": 1119728.0
+      },
+      "conservation_delta": {
+        "dem_votes": -7723.0,
+        "rep_votes": -14447.0,
+        "other_votes": -24.0,
+        "total_votes": -22194.0,
+        "total_pct_error": -1.94356532
+      }
+    },
+    {
+      "file": "state_house_governor_2010_2022_lines.json",
+      "contest_type": "governor",
+      "year": 2010,
+      "district_count": 124,
+      "source_precinct_rows": 2081,
+      "matched_precinct_rows": 2018,
+      "block_weighted_rows": 2018,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 96.9726,
+      "source_totals": {
+        "dem_votes": 543569.0,
+        "rep_votes": 597567.0,
+        "other_votes": 20466.0,
+        "total_votes": 1161602.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 534721.0,
+        "rep_votes": 584273.0,
+        "other_votes": 20035.0,
+        "total_votes": 1139029.0
+      },
+      "conservation_delta": {
+        "dem_votes": -8848.0,
+        "rep_votes": -13294.0,
+        "other_votes": -431.0,
+        "total_votes": -22573.0,
+        "total_pct_error": -1.94326456
+      }
+    },
+    {
+      "file": "state_house_secretary_of_state_2010_2022_lines.json",
+      "contest_type": "secretary_of_state",
+      "year": 2010,
+      "district_count": 124,
+      "source_precinct_rows": 2081,
+      "matched_precinct_rows": 2018,
+      "block_weighted_rows": 2018,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 96.9726,
+      "source_totals": {
+        "dem_votes": 442900.0,
+        "rep_votes": 698702.0,
+        "other_votes": 542.0,
+        "total_votes": 1142144.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 436373.0,
+        "rep_votes": 682972.0,
+        "other_votes": 531.0,
+        "total_votes": 1119876.0
+      },
+      "conservation_delta": {
+        "dem_votes": -6527.0,
+        "rep_votes": -15730.0,
+        "other_votes": -11.0,
+        "total_votes": -22268.0,
+        "total_pct_error": -1.94966659
+      }
+    },
+    {
+      "file": "state_house_state_treasurer_2010_2022_lines.json",
+      "contest_type": "state_treasurer",
+      "year": 2010,
+      "district_count": 124,
+      "source_precinct_rows": 2081,
+      "matched_precinct_rows": 2018,
+      "block_weighted_rows": 2018,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 96.9726,
+      "source_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 788814.0,
+        "other_votes": 7957.0,
+        "total_votes": 796771.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 771432.0,
+        "other_votes": 7793.0,
+        "total_votes": 779225.0
+      },
+      "conservation_delta": {
+        "dem_votes": 0.0,
+        "rep_votes": -17382.0,
+        "other_votes": -164.0,
+        "total_votes": -17546.0,
+        "total_pct_error": -2.20213838
+      }
+    },
+    {
+      "file": "state_house_us_senate_2010_2022_lines.json",
+      "contest_type": "us_senate",
+      "year": 2010,
+      "district_count": 124,
+      "source_precinct_rows": 2081,
+      "matched_precinct_rows": 2018,
+      "block_weighted_rows": 2018,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 96.9726,
+      "source_totals": {
+        "dem_votes": 314853.0,
+        "rep_votes": 702673.0,
+        "other_votes": 122340.0,
+        "total_votes": 1139866.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 310868.0,
+        "rep_votes": 686914.0,
+        "other_votes": 119889.0,
+        "total_votes": 1117671.0
+      },
+      "conservation_delta": {
+        "dem_votes": -3985.0,
+        "rep_votes": -15759.0,
+        "other_votes": -2451.0,
+        "total_votes": -22195.0,
+        "total_pct_error": -1.9471587
+      }
+    },
+    {
+      "file": "state_house_president_2008_2022_lines.json",
+      "contest_type": "president",
+      "year": 2008,
+      "district_count": 124,
+      "source_precinct_rows": 1980,
+      "matched_precinct_rows": 1864,
+      "block_weighted_rows": 1864,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 94.1414,
+      "source_totals": {
+        "dem_votes": 637899.0,
+        "rep_votes": 846691.0,
+        "other_votes": 19740.0,
+        "total_votes": 1504330.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 608880.0,
+        "rep_votes": 796257.0,
+        "other_votes": 18415.0,
+        "total_votes": 1423552.0
+      },
+      "conservation_delta": {
+        "dem_votes": -29019.0,
+        "rep_votes": -50434.0,
+        "other_votes": -1325.0,
+        "total_votes": -80778.0,
+        "total_pct_error": -5.36969947
+      }
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "district_count": 124,
+      "source_precinct_rows": 1980,
+      "matched_precinct_rows": 1864,
+      "block_weighted_rows": 1864,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 94.1414,
+      "source_totals": {
+        "dem_votes": 584943.0,
+        "rep_votes": 878389.0,
+        "other_votes": 3447.0,
+        "total_votes": 1466779.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 554463.0,
+        "rep_votes": 830373.0,
+        "other_votes": 3127.0,
+        "total_votes": 1387963.0
+      },
+      "conservation_delta": {
+        "dem_votes": -30480.0,
+        "rep_votes": -48016.0,
+        "other_votes": -320.0,
+        "total_votes": -78816.0,
+        "total_pct_error": -5.37340663
+      }
+    },
+    {
+      "file": "state_house_attorney_general_2006_2022_lines.json",
+      "contest_type": "attorney_general",
+      "year": 2006,
+      "district_count": 124,
+      "source_precinct_rows": 2113,
+      "matched_precinct_rows": 1789,
+      "block_weighted_rows": 1789,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 84.6664,
+      "source_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1510162.0,
+        "other_votes": 11611.0,
+        "total_votes": 1521773.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 638510.0,
+        "other_votes": 4878.0,
+        "total_votes": 643388.0
+      },
+      "conservation_delta": {
+        "dem_votes": 0.0,
+        "rep_votes": -871652.0,
+        "other_votes": -6733.0,
+        "total_votes": -878385.0,
+        "total_pct_error": -57.72115815
+      }
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2006_2022_lines.json",
+      "contest_type": "commissioner_agriculture",
+      "year": 2006,
+      "district_count": 124,
+      "source_precinct_rows": 2113,
+      "matched_precinct_rows": 1789,
+      "block_weighted_rows": 1789,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 84.6664,
+      "source_totals": {
+        "dem_votes": 827991.0,
+        "rep_votes": 1230663.0,
+        "other_votes": 615.0,
+        "total_votes": 2059269.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 358287.0,
+        "rep_votes": 517900.0,
+        "other_votes": 262.0,
+        "total_votes": 876449.0
+      },
+      "conservation_delta": {
+        "dem_votes": -469704.0,
+        "rep_votes": -712763.0,
+        "other_votes": -353.0,
+        "total_votes": -1182820.0,
+        "total_pct_error": -57.43882902
+      }
+    },
+    {
+      "file": "state_house_comptroller_general_2006_2022_lines.json",
+      "contest_type": "comptroller_general",
+      "year": 2006,
+      "district_count": 124,
+      "source_precinct_rows": 2113,
+      "matched_precinct_rows": 1789,
+      "block_weighted_rows": 1789,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 84.6664,
+      "source_totals": {
+        "dem_votes": 966701.0,
+        "rep_votes": 1107444.0,
+        "other_votes": 716.0,
+        "total_votes": 2074861.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 416110.0,
+        "rep_votes": 467217.0,
+        "other_votes": 298.0,
+        "total_votes": 883625.0
+      },
+      "conservation_delta": {
+        "dem_votes": -550591.0,
+        "rep_votes": -640227.0,
+        "other_votes": -418.0,
+        "total_votes": -1191236.0,
+        "total_pct_error": -57.41280982
+      }
+    },
+    {
+      "file": "state_house_governor_2006_2022_lines.json",
+      "contest_type": "governor",
+      "year": 2006,
+      "district_count": 124,
+      "source_precinct_rows": 2113,
+      "matched_precinct_rows": 1789,
+      "block_weighted_rows": 1789,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 84.6664,
+      "source_totals": {
+        "dem_votes": 944168.0,
+        "rep_votes": 1165394.0,
+        "other_votes": 1792.0,
+        "total_votes": 2111354.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 406017.0,
+        "rep_votes": 492026.0,
+        "other_votes": 705.0,
+        "total_votes": 898748.0
+      },
+      "conservation_delta": {
+        "dem_votes": -538151.0,
+        "rep_votes": -673368.0,
+        "other_votes": -1087.0,
+        "total_votes": -1212606.0,
+        "total_pct_error": -57.4326238
+      }
+    },
+    {
+      "file": "state_house_secretary_of_state_2006_2022_lines.json",
+      "contest_type": "secretary_of_state",
+      "year": 2006,
+      "district_count": 124,
+      "source_precinct_rows": 2113,
+      "matched_precinct_rows": 1789,
+      "block_weighted_rows": 1789,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 84.6664,
+      "source_totals": {
+        "dem_votes": 800911.0,
+        "rep_votes": 1271934.0,
+        "other_votes": 843.0,
+        "total_votes": 2073688.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 347277.0,
+        "rep_votes": 535168.0,
+        "other_votes": 333.0,
+        "total_votes": 882778.0
+      },
+      "conservation_delta": {
+        "dem_votes": -453634.0,
+        "rep_votes": -736766.0,
+        "other_votes": -510.0,
+        "total_votes": -1190910.0,
+        "total_pct_error": -57.4295651
+      }
+    },
+    {
+      "file": "state_house_state_treasurer_2006_2022_lines.json",
+      "contest_type": "state_treasurer",
+      "year": 2006,
+      "district_count": 124,
+      "source_precinct_rows": 2113,
+      "matched_precinct_rows": 1789,
+      "block_weighted_rows": 1789,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 84.6664,
+      "source_totals": {
+        "dem_votes": 1000944.0,
+        "rep_votes": 1098022.0,
+        "other_votes": 809.0,
+        "total_votes": 2099775.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 431774.0,
+        "rep_votes": 462015.0,
+        "other_votes": 346.0,
+        "total_votes": 894135.0
+      },
+      "conservation_delta": {
+        "dem_votes": -569170.0,
+        "rep_votes": -636007.0,
+        "other_votes": -463.0,
+        "total_votes": -1205640.0,
+        "total_pct_error": -57.41758046
+      }
+    }
+  ]
+}
