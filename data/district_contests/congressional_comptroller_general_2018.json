@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":0,"rep_votes":152334,"other_votes":2188,"total_votes":154522,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":152334,"margin_pct":98.584,"winner":"R","color":"#67000d"},"2":{"dem_votes":0,"rep_votes":154439,"other_votes":3967,"total_votes":158406,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":154439,"margin_pct":97.4957,"winner":"R","color":"#67000d"},"6":{"dem_votes":0,"rep_votes":80665,"other_votes":3004,"total_votes":83669,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":80665,"margin_pct":96.4097,"winner":"R","color":"#67000d"},"1":{"dem_votes":0,"rep_votes":178001,"other_votes":4634,"total_votes":182635,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":178001,"margin_pct":97.4627,"winner":"R","color":"#67000d"},"5":{"dem_votes":0,"rep_votes":184121,"other_votes":3523,"total_votes":187644,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":184121,"margin_pct":98.1225,"winner":"R","color":"#67000d"},"7":{"dem_votes":0,"rep_votes":138264,"other_votes":2238,"total_votes":140502,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":138264,"margin_pct":98.4071,"winner":"R","color":"#67000d"},"4":{"dem_votes":0,"rep_votes":154459,"other_votes":3545,"total_votes":158004,"dem_candidate":"","rep_candidate":"Richard Eckstrom","margin":154459,"margin_pct":97.7564,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":100.0,"precinct_rows_total":2307,"precinct_rows_matched":2307,"precinct_rows_block_weighted":2307,"precinct_rows_county_share_fallback":57,"precinct_votes_county_share_fallback":3746.0}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 149172,
+        "other_votes": 2152,
+        "total_votes": 151324,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 149172,
+        "margin_pct": 98.5779,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 154418,
+        "other_votes": 3965,
+        "total_votes": 158383,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 154418,
+        "margin_pct": 97.4966,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 71647,
+        "other_votes": 2830,
+        "total_votes": 74477,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 71647,
+        "margin_pct": 96.2002,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 146633,
+        "other_votes": 3496,
+        "total_votes": 150129,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 146633,
+        "margin_pct": 97.6713,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 145433,
+        "other_votes": 2915,
+        "total_votes": 148348,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 145433,
+        "margin_pct": 98.035,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 134478,
+        "other_votes": 2184,
+        "total_votes": 136662,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 134478,
+        "margin_pct": 98.4019,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 153871,
+        "other_votes": 3551,
+        "total_votes": 157422,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 153871,
+        "margin_pct": 97.7443,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 95.0607,
+    "precinct_rows_total": 2308,
+    "precinct_rows_matched": 2194,
+    "precinct_rows_block_weighted": 2194
+  }
+}

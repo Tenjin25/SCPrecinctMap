@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":0,"rep_votes":184740,"other_votes":3266,"total_votes":188006,"dem_candidate":"","rep_candidate":"Alan Wilson","margin":184740,"margin_pct":98.2628,"winner":"R","color":"#67000d"},"2":{"dem_votes":0,"rep_votes":176908,"other_votes":7023,"total_votes":183931,"dem_candidate":"","rep_candidate":"Alan Wilson","margin":176908,"margin_pct":96.1817,"winner":"R","color":"#67000d"},"6":{"dem_votes":0,"rep_votes":102690,"other_votes":4526,"total_votes":107216,"dem_candidate":"","rep_candidate":"Alan Wilson","margin":102690,"margin_pct":95.7786,"winner":"R","color":"#67000d"},"1":{"dem_votes":0,"rep_votes":245279,"other_votes":9136,"total_votes":254415,"dem_candidate":"","rep_candidate":"Alan Wilson","margin":245279,"margin_pct":96.409,"winner":"R","color":"#67000d"},"5":{"dem_votes":0,"rep_votes":223543,"other_votes":4458,"total_votes":228001,"dem_candidate":"","rep_candidate":"Alan Wilson","margin":223543,"margin_pct":98.0447,"winner":"R","color":"#67000d"},"7":{"dem_votes":0,"rep_votes":188553,"other_votes":2785,"total_votes":191338,"dem_candidate":"","rep_candidate":"Alan Wilson","margin":188553,"margin_pct":98.5445,"winner":"R","color":"#67000d"},"4":{"dem_votes":0,"rep_votes":182511,"other_votes":5344,"total_votes":187855,"dem_candidate":"","rep_candidate":"Alan Wilson","margin":182511,"margin_pct":97.1553,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":100.0,"precinct_rows_total":2269,"precinct_rows_matched":2269,"precinct_rows_block_weighted":2269,"precinct_rows_county_share_fallback":1,"precinct_votes_county_share_fallback":1206.0}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 183933,
+        "other_votes": 3253,
+        "total_votes": 187186,
+        "dem_candidate": "",
+        "rep_candidate": "Alan Wilson",
+        "margin": 183933,
+        "margin_pct": 98.2622,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 176135,
+        "other_votes": 7005,
+        "total_votes": 183140,
+        "dem_candidate": "",
+        "rep_candidate": "Alan Wilson",
+        "margin": 176135,
+        "margin_pct": 96.1751,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 92829,
+        "other_votes": 4315,
+        "total_votes": 97144,
+        "dem_candidate": "",
+        "rep_candidate": "Alan Wilson",
+        "margin": 92829,
+        "margin_pct": 95.5581,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 204512,
+        "other_votes": 6700,
+        "total_votes": 211212,
+        "dem_candidate": "",
+        "rep_candidate": "Alan Wilson",
+        "margin": 204512,
+        "margin_pct": 96.8278,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 174313,
+        "other_votes": 3765,
+        "total_votes": 178078,
+        "dem_candidate": "",
+        "rep_candidate": "Alan Wilson",
+        "margin": 174313,
+        "margin_pct": 97.8858,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 182261,
+        "other_votes": 2706,
+        "total_votes": 184967,
+        "dem_candidate": "",
+        "rep_candidate": "Alan Wilson",
+        "margin": 182261,
+        "margin_pct": 98.537,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 182475,
+        "other_votes": 5309,
+        "total_votes": 187784,
+        "dem_candidate": "",
+        "rep_candidate": "Alan Wilson",
+        "margin": 182475,
+        "margin_pct": 97.1728,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 97.7394,
+    "precinct_rows_total": 2256,
+    "precinct_rows_matched": 2205,
+    "precinct_rows_block_weighted": 2205
+  }
+}
