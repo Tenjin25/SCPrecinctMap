@@ -29134,6 +29134,84 @@
       "margin_pct": 12.625,
       "winner": "R",
       "color": "#ef3b2c"
+    },
+    {
+      "county": "Charleston - Licolnville",
+      "dem_votes": 763,
+      "rep_votes": 588,
+      "other_votes": 2790,
+      "total_votes": 4141,
+      "dem_candidate": "Kamala D. Harris and Tim Walz",
+      "rep_candidate": "Donald J. Trump and JD Vance",
+      "margin": -175,
+      "margin_pct": -4.226,
+      "winner": "D",
+      "color": "#c6dbef"
+    },
+    {
+      "county": "Charleston - Deer Park 1A",
+      "dem_votes": 487,
+      "rep_votes": 270,
+      "other_votes": 1576,
+      "total_votes": 2333,
+      "dem_candidate": "Kamala D. Harris and Tim Walz",
+      "rep_candidate": "Donald J. Trump and JD Vance",
+      "margin": -217,
+      "margin_pct": -9.3013,
+      "winner": "D",
+      "color": "#9ecae1"
+    },
+    {
+      "county": "Charleston - Deer Park 1B",
+      "dem_votes": 1130,
+      "rep_votes": 838,
+      "other_votes": 4083,
+      "total_votes": 6051,
+      "dem_candidate": "Kamala D. Harris and Tim Walz",
+      "rep_candidate": "Donald J. Trump and JD Vance",
+      "margin": -292,
+      "margin_pct": -4.8256,
+      "winner": "D",
+      "color": "#c6dbef"
+    },
+    {
+      "county": "Charleston - Deer Park 2A",
+      "dem_votes": 878,
+      "rep_votes": 723,
+      "other_votes": 3278,
+      "total_votes": 4879,
+      "dem_candidate": "Kamala D. Harris and Tim Walz",
+      "rep_candidate": "Donald J. Trump and JD Vance",
+      "margin": -155,
+      "margin_pct": -3.1769,
+      "winner": "D",
+      "color": "#c6dbef"
+    },
+    {
+      "county": "Charleston - Deer Park 2B",
+      "dem_votes": 667,
+      "rep_votes": 381,
+      "other_votes": 2145,
+      "total_votes": 3193,
+      "dem_candidate": "Kamala D. Harris and Tim Walz",
+      "rep_candidate": "Donald J. Trump and JD Vance",
+      "margin": -286,
+      "margin_pct": -8.9571,
+      "winner": "D",
+      "color": "#9ecae1"
+    },
+    {
+      "county": "Charleston - Deer Park 2C",
+      "dem_votes": 369,
+      "rep_votes": 313,
+      "other_votes": 1399,
+      "total_votes": 2081,
+      "dem_candidate": "Kamala D. Harris and Tim Walz",
+      "rep_candidate": "Donald J. Trump and JD Vance",
+      "margin": -56,
+      "margin_pct": -2.691,
+      "winner": "D",
+      "color": "#c6dbef"
     }
   ]
 }
