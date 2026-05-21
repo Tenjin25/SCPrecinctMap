@@ -12118,18 +12118,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function isDistrictLinesYearAllowedForView(view, linesYear) {
       const y = normalizeDistrictLinesYear(linesYear);
       const v = String(view || '').trim();
-      if (y === 2022) return v !== 'state_house' && v !== 'counties';
       if (y === 2024) return v === 'state_house';
       if (y === 2026) return v === 'districts';
-      return false;
-    }
-
-    function getPreferredDistrictLinesYearForView(view) {
-      const v = String(view || '').trim();
-      if (v === 'state_house') return 2024;
-      if (v === 'districts') return 2022;
-      if (v === 'state_senate') return 2022;
-      return 2022;
+      return true;
     }
 
     function getActiveDistrictContestsDir(linesYear = currentDistrictLinesYear, scope = null) {
@@ -12779,15 +12770,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const btn2026 = document.getElementById('district-lines-2026');
       const linesControls = document.getElementById('district-lines-controls');
       const isDistrictView = currentView === 'districts' || currentView === 'state_house' || currentView === 'state_senate';
-      const canUse2022 = isDistrictLinesYearAllowedForView(currentView, 2022);
       const canUse2024 = isDistrictLinesYearAllowedForView(currentView, 2024);
       const canUse2026 = isDistrictLinesYearAllowedForView(currentView, 2026);
       if (linesControls) {
-        const showAnyLines = isDistrictView && (canUse2022 || canUse2024 || canUse2026);
-        linesControls.style.display = showAnyLines ? 'flex' : 'none';
+        linesControls.style.display = isDistrictView ? 'flex' : 'none';
       }
       if (btn2022) {
-        btn2022.style.display = canUse2022 ? '' : 'none';
         btn2022.classList.toggle('active', y === 2022);
         btn2022.setAttribute('aria-pressed', y === 2022 ? 'true' : 'false');
       }
@@ -20310,7 +20298,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } : null;
       currentView = view;
       if (!isDistrictLinesYearAllowedForView(currentView, currentDistrictLinesYear)) {
-        currentDistrictLinesYear = getPreferredDistrictLinesYearForView(currentView);
+        currentDistrictLinesYear = 2022;
       }
       updateDistrictLinesToggleUI();
       
