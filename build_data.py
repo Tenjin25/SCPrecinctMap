@@ -162,6 +162,11 @@ OFFICE_MAP = {
 # Remove from this set if you want them included.
 SKIP_DISTRICT_OFFICES = {'us_house', 'state_house', 'state_senate'}
 
+# Optional fallback for legacy contests with poor precinct name compatibility:
+# allocate unmatched precinct rows across districts using county-level district
+# shares inferred from matched precinct rows in the same contest/year.
+ENABLE_UNMATCHED_COUNTY_SHARE_FALLBACK = False
+
 # Coloring thresholds – positive margin_pct means Republican wins.
 _COLORS = [
     (40, 'R', '#67000d'), (30, 'R', '#a50f15'), (20, 'R', '#cb181d'),
@@ -341,9 +346,11 @@ def build_precinct_geojson(county_fp_map: dict):
 
 # Non-geographic precinct buckets – never map to geometry
 _NON_GEO = re.compile(
-    r'^(FAILSAFE|FAILSAFE PROVISIONAL|PROVISIONAL|ABSENTEE|CURBSIDE|'
+    r'^(FAILSAFE|FAIL SAFE|FAIL-SAFE|FAILSAFE PROVISIONAL|FAIL SAFE PROVISIONAL|'
+    r'PROVISIONAL|ABSENTEE|CURBSIDE|'
     r'ONE STOP|MAIL ABSENTEE|VOTE CENTER|VOTECENTER|EARLY VOT|'
-    r'EV$|EV[-_ ]|EV[0-9]|OS[-_ ]|OS[0-9]|OS[A-Z]{1,8}[-_ ]?[0-9])',
+    r'EV$|EV[-_ ]|EV[0-9]|OS[-_ ]|OS[0-9]|OS[A-Z]{1,8}[-_ ]?[0-9]|'
+    r'COUNTY TOTALS?$|TOTALS?$)',
     re.IGNORECASE,
 )
 
@@ -1230,6 +1237,13 @@ def build_statewide_contests_by_district_from_slices() -> int:
     os.makedirs(dist_dir, exist_ok=True)
 
     written = 0
+
+    def _county_from_precinct_key(key: str) -> str:
+        s = (key or '').strip()
+        if ' - ' not in s:
+            return ''
+        return s.split(' - ', 1)[0].strip().title()
+
     # Aggregate each contest slice into each scope
     for entry in contest_entries:
         year = entry.get('year')
@@ -1253,18 +1267,23 @@ def build_statewide_contests_by_district_from_slices() -> int:
             by_dist = {}
             matched = 0
             matched_weighted = 0
+            matched_county_fallback = 0
+            matched_county_fallback_votes = 0.0
             dem_name = ''
             rep_name = ''
+            county_district_totals: dict[str, dict[str, float]] = {}
+            unmatched_rows: list[dict] = []
             for r in precinct_rows:
                 key = (r.get('county') or '').strip()
                 pn = normalize(key)
+                county_name = _county_from_precinct_key(key)
+                row_dem = float(r.get('dem_votes') or 0)
+                row_rep = float(r.get('rep_votes') or 0)
+                row_other = float(r.get('other_votes') or 0)
                 weights = scope_weight_map.get(pn) if scope_weight_map else None
                 if weights:
                     matched += 1
                     matched_weighted += 1
-                    dem_votes = float(r.get('dem_votes') or 0)
-                    rep_votes = float(r.get('rep_votes') or 0)
-                    other_votes = float(r.get('other_votes') or 0)
                     for dnum, share in weights.items():
                         w = float(share or 0)
                         if w <= 0:
@@ -1272,20 +1291,27 @@ def build_statewide_contests_by_district_from_slices() -> int:
                         if dnum not in by_dist:
                             by_dist[dnum] = {'dem': 0.0, 'rep': 0.0, 'other': 0.0, 'dem_cand': '', 'rep_cand': ''}
                         node = by_dist[dnum]
-                        node['dem'] += dem_votes * w
-                        node['rep'] += rep_votes * w
-                        node['other'] += other_votes * w
+                        node['dem'] += row_dem * w
+                        node['rep'] += row_rep * w
+                        node['other'] += row_other * w
+                        if county_name:
+                            cnode = county_district_totals.setdefault(county_name, {})
+                            cnode[dnum] = cnode.get(dnum, 0.0) + ((row_dem + row_rep + row_other) * w)
                 else:
                     dnum = precinct_to_district[scope].get(pn)
                     if not dnum:
+                        unmatched_rows.append(r)
                         continue
                     matched += 1
                     if dnum not in by_dist:
                         by_dist[dnum] = {'dem': 0.0, 'rep': 0.0, 'other': 0.0, 'dem_cand': '', 'rep_cand': ''}
                     node = by_dist[dnum]
-                    node['dem'] += float(r.get('dem_votes') or 0)
-                    node['rep'] += float(r.get('rep_votes') or 0)
-                    node['other'] += float(r.get('other_votes') or 0)
+                    node['dem'] += row_dem
+                    node['rep'] += row_rep
+                    node['other'] += row_other
+                    if county_name:
+                        cnode = county_district_totals.setdefault(county_name, {})
+                        cnode[dnum] = cnode.get(dnum, 0.0) + (row_dem + row_rep + row_other)
 
                 if not dem_name:
                     dem_name = (r.get('dem_candidate') or '').strip()
@@ -1294,6 +1320,34 @@ def build_statewide_contests_by_district_from_slices() -> int:
                 if dem_name and rep_name:
                     # Not strictly required to break, but avoids extra string checks.
                     pass
+
+            if ENABLE_UNMATCHED_COUNTY_SHARE_FALLBACK and unmatched_rows:
+                for r in unmatched_rows:
+                    key = (r.get('county') or '').strip()
+                    county_name = _county_from_precinct_key(key)
+                    if not county_name:
+                        continue
+                    dist_totals = county_district_totals.get(county_name) or {}
+                    county_total = sum(float(v or 0.0) for v in dist_totals.values())
+                    if county_total <= 0:
+                        continue
+                    matched += 1
+                    matched_weighted += 1
+                    matched_county_fallback += 1
+                    row_dem = float(r.get('dem_votes') or 0)
+                    row_rep = float(r.get('rep_votes') or 0)
+                    row_other = float(r.get('other_votes') or 0)
+                    matched_county_fallback_votes += (row_dem + row_rep + row_other)
+                    for dnum, subtotal in dist_totals.items():
+                        share = (float(subtotal or 0.0) / county_total) if county_total else 0.0
+                        if share <= 0:
+                            continue
+                        if dnum not in by_dist:
+                            by_dist[dnum] = {'dem': 0.0, 'rep': 0.0, 'other': 0.0, 'dem_cand': '', 'rep_cand': ''}
+                        node = by_dist[dnum]
+                        node['dem'] += row_dem * share
+                        node['rep'] += row_rep * share
+                        node['other'] += row_other * share
 
             if not by_dist:
                 continue
@@ -1337,6 +1391,8 @@ def build_statewide_contests_by_district_from_slices() -> int:
                     'precinct_rows_total': len(precinct_rows),
                     'precinct_rows_matched': matched,
                     'precinct_rows_block_weighted': matched_weighted,
+                    'precinct_rows_county_share_fallback': matched_county_fallback,
+                    'precinct_votes_county_share_fallback': round(matched_county_fallback_votes, 6),
                 },
             }
             write_json(out_payload, os.path.join(dist_dir, out_name))

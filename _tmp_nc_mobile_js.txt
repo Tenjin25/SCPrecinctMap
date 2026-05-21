@@ -1,0 +1,690 @@
+          if (!dragState) return;
+          const touches = event.changedTouches;
+          if (!touches || !touches.length) return;
+          let matched = false;
+          for (let i = 0; i < touches.length; i += 1) {
+            const touch = touches[i];
+            if (dragState.pointerId !== null && touch.identifier !== dragState.pointerId) continue;
+            updateDrag(touch.clientX, touch.clientY, event.timeStamp);
+            matched = true;
+            break;
+          }
+          if (!matched) resetDragState();
+        }, { passive: true });
+        grab.addEventListener('touchend', (event) => {
+          if (!dragState) return;
+          const touches = event.changedTouches;
+          if (!touches || !touches.length) {
+            resetDragState();
+            return;
+          }
+          let matched = false;
+          for (let i = 0; i < touches.length; i += 1) {
+            const touch = touches[i];
+            if (dragState.pointerId !== null && touch.identifier !== dragState.pointerId) continue;
+            finishDrag(touch.clientX, touch.clientY, event.timeStamp);
+            matched = true;
+            break;
+          }
+          if (!matched) resetDragState();
+        }, { passive: true });
+        grab.addEventListener('touchcancel', () => {
+          resetDragState();
+        }, { passive: true });
+      }
+
+      grab.addEventListener('click', (event) => {
+        if (grab.dataset.swiped === 'true') {
+          event.preventDefault();
+          event.stopPropagation();
+          return;
+        }
+        event.preventDefault();
+        event.stopPropagation();
+        toggleMobileSheet(key);
+      });
+      panel.insertBefore(grab, panel.firstChild);
+    }
+
+    function syncMobileDockButtons() {
+      const buttons = document.querySelectorAll('[data-mobile-sheet-btn]');
+      buttons.forEach(btn => {
+        const key = btn.getAttribute('data-mobile-sheet-btn') || '';
+        const pressed = key && key === activeMobileSheetKey;
+        btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+        btn.setAttribute('aria-expanded', pressed ? 'true' : 'false');
+        const panelId = MOBILE_SHEET_PANEL_IDS[key];
+        if (panelId) btn.setAttribute('aria-controls', panelId);
+        const panelLabel = MOBILE_SHEET_PANEL_LABELS[key] || 'panel';
+        btn.title = pressed ? `Collapse ${panelLabel} panel` : `Open ${panelLabel} panel`;
+      });
+      document.body.classList.toggle('mobile-sheet-open', !!activeMobileSheetKey && isMobileViewportNow());
+      try {
+        if (!activeMobileSheetKey && mobileSheetVoteCounterSnapshot !== null) {
+          const blocked = !!(document.body.classList.contains('mobile-input-active') || mobileInputFocusSnapshot);
+          if (!blocked && mobileSheetVoteCounterSnapshot) {
+            setVoteCounterMinimizedState(false);
+          }
+          mobileSheetVoteCounterSnapshot = null;
+        }
+      } catch (_) {}
+    }
+
+    function expandLegendOnMobile() {
+      const legend = document.getElementById('legend');
+      const legendContent = document.getElementById('legend-content');
+      const minimizeBtn = document.getElementById('legend-minimize-btn');
+      if (!legend || !legendContent || !minimizeBtn) return;
+      legend.classList.remove('minimized');
+      legendContent.style.display = 'block';
+      minimizeBtn.textContent = '-';
+      minimizeBtn.title = 'Minimize legend';
+    }
+
+    function expandMainControlsOnMobile() {
+      const controls = document.getElementById('main-controls');
+      const controlsContent = document.getElementById('controls-content');
+      const minimizeBtn = document.getElementById('controls-minimize-btn');
+      if (!controls || !controlsContent || !minimizeBtn) return;
+      controls.classList.remove('minimized');
+      controlsContent.style.display = 'block';
+      minimizeBtn.textContent = '-';
+      minimizeBtn.title = 'Minimize controls';
+    }
+
+    function closeMobileSheet(key) {
+      const panel = getMobileSheetPanel(key);
+      if (!panel) return;
+      panel.classList.remove('mobile-sheet-active');
+      setMobileSheetSnap(panel, 'collapsed');
+      if (key === 'search') {
+        try {
+          const topbar = document.getElementById('map-topbar');
+          if (topbar) topbar.classList.remove('topbar-expanded');
+          if (typeof window.syncMobileTopbarToggle === 'function') window.syncMobileTopbarToggle();
+        } catch (_) {}
+      } else if (key === 'layers') {
+        try { minimizeMainControlsOnMobile(); } catch (_) {}
+      } else if (key === 'legend') {
+        try { minimizeLegendOnMobile(); } catch (_) {}
+      }
+    }
+
+    function openMobileSheet(key, snap = 'half') {
+      if (!isMobileViewportNow()) return;
+      const panel = getMobileSheetPanel(key);
+      if (!panel) return;
+      try {
+        if (mobileSheetVoteCounterSnapshot === null) {
+          const counter = document.getElementById('vote-counter');
+          mobileSheetVoteCounterSnapshot = !!(counter && !counter.classList.contains('minimized'));
+        }
+        setVoteCounterMinimizedState(true);
+      } catch (_) {}
+      try { closeHoverUI({ force: true }); } catch (_) {}
+      Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(otherKey => {
+        if (otherKey === key) return;
+        closeMobileSheet(otherKey);
+      });
+      panel.classList.add('mobile-sheet-panel', 'mobile-sheet-active');
+      setMobileSheetSnap(panel, snap);
+      if (key === 'search') {
+        try {
+          const topbar = document.getElementById('map-topbar');
+          if (topbar) topbar.classList.add('topbar-expanded');
+          if (typeof window.syncMobileTopbarToggle === 'function') window.syncMobileTopbarToggle();
+        } catch (_) {}
+      } else if (key === 'layers') {
+        expandMainControlsOnMobile();
+      } else if (key === 'legend') {
+        expandLegendOnMobile();
+      }
+      if (snap === 'collapsed') {
+        closeMobileSheet(key);
+        activeMobileSheetKey = null;
+      } else {
+        activeMobileSheetKey = key;
+      }
+      syncMobileDockButtons();
+      try { updateMobileOverlayOffsets(); } catch (_) {}
+    }
+
+    function closeAllMobileSheets() {
+      Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => closeMobileSheet(key));
+      activeMobileSheetKey = null;
+      syncMobileDockButtons();
+      try { updateMobileOverlayOffsets(); } catch (_) {}
+    }
+
+    function swipeMobileSheet(key, direction = 'up') {
+      if (!isMobileViewportNow()) return;
+      if (!MOBILE_SHEET_PANEL_IDS[key]) return;
+      if (activeMobileSheetKey !== key) {
+        if (direction === 'up') openMobileSheet(key, 'half');
+        return;
+      }
+      const current = getMobileSheetSnap(key);
+      let next = current;
+      if (direction === 'up') {
+        next = current === 'collapsed' ? 'half' : 'full';
+      } else {
+        next = current === 'full' ? 'half' : 'collapsed';
+      }
+      if (next === 'collapsed') {
+        closeMobileSheet(key);
+        activeMobileSheetKey = null;
+        syncMobileDockButtons();
+        try { updateMobileOverlayOffsets(); } catch (_) {}
+        return;
+      }
+      openMobileSheet(key, next);
+    }
+
+    function toggleMobileSheet(key) {
+      if (!isMobileViewportNow()) return;
+      if (!MOBILE_SHEET_PANEL_IDS[key]) return;
+      if (activeMobileSheetKey !== key) {
+        openMobileSheet(key, 'half');
+        return;
+      }
+      const current = getMobileSheetSnap(key);
+      const idx = MOBILE_SHEET_SNAP_SEQUENCE.indexOf(current);
+      const next = MOBILE_SHEET_SNAP_SEQUENCE[(idx + 1) % MOBILE_SHEET_SNAP_SEQUENCE.length];
+      if (next === 'collapsed') {
+        closeMobileSheet(key);
+        activeMobileSheetKey = null;
+        syncMobileDockButtons();
+        try { updateMobileOverlayOffsets(); } catch (_) {}
+        return;
+      }
+      openMobileSheet(key, next);
+    }
+
+    function setupMobileDockAndSheets() {
+      if (mobileSheetSystemReady) return;
+      mobileSheetSystemReady = true;
+      try {
+        Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => {
+          const panel = getMobileSheetPanel(key);
+          if (!panel) return;
+          panel.classList.add('mobile-sheet-panel');
+          setMobileSheetSnap(panel, 'collapsed');
+          panel.classList.remove('mobile-sheet-active');
+          ensureMobileSheetGrab(panel, key);
+        });
+        document.querySelectorAll('[data-mobile-sheet-btn]').forEach(btn => {
+          if (btn.dataset.mobileSheetReady === 'true') return;
+          btn.dataset.mobileSheetReady = 'true';
+          btn.addEventListener('click', () => {
+            const key = btn.getAttribute('data-mobile-sheet-btn') || '';
+            toggleMobileSheet(key);
+          });
+        });
+        const scrim = document.getElementById('mobile-sheet-scrim');
+        if (scrim && scrim.dataset.mobileSheetReady !== 'true') {
+          scrim.dataset.mobileSheetReady = 'true';
+          scrim.addEventListener('click', () => { closeAllMobileSheets(); });
+        }
+        if (!window.__mobileSheetEscapeReady) {
+          window.__mobileSheetEscapeReady = true;
+          document.addEventListener('keydown', (event) => {
+            if (event.key !== 'Escape') return;
+            if (!isMobileViewportNow()) return;
+            if (!activeMobileSheetKey) return;
+            event.preventDefault();
+            closeAllMobileSheets();
+          });
+        }
+        window.addEventListener('resize', () => {
+          try {
+            if (!isMobileViewportNow()) {
+              closeAllMobileSheets();
+              document.body.classList.remove('mobile-sheet-open', 'mobile-input-active');
+              mobileInputFocusSnapshot = null;
+              if (mobileInputRestoreTimer) {
+                clearTimeout(mobileInputRestoreTimer);
+                mobileInputRestoreTimer = null;
+              }
+              Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => {
+                const panel = getMobileSheetPanel(key);
+                if (!panel) return;
+                panel.classList.remove('mobile-sheet-active');
+                setMobileSheetSnap(panel, 'collapsed');
+              });
+            } else {
+              Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => {
+                const panel = getMobileSheetPanel(key);
+                if (!panel) return;
+                panel.classList.add('mobile-sheet-panel');
+                ensureMobileSheetGrab(panel, key);
+                if (!panel.dataset.mobileSnap) setMobileSheetSnap(panel, 'collapsed');
+              });
+            }
+          } catch (_) {}
+        }, { passive: true });
+      } catch (_) {}
+      closeAllMobileSheets();
+    }
+
+    function isMobileEditableField(node) {
+      if (!node || !node.tagName) return false;
+      const tag = node.tagName.toLowerCase();
+      if (tag !== 'input' && tag !== 'textarea' && tag !== 'select') return false;
+      return !!(node.closest && (node.closest('#map-topbar') || node.closest('#main-controls')));
+    }
+
+    function restoreMobileInputFocusMode() {
+      if (!mobileInputFocusSnapshot) return;
+      const snap = mobileInputFocusSnapshot;
+      mobileInputFocusSnapshot = null;
+      document.body.classList.remove('mobile-input-active');
+      if (!isMobileViewportNow()) return;
+      try {
+        if (!snap.voteCounterWasMinimized) setVoteCounterMinimizedState(false);
+      } catch (_) {}
+      if (snap.activeSheetKey) {
+        openMobileSheet(snap.activeSheetKey, snap.activeSheetSnap || 'half');
+      } else {
+        closeAllMobileSheets();
+      }
+    }
+
+    function setupMobileInputFocusBehavior() {
+      if (mobileInputFocusWired) return;
+      mobileInputFocusWired = true;
+      document.addEventListener('focusin', (event) => {
+        const target = event.target;
+        if (!isMobileViewportNow()) return;
+        if (!isMobileEditableField(target)) return;
+        if (!mobileInputFocusSnapshot) {
+          const counter = document.getElementById('vote-counter');
+          mobileInputFocusSnapshot = {
+            voteCounterWasMinimized: !!(counter && counter.classList.contains('minimized')),
+            activeSheetKey: activeMobileSheetKey,
+            activeSheetSnap: activeMobileSheetKey ? getMobileSheetSnap(activeMobileSheetKey) : 'collapsed'
+          };
+        }
+        document.body.classList.add('mobile-input-active');
+        try { minimizeLegendOnMobile(); } catch (_) {}
+        try { setVoteCounterMinimizedState(true); } catch (_) {}
+        if (target.closest && target.closest('#map-topbar')) {
+          openMobileSheet('search', 'half');
+        }
+      }, true);
+      document.addEventListener('focusout', () => {
+        if (!isMobileViewportNow()) return;
+        if (mobileInputRestoreTimer) clearTimeout(mobileInputRestoreTimer);
+        mobileInputRestoreTimer = setTimeout(() => {
+          const active = document.activeElement;
+          if (isMobileEditableField(active)) return;
+          restoreMobileInputFocusMode();
+          mobileInputRestoreTimer = null;
+        }, 140);
+      }, true);
+    }
+
+    function updateMobileOverlayOffsets() {
+      // Measure the floating UI so mobile overlays and the desktop right rail can avoid collisions.
+      try {
+        const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        const isDesktop = window.matchMedia && window.matchMedia('(min-width: 769px)').matches;
+        const root = document.documentElement;
+        const topbar = document.getElementById('map-topbar');
+        const voteCounter = document.getElementById('vote-counter');
+        const mobileDock = document.getElementById('mobile-dock');
+        const topbarVisible = !!(topbar && (!isMobile || topbar.classList.contains('mobile-sheet-active')));
+        const th = topbarVisible ? Math.round(topbar.getBoundingClientRect().height || 0) : 0;
+        const dockVisible = !!(isMobile && mobileDock && mobileDock.getClientRects().length);
+        const dh = dockVisible ? Math.round(mobileDock.getBoundingClientRect().height || 0) : 0;
+        root.style.setProperty('--topbar-h', `${Math.max(0, th)}px`);
+        root.style.setProperty('--mobile-dock-h', `${Math.max(0, dh)}px`);
+        if (isDesktop) {
+          const counterVisible = !!(voteCounter && voteCounter.style.display !== 'none' && voteCounter.getClientRects().length);
+          const vh = counterVisible ? Math.round(voteCounter.getBoundingClientRect().height) : 0;
+          root.style.setProperty('--desktop-vote-counter-h', `${Math.max(0, vh)}px`);
+        } else {
+          root.style.removeProperty('--desktop-vote-counter-h');
+        }
+        if (!isMobile) {
+          root.style.removeProperty('--legend-h');
+          root.style.removeProperty('--controls-h');
+          root.style.removeProperty('--mobile-dock-h');
+          root.style.removeProperty('--vote-counter-h');
+          return;
+        }
+        const counterVisibleMobile = !!(voteCounter && voteCounter.style.display !== 'none' && voteCounter.getClientRects().length);
+        const vhm = counterVisibleMobile ? Math.round(voteCounter.getBoundingClientRect().height || 0) : 0;
+        root.style.setProperty('--vote-counter-h', `${Math.max(0, vhm)}px`);
+        const legend = document.getElementById('legend');
+        const controls = document.getElementById('main-controls');
+        const legendVisible = !!(legend && legend.classList.contains('mobile-sheet-active'));
+        const controlsVisible = !!(controls && controls.classList.contains('mobile-sheet-active'));
+        const lh = legendVisible ? Math.round(legend.getBoundingClientRect().height) : 56;
+        const ch = controlsVisible ? Math.round(controls.getBoundingClientRect().height) : 0;
+        root.style.setProperty('--legend-h', `${Math.max(0, lh)}px`);
+        root.style.setProperty('--controls-h', `${Math.max(0, ch)}px`);
+      } catch (_) {}
+    }
+
+    let mobileOverlayOffsetsWired = false;
+    function wireMobileOverlayOffsets() {
+      if (mobileOverlayOffsetsWired) return;
+      mobileOverlayOffsetsWired = true;
+      try {
+        updateMobileOverlayOffsets();
+        window.addEventListener('resize', () => { try { updateMobileOverlayOffsets(); } catch (_) {} }, { passive: true });
+        window.addEventListener('orientationchange', () => { try { updateMobileOverlayOffsets(); } catch (_) {} }, { passive: true });
+        if (typeof ResizeObserver !== 'undefined') {
+          const targets = ['map-topbar', 'main-controls', 'legend', 'vote-counter', 'mobile-dock']
+            .map(id => document.getElementById(id))
+            .filter(Boolean);
+          if (targets.length) {
+            if (window.__overlayOffsetsResizeObserver) {
+              try { window.__overlayOffsetsResizeObserver.disconnect(); } catch (_) {}
+            }
+            window.__overlayOffsetsResizeObserver = new ResizeObserver(() => {
+              try { updateMobileOverlayOffsets(); } catch (_) {}
+            });
+            targets.forEach(node => {
+              try { window.__overlayOffsetsResizeObserver.observe(node); } catch (_) {}
+            });
+          }
+        }
+      } catch (_) {}
+    }
+
+    function minimizeLegendOnMobile() {
+      try {
+        const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        if (!isMobile) return;
+        const legend = document.getElementById('legend');
+        const legendContent = document.getElementById('legend-content');
+        const minimizeBtn = document.getElementById('legend-minimize-btn');
+        if (!legend || !legendContent || !minimizeBtn) return;
+        if (legend.classList.contains('minimized')) return;
+        legend.classList.add('minimized');
+        legend.classList.remove('mobile-sheet-active');
+        setMobileSheetSnap(legend, 'collapsed');
+        if (activeMobileSheetKey === 'legend') activeMobileSheetKey = null;
+        legendContent.style.display = 'none';
+        minimizeBtn.textContent = '+';
+        minimizeBtn.title = 'Expand legend';
+        syncMobileDockButtons();
+        try { updateMobileOverlayOffsets(); } catch (_) {}
+      } catch (_) {}
+    }
+
+    function minimizeMainControlsOnMobile() {
+      try {
+        const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        if (!isMobile) return;
+        const controls = document.getElementById('main-controls');
+        const controlsContent = document.getElementById('controls-content');
+        const minimizeBtn = document.getElementById('controls-minimize-btn');
+        if (!controls || !controlsContent || !minimizeBtn) return;
+        if (controls.classList.contains('minimized')) return;
+        controls.classList.add('minimized');
+        controls.classList.remove('mobile-sheet-active');
+        setMobileSheetSnap(controls, 'collapsed');
+        if (activeMobileSheetKey === 'layers') activeMobileSheetKey = null;
+        controlsContent.style.display = 'none';
+        minimizeBtn.textContent = '+';
+        minimizeBtn.title = 'Expand controls';
+        syncMobileDockButtons();
+        try { updateMobileOverlayOffsets(); } catch (_) {}
+      } catch (_) {}
+    }
+
+    // Toggles the visibility of the main controls panel, minimizing or expanding it based on its current state.
+    function toggleMainControls() {
+      const controls = document.getElementById('main-controls');
+      const controlsContent = document.getElementById('controls-content');
+      const minimizeBtn = document.getElementById('controls-minimize-btn');
+      
+      if (controls.classList.contains('minimized')) {
+        // Expand controls
+        controls.classList.remove('minimized');
+        controlsContent.style.display = 'block';
+        controls.scrollTop = 0;
+        minimizeBtn.textContent = '-';
+        minimizeBtn.title = 'Minimize controls';
+      } else {
+        // Minimize controls
+        controls.classList.add('minimized');
+        controlsContent.style.display = 'none';
+        minimizeBtn.textContent = '+';
+        minimizeBtn.title = 'Expand controls';
+      }
+      saveUIState();
+      if (isMobileViewportNow() && controls) {
+        controls.classList.add('mobile-sheet-panel');
+        if (controls.classList.contains('minimized')) {
+          controls.classList.remove('mobile-sheet-active');
+          setMobileSheetSnap(controls, 'collapsed');
+          if (activeMobileSheetKey === 'layers') activeMobileSheetKey = null;
+        } else {
+          controls.classList.add('mobile-sheet-active');
+          setMobileSheetSnap(controls, 'half');
+          activeMobileSheetKey = 'layers';
+        }
+        syncMobileDockButtons();
+      }
+      try { updateMobileOverlayOffsets(); } catch (_) {}
+    }
+
+    function showCountyDetails(countyName) {
+      // --- Selected focus details cache (used to support trend rendering state) ---
+      let focusContent = '';
+      const detailsDiv = document.getElementById('county-details');
+      const contentEl = document.getElementById('county-info-content');
+      const sidebarReady = !!(contentEl && detailsDiv);
+      // Focus panel content is assembled below.
+      const countyNameElement = document.getElementById('county-name');
+      const countySubheadElement = document.getElementById('county-subhead');
+      const countyDisplay = displayCountyName(countyName);
+      window.lastSelectedCounty = countyDisplay;
+      updateContextBanner();
+      if (countyNameElement) setFocusNameWithTierBadge(countyNameElement, `${countyDisplay} County`);
+      if (countySubheadElement) countySubheadElement.textContent = '';
+      // focusContent already declared above
+      // Guard: election results must exist
+      if (!currentElectionResults) {
+        if (sidebarReady) {
+          contentEl.innerHTML = '<p>Select a contest to see county results.</p>';
+          detailsDiv.style.display = 'block';
+        }
+        return;
+      }
+      // Normalize and find county data
+      function normalizeCountyName(name) {
+        return (name || '')
+          .replace(/[^a-z0-9 .\-]/gi, '')  // Keep periods for St. names and hyphens for Miami-Dade
+          .replace(/\s+/g, ' ')
+          .trim()
+          .toUpperCase();
+      }
+      let norm = normalizeCountyName(countyName);
+      let countyData = currentElectionResults[norm];
+      if (!countyData) {
+        for (const key in currentElectionResults) {
+          if (normalizeCountyName(key) === norm) {
+            countyData = currentElectionResults[key];
+            break;
+          }
+        }
+      }
+      if (!countyData) {
+        if (sidebarReady) {
+          contentEl.innerHTML = '<p>No results found for this county in the selected contest.</p>';
+          detailsDiv.style.display = 'block';
+        }
+        return;
+      }
+      // Get contest info
+      const contestSelect = document.getElementById('contestSelect');
+      const contestKey = contestSelect && contestSelect.value;
+      if (!contestKey) {
+        if (sidebarReady) {
+          contentEl.innerHTML = '<p>Select a contest to see detailed results.</p>';
+          detailsDiv.style.display = 'block';
+        }
+        return;
+      }
+      const lastUnderscoreIndex = contestKey.lastIndexOf('_');
+      const contestType = contestKey.substring(0, lastUnderscoreIndex);
+      const year = contestKey.substring(lastUnderscoreIndex + 1);
+      // Votes
+      const demVotes = countyData[`${contestType}_dem`] || 0;
+      const repVotes = countyData[`${contestType}_rep`] || 0;
+      const otherVotes = countyData[`${contestType}_other`] || 0;
+      const totalVotes = countyData[`${contestType}_total`] || 0;
+      if (totalVotes === 0) {
+        if (sidebarReady) {
+          contentEl.innerHTML = `<p>No ${formatContestName(contestType, year)} data available for ${countyDisplay} County in ${year}.</p>`;
+          detailsDiv.style.display = 'block';
+        }
+        return;
+      }
+      const demPct = (demVotes / totalVotes * 100);
+      const repPct = (repVotes / totalVotes * 100);
+      const rawMarginPctForDisplay = marginPctValue(repVotes, demVotes, totalVotes);
+      const demPctLabel = formatPctForCountyCloseRace(demPct, rawMarginPctForDisplay);
+      const repPctLabel = formatPctForCountyCloseRace(repPct, rawMarginPctForDisplay);
+      // Candidate names
+  let demCandidate = (countyData[`${contestType}_dem_candidate`] || '').toString().trim() || getCandidateName(year, formatContestName(contestType, year), 'Democrat');
+  let repCandidate = (countyData[`${contestType}_rep_candidate`] || '').toString().trim() || getCandidateName(year, formatContestName(contestType, year), 'Republican');
+  demCandidate = stripRunningMateName(demCandidate);
+  repCandidate = stripRunningMateName(repCandidate);
+      pinVoteCounterState(
+        `Selected: ${countyDisplay} County`,
+        `${formatContestLabel(contestType, year)}`,
+        demVotes,
+        repVotes,
+        otherVotes,
+        { kind: 'county', county: countyDisplay.toUpperCase(), contestType, year: Number(year) },
+        { demCandidate, repCandidate }
+      );
+      if (!sidebarReady) return;
+      // Margin
+      const margin = demVotes - repVotes;
+      const signedMarginPctRaw = Number(countyData[`${contestType}_margin_pct`]);
+      const signedMarginPct = Number.isFinite(signedMarginPctRaw)
+        ? signedMarginPctRaw
+        : signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+      const marginPct = Math.abs(signedMarginPct);
+      const marginPctLabel = formatCountyMarginPctForDisplay(marginPct);
+      const winner = margin > 0 ? 'Democratic' : (margin < 0 ? 'Republican' : 'Tie');
+      const winnerCandidate = margin > 0 ? demCandidate : repCandidate;
+      const marginText = winnerMarginLabelShortCounty(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
+      const tierMeta = competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
+      const shouldShowModeledCountyEnhancements = isModeledSenateEnhancementContest(contestType, year);
+      const modeledCountyBaselineSignedRaw = Number(countyData.__model_baseline_margin_pct);
+      const modeledCountyWithCandidatesSignedRaw = Number(countyData.__model_with_candidates_margin_pct);
+      const modeledCountyWithCandidatesSigned = Number.isFinite(modeledCountyWithCandidatesSignedRaw)
+        ? modeledCountyWithCandidatesSignedRaw
+        : Number(signedMarginPct);
+      const modeledCountyBaselineSigned = Number.isFinite(modeledCountyBaselineSignedRaw)
+        ? modeledCountyBaselineSignedRaw
+        : NaN;
+      const modeledCountyCandidateEffectDemPtsRaw = Number(countyData.__model_candidate_effect_d_pts);
+      const modeledCountyCandidateEffectDemPts = Number.isFinite(modeledCountyCandidateEffectDemPtsRaw)
+        ? modeledCountyCandidateEffectDemPtsRaw
+        : (Number.isFinite(modeledCountyBaselineSigned) ? (modeledCountyBaselineSigned - modeledCountyWithCandidatesSigned) : NaN);
+      if (countyNameElement) setFocusNameWithTierBadge(countyNameElement, `${countyDisplay} County`, tierMeta);
+      // Accessibility palette for winner color
+      function cbColorForMargin(marginPct, winner) {
+        if (marginPct >= 40) {
+          return winner === 'Republican' ? '#cc5500' : '#004d99';
+        } else if (marginPct >= 30 && marginPct <= 39.99) {
+          return winner === 'Republican' ? '#ff6600' : '#0066cc';
+        } else if (marginPct >= 20 && marginPct <= 29.99) {
+          return winner === 'Republican' ? '#ff8833' : '#0080ff';
+        } else if (marginPct >= 10 && marginPct <= 19.99) {
+          return winner === 'Republican' ? '#ffaa55' : '#3399ff';
+        } else if (marginPct >= 5.51 && marginPct <= 9.99) {
+          return winner === 'Republican' ? '#ffcc77' : '#66b3ff';
+        } else if (marginPct >= 1 && marginPct <= 5.5) {
+          return winner === 'Republican' ? '#ffdd99' : '#99ccff';
+        } else if (marginPct >= 0.51 && marginPct <= 0.99) {
+          return winner === 'Republican' ? '#ffeecc' : '#b3d9ff';
+        } else {
+          return '#cccccc';
+        }
+      }
+      const isColorblind = document.body.classList.contains('colorblind-mode');
+      // Accessibility palette for winner color (always orange/yellow for Republican in colorblind mode)
+      let winnerColor = '#dc2626';
+      if (winner === 'Republican') {
+        if (isColorblind) {
+          if (marginPct >= 40) winnerColor = '#cc5500';
+          else if (marginPct >= 30) winnerColor = '#ff6600';
+          else if (marginPct >= 20) winnerColor = '#ff8833';
+          else if (marginPct >= 10) winnerColor = '#ffaa55';
+          else if (marginPct >= 5.5) winnerColor = '#ffcc77';
+          else if (marginPct >= 1) winnerColor = '#ffdd99';
+          else if (marginPct >= 0.5) winnerColor = '#ffeecc';
+          else winnerColor = '#cccccc';
+        }
+      } else {
+        winnerColor = isColorblind ? cbColorForMargin(marginPct, 'D') : '#2563eb';
+      }
+      // Precincts (if available)
+      let precincts = '';
+      if (countyData.precincts || countyData.Precincts || countyData.PRECINCTS) {
+        precincts = countyData.precincts || countyData.Precincts || countyData.PRECINCTS;
+      }
+      // --- Premium, first-time-friendly sidebar hierarchy ---
+      const focusKey = `${norm}|${contestType}|${year}`;
+      try { contentEl.dataset.focusKey = focusKey; } catch (_) {}
+
+      const contestLabel = `${formatContestName(contestType, year)} • ${year}`;
+      const partyTone = winner === 'Republican' ? 'rep' : (winner === 'Democratic' ? 'dem' : 'tie');
+      const toneClass = partyTone === 'rep' ? 'tone-rep' : (partyTone === 'dem' ? 'tone-dem' : 'tone-neutral');
+      const noun = 'county';
+
+      const otherPctLabel = otherVotes > 0
+        ? formatPctForCountyCloseRace((otherVotes / totalVotes * 100), rawMarginPctForDisplay)
+        : '';
+
+      const winnerLabel = winner === 'Tie'
+        ? 'Tie'
+        : `${fullCandidateLabel(winnerCandidate, winner === 'Republican' ? 'Republican' : 'Democratic')} (${winner === 'Republican' ? 'R' : 'D'})`;
+      const marginShort = winner === 'Tie'
+        ? 'Even'
+        : `${winner === 'Republican' ? 'R' : 'D'}+${marginPctLabel}%`;
+      const splitShort = `${demPctLabel}% D • ${repPctLabel}% R${otherVotes > 0 ? ` • ${otherPctLabel}% Other` : ''}`;
+
+      // Subhead (result first, then context)
+      const countySubhead = document.getElementById('county-subhead');
+      if (countySubhead) {
+        const strengthPillClass = partyTone === 'rep' ? 'rep' : (partyTone === 'dem' ? 'dem' : '');
+        const bellwetherPill = isBellwetherCounty(norm)
+          ? `<span class="pill" style="background:rgba(168,85,247,0.12);border-color:rgba(216,180,254,0.55);color:#581c87;">Barometer</span>`
+          : '';
+        countySubhead.innerHTML = `
+          <span class="pill ${escapeHtml(strengthPillClass)}"><strong>${escapeHtml(winner === 'Tie' ? 'Even' : shortCandidateLabel(winnerCandidate, winner === 'Republican' ? 'R' : 'D'))}</strong> ${escapeHtml(marginShort)}</span>
+          <span class="pill muted">${escapeHtml(splitShort)}</span>
+          <span class="pill ${escapeHtml(strengthPillClass)}">${escapeHtml(tierMeta?.shortLabel || tierMeta?.label || 'Tossup')}</span>
+          <span class="pill"><strong>${escapeHtml(contestLabel)}</strong></span>
+          ${bellwetherPill}
+        `;
+      }
+
+      const vsNcShort = (() => {
+        try {
+          const rows = currentElectionResults ? Object.values(currentElectionResults) : [];
+          if (!rows.length) return '';
+          let sd = 0, sr = 0;
+          rows.forEach(r => {
+            sd += Number(r?.[`${contestType}_dem`] || 0);
+            sr += Number(r?.[`${contestType}_rep`] || 0);
+          });
+          const two = sd + sr;
+          if (!Number.isFinite(two) || two <= 0) return '';
+          const stateSigned = ((sr - sd) / two) * 100;
+          const delta = Number(signedMarginPct) - stateSigned;
+          if (!Number.isFinite(delta)) return '';
+          if (Math.abs(delta) < 0.15) return 'About even with North Carolina.';
+          const a = Math.abs(delta);
+          return delta > 0
+            ? `This county is ${a.toFixed(1)} points more Republican than North Carolina.`

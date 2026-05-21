@@ -412,5 +412,65 @@
     "YORK - CLOVER": 0.369242,
     "YORK - HAMPTON MILL": 0.295467,
     "YORK - ROOSEVELT": 0.335291
+  },
+  "Aiken - Belvedere No 44": {
+    "Aiken - Belvedere No. 44": 0.517241,
+    "Aiken - Belvedere No. 74": 0.482759
+  },
+  "Aiken - Belvedere No 62": {
+    "Aiken - Belvedere No. 62": 0.52755,
+    "Aiken - Belvedere No. 9": 0.47245
+  },
+  "Aiken - Gem Lakes No 60": {
+    "Aiken - Gem Lakes No. 60": 0.535714,
+    "Aiken - Gem Lakes No. 77": 0.464286
+  },
+  "Aiken - N Augusta No 26": {
+    "Aiken - N. Augusta No. 26": 0.517241,
+    "Aiken - N. Augusta No. 68": 0.482759
+  },
+  "Aiken - Sandstone No.70": {
+    "Aiken - Sandstone No. 70": 0.517241,
+    "Aiken - Sandstone No. 79": 0.482759
+  },
+  "Berkeley - Carnes Cross Rd 1": {
+    "Berkeley - Carnes Cross Roads 1": 0.508306,
+    "Berkeley - Carnes Cross Road 2": 0.491694
+  },
+  "Colleton - Walterboro No 1": {
+    "Colleton - Walterboro No. 1": 0.517241,
+    "Colleton - Walterboro No. 6": 0.482759
+  },
+  "Colleton - Walterboro No 2": {
+    "Colleton - Walterboro No. 2": 0.517241,
+    "Colleton - Walterboro No. 6": 0.482759
+  },
+  "Colleton - Walterboro No 3": {
+    "Colleton - Walterboro No. 3": 0.517241,
+    "Colleton - Walterboro No. 6": 0.482759
+  },
+  "Colleton - Walterboro No 4": {
+    "Colleton - Walterboro No. 4": 0.517241,
+    "Colleton - Walterboro No. 6": 0.482759
+  },
+  "Horry - Carolina Forest": {
+    "Horry - Carolina Forest 2": 0.5,
+    "Horry - Carolina Forest 1": 0.5
+  },
+  "Horry - Emerald Forest": {
+    "Horry - Emerald Forest 3": 0.5,
+    "Horry - Emerald Forest 2": 0.5
+  },
+  "Horry - Windy Hill": {
+    "Horry - Windy Hill 2": 0.5,
+    "Horry - Windy Hill 1": 0.5
+  },
+  "Richland - Oak Pointe": {
+    "Richland - Oak Pointe 3": 0.5,
+    "Richland - Oak Pointe 2": 0.5
+  },
+  "Richland - Dutch Fork": {
+    "Richland - Dutch Fork 4": 0.5,
+    "Richland - Dutch Fork 3": 0.5
   }
 }

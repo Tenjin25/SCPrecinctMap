@@ -1,0 +1,360 @@
+      }
+
+      if (typeof window.PointerEvent !== 'undefined') {
+        grab.addEventListener('pointerdown', (event) => {
+          if (event.pointerType === 'mouse' && event.button !== 0) return;
+          event.preventDefault();
+          beginDrag(event.clientX, event.clientY, event.pointerId, event.timeStamp);
+          try { grab.setPointerCapture(event.pointerId); } catch (_) {}
+        });
+        grab.addEventListener('pointermove', (event) => {
+          if (!dragState) return;
+          if (dragState.pointerId !== null && event.pointerId !== dragState.pointerId) return;
+          updateDrag(event.clientX, event.clientY, event.timeStamp);
+        });
+        grab.addEventListener('pointerup', (event) => {
+          if (!dragState) return;
+          if (dragState.pointerId !== null && event.pointerId !== dragState.pointerId) return;
+          finishDrag(event.clientX, event.clientY, event.timeStamp);
+          try { grab.releasePointerCapture(event.pointerId); } catch (_) {}
+        });
+        grab.addEventListener('pointercancel', () => {
+          resetDragState();
+        });
+      } else {
+        grab.addEventListener('touchstart', (event) => {
+          const touch = event.changedTouches && event.changedTouches[0];
+          if (!touch) return;
+          beginDrag(touch.clientX, touch.clientY, touch.identifier, event.timeStamp);
+        }, { passive: true });
+        grab.addEventListener('touchmove', (event) => {
+          if (!dragState) return;
+          const touches = event.changedTouches;
+          if (!touches || !touches.length) return;
+          let matched = false;
+          for (let i = 0; i < touches.length; i += 1) {
+            const touch = touches[i];
+            if (dragState.pointerId !== null && touch.identifier !== dragState.pointerId) continue;
+            updateDrag(touch.clientX, touch.clientY, event.timeStamp);
+            matched = true;
+            break;
+          }
+          if (!matched) resetDragState();
+        }, { passive: true });
+        grab.addEventListener('touchend', (event) => {
+          if (!dragState) return;
+          const touches = event.changedTouches;
+          if (!touches || !touches.length) {
+            resetDragState();
+            return;
+          }
+          let matched = false;
+          for (let i = 0; i < touches.length; i += 1) {
+            const touch = touches[i];
+            if (dragState.pointerId !== null && touch.identifier !== dragState.pointerId) continue;
+            finishDrag(touch.clientX, touch.clientY, event.timeStamp);
+            matched = true;
+            break;
+          }
+          if (!matched) resetDragState();
+        }, { passive: true });
+        grab.addEventListener('touchcancel', () => {
+          resetDragState();
+        }, { passive: true });
+      }
+
+      grab.addEventListener('click', (event) => {
+        if (grab.dataset.swiped === 'true') {
+          event.preventDefault();
+          event.stopPropagation();
+          return;
+        }
+        event.preventDefault();
+        event.stopPropagation();
+        toggleMobileSheet(key);
+      });
+      panel.insertBefore(grab, panel.firstChild);
+    }
+
+    function syncMobileDockButtons() {
+      const buttons = document.querySelectorAll('[data-mobile-sheet-btn]');
+      buttons.forEach(btn => {
+        const key = btn.getAttribute('data-mobile-sheet-btn') || '';
+        const pressed = key && key === activeMobileSheetKey;
+        btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+        btn.setAttribute('aria-expanded', pressed ? 'true' : 'false');
+        const panelId = MOBILE_SHEET_PANEL_IDS[key];
+        if (panelId) btn.setAttribute('aria-controls', panelId);
+        const panelLabel = MOBILE_SHEET_PANEL_LABELS[key] || 'panel';
+        btn.title = pressed ? `Collapse ${panelLabel} panel` : `Open ${panelLabel} panel`;
+      });
+      document.body.classList.toggle('mobile-sheet-open', !!activeMobileSheetKey && isMobileViewportNow());
+      try {
+        if (!activeMobileSheetKey && mobileSheetVoteCounterSnapshot !== null) {
+          const blocked = !!(document.body.classList.contains('mobile-input-active') || mobileInputFocusSnapshot);
+          if (!blocked && mobileSheetVoteCounterSnapshot) {
+            setVoteCounterMinimizedState(false);
+          }
+          mobileSheetVoteCounterSnapshot = null;
+        }
+      } catch (_) {}
+    }
+
+    function expandLegendOnMobile() {
+      const legend = document.getElementById('legend');
+      const legendContent = document.getElementById('legend-content');
+      const minimizeBtn = document.getElementById('legend-minimize-btn');
+      if (!legend || !legendContent || !minimizeBtn) return;
+      legend.classList.remove('minimized');
+      legendContent.style.display = 'block';
+      minimizeBtn.textContent = '-';
+      minimizeBtn.title = 'Minimize legend';
+    }
+
+    function expandMainControlsOnMobile() {
+      const controls = document.getElementById('main-controls');
+      const controlsContent = document.getElementById('controls-content');
+      const minimizeBtn = document.getElementById('controls-minimize-btn');
+      if (!controls || !controlsContent || !minimizeBtn) return;
+      controls.classList.remove('minimized');
+      controlsContent.style.display = 'block';
+      minimizeBtn.textContent = '-';
+      minimizeBtn.title = 'Minimize controls';
+    }
+
+    function closeMobileSheet(key) {
+      const panel = getMobileSheetPanel(key);
+      if (!panel) return;
+      panel.classList.remove('mobile-sheet-active');
+      setMobileSheetSnap(panel, 'collapsed');
+      if (key === 'search') {
+        try {
+          const topbar = document.getElementById('map-topbar');
+          if (topbar) topbar.classList.remove('topbar-expanded');
+          if (typeof window.syncMobileTopbarToggle === 'function') window.syncMobileTopbarToggle();
+        } catch (_) {}
+      } else if (key === 'layers') {
+        try { minimizeMainControlsOnMobile(); } catch (_) {}
+      } else if (key === 'legend') {
+        try { minimizeLegendOnMobile(); } catch (_) {}
+      }
+    }
+
+    function openMobileSheet(key, snap = 'half') {
+      if (!isMobileViewportNow()) return;
+      const panel = getMobileSheetPanel(key);
+      if (!panel) return;
+      try {
+        if (mobileSheetVoteCounterSnapshot === null) {
+          const counter = document.getElementById('vote-counter');
+          mobileSheetVoteCounterSnapshot = !!(counter && !counter.classList.contains('minimized'));
+        }
+        setVoteCounterMinimizedState(true);
+      } catch (_) {}
+      try { closeHoverUI({ force: true }); } catch (_) {}
+      Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(otherKey => {
+        if (otherKey === key) return;
+        closeMobileSheet(otherKey);
+      });
+      panel.classList.add('mobile-sheet-panel', 'mobile-sheet-active');
+      setMobileSheetSnap(panel, snap);
+      if (key === 'search') {
+        try {
+          const topbar = document.getElementById('map-topbar');
+          if (topbar) topbar.classList.add('topbar-expanded');
+          if (typeof window.syncMobileTopbarToggle === 'function') window.syncMobileTopbarToggle();
+        } catch (_) {}
+      } else if (key === 'layers') {
+        expandMainControlsOnMobile();
+      } else if (key === 'legend') {
+        expandLegendOnMobile();
+      }
+      if (snap === 'collapsed') {
+        closeMobileSheet(key);
+        activeMobileSheetKey = null;
+      } else {
+        activeMobileSheetKey = key;
+      }
+      syncMobileDockButtons();
+      try { updateMobileOverlayOffsets(); } catch (_) {}
+    }
+
+    function closeAllMobileSheets() {
+      Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => closeMobileSheet(key));
+      activeMobileSheetKey = null;
+      syncMobileDockButtons();
+      try { updateMobileOverlayOffsets(); } catch (_) {}
+    }
+
+    function swipeMobileSheet(key, direction = 'up') {
+      if (!isMobileViewportNow()) return;
+      if (!MOBILE_SHEET_PANEL_IDS[key]) return;
+      if (activeMobileSheetKey !== key) {
+        if (direction === 'up') openMobileSheet(key, 'half');
+        return;
+      }
+      const current = getMobileSheetSnap(key);
+      let next = current;
+      if (direction === 'up') {
+        next = current === 'collapsed' ? 'half' : 'full';
+      } else {
+        next = current === 'full' ? 'half' : 'collapsed';
+      }
+      if (next === 'collapsed') {
+        closeMobileSheet(key);
+        activeMobileSheetKey = null;
+        syncMobileDockButtons();
+        try { updateMobileOverlayOffsets(); } catch (_) {}
+        return;
+      }
+      openMobileSheet(key, next);
+    }
+
+    function toggleMobileSheet(key) {
+      if (!isMobileViewportNow()) return;
+      if (!MOBILE_SHEET_PANEL_IDS[key]) return;
+      if (activeMobileSheetKey !== key) {
+        openMobileSheet(key, 'half');
+        return;
+      }
+      const current = getMobileSheetSnap(key);
+      const idx = MOBILE_SHEET_SNAP_SEQUENCE.indexOf(current);
+      const next = MOBILE_SHEET_SNAP_SEQUENCE[(idx + 1) % MOBILE_SHEET_SNAP_SEQUENCE.length];
+      if (next === 'collapsed') {
+        closeMobileSheet(key);
+        activeMobileSheetKey = null;
+        syncMobileDockButtons();
+        try { updateMobileOverlayOffsets(); } catch (_) {}
+        return;
+      }
+      openMobileSheet(key, next);
+    }
+
+    function setupMobileDockAndSheets() {
+      if (mobileSheetSystemReady) return;
+      mobileSheetSystemReady = true;
+      try {
+        Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => {
+          const panel = getMobileSheetPanel(key);
+          if (!panel) return;
+          panel.classList.add('mobile-sheet-panel');
+          setMobileSheetSnap(panel, 'collapsed');
+          panel.classList.remove('mobile-sheet-active');
+          ensureMobileSheetGrab(panel, key);
+        });
+        document.querySelectorAll('[data-mobile-sheet-btn]').forEach(btn => {
+          if (btn.dataset.mobileSheetReady === 'true') return;
+          btn.dataset.mobileSheetReady = 'true';
+          btn.addEventListener('click', () => {
+            const key = btn.getAttribute('data-mobile-sheet-btn') || '';
+            toggleMobileSheet(key);
+          });
+        });
+        const scrim = document.getElementById('mobile-sheet-scrim');
+        if (scrim && scrim.dataset.mobileSheetReady !== 'true') {
+          scrim.dataset.mobileSheetReady = 'true';
+          scrim.addEventListener('click', () => { closeAllMobileSheets(); });
+        }
+        if (!window.__mobileSheetEscapeReady) {
+          window.__mobileSheetEscapeReady = true;
+          document.addEventListener('keydown', (event) => {
+            if (event.key !== 'Escape') return;
+            if (!isMobileViewportNow()) return;
+            if (!activeMobileSheetKey) return;
+            event.preventDefault();
+            closeAllMobileSheets();
+          });
+        }
+        window.addEventListener('resize', () => {
+          try {
+            if (!isMobileViewportNow()) {
+              closeAllMobileSheets();
+              document.body.classList.remove('mobile-sheet-open', 'mobile-input-active');
+              mobileInputFocusSnapshot = null;
+              if (mobileInputRestoreTimer) {
+                clearTimeout(mobileInputRestoreTimer);
+                mobileInputRestoreTimer = null;
+              }
+              Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => {
+                const panel = getMobileSheetPanel(key);
+                if (!panel) return;
+                panel.classList.remove('mobile-sheet-active');
+                setMobileSheetSnap(panel, 'collapsed');
+              });
+            } else {
+              Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(key => {
+                const panel = getMobileSheetPanel(key);
+                if (!panel) return;
+                panel.classList.add('mobile-sheet-panel');
+                ensureMobileSheetGrab(panel, key);
+                if (!panel.dataset.mobileSnap) setMobileSheetSnap(panel, 'collapsed');
+              });
+            }
+          } catch (_) {}
+        }, { passive: true });
+      } catch (_) {}
+      closeAllMobileSheets();
+    }
+
+    function isMobileEditableField(node) {
+      if (!node || !node.tagName) return false;
+      const tag = node.tagName.toLowerCase();
+      if (tag !== 'input' && tag !== 'textarea' && tag !== 'select') return false;
+      return !!(node.closest && (node.closest('#map-topbar') || node.closest('#main-controls')));
+    }
+
+    function restoreMobileInputFocusMode() {
+      if (!mobileInputFocusSnapshot) return;
+      const snap = mobileInputFocusSnapshot;
+      mobileInputFocusSnapshot = null;
+      document.body.classList.remove('mobile-input-active');
+      if (!isMobileViewportNow()) return;
+      try {
+        if (!snap.voteCounterWasMinimized) setVoteCounterMinimizedState(false);
+      } catch (_) {}
+      if (snap.activeSheetKey) {
+        openMobileSheet(snap.activeSheetKey, snap.activeSheetSnap || 'half');
+      } else {
+        closeAllMobileSheets();
+      }
+    }
+
+    function setupMobileInputFocusBehavior() {
+      if (mobileInputFocusWired) return;
+      mobileInputFocusWired = true;
+      document.addEventListener('focusin', (event) => {
+        const target = event.target;
+        if (!isMobileViewportNow()) return;
+        if (!isMobileEditableField(target)) return;
+        if (!mobileInputFocusSnapshot) {
+          const counter = document.getElementById('vote-counter');
+          mobileInputFocusSnapshot = {
+            voteCounterWasMinimized: !!(counter && counter.classList.contains('minimized')),
+            activeSheetKey: activeMobileSheetKey,
+            activeSheetSnap: activeMobileSheetKey ? getMobileSheetSnap(activeMobileSheetKey) : 'collapsed'
+          };
+        }
+        document.body.classList.add('mobile-input-active');
+        try { minimizeLegendOnMobile(); } catch (_) {}
+        try { setVoteCounterMinimizedState(true); } catch (_) {}
+        if (target.closest && target.closest('#map-topbar')) {
+          openMobileSheet('search', 'half');
+        }
+      }, true);
+      document.addEventListener('focusout', () => {
+        if (!isMobileViewportNow()) return;
+        if (mobileInputRestoreTimer) clearTimeout(mobileInputRestoreTimer);
+        mobileInputRestoreTimer = setTimeout(() => {
+          const active = document.activeElement;
+          if (isMobileEditableField(active)) return;
+          restoreMobileInputFocusMode();
+          mobileInputRestoreTimer = null;
+        }, 140);
+      }, true);
+    }
+
+    function updateMobileOverlayOffsets() {
+      // Measure the floating UI so mobile overlays and the desktop right rail can avoid collisions.
+      try {
+        const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        const isDesktop = window.matchMedia && window.matchMedia('(min-width: 769px)').matches;

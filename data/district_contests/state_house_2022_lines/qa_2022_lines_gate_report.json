@@ -1,0 +1,22 @@
+{
+  "applied": {
+    "min_coverage_pct": 95.0,
+    "max_total_pct_error": 1.0,
+    "flag_only": true
+  },
+  "scenario_95": {
+    "kept": 41,
+    "pruned": 0,
+    "pruned_records": []
+  },
+  "scenario_98": {
+    "kept": 41,
+    "pruned": 0,
+    "pruned_records": []
+  },
+  "applied_result": {
+    "kept": 41,
+    "pruned": 0,
+    "pruned_records": []
+  }
+}

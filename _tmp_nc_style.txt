@@ -1,0 +1,220 @@
+      margin-right: 12px !important;
+    }
+  }
+  @media (max-width: 768px) {
+    /* Mobile: dock hover tooltip above the dock controls for easier reading/taps. */
+    #hover-tooltip {
+      position: fixed !important;
+      left: 8px !important;
+      right: 8px !important;
+      top: auto !important;
+        bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
+      max-width: none !important;
+      width: auto !important;
+      max-height: min(54vh, calc(100vh - 16px - var(--safe-top, 0px) - var(--safe-bottom, 0px) - var(--mobile-dock-h, 62px) - var(--vote-counter-h, 0px)));
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+      z-index: 10031 !important;
+    }
+    @supports (height: 100svh) {
+      #hover-tooltip {
+        max-height: min(54svh, calc(100svh - 16px - var(--safe-top, 0px) - var(--safe-bottom, 0px) - var(--mobile-dock-h, 62px) - var(--vote-counter-h, 0px)));
+      }
+    }
+    #hover-tooltip .tooltip-btn {
+      min-height: 44px;
+      padding: 10px 12px;
+      font-size: 13px;
+      border-radius: 12px;
+    }
+    #hover-tooltip .tooltip-head {
+      flex-direction: column;
+      gap: 8px;
+    }
+    #hover-tooltip .tooltip-actions {
+      width: 100%;
+    }
+    #hover-tooltip .tooltip-btn {
+      flex: 1 1 auto;
+    }
+  }
+    .spinner svg {
+      vertical-align: middle;
+    }
+    @keyframes spinner-rotate {
+      to { transform: rotate(360deg); }
+    }
+    .spinner svg circle {
+      animation: spinner-rotate 0.8s linear infinite;
+    }
+    .district-lines-loading-hint {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+    .district-lines-loading-hint.is-visible {
+      display: flex;
+    }
+  /* Colorblind mode legend readability.
+     Use dashed separators with palette-matched yellow/blue tones (not black). */
+  body.colorblind-mode .legend-spectrum .legend-segment.legend-color {
+    box-sizing: border-box;
+    border: 1px dashed rgba(100, 116, 139, 0.45) !important;
+    box-shadow: none !important;
+  }
+  body.colorblind-mode .legend-spectrum.margins .legend-segment.legend-color:nth-child(-n+7) {
+    border-color: rgba(217, 119, 6, 0.75) !important;
+  }
+  body.colorblind-mode .legend-spectrum.margins .legend-segment.legend-color:nth-child(8) {
+    border-color: rgba(100, 116, 139, 0.6) !important;
+  }
+  body.colorblind-mode .legend-spectrum.margins .legend-segment.legend-color:nth-child(n+9) {
+    border-color: rgba(37, 99, 235, 0.75) !important;
+  }
+  body.colorblind-mode .legend-spectrum.shift .legend-segment.legend-color:nth-child(-n+3) {
+    border-color: rgba(37, 99, 235, 0.75) !important;
+  }
+  body.colorblind-mode .legend-spectrum.shift .legend-segment.legend-color:nth-child(4) {
+    border-color: rgba(100, 116, 139, 0.6) !important;
+  }
+  body.colorblind-mode .legend-spectrum.shift .legend-segment.legend-color:nth-child(n+5) {
+    border-color: rgba(217, 119, 6, 0.75) !important;
+  }
+  body.colorblind-mode .legend-swatch-card .legend-color {
+    border: 1px solid rgba(15, 23, 42, 0.55) !important;
+  }
+  body.colorblind-mode .legend-axis .rep,
+  body.colorblind-mode .legend-scale-caption .rep {
+    color: #b45309 !important;
+  }
+  body.colorblind-mode .legend-axis .dem,
+  body.colorblind-mode .legend-scale-caption .dem {
+    color: #1d4ed8 !important;
+  }
+
+  @media (min-width: 769px) {
+    .main-controls {
+      overflow: visible !important; /* Allows dropdowns to pop out of the container */
+      max-height: none !important;  /* Prevents the container from clipping its children */
+    }
+  }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script>
+    // Mobile viewport height fallback for browsers that don't support dvh/svh well (older Android Chrome/WebView).
+    // Keeps fixed panels from "jumping" when the URL bar collapses/expands.
+    (function () {
+      function setAppHeight() {
+        try { document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`); } catch (_) {}
+      }
+
+      function setAndroidMobileFlags() {
+        try {
+          const root = document.documentElement;
+          const ua = navigator.userAgent || '';
+          const isAndroid = /Android/i.test(ua);
+          const isVivaldi = /\bVivaldi\b/i.test(ua);
+          const isMobile = !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+          root.classList.toggle('android-device', isAndroid);
+          root.classList.toggle('android-mobile', isAndroid && isMobile);
+          root.classList.toggle('browser-vivaldi', isVivaldi);
+        } catch (_) {}
+      }
+
+      function setAndroidViewportInsets() {
+        try {
+          const root = document.documentElement;
+          if (!root.classList.contains('android-mobile')) {
+            root.style.removeProperty('--android-vv-top');
+            root.style.removeProperty('--android-vv-bottom');
+            return;
+          }
+          const vv = window.visualViewport;
+          const topInset = vv ? Math.max(0, Math.round(vv.offsetTop || 0)) : 0;
+          const bottomInset = vv ? Math.max(0, Math.round(window.innerHeight - ((vv.height || 0) + (vv.offsetTop || 0)))) : 0;
+          root.style.setProperty('--android-vv-top', `${topInset}px`);
+          root.style.setProperty('--android-vv-bottom', `${bottomInset}px`);
+        } catch (_) {}
+      }
+
+      function refreshMobileViewportState() {
+        setAppHeight();
+        setAndroidMobileFlags();
+        setAndroidViewportInsets();
+        try {
+          if (typeof window.updateMobileOverlayOffsets === 'function') window.updateMobileOverlayOffsets();
+        } catch (_) {}
+      }
+
+      refreshMobileViewportState();
+      window.addEventListener('resize', refreshMobileViewportState, { passive: true });
+      window.addEventListener('orientationchange', refreshMobileViewportState, { passive: true });
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', refreshMobileViewportState, { passive: true });
+        window.visualViewport.addEventListener('scroll', setAndroidViewportInsets, { passive: true });
+      }
+    })();
+
+    document.addEventListener('DOMContentLoaded', function() {
+      function isMobileViewport() {
+        try {
+          return !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+        } catch (_) {
+          return window.innerWidth <= 768;
+        }
+      }
+
+      function syncMobileTopbarToggle() {
+        try {
+          const topbar = document.getElementById('map-topbar');
+          const toggle = document.getElementById('mobile-topbar-toggle');
+          if (!topbar || !toggle) return;
+          if (!isMobileViewport()) {
+            topbar.classList.remove('topbar-expanded');
+          }
+          const expanded = isMobileViewport() && topbar.classList.contains('topbar-expanded');
+          toggle.textContent = expanded ? 'Hide details' : 'Show details';
+          toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        } catch (_) {}
+      }
+
+      function collapseMobileTopbar() {
+        try {
+          if (!isMobileViewport()) return;
+          const topbar = document.getElementById('map-topbar');
+          if (!topbar) return;
+          topbar.classList.remove('topbar-expanded');
+          syncMobileTopbarToggle();
+          if (typeof window.syncInitialTopbarOffset === 'function') {
+            window.syncInitialTopbarOffset();
+          }
+        } catch (_) {}
+      }
+
+      function syncInitialTopbarOffset() {
+        try {
+          const topbar = document.getElementById('map-topbar');
+          if (!topbar) return;
+          const minTopbarHeight = isMobileViewport() ? 0 : 224;
+          const topbarHeight = Math.max(minTopbarHeight, Math.round(topbar.getBoundingClientRect().height || 0));
+          document.documentElement.style.setProperty('--topbar-h', `${topbarHeight}px`);
+          syncMobileTopbarToggle();
+          if (typeof window.updateMobileOverlayOffsets === 'function') {
+            window.updateMobileOverlayOffsets();
+          }
+        } catch (_) {}
+      }
+      window.syncInitialTopbarOffset = syncInitialTopbarOffset;
+      window.collapseMobileTopbar = collapseMobileTopbar;
+      window.syncMobileTopbarToggle = syncMobileTopbarToggle;
+
+      function prioritizeContestControl() {
+        try {
+          const controlsContent = document.getElementById('controls-content');
+          const contestGroup = controlsContent ? controlsContent.querySelector('.control-group-contest') : null;
+          if (!controlsContent || !contestGroup) return;
+          if (controlsContent.firstElementChild !== contestGroup) {

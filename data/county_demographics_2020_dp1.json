@@ -1,0 +1,8 @@
+{
+  "counties": {},
+  "statewide": null,
+  "meta": {
+    "placeholder": true,
+    "note": "Optional file placeholder to prevent 404s in local dev until county demographics are generated."
+  }
+}
