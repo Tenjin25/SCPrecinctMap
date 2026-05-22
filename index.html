@@ -19471,7 +19471,26 @@ for (const bundle of loaded) {
         }
       } catch (_) {}
     }
+async function handleContestSelectionChange(newContestValue) {
+  // DIRECT PATCH: Safely define countyRows for the handler scope
+  const activeBundle = (typeof loadedContestDataCache !== 'undefined' && typeof loadedContestDataCache[newContestValue] !== 'undefined')
+    ? loadedContestDataCache[newContestValue]
+    : null;
+  if (typeof splitContestRowsByLevel !== 'function') {
+    throw new Error('splitContestRowsByLevel is not defined or not a function');
+  }
+  // Use countySummaryRows if available; otherwise, fall back to all rows for legacy or non-split data.
+  const selectedCountyRows = selectionSplit.countySummaryRows.length ? selectionSplit.countySummaryRows : rowsToParse;
+  const selectionSplit = typeof splitContestRowsByLevel === 'function' ? splitContestRowsByLevel(rowsToParse) : { countySummaryRows: [] };
+  let countyRows;
+  if (selectionSplit.countySummaryRows.length) {
+    countyRows = selectionSplit.countySummaryRows;
+  } else {
+    countyRows = rowsToParse;
+  }
 
+  // -------------------------------------------------------------
+  // Your existing map rendering/painting logic continues below...
     async function handleContestSelectionChange(contestKey) {
       try { refreshStartHereHint(); } catch (_) {}
       const queued = queueContestSelection(contestKey);
@@ -34100,6 +34119,7 @@ for (const bundle of loaded) {
     }
 
     window.onload = init;
+  }
 </script>
 </body>
 </html>
