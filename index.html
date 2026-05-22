@@ -10556,8 +10556,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-05-21-1';
-    const APP_BUILD_ID = '2026-05-21-1';
+    const DATA_CACHE_BUSTER = '2026-05-21-2';
+    const APP_BUILD_ID = '2026-05-21-2';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -10596,9 +10596,8 @@ document.addEventListener('DOMContentLoaded', function() {
         precincts: withBase('./data/Voting_Precincts.geojson'),
         precinct_centroids: withBase('./data/precinct_centroids.geojson'),
         districts: withBase('./data/tileset/sc_cd118_tileset.geojson'),
-        state_house: withBase('./data/tileset/sc_state_house_2022_lines_tileset.geojson'),
-        state_house_2022: withBase('./data/tileset/sc_state_house_2022_census.geojson'),
-        state_house_2024: withBase('./data/tileset/sc_state_house_2022_lines_tileset.geojson'),
+        state_house: withBase('./data/tileset/sc_state_house_2024_lines_tileset.geojson'),
+        state_house_2024: withBase('./data/tileset/sc_state_house_2024_lines_tileset.geojson'),
         state_senate: withBase('./data/tileset/sc_state_senate_2022_lines_tileset.geojson'),
         county_demographics: withBase('./data/county_demographics_2020_dp1.json'),
         county_population_estimates: withBase('./data/CO-EST2025-POP-45.csv'),
