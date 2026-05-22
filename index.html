@@ -32474,7 +32474,18 @@ document.addEventListener('DOMContentLoaded', function() {
       const contestData = await loadContestSlice(contestType, year);
       if (staleCheck()) return;
       const contestSplit = splitContestRowsByLevel(contestData || []);
-      const countyRows = contestSplit.countySummaryRows.length ? contestSplit.countySummaryRows : (contestData || []);
+      let countyRows = contestSplit.countySummaryRows.length ? contestSplit.countySummaryRows : [];
+      if (!countyRows.length) {
+        try {
+          const countyPreferredRows = await loadContestSlice(contestType, year, { preferCounty: true });
+          const countyPreferredSplit = splitContestRowsByLevel(countyPreferredRows || []);
+          countyRows = countyPreferredSplit.countySummaryRows.length
+            ? countyPreferredSplit.countySummaryRows
+            : (countyPreferredRows || []);
+        } catch (_) {
+          countyRows = contestData || [];
+        }
+      }
       const precinctDetailRows = contestSplit.precinctRows.length ? contestSplit.precinctRows : countyRows;
       
       debugLog(`Applying ${contestType} for ${year}:`, countyRows.length, 'county rows');
