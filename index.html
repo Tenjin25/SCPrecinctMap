@@ -32903,17 +32903,30 @@ document.addEventListener('DOMContentLoaded', function() {
           if (!authoritativeDemCandidate && demCand) authoritativeDemCandidate = demCand;
           if (!authoritativeRepCandidate && repCand) authoritativeRepCandidate = repCand;
 
-          authoritativeCountyAgg[countyNorm] = {
-            ...(countyAgg[countyNorm] || {}),
-            year: Number(year),
-            county: countyOnly,
-            [`${contestType}_dem`]: demVotes,
-            [`${contestType}_rep`]: repVotes,
-            [`${contestType}_other`]: otherVotes,
-            [`${contestType}_total`]: totalVotes,
-            [`${contestType}_dem_candidate`]: demCand || (countyAgg[countyNorm]?.[`${contestType}_dem_candidate`] || ''),
-            [`${contestType}_rep_candidate`]: repCand || (countyAgg[countyNorm]?.[`${contestType}_rep_candidate`] || '')
-          };
+          if (!authoritativeCountyAgg[countyNorm]) {
+            authoritativeCountyAgg[countyNorm] = {
+              ...(countyAgg[countyNorm] || {}),
+              year: Number(year),
+              county: countyOnly,
+              [`${contestType}_dem`]: 0,
+              [`${contestType}_rep`]: 0,
+              [`${contestType}_other`]: 0,
+              [`${contestType}_total`]: 0,
+              [`${contestType}_dem_candidate`]: demCand || (countyAgg[countyNorm]?.[`${contestType}_dem_candidate`] || ''),
+              [`${contestType}_rep_candidate`]: repCand || (countyAgg[countyNorm]?.[`${contestType}_rep_candidate`] || '')
+            };
+          }
+
+          authoritativeCountyAgg[countyNorm][`${contestType}_dem`] += demVotes;
+          authoritativeCountyAgg[countyNorm][`${contestType}_rep`] += repVotes;
+          authoritativeCountyAgg[countyNorm][`${contestType}_other`] += otherVotes;
+          authoritativeCountyAgg[countyNorm][`${contestType}_total`] += totalVotes;
+          if (!authoritativeCountyAgg[countyNorm][`${contestType}_dem_candidate`] && demCand) {
+            authoritativeCountyAgg[countyNorm][`${contestType}_dem_candidate`] = demCand;
+          }
+          if (!authoritativeCountyAgg[countyNorm][`${contestType}_rep_candidate`] && repCand) {
+            authoritativeCountyAgg[countyNorm][`${contestType}_rep_candidate`] = repCand;
+          }
         }
 
         countyAgg = authoritativeCountyAgg;
