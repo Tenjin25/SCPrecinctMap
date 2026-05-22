@@ -100,6 +100,64 @@ def build_runtime_crosswalk_csv() -> str:
         except OSError:
             continue
 
+    def _dedupe_source_mappings() -> int:
+        """
+        Keep one alias target per contest/year/source key.
+
+        Patch files can contain both a helpful historical alias and a generated
+        "source maps to itself" row. The self row looks high-confidence, but it
+        blocks the alias from being used and pushes records into county-share
+        fallback. Prefer non-self, reviewed-looking mappings, then confidence.
+        """
+
+        def _score_float(row: dict) -> float:
+            try:
+                return float(row.get("score") or 0.0)
+            except Exception:
+                return 0.0
+
+        def _priority(row: dict) -> tuple[int, int, int, float]:
+            src_norm = _norm(row.get("source_result_key") or "")
+            tgt_norm = _norm(row.get("target_polygon_key") or "")
+            notes = str(row.get("notes") or "").lower()
+            confidence = str(row.get("confidence") or "").strip().lower()
+            confidence_rank = {"high": 3, "medium": 2, "low": 1}.get(confidence, 0)
+            reviewed = any(token in notes for token in ("manual", "autofuzzy", "spartanburg-york", "prefilled"))
+            return (
+                0 if src_norm == tgt_norm else 1,
+                1 if reviewed else 0,
+                confidence_rank,
+                _score_float(row),
+            )
+
+        best_by_source: dict[tuple[str, str, str], dict] = {}
+        for row in rows:
+            key = (
+                str(row.get("year") or "").strip(),
+                str(row.get("contest_type") or "").strip().lower(),
+                _norm(row.get("source_result_key") or ""),
+            )
+            if key not in best_by_source or _priority(row) > _priority(best_by_source[key]):
+                best_by_source[key] = row
+
+        original_count = len(rows)
+        rows[:] = list(best_by_source.values())
+        seen.clear()
+        for row in rows:
+            seen.add(
+                (
+                    str(row.get("year") or "").strip(),
+                    str(row.get("contest_type") or "").strip().lower(),
+                    str(row.get("source_result_key") or "").strip().upper(),
+                    str(row.get("target_polygon_key") or "").strip().upper(),
+                )
+            )
+        return original_count - len(rows)
+
+    pruned_crosswalk_conflicts = _dedupe_source_mappings()
+    if pruned_crosswalk_conflicts:
+        print(f"  crosswalk source conflicts pruned: {pruned_crosswalk_conflicts}")
+
     def _contest_year_pairs() -> list[tuple[int, str]]:
         manifest_path = os.path.join(REPO_ROOT, "data", "contests", "manifest.json")
         pairs: set[tuple[int, str]] = set()

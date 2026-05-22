@@ -817,6 +817,8 @@ def build_election_data():
                 continue
             if fn == 'manifest.json':
                 continue
+            if fn.endswith('_from_7131_list.json'):
+                continue
             path = os.path.join(contests_dir, fn)
             try:
                 with open(path, encoding='utf-8') as fh:

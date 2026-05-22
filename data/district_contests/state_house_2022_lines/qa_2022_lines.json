@@ -2,9 +2,9 @@
   "summary": {
     "files": 41,
     "max_abs_total_vote_delta": 14.0,
-    "max_abs_total_pct_error": 0.00105057,
+    "max_abs_total_pct_error": 0.0012049,
     "min_match_coverage_pct": 100.0,
-    "total_county_share_fallback_rows": 2267,
+    "total_county_share_fallback_rows": 2180,
     "max_centroid_fallback_rows": 0
   },
   "records": [
@@ -13,33 +13,33 @@
       "contest_type": "president",
       "year": 2024,
       "district_count": 124,
-      "source_precinct_rows": 2205,
-      "matched_precinct_rows": 2205,
-      "block_weighted_rows": 2205,
+      "source_precinct_rows": 2234,
+      "matched_precinct_rows": 2234,
+      "block_weighted_rows": 2234,
       "county_share_fallback_rows": 1,
-      "county_share_fallback_row_share_pct": 0.045351,
-      "county_share_fallback_votes": 7480.0,
+      "county_share_fallback_row_share_pct": 0.044763,
+      "county_share_fallback_votes": 677.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.25616535,
+      "county_share_fallback_vote_share_pct": 0.02742014,
       "source_totals": {
-        "dem_votes": 1202355.0,
-        "rep_votes": 1674767.0,
-        "other_votes": 42867.0,
-        "total_votes": 2919989.0
+        "dem_votes": 993098.0,
+        "rep_votes": 1441185.0,
+        "other_votes": 34705.0,
+        "total_votes": 2468988.0
       },
       "aggregated_totals": {
-        "dem_votes": 1202353.0,
-        "rep_votes": 1674769.0,
-        "other_votes": 42871.0,
-        "total_votes": 2919993.0
+        "dem_votes": 993095.0,
+        "rep_votes": 1441182.0,
+        "other_votes": 34704.0,
+        "total_votes": 2468981.0
       },
       "conservation_delta": {
-        "dem_votes": -2.0,
-        "rep_votes": 2.0,
-        "other_votes": 4.0,
-        "total_votes": 4.0,
-        "total_pct_error": 0.00013699
+        "dem_votes": -3.0,
+        "rep_votes": -3.0,
+        "other_votes": -1.0,
+        "total_votes": -7.0,
+        "total_pct_error": -0.00028352
       }
     },
     {
@@ -47,33 +47,33 @@
       "contest_type": "attorney_general",
       "year": 2022,
       "district_count": 124,
-      "source_precinct_rows": 2269,
-      "matched_precinct_rows": 2269,
-      "block_weighted_rows": 2269,
+      "source_precinct_rows": 2270,
+      "matched_precinct_rows": 2270,
+      "block_weighted_rows": 2270,
       "county_share_fallback_rows": 1,
-      "county_share_fallback_row_share_pct": 0.044072,
-      "county_share_fallback_votes": 1206.0,
+      "county_share_fallback_row_share_pct": 0.044053,
+      "county_share_fallback_votes": 507.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.08994878,
+      "county_share_fallback_vote_share_pct": 0.04008174,
       "source_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 1304223.0,
-        "other_votes": 36540.0,
-        "total_votes": 1340763.0
+        "rep_votes": 1231227.0,
+        "other_votes": 33688.0,
+        "total_votes": 1264915.0
       },
       "aggregated_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 1304224.0,
-        "other_votes": 36536.0,
-        "total_votes": 1340760.0
+        "rep_votes": 1231224.0,
+        "other_votes": 33685.0,
+        "total_votes": 1264909.0
       },
       "conservation_delta": {
         "dem_votes": 0.0,
-        "rep_votes": 1.0,
-        "other_votes": -4.0,
-        "total_votes": -3.0,
-        "total_pct_error": -0.00022375
+        "rep_votes": -3.0,
+        "other_votes": -3.0,
+        "total_votes": -6.0,
+        "total_pct_error": -0.00047434
       }
     },
     {
@@ -81,33 +81,33 @@
       "contest_type": "commissioner_agriculture",
       "year": 2022,
       "district_count": 124,
-      "source_precinct_rows": 2269,
-      "matched_precinct_rows": 2269,
-      "block_weighted_rows": 2269,
+      "source_precinct_rows": 2270,
+      "matched_precinct_rows": 2270,
+      "block_weighted_rows": 2270,
       "county_share_fallback_rows": 1,
-      "county_share_fallback_row_share_pct": 0.044072,
-      "county_share_fallback_votes": 1538.0,
+      "county_share_fallback_row_share_pct": 0.044053,
+      "county_share_fallback_votes": 614.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.10283333,
+      "county_share_fallback_vote_share_pct": 0.04364205,
       "source_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 1157182.0,
-        "other_votes": 338442.0,
-        "total_votes": 1495624.0
+        "rep_votes": 1093038.0,
+        "other_votes": 313862.0,
+        "total_votes": 1406900.0
       },
       "aggregated_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 1157180.0,
-        "other_votes": 338438.0,
-        "total_votes": 1495618.0
+        "rep_votes": 1093040.0,
+        "other_votes": 313856.0,
+        "total_votes": 1406896.0
       },
       "conservation_delta": {
         "dem_votes": 0.0,
-        "rep_votes": -2.0,
-        "other_votes": -4.0,
-        "total_votes": -6.0,
-        "total_pct_error": -0.00040117
+        "rep_votes": 2.0,
+        "other_votes": -6.0,
+        "total_votes": -4.0,
+        "total_pct_error": -0.00028431
       }
     },
     {
@@ -115,33 +115,33 @@
       "contest_type": "comptroller_general",
       "year": 2022,
       "district_count": 124,
-      "source_precinct_rows": 2269,
-      "matched_precinct_rows": 2269,
-      "block_weighted_rows": 2269,
+      "source_precinct_rows": 2270,
+      "matched_precinct_rows": 2270,
+      "block_weighted_rows": 2270,
       "county_share_fallback_rows": 1,
-      "county_share_fallback_row_share_pct": 0.044072,
-      "county_share_fallback_votes": 1207.0,
+      "county_share_fallback_row_share_pct": 0.044053,
+      "county_share_fallback_votes": 503.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.09034648,
+      "county_share_fallback_vote_share_pct": 0.03990562,
       "source_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 1311653.0,
-        "other_votes": 24315.0,
-        "total_votes": 1335968.0
+        "rep_votes": 1238075.0,
+        "other_votes": 22399.0,
+        "total_votes": 1260474.0
       },
       "aggregated_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 1311654.0,
-        "other_votes": 24318.0,
-        "total_votes": 1335972.0
+        "rep_votes": 1238073.0,
+        "other_votes": 22399.0,
+        "total_votes": 1260472.0
       },
       "conservation_delta": {
         "dem_votes": 0.0,
-        "rep_votes": 1.0,
-        "other_votes": 3.0,
-        "total_votes": 4.0,
-        "total_pct_error": 0.00029941
+        "rep_votes": -2.0,
+        "other_votes": 0.0,
+        "total_votes": -2.0,
+        "total_pct_error": -0.00015867
       }
     },
     {
@@ -149,33 +149,33 @@
       "contest_type": "governor",
       "year": 2022,
       "district_count": 124,
-      "source_precinct_rows": 2269,
-      "matched_precinct_rows": 2269,
-      "block_weighted_rows": 2269,
+      "source_precinct_rows": 2270,
+      "matched_precinct_rows": 2270,
+      "block_weighted_rows": 2270,
       "county_share_fallback_rows": 1,
-      "county_share_fallback_row_share_pct": 0.044072,
-      "county_share_fallback_votes": 2355.0,
+      "county_share_fallback_row_share_pct": 0.044053,
+      "county_share_fallback_votes": 906.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.12937478,
+      "county_share_fallback_vote_share_pct": 0.05289609,
       "source_totals": {
-        "dem_votes": 745870.0,
-        "rep_votes": 1050820.0,
-        "other_votes": 23603.0,
-        "total_votes": 1820293.0
+        "dem_votes": 694592.0,
+        "rep_votes": 996020.0,
+        "other_votes": 22180.0,
+        "total_votes": 1712792.0
       },
       "aggregated_totals": {
-        "dem_votes": 745871.0,
-        "rep_votes": 1050824.0,
-        "other_votes": 23603.0,
-        "total_votes": 1820298.0
+        "dem_votes": 694592.0,
+        "rep_votes": 996020.0,
+        "other_votes": 22177.0,
+        "total_votes": 1712789.0
       },
       "conservation_delta": {
-        "dem_votes": 1.0,
-        "rep_votes": 4.0,
-        "other_votes": 0.0,
-        "total_votes": 5.0,
-        "total_pct_error": 0.00027468
+        "dem_votes": 0.0,
+        "rep_votes": 0.0,
+        "other_votes": -3.0,
+        "total_votes": -3.0,
+        "total_pct_error": -0.00017515
       }
     },
     {
@@ -183,128 +183,26 @@
       "contest_type": "secretary_of_state",
       "year": 2022,
       "district_count": 124,
-      "source_precinct_rows": 2269,
-      "matched_precinct_rows": 2269,
-      "block_weighted_rows": 2269,
+      "source_precinct_rows": 2270,
+      "matched_precinct_rows": 2270,
+      "block_weighted_rows": 2270,
       "county_share_fallback_rows": 1,
-      "county_share_fallback_row_share_pct": 0.044072,
-      "county_share_fallback_votes": 2314.0,
+      "county_share_fallback_row_share_pct": 0.044053,
+      "county_share_fallback_votes": 893.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.12802185,
+      "county_share_fallback_vote_share_pct": 0.05248131,
       "source_totals": {
-        "dem_votes": 664881.0,
-        "rep_votes": 1141500.0,
-        "other_votes": 1123.0,
-        "total_votes": 1807504.0
+        "dem_votes": 621170.0,
+        "rep_votes": 1079285.0,
+        "other_votes": 1103.0,
+        "total_votes": 1701558.0
       },
       "aggregated_totals": {
-        "dem_votes": 664883.0,
-        "rep_votes": 1141496.0,
-        "other_votes": 1126.0,
-        "total_votes": 1807505.0
-      },
-      "conservation_delta": {
-        "dem_votes": 2.0,
-        "rep_votes": -4.0,
-        "other_votes": 3.0,
-        "total_votes": 1.0,
-        "total_pct_error": 5.532e-05
-      }
-    },
-    {
-      "file": "state_house_state_treasurer_2022_2022_lines.json",
-      "contest_type": "state_treasurer",
-      "year": 2022,
-      "district_count": 124,
-      "source_precinct_rows": 2269,
-      "matched_precinct_rows": 2269,
-      "block_weighted_rows": 2269,
-      "county_share_fallback_rows": 1,
-      "county_share_fallback_row_share_pct": 0.044072,
-      "county_share_fallback_votes": 1560.0,
-      "centroid_fallback_rows": 0,
-      "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.10287225,
-      "source_totals": {
-        "dem_votes": 0.0,
-        "rep_votes": 1204651.0,
-        "other_votes": 311793.0,
-        "total_votes": 1516444.0
-      },
-      "aggregated_totals": {
-        "dem_votes": 0.0,
-        "rep_votes": 1204653.0,
-        "other_votes": 311786.0,
-        "total_votes": 1516439.0
-      },
-      "conservation_delta": {
-        "dem_votes": 0.0,
-        "rep_votes": 2.0,
-        "other_votes": -7.0,
-        "total_votes": -5.0,
-        "total_pct_error": -0.00032972
-      }
-    },
-    {
-      "file": "state_house_us_senate_2022_2022_lines.json",
-      "contest_type": "us_senate",
-      "year": 2022,
-      "district_count": 124,
-      "source_precinct_rows": 2269,
-      "matched_precinct_rows": 2269,
-      "block_weighted_rows": 2269,
-      "county_share_fallback_rows": 1,
-      "county_share_fallback_row_share_pct": 0.044072,
-      "county_share_fallback_votes": 2306.0,
-      "centroid_fallback_rows": 0,
-      "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.12728299,
-      "source_totals": {
-        "dem_votes": 673484.0,
-        "rep_votes": 1136316.0,
-        "other_votes": 1911.0,
-        "total_votes": 1811711.0
-      },
-      "aggregated_totals": {
-        "dem_votes": 673480.0,
-        "rep_votes": 1136319.0,
-        "other_votes": 1907.0,
-        "total_votes": 1811706.0
-      },
-      "conservation_delta": {
-        "dem_votes": -4.0,
-        "rep_votes": 3.0,
-        "other_votes": -4.0,
-        "total_votes": -5.0,
-        "total_pct_error": -0.00027598
-      }
-    },
-    {
-      "file": "state_house_president_2020_2022_lines.json",
-      "contest_type": "president",
-      "year": 2020,
-      "district_count": 124,
-      "source_precinct_rows": 2264,
-      "matched_precinct_rows": 2264,
-      "block_weighted_rows": 2264,
-      "county_share_fallback_rows": 1,
-      "county_share_fallback_row_share_pct": 0.04417,
-      "county_share_fallback_votes": 3416.0,
-      "centroid_fallback_rows": 0,
-      "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.12727462,
-      "source_totals": {
-        "dem_votes": 1165888.0,
-        "rep_votes": 1478581.0,
-        "other_votes": 39491.0,
-        "total_votes": 2683960.0
-      },
-      "aggregated_totals": {
-        "dem_votes": 1165889.0,
-        "rep_votes": 1478581.0,
-        "other_votes": 39490.0,
-        "total_votes": 2683960.0
+        "dem_votes": 621171.0,
+        "rep_votes": 1079285.0,
+        "other_votes": 1102.0,
+        "total_votes": 1701558.0
       },
       "conservation_delta": {
         "dem_votes": 1.0,
@@ -315,37 +213,139 @@
       }
     },
     {
+      "file": "state_house_state_treasurer_2022_2022_lines.json",
+      "contest_type": "state_treasurer",
+      "year": 2022,
+      "district_count": 124,
+      "source_precinct_rows": 2270,
+      "matched_precinct_rows": 2270,
+      "block_weighted_rows": 2270,
+      "county_share_fallback_rows": 1,
+      "county_share_fallback_row_share_pct": 0.044053,
+      "county_share_fallback_votes": 641.0,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 100.0,
+      "county_share_fallback_vote_share_pct": 0.04492659,
+      "source_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1137961.0,
+        "other_votes": 288811.0,
+        "total_votes": 1426772.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1137958.0,
+        "other_votes": 288807.0,
+        "total_votes": 1426765.0
+      },
+      "conservation_delta": {
+        "dem_votes": 0.0,
+        "rep_votes": -3.0,
+        "other_votes": -4.0,
+        "total_votes": -7.0,
+        "total_pct_error": -0.00049062
+      }
+    },
+    {
+      "file": "state_house_us_senate_2022_2022_lines.json",
+      "contest_type": "us_senate",
+      "year": 2022,
+      "district_count": 124,
+      "source_precinct_rows": 2270,
+      "matched_precinct_rows": 2270,
+      "block_weighted_rows": 2270,
+      "county_share_fallback_rows": 1,
+      "county_share_fallback_row_share_pct": 0.044053,
+      "county_share_fallback_votes": 892.0,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 100.0,
+      "county_share_fallback_vote_share_pct": 0.05230785,
+      "source_totals": {
+        "dem_votes": 629446.0,
+        "rep_votes": 1074029.0,
+        "other_votes": 1814.0,
+        "total_votes": 1705289.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 629449.0,
+        "rep_votes": 1074032.0,
+        "other_votes": 1812.0,
+        "total_votes": 1705293.0
+      },
+      "conservation_delta": {
+        "dem_votes": 3.0,
+        "rep_votes": 3.0,
+        "other_votes": -2.0,
+        "total_votes": 4.0,
+        "total_pct_error": 0.00023456
+      }
+    },
+    {
+      "file": "state_house_president_2020_2022_lines.json",
+      "contest_type": "president",
+      "year": 2020,
+      "district_count": 124,
+      "source_precinct_rows": 2266,
+      "matched_precinct_rows": 2266,
+      "block_weighted_rows": 2266,
+      "county_share_fallback_rows": 1,
+      "county_share_fallback_row_share_pct": 0.044131,
+      "county_share_fallback_votes": 1391.0,
+      "centroid_fallback_rows": 0,
+      "match_coverage_pct": 100.0,
+      "county_share_fallback_vote_share_pct": 0.05485985,
+      "source_totals": {
+        "dem_votes": 1097487.0,
+        "rep_votes": 1401146.0,
+        "other_votes": 36919.0,
+        "total_votes": 2535552.0
+      },
+      "aggregated_totals": {
+        "dem_votes": 1097485.0,
+        "rep_votes": 1401146.0,
+        "other_votes": 36918.0,
+        "total_votes": 2535549.0
+      },
+      "conservation_delta": {
+        "dem_votes": -2.0,
+        "rep_votes": 0.0,
+        "other_votes": -1.0,
+        "total_votes": -3.0,
+        "total_pct_error": -0.00011832
+      }
+    },
+    {
       "file": "state_house_us_senate_2020_2022_lines.json",
       "contest_type": "us_senate",
       "year": 2020,
       "district_count": 124,
-      "source_precinct_rows": 2264,
-      "matched_precinct_rows": 2264,
-      "block_weighted_rows": 2264,
+      "source_precinct_rows": 2266,
+      "matched_precinct_rows": 2266,
+      "block_weighted_rows": 2266,
       "county_share_fallback_rows": 1,
-      "county_share_fallback_row_share_pct": 0.04417,
-      "county_share_fallback_votes": 3428.0,
+      "county_share_fallback_row_share_pct": 0.044131,
+      "county_share_fallback_votes": 1393.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.12763047,
+      "county_share_fallback_vote_share_pct": 0.0549001,
       "source_totals": {
-        "dem_votes": 1186026.0,
-        "rep_votes": 1462007.0,
-        "other_votes": 37846.0,
-        "total_votes": 2685879.0
+        "dem_votes": 1116946.0,
+        "rep_votes": 1384645.0,
+        "other_votes": 35745.0,
+        "total_votes": 2537336.0
       },
       "aggregated_totals": {
-        "dem_votes": 1186030.0,
-        "rep_votes": 1462005.0,
-        "other_votes": 37849.0,
-        "total_votes": 2685884.0
+        "dem_votes": 1116952.0,
+        "rep_votes": 1384644.0,
+        "other_votes": 35748.0,
+        "total_votes": 2537344.0
       },
       "conservation_delta": {
-        "dem_votes": 4.0,
-        "rep_votes": -2.0,
+        "dem_votes": 6.0,
+        "rep_votes": -1.0,
         "other_votes": 3.0,
-        "total_votes": 5.0,
-        "total_pct_error": 0.00018616
+        "total_votes": 8.0,
+        "total_pct_error": 0.00031529
       }
     },
     {
@@ -353,33 +353,33 @@
       "contest_type": "attorney_general",
       "year": 2018,
       "district_count": 124,
-      "source_precinct_rows": 2307,
-      "matched_precinct_rows": 2307,
-      "block_weighted_rows": 2307,
+      "source_precinct_rows": 2309,
+      "matched_precinct_rows": 2309,
+      "block_weighted_rows": 2309,
       "county_share_fallback_rows": 57,
-      "county_share_fallback_row_share_pct": 2.470741,
-      "county_share_fallback_votes": 6193.0,
+      "county_share_fallback_row_share_pct": 2.468601,
+      "county_share_fallback_votes": 5030.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.40979051,
+      "county_share_fallback_vote_share_pct": 0.35267557,
       "source_totals": {
-        "dem_votes": 617046.0,
-        "rep_votes": 860513.0,
-        "other_votes": 33701.0,
-        "total_votes": 1511260.0
+        "dem_votes": 579364.0,
+        "rep_votes": 815460.0,
+        "other_votes": 31416.0,
+        "total_votes": 1426240.0
       },
       "aggregated_totals": {
-        "dem_votes": 617047.0,
-        "rep_votes": 860510.0,
-        "other_votes": 33696.0,
-        "total_votes": 1511253.0
+        "dem_votes": 579368.0,
+        "rep_votes": 815458.0,
+        "other_votes": 31417.0,
+        "total_votes": 1426243.0
       },
       "conservation_delta": {
-        "dem_votes": 1.0,
-        "rep_votes": -3.0,
-        "other_votes": -5.0,
-        "total_votes": -7.0,
-        "total_pct_error": -0.00046319
+        "dem_votes": 4.0,
+        "rep_votes": -2.0,
+        "other_votes": 1.0,
+        "total_votes": 3.0,
+        "total_pct_error": 0.00021034
       }
     },
     {
@@ -387,33 +387,33 @@
       "contest_type": "commissioner_agriculture",
       "year": 2018,
       "district_count": 124,
-      "source_precinct_rows": 2307,
-      "matched_precinct_rows": 2307,
-      "block_weighted_rows": 2307,
+      "source_precinct_rows": 2309,
+      "matched_precinct_rows": 2309,
+      "block_weighted_rows": 2309,
       "county_share_fallback_rows": 57,
-      "county_share_fallback_row_share_pct": 2.470741,
-      "county_share_fallback_votes": 4531.0,
+      "county_share_fallback_row_share_pct": 2.468601,
+      "county_share_fallback_votes": 3830.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.37123339,
+      "county_share_fallback_vote_share_pct": 0.3333226,
       "source_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 928272.0,
-        "other_votes": 292254.0,
-        "total_votes": 1220526.0
+        "rep_votes": 877322.0,
+        "other_votes": 271715.0,
+        "total_votes": 1149037.0
       },
       "aggregated_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 928270.0,
-        "other_votes": 292256.0,
-        "total_votes": 1220526.0
+        "rep_votes": 877321.0,
+        "other_votes": 271715.0,
+        "total_votes": 1149036.0
       },
       "conservation_delta": {
         "dem_votes": 0.0,
-        "rep_votes": -2.0,
-        "other_votes": 2.0,
-        "total_votes": 0.0,
-        "total_pct_error": 0.0
+        "rep_votes": -1.0,
+        "other_votes": 0.0,
+        "total_votes": -1.0,
+        "total_pct_error": -8.703e-05
       }
     },
     {
@@ -421,33 +421,33 @@
       "contest_type": "comptroller_general",
       "year": 2018,
       "district_count": 124,
-      "source_precinct_rows": 2307,
-      "matched_precinct_rows": 2307,
-      "block_weighted_rows": 2307,
+      "source_precinct_rows": 2309,
+      "matched_precinct_rows": 2309,
+      "block_weighted_rows": 2309,
       "county_share_fallback_rows": 57,
-      "county_share_fallback_row_share_pct": 2.470741,
-      "county_share_fallback_votes": 3746.0,
+      "county_share_fallback_row_share_pct": 2.468601,
+      "county_share_fallback_votes": 3277.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.35161097,
+      "county_share_fallback_vote_share_pct": 0.32565424,
       "source_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 1042283.0,
-        "other_votes": 23099.0,
-        "total_votes": 1065382.0
+        "rep_votes": 984715.0,
+        "other_votes": 21567.0,
+        "total_votes": 1006282.0
       },
       "aggregated_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 1042283.0,
-        "other_votes": 23100.0,
-        "total_votes": 1065383.0
+        "rep_votes": 984712.0,
+        "other_votes": 21564.0,
+        "total_votes": 1006276.0
       },
       "conservation_delta": {
         "dem_votes": 0.0,
-        "rep_votes": 0.0,
-        "other_votes": 1.0,
-        "total_votes": 1.0,
-        "total_pct_error": 9.386e-05
+        "rep_votes": -3.0,
+        "other_votes": -3.0,
+        "total_votes": -6.0,
+        "total_pct_error": -0.00059625
       }
     },
     {
@@ -455,33 +455,33 @@
       "contest_type": "governor",
       "year": 2018,
       "district_count": 124,
-      "source_precinct_rows": 2307,
-      "matched_precinct_rows": 2307,
-      "block_weighted_rows": 2307,
+      "source_precinct_rows": 2309,
+      "matched_precinct_rows": 2309,
+      "block_weighted_rows": 2309,
       "county_share_fallback_rows": 57,
-      "county_share_fallback_row_share_pct": 2.470741,
-      "county_share_fallback_votes": 6191.0,
+      "county_share_fallback_row_share_pct": 2.468601,
+      "county_share_fallback_votes": 5029.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.40882821,
+      "county_share_fallback_vote_share_pct": 0.35187271,
       "source_totals": {
-        "dem_votes": 668584.0,
-        "rep_votes": 843803.0,
-        "other_votes": 1941.0,
-        "total_votes": 1514328.0
+        "dem_votes": 628213.0,
+        "rep_votes": 799157.0,
+        "other_votes": 1840.0,
+        "total_votes": 1429210.0
       },
       "aggregated_totals": {
-        "dem_votes": 668592.0,
-        "rep_votes": 843804.0,
-        "other_votes": 1942.0,
-        "total_votes": 1514338.0
+        "dem_votes": 628216.0,
+        "rep_votes": 799156.0,
+        "other_votes": 1841.0,
+        "total_votes": 1429213.0
       },
       "conservation_delta": {
-        "dem_votes": 8.0,
-        "rep_votes": 1.0,
+        "dem_votes": 3.0,
+        "rep_votes": -1.0,
         "other_votes": 1.0,
-        "total_votes": 10.0,
-        "total_pct_error": 0.00066036
+        "total_votes": 3.0,
+        "total_pct_error": 0.00020991
       }
     },
     {
@@ -489,33 +489,33 @@
       "contest_type": "secretary_of_state",
       "year": 2018,
       "district_count": 124,
-      "source_precinct_rows": 2307,
-      "matched_precinct_rows": 2307,
-      "block_weighted_rows": 2307,
+      "source_precinct_rows": 2309,
+      "matched_precinct_rows": 2309,
+      "block_weighted_rows": 2309,
       "county_share_fallback_rows": 57,
-      "county_share_fallback_row_share_pct": 2.470741,
-      "county_share_fallback_votes": 6188.0,
+      "county_share_fallback_row_share_pct": 2.468601,
+      "county_share_fallback_votes": 5026.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.41059996,
+      "county_share_fallback_vote_share_pct": 0.35332211,
       "source_totals": {
-        "dem_votes": 617039.0,
-        "rep_votes": 889075.0,
-        "other_votes": 949.0,
-        "total_votes": 1507063.0
+        "dem_votes": 579833.0,
+        "rep_votes": 841772.0,
+        "other_votes": 893.0,
+        "total_votes": 1422498.0
       },
       "aggregated_totals": {
-        "dem_votes": 617032.0,
-        "rep_votes": 889071.0,
-        "other_votes": 946.0,
-        "total_votes": 1507049.0
+        "dem_votes": 579831.0,
+        "rep_votes": 841769.0,
+        "other_votes": 890.0,
+        "total_votes": 1422490.0
       },
       "conservation_delta": {
-        "dem_votes": -7.0,
-        "rep_votes": -4.0,
+        "dem_votes": -2.0,
+        "rep_votes": -3.0,
         "other_votes": -3.0,
-        "total_votes": -14.0,
-        "total_pct_error": -0.00092896
+        "total_votes": -8.0,
+        "total_pct_error": -0.00056239
       }
     },
     {
@@ -523,33 +523,33 @@
       "contest_type": "state_treasurer",
       "year": 2018,
       "district_count": 124,
-      "source_precinct_rows": 2307,
-      "matched_precinct_rows": 2307,
-      "block_weighted_rows": 2307,
+      "source_precinct_rows": 2309,
+      "matched_precinct_rows": 2309,
+      "block_weighted_rows": 2309,
       "county_share_fallback_rows": 57,
-      "county_share_fallback_row_share_pct": 2.470741,
-      "county_share_fallback_votes": 6179.0,
+      "county_share_fallback_row_share_pct": 2.468601,
+      "county_share_fallback_votes": 5021.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.40946535,
+      "county_share_fallback_vote_share_pct": 0.35249064,
       "source_totals": {
-        "dem_votes": 584625.0,
-        "rep_votes": 871178.0,
-        "other_votes": 53238.0,
-        "total_votes": 1509041.0
+        "dem_votes": 550462.0,
+        "rep_votes": 824408.0,
+        "other_votes": 49565.0,
+        "total_votes": 1424435.0
       },
       "aggregated_totals": {
-        "dem_votes": 584628.0,
-        "rep_votes": 871174.0,
-        "other_votes": 53240.0,
-        "total_votes": 1509042.0
+        "dem_votes": 550464.0,
+        "rep_votes": 824409.0,
+        "other_votes": 49568.0,
+        "total_votes": 1424441.0
       },
       "conservation_delta": {
-        "dem_votes": 3.0,
-        "rep_votes": -4.0,
-        "other_votes": 2.0,
-        "total_votes": 1.0,
-        "total_pct_error": 6.627e-05
+        "dem_votes": 2.0,
+        "rep_votes": 1.0,
+        "other_votes": 3.0,
+        "total_votes": 6.0,
+        "total_pct_error": 0.00042122
       }
     },
     {
@@ -557,33 +557,33 @@
       "contest_type": "president",
       "year": 2016,
       "district_count": 124,
-      "source_precinct_rows": 2256,
-      "matched_precinct_rows": 2256,
-      "block_weighted_rows": 2256,
+      "source_precinct_rows": 2257,
+      "matched_precinct_rows": 2257,
+      "block_weighted_rows": 2257,
       "county_share_fallback_rows": 20,
-      "county_share_fallback_row_share_pct": 0.886525,
-      "county_share_fallback_votes": 3685.0,
+      "county_share_fallback_row_share_pct": 0.886132,
+      "county_share_fallback_votes": 2450.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.21687518,
+      "county_share_fallback_vote_share_pct": 0.15229736,
       "source_totals": {
-        "dem_votes": 647780.0,
-        "rep_votes": 967296.0,
-        "other_votes": 84058.0,
-        "total_votes": 1699134.0
+        "dem_votes": 612547.0,
+        "rep_votes": 918264.0,
+        "other_votes": 77884.0,
+        "total_votes": 1608695.0
       },
       "aggregated_totals": {
-        "dem_votes": 647786.0,
-        "rep_votes": 967297.0,
-        "other_votes": 84063.0,
-        "total_votes": 1699146.0
+        "dem_votes": 612550.0,
+        "rep_votes": 918263.0,
+        "other_votes": 77889.0,
+        "total_votes": 1608702.0
       },
       "conservation_delta": {
-        "dem_votes": 6.0,
-        "rep_votes": 1.0,
+        "dem_votes": 3.0,
+        "rep_votes": -1.0,
         "other_votes": 5.0,
-        "total_votes": 12.0,
-        "total_pct_error": 0.00070624
+        "total_votes": 7.0,
+        "total_pct_error": 0.00043514
       }
     },
     {
@@ -591,33 +591,33 @@
       "contest_type": "us_senate",
       "year": 2016,
       "district_count": 124,
-      "source_precinct_rows": 2256,
-      "matched_precinct_rows": 2256,
-      "block_weighted_rows": 2256,
+      "source_precinct_rows": 2257,
+      "matched_precinct_rows": 2257,
+      "block_weighted_rows": 2257,
       "county_share_fallback_rows": 20,
-      "county_share_fallback_row_share_pct": 0.886525,
-      "county_share_fallback_votes": 3612.0,
+      "county_share_fallback_row_share_pct": 0.886132,
+      "county_share_fallback_votes": 2392.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.21792749,
+      "county_share_fallback_vote_share_pct": 0.15243426,
       "source_totals": {
-        "dem_votes": 527380.0,
-        "rep_votes": 1034900.0,
-        "other_votes": 95152.0,
-        "total_votes": 1657432.0
+        "dem_votes": 500509.0,
+        "rep_votes": 979477.0,
+        "other_votes": 89215.0,
+        "total_votes": 1569201.0
       },
       "aggregated_totals": {
-        "dem_votes": 527383.0,
-        "rep_votes": 1034898.0,
-        "other_votes": 95154.0,
-        "total_votes": 1657435.0
+        "dem_votes": 500513.0,
+        "rep_votes": 979480.0,
+        "other_votes": 89216.0,
+        "total_votes": 1569209.0
       },
       "conservation_delta": {
-        "dem_votes": 3.0,
-        "rep_votes": -2.0,
-        "other_votes": 2.0,
-        "total_votes": 3.0,
-        "total_pct_error": 0.000181
+        "dem_votes": 4.0,
+        "rep_votes": 3.0,
+        "other_votes": 1.0,
+        "total_votes": 8.0,
+        "total_pct_error": 0.00050981
       }
     },
     {
@@ -625,11 +625,11 @@
       "contest_type": "attorney_general",
       "year": 2014,
       "district_count": 124,
-      "source_precinct_rows": 2242,
-      "matched_precinct_rows": 2242,
-      "block_weighted_rows": 2242,
+      "source_precinct_rows": 2222,
+      "matched_precinct_rows": 2222,
+      "block_weighted_rows": 2222,
       "county_share_fallback_rows": 52,
-      "county_share_fallback_row_share_pct": 2.319358,
+      "county_share_fallback_row_share_pct": 2.340234,
       "county_share_fallback_votes": 3687.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
@@ -641,17 +641,17 @@
         "total_votes": 1043953.0
       },
       "aggregated_totals": {
-        "dem_votes": 400858.0,
-        "rep_votes": 642333.0,
+        "dem_votes": 400856.0,
+        "rep_votes": 642328.0,
         "other_votes": 765.0,
-        "total_votes": 1043956.0
+        "total_votes": 1043949.0
       },
       "conservation_delta": {
-        "dem_votes": -1.0,
-        "rep_votes": 1.0,
+        "dem_votes": -3.0,
+        "rep_votes": -4.0,
         "other_votes": 3.0,
-        "total_votes": 3.0,
-        "total_pct_error": 0.00028737
+        "total_votes": -4.0,
+        "total_pct_error": -0.00038316
       }
     },
     {
@@ -659,11 +659,11 @@
       "contest_type": "commissioner_agriculture",
       "year": 2014,
       "district_count": 124,
-      "source_precinct_rows": 2242,
-      "matched_precinct_rows": 2242,
-      "block_weighted_rows": 2242,
+      "source_precinct_rows": 2222,
+      "matched_precinct_rows": 2222,
+      "block_weighted_rows": 2222,
       "county_share_fallback_rows": 52,
-      "county_share_fallback_row_share_pct": 2.319358,
+      "county_share_fallback_row_share_pct": 2.340234,
       "county_share_fallback_votes": 2782.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
@@ -676,16 +676,16 @@
       },
       "aggregated_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 659300.0,
+        "rep_votes": 659299.0,
         "other_votes": 168326.0,
-        "total_votes": 827626.0
+        "total_votes": 827625.0
       },
       "conservation_delta": {
         "dem_votes": 0.0,
-        "rep_votes": 1.0,
+        "rep_votes": 0.0,
         "other_votes": 0.0,
-        "total_votes": 1.0,
-        "total_pct_error": 0.00012083
+        "total_votes": 0.0,
+        "total_pct_error": 0.0
       }
     },
     {
@@ -693,11 +693,11 @@
       "contest_type": "comptroller_general",
       "year": 2014,
       "district_count": 124,
-      "source_precinct_rows": 2242,
-      "matched_precinct_rows": 2242,
-      "block_weighted_rows": 2242,
+      "source_precinct_rows": 2222,
+      "matched_precinct_rows": 2222,
+      "block_weighted_rows": 2222,
       "county_share_fallback_rows": 52,
-      "county_share_fallback_row_share_pct": 2.319358,
+      "county_share_fallback_row_share_pct": 2.340234,
       "county_share_fallback_votes": 3676.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
@@ -709,17 +709,17 @@
         "total_votes": 1038172.0
       },
       "aggregated_totals": {
-        "dem_votes": 403505.0,
+        "dem_votes": 403504.0,
         "rep_votes": 634061.0,
         "other_votes": 611.0,
-        "total_votes": 1038177.0
+        "total_votes": 1038176.0
       },
       "conservation_delta": {
-        "dem_votes": -1.0,
+        "dem_votes": -2.0,
         "rep_votes": 2.0,
         "other_votes": 4.0,
-        "total_votes": 5.0,
-        "total_pct_error": 0.00048162
+        "total_votes": 4.0,
+        "total_pct_error": 0.00038529
       }
     },
     {
@@ -727,11 +727,11 @@
       "contest_type": "governor",
       "year": 2014,
       "district_count": 124,
-      "source_precinct_rows": 2242,
-      "matched_precinct_rows": 2242,
-      "block_weighted_rows": 2242,
+      "source_precinct_rows": 2222,
+      "matched_precinct_rows": 2222,
+      "block_weighted_rows": 2222,
       "county_share_fallback_rows": 52,
-      "county_share_fallback_row_share_pct": 2.319358,
+      "county_share_fallback_row_share_pct": 2.340234,
       "county_share_fallback_votes": 3710.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
@@ -743,17 +743,17 @@
         "total_votes": 1062072.0
       },
       "aggregated_totals": {
-        "dem_votes": 426960.0,
-        "rep_votes": 607367.0,
+        "dem_votes": 426958.0,
+        "rep_votes": 607365.0,
         "other_votes": 27754.0,
-        "total_votes": 1062081.0
+        "total_votes": 1062077.0
       },
       "conservation_delta": {
-        "dem_votes": 2.0,
-        "rep_votes": 5.0,
+        "dem_votes": 0.0,
+        "rep_votes": 3.0,
         "other_votes": 2.0,
-        "total_votes": 9.0,
-        "total_pct_error": 0.0008474
+        "total_votes": 5.0,
+        "total_pct_error": 0.00047078
       }
     },
     {
@@ -761,11 +761,11 @@
       "contest_type": "secretary_of_state",
       "year": 2014,
       "district_count": 124,
-      "source_precinct_rows": 2242,
-      "matched_precinct_rows": 2242,
-      "block_weighted_rows": 2242,
+      "source_precinct_rows": 2222,
+      "matched_precinct_rows": 2222,
+      "block_weighted_rows": 2222,
       "county_share_fallback_rows": 52,
-      "county_share_fallback_row_share_pct": 2.319358,
+      "county_share_fallback_row_share_pct": 2.340234,
       "county_share_fallback_votes": 3679.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
@@ -778,16 +778,16 @@
       },
       "aggregated_totals": {
         "dem_votes": 409672.0,
-        "rep_votes": 635953.0,
+        "rep_votes": 635951.0,
         "other_votes": 711.0,
-        "total_votes": 1046336.0
+        "total_votes": 1046334.0
       },
       "conservation_delta": {
         "dem_votes": 3.0,
-        "rep_votes": 0.0,
+        "rep_votes": -2.0,
         "other_votes": -1.0,
-        "total_votes": 2.0,
-        "total_pct_error": 0.00019114
+        "total_votes": 0.0,
+        "total_pct_error": 0.0
       }
     },
     {
@@ -795,11 +795,11 @@
       "contest_type": "state_treasurer",
       "year": 2014,
       "district_count": 124,
-      "source_precinct_rows": 2242,
-      "matched_precinct_rows": 2242,
-      "block_weighted_rows": 2242,
+      "source_precinct_rows": 2222,
+      "matched_precinct_rows": 2222,
+      "block_weighted_rows": 2222,
       "county_share_fallback_rows": 52,
-      "county_share_fallback_row_share_pct": 2.319358,
+      "county_share_fallback_row_share_pct": 2.340234,
       "county_share_fallback_votes": 2532.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
@@ -812,14 +812,14 @@
       },
       "aggregated_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 747035.0,
-        "other_votes": 9144.0,
+        "rep_votes": 747036.0,
+        "other_votes": 9143.0,
         "total_votes": 756179.0
       },
       "conservation_delta": {
         "dem_votes": 0.0,
-        "rep_votes": -3.0,
-        "other_votes": -4.0,
+        "rep_votes": -2.0,
+        "other_votes": -5.0,
         "total_votes": -7.0,
         "total_pct_error": -0.0009257
       }
@@ -829,11 +829,11 @@
       "contest_type": "us_senate",
       "year": 2014,
       "district_count": 124,
-      "source_precinct_rows": 2242,
-      "matched_precinct_rows": 2242,
-      "block_weighted_rows": 2242,
+      "source_precinct_rows": 2222,
+      "matched_precinct_rows": 2222,
+      "block_weighted_rows": 2222,
       "county_share_fallback_rows": 52,
-      "county_share_fallback_row_share_pct": 2.319358,
+      "county_share_fallback_row_share_pct": 2.340234,
       "county_share_fallback_votes": 7409.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
@@ -845,17 +845,17 @@
         "total_votes": 2112589.0
       },
       "aggregated_totals": {
-        "dem_votes": 753317.0,
-        "rep_votes": 1241924.0,
+        "dem_votes": 753316.0,
+        "rep_votes": 1241922.0,
         "other_votes": 117340.0,
-        "total_votes": 2112581.0
+        "total_votes": 2112578.0
       },
       "conservation_delta": {
-        "dem_votes": -2.0,
-        "rep_votes": -3.0,
+        "dem_votes": -3.0,
+        "rep_votes": -5.0,
         "other_votes": -3.0,
-        "total_votes": -8.0,
-        "total_pct_error": -0.00037868
+        "total_votes": -11.0,
+        "total_pct_error": -0.00052069
       }
     },
     {
@@ -863,15 +863,15 @@
       "contest_type": "president",
       "year": 2012,
       "district_count": 124,
-      "source_precinct_rows": 2152,
-      "matched_precinct_rows": 2152,
-      "block_weighted_rows": 2152,
-      "county_share_fallback_rows": 65,
-      "county_share_fallback_row_share_pct": 3.020446,
-      "county_share_fallback_votes": 13315.0,
+      "source_precinct_rows": 2128,
+      "matched_precinct_rows": 2128,
+      "block_weighted_rows": 2128,
+      "county_share_fallback_rows": 64,
+      "county_share_fallback_row_share_pct": 3.007519,
+      "county_share_fallback_votes": 12802.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 0.87827788,
+      "county_share_fallback_vote_share_pct": 0.84443961,
       "source_totals": {
         "dem_votes": 630728.0,
         "rep_votes": 862636.0,
@@ -879,17 +879,17 @@
         "total_votes": 1516035.0
       },
       "aggregated_totals": {
-        "dem_votes": 630728.0,
-        "rep_votes": 862640.0,
-        "other_votes": 22676.0,
-        "total_votes": 1516044.0
+        "dem_votes": 630731.0,
+        "rep_votes": 862643.0,
+        "other_votes": 22673.0,
+        "total_votes": 1516047.0
       },
       "conservation_delta": {
-        "dem_votes": 0.0,
-        "rep_votes": 4.0,
-        "other_votes": 5.0,
-        "total_votes": 9.0,
-        "total_pct_error": 0.00059365
+        "dem_votes": 3.0,
+        "rep_votes": 7.0,
+        "other_votes": 2.0,
+        "total_votes": 12.0,
+        "total_pct_error": 0.00079154
       }
     },
     {
@@ -897,15 +897,15 @@
       "contest_type": "attorney_general",
       "year": 2010,
       "district_count": 124,
-      "source_precinct_rows": 2122,
-      "matched_precinct_rows": 2122,
-      "block_weighted_rows": 2122,
-      "county_share_fallback_rows": 62,
-      "county_share_fallback_row_share_pct": 2.921772,
-      "county_share_fallback_votes": 20053.0,
+      "source_precinct_rows": 2097,
+      "matched_precinct_rows": 2097,
+      "block_weighted_rows": 2097,
+      "county_share_fallback_rows": 60,
+      "county_share_fallback_row_share_pct": 2.86123,
+      "county_share_fallback_votes": 19252.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 1.74146614,
+      "county_share_fallback_vote_share_pct": 1.67190476,
       "source_totals": {
         "dem_votes": 507381.0,
         "rep_votes": 619635.0,
@@ -913,17 +913,17 @@
         "total_votes": 1151501.0
       },
       "aggregated_totals": {
-        "dem_votes": 507380.0,
+        "dem_votes": 507375.0,
         "rep_votes": 619633.0,
-        "other_votes": 24478.0,
-        "total_votes": 1151491.0
+        "other_votes": 24481.0,
+        "total_votes": 1151489.0
       },
       "conservation_delta": {
-        "dem_votes": -1.0,
+        "dem_votes": -6.0,
         "rep_votes": -2.0,
-        "other_votes": -7.0,
-        "total_votes": -10.0,
-        "total_pct_error": -0.00086843
+        "other_votes": -4.0,
+        "total_votes": -12.0,
+        "total_pct_error": -0.00104212
       }
     },
     {
@@ -931,15 +931,15 @@
       "contest_type": "commissioner_agriculture",
       "year": 2010,
       "district_count": 124,
-      "source_precinct_rows": 2122,
-      "matched_precinct_rows": 2122,
-      "block_weighted_rows": 2122,
-      "county_share_fallback_rows": 62,
-      "county_share_fallback_row_share_pct": 2.921772,
-      "county_share_fallback_votes": 19833.0,
+      "source_precinct_rows": 2097,
+      "matched_precinct_rows": 2097,
+      "block_weighted_rows": 2097,
+      "county_share_fallback_rows": 60,
+      "county_share_fallback_row_share_pct": 2.86123,
+      "county_share_fallback_votes": 19038.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 1.74160984,
+      "county_share_fallback_vote_share_pct": 1.67179792,
       "source_totals": {
         "dem_votes": 450618.0,
         "rep_votes": 687719.0,
@@ -948,16 +948,16 @@
       },
       "aggregated_totals": {
         "dem_votes": 450619.0,
-        "rep_votes": 687715.0,
+        "rep_votes": 687717.0,
         "other_votes": 436.0,
-        "total_votes": 1138770.0
+        "total_votes": 1138772.0
       },
       "conservation_delta": {
         "dem_votes": 1.0,
-        "rep_votes": -4.0,
+        "rep_votes": -2.0,
         "other_votes": -1.0,
-        "total_votes": -4.0,
-        "total_pct_error": -0.00035125
+        "total_votes": -2.0,
+        "total_pct_error": -0.00017563
       }
     },
     {
@@ -965,15 +965,15 @@
       "contest_type": "comptroller_general",
       "year": 2010,
       "district_count": 124,
-      "source_precinct_rows": 2122,
-      "matched_precinct_rows": 2122,
-      "block_weighted_rows": 2122,
-      "county_share_fallback_rows": 62,
-      "county_share_fallback_row_share_pct": 2.921772,
-      "county_share_fallback_votes": 19882.0,
+      "source_precinct_rows": 2097,
+      "matched_precinct_rows": 2097,
+      "block_weighted_rows": 2097,
+      "county_share_fallback_rows": 60,
+      "county_share_fallback_row_share_pct": 2.86123,
+      "county_share_fallback_votes": 19086.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 1.74062255,
+      "county_share_fallback_vote_share_pct": 1.67093462,
       "source_totals": {
         "dem_votes": 495265.0,
         "rep_votes": 646347.0,
@@ -981,17 +981,17 @@
         "total_votes": 1142235.0
       },
       "aggregated_totals": {
-        "dem_votes": 495262.0,
-        "rep_votes": 646341.0,
-        "other_votes": 620.0,
-        "total_votes": 1142223.0
+        "dem_votes": 495261.0,
+        "rep_votes": 646345.0,
+        "other_votes": 621.0,
+        "total_votes": 1142227.0
       },
       "conservation_delta": {
-        "dem_votes": -3.0,
-        "rep_votes": -6.0,
-        "other_votes": -3.0,
-        "total_votes": -12.0,
-        "total_pct_error": -0.00105057
+        "dem_votes": -4.0,
+        "rep_votes": -2.0,
+        "other_votes": -2.0,
+        "total_votes": -8.0,
+        "total_pct_error": -0.00070038
       }
     },
     {
@@ -999,15 +999,15 @@
       "contest_type": "governor",
       "year": 2010,
       "district_count": 124,
-      "source_precinct_rows": 2122,
-      "matched_precinct_rows": 2122,
-      "block_weighted_rows": 2122,
-      "county_share_fallback_rows": 62,
-      "county_share_fallback_row_share_pct": 2.921772,
-      "county_share_fallback_votes": 20222.0,
+      "source_precinct_rows": 2097,
+      "matched_precinct_rows": 2097,
+      "block_weighted_rows": 2097,
+      "county_share_fallback_rows": 60,
+      "county_share_fallback_row_share_pct": 2.86123,
+      "county_share_fallback_votes": 19405.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 1.74038922,
+      "county_share_fallback_vote_share_pct": 1.67007481,
       "source_totals": {
         "dem_votes": 543693.0,
         "rep_votes": 597757.0,
@@ -1015,17 +1015,17 @@
         "total_votes": 1161924.0
       },
       "aggregated_totals": {
-        "dem_votes": 543687.0,
-        "rep_votes": 597754.0,
-        "other_votes": 20475.0,
-        "total_votes": 1161916.0
+        "dem_votes": 543686.0,
+        "rep_votes": 597753.0,
+        "other_votes": 20471.0,
+        "total_votes": 1161910.0
       },
       "conservation_delta": {
-        "dem_votes": -6.0,
-        "rep_votes": -3.0,
-        "other_votes": 1.0,
-        "total_votes": -8.0,
-        "total_pct_error": -0.00068851
+        "dem_votes": -7.0,
+        "rep_votes": -4.0,
+        "other_votes": -3.0,
+        "total_votes": -14.0,
+        "total_pct_error": -0.0012049
       }
     },
     {
@@ -1033,15 +1033,15 @@
       "contest_type": "secretary_of_state",
       "year": 2010,
       "district_count": 124,
-      "source_precinct_rows": 2122,
-      "matched_precinct_rows": 2122,
-      "block_weighted_rows": 2122,
-      "county_share_fallback_rows": 62,
-      "county_share_fallback_row_share_pct": 2.921772,
-      "county_share_fallback_votes": 19949.0,
+      "source_precinct_rows": 2097,
+      "matched_precinct_rows": 2097,
+      "block_weighted_rows": 2097,
+      "county_share_fallback_rows": 60,
+      "county_share_fallback_row_share_pct": 2.86123,
+      "county_share_fallback_votes": 19141.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 1.7461504,
+      "county_share_fallback_vote_share_pct": 1.67542557,
       "source_totals": {
         "dem_votes": 443016.0,
         "rep_votes": 698897.0,
@@ -1049,17 +1049,17 @@
         "total_votes": 1142456.0
       },
       "aggregated_totals": {
-        "dem_votes": 443013.0,
-        "rep_votes": 698896.0,
+        "dem_votes": 443014.0,
+        "rep_votes": 698898.0,
         "other_votes": 548.0,
-        "total_votes": 1142457.0
+        "total_votes": 1142460.0
       },
       "conservation_delta": {
-        "dem_votes": -3.0,
-        "rep_votes": -1.0,
+        "dem_votes": -2.0,
+        "rep_votes": 1.0,
         "other_votes": 5.0,
-        "total_votes": 1.0,
-        "total_pct_error": 8.753e-05
+        "total_votes": 4.0,
+        "total_pct_error": 0.00035012
       }
     },
     {
@@ -1067,15 +1067,15 @@
       "contest_type": "state_treasurer",
       "year": 2010,
       "district_count": 124,
-      "source_precinct_rows": 2122,
-      "matched_precinct_rows": 2122,
-      "block_weighted_rows": 2122,
-      "county_share_fallback_rows": 62,
-      "county_share_fallback_row_share_pct": 2.921772,
-      "county_share_fallback_votes": 15933.0,
+      "source_precinct_rows": 2097,
+      "matched_precinct_rows": 2097,
+      "block_weighted_rows": 2097,
+      "county_share_fallback_rows": 60,
+      "county_share_fallback_row_share_pct": 2.86123,
+      "county_share_fallback_votes": 15232.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 1.99911418,
+      "county_share_fallback_vote_share_pct": 1.91115968,
       "source_totals": {
         "dem_votes": 0.0,
         "rep_votes": 789044.0,
@@ -1084,16 +1084,16 @@
       },
       "aggregated_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 789042.0,
-        "other_votes": 7963.0,
-        "total_votes": 797005.0
+        "rep_votes": 789043.0,
+        "other_votes": 7965.0,
+        "total_votes": 797008.0
       },
       "conservation_delta": {
         "dem_votes": 0.0,
-        "rep_votes": -2.0,
-        "other_votes": 4.0,
-        "total_votes": 2.0,
-        "total_pct_error": 0.00025094
+        "rep_votes": -1.0,
+        "other_votes": 6.0,
+        "total_votes": 5.0,
+        "total_pct_error": 0.00062735
       }
     },
     {
@@ -1101,15 +1101,15 @@
       "contest_type": "us_senate",
       "year": 2010,
       "district_count": 124,
-      "source_precinct_rows": 2122,
-      "matched_precinct_rows": 2122,
-      "block_weighted_rows": 2122,
-      "county_share_fallback_rows": 62,
-      "county_share_fallback_row_share_pct": 2.921772,
-      "county_share_fallback_votes": 19903.0,
+      "source_precinct_rows": 2097,
+      "matched_precinct_rows": 2097,
+      "block_weighted_rows": 2097,
+      "county_share_fallback_rows": 60,
+      "county_share_fallback_row_share_pct": 2.86123,
+      "county_share_fallback_votes": 19095.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 1.74559851,
+      "county_share_fallback_vote_share_pct": 1.67473263,
       "source_totals": {
         "dem_votes": 314950.0,
         "rep_votes": 702874.0,
@@ -1117,17 +1117,17 @@
         "total_votes": 1140182.0
       },
       "aggregated_totals": {
-        "dem_votes": 314946.0,
-        "rep_votes": 702873.0,
-        "other_votes": 122355.0,
-        "total_votes": 1140174.0
+        "dem_votes": 314947.0,
+        "rep_votes": 702875.0,
+        "other_votes": 122354.0,
+        "total_votes": 1140176.0
       },
       "conservation_delta": {
-        "dem_votes": -4.0,
-        "rep_votes": -1.0,
-        "other_votes": -3.0,
-        "total_votes": -8.0,
-        "total_pct_error": -0.00070164
+        "dem_votes": -3.0,
+        "rep_votes": 1.0,
+        "other_votes": -4.0,
+        "total_votes": -6.0,
+        "total_pct_error": -0.00052623
       }
     },
     {
@@ -1135,15 +1135,15 @@
       "contest_type": "president",
       "year": 2008,
       "district_count": 124,
-      "source_precinct_rows": 2026,
-      "matched_precinct_rows": 2026,
-      "block_weighted_rows": 2026,
-      "county_share_fallback_rows": 116,
-      "county_share_fallback_row_share_pct": 5.725568,
-      "county_share_fallback_votes": 74842.0,
+      "source_precinct_rows": 1994,
+      "matched_precinct_rows": 1994,
+      "block_weighted_rows": 1994,
+      "county_share_fallback_rows": 107,
+      "county_share_fallback_row_share_pct": 5.366098,
+      "county_share_fallback_votes": 69101.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 4.97372648,
+      "county_share_fallback_vote_share_pct": 4.59220055,
       "source_totals": {
         "dem_votes": 638081.0,
         "rep_votes": 846919.0,
@@ -1151,17 +1151,17 @@
         "total_votes": 1504747.0
       },
       "aggregated_totals": {
-        "dem_votes": 638084.0,
-        "rep_votes": 846925.0,
+        "dem_votes": 638082.0,
+        "rep_votes": 846923.0,
         "other_votes": 19752.0,
-        "total_votes": 1504761.0
+        "total_votes": 1504757.0
       },
       "conservation_delta": {
-        "dem_votes": 3.0,
-        "rep_votes": 6.0,
+        "dem_votes": 1.0,
+        "rep_votes": 4.0,
         "other_votes": 5.0,
-        "total_votes": 14.0,
-        "total_pct_error": 0.00093039
+        "total_votes": 10.0,
+        "total_pct_error": 0.00066456
       }
     },
     {
@@ -1169,15 +1169,15 @@
       "contest_type": "us_senate",
       "year": 2008,
       "district_count": 124,
-      "source_precinct_rows": 2026,
-      "matched_precinct_rows": 2026,
-      "block_weighted_rows": 2026,
-      "county_share_fallback_rows": 116,
-      "county_share_fallback_row_share_pct": 5.725568,
-      "county_share_fallback_votes": 73009.0,
+      "source_precinct_rows": 1994,
+      "matched_precinct_rows": 1994,
+      "block_weighted_rows": 1994,
+      "county_share_fallback_rows": 107,
+      "county_share_fallback_row_share_pct": 5.366098,
+      "county_share_fallback_votes": 67412.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 4.9761481,
+      "county_share_fallback_vote_share_pct": 4.59466773,
       "source_totals": {
         "dem_votes": 585125.0,
         "rep_votes": 878606.0,
@@ -1186,16 +1186,16 @@
       },
       "aggregated_totals": {
         "dem_votes": 585127.0,
-        "rep_votes": 878605.0,
+        "rep_votes": 878608.0,
         "other_votes": 3446.0,
-        "total_votes": 1467178.0
+        "total_votes": 1467181.0
       },
       "conservation_delta": {
         "dem_votes": 2.0,
-        "rep_votes": -1.0,
+        "rep_votes": 2.0,
         "other_votes": -2.0,
-        "total_votes": -1.0,
-        "total_pct_error": -6.816e-05
+        "total_votes": 2.0,
+        "total_pct_error": 0.00013632
       }
     },
     {
@@ -1203,15 +1203,15 @@
       "contest_type": "attorney_general",
       "year": 2006,
       "district_count": 124,
-      "source_precinct_rows": 2002,
-      "matched_precinct_rows": 2002,
-      "block_weighted_rows": 2002,
-      "county_share_fallback_rows": 130,
-      "county_share_fallback_row_share_pct": 6.493506,
-      "county_share_fallback_votes": 55058.0,
+      "source_precinct_rows": 1983,
+      "matched_precinct_rows": 1983,
+      "block_weighted_rows": 1983,
+      "county_share_fallback_rows": 121,
+      "county_share_fallback_row_share_pct": 6.101866,
+      "county_share_fallback_votes": 52224.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 7.51382452,
+      "county_share_fallback_vote_share_pct": 7.12706549,
       "source_totals": {
         "dem_votes": 0.0,
         "rep_votes": 727316.0,
@@ -1220,16 +1220,16 @@
       },
       "aggregated_totals": {
         "dem_votes": 0.0,
-        "rep_votes": 727314.0,
-        "other_votes": 5443.0,
-        "total_votes": 732757.0
+        "rep_votes": 727318.0,
+        "other_votes": 5444.0,
+        "total_votes": 732762.0
       },
       "conservation_delta": {
         "dem_votes": 0.0,
-        "rep_votes": -2.0,
-        "other_votes": 3.0,
-        "total_votes": 1.0,
-        "total_pct_error": 0.00013647
+        "rep_votes": 2.0,
+        "other_votes": 4.0,
+        "total_votes": 6.0,
+        "total_pct_error": 0.00081883
       }
     },
     {
@@ -1237,15 +1237,15 @@
       "contest_type": "commissioner_agriculture",
       "year": 2006,
       "district_count": 124,
-      "source_precinct_rows": 2002,
-      "matched_precinct_rows": 2002,
-      "block_weighted_rows": 2002,
-      "county_share_fallback_rows": 130,
-      "county_share_fallback_row_share_pct": 6.493506,
-      "county_share_fallback_votes": 69870.0,
+      "source_precinct_rows": 1983,
+      "matched_precinct_rows": 1983,
+      "block_weighted_rows": 1983,
+      "county_share_fallback_rows": 121,
+      "county_share_fallback_row_share_pct": 6.101866,
+      "county_share_fallback_votes": 66512.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 7.06636946,
+      "county_share_fallback_vote_share_pct": 6.72675491,
       "source_totals": {
         "dem_votes": 396242.0,
         "rep_votes": 592232.0,
@@ -1253,17 +1253,17 @@
         "total_votes": 988768.0
       },
       "aggregated_totals": {
-        "dem_votes": 396243.0,
+        "dem_votes": 396244.0,
         "rep_votes": 592231.0,
         "other_votes": 291.0,
-        "total_votes": 988765.0
+        "total_votes": 988766.0
       },
       "conservation_delta": {
-        "dem_votes": 1.0,
+        "dem_votes": 2.0,
         "rep_votes": -1.0,
         "other_votes": -3.0,
-        "total_votes": -3.0,
-        "total_pct_error": -0.00030341
+        "total_votes": -2.0,
+        "total_pct_error": -0.00020227
       }
     },
     {
@@ -1271,15 +1271,15 @@
       "contest_type": "comptroller_general",
       "year": 2006,
       "district_count": 124,
-      "source_precinct_rows": 2002,
-      "matched_precinct_rows": 2002,
-      "block_weighted_rows": 2002,
-      "county_share_fallback_rows": 130,
-      "county_share_fallback_row_share_pct": 6.493506,
-      "county_share_fallback_votes": 70491.0,
+      "source_precinct_rows": 1983,
+      "matched_precinct_rows": 1983,
+      "block_weighted_rows": 1983,
+      "county_share_fallback_rows": 121,
+      "county_share_fallback_row_share_pct": 6.101866,
+      "county_share_fallback_votes": 67124.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 7.07110528,
+      "county_share_fallback_vote_share_pct": 6.7333542,
       "source_totals": {
         "dem_votes": 462861.0,
         "rep_votes": 533685.0,
@@ -1287,17 +1287,17 @@
         "total_votes": 996888.0
       },
       "aggregated_totals": {
-        "dem_votes": 462863.0,
-        "rep_votes": 533682.0,
-        "other_votes": 336.0,
-        "total_votes": 996881.0
+        "dem_votes": 462864.0,
+        "rep_votes": 533685.0,
+        "other_votes": 338.0,
+        "total_votes": 996887.0
       },
       "conservation_delta": {
-        "dem_votes": 2.0,
-        "rep_votes": -3.0,
-        "other_votes": -6.0,
-        "total_votes": -7.0,
-        "total_pct_error": -0.00070219
+        "dem_votes": 3.0,
+        "rep_votes": 0.0,
+        "other_votes": -4.0,
+        "total_votes": -1.0,
+        "total_pct_error": -0.00010031
       }
     },
     {
@@ -1305,15 +1305,15 @@
       "contest_type": "governor",
       "year": 2006,
       "district_count": 124,
-      "source_precinct_rows": 2002,
-      "matched_precinct_rows": 2002,
-      "block_weighted_rows": 2002,
-      "county_share_fallback_rows": 130,
-      "county_share_fallback_row_share_pct": 6.493506,
-      "county_share_fallback_votes": 71743.0,
+      "source_precinct_rows": 1983,
+      "matched_precinct_rows": 1983,
+      "block_weighted_rows": 1983,
+      "county_share_fallback_rows": 121,
+      "county_share_fallback_row_share_pct": 6.101866,
+      "county_share_fallback_votes": 68295.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 7.07356536,
+      "county_share_fallback_vote_share_pct": 6.73360671,
       "source_totals": {
         "dem_votes": 452406.0,
         "rep_votes": 561064.0,
@@ -1321,17 +1321,17 @@
         "total_votes": 1014241.0
       },
       "aggregated_totals": {
-        "dem_votes": 452411.0,
-        "rep_votes": 561066.0,
-        "other_votes": 771.0,
-        "total_votes": 1014248.0
+        "dem_votes": 452413.0,
+        "rep_votes": 561061.0,
+        "other_votes": 770.0,
+        "total_votes": 1014244.0
       },
       "conservation_delta": {
-        "dem_votes": 5.0,
-        "rep_votes": 2.0,
-        "other_votes": 0.0,
-        "total_votes": 7.0,
-        "total_pct_error": 0.00069017
+        "dem_votes": 7.0,
+        "rep_votes": -3.0,
+        "other_votes": -1.0,
+        "total_votes": 3.0,
+        "total_pct_error": 0.00029579
       }
     },
     {
@@ -1339,15 +1339,15 @@
       "contest_type": "secretary_of_state",
       "year": 2006,
       "district_count": 124,
-      "source_precinct_rows": 2002,
-      "matched_precinct_rows": 2002,
-      "block_weighted_rows": 2002,
-      "county_share_fallback_rows": 130,
-      "county_share_fallback_row_share_pct": 6.493506,
-      "county_share_fallback_votes": 70647.0,
+      "source_precinct_rows": 1983,
+      "matched_precinct_rows": 1983,
+      "block_weighted_rows": 1983,
+      "county_share_fallback_rows": 121,
+      "county_share_fallback_row_share_pct": 6.101866,
+      "county_share_fallback_votes": 67245.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 7.09092223,
+      "county_share_fallback_vote_share_pct": 6.7494595,
       "source_totals": {
         "dem_votes": 383234.0,
         "rep_votes": 612699.0,
@@ -1355,17 +1355,17 @@
         "total_votes": 996302.0
       },
       "aggregated_totals": {
-        "dem_votes": 383235.0,
+        "dem_votes": 383233.0,
         "rep_votes": 612700.0,
-        "other_votes": 370.0,
-        "total_votes": 996305.0
+        "other_votes": 369.0,
+        "total_votes": 996302.0
       },
       "conservation_delta": {
-        "dem_votes": 1.0,
+        "dem_votes": -1.0,
         "rep_votes": 1.0,
-        "other_votes": 1.0,
-        "total_votes": 3.0,
-        "total_pct_error": 0.00030111
+        "other_votes": 0.0,
+        "total_votes": 0.0,
+        "total_pct_error": 0.0
       }
     },
     {
@@ -1373,15 +1373,15 @@
       "contest_type": "state_treasurer",
       "year": 2006,
       "district_count": 124,
-      "source_precinct_rows": 2002,
-      "matched_precinct_rows": 2002,
-      "block_weighted_rows": 2002,
-      "county_share_fallback_rows": 130,
-      "county_share_fallback_row_share_pct": 6.493506,
-      "county_share_fallback_votes": 71256.0,
+      "source_precinct_rows": 1983,
+      "matched_precinct_rows": 1983,
+      "block_weighted_rows": 1983,
+      "county_share_fallback_rows": 121,
+      "county_share_fallback_row_share_pct": 6.101866,
+      "county_share_fallback_votes": 67839.0,
       "centroid_fallback_rows": 0,
       "match_coverage_pct": 100.0,
-      "county_share_fallback_vote_share_pct": 7.06389686,
+      "county_share_fallback_vote_share_pct": 6.72515576,
       "source_totals": {
         "dem_votes": 479226.0,
         "rep_votes": 529124.0,
@@ -1389,17 +1389,17 @@
         "total_votes": 1008735.0
       },
       "aggregated_totals": {
-        "dem_votes": 479227.0,
-        "rep_votes": 529121.0,
-        "other_votes": 387.0,
-        "total_votes": 1008735.0
+        "dem_votes": 479231.0,
+        "rep_votes": 529126.0,
+        "other_votes": 386.0,
+        "total_votes": 1008743.0
       },
       "conservation_delta": {
-        "dem_votes": 1.0,
-        "rep_votes": -3.0,
-        "other_votes": 2.0,
-        "total_votes": 0.0,
-        "total_pct_error": 0.0
+        "dem_votes": 5.0,
+        "rep_votes": 2.0,
+        "other_votes": 1.0,
+        "total_votes": 8.0,
+        "total_pct_error": 0.00079307
       }
     }
   ]
