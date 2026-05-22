@@ -10629,7 +10629,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const precinctRows = [];
         (rows || []).forEach(row => {
           const countyField = (row?.county || '').toString();
-          if (countyField.includes(' - ')) precinctRows.push(row);
+          // Some exports omit spaces around the county/precinct hyphen, so treat either
+          // "County - Precinct" or "County-Precinct" as precinct-detail rows.
+          const isPrecinctLike = countyField.includes(' - ') || /^[A-Za-z .']+\s*-\s*.+$/.test(countyField);
+          if (isPrecinctLike) precinctRows.push(row);
           else countySummaryRows.push(row);
         });
         return { countySummaryRows, precinctRows };
