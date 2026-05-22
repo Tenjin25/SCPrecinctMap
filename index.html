@@ -32866,6 +32866,69 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
 
+      // Guardrail: when county summary rows exist, they are authoritative for county-layer totals.
+      // This prevents stale/mixed caches from surfacing precinct-only sums in county details.
+      if (countyRows.length > 0) {
+        const authoritativeCountyAgg = {};
+        let authoritativeDem = 0;
+        let authoritativeRep = 0;
+        let authoritativeOther = 0;
+        let authoritativeTotal = 0;
+        let authoritativeDemCandidate = '';
+        let authoritativeRepCandidate = '';
+
+        for (const row of countyRows) {
+          if (staleCheck()) return;
+          const rowName = (row.county || '').toString();
+          const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
+          const countyNorm = normalizeCountyName(countyOnly);
+          if (!countyNorm) continue;
+
+          const rawDemVotes = Number(row[`${contestType}_dem`] || 0);
+          const rawRepVotes = Number(row[`${contestType}_rep`] || 0);
+          const rawOtherVotes = Number(row[`${contestType}_other`] || 0);
+          const rawTotalVotes = Number(row[`${contestType}_total`] || 0);
+          const adjusted = applyScenarioShiftToVotes(countyNorm, rawDemVotes, rawRepVotes, rawOtherVotes, rawTotalVotes);
+          const demVotes = Number(adjusted.dem || 0);
+          const repVotes = Number(adjusted.rep || 0);
+          const otherVotes = Number(adjusted.other || 0);
+          const totalVotes = Number(adjusted.total || 0);
+          const demCand = (row[`${contestType}_dem_candidate`] || '').toString();
+          const repCand = (row[`${contestType}_rep_candidate`] || '').toString();
+
+          authoritativeDem += demVotes;
+          authoritativeRep += repVotes;
+          authoritativeOther += otherVotes;
+          authoritativeTotal += totalVotes;
+          if (!authoritativeDemCandidate && demCand) authoritativeDemCandidate = demCand;
+          if (!authoritativeRepCandidate && repCand) authoritativeRepCandidate = repCand;
+
+          authoritativeCountyAgg[countyNorm] = {
+            ...(countyAgg[countyNorm] || {}),
+            year: Number(year),
+            county: countyOnly,
+            [`${contestType}_dem`]: demVotes,
+            [`${contestType}_rep`]: repVotes,
+            [`${contestType}_other`]: otherVotes,
+            [`${contestType}_total`]: totalVotes,
+            [`${contestType}_dem_candidate`]: demCand || (countyAgg[countyNorm]?.[`${contestType}_dem_candidate`] || ''),
+            [`${contestType}_rep_candidate`]: repCand || (countyAgg[countyNorm]?.[`${contestType}_rep_candidate`] || '')
+          };
+        }
+
+        countyAgg = authoritativeCountyAgg;
+        statewidedemVotes = authoritativeDem;
+        statewidrepVotes = authoritativeRep;
+        statewidotherVotes = authoritativeOther;
+        statewidTotalVotes = authoritativeTotal;
+        statewideDemCandidate = authoritativeDemCandidate || statewideDemCandidate;
+        statewideRepCandidate = authoritativeRepCandidate || statewideRepCandidate;
+        countyTurnoutTotals = {};
+        Object.keys(countyAgg).forEach(countyNorm => {
+          countyTurnoutTotals[countyNorm] = Number(countyAgg[countyNorm]?.[`${contestType}_total`] || 0);
+        });
+      }
+
       currentElectionResults = countyAgg;
       currentCountyTurnoutTotals = countyTurnoutTotals;
       currentDistrictTurnoutTotals = {};
