@@ -11001,6 +11001,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Modeled contests are intentionally excluded (modeled outputs vary by model signature).
     const countyAggregateByContestYearCache = new Map(); // key -> { totalsByCounty, signedByCounty, statewide, statewideSigned }
     const countyAggregateByContestYearInflight = new Map(); // key -> Promise<bundle|null>
+    // Bump when contest row-level split logic changes so stale mixed-row caches are invalidated.
+    const CONTEST_ROW_SPLIT_VERSION = 2;
 
     function buildCountyAggregateBundleFromSliceRows(rows, contestType) {
       const ct = String(contestType || '').trim();
@@ -11070,7 +11072,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (getModeledContestDefinition(ct, y)) return null;
       } catch (_) {}
 
-      const key = `${ct}_${y}`;
+      const key = `${ct}_${y}|split:v${CONTEST_ROW_SPLIT_VERSION}`;
       if (countyAggregateByContestYearCache.has(key)) return countyAggregateByContestYearCache.get(key);
       if (countyAggregateByContestYearInflight.has(key)) return countyAggregateByContestYearInflight.get(key);
 
@@ -32652,7 +32654,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	      }
 
       const sliceSourceSig = getContestSliceSourceSignature(contestType, Number(year));
-      const aggCacheKey = `${contestType}_${Number(year)}|src:${sliceSourceSig}|scenario:${scenarioSignature()}`;
+      const aggCacheKey = `${contestType}_${Number(year)}|src:${sliceSourceSig}|split:v${CONTEST_ROW_SPLIT_VERSION}|scenario:${scenarioSignature()}`;
       const cachedAggBundle = countyAggregateBundleCache.get(aggCacheKey) || null;
 
       let countyAgg = cachedAggBundle ? (cachedAggBundle.countyAgg || {}) : {};
