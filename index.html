@@ -30305,7 +30305,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!gj || !gj.features) return;
 
       const target = `${county} - ${code}`.replace(/\s+/g, ' ').trim();
-
       const hit = gj.features.find(f => ((f.properties || {}).precinct_norm || '').toString().trim().toUpperCase() === target);
       if (!hit) {
         console.warn('Precinct not found for search:', target);
@@ -34036,4 +34035,3 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
-
