@@ -7,6 +7,24 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 
 ## Recent Updates (May 2026)
 
+- **County/precinct + lines/opacity polish pass (May 2026):**
+  - Reverted to the `ae1bfe5` baseline and fixed 2024 county totals to use canonical contest JSON (no 2024 OpenElections county override), restoring expected county margins (for example York 2024 presidential to ~`R+19.09`).
+  - Refined precinct alias/display cleanup with typo handling (for example `Licolnville` -> `Lincolnville`) and additional alias mappings in `precinct_aliases.json`.
+  - Matched mobile panel aesthetics more closely to desktop floating cards/tooltips while preserving touch-friendly sheet behavior.
+  - Set county opacity to `0.38` when precinct overlays are visible.
+  - Tuned district-layer opacity for both precinct states:
+    - Precincts on: Congressional `0.52`, State House `0.50`, State Senate `0.50`
+    - Precincts off: Congressional `0.72`, State House `0.70`, State Senate `0.70`
+  - Updated State House 2024 lines wiring:
+    - `state_house_2024` now points to the dedicated `sc_state_house_2024_lines_tileset.geojson`.
+    - State House view now defaults to 2024 lines.
+    - First switch to State House forces a geometry refresh so 2024 lines render immediately (no initial 2022 flash).
+  - Refined district-line toggle visibility by view:
+    - `2024` toggle shown only for State House.
+    - `2026` toggle shown only for Congressional.
+    - `2022` hidden outside district views.
+  - Removed the 2000 anchor line from the Long-Term Trend trajectory block.
+
 - **Precinct matching carryover sync (May 12, 2026):**
   - Ported the precinct key-matching variant logic from `index - copy.html` into the primary `index.html` code path.
   - Updated both `precinctNormVariantsLite(...)` and `precinctNormVariants(...)` to keep county/precinct matching behavior consistent in the live app.
