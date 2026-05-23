@@ -30356,7 +30356,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const county = (countyNameRaw || '').toString().trim().toUpperCase();
       const code = (precinctCodeRaw || '').toString().trim().toUpperCase();
       try { await ensurePrecinctCodeIndex(); } catch (_) {}
-      try { await ensurePrecinctAliasIndex(); } catch (_) {}
       if (isNonGeographicPrecinctToken(code, county)) {
         setStatus(`${county} - ${code} is a non-geographic vote bucket (e.g., Early Vote/Absentee) and isn't mapped to a precinct shape.`);
         try { showCountyDetails(county); } catch (_) {}
@@ -30369,89 +30368,41 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!gj || !gj.features) return;
 
       const target = `${county} - ${code}`.replace(/\s+/g, ' ').trim();
-      const targetVariants = new Set([target]);
-      const addTargetVariant = (variantCode) => {
-        const vc = (variantCode || '').toString().trim().toUpperCase();
-        if (!vc) return;
-        const full = `${county} - ${vc}`.replace(/\s+/g, ' ').trim();
-        if (full) targetVariants.add(full);
-      };
-      try {
-        addNumericBaseVariantsFromAlphaSuffix(code, addTargetVariant);
-        addEmbeddedPrecinctCodeVariants(code, addTargetVariant);
-        const countyNorm = normalizeCountyToken(county);
-        addKnownLegacyCentroidBridges(countyNorm, code, addTargetVariant);
-        const codes = precinctCodeIndexByCounty && countyNorm ? precinctCodeIndexByCounty.get(countyNorm) : null;
-        if (codes) {
-          addCompactCodeVariants(code, codes, addTargetVariant);
-          addPrefixStrippedNumericVariants(code, codes, addTargetVariant);
-        }
-      } catch (_) {}
 
-      let hit = null;
-      let matchedTarget = target;
-      for (const cand of targetVariants) {
-        hit = gj.features.find(f => ((f.properties || {}).precinct_norm || '').toString().trim().toUpperCase() === cand);
-        if (hit) {
-          matchedTarget = cand;
-          break;
-        }
-      }
+      const hit = gj.features.find(f => ((f.properties || {}).precinct_norm || '').toString().trim().toUpperCase() === target);
       if (!hit) {
         console.warn('Precinct not found for search:', target);
         setFlySearchFeedback('#ef4444');
         setStatus(`Precinct ${target} not found on the map.`);
         return;
       }
-      setSelectedPrecinctNorm((hit?.properties?.precinct_norm || matchedTarget || '').toString().trim().toUpperCase());
+      setSelectedPrecinctNorm(((hit?.properties || {}).precinct_norm || target).toString().trim().toUpperCase());
 
       const coords = hit.geometry && hit.geometry.type === 'Point' ? hit.geometry.coordinates : null;
-      syncFlySearchInputs(matchedTarget);
+      syncFlySearchInputs(target);
       setFlySearchFeedback('#10b981');
       if (coords && coords.length >= 2) {
-        zoomToClickedPrecinctFeature(hit, { padding: 42, duration: 920, maxZoom: 13.8 });
+        map.flyTo({ center: coords, zoom: Math.max(CONFIG.precincts?.minZoom || 8.5, 10.0), speed: 0.9 });
       }
-
-      const resolvedCode = matchedTarget.includes(' - ') ? matchedTarget.split(' - ')[1].trim().toUpperCase() : code;
-      const displayTitle = `${displayCountyName(county)} - ${formatPrecinctDisplayLabel(county, resolvedCode)}`;
 
       // Pin vote counter if we have precinct-level results keyed by precinct_norm.
       const contestValue = document.getElementById('contestSelect')?.value || '';
       const [contestType, year] = parseContestValue(contestValue);
-      const row = currentPrecinctResults
-        ? (currentPrecinctResults.get(matchedTarget) || currentPrecinctResults.get(target))
-        : null;
+      const row = currentPrecinctResults ? currentPrecinctResults.get(target) : null;
       if (row && contestType) {
         const demVotes = Number(row[`${contestType}_dem`] || 0);
         const repVotes = Number(row[`${contestType}_rep`] || 0);
         const otherVotes = Number(row[`${contestType}_other`] || 0);
         pinVoteCounterState(
-          `Selected: ${displayTitle}`,
-          `${formatContestLabel(contestType, year)}`,
+          `Selected: ${target}`,
+          `${formatContestName(contestType, year)} ${year}`,
           demVotes,
           repVotes,
           otherVotes,
-          { kind: 'precinct', county, precinct: displayTitle, precinctNorm: matchedTarget, contestType, year: Number(year) },
+          { kind: 'precinct', county, precinct: target, precinctNorm: target, contestType, year: Number(year) },
           { demCandidate: row[`${contestType}_dem_candidate`] || '', repCandidate: row[`${contestType}_rep_candidate`] || '' }
         );
       }
-
-      // Also pin the hover-style precinct context so the trend panel/tooltips stay consistent with map clicks.
-      try {
-        if (coords && coords.length >= 2 && typeof renderPrecinctHoverAtPoint === 'function') {
-          const projected = map && typeof map.project === 'function' ? map.project(coords) : null;
-          if (projected && Number.isFinite(projected.x) && Number.isFinite(projected.y)) {
-            const layers = ['precinct-fill', 'precinct-dot', 'precinct-dot-missing'].filter((id) => map.getLayer(id));
-            let feature = hit;
-            if (layers.length && typeof map.queryRenderedFeatures === 'function') {
-              const rendered = map.queryRenderedFeatures([projected.x, projected.y], { layers });
-              if (rendered && rendered.length) feature = rendered[0];
-            }
-            setTooltipPinned(false);
-            renderPrecinctHoverAtPoint({ x: projected.x, y: projected.y }, feature, { forceTooltip: true, pinSelection: true });
-          }
-        }
-      } catch (_) {}
 
     }
 
@@ -34078,3 +34029,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
