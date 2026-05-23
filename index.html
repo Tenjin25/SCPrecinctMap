@@ -13499,6 +13499,9 @@ document.addEventListener('DOMContentLoaded', function() {
         precinctsEnabled &&
         map.getZoom() >= (CONFIG.precincts?.minZoom || 8.5);
       let countyBaseOpacity = precinctsActuallyVisible ? preset.countyWithPrecinct : preset.countyActive;
+      if (precinctsActuallyVisible) {
+        countyBaseOpacity = 0.38;
+      }
       let districtBaseOpacity = preset.district;
       let houseBaseOpacity = preset.house;
       let senateBaseOpacity = preset.senate;
