@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":0,"rep_votes":119459,"other_votes":913,"total_votes":120372,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":119459,"margin_pct":99.2415,"winner":"R","color":"#67000d"},"2":{"dem_votes":0,"rep_votes":134701,"other_votes":1625,"total_votes":136326,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":134701,"margin_pct":98.808,"winner":"R","color":"#67000d"},"6":{"dem_votes":0,"rep_votes":72101,"other_votes":1363,"total_votes":73464,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":72101,"margin_pct":98.1447,"winner":"R","color":"#67000d"},"1":{"dem_votes":0,"rep_votes":114125,"other_votes":1199,"total_votes":115324,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":114125,"margin_pct":98.9603,"winner":"R","color":"#67000d"},"5":{"dem_votes":0,"rep_votes":109595,"other_votes":835,"total_votes":110430,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":109595,"margin_pct":99.2439,"winner":"R","color":"#67000d"},"7":{"dem_votes":0,"rep_votes":108184,"other_votes":711,"total_votes":108895,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":108184,"margin_pct":99.3471,"winner":"R","color":"#67000d"},"4":{"dem_votes":0,"rep_votes":130879,"other_votes":1313,"total_votes":132192,"dem_candidate":"","rep_candidate":"Curtis Loftis","margin":130879,"margin_pct":99.0067,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":100.0,"precinct_rows_total":2097,"precinct_rows_matched":2097,"precinct_rows_block_weighted":2097,"precinct_rows_county_share_fallback":60,"precinct_votes_county_share_fallback":15232.0}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 111188,
+        "other_votes": 834,
+        "total_votes": 112022,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 111188,
+        "margin_pct": 99.2555,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 127294,
+        "other_votes": 1543,
+        "total_votes": 128837,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 127294,
+        "margin_pct": 98.8024,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 70020,
+        "other_votes": 1341,
+        "total_votes": 71361,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 70020,
+        "margin_pct": 98.1208,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 113831,
+        "other_votes": 1200,
+        "total_votes": 115031,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 113831,
+        "margin_pct": 98.9568,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 105558,
+        "other_votes": 807,
+        "total_votes": 106365,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 105558,
+        "margin_pct": 99.2413,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 107175,
+        "other_votes": 706,
+        "total_votes": 107881,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 107175,
+        "margin_pct": 99.3456,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 127222,
+        "other_votes": 1280,
+        "total_votes": 128502,
+        "dem_candidate": "",
+        "rep_candidate": "Curtis Loftis",
+        "margin": 127222,
+        "margin_pct": 99.0039,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 94.9048,
+    "precinct_rows_total": 2100,
+    "precinct_rows_matched": 1993,
+    "precinct_rows_block_weighted": 1993
+  }
+}

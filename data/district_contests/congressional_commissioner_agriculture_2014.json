@@ -1,1 +1,96 @@
-{"general":{"results":{"3":{"dem_votes":0,"rep_votes":105598,"other_votes":19223,"total_votes":124821,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":105598,"margin_pct":84.5995,"winner":"R","color":"#67000d"},"2":{"dem_votes":0,"rep_votes":109696,"other_votes":29937,"total_votes":139633,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":109696,"margin_pct":78.5602,"winner":"R","color":"#67000d"},"6":{"dem_votes":0,"rep_votes":52128,"other_votes":31168,"total_votes":83296,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":52128,"margin_pct":62.5816,"winner":"R","color":"#67000d"},"1":{"dem_votes":0,"rep_votes":98518,"other_votes":22313,"total_votes":120831,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":98518,"margin_pct":81.5337,"winner":"R","color":"#67000d"},"5":{"dem_votes":0,"rep_votes":90329,"other_votes":23719,"total_votes":114048,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":90329,"margin_pct":79.2026,"winner":"R","color":"#67000d"},"7":{"dem_votes":0,"rep_votes":94291,"other_votes":20301,"total_votes":114592,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":94291,"margin_pct":82.2841,"winner":"R","color":"#67000d"},"4":{"dem_votes":0,"rep_votes":108738,"other_votes":21664,"total_votes":130402,"dem_candidate":"","rep_candidate":"Hugh E. Weathers","margin":108738,"margin_pct":83.3868,"winner":"R","color":"#67000d"}}},"meta":{"match_coverage_pct":100.0,"precinct_rows_total":2222,"precinct_rows_matched":2222,"precinct_rows_block_weighted":2222,"precinct_rows_county_share_fallback":52,"precinct_votes_county_share_fallback":2782.0}}
+{
+  "general": {
+    "results": {
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 104323,
+        "other_votes": 18817,
+        "total_votes": 123140,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 104323,
+        "margin_pct": 84.719,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 108624,
+        "other_votes": 29713,
+        "total_votes": 138337,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 108624,
+        "margin_pct": 78.5213,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 51749,
+        "other_votes": 31021,
+        "total_votes": 82770,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 51749,
+        "margin_pct": 62.5214,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 98736,
+        "other_votes": 22404,
+        "total_votes": 121140,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 98736,
+        "margin_pct": 81.5057,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 87881,
+        "other_votes": 23278,
+        "total_votes": 111159,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 87881,
+        "margin_pct": 79.0588,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 93706,
+        "other_votes": 20217,
+        "total_votes": 113923,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 93706,
+        "margin_pct": 82.2538,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 108540,
+        "other_votes": 21443,
+        "total_votes": 129983,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh E. Weathers",
+        "margin": 108540,
+        "margin_pct": 83.5032,
+        "winner": "R",
+        "color": "#67000d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 96.5174,
+    "precinct_rows_total": 2211,
+    "precinct_rows_matched": 2134,
+    "precinct_rows_block_weighted": 2134
+  }
+}
