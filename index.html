@@ -529,6 +529,33 @@
   body.colorblind-mode .legend-item {
     font-weight: 700;
   }
+  @media (max-width: 768px) {
+    :root {
+      --ui-bg: rgba(255, 255, 255, 0.95);
+      --ui-border: rgba(148, 163, 184, 0.42);
+      --ui-shadow: 0 12px 28px rgba(15, 23, 42, 0.16);
+    }
+
+    .map-topbar,
+    .main-controls,
+    .legend,
+    .vote-counter,
+    #status-panel {
+      background: var(--ui-bg) !important;
+      border-color: var(--ui-border) !important;
+      box-shadow: var(--ui-shadow) !important;
+      backdrop-filter: blur(12px) !important;
+    }
+
+    #hover-tooltip,
+    #hover-tooltip[data-context="preview"],
+    #hover-tooltip[data-context="votehub-results"] {
+      background: rgba(15, 23, 42, 0.95) !important;
+      border-color: rgba(148, 163, 184, 0.28) !important;
+      box-shadow: 0 14px 30px rgba(2, 6, 23, 0.48) !important;
+      backdrop-filter: blur(12px) !important;
+    }
+  }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script>
@@ -20643,6 +20670,17 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!cleaned) return '';
       const withoutPrefix = cleaned.replace(/^precinct\s+/i, '').trim();
       let display = toTitleCaseName(withoutPrefix || cleaned);
+      const typoFixes = {
+        'LICOLNVILLE': 'Lincolnville',
+        'PILGRIMCHRUCH': 'Pilgrim Church',
+        'JEKINSVILLE': 'Jenkinsville',
+        'CRESENT': 'Crescent',
+        'BUNRSDOWNS': 'Burns-Downs'
+      };
+      const compact = display.toUpperCase().replace(/[^A-Z0-9]/g, '');
+      if (compact && Object.prototype.hasOwnProperty.call(typoFixes, compact)) {
+        display = typoFixes[compact];
+      }
       if (countyNorm === 'DORCHESTER' && /^Four Hole$/i.test(display)) {
         display = 'Four Holes';
       }
