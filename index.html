@@ -20346,6 +20346,15 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!isDistrictLinesYearAllowedForView(currentView, currentDistrictLinesYear)) {
         currentDistrictLinesYear = 2022;
       }
+      if (currentView === 'state_house') {
+        try {
+          districtManifest = getActiveDistrictManifest(2024);
+          clearDistrictSearchGeoJSONCache();
+          await refreshDistrictGeometrySources(2024);
+        } catch (err) {
+          console.warn('Failed to pre-refresh state house 2024 geometry:', err?.message || err);
+        }
+      }
       updateDistrictLinesToggleUI();
       
       // Update button states
