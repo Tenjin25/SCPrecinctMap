@@ -20370,6 +20370,23 @@ document.addEventListener('DOMContentLoaded', function() {
       return parts[idx];
     }
 
+
+    // Returns the first real candidate label from a set of possible field aliases.
+    // Important: sparse trend/district rows sometimes carry only party labels (R/D/Republican/Democratic),
+    // and those should not block later candidate-name fallbacks.
+    function pickNonEmptyString(...values) {
+      const isPartyOnlyLabel = (value) => {
+        const s = (value || '').toString().trim().toUpperCase().replace(/[^A-Z]/g, '');
+        return s === 'D' || s === 'DEM' || s === 'DEMOCRAT' || s === 'DEMOCRATIC' ||
+          s === 'R' || s === 'REP' || s === 'REPUBLICAN' || s === 'GOP';
+      };
+      for (const value of values) {
+        const s = (value || '').toString().trim();
+        if (s && !isPartyOnlyLabel(s)) return s;
+      }
+      return '';
+    }
+
     // Shared candidate/last-name resolver for hover, selected results, county trend + timeline, and trajectory.
     // Prefers explicit row fields, then contest meta candidates, then known fallbacks, and finally party label.
     function getCandidateLastName(row, party, contestMeta = null) {
@@ -22278,16 +22295,42 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
     }
 
+    function getDistrictTrendManifestEntries(scope, contestType, preferredLinesYear = currentDistrictLinesYear) {
+      const targetScope = String(scope || '').trim();
+      const targetContest = String(contestType || '').trim();
+      const preferred = normalizeDistrictLinesYear(preferredLinesYear);
+      const pools = [
+        { linesYear: preferred, files: getActiveDistrictManifest(preferred) || [] },
+        { linesYear: 2022, files: districtManifestByLines?.['2022'] || [] },
+        { linesYear: 2024, files: districtManifestByLines?.['2024'] || [] },
+        { linesYear: 2026, files: districtManifestByLines?.['2026'] || [] }
+      ];
+      const seen = new Set();
+      const out = [];
+      pools.forEach(pool => {
+        const linesYear = normalizeDistrictLinesYear(pool.linesYear);
+        (Array.isArray(pool.files) ? pool.files : []).forEach(entry => {
+          if (!entry || String(entry.scope || '').trim() !== targetScope) return;
+          if (String(entry.contest_type || '').trim() !== targetContest) return;
+          const year = Number(entry.year);
+          if (!Number.isFinite(year)) return;
+          const key = `${targetScope}|${targetContest}|${year}|${linesYear}`;
+          if (seen.has(key)) return;
+          seen.add(key);
+          out.push({ ...entry, __lines_year: linesYear });
+        });
+      });
+      return out.sort((a, b) => Number(a.year) - Number(b.year));
+    }
+
     async function getDistrictTrendSeries(scope, contestType, districtNum) {
-      const entries = (getActiveDistrictManifest() || [])
-        .filter(f => f && f.scope === scope && f.contest_type === contestType && Number.isFinite(Number(f.year)))
-        .slice()
-        .sort((a, b) => Number(a.year) - Number(b.year));
+      const entries = getDistrictTrendManifestEntries(scope, contestType, currentDistrictLinesYear);
 
       const out = [];
       for (const e of entries) {
         const year = Number(e.year);
-        const payload = await loadDistrictSlice(scope, contestType, year);
+        const linesYearForEntry = Number.isFinite(Number(e.__lines_year)) ? Number(e.__lines_year) : currentDistrictLinesYear;
+        const payload = await loadDistrictSlice(scope, contestType, year, linesYearForEntry);
         const results = payload?.general?.results || null;
         if (!results) continue;
         const keyA = String(districtNum);
@@ -22324,7 +22367,13 @@ document.addEventListener('DOMContentLoaded', function() {
           coverage_pct: payload?.meta?.match_coverage_pct
         });
       }
-      return out;
+      const byYear = new Map();
+      out.forEach(row => {
+        const y = Number(row?.year);
+        if (!Number.isFinite(y) || byYear.has(y)) return;
+        byYear.set(y, row);
+      });
+      return Array.from(byYear.values()).sort((a, b) => Number(a.year) - Number(b.year));
     }
 
     async function getCountyTrendSeries(contestType, countyName) {
