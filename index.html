@@ -10245,7 +10245,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <label for="model-bonus">Candidate overperformance</label>
                 <input id="model-bonus" type="range" min="0" max="1.5" step="0.1" value="1" data-testid="model-bonus" aria-label="Model candidate bonus scale" />
                 <span class="scenario-value" id="model-bonus-value">1.0x</span>
-                <div class="scenario-help">Scales county-level overperformance effects (for example, Cooper crossover strength) with guardrails.</div>
+                <div class="scenario-help">Scales candidate overperformance effects with guardrails when a state-specific model is enabled.</div>
               </div>
               <div class="scenario-row scenario-row-actions" id="model-reset-row" style="display:none;">
                 <span></span>
@@ -10273,7 +10273,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 High contrast demographics
               </label>
               <div class="controls-panel-note">
-                Positive swing shifts margins toward Democrats. Negative values shift toward Republicans. Modeled 2026 Senate and Court entries inherit this swing.
+                Positive swing shifts margins toward Democrats. Negative values shift toward Republicans. Any enabled modeled entries inherit this swing.
                 <span id="modeled-context-badge" class="modeled-context-badge" style="display:none;">Modeled Scenario</span>
               </div>
             </details>
@@ -11329,8 +11329,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // the generic series contains elections every 2 years. For deltas, prefer same-class y-6
         // when available, otherwise fall back to the most recent earlier year.
         if (ct === 'us_senate') {
+          // Same-seat only: Senate races are staggered by seat/class. Never fall back
+          // from 2022 to 2020, 2020 to 2018, etc.; those are the other seat.
           const preferred = y - 6;
-          if (years.includes(preferred)) prev = preferred;
+          if (years.includes(preferred)) {
+            pairs.push({ from: preferred, to: y });
+            const preferredPrev = preferred - 6;
+            if (pairs.length < (Number(maxPairs) || 0) && years.includes(preferredPrev)) {
+              pairs.push({ from: preferredPrev, to: preferred });
+            }
+          }
+          return pairs.slice(0, Math.max(0, Number(maxPairs) || 0));
         }
         if (!Number.isFinite(prev)) {
           for (let i = years.length - 1; i >= 0; i -= 1) {
@@ -11344,16 +11353,10 @@ document.addEventListener('DOMContentLoaded', function() {
           if (pairs.length >= (Number(maxPairs) || 0)) return pairs;
 
           let prevPrev = null;
-          if (ct === 'us_senate') {
-            const preferredPrev = prev - 6;
-            if (years.includes(preferredPrev)) prevPrev = preferredPrev;
-          }
-          if (!Number.isFinite(prevPrev)) {
-            for (let i = years.length - 1; i >= 0; i -= 1) {
-              const yr = Number(years[i]);
-              if (!Number.isFinite(yr)) continue;
-              if (yr < prev) { prevPrev = yr; break; }
-            }
+          for (let i = years.length - 1; i >= 0; i -= 1) {
+            const yr = Number(years[i]);
+            if (!Number.isFinite(yr)) continue;
+            if (yr < prev) { prevPrev = yr; break; }
           }
           if (Number.isFinite(prevPrev)) pairs.push({ from: prevPrev, to: prev });
           return pairs.slice(0, Math.max(0, Number(maxPairs) || 0));
@@ -11570,170 +11573,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const BELLWETHER_COUNTY_MAX_AVG_ERR_PCT = 9; // avg abs error vs statewide margin across cycles
     const BELLWETHER_PRECINCT_MAX_ERR_PCT = 18;
     const BELLWETHER_PRECINCT_MAX_AVG_ERR_PCT = 12;
-    const MODELED_CONTEST_DEFINITIONS = {
-      'us_senate_model_2026': {
-        contestType: 'us_senate_model',
-        year: 2026,
-        displayName: 'US Senate Model',
-        optionLabel: 'US Senate (2026) model',
-        groupLabel: 'US Senate',
-       baseContestType: 'us_senate',
-       baseYear: 2022,
-       // Secondary Senate anchor: presidential-year Senate is a better same-environment reference than a pure midterm-only anchor.
-       // The weights below are applied inside the Senate anchor, before the (separate) climate blend.
-       secondaryBaseContestType: 'us_senate',
-       secondaryBaseYear: 2020,
-       senateAnchorSecondWeight: 0.34, // 0..1 share for 2020 inside the Senate anchor (rest is 2022)
-       climateContestType: 'president',
-       climateYear: 2024,
-        // Calibration refinement (2026-04): keep a Senate-first baseline (2022 + 2020) with a lighter climate blend,
-        // and tighter caps on county-specific ticket-splitting and "trend nudge" noise.
-        blendWeight: 0.72, // 0 => pure climate (2024 Pres), 1 => pure Senate anchors (2022 + 2020)
-        presidentialBaselineWeight: 0.60,
-        senateBaselineWeight: 0.40,
-        baselineRecentWeight: 0.60,
-        baselineSecondWeight: 0.25,
-        baselineLongRunWeight: 0.15,
-        baselineReliabilityMinVotes: 15000,
-        baselineReliabilityMaxVotes: 110000,
-        baselineReliabilityFloor: 0.41,
-        statewideRecenterStrength: 0.96,
-        countyBehaviorMode: 'balanced', // balanced | suburban_rebound | rural_surge | incumbent_friendly | volatile
-        ruralGopOverperformanceWeight: 0.15,
-        urbanDemElasticityWeight: 0.27,
-        anomalySwingClampPts: 12,
-        anomalyClampCounties: ['ROBESON', 'BLADEN', 'SCOTLAND'],
-        trendCarryoverWeight: 0.32,
-        senateResidualElasticityEnabled: false,
-        incumbentParty: 'DEM',
-        incumbentBoostPts: 1.4,
-        trendNudgeMaxPts: 0.55,
-        stableCountyBrakeMin: 0.44,
-        safeCountyBrakeMargin: 16,
-        // Optional county-cluster calibration (subtle by default): keep similar county archetypes
-        // behaving more consistently without changing any user-facing controls.
-        countyClusterCalibrationEnabled: true,
-        countyClusterCalibrationStrength: 0.58, // 0..1 (higher = stronger cluster-based adjustments)
-        // Federalization brake: very deep-partisan counties are less likely to sustain large crossover patterns.
-        federalizationBrakeMargin: 20,
-        federalizationDeepMargin: 34,
-        federalizationFloor: 0.62,
-        // Senate-first blend brake: in counties with durable Senate-vs-Pres divergence, reduce the share
-        // coming from the presidential climate baseline (capped).
-        distinctSenateBehaviorPresWeightBrakeMax: 0.10,
-        // Realignment adjustment: subtle rightward nudge in counties with unusually strong federal movement
-        // across 2016/2020/2024 and Senate 2020->2022 (capped + reliability-scaled).
-        realignmentAdjustmentEnabled: true,
-        realignmentAdjustmentMinTrendPts: 1.25,
-        realignmentAdjustmentMaxTrendPts: 9.0,
-        realignmentAdjustmentSlope: 0.055, // pts of adjustment per 1 pt of rightward trend
-        realignmentAdjustmentMaxPts: 0.45,
-        // Turnout sensitivity: in edge-case realigning counties, coalition mix makes turnout matter more.
-        realignmentTurnoutEnabled: true,
-        realignmentTurnoutMinTrendPts: 1.0,
-        realignmentTurnoutMaxTrendPts: 9.0,
-        realignmentTurnoutSensitivityMaxMul: 0.16, // keep turnout as coalition sensitivity, not a second realignment engine
-        // Positive deviation brake: avoid modeling a generic R Senate candidate as outrunning the presidential
-        // baseline in counties that are still strongly realigning at the federal level.
-        positiveDeviationRealignmentBrakeEnabled: true,
-        positiveDeviationRealignmentFloor: 0.50, // strongest brake keeps ~50% of positive (R>Pres) deviation
-        positiveDeviationRealignmentMinTrendPts: 1.0,
-        positiveDeviationRealignmentMaxTrendPts: 9.0,
-        // Guardrail: in strongly realigning counties, a generic R Senate candidate usually shouldn't outrun
-        // the top-of-ticket presidential baseline (Trump) by much. Apply as an upper-bound (more R) cap.
-        senateMaxOverPresEnabled: true,
-        senateMaxOverPresCapPts: 0.60, // generic Senate-over-Pres ceiling
-        senateMaxOverPresMinRealignmentScore: 0.30,
-        senateMaxOverPresRobesonCapPts: 0.20,
-        senateMaxOverPresBladenCapPts: 0.30,
-        senateMaxOverPresScotlandCapPts: 0.35,
-        // Outlier-cycle brake: shrink unusual 2022 Senate behavior toward the blended climate baseline.
-        senateDeviationOutlierBrakeEnabled: true,
-        senateDeviationHistoryYears: [2016, 2020, 2022],
-        // Candidate effect: Cooper tends to run slightly stronger than a generic D (or 2022 Senate baseline)
-        // in some county types; apply as a small additional D swing on top of the blended baseline.
-        candidateBonusEnabled: true,
-        candidateBonusMode: 'historical', // historical | heuristic
-        candidateBonusContestType: 'governor', // for historical mode
-        candidateBonusBaselineContestType: 'president', // for historical mode
-        candidateBonusYears: [2016, 2020], // Cooper vs President same-year delta
-        candidateBonusWeight: 0.27,
-        candidateBonusMinTwoPartyVotes: 20000, // damp small counties
-        candidateBonusFallbackToHeuristic: true,
-        candidateBonusConsistencyBoost: 1.20,
-        candidateBonusConsistencyFloor: 0.60,
-        // Separate "durable crossover" vs "Cooper-personal" components so the bonus does not over-travel
-        // into highly federalized counties or one-cycle outliers.
-        candidateBonusDurableShare: 0.70,
-        candidateBonusPersonalShare: 0.30,
-        candidateBonusDurableRealignmentFloor: 0.68,
-        candidateBonusDurableAdjustmentFadeMax: 0.22,
-        candidateBonusDurableGeneralFloor: 0.28,
-        candidateBonusDurablePriorityFloor: 0.42,
-        candidateBonusPersonalFederalizationFloor: 0.24,
-        // Realignment-aware fade: treat more of the bonus as non-portable in counties that have continued
-        // moving right at the federal level (e.g., Robeson, Bladen).
-        candidateBonusPersonalRealignmentEnabled: true,
-        candidateBonusPersonalRealignmentFloor: 0.34, // strongest fade keeps more personal portability than prior over-fade
-        candidateBonusPersonalRealignmentMinTrendPts: 0.9,
-        candidateBonusPersonalRealignmentMaxTrendPts: 8.5,
-        // Distinct class: former-D federal counties that realigned hard in the Trump era.
-        // Keep crossover reduced but not eliminated; treat as durable+personal blend, not a hard anomaly override.
-        // Scotland replaces Hoke in this residual ancestral-D/federalized class.
-        candidateBonusRealignedFormerDemFederalCounties: ['ROBESON', 'BLADEN', 'SCOTLAND'],
-        candidateBonusRealignedFormerDemFederalDurableFloor: 0.44,
-        candidateBonusRealignedFormerDemFederalPersonalFloor: 0.18,
-        candidateBonusRealignedFormerDemFederalPersonalCapPts: 0.26,
-        candidateBonusRealignedFormerDemFederalResidualFloor: 0.30,
-        candidateBonusRepeatableCrossoverBoost: 1.10,
-        candidateBonusSuburbanDurableBoost: 1.08,
-        candidateBonusFederalizationBrakeMargin: 22,
-        candidateBonusFederalizationDeepRedMargin: 34,
-        candidateBonusFederalizationFloor: 0.15,
-        candidateBonusDeepRedCapPts: 0.32,
-        candidateBonusMaxPts: 0.78,
-        candidateBonusBasePts: 0.25,
-        candidateBonusUrbanPts: 0.15,
-        candidateBonusMetroPts: 0.30,
-        candidateBonusCoastalPts: 0.25,
-        candidateBonusTransitionPts: 0.32,
-        candidateBonusSlowPts: 0.30,
-        candidateBonusInstitutionalExtraPts: 0.15,
-        candidateBonusDistrictPts: 0.28,
-        // District-layer calibration: keep modeled district views aligned with county-mode tuning,
-        // but allow chamber-specific damping so legislative layers do not overreact.
-        districtBlendMulCongressional: 0.93,
-        districtBlendMulStateHouse: 0.91,
-        districtBlendMulStateSenate: 0.92,
-        districtDeviationBrakeCongressional: 0.90,
-        districtDeviationBrakeStateHouse: 0.88,
-        districtDeviationBrakeStateSenate: 0.89,
-        candidateBonusDistrictPtsCongressional: 0.26,
-        candidateBonusDistrictPtsStateHouse: 0.24,
-        candidateBonusDistrictPtsStateSenate: 0.25,
-        // Context-sensitive anchor rebalance (keeps 2022 primary, but trims its weight in unstable counties).
-        unstableCountyBlendShiftMax: 0.14,
-        unstableCountySecondAnchorBoost: 0.12,
-        // Dedicated blend for realigned former-D federal counties (RBS class).
-        realignedFormerDemFederalClimateWeight: 0.52,
-        realignedFormerDemFederalSenate2022Weight: 0.28,
-        realignedFormerDemFederalSenate2020Weight: 0.20,
-        realignedFormerDemFederalBlendWeight: 0.38,
-        // Turnout responsiveness by county class.
-        turnoutUrbanCoreMul: 1.09,
-        turnoutBlackBeltMul: 1.07,
-        turnoutSuburbanMul: 1.035,
-        turnoutGrowthExurbMul: 1.005,
-        turnoutRealigningRuralMul: 1.02,
-        turnoutRuralWhiteMul: 0.96,
-        turnoutContestType: 'president',
-        turnoutYear: 2024,
-        turnoutFactor: 0.575,
-        demCandidate: 'Roy Cooper',
-        repCandidate: 'Michael Whatley',
-        description: 'Blended 2022 + 2020 Senate anchors with a 2024 President climate and calibrated 55–60% turnout'
-      },
-    };
+    // Palmetto Explorer: no NC 2026 modeled contests are registered in this SC build.
+    const MODELED_CONTEST_DEFINITIONS = {};
     const MODELED_SENATE_UX_FEATURES = {
       historicalAnalogEnabled: true,
       baselineVsCandidateEnabled: true
@@ -14828,9 +14669,23 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      const sortedSeries = series
+      const allSortedSeries = series
         .slice()
         .sort((a, b) => a.year - b.year);
+      const senateCycleAnchorYear = (() => {
+        const ct = String(options?.contestType || '').trim().toLowerCase();
+        if (ct !== 'us_senate') return null;
+        if (Number.isFinite(selectedYearRaw)) return Number(selectedYearRaw);
+        const latestSenateRow = allSortedSeries[allSortedSeries.length - 1];
+        const latestYear = Number(latestSenateRow?.year);
+        return Number.isFinite(latestYear) ? latestYear : null;
+      })();
+      const sortedSeries = senateCycleAnchorYear === null
+        ? allSortedSeries
+        : allSortedSeries.filter(row => {
+          const y = Number(row?.year);
+          return Number.isFinite(y) && ((((y - senateCycleAnchorYear) % 6) + 6) % 6 === 0);
+        });
       const signedTrendDisplayMarginPct = (trendItem) => {
         const total = Number(trendItem?.total_votes || 0);
         const dem = Number(trendItem?.dem_votes || 0);
@@ -14848,8 +14703,22 @@ document.addEventListener('DOMContentLoaded', function() {
           { precision: useCountyMarginPrecision ? 'county' : 'default' }
         );
       };
+      function getComparableTrendPreviousItem(item, idx) {
+        const defaultPrev = idx > 0 ? sortedSeries[idx - 1] : null;
+        const ct = String(contestTypeHint || '').trim().toLowerCase();
+        const currentYear = Number(item?.year);
+        if (ct === 'us_senate' && Number.isFinite(currentYear)) {
+          // U.S. Senate has two seats on staggered six-year cycles. Do not compare
+          // across the other seat's election (ex: 2022 must not compare to 2020).
+          // Use only the same-seat cycle, or mark it as the first comparable result.
+          const sameSeatPrev = sortedSeries.find(row => Number(row?.year) === currentYear - 6);
+          return sameSeatPrev || null;
+        }
+        return defaultPrev;
+      }
+
       const annotated = sortedSeries.map((item, idx) => {
-        const prev = idx > 0 ? sortedSeries[idx - 1] : null;
+        const prev = getComparableTrendPreviousItem(item, idx);
         const totalVotes = Number(item.total_votes || 0);
         const demVotes = Number(item.dem_votes || 0);
         const repVotes = Number(item.rep_votes || 0);
@@ -18922,8 +18791,14 @@ document.addEventListener('DOMContentLoaded', function() {
           let dem = '';
           let rep = '';
           for (const r of rows) {
-            if (!dem) dem = pickNonEmptyString(r?.dem_candidate, r?.demCandidate, r?.dem_name, r?.demName, r?.democratic_candidate, r?.democraticCandidate);
-            if (!rep) rep = pickNonEmptyString(r?.rep_candidate, r?.repCandidate, r?.rep_name, r?.repName, r?.republican_candidate, r?.republicanCandidate);
+            if (!dem) dem = pickNonEmptyString(
+              r?.[`${contestType}_dem_candidate`], r?.dem_candidate, r?.demCandidate,
+              r?.dem_candidate_name, r?.dem_name, r?.demName, r?.democratic_candidate, r?.democraticCandidate
+            );
+            if (!rep) rep = pickNonEmptyString(
+              r?.[`${contestType}_rep_candidate`], r?.rep_candidate, r?.repCandidate,
+              r?.rep_candidate_name, r?.rep_name, r?.repName, r?.republican_candidate, r?.republicanCandidate
+            );
             if (dem && rep) break;
           }
           const out = { dem, rep };
@@ -20509,6 +20384,16 @@ document.addEventListener('DOMContentLoaded', function() {
       // Keep trend/timeline labels compact when candidate names are missing.
       // (Showing "Republican"/"Democrat" reads like a bug in the county timeline.)
       const partyFallback = partyNorm === 'dem' ? 'D' : (partyNorm === 'rep' ? 'R' : 'Candidate');
+      const isPartyOnlyCandidateLabel = (value) => {
+        const s = (value || '').toString().trim().toUpperCase().replace(/[^A-Z]/g, '');
+        return s === 'D' || s === 'DEM' || s === 'DEMOCRAT' || s === 'DEMOCRATIC' ||
+          s === 'R' || s === 'REP' || s === 'REPUBLICAN' || s === 'GOP';
+      };
+      const cleanCandidateNameValue = (value) => {
+        const s = (value || '').toString().trim();
+        if (!s || isPartyOnlyCandidateLabel(s)) return '';
+        return s;
+      };
       const meta = contestMeta || null;
       const yearFromMeta = Number(meta?.year ?? row?.year);
       const contestTypeFromMeta = (meta?.contestType || meta?.contest_type || row?.contestType || row?.contest_type || '').toString().trim().toLowerCase();
@@ -20537,7 +20422,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (const key of keys) {
           const v = obj?.[key];
           if (v !== undefined && v !== null) {
-            const s = String(v).trim();
+            const s = cleanCandidateNameValue(v);
             if (s) return s;
           }
         }
@@ -20546,18 +20431,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const rowName = (() => {
         if (!row) return '';
+        const dynamicDemKey = contestTypeFromMeta ? `${contestTypeFromMeta}_dem_candidate` : '';
+        const dynamicRepKey = contestTypeFromMeta ? `${contestTypeFromMeta}_rep_candidate` : '';
         if (partyNorm === 'dem') {
           return pickField(row, [
-            'dem_candidate', 'dem_candidate_name', 'dem_name', 'candidate_dem', 'democrat', 'demCandidate', 'dem_candidate_full'
+            dynamicDemKey,
+            'dem_candidate', 'dem_candidate_name', 'dem_name', 'demName', 'candidate_dem',
+            'democrat', 'democratic_candidate', 'democraticCandidate', 'demCandidate',
+            'dem_candidate_full', 'DEM_CANDIDATE', 'DEMOCRAT', 'DEMOCRATIC_CANDIDATE'
           ]);
         }
         if (partyNorm === 'rep') {
           return pickField(row, [
-            'rep_candidate', 'rep_candidate_name', 'rep_name', 'candidate_rep', 'republican', 'repCandidate', 'rep_candidate_full'
+            dynamicRepKey,
+            'rep_candidate', 'rep_candidate_name', 'rep_name', 'repName', 'candidate_rep',
+            'republican', 'republican_candidate', 'republicanCandidate', 'repCandidate',
+            'rep_candidate_full', 'REP_CANDIDATE', 'REPUBLICAN', 'REPUBLICAN_CANDIDATE'
           ]);
         }
         return pickField(row, [
-          'winner_candidate', 'candidate', 'name', 'winnerName', 'candidate_name'
+          'winner_candidate', 'winnerCandidate', 'candidate', 'candidate_name', 'name', 'winnerName'
         ]);
       })();
 
@@ -20565,10 +20458,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const meta = contestMeta || null;
         if (!meta) return '';
         if (partyNorm === 'dem') {
-          return pickField(meta, ['demCandidate', 'dem_candidate', 'dem', 'democrat', 'dem_name']);
+          return pickField(meta, ['demCandidate', 'dem_candidate', 'dem_candidate_name', 'demName', 'dem', 'democrat', 'democratic_candidate', 'dem_name']);
         }
         if (partyNorm === 'rep') {
-          return pickField(meta, ['repCandidate', 'rep_candidate', 'rep', 'republican', 'rep_name']);
+          return pickField(meta, ['repCandidate', 'rep_candidate', 'rep_candidate_name', 'repName', 'rep', 'republican', 'republican_candidate', 'rep_name']);
         }
         return '';
       })();
@@ -20610,25 +20503,57 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (isGovernor) {
-          const map = {
-            2024: { dem: 'Josh Stein', rep: 'Mark Robinson' },
-            2020: { dem: 'Roy Cooper', rep: 'Dan Forest' },
-            2016: { dem: 'Roy Cooper', rep: 'Pat McCrory' },
-            2012: { dem: 'Walter Dalton', rep: 'Pat McCrory' },
-            2008: { dem: 'Bev Perdue', rep: 'Pat McCrory' },
-            2004: { dem: 'Mike Easley', rep: 'Patrick Ballantine' },
-            2000: { dem: 'Mike Easley', rep: 'Richard Vinson' }
+          const isPalmettoExplorer = (() => {
+            try {
+              const title = `${document?.title || ''} ${document?.querySelector?.('meta[property="og:description"]')?.content || ''}`;
+              return /palmetto|south carolina|sc/i.test(title);
+            } catch (_) {
+              return false;
+            }
+          })();
+          const scGovernorMap = {
+            2022: { dem: 'Joe Cunningham', rep: 'Henry McMaster' },
+            2018: { dem: 'James Smith', rep: 'Henry McMaster' },
+            2014: { dem: 'Vincent Sheheen', rep: 'Nikki Haley' },
+            2010: { dem: 'Vincent Sheheen', rep: 'Nikki Haley' },
+            2006: { dem: 'Tommy Moore', rep: 'Mark Sanford' }
           };
-          const entry = map[year];
+          const entry = scGovernorMap[year];
+          return entry ? (partyNorm === 'dem' ? entry.dem : (partyNorm === 'rep' ? entry.rep : '')) : '';
+        }
+
+        const isUsSenate = contestType === 'us_senate' || contestType === 'us_senate_model' || /senator|senate/.test(officeName);
+        if (isUsSenate) {
+          // Palmetto Explorer fallback: county/region trend rows can be sparse and may only
+          // carry party labels (R/D), while the hover row still has candidate names.
+          // Use contest + year as a final safety net for South Carolina U.S. Senate.
+          const scSenateMap = {
+            2022: { dem: 'Krystle Matthews', rep: 'Tim Scott' },
+            2020: { dem: 'Jaime Harrison', rep: 'Lindsey Graham' },
+            2016: { dem: 'Thomas Dixon', rep: 'Tim Scott' },
+            2014: { dem: 'Brad Hutto', rep: 'Lindsey Graham' },
+            2010: { dem: 'Alvin Greene', rep: 'Jim DeMint' },
+            2008: { dem: 'Bob Conley', rep: 'Lindsey Graham' },
+            2004: { dem: 'Inez Tenenbaum', rep: 'Jim DeMint' }
+          };
+          const entry = scSenateMap[year];
           return entry ? (partyNorm === 'dem' ? entry.dem : (partyNorm === 'rep' ? entry.rep : '')) : '';
         }
 
         return '';
       })();
 
-      const best = rowName || metaName || catalogName || guessedFromKnown || '';
+      const best = cleanCandidateNameValue(rowName) ||
+        cleanCandidateNameValue(metaName) ||
+        cleanCandidateNameValue(catalogName) ||
+        cleanCandidateNameValue(guessedFromKnown) ||
+        '';
       const last = shortCandidateLabel(best, partyFallback);
-      return last || partyFallback;
+      // Final safety net: never display party names as if they were candidates in
+      // timeline/history rows. This prevents labels like "Republican (R)" and
+      // "Democratic 23.70%" when sparse trend rows only carry party strings.
+      if (!last || isPartyOnlyCandidateLabel(last)) return partyFallback;
+      return last;
     }
 
     function getWinnerLastName(row, contestMeta = null) {
@@ -22371,8 +22296,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!r) continue;
 
         // Older statewide district slices may omit candidate labels; recover from contest slice.
-        let demCand = (r.dem_candidate || '').toString().trim();
-        let repCand = (r.rep_candidate || '').toString().trim();
+        let demCand = pickNonEmptyString(
+          r.dem_candidate, r.demCandidate, r.dem_candidate_name, r.dem_name, r.demName,
+          r.democratic_candidate, r.democraticCandidate, r[`${contestType}_dem_candidate`]
+        );
+        let repCand = pickNonEmptyString(
+          r.rep_candidate, r.repCandidate, r.rep_candidate_name, r.rep_name, r.repName,
+          r.republican_candidate, r.republicanCandidate, r[`${contestType}_rep_candidate`]
+        );
         if ((!(demCand && repCand)) && contestType !== 'us_house') {
           try {
             const cand = await getContestCandidates(contestType, year);
@@ -32199,12 +32130,10 @@ document.addEventListener('DOMContentLoaded', function() {
           return [y - 4, y - 8, y - 12].filter(v => v >= 2000);
         }
         const base = [y - 4, y - 6, y - 2, y - 8, y - 12].filter(v => v >= 2000);
-        // US Senate: prefer the last time the *same seat* was up (typically y-6) when available.
-        // If that slice doesn't exist, fall back to the nearest earlier available year.
+        // US Senate: same-seat only. Do not fall through to y-2/y-4 because those
+        // are usually the other Senate seat and make timeline/shift labels misleading.
         if (String(contestType || '').trim() !== 'us_senate') return base;
-        const preferred = [y - 6, y - 12].filter(v => v >= 2000);
-        const rest = base.filter(v => !preferred.includes(v));
-        return [...preferred, ...rest];
+        return [y - 6, y - 12].filter(v => v >= 2000);
       })();
       for (const cy of candidates) {
         const rows = await tryLoadContestSliceStrict(contestType, cy);
@@ -32431,9 +32360,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const base = [y - 4, y - 6, y - 2, y - 8, y - 12].filter(v => v >= 2000);
         if (String(contestType || '').trim() !== 'us_senate') return base;
-        const preferred = [y - 6, y - 12].filter(v => v >= 2000);
-        const rest = base.filter(v => !preferred.includes(v));
-        return [...preferred, ...rest];
+        return [y - 6, y - 12].filter(v => v >= 2000);
       })();
       for (const cy of candidates) {
         const node = await tryLoadDistrictSliceStrict(scope, contestType, cy, linesYear);
