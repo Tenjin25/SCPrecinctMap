@@ -26239,7 +26239,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const winnerParty = signedMarginPct > 0 ? 'rep' : (signedMarginPct < 0 ? 'dem' : 'tie');
       const votehubInner = buildVotehubResultsTooltip({
         title: `${countyDisplay} County`,
-        subtitle,
+        subtitle: 'County',
         demName: demCandidate,
         repName: repCandidate,
         otherName: 'Other',
