@@ -14566,17 +14566,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (isDesktopTooltipMode()) {
         const collapsed = presentation === 'desktop-collapsed';
-        const pop2025Line = `Population (20→25): <span style="font-weight:800;">${escapeHtml(popDelta)}${popPct ? ` (${escapeHtml(popPct)})` : ''}</span>`;
+        const pop2025Line = `Census pop change (20→25): <span style="font-weight:800;">${escapeHtml(popDelta)}${popPct ? ` (${escapeHtml(popPct)})` : ''}</span>`;
         const pop2024Line = popDelta2024
-          ? `Population (20→24): <span style="font-weight:800;">${escapeHtml(popDelta2024)}${popPct2024 ? ` (${escapeHtml(popPct2024)})` : ''}</span>`
+          ? `Census pop change (20→24): <span style="font-weight:800;">${escapeHtml(popDelta2024)}${popPct2024 ? ` (${escapeHtml(popPct2024)})` : ''}</span>`
           : '';
         const pop2425Line = popDelta2425
-          ? `Population (24→25): <span style="font-weight:800;">${escapeHtml(popDelta2425)}${popPct2425 ? ` (${escapeHtml(popPct2425)})` : ''}</span>`
+          ? `Census pop change (24→25): <span style="font-weight:800;">${escapeHtml(popDelta2425)}${popPct2425 ? ` (${escapeHtml(popPct2425)})` : ''}</span>`
           : '';
 
         const votesParts = hasVote
           ? voteLines.map(v => (
-            `Raw votes (${escapeHtml(v.label)}): ` +
+            `Vote change (${escapeHtml(v.label)}): ` +
             `<span style="color:#fecaca;font-weight:800;">R ${escapeHtml(v.repDelta)}</span> • ` +
             `<span style="color:#bfdbfe;font-weight:800;">D ${escapeHtml(v.demDelta)}</span> • ` +
             `<span style="font-weight:800;">Total ${escapeHtml(v.totalDelta)}</span>`
@@ -14592,7 +14592,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // In collapsed hover mode, still show a compact vote line if it's available.
         if (collapsed && primaryVote) {
-          lines.push(`Votes (${escapeHtml(primaryVote.label)}): <span style="color:#fecaca;font-weight:800;">R ${escapeHtml(repDelta)}</span> • <span style="color:#bfdbfe;font-weight:800;">D ${escapeHtml(demDelta)}</span> • <span style="font-weight:800;">Total ${escapeHtml(totalDelta)}</span>`);
+          lines.push(`Vote change (${escapeHtml(primaryVote.label)}): <span style="color:#fecaca;font-weight:800;">R ${escapeHtml(repDelta)}</span> • <span style="color:#bfdbfe;font-weight:800;">D ${escapeHtml(demDelta)}</span> • <span style="font-weight:800;">Total ${escapeHtml(totalDelta)}</span>`);
         }
 
         return `
@@ -14604,10 +14604,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
       return `
         <div class="tooltip-delta" aria-label="County delta mechanics">
-          <div class="tooltip-delta-line">Population (20→25): <span style="font-weight:800;">${escapeHtml(popDelta)}${popPct ? ` (${escapeHtml(popPct)})` : ''}</span></div>
-          ${popDelta2024 ? `<div class="tooltip-delta-line">Population (20→24): <span style="font-weight:800;">${escapeHtml(popDelta2024)}${popPct2024 ? ` (${escapeHtml(popPct2024)})` : ''}</span></div>` : ''}
-          ${popDelta2425 ? `<div class="tooltip-delta-line">Population (24→25): <span style="font-weight:800;">${escapeHtml(popDelta2425)}${popPct2425 ? ` (${escapeHtml(popPct2425)})` : ''}</span></div>` : ''}
-          ${hasVote ? voteLines.map(v => `<div class="tooltip-delta-line">Raw votes (${escapeHtml(v.label)}): <span style="color:#fecaca;font-weight:800;">R ${escapeHtml(v.repDelta)}</span> • <span style="color:#bfdbfe;font-weight:800;">D ${escapeHtml(v.demDelta)}</span> • <span style="font-weight:800;">Total ${escapeHtml(v.totalDelta)}</span></div>`).join('') : ''}
+          <div class="tooltip-delta-line">Census pop change (20→25): <span style="font-weight:800;">${escapeHtml(popDelta)}${popPct ? ` (${escapeHtml(popPct)})` : ''}</span></div>
+          ${popDelta2024 ? `<div class="tooltip-delta-line">Census pop change (20→24): <span style="font-weight:800;">${escapeHtml(popDelta2024)}${popPct2024 ? ` (${escapeHtml(popPct2024)})` : ''}</span></div>` : ''}
+          ${popDelta2425 ? `<div class="tooltip-delta-line">Census pop change (24→25): <span style="font-weight:800;">${escapeHtml(popDelta2425)}${popPct2425 ? ` (${escapeHtml(popPct2425)})` : ''}</span></div>` : ''}
+          ${hasVote ? voteLines.map(v => `<div class="tooltip-delta-line">Vote change (${escapeHtml(v.label)}): <span style="color:#fecaca;font-weight:800;">R ${escapeHtml(v.repDelta)}</span> • <span style="color:#bfdbfe;font-weight:800;">D ${escapeHtml(v.demDelta)}</span> • <span style="font-weight:800;">Total ${escapeHtml(v.totalDelta)}</span></div>`).join('') : ''}
         </div>
       `.trim();
     }
@@ -26262,7 +26262,6 @@ document.addEventListener('DOMContentLoaded', function() {
         showShiftLine: currentVizMode === 'shift' && Number.isFinite(shiftDelta) && !!vizShiftCache?.prevYear
       });
       const detailsBody = [
-        chips.length ? `<div class="hover-meta">${chips.join('')}</div>` : '',
         deltaBlock,
         splitInsightLine,
         demoLine
