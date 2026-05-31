@@ -22455,18 +22455,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const byNorm = new Map();
       let statewide = null;
       (Array.isArray(rows) ? rows : []).forEach(row => {
-        const countyName = (row?.county_name || '').toString().trim();
+        const geographyType = (row?.geography_type || '').toString().trim().toLowerCase();
+        const countyName = (row?.county_name || row?.geography_name || '').toString().trim();
         const countyNorm = normalizeCountyToken(row?.county_norm || countyName);
         if (!countyName || !countyNorm) return;
 
-        const population2020 = Number(row?.population_2020 || 0);
-        const population2021 = Number(row?.population_2021 || 0);
-        const population2022 = Number(row?.population_2022 || 0);
-        const population2023 = Number(row?.population_2023 || 0);
-        const population2024 = Number(row?.population_2024 || 0);
-        const population2025 = Number(row?.population_2025 || 0);
-        const changePct2020To2025 = Number(row?.change_2020_2025_pct);
-        const changePct2024To2025 = Number(row?.change_2024_2025_pct);
+        const population2020 = Number(row?.population_2020 || row?.estimate_2020 || 0);
+        const population2021 = Number(row?.population_2021 || row?.estimate_2021 || 0);
+        const population2022 = Number(row?.population_2022 || row?.estimate_2022 || 0);
+        const population2023 = Number(row?.population_2023 || row?.estimate_2023 || 0);
+        const population2024 = Number(row?.population_2024 || row?.estimate_2024 || 0);
+        const population2025 = Number(row?.population_2025 || row?.estimate_2025 || 0);
+        const changePct2020To2025 = Number(row?.change_2020_2025_pct ?? row?.change_pct_2020_2025);
+        const changePct2024To2025 = Number(row?.change_2024_2025_pct ?? row?.change_pct_2024_2025);
+        const change2020To2025 = Number(row?.change_2020_2025 ?? (Number.isFinite(population2025) && Number.isFinite(population2020) ? (population2025 - population2020) : 0));
+        const change2024To2025 = Number(row?.change_2024_2025 ?? (Number.isFinite(population2025) && Number.isFinite(population2024) ? (population2025 - population2024) : 0));
         const changePct2023To2024 = population2023 > 0 && population2024 > 0
           ? ((population2024 - population2023) / population2023) * 100
           : NaN;
@@ -22495,14 +22498,13 @@ document.addEventListener('DOMContentLoaded', function() {
           monotoneUp,
           monotoneDown,
           volatile,
-          change2020To2025: Number(row?.change_2020_2025 || 0),
-          change2024To2025: Number(row?.change_2024_2025 || 0),
+          change2020To2025,
+          change2024To2025,
           changePct2020To2025: Number.isFinite(changePct2020To2025) ? changePct2020To2025 : NaN,
           changePct2024To2025: Number.isFinite(changePct2024To2025) ? changePct2024To2025 : NaN,
           changePct2023To2024: Number.isFinite(changePct2023To2024) ? changePct2023To2024 : NaN
         };
 
-        const geographyType = (row?.geography_type || '').toString().trim().toLowerCase();
         if (geographyType === 'state') statewide = entry;
         else byNorm.set(countyNorm, entry);
       });
