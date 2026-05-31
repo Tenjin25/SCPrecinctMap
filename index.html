@@ -14549,7 +14549,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       const hasPopDelta = !!pop && Number.isFinite(popDeltaRaw);
-      if (!hasPopDelta) return '';
 
       const popDelta = formatSignedCompactDelta(popDeltaRaw);
       const popPct = Number.isFinite(popPctRaw) ? formatSignedPctDelta(popPctRaw, 1) : '';
@@ -14584,7 +14583,7 @@ document.addEventListener('DOMContentLoaded', function() {
           : [];
 
         const lines = [
-          pop2025Line,
+          ...(hasPopDelta ? [pop2025Line] : []),
           ...(collapsed ? [] : (pop2024Line ? [pop2024Line] : [])),
           ...(pop2425Line ? [pop2425Line] : []),
           ...(collapsed ? [] : votesParts)
@@ -14594,6 +14593,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (collapsed && primaryVote) {
           lines.push(`Vote change (${escapeHtml(primaryVote.label)}): <span style="color:#fecaca;font-weight:800;">R ${escapeHtml(repDelta)}</span> • <span style="color:#bfdbfe;font-weight:800;">D ${escapeHtml(demDelta)}</span> • <span style="font-weight:800;">Total ${escapeHtml(totalDelta)}</span>`);
         }
+        if (!lines.length) return '';
 
         return `
           <div class="tooltip-delta" aria-label="County delta mechanics">
@@ -14604,7 +14604,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       return `
         <div class="tooltip-delta" aria-label="County delta mechanics">
-          <div class="tooltip-delta-line">Census pop change (20→25): <span style="font-weight:800;">${escapeHtml(popDelta)}${popPct ? ` (${escapeHtml(popPct)})` : ''}</span></div>
+          ${hasPopDelta ? `<div class="tooltip-delta-line">Census pop change (20→25): <span style="font-weight:800;">${escapeHtml(popDelta)}${popPct ? ` (${escapeHtml(popPct)})` : ''}</span></div>` : ''}
           ${popDelta2024 ? `<div class="tooltip-delta-line">Census pop change (20→24): <span style="font-weight:800;">${escapeHtml(popDelta2024)}${popPct2024 ? ` (${escapeHtml(popPct2024)})` : ''}</span></div>` : ''}
           ${popDelta2425 ? `<div class="tooltip-delta-line">Census pop change (24→25): <span style="font-weight:800;">${escapeHtml(popDelta2425)}${popPct2425 ? ` (${escapeHtml(popPct2425)})` : ''}</span></div>` : ''}
           ${hasVote ? voteLines.map(v => `<div class="tooltip-delta-line">Vote change (${escapeHtml(v.label)}): <span style="color:#fecaca;font-weight:800;">R ${escapeHtml(v.repDelta)}</span> • <span style="color:#bfdbfe;font-weight:800;">D ${escapeHtml(v.demDelta)}</span> • <span style="font-weight:800;">Total ${escapeHtml(v.totalDelta)}</span></div>`).join('') : ''}
@@ -26266,8 +26266,11 @@ document.addEventListener('DOMContentLoaded', function() {
         splitInsightLine,
         demoLine
       ].filter(Boolean).join('');
-      const detailsPanel = detailsBody && (pinnedShell || useCompact)
-        ? `<details class="tooltip-more" aria-label="More details"><summary>Details</summary><div class="tooltip-more-body">${detailsBody}</div></details>`
+      const detailsBodyWithFallback = (useCompact && !detailsBody)
+        ? '<div class="tooltip-delta"><div class="tooltip-delta-line">Census pop change and vote change are not available for this county in the selected contest.</div></div>'
+        : detailsBody;
+      const detailsPanel = detailsBodyWithFallback && (pinnedShell || useCompact)
+        ? `<details class="tooltip-more" aria-label="More details"><summary>Details</summary><div class="tooltip-more-body">${detailsBodyWithFallback}</div></details>`
         : '';
       const actionHint = useCompact
         ? (pinnedShell ? 'Pinned • tap Close to dismiss' : (isTouchInteractionMode() ? 'Tap to pin details' : 'Click to pin details'))
