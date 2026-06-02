@@ -26380,15 +26380,15 @@ document.addEventListener('DOMContentLoaded', function() {
         shiftYearLabel: (vizShiftCache?.prevYear && vizShiftCache?.year) ? `${vizShiftCache.prevYear}→${vizShiftCache.year}` : '',
         showShiftLine: currentVizMode === 'shift' && Number.isFinite(shiftDelta) && !!vizShiftCache?.prevYear
       });
-      const detailLines = [
+      const detailsBody = [
         deltaBlock,
         splitInsightLine,
         popChangeDetailLine,
         demoLine
       ].filter(Boolean).join('');
-      const detailsBodyWithFallback = (useCompact && !detailLines)
+      const detailsBodyWithFallback = (useCompact && !detailsBody)
         ? '<div class="tooltip-delta"><div class="tooltip-delta-line">Census pop change and vote change are not available for this county in the selected contest.</div></div>'
-        : detailLines;
+        : detailsBody;
       const detailsPanel = detailsBodyWithFallback && (pinnedShell || useCompact)
         ? `<details class="tooltip-more" aria-label="More details"><summary>Details</summary><div class="tooltip-more-body">${detailsBodyWithFallback}</div></details>`
         : '';
