@@ -21665,21 +21665,17 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!q || !Number.isFinite(q.q20) || !Number.isFinite(q.q40) || !Number.isFinite(q.q60) || !Number.isFinite(q.q80)) {
         return `
           <div class="legend-swatch-grid">
-            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode(-12)};"></span><span>Lowest 20%</span></div>
-            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode(-5)};"></span><span>20-40%</span></div>
-            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode(0)};"></span><span>40-60%</span></div>
-            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode(7)};"></span><span>60-80%</span></div>
-            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode(16)};"></span><span>Top 20%</span></div>
+            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode(-12)};"></span><span>Decline</span></div>
+            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode(0)};"></span><span>Flat</span></div>
+            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode(16)};"></span><span>Growth</span></div>
           </div>
         `;
       }
       return `
         <div class="legend-swatch-grid">
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode(q.q20 - 0.001)};"></span><span>≤ ${formatPctLegendValue(q.q20)}</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode((q.q20 + q.q40) / 2)};"></span><span>${formatPctLegendValue(q.q20)} to ${formatPctLegendValue(q.q40)}</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode((q.q40 + q.q60) / 2)};"></span><span>${formatPctLegendValue(q.q40)} to ${formatPctLegendValue(q.q60)}</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode((q.q60 + q.q80) / 2)};"></span><span>${formatPctLegendValue(q.q60)} to ${formatPctLegendValue(q.q80)}</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode(q.q80 + 0.001)};"></span><span>≥ ${formatPctLegendValue(q.q80)}</span></div>
+          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode(q.q20 - 0.001)};"></span><span>Decline</span></div>
+          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode((q.q40 + q.q60) / 2)};"></span><span>Flat</span></div>
+          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForPopulationChangeMode(q.q80 + 0.001)};"></span><span>Growth</span></div>
         </div>
       `;
     }
@@ -21733,9 +21729,9 @@ document.addEventListener('DOMContentLoaded', function() {
         content.innerHTML = buildDemographicsLegendHTML();
       } else if (mode === 'popchange') {
         if (header) header.textContent = 'Population Change';
-        if (subtitle) subtitle.textContent = 'County population change from 2020 to 2025 Census Vintage estimates (5 quantile bins).';
+        if (subtitle) subtitle.textContent = 'County population change from 2020 to 2025 Census Vintage estimates.';
         if (badge) badge.textContent = 'Pop Change';
-        if (footer) footer.textContent = 'Lower quintiles are browner (decline/slower growth); higher quintiles are greener (faster growth).';
+        if (footer) footer.textContent = '';
         content.innerHTML = buildPopulationChangeLegendHTML();
       } else {
         if (header) header.textContent = 'Margin Categories';
@@ -26213,7 +26209,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (Number.isFinite(pct)) {
           const pctLabel = `${pct > 0 ? '+' : ''}${pct.toFixed(1)}%`;
           const absLabel = Number.isFinite(abs) ? `${abs > 0 ? '+' : ''}${Math.round(abs).toLocaleString()}` : '';
-          popChangeLine = `<div class="tooltip-kicker">Population 2020→2025: <strong>${escapeHtml(pctLabel)}</strong>${absLabel ? ` (${escapeHtml(absLabel)})` : ''}</div>`;
+          const tone = abs > 0 ? 'gain' : (abs < 0 ? 'loss' : 'flat');
+          const toneColor = tone === 'gain' ? '#166534' : (tone === 'loss' ? '#7c2d12' : '#334155');
+          const toneLabel = tone === 'gain' ? 'Growth' : (tone === 'loss' ? 'Decline' : 'Flat');
+          popChangeLine = `<div class="tooltip-kicker" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><strong style="color:${toneColor};">${escapeHtml(toneLabel)}</strong><span style="color:${toneColor};">${escapeHtml(pctLabel)}</span>${absLabel ? `<span style="color:${toneColor};">(${escapeHtml(absLabel)})</span>` : ''}</div>`;
         }
       } catch (_) {}
       const showPopChangeLine = (currentVizMode === 'popchange') || tooltipPinned || (forceTooltip && isTouchInteractionMode());
@@ -32173,8 +32172,8 @@ document.addEventListener('DOMContentLoaded', function() {
         ? [q.q20, q.q40, q.q60, q.q80]
         : [-5, 0, 5, 10];
       const palette = cb
-        ? ['#78350f', '#b45309', '#a3a3a3', '#65a30d', '#3f6212']
-        : ['#8c510a', '#bf812d', '#f5f5f5', '#80cdc1', '#35978f'];
+        ? ['#5a3b1f', '#8c613c', '#f5f5f5', '#7fbf7b', '#1b7f4a']
+        : ['#5a3b1f', '#8c613c', '#f8fafc', '#a9d6a5', '#1b7f4a'];
       if (pct <= stops[0]) return palette[0];
       if (pct <= stops[1]) return palette[1];
       if (pct <= stops[2]) return palette[2];
