@@ -26345,8 +26345,17 @@ document.addEventListener('DOMContentLoaded', function() {
         ? smartInsight
         : (tooltipInsight || smartInsight);
       const pinnedShell = !!(tooltipPinned || (forceTooltip && isTouchInteractionMode()));
-      const deltaBlock = buildCountyDeltaBlockHTML(norm, contestType, { presentation: pinnedShell ? 'desktop-expanded' : 'desktop-collapsed' });
-      const useCompact = isMobileTooltipMode();
+      const deltaBlock = buildCountyDeltaBlockHTML(norm, contestType, { presentation: 'desktop-expanded' });
+      const censusDetailLine = (() => {
+        try {
+          const ctx = getNcCensusContext(norm);
+          const signal = String(ctx?.signalLabel || '').trim();
+          if (!signal) return '';
+          return `<div class="tooltip-insight">Census insight: ${escapeHtml(signal)}.</div>`;
+        } catch (_) {
+          return '';
+        }
+      })();
       const winnerName = signedMarginPct > 0
         ? shortCandidateLabel(repCandidate, 'Republican')
         : (signedMarginPct < 0 ? shortCandidateLabel(demCandidate, 'Democratic') : 'Tie');
@@ -26380,28 +26389,24 @@ document.addEventListener('DOMContentLoaded', function() {
         shiftYearLabel: (vizShiftCache?.prevYear && vizShiftCache?.year) ? `${vizShiftCache.prevYear}→${vizShiftCache.year}` : '',
         showShiftLine: currentVizMode === 'shift' && Number.isFinite(shiftDelta) && !!vizShiftCache?.prevYear
       });
-      const detailsBody = [
-        deltaBlock,
-        splitInsightLine,
-        popChangeDetailLine,
-        demoLine
-      ].filter(Boolean).join('');
-      const detailsBodyWithFallback = (useCompact && !detailsBody)
-        ? '<div class="tooltip-delta"><div class="tooltip-delta-line">Census pop change and vote change are not available for this county in the selected contest.</div></div>'
-        : detailsBody;
-      const detailsPanel = detailsBodyWithFallback && (pinnedShell || useCompact)
-        ? `<details class="tooltip-more" aria-label="More details"><summary>Details</summary><div class="tooltip-more-body">${detailsBodyWithFallback}</div></details>`
-        : '';
-      const actionHint = useCompact
-        ? (pinnedShell ? 'Pinned • tap Close to dismiss' : (isTouchInteractionMode() ? 'Tap to pin details' : 'Click to pin details'))
-        : '';
+      const detailLines = `
+        ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
+        ${censusDetailLine}
+        ${popChangeDetailLine}
+        ${(currentVizMode === 'popchange' && popChangeHeaderMeta?.label) ? `<div class="tooltip-insight" style="color:${popChangeToneColor};font-weight:700;">${escapeHtml(popChangeHeaderMeta.label)}</div>` : ''}
+        ${(currentVizMode === 'shift' && Number.isFinite(shiftDelta) && vizShiftCache?.prevYear) ? '' : shiftLine}
+        ${flipLine}
+        ${deltaBlock}
+        ${splitInsightLine}
+        ${demoLine}
+      `.trim();
       const inner = `
         ${votehubInner}
         ${popChangeTopLineMobile}
-        ${(currentVizMode === 'shift' && Number.isFinite(shiftDelta) && vizShiftCache?.prevYear) ? '' : shiftLine}
-        ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
-        ${detailsPanel}
-        ${actionHint ? `<div class="tooltip-hint">${escapeHtml(actionHint)}</div>` : ''}
+        <details class="tooltip-more" aria-label="More details">
+          <summary>More details</summary>
+          <div class="tooltip-more-body">${detailLines}</div>
+        </details>
       `.trim();
 
       const copyText = `${countyDisplay} County`;
