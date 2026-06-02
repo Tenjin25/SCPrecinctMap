@@ -26202,6 +26202,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!showDemoLine) demoLine = '';
 
       let popChangeLine = '';
+      let popChangeTopLine = '';
       try {
         const pop = countyPopulationEstimatesByNorm?.get(norm) || null;
         const pct = Number(pop?.changePct2020To2025);
@@ -26213,6 +26214,9 @@ document.addEventListener('DOMContentLoaded', function() {
           const toneColor = tone === 'gain' ? '#166534' : (tone === 'loss' ? '#7c2d12' : '#334155');
           const toneLabel = tone === 'gain' ? 'Growth' : (tone === 'loss' ? 'Decline' : 'Flat');
           popChangeLine = `<div class="tooltip-kicker" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><strong style="color:${toneColor};">${escapeHtml(toneLabel)}</strong><span style="color:${toneColor};">${escapeHtml(pctLabel)}</span>${absLabel ? `<span style="color:${toneColor};">(${escapeHtml(absLabel)})</span>` : ''}</div>`;
+          popChangeTopLine = (currentVizMode === 'popchange')
+            ? `<div style="margin:8px 0 10px;padding:8px 10px;border-radius:12px;background:rgba(148,163,184,0.12);border:1px solid rgba(148,163,184,0.22);font-size:14px;line-height:1.2;${tone === 'gain' ? 'color:#166534;' : (tone === 'loss' ? 'color:#7c2d12;' : 'color:#334155;')}">${popChangeLine.replace('<div class="tooltip-kicker" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">', '<div class="tooltip-kicker" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:700;">')}</div>`
+            : '';
         }
       } catch (_) {}
       const showPopChangeLine = (currentVizMode === 'popchange') || tooltipPinned || (forceTooltip && isTouchInteractionMode());
@@ -26347,6 +26351,7 @@ document.addEventListener('DOMContentLoaded', function() {
         : '';
       const inner = `
         ${votehubInner}
+        ${popChangeTopLine}
         ${(currentVizMode === 'shift' && Number.isFinite(shiftDelta) && vizShiftCache?.prevYear) ? '' : shiftLine}
         ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
         ${detailsPanel}
