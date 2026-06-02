@@ -26201,26 +26201,67 @@ document.addEventListener('DOMContentLoaded', function() {
       const showDemoLine = (currentVizMode === 'demographics') || tooltipPinned || (forceTooltip && isTouchInteractionMode());
       if (!showDemoLine) demoLine = '';
 
-      let popChangeLine = '';
-      let popChangeTopLine = '';
-      try {
-        const pop = countyPopulationEstimatesByNorm?.get(norm) || null;
-        const pct = Number(pop?.changePct2020To2025);
-        const abs = Number(pop?.change2020To2025);
-        if (Number.isFinite(pct)) {
-          const pctLabel = `${pct > 0 ? '+' : ''}${pct.toFixed(1)}%`;
-          const absLabel = Number.isFinite(abs) ? `${abs > 0 ? '+' : ''}${Math.round(abs).toLocaleString()}` : '';
-          const tone = abs > 0 ? 'gain' : (abs < 0 ? 'loss' : 'flat');
-          const toneColor = tone === 'gain' ? '#166534' : (tone === 'loss' ? '#7c2d12' : '#334155');
-          const toneLabel = tone === 'gain' ? 'Growth' : (tone === 'loss' ? 'Decline' : 'Flat');
-          popChangeLine = `<div class="tooltip-kicker" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><strong style="color:${toneColor};">${escapeHtml(toneLabel)}</strong><span style="color:${toneColor};">${escapeHtml(pctLabel)}</span>${absLabel ? `<span style="color:${toneColor};">(${escapeHtml(absLabel)})</span>` : ''}</div>`;
-          popChangeTopLine = (currentVizMode === 'popchange')
-            ? `<div style="margin:8px 0 10px;padding:8px 10px;border-radius:12px;background:rgba(148,163,184,0.12);border:1px solid rgba(148,163,184,0.22);font-size:14px;line-height:1.2;${tone === 'gain' ? 'color:#166534;' : (tone === 'loss' ? 'color:#7c2d12;' : 'color:#334155;')}">${popChangeLine.replace('<div class="tooltip-kicker" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">', '<div class="tooltip-kicker" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:700;">')}</div>`
-            : '';
+      const popChangeDetailLine = (() => {
+        if (currentVizMode !== 'popchange') return '';
+        try {
+          const pop = countyPopulationEstimatesByNorm?.get(norm) || null;
+          const p2020 = Number(pop?.population2020 || 0);
+          const p2025 = Number(pop?.population2025 || 0);
+          const pct = Number(pop?.changePct2020To2025);
+          const abs = Number(pop?.change2020To2025);
+          if (!(p2020 > 0) || !(p2025 > 0) || !Number.isFinite(pct)) return '';
+          if (String(populationChangeMetric || 'pct') === 'abs' && Number.isFinite(abs)) {
+            const signAbs = abs > 0 ? '+' : '';
+            return `<div class="tooltip-insight">Population 2020→2025: ${p2020.toLocaleString()} → ${p2025.toLocaleString()} (${signAbs}${Math.round(abs).toLocaleString()}).</div>`;
+          }
+          const signPct = pct > 0 ? '+' : '';
+          return `<div class="tooltip-insight">Population 2020→2025: ${p2020.toLocaleString()} → ${p2025.toLocaleString()} (${signPct}${pct.toFixed(1)}%).</div>`;
+        } catch (_) {
+          return '';
         }
-      } catch (_) {}
-      const showPopChangeLine = (currentVizMode === 'popchange') || tooltipPinned || (forceTooltip && isTouchInteractionMode());
-      if (!showPopChangeLine) popChangeLine = '';
+      })();
+      const popChangeHeaderMeta = (() => {
+        if (currentVizMode !== 'popchange') return null;
+        try {
+          const pop = countyPopulationEstimatesByNorm?.get(norm) || null;
+          if (!pop) return null;
+          const p2020 = Number(pop?.population2020 || 0);
+          const p2025 = Number(pop?.population2025 || 0);
+          const pct = Number(pop?.changePct2020To2025);
+          const abs = Number(pop?.change2020To2025);
+          if (!(p2020 > 0) || !(p2025 > 0) || !Number.isFinite(pct) || !Number.isFinite(abs)) return null;
+          const tone = abs > 0 ? 'gain' : (abs < 0 ? 'loss' : 'flat');
+          const signAbs = abs > 0 ? '+' : '';
+          const signPct = pct > 0 ? '+' : '';
+          const statePct = Number(countyPopulationEstimateStatewide?.changePct2020To2025);
+          const pctLine = Number.isFinite(statePct)
+            ? `${signPct}${pct.toFixed(1)}% (${statePct >= 0 ? '+' : ''}${statePct.toFixed(1)}% statewide)`
+            : `${signPct}${pct.toFixed(1)}%`;
+          const toneLabel = tone === 'gain' ? 'Growth' : (tone === 'loss' ? 'Decline' : 'Flat');
+          return {
+            line: `Population change: ${signAbs}${Math.round(abs).toLocaleString()} (${pctLine})`,
+            raw: `${p2020.toLocaleString()} → ${p2025.toLocaleString()}`,
+            tone,
+            label: toneLabel
+          };
+        } catch (_) {
+          return null;
+        }
+      })();
+      const popChangeToneColor = popChangeHeaderMeta?.tone === 'gain'
+        ? '#166534'
+        : (popChangeHeaderMeta?.tone === 'loss' ? '#7c2d12' : '#334155');
+      const popChangeTopLineMobile = (() => {
+        if (!popChangeHeaderMeta) return '';
+        if (isDesktopTooltipMode()) return '';
+        return `
+          <div class="tooltip-insight" style="margin:0 0 8px 0;padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.06);border:1px solid rgba(148,163,184,0.35);">
+            <strong style="color:${popChangeToneColor};">${escapeHtml(popChangeHeaderMeta.line)}</strong><br>
+            <span style="color:${popChangeToneColor};">${escapeHtml(popChangeHeaderMeta.raw)}</span><br>
+            <span style="color:${popChangeToneColor};font-size:11px;font-weight:700;">${escapeHtml(popChangeHeaderMeta.label)}</span>
+          </div>
+        `.trim();
+      })();
 
       const chips = [];
       let prevSignedForFlip = null;
@@ -26312,7 +26353,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const winnerParty = signedMarginPct > 0 ? 'rep' : (signedMarginPct < 0 ? 'dem' : 'tie');
       const votehubInner = buildVotehubResultsTooltip({
         title: `${countyDisplay} County`,
-        subtitle: 'County',
+        subtitle: String(currentVizMode || '') === 'popchange'
+          ? 'Population change'
+          : 'County',
         demName: demCandidate,
         repName: repCandidate,
         otherName: 'Other',
@@ -26323,7 +26366,10 @@ document.addEventListener('DOMContentLoaded', function() {
         winnerName,
         winnerParty,
         marginPct: Math.abs(signedMarginPct),
-        winnerLineText: marginCall?.text || '',
+        winnerLineText: (popChangeHeaderMeta && isDesktopTooltipMode()) ? popChangeHeaderMeta.line : (marginCall?.text || ''),
+        winnerRawLeadText: (popChangeHeaderMeta && isDesktopTooltipMode()) ? `${popChangeHeaderMeta.raw} • ${popChangeHeaderMeta.label}` : '',
+        winnerLineToneClass: (popChangeHeaderMeta && isDesktopTooltipMode()) ? popChangeHeaderMeta.tone : '',
+        winnerRawLeadToneClass: (popChangeHeaderMeta && isDesktopTooltipMode()) ? popChangeHeaderMeta.tone : '',
         prevSignedMarginPct: prevSignedForFlip,
         currentSignedMarginPct: signedMarginPct,
         flipYearLabel: vizPrevCache?.prevYear || null,
@@ -26334,15 +26380,15 @@ document.addEventListener('DOMContentLoaded', function() {
         shiftYearLabel: (vizShiftCache?.prevYear && vizShiftCache?.year) ? `${vizShiftCache.prevYear}→${vizShiftCache.year}` : '',
         showShiftLine: currentVizMode === 'shift' && Number.isFinite(shiftDelta) && !!vizShiftCache?.prevYear
       });
-      const detailsBody = [
+      const detailLines = [
         deltaBlock,
         splitInsightLine,
-        popChangeLine,
+        popChangeDetailLine,
         demoLine
       ].filter(Boolean).join('');
-      const detailsBodyWithFallback = (useCompact && !detailsBody)
+      const detailsBodyWithFallback = (useCompact && !detailLines)
         ? '<div class="tooltip-delta"><div class="tooltip-delta-line">Census pop change and vote change are not available for this county in the selected contest.</div></div>'
-        : detailsBody;
+        : detailLines;
       const detailsPanel = detailsBodyWithFallback && (pinnedShell || useCompact)
         ? `<details class="tooltip-more" aria-label="More details"><summary>Details</summary><div class="tooltip-more-body">${detailsBodyWithFallback}</div></details>`
         : '';
@@ -26351,7 +26397,7 @@ document.addEventListener('DOMContentLoaded', function() {
         : '';
       const inner = `
         ${votehubInner}
-        ${popChangeTopLine}
+        ${popChangeTopLineMobile}
         ${(currentVizMode === 'shift' && Number.isFinite(shiftDelta) && vizShiftCache?.prevYear) ? '' : shiftLine}
         ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
         ${detailsPanel}
