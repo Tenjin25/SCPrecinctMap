@@ -26436,7 +26436,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ${popChangeDetailLine}
         ${(currentVizMode === 'popchange' && popChangeHeaderMeta?.label) ? `<div class="tooltip-insight" style="color:${popChangeToneColor};font-weight:700;">${escapeHtml(popChangeHeaderMeta.label)}</div>` : ''}
         ${(currentVizMode === 'shift' && Number.isFinite(shiftDelta) && vizShiftCache?.prevYear) ? '' : shiftLine}
-        ${flipLine}
+        ${isDesktopTooltipMode() ? flipLine : ''}
         ${deltaBlock}
         ${splitInsightLine}
         ${demoLine}
