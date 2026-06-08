@@ -18795,7 +18795,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	        try {
             if (manifestHasEntries && !manifestEntry) {
               // Manifest is present but this contest/year isn't indexed: don't guess a JSON filename that will 404.
-              const fallback = (electionData || []).filter(row => row.year == year);
+              // Keep the fallback scoped to the requested contest so a view/contest switch cannot reuse stale rows.
+              const fallback = (electionData || []).filter(row => (
+                row &&
+                Number(row.year) === Number(year) &&
+                (
+                  Object.prototype.hasOwnProperty.call(row, `${contestType}_dem`) ||
+                  Object.prototype.hasOwnProperty.call(row, `${contestType}_rep`) ||
+                  Object.prototype.hasOwnProperty.call(row, `${contestType}_total`)
+                )
+              ));
               contestSliceCache.set(key, fallback);
               return fallback;
             }
@@ -18821,7 +18830,17 @@ document.addEventListener('DOMContentLoaded', function() {
 	          contestSliceCache.set(key, rows);
 	          return rows;
 	        } catch (_) {
-	          const fallback = (electionData || []).filter(row => row.year == year);
+            // Last-resort fallback for legacy inline data. Filter by both year and contest keys;
+            // filtering only by year can keep the statewide card on the previous contest after a switch.
+	          const fallback = (electionData || []).filter(row => (
+              row &&
+              Number(row.year) === Number(year) &&
+              (
+                Object.prototype.hasOwnProperty.call(row, `${contestType}_dem`) ||
+                Object.prototype.hasOwnProperty.call(row, `${contestType}_rep`) ||
+                Object.prototype.hasOwnProperty.call(row, `${contestType}_total`)
+              )
+            ));
 	          contestSliceCache.set(key, fallback);
 	          return fallback;
 	        }
@@ -22135,6 +22154,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const stableStatewideResultsCache = new Map();
 
+    function isCurrentContestSelection(contestType, year) {
+      try {
+        const selectedKey = (document.getElementById('contestSelect')?.value || '').toString().trim();
+        const [selectedType, selectedYear] = typeof parseContestValue === 'function'
+          ? parseContestValue(selectedKey)
+          : ['', ''];
+        const activeType = String(currentContestMeta?.contestType || selectedType || '').trim();
+        const activeYear = Number(currentContestMeta?.year || selectedYear);
+        return (
+          String(contestType || '').trim() === activeType &&
+          Number(year) === activeYear
+        );
+      } catch (_) {
+        return true;
+      }
+    }
+
     function getStableStatewideScenarioKey() {
       try {
         return [
@@ -22155,6 +22191,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const rowsRaw = await loadContestSlice(contestType, year, { preferCounty: true });
       const split = splitContestRowsByLevel(rowsRaw || []);
+      // SC contest JSON stores county rollups first and precinct rows as "County - Precinct".
+      // Only county rollups should drive the statewide card; mixed rows would double-count.
       const rows = split.countySummaryRows.length ? split.countySummaryRows : (rowsRaw || []);
       const out = {
         dem: 0,
@@ -22199,6 +22237,7 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         const stable = await buildStableStatewideResults(contestType, year);
         if (!stable || !(Number(stable.total) > 0)) return false;
+        if (!opts?.allowStale && !isCurrentContestSelection(contestType, year)) return false;
         let demCandidate = (opts?.demCandidate || stable.demCandidate || '').toString().trim();
         let repCandidate = (opts?.repCandidate || stable.repCandidate || '').toString().trim();
         if (!demCandidate || !repCandidate) {
@@ -22208,6 +22247,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!repCandidate) repCandidate = stripRunningMateName((candidates?.rep || '').toString().trim());
           } catch (_) {}
         }
+        if (!opts?.allowStale && !isCurrentContestSelection(contestType, year)) return false;
         updateStatewideResults(contestType, year, stable.dem, stable.rep, stable.total, {
           ...opts,
           otherVotes: Number.isFinite(Number(opts?.otherVotes)) ? Number(opts.otherVotes) : stable.other,
@@ -32789,6 +32829,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const year = contestKey.substring(lastUnderscoreIndex + 1);
       currentContestMeta = { contestType, year };
       const nextApplySig = buildContestApplySignature(contestKey, contestType, year);
+      setStatewideContestTitle(`${formatContestName(contestType, year)} (${year})`);
+      setStatewideResultsMarkup('<p class="desktop-statewide-placeholder">Loading statewide results…</p>');
+      // Start the canonical statewide refresh immediately on contest change. The awaited apply path
+      // will call it again after map coloring, but this prevents stale contest totals from lingering.
+      try { renderStableStatewideResults(contestType, year).catch(() => {}); } catch (_) {}
       try { syncModelTuningControls(); } catch (_) {}
       try { updateContextBanner(); } catch (_) {}
       try { scheduleCountyVoteDeltaCachesForTooltip(contestType, Number(year), 2); } catch (_) {}
@@ -33343,13 +33388,15 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       modeledSenateLatestInsights = modeledSenateInsights;
       
-      // Update statewide results display
-      updateStatewideResults(contestType, year, statewidedemVotes, statewidrepVotes, statewidTotalVotes, {
-        otherVotes: statewidotherVotes,
-        demCandidate: statewideDemCandidate,
-        repCandidate: statewideRepCandidate,
-        modeledSenateInsights
-      });
+      // Update statewide results display only if this contest is still current.
+      if (!staleCheck() && isCurrentContestSelection(contestType, year)) {
+        updateStatewideResults(contestType, year, statewidedemVotes, statewidrepVotes, statewidTotalVotes, {
+          otherVotes: statewidotherVotes,
+          demCandidate: statewideDemCandidate,
+          repCandidate: statewideRepCandidate,
+          modeledSenateInsights
+        });
+      }
       if (staleCheck()) return;
 
       // Keep a pinned precinct context synchronized when users switch contests.
