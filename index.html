@@ -10628,8 +10628,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-06-07-1';
-    const APP_BUILD_ID = '2026-06-07-1';
+    const DATA_CACHE_BUSTER = '2026-06-07-2';
+    const APP_BUILD_ID = '2026-06-07-2';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -19500,7 +19500,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setStatewideResultsMarkup('<p class="desktop-statewide-placeholder">Loading statewide results…</p>');
       }
       try {
-        renderStableStatewideResults(contestType, year).catch(err => {
+        renderStableStatewideResults(contestType, year, { updateVoteCounterBaseline: true }).catch(err => {
           console.warn('Stable statewide refresh failed:', err?.message || err);
         });
       } catch (_) {}
@@ -22300,6 +22300,23 @@ document.addEventListener('DOMContentLoaded', function() {
           demCandidate,
           repCandidate
         });
+
+        // Keep the floating statewide vote counter in sync with the canonical county rollup too.
+        // The sidebar card and the VoteHub-style counter are separate render paths; updating only
+        // the sidebar made contest switches look stale when users were watching the counter.
+        if (opts?.updateVoteCounterBaseline) {
+          try {
+            setVoteCounterBaselineState(
+              'Statewide',
+              `${formatContestLabel(contestType, year)}`,
+              stable.dem,
+              stable.rep,
+              stable.other,
+              { kind: 'statewide', contestType, year: Number(year) },
+              { demCandidate, repCandidate }
+            );
+          } catch (_) {}
+        }
         return true;
       } catch (err) {
         console.warn('Failed to render stable statewide results:', err?.message || err);
@@ -32879,7 +32896,7 @@ document.addEventListener('DOMContentLoaded', function() {
       setStatewideResultsMarkup('<p class="desktop-statewide-placeholder">Loading statewide results…</p>');
       // Start the canonical statewide refresh immediately on contest change. The awaited apply path
       // will call it again after map coloring, but this prevents stale contest totals from lingering.
-      try { renderStableStatewideResults(contestType, year).catch(() => {}); } catch (_) {}
+      try { renderStableStatewideResults(contestType, year, { updateVoteCounterBaseline: true }).catch(() => {}); } catch (_) {}
       try { syncModelTuningControls(); } catch (_) {}
       try { updateContextBanner(); } catch (_) {}
       try { scheduleCountyVoteDeltaCachesForTooltip(contestType, Number(year), 2); } catch (_) {}
@@ -34528,6 +34545,82 @@ document.addEventListener('DOMContentLoaded', function() {
         resolvedStatewideCandidates()
       );
     }
+
+
+    // Final guard: some browser/select flows and programmatic restores change contestSelect.value
+    // without reaching the normal handler path. Watch the value itself and refresh canonical
+    // statewide totals + baseline counter whenever it changes.
+    (function installContestSelectionValueWatcher() {
+      try {
+        if (window.__contestSelectionValueWatcherInstalled) return;
+        window.__contestSelectionValueWatcherInstalled = true;
+        let lastSeenContestValue = '';
+
+        function parseKey(key) {
+          const raw = (key || '').toString().trim();
+          const idx = raw.lastIndexOf('_');
+          if (idx <= 0) return ['', ''];
+          return [raw.substring(0, idx), raw.substring(idx + 1)];
+        }
+
+        function refreshForSelectValue(reason, alsoApply) {
+          const sel = document.getElementById('contestSelect');
+          if (!sel) return;
+          const key = (sel.value || '').toString().trim();
+          if (key === lastSeenContestValue && reason !== 'force') return;
+          lastSeenContestValue = key;
+
+          if (!key) {
+            try { setStatewideContestTitle(''); } catch (_) {}
+            try { setStatewideResultsMarkup('<p class="desktop-statewide-placeholder">Select a contest to see statewide results.</p>'); } catch (_) {}
+            return;
+          }
+
+          const parsed = (typeof parseContestValue === 'function') ? parseContestValue(key) : parseKey(key);
+          const contestType = parsed && parsed[0] ? String(parsed[0] || '').trim() : '';
+          const year = parsed && parsed[1] ? parsed[1] : '';
+          if (!contestType || !year) return;
+
+          try { currentContestMeta = { contestType, year }; } catch (_) {}
+          try { setStatewideContestTitle(`${formatContestName(contestType, year)} (${year})`); } catch (_) {}
+          try { setStatewideResultsMarkup('<p class="desktop-statewide-placeholder">Loading statewide results…</p>'); } catch (_) {}
+
+          try {
+            if (typeof renderStableStatewideResults === 'function') {
+              renderStableStatewideResults(contestType, year, { updateVoteCounterBaseline: true }).catch(err => {
+                console.warn('Contest watcher statewide refresh failed:', err?.message || err);
+              });
+            }
+          } catch (_) {}
+
+          // If a programmatic select change skipped the main handler, apply the contest once.
+          if (alsoApply && typeof handleContestSelectionChange === 'function') {
+            try { handleContestSelectionChange(key); } catch (_) {}
+          }
+        }
+
+        const eventRefresh = (ev) => {
+          const target = ev && ev.target;
+          if (!target || target.id !== 'contestSelect') return;
+          refreshForSelectValue('event', false);
+        };
+        document.addEventListener('change', eventRefresh, true);
+        document.addEventListener('input', eventRefresh, true);
+
+        const startPolling = () => {
+          refreshForSelectValue('force', false);
+          window.setInterval(() => {
+            refreshForSelectValue('poll', true);
+          }, 300);
+        };
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', startPolling, { once: true });
+        } else {
+          startPolling();
+        }
+      } catch (_) {}
+    })();
 
     window.onload = init;
 </script>
