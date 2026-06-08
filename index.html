@@ -10628,8 +10628,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-06-07-6';
-    const APP_BUILD_ID = '2026-06-07-6';
+    const DATA_CACHE_BUSTER = '2026-06-07-8';
+    const APP_BUILD_ID = '2026-06-07-8';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -13080,16 +13080,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function addLayerWithOptionalSourceLayer(layerDef) {
+      if (!map || !layerDef || !layerDef.id) return false;
+      // Mapbox throws when a layer id already exists. View switches can leave
+      // helper outline layers in place even after the base fill is rebuilt, so
+      // make all layer additions idempotent instead of letting duplicate-layer
+      // errors interrupt hover/sidebar rendering.
+      if (map.getLayer && map.getLayer(layerDef.id)) return false;
       const src = map.getSource(layerDef.source);
       const isVectorSource = !!src && src.type === 'vector';
       const sourceLayer = isVectorSource ? getVectorSourceLayer(layerDef.source) : null;
       const beforeId = layerDef.beforeId;
-      if (sourceLayer) layerDef['source-layer'] = sourceLayer;
-      if (Object.prototype.hasOwnProperty.call(layerDef, 'beforeId')) delete layerDef.beforeId;
-      if (beforeId && map.getLayer(beforeId)) {
-        map.addLayer(layerDef, beforeId);
-      } else {
-        map.addLayer(layerDef);
+      const cleanLayerDef = Object.assign({}, layerDef);
+      if (sourceLayer) cleanLayerDef['source-layer'] = sourceLayer;
+      if (Object.prototype.hasOwnProperty.call(cleanLayerDef, 'beforeId')) delete cleanLayerDef.beforeId;
+      try {
+        if (beforeId && map.getLayer(beforeId)) {
+          map.addLayer(cleanLayerDef, beforeId);
+        } else {
+          map.addLayer(cleanLayerDef);
+        }
+        return true;
+      } catch (err) {
+        const msg = String((err && err.message) || err || '');
+        if (/Layer with id .* already exists/i.test(msg)) return false;
+        throw err;
       }
     }
 
