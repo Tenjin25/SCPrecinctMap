@@ -18811,7 +18811,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const payloadPath = manifestFile
               ? `${CONFIG.paths.contests_dir}/${manifestFile}`
-              : `${CONFIG.paths.contests_dir}/${key}.json`;
+              : `${CONFIG.paths.contests_dir}/${contestType}_${Number(year)}.json`;
 	          const payload = await loadJSON(payloadPath);
 	          const rows = (payload.rows || []).map(r => ({
 	            year: Number(year),
@@ -19345,6 +19345,11 @@ document.addEventListener('DOMContentLoaded', function() {
       };
       sel.onchange = triggerContestSelection;
       sel.oninput = triggerContestSelection;
+      if (sel.dataset.contestSelectRefreshWired !== 'true') {
+        sel.dataset.contestSelectRefreshWired = 'true';
+        sel.addEventListener('change', triggerContestSelection);
+        sel.addEventListener('input', triggerContestSelection);
+      }
       if (sel.dataset.keyboardContestNavWired === 'true') return;
       sel.dataset.keyboardContestNavWired = 'true';
       sel.addEventListener('keydown', function(ev) {
@@ -19361,6 +19366,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
     }
+
+    function ensureContestSelectDelegatedRefresh() {
+      try {
+        const root = document.documentElement;
+        if (root && root.dataset.contestSelectDelegatedRefresh === 'true') return;
+        if (root) root.dataset.contestSelectDelegatedRefresh = 'true';
+        const handler = (ev) => {
+          const target = ev && ev.target;
+          if (!target || target.id !== 'contestSelect') return;
+          handleContestSelectionChange(target.value);
+        };
+        document.addEventListener('change', handler, true);
+        document.addEventListener('input', handler, true);
+      } catch (_) {}
+    }
+    try { ensureContestSelectDelegatedRefresh(); } catch (_) {}
 
     function shouldRefreshCountyDetailsOnContestChange() {
       const view = String(currentView || '').toLowerCase();
@@ -19462,10 +19483,36 @@ document.addEventListener('DOMContentLoaded', function() {
       } catch (_) {}
     }
 
+    function refreshStatewideForContestSelection(contestKey, opts = {}) {
+      const key = (contestKey || '').toString().trim();
+      if (!key) {
+        setStatewideContestTitle('');
+        setStatewideResultsMarkup('<p class="desktop-statewide-placeholder">Select a contest to see statewide results.</p>');
+        return false;
+      }
+      const parsed = typeof parseContestValue === 'function' ? parseContestValue(key) : null;
+      const contestType = parsed && parsed[0] ? String(parsed[0] || '').trim() : '';
+      const year = parsed && parsed[1] ? parsed[1] : '';
+      if (!contestType || !year) return false;
+      currentContestMeta = { contestType, year };
+      setStatewideContestTitle(`${formatContestName(contestType, year)} (${year})`);
+      if (opts?.showLoading !== false) {
+        setStatewideResultsMarkup('<p class="desktop-statewide-placeholder">Loading statewide results…</p>');
+      }
+      try {
+        renderStableStatewideResults(contestType, year).catch(err => {
+          console.warn('Stable statewide refresh failed:', err?.message || err);
+        });
+      } catch (_) {}
+      return true;
+    }
+
     async function handleContestSelectionChange(contestKey) {
       try { refreshStartHereHint(); } catch (_) {}
+      refreshStatewideForContestSelection(contestKey, { showLoading: true });
       const queued = queueContestSelection(contestKey);
       if (!contestChangeInFlight && queued.key && queued.key === lastCompletedContestSelection) {
+        refreshStatewideForContestSelection(queued.key, { showLoading: false });
         queueCountyDetailsRefresh();
         return;
       }
@@ -19485,6 +19532,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } catch (_) {}
             setTimeout(resolve, 0);
           });
+          refreshStatewideForContestSelection(next.key, { showLoading: false });
           await applyContest(next.key, { selectionSeq: next.seq });
 
           // If users switched again while we were loading, apply the newest selection next.
@@ -19690,9 +19738,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	      sel.appendChild(fragment);
 	      sel.dataset.populated = 'true';
-	      sel.onchange = () => {
-        handleContestSelectionChange(sel.value);
-      };
+      wireContestSelectHandlers(sel);
       queueUncontestedContestScan(manifestEntries, { maybeUncontestedTypes });
 	    }
 
@@ -19727,7 +19773,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (sel) {
           sel.innerHTML = '<option value="">No contests available for this view</option>';
           sel.dataset.populated = 'true';
-          sel.onchange = () => { handleContestSelectionChange(sel.value); };
+          wireContestSelectHandlers(sel);
         }
         return;
       }
