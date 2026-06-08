@@ -22132,6 +22132,95 @@ document.addEventListener('DOMContentLoaded', function() {
       return `<div class="statewide-footer-row">${baselineHtml}${analogHtml}</div>`;
     }
 
+
+    const stableStatewideResultsCache = new Map();
+
+    function getStableStatewideScenarioKey() {
+      try {
+        return [
+          `swing:${Number(scenarioSwingPct || 0).toFixed(4)}`,
+          `scope:${String(scenarioScope || 'statewide')}`,
+          `county:${String(typeof getScenarioCountyNorm === 'function' ? (getScenarioCountyNorm() || '') : '')}`
+        ].join('|');
+      } catch (_) {
+        return 'swing:0.0000|scope:statewide|county:';
+      }
+    }
+
+    async function buildStableStatewideResults(contestType, year) {
+      const key = `${String(contestType || '').trim()}_${Number(year)}|${getStableStatewideScenarioKey()}`;
+      if (stableStatewideResultsCache.has(key)) {
+        return stableStatewideResultsCache.get(key);
+      }
+
+      const rowsRaw = await loadContestSlice(contestType, year, { preferCounty: true });
+      const split = splitContestRowsByLevel(rowsRaw || []);
+      const rows = split.countySummaryRows.length ? split.countySummaryRows : (rowsRaw || []);
+      const out = {
+        dem: 0,
+        rep: 0,
+        other: 0,
+        total: 0,
+        demCandidate: '',
+        repCandidate: ''
+      };
+
+      rows.forEach(row => {
+        if (!row) return;
+        if (!out.demCandidate) out.demCandidate = stripRunningMateName((row[`${contestType}_dem_candidate`] || '').toString().trim());
+        if (!out.repCandidate) out.repCandidate = stripRunningMateName((row[`${contestType}_rep_candidate`] || '').toString().trim());
+        const countyNorm = normalizeCountyToken(row?.county || '');
+        const demRaw = Number(row[`${contestType}_dem`]) || 0;
+        const repRaw = Number(row[`${contestType}_rep`]) || 0;
+        const otherRaw = Number(row[`${contestType}_other`]) || 0;
+        const fallbackTotal = demRaw + repRaw + otherRaw;
+        const adjusted = applyScenarioShiftToVotes(
+          countyNorm,
+          demRaw,
+          repRaw,
+          otherRaw,
+          Number(row[`${contestType}_total`]) || fallbackTotal
+        );
+        const demVotes = Number(adjusted.dem || 0);
+        const repVotes = Number(adjusted.rep || 0);
+        const otherVotes = Math.max(0, Number(adjusted.other || 0));
+        const totalVotes = Number(adjusted.total || 0);
+        out.dem += demVotes;
+        out.rep += repVotes;
+        out.other += otherVotes;
+        out.total += totalVotes > 0 ? totalVotes : (demVotes + repVotes + otherVotes);
+      });
+
+      stableStatewideResultsCache.set(key, out);
+      return out;
+    }
+
+    async function renderStableStatewideResults(contestType, year, opts = {}) {
+      try {
+        const stable = await buildStableStatewideResults(contestType, year);
+        if (!stable || !(Number(stable.total) > 0)) return false;
+        let demCandidate = (opts?.demCandidate || stable.demCandidate || '').toString().trim();
+        let repCandidate = (opts?.repCandidate || stable.repCandidate || '').toString().trim();
+        if (!demCandidate || !repCandidate) {
+          try {
+            const candidates = await getContestCandidates(contestType, year);
+            if (!demCandidate) demCandidate = stripRunningMateName((candidates?.dem || '').toString().trim());
+            if (!repCandidate) repCandidate = stripRunningMateName((candidates?.rep || '').toString().trim());
+          } catch (_) {}
+        }
+        updateStatewideResults(contestType, year, stable.dem, stable.rep, stable.total, {
+          ...opts,
+          otherVotes: Number.isFinite(Number(opts?.otherVotes)) ? Number(opts.otherVotes) : stable.other,
+          demCandidate,
+          repCandidate
+        });
+        return true;
+      } catch (err) {
+        console.warn('Failed to render stable statewide results:', err?.message || err);
+        return false;
+      }
+    }
+
     function updateStatewideResults(contestType, year, demVotes, repVotes, totalVotes, opts = {}) {
       const statewideTargets = getStatewideContentNodes();
       if (!statewideTargets.length) return;
@@ -33932,6 +34021,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       map.setPaintProperty('district-fill', 'fill-color', expr);
       applyLayerOpacityTuning();
+      await renderStableStatewideResults(contestType, year, {});
       setVoteCounterBaselineState('Statewide', `${formatContestLabel(contestType, year)}`, totals.dem, totals.rep, totalOther, { kind: 'statewide', contestType, year: Number(year) });
       if (mode === 'demographics') {
         setStatewideContestTitle(`US House (${year}) - Congressional demographic profile`);
@@ -34176,6 +34266,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setStatewideContestTitle(`${formatContestName(contestType, year)} (${year}) - Reallocated to ${linesLabel}${coverageText}`);
             setStatus(`Applied district crosswalk results: ${formatContestLabel(contestType, year)} (${demPct.toFixed(2)}% D, ${repPct.toFixed(2)}% R, ${otherPct.toFixed(2)}% O)${coverageText}`);
           }
+          await renderStableStatewideResults(contestType, year, resolvedStatewideCandidates());
           setVoteCounterBaselineState(
             'Statewide',
             `${formatContestLabel(contestType, year)} (${linesLabel})`,
@@ -34265,6 +34356,7 @@ document.addEventListener('DOMContentLoaded', function() {
           totalRep += repVotes;
         });
         const totalOther = Math.max(0, totalVotes - totalDem - totalRep);
+        await renderStableStatewideResults(contestType, year, resolvedStatewideCandidates());
         setVoteCounterBaselineState(
           'Statewide',
           `${formatContestLabel(contestType, year)}`,
@@ -34332,6 +34424,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   setStatewideContestTitle(`${formatContestName(contestType, year)} (${year}) - Statewide Result`);
       setStatus(`Applied statewide contest: ${formatContestLabel(contestType, year)} (${demPct.toFixed(2)}% D, ${repPct.toFixed(2)}% R, ${otherPct.toFixed(2)}% O)`);
+      await renderStableStatewideResults(contestType, year, resolvedStatewideCandidates());
       setVoteCounterBaselineState(
         'Statewide',
         `${formatContestLabel(contestType, year)}`,
