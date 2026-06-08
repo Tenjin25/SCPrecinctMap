@@ -10628,8 +10628,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-06-07-8';
-    const APP_BUILD_ID = '2026-06-07-8';
+    const DATA_CACHE_BUSTER = '2026-06-07-7';
+    const APP_BUILD_ID = '2026-06-07-7';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -19523,10 +19523,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function handleContestSelectionChange(contestKey) {
       try { refreshStartHereHint(); } catch (_) {}
-      refreshStatewideForContestSelection(contestKey, { showLoading: true });
       const queued = queueContestSelection(contestKey);
       if (!contestChangeInFlight && queued.key && queued.key === lastCompletedContestSelection) {
-        refreshStatewideForContestSelection(queued.key, { showLoading: false });
         queueCountyDetailsRefresh();
         return;
       }
@@ -19546,8 +19544,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } catch (_) {}
             setTimeout(resolve, 0);
           });
-          refreshStatewideForContestSelection(next.key, { showLoading: false });
-          await applyContest(next.key, { selectionSeq: next.seq });
+          await applyContest(next.key, { selectionSeq: next.seq, force: true });
 
           // If users switched again while we were loading, apply the newest selection next.
           if (queuedContestSelection && queuedContestSelection.seq !== next.seq) {
@@ -34533,38 +34530,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-    // Statewide results are refreshed from the canonical county rollup by the normal
-    // contest-selection path. Avoid polling/overriding sidebar render functions here;
-    // those loops can fight hover/sidebar scrolling and cause visible jitter.
-    (function installTargetedStatewideRefreshHooks() {
-      try {
-        if (window.__targetedStatewideRefreshHooksInstalled) return;
-        window.__targetedStatewideRefreshHooksInstalled = true;
-
-        function refreshSelectedStatewide(showLoading = false) {
-          const key = (document.getElementById('contestSelect')?.value || '').toString().trim();
-          if (!key) return;
-          if (typeof refreshStatewideForContestSelection === 'function') {
-            refreshStatewideForContestSelection(key, { showLoading });
-          }
-        }
-
-        document.addEventListener('change', function(ev) {
-          if (ev?.target?.id === 'contestSelect') refreshSelectedStatewide(true);
-        }, true);
-
-        document.addEventListener('click', function(ev) {
-          const target = ev && ev.target;
-          if (!target || !target.closest) return;
-          if (target.closest('.view-toggle-btn, [data-view], [data-view-toggle]')) {
-            setTimeout(() => refreshSelectedStatewide(false), 0);
-          }
-        }, true);
-      } catch (err) {
-        console.warn('Failed to install targeted statewide refresh hooks:', err?.message || err);
-      }
-    })();
 
     window.onload = init;
 </script>
