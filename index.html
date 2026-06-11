@@ -19635,13 +19635,14 @@ document.addEventListener('DOMContentLoaded', function() {
           if (scope === 'state_house' && contestType === 'state_house' && Number.isFinite(year) && year < 2022) return;
 
           const key = `${contestType}_${year}`;
+          const manifestSaysContested = parseMajorPartyContested(entry);
           if (!showUncontestedContests) {
             if (!shouldKeepUncontestedDistrictRace(entry)) {
               if (contestUncontestedCache.get(key) === true) return;
-              if (maybeUncontestedTypes.has(contestType) && !contestUncontestedCache.has(key)) return;
+              if (maybeUncontestedTypes.has(contestType) && !contestUncontestedCache.has(key) && !manifestSaysContested) return;
             }
           }
-          if (councilOfStateTypes.has(contestType) && !parseMajorPartyContested(entry)) return;
+          if (councilOfStateTypes.has(contestType) && !manifestSaysContested) return;
 
 	        if (!contestYearPairs[contestType]) contestYearPairs[contestType] = new Set();
 	        contestYearPairs[contestType].add(year);
@@ -34145,10 +34146,14 @@ document.addEventListener('DOMContentLoaded', function() {
     async function applyStatewideContestToDistricts(contestType, year) {
       let statewideDemCandidate = '';
       let statewideRepCandidate = '';
+      let canonicalStatewide = null;
       try {
         const contestCandidates = await getContestCandidates(contestType, year);
         statewideDemCandidate = stripRunningMateName((contestCandidates?.dem || '').toString().trim());
         statewideRepCandidate = stripRunningMateName((contestCandidates?.rep || '').toString().trim());
+      } catch (_) {}
+      try {
+        canonicalStatewide = await buildStableStatewideResults(contestType, year);
       } catch (_) {}
 
       function legislativeLeaderCandidateOverrides(ct, y) {
@@ -34175,6 +34180,23 @@ document.addEventListener('DOMContentLoaded', function() {
           return override?.repCandidate || base;
         })()
       });
+      const getCanonicalTotals = (fallbackTotals = null) => {
+        const stable = canonicalStatewide;
+        if (stable && Number(stable.total) > 0) {
+          return {
+            dem: Number(stable.dem || 0),
+            rep: Number(stable.rep || 0),
+            other: Number(stable.other || 0),
+            total: Number(stable.total || 0)
+          };
+        }
+        return {
+          dem: Number(fallbackTotals?.dem || 0),
+          rep: Number(fallbackTotals?.rep || 0),
+          other: Math.max(0, Number(fallbackTotals?.other || 0)),
+          total: Number(fallbackTotals?.total || 0)
+        };
+      };
 
       async function warnIfUsHouseParityMismatch(sourceLabel, districtTotals) {
         if (String(contestType || '').trim() !== 'us_house') return;
@@ -34360,10 +34382,15 @@ document.addEventListener('DOMContentLoaded', function() {
                }
              } catch (_) {}
 
-          const demPct = totalVotes ? (totalDem / totalVotes) * 100 : 0;
-          const repPct = totalVotes ? (totalRep / totalVotes) * 100 : 0;
-          const totalOther = Math.max(0, totalVotes - totalDem - totalRep);
-          const otherPct = totalVotes ? ((totalVotes - totalDem - totalRep) / totalVotes) * 100 : 0;
+          const canonicalTotals = getCanonicalTotals({
+            dem: totalDem,
+            rep: totalRep,
+            other: Math.max(0, totalVotes - totalDem - totalRep),
+            total: totalVotes
+          });
+          const demPct = canonicalTotals.total ? (canonicalTotals.dem / canonicalTotals.total) * 100 : 0;
+          const repPct = canonicalTotals.total ? (canonicalTotals.rep / canonicalTotals.total) * 100 : 0;
+          const otherPct = canonicalTotals.total ? (canonicalTotals.other / canonicalTotals.total) * 100 : 0;
           await warnIfUsHouseParityMismatch('district_crosswalk', { dem: totalDem, rep: totalRep, total: totalVotes });
           const coverageText = (coveragePct !== undefined && coveragePct !== null)
             ? ` | match coverage ${Number(coveragePct).toFixed(2)}%`
@@ -34373,8 +34400,8 @@ document.addEventListener('DOMContentLoaded', function() {
             setStatewideContestTitle(`${formatContestName(contestType, year)} (${year}) - ${getReadableViewLabel(currentView)} demographic profile (${linesLabel})`);
             setStatus(`Applied demographic mode for ${getReadableViewLabel(currentView)} (${linesLabel}).`);
           } else {
-            setStatewideContestTitle(`${formatContestName(contestType, year)} (${year}) - Reallocated to ${linesLabel}${coverageText}`);
-            setStatus(`Applied district crosswalk results: ${formatContestLabel(contestType, year)} (${demPct.toFixed(2)}% D, ${repPct.toFixed(2)}% R, ${otherPct.toFixed(2)}% O)${coverageText}`);
+            setStatewideContestTitle(`${formatContestName(contestType, year)} (${year}) - Statewide Result`);
+            setStatus(`Applied ${linesLabel} layer while keeping statewide margin: ${formatContestLabel(contestType, year)} (${demPct.toFixed(2)}% D, ${repPct.toFixed(2)}% R, ${otherPct.toFixed(2)}% O)${coverageText}`);
           }
           await renderStableStatewideResults(contestType, year, {
             ...resolvedStatewideCandidates(),
@@ -34500,10 +34527,19 @@ document.addEventListener('DOMContentLoaded', function() {
         return setStatus(`No data found for ${contestType} in ${year}`);
       }
 
-      const demPct = (totalDem / totalVotes) * 100;
-      const repPct = (totalRep / totalVotes) * 100;
-      const totalOther = Math.max(0, totalVotes - totalDem - totalRep);
-      const otherPct = ((totalVotes - totalDem - totalRep) / totalVotes) * 100;
+      const canonicalTotals = getCanonicalTotals({
+        dem: totalDem,
+        rep: totalRep,
+        other: Math.max(0, totalVotes - totalDem - totalRep),
+        total: totalVotes
+      });
+      const summaryDem = canonicalTotals.dem;
+      const summaryRep = canonicalTotals.rep;
+      const summaryOther = canonicalTotals.other;
+      const summaryTotal = canonicalTotals.total > 0 ? canonicalTotals.total : totalVotes;
+      const demPct = summaryTotal ? (summaryDem / summaryTotal) * 100 : 0;
+      const repPct = summaryTotal ? (summaryRep / summaryTotal) * 100 : 0;
+      const otherPct = summaryTotal ? (summaryOther / summaryTotal) * 100 : 0;
       await warnIfUsHouseParityMismatch(preferPrecinctDetail ? 'fallback_precinct_rows' : 'fallback_county_rows', { dem: totalDem, rep: totalRep, total: totalVotes });
       const winner = repPct > demPct ? 'R' : 'D';
       const marginPct = Math.abs(repPct - demPct);
