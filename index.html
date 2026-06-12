@@ -11110,7 +11110,66 @@ document.addEventListener('DOMContentLoaded', function() {
     // manifest-based dropdown population cannot throw at runtime.
     const showUncontestedContests = false;
     const contestUncontestedCache = new Map(); // key: `${contestType}_${year}` -> boolean (true = uncontested)
-    async function queueUncontestedContestScan() { return; }
+    const contestUncontestedScanInflight = new Set();
+    async function queueUncontestedContestScan(manifestEntries, opts = {}) {
+      if (showUncontestedContests) return;
+      const maybeUncontestedTypes = opts?.maybeUncontestedTypes instanceof Set ? opts.maybeUncontestedTypes : null;
+      const entries = Array.isArray(manifestEntries) ? manifestEntries : [];
+      const pending = entries.filter(entry => {
+        const contestType = (entry?.contest_type || '').toString().trim();
+        const year = Number(entry?.year);
+        const rows = Number(entry?.rows || entry?.districts || 0) || 0;
+        const scope = (entry?.scope || '').toString().trim().toLowerCase();
+        if (!contestType || !Number.isFinite(year) || rows <= 0) return false;
+        if (scope) return false;
+        if (maybeUncontestedTypes && !maybeUncontestedTypes.has(contestType)) return false;
+        const key = `${contestType}_${year}`;
+        if (contestUncontestedCache.has(key) || contestUncontestedScanInflight.has(key)) return false;
+        return true;
+      });
+      if (!pending.length) return;
+
+      const previousValue = document.getElementById('contestSelect')?.value || '';
+      let changed = false;
+
+      await Promise.allSettled(pending.map(async entry => {
+        const contestType = (entry?.contest_type || '').toString().trim();
+        const year = Number(entry?.year);
+        const key = `${contestType}_${year}`;
+        const manifestFile = (entry?.file || '').toString().trim();
+        if (!contestType || !Number.isFinite(year) || !manifestFile) return;
+
+        contestUncontestedScanInflight.add(key);
+        try {
+          const payload = await loadJSON(`${CONFIG.paths.contests_dir}/${manifestFile}`);
+          const rows = Array.isArray(payload?.rows) ? payload.rows : [];
+          let demTotal = 0;
+          let repTotal = 0;
+          rows.forEach(row => {
+            const rowName = (row?.county || '').toString().trim();
+            if (!rowName || rowName.includes(' - ')) return;
+            demTotal += Number(row?.dem_votes) || 0;
+            repTotal += Number(row?.rep_votes) || 0;
+          });
+          const uncontested = !(demTotal > 0 && repTotal > 0);
+          contestUncontestedCache.set(key, uncontested);
+          changed = true;
+        } catch (err) {
+          console.warn('Uncontested scan failed for', key, err?.message || err);
+        } finally {
+          contestUncontestedScanInflight.delete(key);
+        }
+      }));
+
+      if (changed) {
+        updateContestSelectForCurrentView();
+        const sel = document.getElementById('contestSelect');
+        if (sel && previousValue) {
+          const match = Array.from(sel.options || []).some(opt => opt.value === previousValue);
+          if (match) sel.value = previousValue;
+        }
+      }
+    }
     let districtsInfo = null;
     let stateHouseInfo = null;
     let stateSenateInfo = null;
@@ -19655,7 +19714,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (!showUncontestedContests) {
             if (!shouldKeepUncontestedDistrictRace(entry)) {
               if (contestUncontestedCache.get(key) === true) return;
-              if (maybeUncontestedTypes.has(contestType) && !contestUncontestedCache.has(key) && manifestContestedExplicit !== true) return;
+              if (maybeUncontestedTypes.has(contestType) && manifestContestedExplicit === false) return;
             }
           }
           if (councilOfStateTypes.has(contestType) && manifestContestedExplicit === false) return;
