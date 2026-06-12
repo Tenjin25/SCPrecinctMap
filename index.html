@@ -19614,6 +19614,21 @@ document.addEventListener('DOMContentLoaded', function() {
           return true;
         }
 
+        function parseMajorPartyContestedExplicit(entry) {
+          const raw = entry?.major_party_contested;
+          if (typeof raw === 'boolean') return raw;
+          if (typeof raw === 'number') return raw !== 0;
+          if (typeof raw === 'string') {
+            const s = raw.trim().toLowerCase();
+            if (s === 'false' || s === '0' || s === 'no') return false;
+            if (s === 'true' || s === '1' || s === 'yes') return true;
+          }
+          const demTotal = Number(entry?.dem_total || 0);
+          const repTotal = Number(entry?.rep_total || 0);
+          if (demTotal > 0 || repTotal > 0) return demTotal > 0 && repTotal > 0;
+          return null;
+        }
+
         function shouldKeepUncontestedDistrictRace(entry) {
           const scope = (entry?.scope || '').toString().trim().toLowerCase();
           const contestType = (entry?.contest_type || '').toString().trim();
@@ -19636,13 +19651,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
           const key = `${contestType}_${year}`;
           const manifestSaysContested = parseMajorPartyContested(entry);
+          const manifestContestedExplicit = parseMajorPartyContestedExplicit(entry);
           if (!showUncontestedContests) {
             if (!shouldKeepUncontestedDistrictRace(entry)) {
               if (contestUncontestedCache.get(key) === true) return;
-              if (maybeUncontestedTypes.has(contestType) && !contestUncontestedCache.has(key) && !manifestSaysContested) return;
+              if (maybeUncontestedTypes.has(contestType) && !contestUncontestedCache.has(key) && manifestContestedExplicit !== true) return;
             }
           }
-          if (councilOfStateTypes.has(contestType) && !manifestSaysContested) return;
+          if (councilOfStateTypes.has(contestType) && manifestContestedExplicit === false) return;
 
 	        if (!contestYearPairs[contestType]) contestYearPairs[contestType] = new Set();
 	        contestYearPairs[contestType].add(year);
@@ -19669,10 +19685,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	        if (contestType === 'attorney_general') return 'Attorney General';
 	        if (contestType === 'secretary_of_state') return 'Secretary of State';
 	        if (contestType === 'treasurer') return 'Treasurer';
+	        if (contestType === 'state_treasurer') return 'State Treasurer';
 	        if (contestType === 'auditor') return 'Auditor';
 	        if (contestType === 'labor_commissioner') return 'Labor Commissioner';
 	        if (contestType === 'insurance_commissioner') return 'Insurance Commissioner';
 	        if (contestType === 'agriculture_commissioner') return 'Agriculture Commissioner';
+	        if (contestType === 'commissioner_agriculture') return 'Commissioner of Agriculture';
+	        if (contestType === 'comptroller_general') return 'Comptroller General';
 	        if (contestType === 'superintendent') return 'Superintendent of Public Instruction';
 	        return formatContestName(contestType, '');
 	      }
@@ -19689,11 +19708,15 @@ document.addEventListener('DOMContentLoaded', function() {
 	        'Lieutenant Governor',
 	        'Attorney General',
 	        'Secretary of State',
+	        'State Treasurer',
 	        'Treasurer',
 	        'Auditor',
+	        'Comptroller General',
 	        'Labor Commissioner',
 	        'Insurance Commissioner',
-	        'Agriculture Commissioner'
+	        'Agriculture Commissioner',
+	        'Commissioner of Agriculture',
+	        'Superintendent of Public Instruction'
 	      ];
 
 	      const grouped = new Map(); // label -> Array<{contestType, year}>
