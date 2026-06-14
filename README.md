@@ -348,6 +348,12 @@ Backfill missing precinct rows from OpenElections CSV using mismatch output:
 python scripts/backfill_missing_contest_rows_from_oe_csv.py --year 2022 --contest governor --contest us_senate --mismatch-csv scripts/out/contest_mismatch_missing_polygons_post_alias_pass.csv
 ```
 
+Rebuild superintendent statewide slices and districtized outputs, optionally using approved crosswalk remaps first:
+
+```powershell
+python scripts/rebuild_superintendent_aggregation.py --with-districts --apply-crosswalk --use-runtime-crosswalk --crosswalk-min-confidence medium
+```
+
 Convert SC Election Commission export into OpenElections-style format:
 
 ```powershell

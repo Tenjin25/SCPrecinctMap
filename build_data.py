@@ -153,6 +153,10 @@ OFFICE_MAP = {
     'state senate':                         'state_senate',
     'attorney general':                     'attorney_general',
     'secretary of state':                   'secretary_of_state',
+    'state superintendent of education':    'superintendent',
+    'superintendent of education':          'superintendent',
+    'state superintendent of public education': 'superintendent',
+    'superintendent of public education':   'superintendent',
     'state treasurer':                      'state_treasurer',
     'comptroller general':                  'comptroller_general',
     'commissioner of agriculture':          'commissioner_agriculture',
@@ -180,9 +184,9 @@ _COLORS = [
 # Priority order for manifest display (lower = shown first in dropdown)
 _PRIORITY = {
     'president': 0, 'governor': 1, 'us_senate': 2, 'attorney_general': 3,
-    'secretary_of_state': 4, 'state_treasurer': 5, 'comptroller_general': 6,
-    'commissioner_agriculture': 7, 'us_house': 8, 'state_senate': 9,
-    'state_house': 10,
+    'secretary_of_state': 4, 'superintendent': 5, 'state_treasurer': 6,
+    'comptroller_general': 7, 'commissioner_agriculture': 8, 'us_house': 9,
+    'state_senate': 10, 'state_house': 11,
 }
 
 # ---------------------------------------------------------------------------
