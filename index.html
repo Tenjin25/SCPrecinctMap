@@ -10628,8 +10628,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-06-11-1';
-    const APP_BUILD_ID = '2026-06-11-1';
+    const DATA_CACHE_BUSTER = '2026-06-14-1';
+    const APP_BUILD_ID = '2026-06-14-1';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -32676,6 +32676,41 @@ document.addEventListener('DOMContentLoaded', function() {
 	      }
 	    }
 
+    function hasCompetitiveMajorPartyContestRows(rows) {
+      if (!Array.isArray(rows) || !rows.length) return false;
+      let demVotes = 0;
+      let repVotes = 0;
+      let sawDemCandidate = false;
+      let sawRepCandidate = false;
+      for (const row of rows) {
+        demVotes += Number(row?.dem_votes) || 0;
+        repVotes += Number(row?.rep_votes) || 0;
+        const demName = String(row?.dem_candidate || '').trim();
+        const repName = String(row?.rep_candidate || '').trim();
+        if (demName && !/^(dem|democratic)$/i.test(demName)) sawDemCandidate = true;
+        if (repName && !/^(rep|republican)$/i.test(repName)) sawRepCandidate = true;
+      }
+      return demVotes > 0 && repVotes > 0 && (sawDemCandidate || sawRepCandidate);
+    }
+
+    function hasCompetitiveMajorPartyDistrictResults(node) {
+      const results = node?.general?.results;
+      if (!results || typeof results !== 'object') return false;
+      let demVotes = 0;
+      let repVotes = 0;
+      let sawDemCandidate = false;
+      let sawRepCandidate = false;
+      for (const row of Object.values(results)) {
+        demVotes += Number(row?.dem_votes) || 0;
+        repVotes += Number(row?.rep_votes) || 0;
+        const demName = String(row?.dem_candidate || '').trim();
+        const repName = String(row?.rep_candidate || '').trim();
+        if (demName && !/^(dem|democratic)$/i.test(demName)) sawDemCandidate = true;
+        if (repName && !/^(rep|republican)$/i.test(repName)) sawRepCandidate = true;
+      }
+      return demVotes > 0 && repVotes > 0 && (sawDemCandidate || sawRepCandidate);
+    }
+
     async function getPreviousContestSlice(contestType, year) {
       const y = Number(year);
       const modeledDef = getModeledContestDefinition(contestType, y);
@@ -32696,7 +32731,9 @@ document.addEventListener('DOMContentLoaded', function() {
       })();
       for (const cy of candidates) {
         const rows = await tryLoadContestSliceStrict(contestType, cy);
-        if (rows && rows.length) return { year: cy, rows };
+        if (!rows || !rows.length) continue;
+        if (!hasCompetitiveMajorPartyContestRows(rows)) continue;
+        return { year: cy, rows };
       }
       return null;
     }
@@ -32924,7 +32961,9 @@ document.addEventListener('DOMContentLoaded', function() {
       for (const cy of candidates) {
         const node = await tryLoadDistrictSliceStrict(scope, contestType, cy, linesYear);
         const results = node?.general?.results || null;
-        if (results && Object.keys(results).length) return { year: cy, node };
+        if (!results || !Object.keys(results).length) continue;
+        if (!hasCompetitiveMajorPartyDistrictResults(node)) continue;
+        return { year: cy, node };
       }
       return null;
     }
