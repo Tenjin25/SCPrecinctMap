@@ -1,0 +1,36 @@
+{
+  "files": [
+    {
+      "scope": "state_house",
+      "contest_type": "superintendent",
+      "year": 2022,
+      "file": "state_house_superintendent_2022_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "superintendent",
+      "year": 2018,
+      "file": "state_house_superintendent_2018_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "superintendent",
+      "year": 2014,
+      "file": "state_house_superintendent_2014_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "superintendent",
+      "year": 2010,
+      "file": "state_house_superintendent_2010_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    }
+  ]
+}

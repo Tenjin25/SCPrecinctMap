@@ -10628,8 +10628,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-06-14-1';
-    const APP_BUILD_ID = '2026-06-14-1';
+    const DATA_CACHE_BUSTER = '2026-06-16-1';
+    const APP_BUILD_ID = '2026-06-16-1';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -10678,6 +10678,7 @@ document.addEventListener('DOMContentLoaded', function() {
         district_election: withBase('./data/sc_district_results_2022_lines.json'),
         district_contests_dir: withBase('./data/district_contests'),
         district_contests_state_house_2022_lines_dir: withBase('./data/district_contests/state_house_2022_lines'),
+        district_contests_state_house_2024_lines_dir: withBase('./data/district_contests/state_house_2024_lines'),
         districts_info: withBase('./data/sc_congressional_districts.csv'),
         state_house_info: withBase('./data/sc_state_house_districts.csv'),
         state_senate_info: withBase('./data/sc_state_senate_districts.csv'),
@@ -12117,6 +12118,11 @@ document.addEventListener('DOMContentLoaded', function() {
           || dirs['2022']
           || CONFIG.paths.district_contests_dir;
       }
+      if (y === 2024 && scopeKey === 'state_house') {
+        return CONFIG.paths?.district_contests_state_house_2024_lines_dir
+          || dirs['2024']
+          || CONFIG.paths.district_contests_dir;
+      }
       if (y === 2026 && scopeKey && scopeKey !== 'congressional') {
         return dirs['2024'] || dirs[String(y)] || CONFIG.paths.district_contests_dir;
       }
@@ -12130,6 +12136,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const out = [];
       const calibrated2020Dir = (CONFIG.paths?.district_contests_2020_2024_dir || '').toString().trim();
       const baseDir = (getActiveDistrictContestsDir(linesYear, scope) || '').toString().trim();
+      const genericDir = (CONFIG.paths?.district_contests_dir || '').toString().trim();
 
       // Prefer calibrated slices only for congressional scope on 2022 lines.
       // Legislative scopes continue to use the primary district_contests data.
@@ -12140,6 +12147,9 @@ document.addEventListener('DOMContentLoaded', function() {
         out.push(`${baseDir}/${key}_2022_lines.json`);
       }
       if (baseDir) out.push(`${baseDir}/${key}.json`);
+      if (ly === 2024 && scope === 'state_house' && genericDir && genericDir !== baseDir) {
+        out.push(`${genericDir}/${key}.json`);
+      }
 
       return Array.from(new Set(out));
     }
@@ -27175,7 +27185,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const prevResults = prevCached?.prevNode?.general?.results || null;
         if (prevResults) {
           const prevRow = prevResults[String(districtNum)] || prevResults[String(Number(districtNum))] || null;
-          if (prevRow) {
+          if (prevRow && hasCompetitiveMajorPartyDistrictRow(prevRow)) {
             const prevSignedRaw = Number(prevRow.margin_pct);
             if (Number.isFinite(prevSignedRaw)) prevSignedForFlip = prevSignedRaw;
           }
@@ -32143,6 +32153,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 files = filtered.concat(shFiles);
               } catch (_) {}
             }
+            if (linesYear === 2024 && CONFIG.paths?.district_contests_state_house_2024_lines_dir) {
+              try {
+                const sh2024 = await loadJSON(`${CONFIG.paths.district_contests_state_house_2024_lines_dir}/manifest_2024_lines.json`);
+                const shFiles = sh2024?.files || [];
+                const replacementKeys = new Set(
+                  shFiles.map(e => `state_house|${String(e?.contest_type || '').trim()}|${Number(e?.year) || ''}`)
+                );
+                const filtered = files.filter(e => {
+                  const scope = (e?.scope || '').toString().trim();
+                  const contestType = String(e?.contest_type || '').trim();
+                  const year = Number(e?.year) || '';
+                  return !replacementKeys.has(`${scope}|${contestType}|${year}`);
+                });
+                files = filtered.concat(shFiles);
+              } catch (_) {}
+            }
             // Keep 2024 lines on the existing district manifest/files.
             if (linesYear === 2024) {
               files = (files || []).filter(e => {
@@ -32708,6 +32734,17 @@ document.addEventListener('DOMContentLoaded', function() {
         if (demName && !/^(dem|democratic)$/i.test(demName)) sawDemCandidate = true;
         if (repName && !/^(rep|republican)$/i.test(repName)) sawRepCandidate = true;
       }
+      return demVotes > 0 && repVotes > 0 && (sawDemCandidate || sawRepCandidate);
+    }
+
+    function hasCompetitiveMajorPartyDistrictRow(row) {
+      if (!row || typeof row !== 'object') return false;
+      const demVotes = Number(row?.dem_votes) || 0;
+      const repVotes = Number(row?.rep_votes) || 0;
+      const demName = String(row?.dem_candidate || '').trim();
+      const repName = String(row?.rep_candidate || '').trim();
+      const sawDemCandidate = !!(demName && !/^(dem|democratic)$/i.test(demName));
+      const sawRepCandidate = !!(repName && !/^(rep|republican)$/i.test(repName));
       return demVotes > 0 && repVotes > 0 && (sawDemCandidate || sawRepCandidate);
     }
 
@@ -34453,8 +34490,12 @@ document.addEventListener('DOMContentLoaded', function() {
               );
             } else if (mode === 'flips') {
               const prevRow = prevResults ? (prevResults[String(districtId)] || prevResults[String(Number(districtId))] || null) : null;
-              const prevSigned = prevRow ? Number(prevRow.margin_pct || 0) : 0;
-              const f = flipInfo(prevSigned, signed);
+              const prevSigned = (prevRow && hasCompetitiveMajorPartyDistrictRow(prevRow))
+                ? Number(prevRow.margin_pct || 0)
+                : null;
+              const f = Number.isFinite(Number(prevSigned))
+                ? flipInfo(prevSigned, signed)
+                : { flipped: false, from: 'T', to: winner };
               color = f.flipped ? colorForFlipMode(f.to) : colorForFlipMode('T');
             } else if (mode === 'winners') {
               color = colorForWinnerMode(winner);
