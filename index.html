@@ -15729,7 +15729,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	      const y = Number(year);
 	      const path = getOpenElectionsCsvPath('president', y);
 	      if (!path) throw new Error(`No OpenElections CSV configured for president ${year}`);
-	      const downloadUrl = withCacheBuster(toAbsoluteUrl(path));
 
 	      function extractPrecinctCode(precinctRaw) {
 	        const p = (precinctRaw || '').toString().trim();
@@ -15744,71 +15743,55 @@ document.addEventListener('DOMContentLoaded', function() {
 	        return u.split(/[_\s]+/, 1)[0].trim();
 	      }
 
-	      // Aggregate to precinct key "COUNTY - CODE" where CODE is the first token extracted from OpenElections `precinct`.
+	      // Build both county summary rows and precinct rows. Shift mode needs county-level previous totals,
+	      // while precinct mode can still use the detail rows for matching geometry.
+	      const byCounty = new Map();   // county -> {dem, rep, other, demCand, repCand}
 	      const byPrecinct = new Map(); // key -> {dem, rep, other, demCand, repCand}
 	      const officeOk = (s) => (s || '').toString().toUpperCase().includes('PRESIDENT');
 
-	      // Stream-parse in a worker to avoid freezing the UI on large files (notably 2008/2012).
-	      if (typeof Papa !== 'undefined' && Papa && typeof Papa.parse === 'function') {
-	        await new Promise((resolve, reject) => {
-	          Papa.parse(downloadUrl, {
-	            download: true,
-	            header: true,
-	            dynamicTyping: true,
-	            skipEmptyLines: true,
-	            worker: true,
-	            chunkSize: 1024 * 256,
-	            chunk: (result) => {
-	              (result?.data || []).forEach(r => {
-	                const office = (r.office || '').toString();
-	                if (!officeOk(office)) return;
-	                const county = (r.county || '').toString().trim().toUpperCase();
-	                const precinctRaw = (r.precinct || '').toString().trim();
-	                if (!county || !precinctRaw) return;
-	                const code = extractPrecinctCode(precinctRaw);
-	                if (!code) return;
-	                const key = `${county} - ${code}`.replace(/\s+/g, ' ').trim();
-	                const party = (r.party || '').toString().trim().toUpperCase();
-	                const cand = (r.candidate || '').toString().trim();
-	                const votes = Number(r.votes) || 0;
+	      function ingestOpenElectionsPresidentRow(r) {
+	        const office = (r.office || '').toString();
+	        if (!officeOk(office)) return;
+	        const county = (r.county || '').toString().trim().toUpperCase();
+	        const precinctRaw = (r.precinct || '').toString().trim();
+	        if (!county || !precinctRaw) return;
+	        const code = extractPrecinctCode(precinctRaw);
+	        if (!code) return;
+	        const key = `${county} - ${code}`.replace(/\s+/g, ' ').trim();
+	        const party = (r.party || '').toString().trim().toUpperCase();
+	        const cand = (r.candidate || '').toString().trim();
+	        const votes = Number(r.votes) || 0;
 
-	                if (!byPrecinct.has(key)) byPrecinct.set(key, { dem: 0, rep: 0, other: 0, demCand: '', repCand: '' });
-	                const node = byPrecinct.get(key);
-	                if (party === 'DEM') { node.dem += votes; if (!node.demCand && cand) node.demCand = cand; }
-	                else if (party === 'REP') { node.rep += votes; if (!node.repCand && cand) node.repCand = cand; }
-	                else { node.other += votes; }
-	              });
-	            },
-	            error: (err) => reject(err),
-	            complete: () => resolve()
-	          });
-	        });
-	      } else {
-	        // Fallback: parse synchronously (may lag on large CSVs).
-	        const csvText = await loadCSV(path);
-	        const rows = parseCSV(csvText);
-	        rows.forEach(r => {
-	          const office = (r.office || '').toString();
-	          if (!officeOk(office)) return;
-	          const county = (r.county || '').toString().trim().toUpperCase();
-	          const precinctRaw = (r.precinct || '').toString().trim();
-	          if (!county || !precinctRaw) return;
-	          const code = extractPrecinctCode(precinctRaw);
-	          if (!code) return;
-	          const key = `${county} - ${code}`.replace(/\s+/g, ' ').trim();
-	          const party = (r.party || '').toString().trim().toUpperCase();
-	          const cand = (r.candidate || '').toString().trim();
-	          const votes = Number(r.votes) || 0;
-
-	          if (!byPrecinct.has(key)) byPrecinct.set(key, { dem: 0, rep: 0, other: 0, demCand: '', repCand: '' });
-	          const node = byPrecinct.get(key);
+	        if (!byCounty.has(county)) byCounty.set(county, { dem: 0, rep: 0, other: 0, demCand: '', repCand: '' });
+	        if (!byPrecinct.has(key)) byPrecinct.set(key, { dem: 0, rep: 0, other: 0, demCand: '', repCand: '' });
+	        const targets = [byCounty.get(county), byPrecinct.get(key)];
+	        targets.forEach(node => {
 	          if (party === 'DEM') { node.dem += votes; if (!node.demCand && cand) node.demCand = cand; }
 	          else if (party === 'REP') { node.rep += votes; if (!node.repCand && cand) node.repCand = cand; }
 	          else { node.other += votes; }
 	        });
 	      }
 
-	      return Array.from(byPrecinct.entries()).map(([key, v]) => ({
+	      // Fetch the CSV in the main thread, then parse the text.
+	      // Papa's `download: true` + `worker: true` can fail on GitHub Pages/blob workers
+	      // with a generic chunk error, especially for the older 2008/2012 SC files.
+	      const csvText = await loadCSV(path);
+	      if (typeof Papa !== 'undefined' && Papa && typeof Papa.parse === 'function') {
+	        const parsed = Papa.parse(csvText, {
+	          header: true,
+	          dynamicTyping: true,
+	          skipEmptyLines: true,
+	          worker: false
+	        });
+	        if (parsed?.errors?.length) {
+	          console.debug('OpenElections presidential CSV parse notes for', year, parsed.errors.slice(0, 3));
+	        }
+	        (parsed?.data || []).forEach(ingestOpenElectionsPresidentRow);
+	      } else {
+	        parseCSV(csvText).forEach(ingestOpenElectionsPresidentRow);
+	      }
+
+	      const toPresidentRow = ([key, v]) => ({
 	        year: y,
 	        county: key,
 	        president_dem: v.dem,
@@ -15816,8 +15799,15 @@ document.addEventListener('DOMContentLoaded', function() {
 	        president_other: v.other,
 	        president_total: v.dem + v.rep + v.other,
 	        president_dem_candidate: v.demCand,
-	        president_rep_candidate: v.repCand
-	      }));
+	        president_rep_candidate: v.repCand,
+	        president_margin: v.rep - v.dem,
+	        president_margin_pct: signedMarginPctDisplayValue(v.dem, v.rep, v.dem + v.rep + v.other),
+	        president_winner: v.rep > v.dem ? 'REP' : (v.dem > v.rep ? 'DEM' : 'TIE')
+	      });
+	      return [
+	        ...Array.from(byCounty.entries()).map(toPresidentRow),
+	        ...Array.from(byPrecinct.entries()).map(toPresidentRow)
+	      ];
 	    }
 
       function computeStatewideMarginPctFromSliceRows(rows, contestType) {
@@ -18883,14 +18873,15 @@ document.addEventListener('DOMContentLoaded', function() {
             : null;
           const manifestFile = (manifestEntry?.file || '').toString().trim();
 
-          // Prefer OpenElections CSV for older presidential cycles to avoid a known-missing JSON fetch (and console 404 noise).
-          if (!preferCounty && contestType === 'president' && getOpenElectionsCsvPath(contestType, Number(year))) {
+          // Prefer OpenElections CSV for older presidential cycles to avoid a known-missing JSON fetch
+          // and to keep Shift/Flips mode alive for years that are CSV-backed instead of JSON-backed.
+          if (contestType === 'president' && getOpenElectionsCsvPath(contestType, Number(year))) {
             try {
               const rows = await loadPresidentSliceFromOpenElectionsCSV(Number(year));
               contestSliceCache.set(key, rows);
               return rows;
             } catch (err) {
-              console.warn('Failed to load OpenElections presidential CSV for', year, err?.message || err);
+              console.debug('Skipped OpenElections presidential CSV for', year, err?.message || err);
             }
           }
 
@@ -32716,6 +32707,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	    async function tryLoadContestSliceStrict(contestType, year) {
 	      const key = `${contestType}_${year}`;
+	      if (contestType === 'president' && getOpenElectionsCsvPath(contestType, Number(year))) {
+	        try {
+	          return await loadPresidentSliceFromOpenElectionsCSV(Number(year));
+	        } catch (err) {
+	          console.debug('Strict presidential CSV load skipped for', year, err?.message || err);
+	        }
+	      }
 	      try {
 	        const payload = await loadJSON(`${CONFIG.paths.contests_dir}/${key}.json`);
 	        return (payload.rows || []).map(r => ({
@@ -32733,28 +32731,32 @@ document.addEventListener('DOMContentLoaded', function() {
 	          [`${contestType}_color`]: r.color || ''
 	        }));
 	      } catch (_) {
-	        if (contestType === 'president' && getOpenElectionsCsvPath(contestType, Number(year))) {
-	          try {
-	            return await loadPresidentSliceFromOpenElectionsCSV(Number(year));
-	          } catch (err) {
-	            console.warn('Strict presidential CSV load failed for', year, err?.message || err);
-	          }
-	        }
 	        return null;
 	      }
 	    }
 
-    function hasCompetitiveMajorPartyContestRows(rows) {
+    function hasCompetitiveMajorPartyContestRows(rows, contestType = '') {
       if (!Array.isArray(rows) || !rows.length) return false;
       let demVotes = 0;
       let repVotes = 0;
       let sawDemCandidate = false;
       let sawRepCandidate = false;
+
+      const findValue = (row, suffix, fallback) => {
+        if (!row || typeof row !== 'object') return fallback;
+        if (contestType && Object.prototype.hasOwnProperty.call(row, `${contestType}_${suffix}`)) {
+          return row[`${contestType}_${suffix}`];
+        }
+        if (Object.prototype.hasOwnProperty.call(row, suffix)) return row[suffix];
+        const key = Object.keys(row).find(k => String(k || '').endsWith(`_${suffix}`));
+        return key ? row[key] : fallback;
+      };
+
       for (const row of rows) {
-        demVotes += Number(row?.dem_votes) || 0;
-        repVotes += Number(row?.rep_votes) || 0;
-        const demName = String(row?.dem_candidate || '').trim();
-        const repName = String(row?.rep_candidate || '').trim();
+        demVotes += Number(findValue(row, 'dem', 0)) || 0;
+        repVotes += Number(findValue(row, 'rep', 0)) || 0;
+        const demName = String(findValue(row, 'dem_candidate', '') || '').trim();
+        const repName = String(findValue(row, 'rep_candidate', '') || '').trim();
         if (demName && !/^(dem|democratic)$/i.test(demName)) sawDemCandidate = true;
         if (repName && !/^(rep|republican)$/i.test(repName)) sawRepCandidate = true;
       }
@@ -32811,7 +32813,7 @@ document.addEventListener('DOMContentLoaded', function() {
       for (const cy of candidates) {
         const rows = await tryLoadContestSliceStrict(contestType, cy);
         if (!rows || !rows.length) continue;
-        if (!hasCompetitiveMajorPartyContestRows(rows)) continue;
+        if (!hasCompetitiveMajorPartyContestRows(rows, contestType)) continue;
         return { year: cy, rows };
       }
       return null;
