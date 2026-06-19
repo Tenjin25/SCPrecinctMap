@@ -9767,9 +9767,27 @@ document.addEventListener('DOMContentLoaded', function() {
         if (typeof syncFlySearchInputs === 'function') syncFlySearchInputs('');
       } catch (_) {}
       try {
+        window.lastSelectedCounty = '';
+      } catch (_) {}
+      try {
+        if (typeof clearCountyDetails === 'function') clearCountyDetails();
+      } catch (_) {}
+      try {
+        if (typeof clearVoteCounterHoverState === 'function') clearVoteCounterHoverState();
+      } catch (_) {}
+      try {
+        if (typeof clearHoverOutline === 'function') clearHoverOutline();
+      } catch (_) {}
+      try {
+        if (typeof closeHoverUI === 'function') closeHoverUI({ force: true });
+      } catch (_) {}
+      try {
         if (map && typeof map.fitBounds === 'function' && CONFIG?.fitBounds) {
           map.fitBounds(CONFIG.fitBounds, { padding: computeMapViewportPadding(24), duration: 900 });
         }
+      } catch (_) {}
+      try {
+        if (typeof updateContextBanner === 'function') updateContextBanner();
       } catch (_) {}
       if (typeof setStatus === 'function') setStatus('Map reset to statewide view.');
       try { saveUIState(); } catch (_) {}
@@ -34721,7 +34739,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setStatus('District layer not found!', 5000, true);
       }
 
-  setStatewideContestTitle(`${formatContestName(contestType, year)} (${year}) - Statewide Result`);
+      setStatewideContestTitle(`${formatContestName(contestType, year)} (${year}) - Statewide Result`);
       setStatus(`Applied statewide contest: ${formatContestLabel(contestType, year)} (${demPct.toFixed(2)}% D, ${repPct.toFixed(2)}% R, ${otherPct.toFixed(2)}% O)`);
       await renderStableStatewideResults(contestType, year, {
         ...resolvedStatewideCandidates(),
