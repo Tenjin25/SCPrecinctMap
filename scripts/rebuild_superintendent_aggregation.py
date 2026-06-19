@@ -68,7 +68,12 @@ def rebuild_superintendent_contests() -> int:
         for row in raw_rows:
             office_raw = (row.get("office") or "").strip().lower()
             if office_raw in OFFICE_NAMES:
-                contest_rows.append(row)
+                patched = dict(row)
+                cand_raw = str(patched.get("candidate") or "").strip().lower()
+                party_raw = str(patched.get("party") or "").strip().upper()
+                if cand_raw == "lisa ellis" and party_raw == "ALN":
+                    patched["party"] = "DEM"
+                contest_rows.append(patched)
 
         if not contest_rows:
             continue

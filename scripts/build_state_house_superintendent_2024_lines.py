@@ -4,7 +4,8 @@ Build SC State House superintendent district results on 2024 lines.
 
 This script aggregates statewide superintendent precinct slices onto the
 `sc_state_house_2024_lines_tileset.geojson` district geometry using precinct
-centroid point-in-polygon assignment.
+polygon overlap shares when available, falling back to centroid
+point-in-polygon assignment for any unmatched precincts.
 
 Outputs:
   data/district_contests/state_house_2024_lines/state_house_superintendent_<year>_2024_lines.json
@@ -40,6 +41,109 @@ def _write_json(path: Path, payload: Any) -> None:
     tmp.replace(path)
 
 
+def _alloc_int(votes: int, shares: list[tuple[str, float]]) -> dict[str, int]:
+    if votes <= 0 or not shares:
+        return {}
+    floors: dict[str, int] = {}
+    fracs: list[tuple[float, str]] = []
+    used = 0
+    for dnum, share in shares:
+        s = float(share or 0)
+        if s <= 0:
+            continue
+        exact = votes * s
+        base = int(exact // 1)
+        floors[dnum] = floors.get(dnum, 0) + base
+        used += base
+        fracs.append((exact - base, dnum))
+    remain = votes - used
+    if remain > 0 and fracs:
+        fracs.sort(reverse=True, key=lambda x: x[0])
+        for _, dnum in fracs[:remain]:
+            floors[dnum] = floors.get(dnum, 0) + 1
+    return floors
+
+
+def _load_precinct_to_dist_shares() -> dict[str, dict[str, float]]:
+    sys.path.insert(0, str(REPO_ROOT))
+    import build_data  # type: ignore
+    import geopandas as gpd  # type: ignore
+
+    precincts_path = DATA_DIR / "Voting_Precincts.geojson"
+    districts_path = DATA_DIR / "tileset" / "sc_state_house_2024_lines_tileset.geojson"
+    if not (precincts_path.exists() and districts_path.exists()):
+        return {}
+
+    precincts = gpd.read_file(precincts_path)
+    districts = gpd.read_file(districts_path)
+    if precincts.empty or districts.empty:
+        return {}
+    if "precinct_norm" not in precincts.columns or "geometry" not in precincts.columns:
+        return {}
+    if "SLDLST" not in districts.columns or "geometry" not in districts.columns:
+        return {}
+
+    precincts = precincts[["precinct_norm", "geometry"]].copy()
+    precincts["precinct_norm"] = precincts["precinct_norm"].astype(str).str.strip().str.upper()
+    precincts = precincts[precincts["precinct_norm"] != ""].copy()
+    precincts = precincts.dissolve(by="precinct_norm", as_index=False, aggfunc="first")
+
+    districts = districts[["SLDLST", "geometry"]].copy()
+    districts["district_num"] = districts["SLDLST"].map(build_data._parse_district_num)
+    districts = districts[districts["district_num"].notna()].copy()
+    districts = districts[["district_num", "geometry"]].dissolve(by="district_num", as_index=False, aggfunc="first")
+
+    if precincts.crs is None and districts.crs is None:
+        precincts = precincts.set_crs("EPSG:4326")
+        districts = districts.set_crs("EPSG:4326")
+    elif precincts.crs is None:
+        precincts = precincts.set_crs(districts.crs)
+    elif districts.crs is None:
+        districts = districts.set_crs(precincts.crs)
+    elif precincts.crs != districts.crs:
+        districts = districts.to_crs(precincts.crs)
+
+    precincts = precincts.to_crs("EPSG:3857")
+    districts = districts.to_crs("EPSG:3857")
+    precincts["precinct_area_m2"] = precincts.geometry.area
+    precinct_area = dict(zip(precincts["precinct_norm"], precincts["precinct_area_m2"]))
+
+    inter = gpd.overlay(
+        precincts[["precinct_norm", "geometry"]],
+        districts[["district_num", "geometry"]],
+        how="intersection",
+        keep_geom_type=False,
+    )
+
+    overlap_area: dict[tuple[str, str], float] = {}
+    if not inter.empty:
+        inter["overlap_area_m2"] = inter.geometry.area
+        for _, row in inter.iterrows():
+            pn = str(row["precinct_norm"]).strip().upper()
+            dnum = str(row["district_num"]).strip()
+            if not pn or not dnum:
+                continue
+            key = (pn, dnum)
+            overlap_area[key] = float(overlap_area.get(key) or 0.0) + float(row["overlap_area_m2"] or 0.0)
+
+    out: dict[str, dict[str, float]] = {}
+    by_precinct: dict[str, list[tuple[str, float]]] = {}
+    for (pn, dnum), area in overlap_area.items():
+        by_precinct.setdefault(pn, []).append((dnum, area))
+    for pn, ranked in by_precinct.items():
+        total_area = float(precinct_area.get(pn) or 0.0)
+        if total_area <= 0:
+            continue
+        shares: dict[str, float] = {}
+        for dnum, area in ranked:
+            share = float(area or 0.0) / total_area
+            if share > 0:
+                shares[dnum] = share
+        if shares:
+            out[pn] = shares
+    return out
+
+
 def _build_one_year(year: int) -> tuple[dict[str, Any], dict[str, Any]] | None:
     sys.path.insert(0, str(REPO_ROOT))
     import build_data  # type: ignore
@@ -47,6 +151,7 @@ def _build_one_year(year: int) -> tuple[dict[str, Any], dict[str, Any]] | None:
     contest_path = DATA_DIR / "contests" / f"{CONTEST_TYPE}_{year}.json"
     centroids_path = DATA_DIR / "precinct_centroids.geojson"
     districts_path = DATA_DIR / "tileset" / "sc_state_house_2024_lines_tileset.geojson"
+    precincts_path = DATA_DIR / "Voting_Precincts.geojson"
     if not (contest_path.exists() and centroids_path.exists() and districts_path.exists()):
         return None
 
@@ -61,6 +166,7 @@ def _build_one_year(year: int) -> tuple[dict[str, Any], dict[str, Any]] | None:
 
     centroids = _load_json(centroids_path) or {}
     districts = _load_json(districts_path) or {}
+    precinct_to_dist_shares = _load_precinct_to_dist_shares() if precincts_path.exists() else {}
 
     polys: list[tuple[tuple[float, float, float, float], dict[str, Any], str]] = []
     for feat in districts.get("features", []) or []:
@@ -99,19 +205,37 @@ def _build_one_year(year: int) -> tuple[dict[str, Any], dict[str, Any]] | None:
 
     by_dist: dict[str, dict[str, Any]] = {}
     matched = 0
+    matched_weighted = 0
     dem_name = ""
     rep_name = ""
     for row in precinct_rows:
         key = (row.get("county") or "").strip()
         pn = build_data.normalize(key)
-        dnum = precinct_to_dist.get(pn)
-        if not dnum:
-            continue
-        matched += 1
-        node = by_dist.setdefault(dnum, {"dem": 0, "rep": 0, "other": 0})
-        node["dem"] += int(row.get("dem_votes") or 0)
-        node["rep"] += int(row.get("rep_votes") or 0)
-        node["other"] += int(row.get("other_votes") or 0)
+        shares_map = precinct_to_dist_shares.get(pn) or {}
+        dem_votes = int(row.get("dem_votes") or 0)
+        rep_votes = int(row.get("rep_votes") or 0)
+        other_votes = int(row.get("other_votes") or 0)
+        if shares_map:
+            matched += 1
+            matched_weighted += 1
+            shares = [(str(d), float(s or 0)) for d, s in shares_map.items() if float(s or 0) > 0]
+            dem_alloc = _alloc_int(dem_votes, shares)
+            rep_alloc = _alloc_int(rep_votes, shares)
+            oth_alloc = _alloc_int(other_votes, shares)
+            for dnum in sorted(set(dem_alloc) | set(rep_alloc) | set(oth_alloc), key=build_data._district_sort_key):
+                node = by_dist.setdefault(dnum, {"dem": 0, "rep": 0, "other": 0})
+                node["dem"] += dem_alloc.get(dnum, 0)
+                node["rep"] += rep_alloc.get(dnum, 0)
+                node["other"] += oth_alloc.get(dnum, 0)
+        else:
+            dnum = precinct_to_dist.get(pn)
+            if not dnum:
+                continue
+            matched += 1
+            node = by_dist.setdefault(dnum, {"dem": 0, "rep": 0, "other": 0})
+            node["dem"] += dem_votes
+            node["rep"] += rep_votes
+            node["other"] += other_votes
         if not dem_name:
             dem_name = str(row.get("dem_candidate") or "").strip()
         if not rep_name:
@@ -146,10 +270,11 @@ def _build_one_year(year: int) -> tuple[dict[str, Any], dict[str, Any]] | None:
             "precinct_rows_total": len(precinct_rows),
             "precinct_rows_matched": matched,
             "precinct_rows_block_weighted": 0,
+            "precinct_rows_overlap_weighted": matched_weighted,
             "district_lines_version": "2024_lines",
             "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
             "source_file": contest_path.name,
-            "assignment_method": "precinct_centroid_2024_lines",
+            "assignment_method": "precinct_polygon_overlap_with_centroid_fallback_2024_lines",
         },
     }
     manifest_entry = {
