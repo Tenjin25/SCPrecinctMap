@@ -10646,8 +10646,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-06-19-1';
-    const APP_BUILD_ID = '2026-06-19-1';
+    const DATA_CACHE_BUSTER = '2026-07-12-1';
+    const APP_BUILD_ID = '2026-07-12-1';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -13514,13 +13514,9 @@ document.addEventListener('DOMContentLoaded', function() {
       let precinctFillBaseOpacity = preset.precinctFill;
       let precinctDotBaseOpacity = preset.precinctDot;
       if (precinctsActuallyVisible) {
-        districtBaseOpacity = 0.52;
-        houseBaseOpacity = 0.50;
-        senateBaseOpacity = 0.50;
-      } else {
-        districtBaseOpacity = 0.72;
-        houseBaseOpacity = 0.70;
-        senateBaseOpacity = 0.70;
+        districtBaseOpacity = Math.min(districtBaseOpacity, 0.52);
+        houseBaseOpacity = Math.min(houseBaseOpacity, 0.50);
+        senateBaseOpacity = Math.min(senateBaseOpacity, 0.50);
       }
 
       if (!contestIsActive) {
@@ -26771,14 +26767,16 @@ document.addEventListener('DOMContentLoaded', function() {
         ${splitInsightLine}
         ${demoLine}
       `.trim();
-      const inner = `
-        ${votehubInner}
-        ${popChangeTopLineMobile}
-        <details class="tooltip-more" aria-label="More details">
-          <summary>More details</summary>
-          <div class="tooltip-more-body">${detailLines}</div>
-        </details>
-      `.trim();
+      const inner = isDesktopTooltipMode()
+        ? votehubInner
+        : `
+          ${votehubInner}
+          ${popChangeTopLineMobile}
+          <details class="tooltip-more" aria-label="More details">
+            <summary>More details</summary>
+            <div class="tooltip-more-body">${detailLines}</div>
+          </details>
+        `.trim();
 
       const copyText = `${countyDisplay} County`;
       showHoverTooltip(
