@@ -1504,6 +1504,12 @@
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
-    }
+    },
+    "snapshot_comparison_geometry": "state_house_2022",
+    "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_house_2022/state_treasurer_2006",
+    "snapshot_comparison_districts": 124,
+    "snapshot_comparison_mean_abs_share_delta_pp": 1.50969,
+    "snapshot_comparison_max_abs_share_delta_pp": 37.762972,
+    "snapshot_calibration_status": "comparison_only_incompatible_baseline"
   }
 }
