@@ -10,14 +10,6 @@
     },
     {
       "scope": "state_house",
-      "contest_type": "state_house",
-      "year": 2024,
-      "file": "state_house_state_house_2024_2024_lines.json",
-      "rows": 124,
-      "district_lines": "2024_lines"
-    },
-    {
-      "scope": "state_house",
       "contest_type": "attorney_general",
       "year": 2022,
       "file": "state_house_attorney_general_2022_2024_lines.json",

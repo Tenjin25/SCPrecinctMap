@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import shutil
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -207,16 +206,6 @@ def main() -> int:
             for stale in directory.glob("manifest*.json"):
                 if stale.name != desired_manifest:
                     stale.unlink()
-            house_year = int(district_lines.split("_", 1)[0])
-            source_house_name = f"state_house_state_house_{house_year}.json"
-            house_name = f"state_house_state_house_{house_year}{suffix}.json"
-            for stale in directory.glob(f"state_house_state_house_*{suffix}.json"):
-                if stale.name != house_name:
-                    stale.unlink()
-            shutil.copyfile(
-                REPO_ROOT / "data/district_contests" / source_house_name,
-                directory / house_name,
-            )
         rebuild_manifest(directory, suffix, district_lines)
     qa_path = REPO_ROOT / "data/district_contests/current_geojson_qa.json"
     qa_path.write_text(json.dumps({"files": qa}, indent=2) + "\n", encoding="utf-8")

@@ -23,8 +23,8 @@ Current committed data as of July 13, 2026:
 | Raw statewide contest slices | 46 |
 | 2025-crosswalked contest slices | 46 |
 | Root district-contest manifest entries | 158 |
-| 2022-line State House manifest entries | 47 |
-| 2024-line State House manifest entries | 47 |
+| 2022-line State House manifest entries | 54 |
+| 2024-line State House manifest entries | 46 |
 
 The latest combined audit covers 10 election source files, 46 contest slices, 230 statewide-by-district files, and four current precinct-to-district crosswalk scopes. It reports:
 
@@ -96,8 +96,8 @@ data/district_contests/
 
 For the State House election contest itself, the line vintage and election year are strict:
 
-- 2022 lines expose only `state_house_state_house_2022_2022_lines.json`.
-- 2024 lines expose only `state_house_state_house_2024_2024_lines.json`.
+- On 2022 lines, the frontend exposes only `state_house_state_house_2022_2022_lines.json` from the original 2022-lines folder.
+- On 2024 lines, the frontend uses the original root file `data/district_contests/state_house_state_house_2024.json`.
 - The frontend must not fall back to a State House election slice for the other line vintage.
 
 Statewide contests can be projected onto both boundary vintages for comparison. The strict matching rule applies specifically to the `state_house` election contest.
@@ -372,7 +372,7 @@ The committed generated data currently includes:
 - 46 raw county/precinct contest slice files (`data/contests/manifest.json`)
 - 46 2025-crosswalked county/precinct contest slice files (`data/contests_2025_crosswalked/manifest.json`)
 - 158 root district contest manifest entries (`data/district_contests/manifest.json`)
-- 47 entries in each line-specific State House manifest
+- 54 entries in the 2022-line State House manifest and 46 entries in the 2024-line manifest
 - Friendly current-precinct name lookup for all 46 counties (`data/precinct_friendly_names.json`)
 
 Coverage varies by office and year. The live app uses `data/contests_2025_crosswalked/` for statewide county/precinct contests and `data/district_contests/` for district views.
