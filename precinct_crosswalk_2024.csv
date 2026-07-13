@@ -612,7 +612,7 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,,Spartanburg - Rainbow,Spartanburg - Gramling Methodist,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_manual_next30_applied
 2024,president,,Spartanburg - Hanging Rock,Spartanburg - Boiling Springs Intermediate,1.0000,approved,medium,generated_from_legacy_alias_mapping
 2024,president,,Spartanburg - Hayne,Spartanburg - Hayne Baptist,1.0000,approved,medium,generated_from_legacy_alias_mapping
-2024,president,,Spartanburg - Hearon Circle,Spartanburg - Bethany Baptist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Hearon Circle,Spartanburg - Bethany Baptist,1.0000,approved,high,manual_spartanburg_source_review; renamed_from_bethany_baptist; csv_division_id_11597
 2024,president,,Spartanburg - Holly Springs Motlow,Spartanburg - Holly Springs Baptist,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_autofix_manual_medium
 2024,president,,Spartanburg - Inman,Spartanburg - Chapman High School,1.0000,approved,medium,generated_from_legacy_alias_mapping
 2024,president,,Spartanburg - Anderson Mill Baptist,Spartanburg - Anderson Mill Baptist,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_manual_final27_guarded
@@ -650,7 +650,7 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,,Spartanburg - Eastside Baptist,Spartanburg - Southside Baptist,1.0000,approved,medium,generated_from_legacy_split_mapping; source_key_autofix_likely_safe
 2024,president,,Spartanburg - Spartangreen,Spartanburg - Travelers Rest Baptist,1.0000,approved,medium,generated_from_legacy_alias_mapping
 2024,president,,Spartanburg - C.C. Woodson Recreation,Spartanburg - Pacolet Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_manual_final27_guarded
-2024,president,,Spartanburg - Trinity Methodist Church,Spartanburg - Westview Elementary,1.0000,approved,high,manual_spartanburg_source_review; csv_division_id_11581
+2024,president,,Spartanburg - Trinity Methodist Church,Spartanburg - West View Elementary,1.0000,approved,high,manual_spartanburg_source_review; csv_division_id_11581
 2024,president,,Spartanburg - Tyger River,Spartanburg - Reidville Fire Station,1.0000,approved,medium,generated_from_legacy_alias_mapping
 2024,president,,Spartanburg - Pelham Fire Station,Spartanburg - Powell Saxon Una,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_autofix_manual_medium
 2024,president,,Spartanburg - Valley Falls,Spartanburg - Boiling Springs Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping

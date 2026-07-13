@@ -13,7 +13,7 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
   - These files preserve county rows, normalize precinct rows onto the 2020 VTD/precinct geography, and keep vote totals equal to the source contest files.
   - The committed crosswalked contest JSON files are pretty-printed for reviewable diffs.
   - Spartanburg County's former `Fairgrounds` voting precinct is treated as the renamed `Cleveland Elementary` precinct, effective July 1, 2023; the 2024 statewide CSV `division_id` `11588` row is assigned to `Spartanburg - Cleveland Elementary`, while the later York County `Fairgrounds` row remains `York - Fairgrounds`.
-  - Additional 2024 Spartanburg precinct corrections split the Converse/Converse Fire Station rows and assign the likely Converse University-area row (`division_id` `11587`) to `Beaumont Methodist`; `Trinity Methodist Church` (`division_id` `11581`) is assigned to `Westview Elementary`.
+  - Additional 2024 Spartanburg precinct corrections split the Converse/Converse Fire Station rows and assign the likely Converse University-area row (`division_id` `11587`) to `Beaumont Methodist`; `Trinity Methodist Church` (`division_id` `11581`) is assigned to `West View Elementary`; `Hearon Circle` (`division_id` `11597`) is treated as the renamed `Bethany Baptist` precinct.
 
 - **Areal and vote-weighted crosswalk workflow:**
   - Added pro-method overlap scripts for legacy VTD/block geography:
