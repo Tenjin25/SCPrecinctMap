@@ -10646,8 +10646,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-12-1';
-    const APP_BUILD_ID = '2026-07-12-1';
+    const DATA_CACHE_BUSTER = '2026-07-12-2';
+    const APP_BUILD_ID = '2026-07-12-2';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -13370,29 +13370,38 @@ document.addEventListener('DOMContentLoaded', function() {
       const preset = String(overlayOpacityPreset || 'reveal').toLowerCase();
       const presets = {
         reveal: {
-          countyActive: 0.65,
-          countyWithPrecinct: 0.11,
-          district: 0.59,
-          house: 0.65,
-          senate: 0.64,
-          precinctFill: 0.62,
-          precinctDot: 0.80
+          countyActive: 0.58,
+          countyWithPrecinct: 0.08,
+          district: 0.52,
+          districtWithPrecinct: 0.36,
+          house: 0.54,
+          houseWithPrecinct: 0.34,
+          senate: 0.54,
+          senateWithPrecinct: 0.34,
+          precinctFill: 0.54,
+          precinctDot: 0.74
         },
         balanced: {
-          countyActive: 0.71,
-          countyWithPrecinct: 0.13,
+          countyActive: 0.74,
+          countyWithPrecinct: 0.24,
           district: 0.72,
+          districtWithPrecinct: 0.48,
           house: 0.72,
+          houseWithPrecinct: 0.46,
           senate: 0.73,
-          precinctFill: 0.68,
+          senateWithPrecinct: 0.46,
+          precinctFill: 0.66,
           precinctDot: 0.84
         },
         focus: {
           countyActive: 0.9,
           countyWithPrecinct: 0.18,
           district: 0.89,
+          districtWithPrecinct: 0.52,
           house: 0.88,
+          houseWithPrecinct: 0.50,
           senate: 0.87,
+          senateWithPrecinct: 0.50,
           precinctFill: 0.76,
           precinctDot: 0.88
         }
@@ -13507,18 +13516,15 @@ document.addEventListener('DOMContentLoaded', function() {
         precinctsEnabled &&
         map.getZoom() >= (CONFIG.precincts?.minZoom || 8.5);
       let countyBaseOpacity = precinctsActuallyVisible ? preset.countyWithPrecinct : preset.countyActive;
-      if (precinctsActuallyVisible) {
-        countyBaseOpacity = 0.38;
-      }
       let districtBaseOpacity = preset.district;
       let houseBaseOpacity = preset.house;
       let senateBaseOpacity = preset.senate;
       let precinctFillBaseOpacity = preset.precinctFill;
       let precinctDotBaseOpacity = preset.precinctDot;
       if (precinctsActuallyVisible) {
-        districtBaseOpacity = Math.min(districtBaseOpacity, 0.52);
-        houseBaseOpacity = Math.min(houseBaseOpacity, 0.50);
-        senateBaseOpacity = Math.min(senateBaseOpacity, 0.50);
+        districtBaseOpacity = Math.min(districtBaseOpacity, preset.districtWithPrecinct ?? 0.52);
+        houseBaseOpacity = Math.min(houseBaseOpacity, preset.houseWithPrecinct ?? 0.50);
+        senateBaseOpacity = Math.min(senateBaseOpacity, preset.senateWithPrecinct ?? 0.50);
       }
 
       if (!contestIsActive) {
@@ -13603,13 +13609,13 @@ document.addEventListener('DOMContentLoaded', function() {
           splitPrecinctFillOpacity = 0.65;
           splitPrecinctDotOpacity = 0.76;
         } else if (overlayOpacityPreset === 'balanced') {
-          splitCountyOpacity = precinctsEnabled ? 0.14 : 0.25;
-          splitPrecinctFillOpacity = 0.26;
-          splitPrecinctDotOpacity = 0.70;
+          splitCountyOpacity = precinctsEnabled ? 0.16 : 0.27;
+          splitPrecinctFillOpacity = 0.36;
+          splitPrecinctDotOpacity = 0.72;
         } else {
-          splitCountyOpacity = precinctsEnabled ? 0.10 : 0.20;
-          splitPrecinctFillOpacity = 0.22;
-          splitPrecinctDotOpacity = 0.63;
+          splitCountyOpacity = precinctsEnabled ? 0.08 : 0.17;
+          splitPrecinctFillOpacity = 0.18;
+          splitPrecinctDotOpacity = 0.58;
         }
       }
       if (map.getLayer('county-split-overlay-fill')) {
