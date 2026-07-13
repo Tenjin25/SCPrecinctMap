@@ -5,16 +5,50 @@ It is the successor project to the original SCPrecinctMap release.
 
 Its user experience is intentionally inspired by the NC Election Atlas UI, then adapted for South Carolina boundaries, contests, and workflows.
 
+## Recent Updates (July 2026)
+
+- **VTD20-normalized statewide contest layer:**
+  - Added `data/contests_vtd20_crosswalked/` as the front-end statewide contest source.
+  - The app now points `CONFIG.paths.contests_dir` at `./data/contests_vtd20_crosswalked`.
+  - These files preserve county rows, normalize precinct rows onto the 2020 VTD/precinct geography, and keep vote totals equal to the source contest files.
+  - The committed crosswalked contest JSON files are pretty-printed for reviewable diffs.
+
+- **Areal and vote-weighted crosswalk workflow:**
+  - Added pro-method overlap scripts for legacy VTD/block geography:
+    - `scripts/build_legacy_vtd_overlap_pro.py`
+    - `scripts/build_weighted_splits_from_areal_crosswalk.py`
+    - `scripts/compose_areal_weight_crosswalks.py`
+  - Added 2000/2010/2020 bridge support so older precinct results can flow through VTD00 -> VTD10 -> VTD20 when direct VTD20 matching is not enough.
+  - Added `scripts/build_legacy_name_weighted_splits.py` to combine legacy name bridge candidates with VTD20 vote-weight splits.
+  - Added `scripts/aggregate_contests_to_vtd20_crosswalks.py` to write app-ready contest files without modifying the raw `data/contests/` inputs.
+
+- **SCVotes legacy precinct-name support:**
+  - Added `scripts/fetch_scvotes_enr_precinct_names.py` for legacy ENR county/precinct names.
+  - Added `scripts/build_vtd00_name_bridge_candidates.py` to help bridge 2006/2008 result names to VTD00 sources and then onward to VTD20.
+  - Review cases remain inspectable through generated CSVs in `scripts/out/` during maintenance runs.
+
+- **NC Election Atlas-style friendly VTD20 names:**
+  - Added `scripts/build_sc_precinct_friendly_names.js`.
+  - Added `data/precinct_friendly_names.json`.
+  - `index.html` loads the friendly-name JSON through `CONFIG.paths.precinct_friendly_names`.
+  - Precinct polygons and centroids include `precinct_code`, `precinct_full_name`, and `precinct_display_name` fields.
+
+- **HD-40 / Newberry county district-contest fix:**
+  - Updated State House District 40 rows in district contest files so HD-40 matches Newberry County totals where the district covers all of Newberry County.
+  - The update covers base State House district contest files, `state_house_2022_lines/`, and the relevant `state_house_2024_lines/` superintendent files.
+  - Validation checks confirmed only district `40` changed and every HD-40 row matches the Newberry county row in `data/contests_vtd20_crosswalked`.
+
+- **Overlay opacity and cache busting:**
+  - Map Reveal and Balanced opacity presets now have more distinct behavior when precinct overlays are visible.
+  - `DATA_CACHE_BUSTER` and `APP_BUILD_ID` are bumped in `index.html` when data/UI changes need a hard refresh on GitHub Pages.
+
 ## Recent Updates (May 2026)
 
 - **County/precinct + lines/opacity polish pass (May 2026):**
   - Reverted to the `ae1bfe5` baseline and fixed 2024 county totals to use canonical contest JSON (no 2024 OpenElections county override), restoring expected county margins (for example York 2024 presidential to ~`R+19.09`).
   - Refined precinct alias/display cleanup with typo handling (for example `Licolnville` -> `Lincolnville`) and additional alias mappings in `precinct_aliases.json`.
   - Matched mobile panel aesthetics more closely to desktop floating cards/tooltips while preserving touch-friendly sheet behavior.
-  - Set county opacity to `0.38` when precinct overlays are visible.
-  - Tuned district-layer opacity for both precinct states:
-    - Precincts on: Congressional `0.52`, State House `0.50`, State Senate `0.50`
-    - Precincts off: Congressional `0.72`, State House `0.70`, State Senate `0.70`
+  - Tuned overlay opacity behavior for county, district, and precinct browsing. Current Map Reveal/Balanced/Data Focus values live in `getOverlayOpacityPresetConfig()` in `index.html`.
   - Updated State House 2024 lines wiring:
     - `state_house_2024` now points to the dedicated `sc_state_house_2024_lines_tileset.geojson`.
     - State House view now defaults to 2024 lines.
@@ -201,14 +235,16 @@ The Census insight includes a simple "growth driver" label. These are heuristics
 The committed generated data currently includes:
 
 - 46 county polygons (`data/census/tl_2020_45_county20.geojson`)
-- 2,268 precinct polygons (`data/Voting_Precincts.geojson`)
+- 2,266 precinct polygons (`data/Voting_Precincts.geojson`)
 - 7 congressional districts (`data/tileset/sc_cd118_tileset.geojson`)
 - 124 state house districts (`data/tileset/sc_state_house_2022_lines_tileset.geojson`)
 - 46 state senate districts (`data/tileset/sc_state_senate_2022_lines_tileset.geojson`)
-- 41 county/precinct contest slice files (`data/contests/manifest.json`)
-- 143 district contest slice files (`data/district_contests/manifest.json`)
+- 45 raw county/precinct contest slice files (`data/contests/manifest.json`)
+- 45 VTD20-crosswalked county/precinct contest slice files (`data/contests_vtd20_crosswalked/manifest.json`)
+- 155 district contest manifest entries (`data/district_contests/manifest.json`)
+- Friendly VTD20 precinct-name lookup for all 46 counties (`data/precinct_friendly_names.json`)
 
-Coverage varies by office and year. Always check both manifests for the latest available slices.
+Coverage varies by office and year. The live app uses `data/contests_vtd20_crosswalked/` for statewide county/precinct contests and `data/district_contests/` for district views.
 
 ## Stack
 
@@ -262,7 +298,15 @@ SCPrecinctMap/
 |-- precinct_aliases.json
 |-- scripts/
 |   |-- backfill_missing_contest_rows_from_oe_csv.py
+|   |-- aggregate_contests_to_vtd20_crosswalks.py
 |   |-- build_statewide_contest_mismatch_report.py
+|   |-- build_legacy_name_weighted_splits.py
+|   |-- build_legacy_vtd_overlap_pro.py
+|   |-- build_sc_precinct_friendly_names.js
+|   |-- build_vtd00_name_bridge_candidates.py
+|   |-- build_weighted_splits_from_areal_crosswalk.py
+|   |-- compose_areal_weight_crosswalks.py
+|   |-- fetch_scvotes_enr_precinct_names.py
 |   |-- build_vtd10_to_vtd20_overlap_csv.py
 |   |-- elstats_search_to_openelections.py
 |   |-- precinct_mismatch_report.py
@@ -275,6 +319,8 @@ SCPrecinctMap/
     |-- census/
     |-- tileset/
     |-- contests/
+    |-- contests_vtd20_crosswalked/
+    |-- precinct_friendly_names.json
     `-- district_contests/
 ```
 
@@ -284,8 +330,18 @@ SCPrecinctMap/
 
 1. Builds county and precinct GeoJSON.
 2. Builds congressional/state-house/state-senate district GeoJSON.
-3. Aggregates precinct election CSV rows into county/precinct contest slices.
+3. Aggregates precinct election CSV rows into raw county/precinct contest slices in `data/contests/`.
 4. Builds district-level contest slices and manifests.
+
+The VTD20-normalized contest layer is a follow-on pipeline, not a replacement for the raw build:
+
+1. Build or refresh legacy VTD/block overlap CSVs in `scripts/out/`.
+2. Build vote-weighted split JSONs from those overlaps.
+3. Build legacy name bridge candidates for older result names.
+4. Aggregate raw `data/contests/` into `data/contests_vtd20_crosswalked/`.
+5. Point the frontend at the crosswalked directory through `CONFIG.paths.contests_dir`.
+
+The app-ready crosswalked contest files are committed. Large intermediate files under `scripts/out/` and source TIGER zips are intentionally treated as scratch/maintenance artifacts.
 
 ### Prerequisites
 
@@ -310,6 +366,19 @@ For county/precinct contest slices in `data/contests/*.json`:
 
 The front-end split logic depends on the `" - "` separator.
 
+For crosswalked contest slices in `data/contests_vtd20_crosswalked/*.json`:
+
+- County summary rows are preserved from the raw contest slice.
+- Precinct rows are normalized to the 2020 VTD/precinct geography.
+- Split precincts can emit multiple weighted target rows.
+- File-level vote totals should match the corresponding raw contest file exactly.
+
+For friendly precinct display:
+
+- `data/precinct_friendly_names.json` maps county/code/name variants to display names.
+- `index.html` loads it before precinct normalization when available.
+- `data/Voting_Precincts.geojson` and `data/precinct_centroids.geojson` carry `precinct_code`, `precinct_full_name`, and `precinct_display_name`.
+
 ## Common Maintenance Commands
 
 Build all generated outputs:
@@ -322,6 +391,72 @@ Apply precinct aliases/splits across all contest slices:
 
 ```powershell
 python scripts/apply_precinct_aliases_to_slice.py --all
+```
+
+Build friendly VTD20 precinct names:
+
+```powershell
+node scripts/build_sc_precinct_friendly_names.js
+```
+
+Build pro-method areal overlap crosswalks:
+
+```powershell
+python scripts/build_legacy_vtd_overlap_pro.py --source work/crosswalk_inputs/tl_2012_45_vtd10.zip --target work/crosswalk_inputs/tl_2020_45_vtd20.zip --source-kind vtd --target-kind vtd --out scripts/out/vtd10_to_vtd20_areal_top5.csv
+```
+
+Build vote-weighted split JSONs from areal crosswalks:
+
+```powershell
+python scripts/build_weighted_splits_from_areal_crosswalk.py --areal scripts/out/vtd10_to_vtd20_areal_top5.csv --out scripts/out/vtd10_to_vtd20_vote_weight_splits.json
+```
+
+Compose VTD00 -> VTD10 -> VTD20 weights:
+
+```powershell
+python scripts/compose_areal_weight_crosswalks.py --first scripts/out/vtd00_to_vtd10_areal_top8.csv --second scripts/out/vtd10_to_vtd20_areal_top5.csv --out scripts/out/vtd00_to_vtd10_to_vtd20_vote_weight_splits.json
+```
+
+Fetch official legacy SCVotes ENR precinct names:
+
+```powershell
+python scripts/fetch_scvotes_enr_precinct_names.py --year 2008 --state-select-url "https://www.enr-scvotes.org/SC/8562/15723/en/select-county.html?cid=105" --out scripts/out/scvotes_enr_precinct_names_2008.csv
+```
+
+Build legacy name bridge candidates:
+
+```powershell
+python scripts/build_vtd00_name_bridge_candidates.py
+```
+
+Build legacy name weighted splits:
+
+```powershell
+python scripts/build_legacy_name_weighted_splits.py
+```
+
+Aggregate raw statewide contests to VTD20-normalized app data:
+
+```powershell
+python scripts/aggregate_contests_to_vtd20_crosswalks.py
+```
+
+Pretty-print crosswalked contest JSON after generation:
+
+```powershell
+node -e "const fs=require('fs'),path=require('path');const root='data/contests_vtd20_crosswalked';for(const name of fs.readdirSync(root).filter(n=>n.endsWith('.json'))){const p=path.join(root,name);fs.writeFileSync(p,JSON.stringify(JSON.parse(fs.readFileSync(p,'utf8')),null,2)+'\n');}"
+```
+
+Validate crosswalked contest totals against raw contest totals:
+
+```powershell
+node -e "const fs=require('fs'),path=require('path');const src='data/contests',out='data/contests_vtd20_crosswalked';const manifest=JSON.parse(fs.readFileSync(path.join(out,'manifest.json'),'utf8')).files;const keys=['dem_votes','rep_votes','other_votes','total_votes'];let bad=0;for(const e of manifest){const s=JSON.parse(fs.readFileSync(path.join(src,e.file),'utf8')).rows||[];const o=JSON.parse(fs.readFileSync(path.join(out,e.file),'utf8')).rows||[];for(const k of keys){const sv=s.reduce((a,r)=>a+Number(r[k]||0),0);const ov=o.reduce((a,r)=>a+Number(r[k]||0),0);if(Math.abs(sv-ov)>0.01)bad++;}}console.log('checked',manifest.length,'bad',bad);"
+```
+
+Validate the HD-40/Newberry district-contest contract:
+
+```powershell
+node -e "const fs=require('fs'),path=require('path'),cp=require('child_process');const files=cp.execSync('git diff --name-only -- data/district_contests',{encoding:'utf8'}).trim().split(/\r?\n/).filter(Boolean);const bad=[];const changed=new Map();for(const f of files){const old=JSON.parse(cp.execSync('git show HEAD:'+f,{encoding:'utf8',maxBuffer:80*1024*1024}));const cur=JSON.parse(fs.readFileSync(f,'utf8'));const a=old.general.results||{},b=cur.general.results||{};for(const k of new Set([...Object.keys(a),...Object.keys(b)])){if(JSON.stringify(a[k])!==JSON.stringify(b[k]))changed.set(k,(changed.get(k)||0)+1);}const name=path.basename(f,'.json');const m=name.match(/^state_house_(.+)_(\d{4})(?:_(?:2022|2024)_lines)?$/);const contestFile=path.join('data','contests_vtd20_crosswalked',m[1]+'_'+m[2]+'.json');const county=(JSON.parse(fs.readFileSync(contestFile,'utf8')).rows||[]).find(r=>String(r.county||'').toUpperCase()==='NEWBERRY'&&!r.precinct&&!r.precinct_norm);const row=cur.general.results['40'];for(const k of ['dem_votes','rep_votes','other_votes','total_votes'])if(Number(row[k])!==Number(county[k]))bad.push([f,k,row[k],county[k]]);}console.log('files',files.length,'changedDistricts',JSON.stringify([...changed.entries()]),'bad',bad.length);"
 ```
 
 Check likely precinct name mismatches for a contest/year:
@@ -360,6 +495,17 @@ Convert SC Election Commission export into OpenElections-style format:
 python scripts/elstats_search_to_openelections.py --input Data/_tmpdata/in.csv --output Data/openelections-data-sc/2024/20241105__sc__general__precinct.csv
 ```
 
+### Cachebuster
+
+For changes that affect deployed app behavior or served data, bump both constants in `index.html`:
+
+```js
+const DATA_CACHE_BUSTER = 'YYYY-MM-DD-N';
+const APP_BUILD_ID = 'YYYY-MM-DD-N';
+```
+
+The app appends `?v=...` to configured data paths via `withCacheBuster(...)`, and the build ID is shown in the page footer/debug surface.
+
 ## Frontend Behavior Summary
 
 - Views: `Counties`, `Congress`, `State House`, `State Senate`
@@ -387,9 +533,12 @@ Desktop layout remains available with the full side/control experience.
 
 - `index.html`: app UI, rendering logic, and `CONFIG`
 - `build_data.py`: primary data build pipeline
-- `data/contests/manifest.json`: available county/precinct contests
+- `data/contests/manifest.json`: raw county/precinct contests
+- `data/contests_vtd20_crosswalked/manifest.json`: VTD20-normalized county/precinct contests used by the live app
 - `data/district_contests/manifest.json`: available district contest slices
+- `data/precinct_friendly_names.json`: VTD20 precinct display-name lookup
 - `precinct_aliases.json`: manual precinct name normalization overrides
+- `scripts/out/`: ignored maintenance outputs such as overlap CSVs, bridge candidates, and weighted split JSONs
 
 ## Deployment
 
@@ -413,5 +562,8 @@ No backend service is required.
 
 - Data availability differs by office/year. Some cycles are partial.
 - Historical results may be shown on newer district boundaries depending on available boundary vintages.
-- Precinct naming is not always one-to-one across sources; use `precinct_aliases.json` and helper scripts when needed.
+- Historical precinct names are not always one-to-one across sources. The VTD20 crosswalk workflow uses a mix of direct matches, aliases, areal overlaps, vote-weighted splits, and legacy name bridges.
+- Crosswalked precinct splits are estimates. County/file vote totals are preserved, but precinct-level allocation depends on the best available areal/vote-weight bridge.
+- Review-held legacy name bridge candidates should not be promoted into weighted splits without manual inspection.
+- HD-40 is treated as all-Newberry for the affected State House district-contest files; revalidate this if district geography/source files are regenerated.
 - This repository currently has no explicit `LICENSE` file. Add one before broad reuse or redistribution.
