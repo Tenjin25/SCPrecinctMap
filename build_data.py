@@ -199,6 +199,17 @@ def normalize(s: str) -> str:
     return re.sub(r'\s+', ' ', s).strip().upper()
 
 
+def title_precinct_name(s: str) -> str:
+    """Human-friendly VTD label used by the browser precinct UI."""
+    raw = re.sub(r'[_]+', ' ', str(s or ''))
+    raw = re.sub(r'\s+', ' ', raw).strip()
+    if not raw:
+        return ''
+    out = raw.title()
+    out = re.sub(r'\bNo\.\s*(\d+)', r'No. \1', out, flags=re.I)
+    return out
+
+
 def normalize_party(party: str) -> str:
     """
     Normalize party strings across sources into the short codes used by the app.
@@ -311,10 +322,14 @@ def build_precinct_geojson(county_fp_map: dict):
         fips   = str(props.get('COUNTYFP20', '')).zfill(3)
         cname  = county_fp_map.get(fips, fips)
         prec   = str(props.get('NAME20', props.get('NAMELSAD20', ''))).strip()
+        friendly = title_precinct_name(prec)
         norm   = normalize(f'{cname} - {prec}')
         return {
             'county_nam':    cname,
             'prec_id':       prec,
+            'precinct_code':  str(props.get('VTDST20', '')).strip(),
+            'precinct_full_name': friendly,
+            'precinct_display_name': f'{cname} - {friendly}' if friendly else f'{cname} - {prec}',
             'precinct_norm': norm,
             'county_norm':   normalize(cname),
         }
@@ -338,6 +353,9 @@ def build_precinct_geojson(county_fp_map: dict):
             'properties': {
                 'county_nam':    p['county_nam'],
                 'prec_id':       p['prec_id'],
+                'precinct_code':  p.get('precinct_code', ''),
+                'precinct_full_name': p.get('precinct_full_name', ''),
+                'precinct_display_name': p.get('precinct_display_name', ''),
                 'precinct_norm': p['precinct_norm'],
                 'county_norm':   p['county_norm'],
             },

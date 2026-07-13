@@ -334,14 +334,16 @@ def main():
         legacy_splits = load_splits(splits_path, display_by_norm)
         for k, v in legacy_splits.items():
             splits.setdefault(k, v)
+    explicit_weighted_keys: set[str] = set()
     if not args.no_weighted_splits:
         legacy_weighted = load_weighted_splits(weighted_splits_path, display_by_norm)
+        explicit_weighted_keys = set(legacy_weighted.keys())
         for k, v in legacy_weighted.items():
-            weighted_splits.setdefault(k, v)
+            weighted_splits[k] = v
 
     legacy_alias_only = set(legacy_aliases.keys()) - set(cw_aliases.keys())
     legacy_split_only = (set(load_splits(splits_path, display_by_norm).keys()) if not args.no_splits else set()) - set(cw_splits.keys())
-    legacy_weighted_only = (set(load_weighted_splits(weighted_splits_path, display_by_norm).keys()) if not args.no_weighted_splits else set()) - set(cw_weighted.keys())
+    legacy_weighted_only = explicit_weighted_keys - set(cw_weighted.keys())
 
     contests_dir = os.path.join(base, "data", "contests")
     if not os.path.isdir(contests_dir):
@@ -401,10 +403,10 @@ def main():
             weighted_targets = weighted_splits.get(norm(mapped), [])
             if weighted_targets:
                 mk = norm(mapped)
-                if mk in cw_weighted:
-                    stats["weighted_crosswalk_hits"] += 1
-                elif mk in legacy_weighted_only:
+                if mk in explicit_weighted_keys:
                     stats["weighted_legacy_hits"] += 1
+                elif mk in cw_weighted:
+                    stats["weighted_crosswalk_hits"] += 1
                 targets = [t for t, _ in weighted_targets]
                 weights = [w for _, w in weighted_targets]
                 dem_parts = split_integer_by_weights(int(r.get("dem_votes") or 0), weights)

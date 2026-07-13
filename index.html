@@ -10685,6 +10685,8 @@ document.addEventListener('DOMContentLoaded', function() {
         counties: withBase('./data/census/tl_2020_45_county20.geojson'),
         precincts: withBase('./data/Voting_Precincts.geojson'),
         precinct_centroids: withBase('./data/precinct_centroids.geojson'),
+        precinct_friendly_names: withBase('./data/precinct_friendly_names.json'),
+        precinct_aliases: withBase('./precinct_aliases.json'),
         districts: withBase('./data/tileset/sc_cd118_tileset.geojson'),
         state_house: withBase('./data/tileset/sc_state_house_2022_lines_tileset.geojson'),
         state_house_2022: withBase('./data/tileset/sc_state_house_2022_census.geojson'),
@@ -10702,7 +10704,7 @@ document.addEventListener('DOMContentLoaded', function() {
         state_senate_info: withBase('./data/sc_state_senate_districts.csv'),
         district_descriptions: withBase('./data/district_descriptions.json'),
         cvap_by_precinct_norm: withBase('./data/sc_cvap_2024_by_precinct_norm.json'),
-        contests_dir: withBase('./data/contests')
+        contests_dir: withBase('./data/contests_vtd20_crosswalked')
       },
       center: [-80.9, 33.8],
       zoom: 6.5,
@@ -18869,9 +18871,8 @@ document.addEventListener('DOMContentLoaded', function() {
             : null;
           const manifestFile = (manifestEntry?.file || '').toString().trim();
 
-          // Prefer OpenElections CSV for older presidential cycles to avoid a known-missing JSON fetch
-          // and to keep Shift/Flips mode alive for years that are CSV-backed instead of JSON-backed.
-          if (contestType === 'president' && getOpenElectionsCsvPath(contestType, Number(year))) {
+          // Use CSV only for presidential cycles that are not present in the manifest.
+          if (!manifestEntry && contestType === 'president' && getOpenElectionsCsvPath(contestType, Number(year))) {
             try {
               const rows = await loadPresidentSliceFromOpenElectionsCSV(Number(year));
               contestSliceCache.set(key, rows);
@@ -29056,6 +29057,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       let countyNameByFips = null;
       try { countyNameByFips = await ensureCountyNameByFipsMap(); } catch (_) { countyNameByFips = null; }
+      try { await ensurePrecinctFriendlyNamesIndex(); } catch (_) {}
       const fullNameByNorm = new Map();
       precincts.features = (precincts.features || []).map(feature => {
         const original = feature.properties || {};
@@ -29064,8 +29066,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const countyRaw = (original.county_nam || original.COUNTYNAME || original.County || original.NAME20 || original.NAME || countyFromFips || '').toString().trim();
         const countyNorm = countyRaw.replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
         const precRaw = (original.prec_id || original.PREC_ID || original.VTDST20 || original.VTDST10 || original.VTDST00 || '').toString().trim();
-        const fullNameRaw = (original.enr_desc || original.ENR_DESC || original.precinct_full_name || original.precinct_name || '').toString();
-        const fullName = fullNameRaw.replace(/\s+/g, ' ').trim();
+        const fullNameRaw = (original.precinct_full_name || original.precinct_display_name || original.enr_desc || original.ENR_DESC || original.precinct_name || '').toString();
+        const friendlyName = (typeof pickBestPrecinctDisplayName === 'function')
+          ? pickBestPrecinctDisplayName({
+              countyName: countyRaw,
+              code: precRaw,
+              fullName: fullNameRaw,
+              fallbackFullName: original.NAME20 || original.NAMELSAD20 || ''
+            })
+          : fullNameRaw;
+        const fullName = String(friendlyName || fullNameRaw || '').replace(/\s+/g, ' ').trim();
         const precinctRaw = countyRaw && precRaw ? `${countyRaw} - ${precRaw}` : countyRaw;
         const precinctNorm = (precinctRaw || '').replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
         if (precinctNorm && fullName) fullNameByNorm.set(precinctNorm, fullName);
@@ -29075,7 +29085,9 @@ document.addEventListener('DOMContentLoaded', function() {
           precinct_name: precinctRaw,
           precinct_norm: precinctNorm,
           prec_id: precRaw,
+          precinct_code: original.precinct_code || original.VTDST20 || '',
           precinct_full_name: fullName,
+          precinct_display_name: original.precinct_display_name || (countyRaw && fullName ? `${countyRaw} - ${fullName}` : fullName),
           id: original.id || original.objectid || null
         };
         return feature;
