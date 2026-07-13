@@ -10646,8 +10646,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-12-5';
-    const APP_BUILD_ID = '2026-07-12-5';
+    const DATA_CACHE_BUSTER = '2026-07-12-6';
+    const APP_BUILD_ID = '2026-07-12-6';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -20909,9 +20909,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const compact = display.toUpperCase().replace(/[^A-Z0-9]/g, '');
       if (compact && Object.prototype.hasOwnProperty.call(typoFixes, compact)) {
         display = typoFixes[compact];
-      }
-      if (countyNorm === 'DORCHESTER' && /^Four Hole$/i.test(display)) {
-        display = 'Four Holes';
       }
       return applyPrecinctNameStyle(display);
     }

@@ -28,7 +28,6 @@ function applyNameOverride(raw) {
   const name = String(raw || '').replace(/\s+/g, ' ').trim();
   const key = normalizeKey(name);
   const overrides = {
-    'FOUR HOLE': 'Four Holes',
   };
   return overrides[key] || name;
 }
@@ -71,14 +70,13 @@ function scoreNameCandidate(raw) {
 
 function pickBestName(props) {
   const candidates = [
-    props.precinct_full_name,
-    props.precinct_desc,
-    props.enr_desc,
-    props.ENR_DESC,
     props.NAME20,
     props.NAMELSAD20,
     props.prec_id,
     props.PREC_ID,
+    props.precinct_desc,
+    props.enr_desc,
+    props.ENR_DESC,
     props.VTDST20,
   ];
   let best = '';
