@@ -470,14 +470,14 @@
         "color": "#67000d"
       },
       "40": {
-        "dem_votes": 6275,
-        "rep_votes": 13189,
-        "other_votes": 238,
-        "total_votes": 19702,
+        "dem_votes": 6078,
+        "rep_votes": 13266,
+        "other_votes": 230,
+        "total_votes": 19574,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 6914,
-        "margin_pct": 35.0929,
+        "margin": 7188,
+        "margin_pct": 36.7222,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -974,16 +974,16 @@
         "color": "#cb181d"
       },
       "82": {
-        "dem_votes": 7369,
-        "rep_votes": 8601,
-        "other_votes": 228,
+        "dem_votes": 7834,
+        "rep_votes": 8129,
+        "other_votes": 235,
         "total_votes": 16198,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 1232,
-        "margin_pct": 7.6059,
+        "margin": 295,
+        "margin_pct": 1.8212,
         "winner": "R",
-        "color": "#fc8a6a"
+        "color": "#fcbba1"
       },
       "83": {
         "dem_votes": 6734,
