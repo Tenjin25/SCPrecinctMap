@@ -10646,8 +10646,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-13-11';
-    const APP_BUILD_ID = '2026-07-13-11';
+    const DATA_CACHE_BUSTER = '2026-07-13-12';
+    const APP_BUILD_ID = '2026-07-13-12';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -29791,13 +29791,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const rawCode = String(code || '').trim().toUpperCase();
       const canonicalCode = rawCode ? resolvePrecinctCanonicalCode(countyName, rawCode) : '';
       const friendly = rawCode ? getPrecinctFriendlyName(countyName, rawCode) : '';
-      const canonicalCodeCompact = String(canonicalCode || '').replace(/[^A-Z0-9]/g, '');
       const friendlyCompact = String(friendly || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
-      const friendlyLabel = friendly
-        ? ((canonicalCode && canonicalCodeCompact && canonicalCodeCompact !== friendlyCompact)
-          ? `${friendly} (${canonicalCode})`
-          : friendly)
-        : '';
+      // Friendly names are complete presentation labels. Keep the canonical code
+      // for joins and lookup only; appending it produces redundant labels such as
+      // "North Bennettsville (N Bennettsville)".
+      const friendlyLabel = friendly;
 
       const cleanPrecinctFullName = (value) => String(value || '')
         .replace(/\s+/g, ' ')
