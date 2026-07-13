@@ -1130,14 +1130,14 @@
         "color": "#ef3b2c"
       },
       "40": {
-        "dem_votes": 6932,
-        "rep_votes": 11425,
+        "dem_votes": 6958,
+        "rep_votes": 11443,
         "other_votes": 230,
-        "total_votes": 18587,
+        "total_votes": 18631,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 4493,
-        "margin_pct": 24.1728,
+        "margin": 4485,
+        "margin_pct": 24.0728,
         "winner": "R",
         "color": "#cb181d"
       },

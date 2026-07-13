@@ -1118,16 +1118,16 @@
         "color": "#cb181d"
       },
       "40": {
-        "dem_votes": 2956,
-        "rep_votes": 3203,
-        "other_votes": 6,
-        "total_votes": 6165,
+        "dem_votes": 10428,
+        "rep_votes": 9578,
+        "other_votes": 12,
+        "total_votes": 20018,
         "dem_candidate": "Tommy Moore",
         "rep_candidate": "Mark Sanford",
-        "margin": 247,
-        "margin_pct": 4.0065,
-        "winner": "R",
-        "color": "#fcbba1"
+        "margin": -850,
+        "margin_pct": -4.2462,
+        "winner": "D",
+        "color": "#c6dbef"
       },
       "71": {
         "dem_votes": 1238,

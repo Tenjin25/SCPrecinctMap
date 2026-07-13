@@ -1142,14 +1142,14 @@
         "color": "#a50f15"
       },
       "40": {
-        "dem_votes": 4867,
-        "rep_votes": 8516,
-        "other_votes": 480,
-        "total_votes": 13863,
+        "dem_votes": 6217,
+        "rep_votes": 10017,
+        "other_votes": 573,
+        "total_votes": 16807,
         "dem_candidate": "Hillary Rodham Clinton / Timothy Michael Kaine",
         "rep_candidate": "Donald J Trump / Michael R Pence",
-        "margin": 3649,
-        "margin_pct": 26.3219,
+        "margin": 3800,
+        "margin_pct": 22.6096,
         "winner": "R",
         "color": "#cb181d"
       },

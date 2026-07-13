@@ -1130,16 +1130,16 @@
         "color": "#a50f15"
       },
       "40": {
-        "dem_votes": 6273,
-        "rep_votes": 12142,
-        "other_votes": 980,
-        "total_votes": 19395,
+        "dem_votes": 7356,
+        "rep_votes": 13487,
+        "other_votes": 1067,
+        "total_votes": 21910,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 5869,
-        "margin_pct": 30.2604,
+        "margin": 6131,
+        "margin_pct": 27.9827,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#cb181d"
       },
       "2": {
         "dem_votes": 3810,

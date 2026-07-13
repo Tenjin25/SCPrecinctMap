@@ -1130,16 +1130,16 @@
         "color": "#ef3b2c"
       },
       "40": {
-        "dem_votes": 4324,
-        "rep_votes": 6617,
+        "dem_votes": 5374,
+        "rep_votes": 7644,
         "other_votes": 12,
-        "total_votes": 10953,
+        "total_votes": 13030,
         "dem_candidate": "James Smith / Mandy Powers Norrell",
         "rep_candidate": "Henry McMaster / Pamela Evette",
-        "margin": 2293,
-        "margin_pct": 20.9349,
+        "margin": 2270,
+        "margin_pct": 17.4213,
         "winner": "R",
-        "color": "#cb181d"
+        "color": "#ef3b2c"
       },
       "2": {
         "dem_votes": 3729,

@@ -1131,13 +1131,13 @@
       },
       "40": {
         "dem_votes": 0,
-        "rep_votes": 7260,
-        "other_votes": 57,
-        "total_votes": 7317,
+        "rep_votes": 8043,
+        "other_votes": 64,
+        "total_votes": 8107,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 7260,
-        "margin_pct": 99.221,
+        "margin": 8043,
+        "margin_pct": 99.2106,
         "winner": "R",
         "color": "#67000d"
       },

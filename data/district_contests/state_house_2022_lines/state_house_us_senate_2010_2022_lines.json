@@ -1130,14 +1130,14 @@
         "color": "#67000d"
       },
       "40": {
-        "dem_votes": 2750,
-        "rep_votes": 6401,
-        "other_votes": 890,
-        "total_votes": 10041,
+        "dem_votes": 3137,
+        "rep_votes": 7700,
+        "other_votes": 1088,
+        "total_votes": 11925,
         "dem_candidate": "Alvin M. Greene",
         "rep_candidate": "Jim DeMint",
-        "margin": 3651,
-        "margin_pct": 36.3609,
+        "margin": 4563,
+        "margin_pct": 38.2642,
         "winner": "R",
         "color": "#a50f15"
       },

@@ -470,14 +470,14 @@
         "color": "#cb181d"
       },
       "40": {
-        "dem_votes": 4535,
-        "rep_votes": 5726,
-        "other_votes": 488,
-        "total_votes": 10749,
+        "dem_votes": 5147,
+        "rep_votes": 6430,
+        "other_votes": 511,
+        "total_votes": 12088,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 1191,
-        "margin_pct": 11.0801,
+        "margin": 1283,
+        "margin_pct": 10.6138,
         "winner": "R",
         "color": "#ef3b2c"
       },

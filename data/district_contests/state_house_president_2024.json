@@ -1142,14 +1142,14 @@
         "color": "#cb181d"
       },
       "40": {
-        "dem_votes": 6047,
-        "rep_votes": 13291,
-        "other_votes": 229,
-        "total_votes": 19567,
+        "dem_votes": 5841,
+        "rep_votes": 12067,
+        "other_votes": 221,
+        "total_votes": 18129,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 7244,
-        "margin_pct": 37.0215,
+        "margin": 6226,
+        "margin_pct": 34.3428,
         "winner": "R",
         "color": "#a50f15"
       },

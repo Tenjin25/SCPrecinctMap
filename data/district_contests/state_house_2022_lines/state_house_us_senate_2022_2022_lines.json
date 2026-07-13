@@ -1130,14 +1130,14 @@
         "color": "#cb181d"
       },
       "40": {
-        "dem_votes": 3774,
-        "rep_votes": 8963,
+        "dem_votes": 3775,
+        "rep_votes": 8967,
         "other_votes": 10,
-        "total_votes": 12747,
-        "dem_candidate": "Krystle Matthews",
-        "rep_candidate": "Tim Scott",
-        "margin": 5189,
-        "margin_pct": 40.7076,
+        "total_votes": 12752,
+        "dem_candidate": "DEM Krystle Matthews",
+        "rep_candidate": "REP Tim Scott",
+        "margin": 5192,
+        "margin_pct": 40.7152,
         "winner": "R",
         "color": "#67000d"
       },

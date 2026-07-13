@@ -1142,14 +1142,14 @@
         "color": "#a50f15"
       },
       "40": {
-        "dem_votes": 4827,
-        "rep_votes": 5524,
-        "other_votes": 164,
-        "total_votes": 10515,
+        "dem_votes": 5554,
+        "rep_votes": 6314,
+        "other_votes": 183,
+        "total_votes": 12051,
         "dem_candidate": "Matthew Richardson",
         "rep_candidate": "Alan Wilson",
-        "margin": 697,
-        "margin_pct": 6.6286,
+        "margin": 760,
+        "margin_pct": 6.3065,
         "winner": "R",
         "color": "#fc8a6a"
       },

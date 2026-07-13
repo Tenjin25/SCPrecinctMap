@@ -1131,13 +1131,13 @@
       },
       "40": {
         "dem_votes": 0,
-        "rep_votes": 7018,
-        "other_votes": 33,
-        "total_votes": 7051,
+        "rep_votes": 14878,
+        "other_votes": 70,
+        "total_votes": 14948,
         "dem_candidate": "",
         "rep_candidate": "Henry McMaster",
-        "margin": 7018,
-        "margin_pct": 99.532,
+        "margin": 14878,
+        "margin_pct": 99.5317,
         "winner": "R",
         "color": "#67000d"
       },

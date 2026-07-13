@@ -1143,13 +1143,13 @@
       },
       "40": {
         "dem_votes": 0,
-        "rep_votes": 7000,
-        "other_votes": 1393,
-        "total_votes": 8393,
+        "rep_votes": 7282,
+        "other_votes": 1485,
+        "total_votes": 8767,
         "dem_candidate": "",
         "rep_candidate": "Hugh E. Weathers",
-        "margin": 7000,
-        "margin_pct": 83.4028,
+        "margin": 7282,
+        "margin_pct": 83.0615,
         "winner": "R",
         "color": "#67000d"
       },

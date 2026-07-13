@@ -1130,14 +1130,14 @@
         "color": "#fc8a6a"
       },
       "40": {
-        "dem_votes": 4885,
-        "rep_votes": 5184,
-        "other_votes": 143,
-        "total_votes": 10212,
+        "dem_votes": 5705,
+        "rep_votes": 6237,
+        "other_votes": 164,
+        "total_votes": 12106,
         "dem_candidate": "Vincent A. Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 299,
-        "margin_pct": 2.9279,
+        "margin": 532,
+        "margin_pct": 4.3945,
         "winner": "R",
         "color": "#fcbba1"
       },

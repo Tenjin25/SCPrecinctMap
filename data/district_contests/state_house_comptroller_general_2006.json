@@ -1118,16 +1118,16 @@
         "color": "#cb181d"
       },
       "40": {
-        "dem_votes": 2800,
-        "rep_votes": 3292,
-        "other_votes": 0,
-        "total_votes": 6092,
+        "dem_votes": 9894,
+        "rep_votes": 9864,
+        "other_votes": 2,
+        "total_votes": 19760,
         "dem_candidate": "Drew Theodore",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 492,
-        "margin_pct": 8.0762,
-        "winner": "R",
-        "color": "#fc8a6a"
+        "margin": -30,
+        "margin_pct": -0.1518,
+        "winner": "D",
+        "color": "#c6dbef"
       },
       "71": {
         "dem_votes": 1282,

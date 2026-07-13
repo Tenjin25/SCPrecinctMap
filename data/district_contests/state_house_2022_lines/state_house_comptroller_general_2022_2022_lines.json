@@ -1131,13 +1131,13 @@
       },
       "40": {
         "dem_votes": 0,
-        "rep_votes": 9975,
+        "rep_votes": 9980,
         "other_votes": 89,
-        "total_votes": 10064,
+        "total_votes": 10069,
         "dem_candidate": "",
-        "rep_candidate": "Richard Eckstrom",
-        "margin": 9975,
-        "margin_pct": 99.1157,
+        "rep_candidate": "REP Richard Eckstrom",
+        "margin": 9980,
+        "margin_pct": 99.1161,
         "winner": "R",
         "color": "#67000d"
       },

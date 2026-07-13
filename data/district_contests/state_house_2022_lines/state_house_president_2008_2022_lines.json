@@ -1130,14 +1130,14 @@
         "color": "#cb181d"
       },
       "40": {
-        "dem_votes": 5211,
-        "rep_votes": 7685,
-        "other_votes": 161,
-        "total_votes": 13057,
+        "dem_votes": 6708,
+        "rep_votes": 9616,
+        "other_votes": 200,
+        "total_votes": 16524,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "John McCain and Sarah Palin",
-        "margin": 2474,
-        "margin_pct": 18.9477,
+        "margin": 2908,
+        "margin_pct": 17.5986,
         "winner": "R",
         "color": "#ef3b2c"
       },

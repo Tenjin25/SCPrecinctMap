@@ -1130,14 +1130,14 @@
         "color": "#cb181d"
       },
       "40": {
-        "dem_votes": 5356,
-        "rep_votes": 7522,
-        "other_votes": 152,
-        "total_votes": 13030,
+        "dem_votes": 6913,
+        "rep_votes": 9260,
+        "other_votes": 178,
+        "total_votes": 16351,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "Mitt Romney and Paul Ryan",
-        "margin": 2166,
-        "margin_pct": 16.6232,
+        "margin": 2347,
+        "margin_pct": 14.3539,
         "winner": "R",
         "color": "#ef3b2c"
       },

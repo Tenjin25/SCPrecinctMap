@@ -1142,14 +1142,14 @@
         "color": "#a50f15"
       },
       "40": {
-        "dem_votes": 4053,
-        "rep_votes": 7514,
-        "other_votes": 244,
-        "total_votes": 11811,
+        "dem_votes": 4937,
+        "rep_votes": 7823,
+        "other_votes": 255,
+        "total_votes": 13015,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 3461,
-        "margin_pct": 29.3032,
+        "margin": 2886,
+        "margin_pct": 22.1744,
         "winner": "R",
         "color": "#cb181d"
       },

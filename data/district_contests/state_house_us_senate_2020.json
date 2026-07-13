@@ -1142,14 +1142,14 @@
         "color": "#cb181d"
       },
       "40": {
-        "dem_votes": 7282,
-        "rep_votes": 12383,
-        "other_votes": 309,
-        "total_votes": 19974,
+        "dem_votes": 7094,
+        "rep_votes": 11239,
+        "other_votes": 293,
+        "total_votes": 18626,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": 5101,
-        "margin_pct": 25.5382,
+        "margin": 4145,
+        "margin_pct": 22.2538,
         "winner": "R",
         "color": "#cb181d"
       },

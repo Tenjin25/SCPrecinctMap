@@ -1142,14 +1142,14 @@
         "color": "#a50f15"
       },
       "40": {
-        "dem_votes": 4920,
-        "rep_votes": 5526,
+        "dem_votes": 5672,
+        "rep_votes": 6319,
         "other_votes": 4,
-        "total_votes": 10450,
+        "total_votes": 11995,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": 606,
-        "margin_pct": 5.799,
+        "margin": 647,
+        "margin_pct": 5.3939,
         "winner": "R",
         "color": "#fc8a6a"
       },

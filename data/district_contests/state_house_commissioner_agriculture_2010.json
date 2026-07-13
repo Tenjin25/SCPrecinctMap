@@ -1142,14 +1142,14 @@
         "color": "#67000d"
       },
       "40": {
-        "dem_votes": 3821,
-        "rep_votes": 6652,
-        "other_votes": 5,
-        "total_votes": 10478,
+        "dem_votes": 4372,
+        "rep_votes": 7636,
+        "other_votes": 7,
+        "total_votes": 12015,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 2831,
-        "margin_pct": 27.0185,
+        "margin": 3264,
+        "margin_pct": 27.166,
         "winner": "R",
         "color": "#cb181d"
       },

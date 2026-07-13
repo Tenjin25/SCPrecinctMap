@@ -1130,16 +1130,16 @@
         "color": "#a50f15"
       },
       "40": {
-        "dem_votes": 3299,
-        "rep_votes": 6283,
+        "dem_votes": 3851,
+        "rep_votes": 6974,
         "other_votes": 5,
-        "total_votes": 9587,
+        "total_votes": 10830,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 2984,
-        "margin_pct": 31.1255,
+        "margin": 3123,
+        "margin_pct": 28.8366,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#cb181d"
       },
       "2": {
         "dem_votes": 2333,

@@ -1142,16 +1142,16 @@
         "color": "#67000d"
       },
       "40": {
-        "dem_votes": 3347,
-        "rep_votes": 6757,
-        "other_votes": 4,
-        "total_votes": 10108,
+        "dem_votes": 3829,
+        "rep_votes": 7019,
+        "other_votes": 3,
+        "total_votes": 10851,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": 3410,
-        "margin_pct": 33.7357,
+        "margin": 3190,
+        "margin_pct": 29.3982,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#cb181d"
       },
       "71": {
         "dem_votes": 2960,

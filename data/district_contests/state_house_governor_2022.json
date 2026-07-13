@@ -1142,14 +1142,14 @@
         "color": "#cb181d"
       },
       "40": {
-        "dem_votes": 4431,
-        "rep_votes": 9279,
-        "other_votes": 186,
-        "total_votes": 13896,
-        "dem_candidate": "Joe Cunningham/Tally Parham Casey",
-        "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 4848,
-        "margin_pct": 34.8877,
+        "dem_votes": 4248,
+        "rep_votes": 8413,
+        "other_votes": 174,
+        "total_votes": 12835,
+        "dem_candidate": "DEM Joe Cunningham/Tally Parham Casey",
+        "rep_candidate": "REP Henry McMaster/Pamela Evette",
+        "margin": 4165,
+        "margin_pct": 32.4503,
         "winner": "R",
         "color": "#a50f15"
       },

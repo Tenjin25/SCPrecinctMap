@@ -471,13 +471,13 @@
       },
       "40": {
         "dem_votes": 0,
-        "rep_votes": 8187,
-        "other_votes": 96,
-        "total_votes": 8283,
+        "rep_votes": 8510,
+        "other_votes": 108,
+        "total_votes": 8618,
         "dem_candidate": "",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 8187,
-        "margin_pct": 98.841,
+        "margin": 8510,
+        "margin_pct": 98.7468,
         "winner": "R",
         "color": "#67000d"
       },

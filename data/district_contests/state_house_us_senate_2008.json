@@ -1142,14 +1142,14 @@
         "color": "#67000d"
       },
       "40": {
-        "dem_votes": 4780,
-        "rep_votes": 8458,
-        "other_votes": 9,
-        "total_votes": 13247,
+        "dem_votes": 6111,
+        "rep_votes": 10064,
+        "other_votes": 8,
+        "total_votes": 16183,
         "dem_candidate": "Bob Conley",
         "rep_candidate": "Lindsey Graham",
-        "margin": 3678,
-        "margin_pct": 27.7648,
+        "margin": 3953,
+        "margin_pct": 24.4269,
         "winner": "R",
         "color": "#cb181d"
       },

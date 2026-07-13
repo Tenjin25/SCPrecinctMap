@@ -1130,16 +1130,16 @@
         "color": "#67000d"
       },
       "40": {
-        "dem_votes": 1840,
-        "rep_votes": 5291,
-        "other_votes": 480,
-        "total_votes": 7611,
+        "dem_votes": 5311,
+        "rep_votes": 10048,
+        "other_votes": 949,
+        "total_votes": 16308,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 3451,
-        "margin_pct": 45.3423,
+        "margin": 4737,
+        "margin_pct": 29.0471,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#cb181d"
       },
       "71": {
         "dem_votes": 3293,

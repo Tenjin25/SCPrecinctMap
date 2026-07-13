@@ -470,14 +470,14 @@
         "color": "#67000d"
       },
       "40": {
-        "dem_votes": 3084,
-        "rep_votes": 6877,
-        "other_votes": 400,
-        "total_votes": 10361,
+        "dem_votes": 3535,
+        "rep_votes": 7007,
+        "other_votes": 387,
+        "total_votes": 10929,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 3793,
-        "margin_pct": 36.6084,
+        "margin": 3472,
+        "margin_pct": 31.7687,
         "winner": "R",
         "color": "#a50f15"
       },

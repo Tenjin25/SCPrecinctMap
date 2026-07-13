@@ -1130,14 +1130,14 @@
         "color": "#ef3b2c"
       },
       "40": {
-        "dem_votes": 4647,
-        "rep_votes": 4737,
-        "other_votes": 2,
-        "total_votes": 9386,
+        "dem_votes": 9868,
+        "rep_votes": 10082,
+        "other_votes": 4,
+        "total_votes": 19954,
         "dem_candidate": "Grady L Patterson Jr",
         "rep_candidate": "Thomas Ravenel",
-        "margin": 90,
-        "margin_pct": 0.9589,
+        "margin": 214,
+        "margin_pct": 1.0725,
         "winner": "R",
         "color": "#fcbba1"
       },

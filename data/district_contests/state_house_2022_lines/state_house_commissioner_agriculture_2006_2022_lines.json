@@ -1130,14 +1130,14 @@
         "color": "#a50f15"
       },
       "40": {
-        "dem_votes": 3319,
-        "rep_votes": 5939,
-        "other_votes": 1,
-        "total_votes": 9259,
+        "dem_votes": 7054,
+        "rep_votes": 12618,
+        "other_votes": 2,
+        "total_votes": 19674,
         "dem_candidate": "Emile DeFelice",
         "rep_candidate": "Hugh Weathers",
-        "margin": 2620,
-        "margin_pct": 28.2968,
+        "margin": 5564,
+        "margin_pct": 28.281,
         "winner": "R",
         "color": "#cb181d"
       },

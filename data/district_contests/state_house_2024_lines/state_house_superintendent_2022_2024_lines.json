@@ -470,16 +470,16 @@
         "color": "#67000d"
       },
       "40": {
-        "dem_votes": 4922,
-        "rep_votes": 8016,
-        "other_votes": 937,
-        "total_votes": 13875,
-        "dem_candidate": "Lisa Ellis",
-        "rep_candidate": "Ellen Weaver",
-        "margin": 3094,
-        "margin_pct": 22.2991,
+        "dem_votes": 4712,
+        "rep_votes": 7139,
+        "other_votes": 872,
+        "total_votes": 12723,
+        "dem_candidate": "DEM Lisa Ellis",
+        "rep_candidate": "REP Ellen Weaver",
+        "margin": 2427,
+        "margin_pct": 19.0757,
         "winner": "R",
-        "color": "#cb181d"
+        "color": "#ef3b2c"
       },
       "41": {
         "dem_votes": 7273,

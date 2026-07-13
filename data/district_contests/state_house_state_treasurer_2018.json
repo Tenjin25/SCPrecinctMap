@@ -1142,16 +1142,16 @@
         "color": "#67000d"
       },
       "40": {
-        "dem_votes": 3766,
-        "rep_votes": 7697,
-        "other_votes": 322,
-        "total_votes": 11785,
+        "dem_votes": 4590,
+        "rep_votes": 8048,
+        "other_votes": 350,
+        "total_votes": 12988,
         "dem_candidate": "Rosalyn L Glenn",
         "rep_candidate": "Curtis Loftis",
-        "margin": 3931,
-        "margin_pct": 33.356,
+        "margin": 3458,
+        "margin_pct": 26.6246,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#cb181d"
       },
       "71": {
         "dem_votes": 4715,
