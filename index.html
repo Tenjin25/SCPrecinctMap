@@ -10646,8 +10646,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-12-4';
-    const APP_BUILD_ID = '2026-07-12-4';
+    const DATA_CACHE_BUSTER = '2026-07-12-5';
+    const APP_BUILD_ID = '2026-07-12-5';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -20889,6 +20889,10 @@ document.addEventListener('DOMContentLoaded', function() {
       return toTitleCaseName(cleaned);
     }
 
+    function applyPrecinctNameStyle(raw) {
+      return (raw || '').toString().replace(/\bAnd\b/g, 'and');
+    }
+
     function standardizePrecinctDisplayName(countyNameOrNorm, rawName) {
       const countyNorm = normalizeCountyToken(countyNameOrNorm);
       const cleaned = (rawName || '').toString().replace(/[_]+/g, ' ').replace(/\s+/g, ' ').trim();
@@ -20909,7 +20913,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (countyNorm === 'DORCHESTER' && /^Four Hole$/i.test(display)) {
         display = 'Four Holes';
       }
-      return display;
+      return applyPrecinctNameStyle(display);
     }
 
     function numericOrNull(value) {
@@ -29803,10 +29807,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const fallbackFull = cleanPrecinctFullName(fallbackFullName);
       const displayFull = standardizePrecinctDisplayName(countyName, full);
       const displayFallbackFull = standardizePrecinctDisplayName(countyName, fallbackFull);
+      const displayFullCompact = String(displayFull || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+      const displayFallbackCompact = String(displayFallbackFull || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
 
       // If the shapefile's "full name" is just a code-ish token (or a "VOTING DISTRICT" placeholder),
       // prefer a real friendly label when we have it.
       if (friendlyLabel && (isNoisyPrecinctFullName(full, rawCode) || isNoisyPrecinctFullName(fallbackFull, rawCode))) {
+        return friendlyLabel;
+      }
+
+      // If the friendly-name table has a corrected spelling/pluralization, use it without showing
+      // the raw shapefile label in parentheses.
+      if (friendlyLabel && friendlyCompact && displayFullCompact && friendlyCompact !== displayFullCompact) {
+        return friendlyLabel;
+      }
+      if (friendlyLabel && friendlyCompact && displayFallbackCompact && friendlyCompact !== displayFallbackCompact) {
         return friendlyLabel;
       }
 

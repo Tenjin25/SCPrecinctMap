@@ -19,7 +19,8 @@ function toTitleCaseName(raw) {
     .replace(/'([A-Z])\b/g, (m, c) => `'${c.toLowerCase()}`)
     .replace(/\b([A-Z])([a-z])\b/g, (m, a, b) => `${a}${b}`)
     .replace(/\b([A-Z][a-z]*)(\d+[A-Z]?)\b/g, '$1 $2')
-    .replace(/\bNo\.\s*(\d+)/gi, 'No. $1');
+    .replace(/\bNo\.\s*(\d+)/gi, 'No. $1')
+    .replace(/\bAnd\b/g, 'and');
   return applyNameOverride(titled);
 }
 
