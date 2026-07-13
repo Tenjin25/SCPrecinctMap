@@ -17,11 +17,11 @@ from scripts.aggregate_contests_to_vtd20_crosswalks import norm  # noqa: E402
 
 
 OUTPUTS = (
-    ("congressional", Path("data/district_contests"), "congressional", ""),
-    ("state_house_2022", Path("data/district_contests"), "state_house", ""),
-    ("state_senate_2022", Path("data/district_contests"), "state_senate", ""),
-    ("state_house_2022", Path("data/district_contests/state_house_2022_lines"), "state_house", "_2022_lines"),
-    ("state_house_2024", Path("data/district_contests/state_house_2024_lines"), "state_house", "_2024_lines"),
+    ("congressional", Path("data/district_contests"), "congressional", "", None),
+    ("state_house_2022", Path("data/district_contests"), "state_house", "", None),
+    ("state_senate_2022", Path("data/district_contests"), "state_senate", "", None),
+    ("state_house_2022", Path("data/district_contests/state_house_2022_lines"), "state_house", "", "2022_lines"),
+    ("state_house_2024", Path("data/district_contests/state_house_2024_lines"), "state_house", "", "2024_lines"),
 )
 FIELDS = ("dem_votes", "rep_votes", "other_votes")
 
@@ -121,7 +121,7 @@ def rebuild_one(contest: dict, weights: dict[str, dict[str, float]], scope: str,
     return {"general": {"results": results}, "meta": meta}, meta
 
 
-def rebuild_manifest(directory: Path, line_suffix: str) -> None:
+def rebuild_manifest(directory: Path, line_suffix: str, district_lines: str | None) -> None:
     entries = []
     for path in directory.glob("*.json"):
         if path.name.startswith(("manifest", "qa_", "current_geojson_qa")):
@@ -141,12 +141,11 @@ def rebuild_manifest(directory: Path, line_suffix: str) -> None:
         payload = json.loads(path.read_text(encoding="utf-8"))
         rows = len(((payload.get("general") or {}).get("results") or {}))
         entry = {"scope": scope, "contest_type": contest, "year": year, "file": path.name, "rows": rows}
-        if line_suffix:
-            entry["district_lines"] = line_suffix.strip("_")
+        if district_lines:
+            entry["district_lines"] = district_lines
         entries.append(entry)
     entries.sort(key=lambda item: (-item["year"], item["scope"], item["contest_type"]))
-    name = f"manifest{line_suffix}.json" if line_suffix else "manifest.json"
-    (directory / name).write_text(json.dumps({"files": entries}, indent=2) + "\n", encoding="utf-8")
+    (directory / "manifest.json").write_text(json.dumps({"files": entries}, indent=2) + "\n", encoding="utf-8")
 
 
 def main() -> int:
@@ -177,7 +176,7 @@ def main() -> int:
                 key_aliases[alias] = precinct_norm
     qa = []
     rebuilt_dirs = set()
-    for scope_key, out_rel, prefix, suffix in OUTPUTS:
+    for scope_key, out_rel, prefix, suffix, district_lines in OUTPUTS:
         scope_data = crosswalk["scopes"][scope_key]
         # Contest rows use friendly display labels while the geometry crosswalk
         # stores Fiscal Affairs precinct_norm keys. Normalize both sides with
@@ -190,15 +189,20 @@ def main() -> int:
         }
         out_dir = REPO_ROOT / out_rel
         out_dir.mkdir(parents=True, exist_ok=True)
-        rebuilt_dirs.add((out_dir, suffix))
+        rebuilt_dirs.add((out_dir, suffix, district_lines))
         for entry in manifest.get("files") or []:
             contest = json.loads((contest_dir / entry["file"]).read_text(encoding="utf-8"))
             payload, meta = rebuild_one(contest, weights, scope_key, scope_data["district_file"])
             name = f"{prefix}_{entry['contest_type']}_{entry['year']}{suffix}.json"
             (out_dir / name).write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
             qa.append({"scope": scope_key, "contest_type": entry["contest_type"], "year": entry["year"], "file": name, **meta})
-    for directory, suffix in rebuilt_dirs:
-        rebuild_manifest(directory, suffix)
+    for directory, suffix, district_lines in rebuilt_dirs:
+        if district_lines:
+            for stale in directory.glob(f"*_{district_lines}.json"):
+                stale.unlink()
+            for stale in directory.glob("manifest_*_lines.json"):
+                stale.unlink()
+        rebuild_manifest(directory, suffix, district_lines)
     qa_path = REPO_ROOT / "data/district_contests/current_geojson_qa.json"
     qa_path.write_text(json.dumps({"files": qa}, indent=2) + "\n", encoding="utf-8")
     print(f"rebuilt {len(qa)} statewide-by-district files from current precinct geometry")
