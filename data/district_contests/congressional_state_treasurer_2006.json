@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
-        "dem_votes": 47899,
-        "rep_votes": 64784,
-        "other_votes": 44,
-        "total_votes": 112727,
+      "1": {
+        "dem_votes": 52140,
+        "rep_votes": 68449,
+        "other_votes": 51,
+        "total_votes": 120640,
         "dem_candidate": "Grady L Patterson Jr",
         "rep_candidate": "Thomas Ravenel",
-        "margin": 16885,
-        "margin_pct": 14.9787,
+        "margin": 16309,
+        "margin_pct": 13.5187,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 50955,
-        "rep_votes": 60255,
-        "other_votes": 40,
-        "total_votes": 111250,
+        "dem_votes": 71343,
+        "rep_votes": 85784,
+        "other_votes": 68,
+        "total_votes": 157195,
         "dem_candidate": "Grady L Patterson Jr",
         "rep_candidate": "Thomas Ravenel",
-        "margin": 9300,
-        "margin_pct": 8.3596,
+        "margin": 14441,
+        "margin_pct": 9.1867,
         "winner": "R",
         "color": "#fc8a6a"
       },
-      "6": {
-        "dem_votes": 76605,
-        "rep_votes": 34193,
-        "other_votes": 46,
-        "total_votes": 110844,
+      "3": {
+        "dem_votes": 64990,
+        "rep_votes": 88755,
+        "other_votes": 63,
+        "total_votes": 153808,
         "dem_candidate": "Grady L Patterson Jr",
         "rep_candidate": "Thomas Ravenel",
-        "margin": -42412,
-        "margin_pct": -38.2628,
-        "winner": "D",
-        "color": "#2171b5"
-      },
-      "1": {
-        "dem_votes": 58568,
-        "rep_votes": 76048,
-        "other_votes": 61,
-        "total_votes": 134677,
-        "dem_candidate": "Grady L Patterson Jr",
-        "rep_candidate": "Thomas Ravenel",
-        "margin": 17480,
-        "margin_pct": 12.9792,
+        "margin": 23765,
+        "margin_pct": 15.4511,
         "winner": "R",
         "color": "#ef3b2c"
       },
-      "5": {
-        "dem_votes": 50556,
-        "rep_votes": 50598,
-        "other_votes": 35,
-        "total_votes": 101189,
+      "4": {
+        "dem_votes": 53064,
+        "rep_votes": 87273,
+        "other_votes": 71,
+        "total_votes": 140408,
         "dem_candidate": "Grady L Patterson Jr",
         "rep_candidate": "Thomas Ravenel",
-        "margin": 42,
-        "margin_pct": 0.0415,
+        "margin": 34209,
+        "margin_pct": 24.364,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "5": {
+        "dem_votes": 65813,
+        "rep_votes": 72649,
+        "other_votes": 41,
+        "total_votes": 138503,
+        "dem_candidate": "Grady L Patterson Jr",
+        "rep_candidate": "Thomas Ravenel",
+        "margin": 6836,
+        "margin_pct": 4.9356,
         "winner": "R",
         "color": "#fcbba1"
       },
-      "7": {
-        "dem_votes": 49820,
-        "rep_votes": 46768,
-        "other_votes": 18,
-        "total_votes": 96606,
+      "6": {
+        "dem_votes": 102390,
+        "rep_votes": 58612,
+        "other_votes": 70,
+        "total_votes": 161072,
         "dem_candidate": "Grady L Patterson Jr",
         "rep_candidate": "Thomas Ravenel",
-        "margin": -3052,
-        "margin_pct": -3.1592,
+        "margin": -43778,
+        "margin_pct": -27.1791,
+        "winner": "D",
+        "color": "#4292c6"
+      },
+      "7": {
+        "dem_votes": 67749,
+        "rep_votes": 64866,
+        "other_votes": 21,
+        "total_votes": 132636,
+        "dem_candidate": "Grady L Patterson Jr",
+        "rep_candidate": "Thomas Ravenel",
+        "margin": -2883,
+        "margin_pct": -2.1736,
         "winner": "D",
         "color": "#c6dbef"
-      },
-      "4": {
-        "dem_votes": 33241,
-        "rep_votes": 58689,
-        "other_votes": 48,
-        "total_votes": 91978,
-        "dem_candidate": "Grady L Patterson Jr",
-        "rep_candidate": "Thomas Ravenel",
-        "margin": 25448,
-        "margin_pct": 27.6675,
-        "winner": "R",
-        "color": "#cb181d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 72.1811,
-    "precinct_rows_total": 2164,
-    "precinct_rows_matched": 1562,
-    "precinct_rows_block_weighted": 1562
+    "match_coverage_pct": 92.9965,
+    "precinct_rows_total": 2256,
+    "precinct_rows_overlap_weighted": 2098,
+    "precinct_rows_county_share_fallback": 158,
+    "precinct_votes_county_share_fallback": 93726,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

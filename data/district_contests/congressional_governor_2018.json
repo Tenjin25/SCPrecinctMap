@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
-        "dem_votes": 61072,
-        "rep_votes": 128723,
-        "other_votes": 296,
-        "total_votes": 190091,
+      "1": {
+        "dem_votes": 88725,
+        "rep_votes": 108318,
+        "other_votes": 266,
+        "total_votes": 197309,
         "dem_candidate": "James Smith / Mandy Powers Norrell",
         "rep_candidate": "Henry McMaster / Pamela Evette",
-        "margin": 67651,
-        "margin_pct": 35.5887,
+        "margin": 19593,
+        "margin_pct": 9.9301,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "2": {
+        "dem_votes": 97632,
+        "rep_votes": 118922,
+        "other_votes": 304,
+        "total_votes": 216858,
+        "dem_candidate": "James Smith / Mandy Powers Norrell",
+        "rep_candidate": "Henry McMaster / Pamela Evette",
+        "margin": 21290,
+        "margin_pct": 9.8175,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "3": {
+        "dem_votes": 64478,
+        "rep_votes": 136885,
+        "other_votes": 318,
+        "total_votes": 201681,
+        "dem_candidate": "James Smith / Mandy Powers Norrell",
+        "rep_candidate": "Henry McMaster / Pamela Evette",
+        "margin": 72407,
+        "margin_pct": 35.9017,
         "winner": "R",
         "color": "#a50f15"
       },
-      "2": {
-        "dem_votes": 97310,
-        "rep_votes": 119354,
-        "other_votes": 305,
-        "total_votes": 216969,
+      "4": {
+        "dem_votes": 83080,
+        "rep_votes": 120771,
+        "other_votes": 438,
+        "total_votes": 204289,
         "dem_candidate": "James Smith / Mandy Powers Norrell",
         "rep_candidate": "Henry McMaster / Pamela Evette",
-        "margin": 22044,
-        "margin_pct": 10.16,
+        "margin": 37691,
+        "margin_pct": 18.4498,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "5": {
+        "dem_votes": 84599,
+        "rep_votes": 121830,
+        "other_votes": 153,
+        "total_votes": 206582,
+        "dem_candidate": "James Smith / Mandy Powers Norrell",
+        "rep_candidate": "Henry McMaster / Pamela Evette",
+        "margin": 37231,
+        "margin_pct": 18.0224,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 105734,
-        "rep_votes": 49483,
-        "other_votes": 162,
-        "total_votes": 155379,
+        "dem_votes": 122674,
+        "rep_votes": 62369,
+        "other_votes": 202,
+        "total_votes": 185245,
         "dem_candidate": "James Smith / Mandy Powers Norrell",
         "rep_candidate": "Henry McMaster / Pamela Evette",
-        "margin": -56251,
-        "margin_pct": -36.2024,
+        "margin": -60305,
+        "margin_pct": -32.5542,
         "winner": "D",
         "color": "#2171b5"
       },
-      "1": {
-        "dem_votes": 96704,
-        "rep_votes": 114368,
-        "other_votes": 286,
-        "total_votes": 211358,
-        "dem_candidate": "James Smith / Mandy Powers Norrell",
-        "rep_candidate": "Henry McMaster / Pamela Evette",
-        "margin": 17664,
-        "margin_pct": 8.3574,
-        "winner": "R",
-        "color": "#fc8a6a"
-      },
-      "5": {
-        "dem_votes": 86427,
-        "rep_votes": 120679,
-        "other_votes": 148,
-        "total_votes": 207254,
-        "dem_candidate": "James Smith / Mandy Powers Norrell",
-        "rep_candidate": "Henry McMaster / Pamela Evette",
-        "margin": 34252,
-        "margin_pct": 16.5266,
-        "winner": "R",
-        "color": "#ef3b2c"
-      },
       "7": {
-        "dem_votes": 79307,
-        "rep_votes": 115725,
-        "other_votes": 134,
-        "total_votes": 195166,
+        "dem_votes": 81991,
+        "rep_votes": 120012,
+        "other_votes": 143,
+        "total_votes": 202146,
         "dem_candidate": "James Smith / Mandy Powers Norrell",
         "rep_candidate": "Henry McMaster / Pamela Evette",
-        "margin": 36418,
-        "margin_pct": 18.66,
+        "margin": 38021,
+        "margin_pct": 18.8087,
         "winner": "R",
         "color": "#ef3b2c"
-      },
-      "4": {
-        "dem_votes": 83891,
-        "rep_votes": 126149,
-        "other_votes": 452,
-        "total_votes": 210492,
-        "dem_candidate": "James Smith / Mandy Powers Norrell",
-        "rep_candidate": "Henry McMaster / Pamela Evette",
-        "margin": 42258,
-        "margin_pct": 20.0758,
-        "winner": "R",
-        "color": "#cb181d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 95.0607,
-    "precinct_rows_total": 2308,
-    "precinct_rows_matched": 2194,
-    "precinct_rows_block_weighted": 2194
+    "match_coverage_pct": 97.5631,
+    "precinct_rows_total": 2339,
+    "precinct_rows_overlap_weighted": 2282,
+    "precinct_rows_county_share_fallback": 57,
+    "precinct_votes_county_share_fallback": 4629,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

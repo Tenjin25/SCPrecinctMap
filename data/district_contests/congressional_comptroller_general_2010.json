@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
-        "dem_votes": 49920,
-        "rep_votes": 93153,
-        "other_votes": 94,
-        "total_votes": 143167,
+      "1": {
+        "dem_votes": 54206,
+        "rep_votes": 84607,
+        "other_votes": 60,
+        "total_votes": 138873,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": 43233,
-        "margin_pct": 30.1976,
+        "margin": 30401,
+        "margin_pct": 21.8912,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#cb181d"
       },
       "2": {
-        "dem_votes": 71685,
-        "rep_votes": 101305,
-        "other_votes": 110,
-        "total_votes": 173100,
+        "dem_votes": 75691,
+        "rep_votes": 107356,
+        "other_votes": 118,
+        "total_votes": 183165,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": 29620,
-        "margin_pct": 17.1115,
+        "margin": 31665,
+        "margin_pct": 17.2877,
         "winner": "R",
         "color": "#ef3b2c"
       },
-      "6": {
-        "dem_votes": 109714,
-        "rep_votes": 51565,
-        "other_votes": 72,
-        "total_votes": 161351,
+      "3": {
+        "dem_votes": 57052,
+        "rep_votes": 104364,
+        "other_votes": 106,
+        "total_votes": 161522,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": -58149,
-        "margin_pct": -36.0388,
-        "winner": "D",
-        "color": "#2171b5"
+        "margin": 47312,
+        "margin_pct": 29.2914,
+        "winner": "R",
+        "color": "#cb181d"
       },
-      "1": {
-        "dem_votes": 59193,
-        "rep_votes": 93152,
-        "other_votes": 74,
-        "total_votes": 152419,
+      "4": {
+        "dem_votes": 56755,
+        "rep_votes": 104469,
+        "other_votes": 137,
+        "total_votes": 161361,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": 33959,
-        "margin_pct": 22.28,
+        "margin": 47714,
+        "margin_pct": 29.5697,
         "winner": "R",
         "color": "#cb181d"
       },
       "5": {
-        "dem_votes": 65368,
-        "rep_votes": 87324,
-        "other_votes": 52,
-        "total_votes": 152744,
+        "dem_votes": 63829,
+        "rep_votes": 90510,
+        "other_votes": 56,
+        "total_votes": 154395,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": 21956,
-        "margin_pct": 14.3744,
+        "margin": 26681,
+        "margin_pct": 17.281,
         "winner": "R",
         "color": "#ef3b2c"
+      },
+      "6": {
+        "dem_votes": 115962,
+        "rep_votes": 62789,
+        "other_votes": 89,
+        "total_votes": 178840,
+        "dem_candidate": "Robert Barber",
+        "rep_candidate": "Richard A. Eckstrom",
+        "margin": -53173,
+        "margin_pct": -29.7322,
+        "winner": "D",
+        "color": "#4292c6"
       },
       "7": {
-        "dem_votes": 70999,
-        "rep_votes": 90634,
+        "dem_votes": 71647,
+        "rep_votes": 92063,
         "other_votes": 56,
-        "total_votes": 161689,
+        "total_votes": 163766,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": 19635,
-        "margin_pct": 12.1437,
+        "margin": 20416,
+        "margin_pct": 12.4666,
         "winner": "R",
         "color": "#ef3b2c"
-      },
-      "4": {
-        "dem_votes": 54762,
-        "rep_votes": 107083,
-        "other_votes": 139,
-        "total_votes": 161984,
-        "dem_candidate": "Robert Barber",
-        "rep_candidate": "Richard A. Eckstrom",
-        "margin": 52321,
-        "margin_pct": 32.3001,
-        "winner": "R",
-        "color": "#a50f15"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 94.9048,
-    "precinct_rows_total": 2100,
-    "precinct_rows_matched": 1993,
-    "precinct_rows_block_weighted": 1993
+    "match_coverage_pct": 98.153,
+    "precinct_rows_total": 2274,
+    "precinct_rows_overlap_weighted": 2232,
+    "precinct_rows_county_share_fallback": 42,
+    "precinct_votes_county_share_fallback": 5976,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

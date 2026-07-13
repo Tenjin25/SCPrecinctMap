@@ -2,9 +2,137 @@
   "files": [
     {
       "scope": "state_house",
+      "contest_type": "president",
+      "year": 2024,
+      "file": "state_house_president_2024_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "attorney_general",
+      "year": 2022,
+      "file": "state_house_attorney_general_2022_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "commissioner_agriculture",
+      "year": 2022,
+      "file": "state_house_commissioner_agriculture_2022_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "comptroller_general",
+      "year": 2022,
+      "file": "state_house_comptroller_general_2022_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2022,
+      "file": "state_house_governor_2022_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "secretary_of_state",
+      "year": 2022,
+      "file": "state_house_secretary_of_state_2022_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "state_treasurer",
+      "year": 2022,
+      "file": "state_house_state_treasurer_2022_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
       "contest_type": "superintendent",
       "year": 2022,
       "file": "state_house_superintendent_2022_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2022,
+      "file": "state_house_us_senate_2022_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2020,
+      "file": "state_house_president_2020_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2020,
+      "file": "state_house_us_senate_2020_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "attorney_general",
+      "year": 2018,
+      "file": "state_house_attorney_general_2018_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "commissioner_agriculture",
+      "year": 2018,
+      "file": "state_house_commissioner_agriculture_2018_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "comptroller_general",
+      "year": 2018,
+      "file": "state_house_comptroller_general_2018_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2018,
+      "file": "state_house_governor_2018_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "secretary_of_state",
+      "year": 2018,
+      "file": "state_house_secretary_of_state_2018_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "state_treasurer",
+      "year": 2018,
+      "file": "state_house_state_treasurer_2018_2024_lines.json",
       "rows": 124,
       "district_lines": "2024_lines"
     },
@@ -18,6 +146,70 @@
     },
     {
       "scope": "state_house",
+      "contest_type": "president",
+      "year": 2016,
+      "file": "state_house_president_2016_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2016,
+      "file": "state_house_us_senate_2016_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "attorney_general",
+      "year": 2014,
+      "file": "state_house_attorney_general_2014_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "commissioner_agriculture",
+      "year": 2014,
+      "file": "state_house_commissioner_agriculture_2014_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "comptroller_general",
+      "year": 2014,
+      "file": "state_house_comptroller_general_2014_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2014,
+      "file": "state_house_governor_2014_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "secretary_of_state",
+      "year": 2014,
+      "file": "state_house_secretary_of_state_2014_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "state_treasurer",
+      "year": 2014,
+      "file": "state_house_state_treasurer_2014_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
       "contest_type": "superintendent",
       "year": 2014,
       "file": "state_house_superintendent_2014_2024_lines.json",
@@ -26,9 +218,153 @@
     },
     {
       "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "file": "state_house_us_senate_2014_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2012,
+      "file": "state_house_president_2012_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "attorney_general",
+      "year": 2010,
+      "file": "state_house_attorney_general_2010_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "commissioner_agriculture",
+      "year": 2010,
+      "file": "state_house_commissioner_agriculture_2010_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "comptroller_general",
+      "year": 2010,
+      "file": "state_house_comptroller_general_2010_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2010,
+      "file": "state_house_governor_2010_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "secretary_of_state",
+      "year": 2010,
+      "file": "state_house_secretary_of_state_2010_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "state_treasurer",
+      "year": 2010,
+      "file": "state_house_state_treasurer_2010_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
       "contest_type": "superintendent",
       "year": 2010,
       "file": "state_house_superintendent_2010_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2010,
+      "file": "state_house_us_senate_2010_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2008,
+      "file": "state_house_president_2008_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "file": "state_house_us_senate_2008_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "attorney_general",
+      "year": 2006,
+      "file": "state_house_attorney_general_2006_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "commissioner_agriculture",
+      "year": 2006,
+      "file": "state_house_commissioner_agriculture_2006_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "comptroller_general",
+      "year": 2006,
+      "file": "state_house_comptroller_general_2006_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2006,
+      "file": "state_house_governor_2006_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "secretary_of_state",
+      "year": 2006,
+      "file": "state_house_secretary_of_state_2006_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "state_treasurer",
+      "year": 2006,
+      "file": "state_house_state_treasurer_2006_2024_lines.json",
+      "rows": 124,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "superintendent",
+      "year": 2006,
+      "file": "state_house_superintendent_2006_2024_lines.json",
       "rows": 124,
       "district_lines": "2024_lines"
     }

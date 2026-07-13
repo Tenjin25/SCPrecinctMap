@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
+      "1": {
         "dem_votes": 0,
-        "rep_votes": 183933,
-        "other_votes": 3253,
-        "total_votes": 187186,
+        "rep_votes": 192478,
+        "other_votes": 5544,
+        "total_votes": 198022,
         "dem_candidate": "",
         "rep_candidate": "Alan Wilson",
-        "margin": 183933,
-        "margin_pct": 98.2622,
+        "margin": 192478,
+        "margin_pct": 97.2003,
         "winner": "R",
         "color": "#67000d"
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 176135,
-        "other_votes": 7005,
-        "total_votes": 183140,
+        "rep_votes": 176304,
+        "other_votes": 6763,
+        "total_votes": 183067,
         "dem_candidate": "",
         "rep_candidate": "Alan Wilson",
-        "margin": 176135,
-        "margin_pct": 96.1751,
+        "margin": 176304,
+        "margin_pct": 96.3057,
         "winner": "R",
         "color": "#67000d"
       },
-      "6": {
+      "3": {
         "dem_votes": 0,
-        "rep_votes": 92829,
-        "other_votes": 4315,
-        "total_votes": 97144,
+        "rep_votes": 192327,
+        "other_votes": 3357,
+        "total_votes": 195684,
         "dem_candidate": "",
         "rep_candidate": "Alan Wilson",
-        "margin": 92829,
-        "margin_pct": 95.5581,
-        "winner": "R",
-        "color": "#67000d"
-      },
-      "1": {
-        "dem_votes": 0,
-        "rep_votes": 204512,
-        "other_votes": 6700,
-        "total_votes": 211212,
-        "dem_candidate": "",
-        "rep_candidate": "Alan Wilson",
-        "margin": 204512,
-        "margin_pct": 96.8278,
-        "winner": "R",
-        "color": "#67000d"
-      },
-      "5": {
-        "dem_votes": 0,
-        "rep_votes": 174313,
-        "other_votes": 3765,
-        "total_votes": 178078,
-        "dem_candidate": "",
-        "rep_candidate": "Alan Wilson",
-        "margin": 174313,
-        "margin_pct": 97.8858,
-        "winner": "R",
-        "color": "#67000d"
-      },
-      "7": {
-        "dem_votes": 0,
-        "rep_votes": 182261,
-        "other_votes": 2706,
-        "total_votes": 184967,
-        "dem_candidate": "",
-        "rep_candidate": "Alan Wilson",
-        "margin": 182261,
-        "margin_pct": 98.537,
+        "margin": 192327,
+        "margin_pct": 98.2845,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 182475,
-        "other_votes": 5309,
-        "total_votes": 187784,
+        "rep_votes": 174100,
+        "other_votes": 5272,
+        "total_votes": 179372,
         "dem_candidate": "",
         "rep_candidate": "Alan Wilson",
-        "margin": 182475,
-        "margin_pct": 97.1728,
+        "margin": 174100,
+        "margin_pct": 97.0609,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 179908,
+        "other_votes": 3827,
+        "total_votes": 183735,
+        "dem_candidate": "",
+        "rep_candidate": "Alan Wilson",
+        "margin": 179908,
+        "margin_pct": 97.9171,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 114295,
+        "other_votes": 6009,
+        "total_votes": 120304,
+        "dem_candidate": "",
+        "rep_candidate": "Alan Wilson",
+        "margin": 114295,
+        "margin_pct": 95.0052,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 189227,
+        "other_votes": 2793,
+        "total_votes": 192020,
+        "dem_candidate": "",
+        "rep_candidate": "Alan Wilson",
+        "margin": 189227,
+        "margin_pct": 98.5455,
         "winner": "R",
         "color": "#67000d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 97.7394,
-    "precinct_rows_total": 2256,
-    "precinct_rows_matched": 2205,
-    "precinct_rows_block_weighted": 2205
+    "match_coverage_pct": 99.8701,
+    "precinct_rows_total": 2310,
+    "precinct_rows_overlap_weighted": 2307,
+    "precinct_rows_county_share_fallback": 3,
+    "precinct_votes_county_share_fallback": 2131,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

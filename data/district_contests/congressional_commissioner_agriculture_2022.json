@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
+      "1": {
         "dem_votes": 0,
-        "rep_votes": 169686,
-        "other_votes": 30043,
-        "total_votes": 199729,
+        "rep_votes": 167857,
+        "other_votes": 55959,
+        "total_votes": 223816,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 169686,
-        "margin_pct": 84.9581,
+        "margin": 167857,
+        "margin_pct": 74.9978,
         "winner": "R",
         "color": "#67000d"
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 157410,
-        "other_votes": 50125,
-        "total_votes": 207535,
+        "rep_votes": 156963,
+        "other_votes": 50165,
+        "total_votes": 207128,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 157410,
-        "margin_pct": 75.8474,
+        "margin": 156963,
+        "margin_pct": 75.7807,
         "winner": "R",
         "color": "#67000d"
       },
-      "6": {
+      "3": {
         "dem_votes": 0,
-        "rep_votes": 74058,
-        "other_votes": 44314,
-        "total_votes": 118372,
+        "rep_votes": 177605,
+        "other_votes": 31139,
+        "total_votes": 208744,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 74058,
-        "margin_pct": 62.5638,
-        "winner": "R",
-        "color": "#67000d"
-      },
-      "1": {
-        "dem_votes": 0,
-        "rep_votes": 177435,
-        "other_votes": 63344,
-        "total_votes": 240779,
-        "dem_candidate": "",
-        "rep_candidate": "Hugh Weathers",
-        "margin": 177435,
-        "margin_pct": 73.6921,
-        "winner": "R",
-        "color": "#67000d"
-      },
-      "5": {
-        "dem_votes": 0,
-        "rep_votes": 153712,
-        "other_votes": 42516,
-        "total_votes": 196228,
-        "dem_candidate": "",
-        "rep_candidate": "Hugh Weathers",
-        "margin": 153712,
-        "margin_pct": 78.3334,
-        "winner": "R",
-        "color": "#67000d"
-      },
-      "7": {
-        "dem_votes": 0,
-        "rep_votes": 165651,
-        "other_votes": 33053,
-        "total_votes": 198704,
-        "dem_candidate": "",
-        "rep_candidate": "Hugh Weathers",
-        "margin": 165651,
-        "margin_pct": 83.3657,
+        "margin": 177605,
+        "margin_pct": 85.0827,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 163969,
-        "other_votes": 42832,
-        "total_votes": 206801,
+        "rep_votes": 155995,
+        "other_votes": 42195,
+        "total_votes": 198190,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 163969,
-        "margin_pct": 79.2883,
+        "margin": 155995,
+        "margin_pct": 78.7098,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 158882,
+        "other_votes": 42998,
+        "total_votes": 201880,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 158882,
+        "margin_pct": 78.7012,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 92171,
+        "other_votes": 55120,
+        "total_votes": 147291,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 92171,
+        "margin_pct": 62.5775,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 171957,
+        "other_votes": 34271,
+        "total_votes": 206228,
+        "dem_candidate": "",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 171957,
+        "margin_pct": 83.382,
         "winner": "R",
         "color": "#67000d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 97.7394,
-    "precinct_rows_total": 2256,
-    "precinct_rows_matched": 2205,
-    "precinct_rows_block_weighted": 2205
+    "match_coverage_pct": 99.8701,
+    "precinct_rows_total": 2310,
+    "precinct_rows_overlap_weighted": 2307,
+    "precinct_rows_county_share_fallback": 3,
+    "precinct_votes_county_share_fallback": 2241,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

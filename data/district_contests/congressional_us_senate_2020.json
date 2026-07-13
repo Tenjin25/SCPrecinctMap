@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
-        "dem_votes": 104874,
-        "rep_votes": 222890,
-        "other_votes": 5222,
-        "total_votes": 332986,
+      "1": {
+        "dem_votes": 170961,
+        "rep_votes": 203190,
+        "other_votes": 5077,
+        "total_votes": 379228,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": 118016,
-        "margin_pct": 35.4417,
+        "margin": 32229,
+        "margin_pct": 8.4986,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "2": {
+        "dem_votes": 162629,
+        "rep_votes": 198404,
+        "other_votes": 5126,
+        "total_votes": 366159,
+        "dem_candidate": "Jaime Harrison",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 35775,
+        "margin_pct": 9.7703,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "3": {
+        "dem_votes": 109003,
+        "rep_votes": 232514,
+        "other_votes": 5453,
+        "total_votes": 346970,
+        "dem_candidate": "Jaime Harrison",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 123511,
+        "margin_pct": 35.597,
         "winner": "R",
         "color": "#a50f15"
       },
-      "2": {
-        "dem_votes": 160685,
-        "rep_votes": 199055,
-        "other_votes": 5111,
-        "total_votes": 364851,
+      "4": {
+        "dem_votes": 140258,
+        "rep_votes": 200350,
+        "other_votes": 4940,
+        "total_votes": 345548,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": 38370,
-        "margin_pct": 10.5166,
+        "margin": 60092,
+        "margin_pct": 17.3903,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "5": {
+        "dem_votes": 150643,
+        "rep_votes": 207201,
+        "other_votes": 5962,
+        "total_votes": 363806,
+        "dem_candidate": "Jaime Harrison",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 56558,
+        "margin_pct": 15.5462,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 190953,
-        "rep_votes": 88468,
-        "other_votes": 2884,
-        "total_votes": 282305,
+        "dem_votes": 223380,
+        "rep_votes": 111490,
+        "other_votes": 3608,
+        "total_votes": 338478,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": -102485,
-        "margin_pct": -36.3029,
+        "margin": -111890,
+        "margin_pct": -33.0568,
         "winner": "D",
         "color": "#2171b5"
       },
-      "1": {
-        "dem_votes": 190720,
-        "rep_votes": 217145,
-        "other_votes": 5602,
-        "total_votes": 413467,
-        "dem_candidate": "Jaime Harrison",
-        "rep_candidate": "Lindsey Graham",
-        "margin": 26425,
-        "margin_pct": 6.3911,
-        "winner": "R",
-        "color": "#fc8a6a"
-      },
-      "5": {
-        "dem_votes": 153170,
-        "rep_votes": 204524,
-        "other_votes": 5912,
-        "total_votes": 363606,
-        "dem_candidate": "Jaime Harrison",
-        "rep_candidate": "Lindsey Graham",
-        "margin": 51354,
-        "margin_pct": 14.1235,
-        "winner": "R",
-        "color": "#ef3b2c"
-      },
       "7": {
-        "dem_votes": 145512,
-        "rep_votes": 204351,
-        "other_votes": 4601,
-        "total_votes": 354464,
+        "dem_votes": 150122,
+        "rep_votes": 210967,
+        "other_votes": 4752,
+        "total_votes": 365841,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": 58839,
-        "margin_pct": 16.5994,
-        "winner": "R",
-        "color": "#ef3b2c"
-      },
-      "4": {
-        "dem_votes": 141845,
-        "rep_votes": 210180,
-        "other_votes": 5148,
-        "total_votes": 357173,
-        "dem_candidate": "Jaime Harrison",
-        "rep_candidate": "Lindsey Graham",
-        "margin": 68335,
-        "margin_pct": 19.1322,
+        "margin": 60845,
+        "margin_pct": 16.6315,
         "winner": "R",
         "color": "#ef3b2c"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 98.0531,
-    "precinct_rows_total": 2260,
-    "precinct_rows_matched": 2216,
-    "precinct_rows_block_weighted": 2216
+    "match_coverage_pct": 99.9131,
+    "precinct_rows_total": 2301,
+    "precinct_rows_overlap_weighted": 2299,
+    "precinct_rows_county_share_fallback": 2,
+    "precinct_votes_county_share_fallback": 3042,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

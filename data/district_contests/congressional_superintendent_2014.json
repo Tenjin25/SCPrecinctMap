@@ -1,1 +1,105 @@
-{"general":{"results":{"3":{"dem_votes":38625,"rep_votes":97679,"other_votes":7640,"total_votes":143944,"dem_candidate":"Tom Thompson","rep_candidate":"Molly Mitchell Spearman","margin":59054,"margin_pct":41.0257,"winner":"R","color":"#67000d"},"2":{"dem_votes":53924,"rep_votes":104210,"other_votes":6712,"total_votes":164846,"dem_candidate":"Tom Thompson","rep_candidate":"Molly Mitchell Spearman","margin":50286,"margin_pct":30.5048,"winner":"R","color":"#a50f15"},"6":{"dem_votes":94454,"rep_votes":45098,"other_votes":3780,"total_votes":143332,"dem_candidate":"Tom Thompson","rep_candidate":"Molly Mitchell Spearman","margin":-49356,"margin_pct":-34.4347,"winner":"D","color":"#2171b5"},"1":{"dem_votes":49064,"rep_votes":92527,"other_votes":6420,"total_votes":148011,"dem_candidate":"Tom Thompson","rep_candidate":"Molly Mitchell Spearman","margin":43463,"margin_pct":29.3647,"winner":"R","color":"#cb181d"},"5":{"dem_votes":52730,"rep_votes":82817,"other_votes":6114,"total_votes":141661,"dem_candidate":"Tom Thompson","rep_candidate":"Molly Mitchell Spearman","margin":30087,"margin_pct":21.2387,"winner":"R","color":"#cb181d"},"7":{"dem_votes":58848,"rep_votes":86399,"other_votes":5021,"total_votes":150268,"dem_candidate":"Tom Thompson","rep_candidate":"Molly Mitchell Spearman","margin":27551,"margin_pct":18.3346,"winner":"R","color":"#ef3b2c"},"4":{"dem_votes":43153,"rep_votes":96348,"other_votes":10704,"total_votes":150205,"dem_candidate":"Tom Thompson","rep_candidate":"Molly Mitchell Spearman","margin":53195,"margin_pct":35.4149,"winner":"R","color":"#a50f15"}}},"meta":{"match_coverage_pct":97.6744,"precinct_rows_total":2236,"precinct_rows_matched":2184,"precinct_rows_block_weighted":2184,"precinct_rows_county_share_fallback":0,"precinct_votes_county_share_fallback":0.0}}
+{
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 44822,
+        "rep_votes": 84037,
+        "other_votes": 5708,
+        "total_votes": 134567,
+        "dem_candidate": "Tom Thompson",
+        "rep_candidate": "Molly Mitchell Spearman",
+        "margin": 39215,
+        "margin_pct": 29.1416,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "2": {
+        "dem_votes": 55825,
+        "rep_votes": 104265,
+        "other_votes": 6727,
+        "total_votes": 166817,
+        "dem_candidate": "Tom Thompson",
+        "rep_candidate": "Molly Mitchell Spearman",
+        "margin": 48440,
+        "margin_pct": 29.0378,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "3": {
+        "dem_votes": 40538,
+        "rep_votes": 102910,
+        "other_votes": 7941,
+        "total_votes": 151389,
+        "dem_candidate": "Tom Thompson",
+        "rep_candidate": "Molly Mitchell Spearman",
+        "margin": 62372,
+        "margin_pct": 41.1998,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "4": {
+        "dem_votes": 42950,
+        "rep_votes": 91799,
+        "other_votes": 10283,
+        "total_votes": 145032,
+        "dem_candidate": "Tom Thompson",
+        "rep_candidate": "Molly Mitchell Spearman",
+        "margin": 48849,
+        "margin_pct": 33.6815,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "5": {
+        "dem_votes": 50633,
+        "rep_votes": 81557,
+        "other_votes": 6217,
+        "total_votes": 138407,
+        "dem_candidate": "Tom Thompson",
+        "rep_candidate": "Molly Mitchell Spearman",
+        "margin": 30924,
+        "margin_pct": 22.3428,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "6": {
+        "dem_votes": 98084,
+        "rep_votes": 55357,
+        "other_votes": 4583,
+        "total_votes": 158024,
+        "dem_candidate": "Tom Thompson",
+        "rep_candidate": "Molly Mitchell Spearman",
+        "margin": -42727,
+        "margin_pct": -27.0383,
+        "winner": "D",
+        "color": "#4292c6"
+      },
+      "7": {
+        "dem_votes": 59386,
+        "rep_votes": 86910,
+        "other_votes": 5051,
+        "total_votes": 151347,
+        "dem_candidate": "Tom Thompson",
+        "rep_candidate": "Molly Mitchell Spearman",
+        "margin": 27524,
+        "margin_pct": 18.186,
+        "winner": "R",
+        "color": "#ef3b2c"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 97.7404,
+    "precinct_rows_total": 2257,
+    "precinct_rows_overlap_weighted": 2206,
+    "precinct_rows_county_share_fallback": 51,
+    "precinct_votes_county_share_fallback": 2340,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
+  }
+}

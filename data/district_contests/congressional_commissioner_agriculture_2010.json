@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
-        "dem_votes": 43433,
-        "rep_votes": 99457,
-        "other_votes": 73,
-        "total_votes": 142963,
+      "1": {
+        "dem_votes": 48293,
+        "rep_votes": 89470,
+        "other_votes": 51,
+        "total_votes": 137814,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 56024,
-        "margin_pct": 39.1878,
-        "winner": "R",
-        "color": "#a50f15"
-      },
-      "2": {
-        "dem_votes": 61249,
-        "rep_votes": 111014,
-        "other_votes": 85,
-        "total_votes": 172348,
-        "dem_candidate": "Tom E. Elliott",
-        "rep_candidate": "Hugh Weathers",
-        "margin": 49765,
-        "margin_pct": 28.8747,
+        "margin": 41177,
+        "margin_pct": 29.8787,
         "winner": "R",
         "color": "#cb181d"
       },
-      "6": {
-        "dem_votes": 105353,
-        "rep_votes": 55801,
-        "other_votes": 46,
-        "total_votes": 161200,
+      "2": {
+        "dem_votes": 64957,
+        "rep_votes": 117328,
+        "other_votes": 89,
+        "total_votes": 182374,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": -49552,
-        "margin_pct": -30.7395,
-        "winner": "D",
-        "color": "#2171b5"
+        "margin": 52371,
+        "margin_pct": 28.7163,
+        "winner": "R",
+        "color": "#cb181d"
       },
-      "1": {
-        "dem_votes": 51434,
-        "rep_votes": 99549,
-        "other_votes": 57,
-        "total_votes": 151040,
+      "3": {
+        "dem_votes": 49319,
+        "rep_votes": 111938,
+        "other_votes": 83,
+        "total_votes": 161340,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 48115,
-        "margin_pct": 31.8558,
+        "margin": 62619,
+        "margin_pct": 38.8118,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "4": {
+        "dem_votes": 50565,
+        "rep_votes": 110169,
+        "other_votes": 77,
+        "total_votes": 160811,
+        "dem_candidate": "Tom E. Elliott",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 59604,
+        "margin_pct": 37.0646,
         "winner": "R",
         "color": "#a50f15"
       },
       "5": {
-        "dem_votes": 62114,
-        "rep_votes": 90471,
-        "other_votes": 41,
-        "total_votes": 152626,
+        "dem_votes": 60991,
+        "rep_votes": 93217,
+        "other_votes": 40,
+        "total_votes": 154248,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 28357,
-        "margin_pct": 18.5794,
+        "margin": 32226,
+        "margin_pct": 20.8923,
         "winner": "R",
-        "color": "#ef3b2c"
+        "color": "#cb181d"
+      },
+      "6": {
+        "dem_votes": 109299,
+        "rep_votes": 68981,
+        "other_votes": 58,
+        "total_votes": 178338,
+        "dem_candidate": "Tom E. Elliott",
+        "rep_candidate": "Hugh Weathers",
+        "margin": -40318,
+        "margin_pct": -22.6076,
+        "winner": "D",
+        "color": "#4292c6"
       },
       "7": {
-        "dem_votes": 66479,
-        "rep_votes": 94941,
+        "dem_votes": 67074,
+        "rep_votes": 96421,
         "other_votes": 39,
-        "total_votes": 161459,
+        "total_votes": 163534,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 28462,
-        "margin_pct": 17.628,
+        "margin": 29347,
+        "margin_pct": 17.9455,
         "winner": "R",
         "color": "#ef3b2c"
-      },
-      "4": {
-        "dem_votes": 48476,
-        "rep_votes": 112871,
-        "other_votes": 77,
-        "total_votes": 161424,
-        "dem_candidate": "Tom E. Elliott",
-        "rep_candidate": "Hugh Weathers",
-        "margin": 64395,
-        "margin_pct": 39.8918,
-        "winner": "R",
-        "color": "#a50f15"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 94.9048,
-    "precinct_rows_total": 2100,
-    "precinct_rows_matched": 1993,
-    "precinct_rows_block_weighted": 1993
+    "match_coverage_pct": 98.153,
+    "precinct_rows_total": 2274,
+    "precinct_rows_overlap_weighted": 2232,
+    "precinct_rows_county_share_fallback": 42,
+    "precinct_votes_county_share_fallback": 5952,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

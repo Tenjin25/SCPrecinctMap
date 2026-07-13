@@ -1,1 +1,105 @@
-{"general":{"results":{"3":{"dem_votes":57635,"rep_votes":81925,"other_votes":8237,"total_votes":147797,"dem_candidate":"Frank Holleman","rep_candidate":"Mick Zais","margin":24290,"margin_pct":16.4347,"winner":"R","color":"#ef3b2c"},"2":{"dem_votes":69310,"rep_votes":95087,"other_votes":10762,"total_votes":175159,"dem_candidate":"Frank Holleman","rep_candidate":"Mick Zais","margin":25777,"margin_pct":14.7163,"winner":"R","color":"#ef3b2c"},"6":{"dem_votes":107392,"rep_votes":48091,"other_votes":6637,"total_votes":162120,"dem_candidate":"Frank Holleman","rep_candidate":"Mick Zais","margin":-59301,"margin_pct":-36.5785,"winner":"D","color":"#2171b5"},"1":{"dem_votes":53665,"rep_votes":87595,"other_votes":11766,"total_votes":153026,"dem_candidate":"Frank Holleman","rep_candidate":"Mick Zais","margin":33930,"margin_pct":22.1727,"winner":"R","color":"#cb181d"},"5":{"dem_votes":68288,"rep_votes":79757,"other_votes":9391,"total_votes":157436,"dem_candidate":"Frank Holleman","rep_candidate":"Mick Zais","margin":11469,"margin_pct":7.2849,"winner":"R","color":"#fc8a6a"},"7":{"dem_votes":66289,"rep_votes":87628,"other_votes":8745,"total_votes":162662,"dem_candidate":"Frank Holleman","rep_candidate":"Mick Zais","margin":21339,"margin_pct":13.1186,"winner":"R","color":"#ef3b2c"},"4":{"dem_votes":64396,"rep_votes":94628,"other_votes":9262,"total_votes":168286,"dem_candidate":"Frank Holleman","rep_candidate":"Mick Zais","margin":30232,"margin_pct":17.9647,"winner":"R","color":"#ef3b2c"}}},"meta":{"match_coverage_pct":97.063,"precinct_rows_total":2111,"precinct_rows_matched":2049,"precinct_rows_block_weighted":2049,"precinct_rows_county_share_fallback":0,"precinct_votes_county_share_fallback":0.0}}
+{
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 49691,
+        "rep_votes": 78845,
+        "other_votes": 10429,
+        "total_votes": 138965,
+        "dem_candidate": "Frank Holleman",
+        "rep_candidate": "Mick Zais",
+        "margin": 29154,
+        "margin_pct": 20.9794,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "2": {
+        "dem_votes": 72439,
+        "rep_votes": 100195,
+        "other_votes": 11223,
+        "total_votes": 183857,
+        "dem_candidate": "Frank Holleman",
+        "rep_candidate": "Mick Zais",
+        "margin": 27756,
+        "margin_pct": 15.0965,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "3": {
+        "dem_votes": 63029,
+        "rep_votes": 90887,
+        "other_votes": 9004,
+        "total_votes": 162920,
+        "dem_candidate": "Frank Holleman",
+        "rep_candidate": "Mick Zais",
+        "margin": 27858,
+        "margin_pct": 17.0992,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "4": {
+        "dem_votes": 64020,
+        "rep_votes": 90325,
+        "other_votes": 8906,
+        "total_votes": 163251,
+        "dem_candidate": "Frank Holleman",
+        "rep_candidate": "Mick Zais",
+        "margin": 26305,
+        "margin_pct": 16.1132,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "5": {
+        "dem_votes": 65864,
+        "rep_votes": 79966,
+        "other_votes": 9455,
+        "total_votes": 155285,
+        "dem_candidate": "Frank Holleman",
+        "rep_candidate": "Mick Zais",
+        "margin": 14102,
+        "margin_pct": 9.0814,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "6": {
+        "dem_votes": 112242,
+        "rep_votes": 58679,
+        "other_votes": 8189,
+        "total_votes": 179110,
+        "dem_candidate": "Frank Holleman",
+        "rep_candidate": "Mick Zais",
+        "margin": -53563,
+        "margin_pct": -29.9051,
+        "winner": "D",
+        "color": "#4292c6"
+      },
+      "7": {
+        "dem_votes": 66692,
+        "rep_votes": 88267,
+        "other_votes": 8796,
+        "total_votes": 163755,
+        "dem_candidate": "Frank Holleman",
+        "rep_candidate": "Mick Zais",
+        "margin": 21575,
+        "margin_pct": 13.1752,
+        "winner": "R",
+        "color": "#ef3b2c"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 98.153,
+    "precinct_rows_total": 2274,
+    "precinct_rows_overlap_weighted": 2232,
+    "precinct_rows_county_share_fallback": 42,
+    "precinct_votes_county_share_fallback": 5998,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
+  }
+}

@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
-        "dem_votes": 62090,
-        "rep_votes": 129294,
-        "other_votes": 2893,
-        "total_votes": 194277,
+      "1": {
+        "dem_votes": 74468,
+        "rep_votes": 110280,
+        "other_votes": 2291,
+        "total_votes": 187039,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "John McCain and Sarah Palin",
-        "margin": 67204,
-        "margin_pct": 34.5918,
+        "margin": 35812,
+        "margin_pct": 19.1468,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 80946,
-        "rep_votes": 129213,
-        "other_votes": 2393,
-        "total_votes": 212552,
+        "dem_votes": 82750,
+        "rep_votes": 129706,
+        "other_votes": 2390,
+        "total_votes": 214846,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "John McCain and Sarah Palin",
-        "margin": 48267,
-        "margin_pct": 22.7083,
+        "margin": 46956,
+        "margin_pct": 21.8557,
         "winner": "R",
         "color": "#cb181d"
       },
-      "6": {
-        "dem_votes": 144359,
-        "rep_votes": 68545,
-        "other_votes": 2294,
-        "total_votes": 215198,
+      "3": {
+        "dem_votes": 71188,
+        "rep_votes": 146255,
+        "other_votes": 3300,
+        "total_votes": 220743,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "John McCain and Sarah Palin",
-        "margin": -75814,
-        "margin_pct": -35.2299,
-        "winner": "D",
-        "color": "#2171b5"
+        "margin": 75067,
+        "margin_pct": 34.0065,
+        "winner": "R",
+        "color": "#a50f15"
       },
-      "1": {
-        "dem_votes": 80822,
-        "rep_votes": 122190,
-        "other_votes": 2619,
-        "total_votes": 205631,
+      "4": {
+        "dem_votes": 79966,
+        "rep_votes": 136756,
+        "other_votes": 3933,
+        "total_votes": 220655,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "John McCain and Sarah Palin",
-        "margin": 41368,
-        "margin_pct": 20.1176,
+        "margin": 56790,
+        "margin_pct": 25.737,
         "winner": "R",
         "color": "#cb181d"
       },
       "5": {
-        "dem_votes": 80535,
-        "rep_votes": 107934,
-        "other_votes": 2383,
-        "total_votes": 190852,
+        "dem_votes": 81555,
+        "rep_votes": 112998,
+        "other_votes": 2526,
+        "total_votes": 197079,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "John McCain and Sarah Palin",
-        "margin": 27399,
-        "margin_pct": 14.3562,
+        "margin": 31443,
+        "margin_pct": 15.9545,
         "winner": "R",
         "color": "#ef3b2c"
+      },
+      "6": {
+        "dem_votes": 152028,
+        "rep_votes": 83891,
+        "other_votes": 2725,
+        "total_votes": 238644,
+        "dem_candidate": "Barack Obama and Joe Biden",
+        "rep_candidate": "John McCain and Sarah Palin",
+        "margin": -68137,
+        "margin_pct": -28.5517,
+        "winner": "D",
+        "color": "#4292c6"
       },
       "7": {
-        "dem_votes": 94530,
-        "rep_votes": 123429,
-        "other_votes": 2529,
-        "total_votes": 220488,
+        "dem_votes": 95699,
+        "rep_votes": 126170,
+        "other_votes": 2568,
+        "total_votes": 224437,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "John McCain and Sarah Palin",
-        "margin": 28899,
-        "margin_pct": 13.1068,
+        "margin": 30471,
+        "margin_pct": 13.5766,
         "winner": "R",
         "color": "#ef3b2c"
-      },
-      "4": {
-        "dem_votes": 60789,
-        "rep_votes": 110073,
-        "other_votes": 3168,
-        "total_votes": 174030,
-        "dem_candidate": "Barack Obama and Joe Biden",
-        "rep_candidate": "John McCain and Sarah Palin",
-        "margin": 49284,
-        "margin_pct": 28.3193,
-        "winner": "R",
-        "color": "#cb181d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 92.0935,
-    "precinct_rows_total": 2011,
-    "precinct_rows_matched": 1852,
-    "precinct_rows_block_weighted": 1852
+    "match_coverage_pct": 95.5337,
+    "precinct_rows_total": 2239,
+    "precinct_rows_overlap_weighted": 2139,
+    "precinct_rows_county_share_fallback": 100,
+    "precinct_votes_county_share_fallback": 66054,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

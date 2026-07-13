@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
-        "dem_votes": 56613,
-        "rep_votes": 169468,
-        "other_votes": 236,
-        "total_votes": 226317,
+      "1": {
+        "dem_votes": 102846,
+        "rep_votes": 166796,
+        "other_votes": 285,
+        "total_votes": 269927,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 112855,
-        "margin_pct": 49.8659,
+        "margin": 63950,
+        "margin_pct": 23.6916,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "2": {
+        "dem_votes": 93737,
+        "rep_votes": 150961,
+        "other_votes": 299,
+        "total_votes": 244997,
+        "dem_candidate": "Krystle Matthews",
+        "rep_candidate": "Tim Scott",
+        "margin": 57224,
+        "margin_pct": 23.357,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "3": {
+        "dem_votes": 58920,
+        "rep_votes": 177184,
+        "other_votes": 242,
+        "total_votes": 236346,
+        "dem_candidate": "Krystle Matthews",
+        "rep_candidate": "Tim Scott",
+        "margin": 118264,
+        "margin_pct": 50.0385,
         "winner": "R",
         "color": "#67000d"
       },
-      "2": {
-        "dem_votes": 92941,
-        "rep_votes": 151107,
-        "other_votes": 317,
-        "total_votes": 244365,
+      "4": {
+        "dem_votes": 76894,
+        "rep_votes": 154703,
+        "other_votes": 387,
+        "total_votes": 231984,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 58166,
-        "margin_pct": 23.8029,
-        "winner": "R",
-        "color": "#cb181d"
-      },
-      "6": {
-        "dem_votes": 106295,
-        "rep_votes": 70254,
-        "other_votes": 205,
-        "total_votes": 176754,
-        "dem_candidate": "Krystle Matthews",
-        "rep_candidate": "Tim Scott",
-        "margin": -36041,
-        "margin_pct": -20.3905,
-        "winner": "D",
-        "color": "#4292c6"
-      },
-      "1": {
-        "dem_votes": 112913,
-        "rep_votes": 175967,
-        "other_votes": 339,
-        "total_votes": 289219,
-        "dem_candidate": "Krystle Matthews",
-        "rep_candidate": "Tim Scott",
-        "margin": 63054,
-        "margin_pct": 21.8015,
-        "winner": "R",
-        "color": "#cb181d"
-      },
-      "5": {
-        "dem_votes": 84274,
-        "rep_votes": 150895,
-        "other_votes": 155,
-        "total_votes": 235324,
-        "dem_candidate": "Krystle Matthews",
-        "rep_candidate": "Tim Scott",
-        "margin": 66621,
-        "margin_pct": 28.3103,
-        "winner": "R",
-        "color": "#cb181d"
-      },
-      "7": {
-        "dem_votes": 81553,
-        "rep_votes": 162975,
-        "other_votes": 136,
-        "total_votes": 244664,
-        "dem_candidate": "Krystle Matthews",
-        "rep_candidate": "Tim Scott",
-        "margin": 81422,
-        "margin_pct": 33.2791,
+        "margin": 77809,
+        "margin_pct": 33.5407,
         "winner": "R",
         "color": "#a50f15"
       },
-      "4": {
-        "dem_votes": 77462,
-        "rep_votes": 162716,
-        "other_votes": 393,
-        "total_votes": 240571,
+      "5": {
+        "dem_votes": 84072,
+        "rep_votes": 156400,
+        "other_votes": 159,
+        "total_votes": 240631,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 85254,
-        "margin_pct": 35.4382,
+        "margin": 72328,
+        "margin_pct": 30.0576,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "6": {
+        "dem_votes": 124238,
+        "rep_votes": 87278,
+        "other_votes": 294,
+        "total_votes": 211810,
+        "dem_candidate": "Krystle Matthews",
+        "rep_candidate": "Tim Scott",
+        "margin": -36960,
+        "margin_pct": -17.4496,
+        "winner": "D",
+        "color": "#6baed6"
+      },
+      "7": {
+        "dem_votes": 84617,
+        "rep_votes": 169195,
+        "other_votes": 141,
+        "total_votes": 253953,
+        "dem_candidate": "Krystle Matthews",
+        "rep_candidate": "Tim Scott",
+        "margin": 84578,
+        "margin_pct": 33.3046,
         "winner": "R",
         "color": "#a50f15"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 97.7394,
-    "precinct_rows_total": 2256,
-    "precinct_rows_matched": 2205,
-    "precinct_rows_block_weighted": 2205
+    "match_coverage_pct": 99.8701,
+    "precinct_rows_total": 2310,
+    "precinct_rows_overlap_weighted": 2307,
+    "precinct_rows_county_share_fallback": 3,
+    "precinct_votes_county_share_fallback": 2583,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

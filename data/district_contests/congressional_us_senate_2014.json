@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
-        "dem_votes": 68368,
-        "rep_votes": 198475,
-        "other_votes": 19086,
-        "total_votes": 285929,
+      "1": {
+        "dem_votes": 85506,
+        "rep_votes": 173947,
+        "other_votes": 14449,
+        "total_votes": 273902,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 130107,
-        "margin_pct": 45.5033,
+        "margin": 88441,
+        "margin_pct": 32.2893,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       },
       "2": {
-        "dem_votes": 110095,
-        "rep_votes": 204118,
-        "other_votes": 17861,
-        "total_votes": 332074,
+        "dem_votes": 113451,
+        "rep_votes": 204722,
+        "other_votes": 17790,
+        "total_votes": 335963,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 94023,
-        "margin_pct": 28.3139,
+        "margin": 91271,
+        "margin_pct": 27.167,
         "winner": "R",
         "color": "#cb181d"
       },
-      "6": {
-        "dem_votes": 186317,
-        "rep_votes": 91465,
-        "other_votes": 9953,
-        "total_votes": 287735,
+      "3": {
+        "dem_votes": 74633,
+        "rep_votes": 210860,
+        "other_votes": 20065,
+        "total_votes": 305558,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": -94852,
-        "margin_pct": -32.9651,
-        "winner": "D",
-        "color": "#2171b5"
+        "margin": 136227,
+        "margin_pct": 44.583,
+        "winner": "R",
+        "color": "#67000d"
       },
-      "1": {
-        "dem_votes": 92918,
-        "rep_votes": 192330,
-        "other_votes": 16686,
-        "total_votes": 301934,
+      "4": {
+        "dem_votes": 76516,
+        "rep_votes": 193647,
+        "other_votes": 23420,
+        "total_votes": 293583,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 99412,
-        "margin_pct": 32.9251,
+        "margin": 117131,
+        "margin_pct": 39.8971,
         "winner": "R",
         "color": "#a50f15"
       },
       "5": {
-        "dem_votes": 101552,
-        "rep_votes": 164080,
-        "other_votes": 15479,
-        "total_votes": 281111,
+        "dem_votes": 97804,
+        "rep_votes": 164696,
+        "other_votes": 15964,
+        "total_votes": 278464,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 62528,
-        "margin_pct": 22.2432,
+        "margin": 66892,
+        "margin_pct": 24.0218,
         "winner": "R",
         "color": "#cb181d"
+      },
+      "6": {
+        "dem_votes": 193022,
+        "rep_votes": 113066,
+        "other_votes": 12579,
+        "total_votes": 318667,
+        "dem_candidate": "Brad Hutto",
+        "rep_candidate": "Lindsey Graham",
+        "margin": -79956,
+        "margin_pct": -25.0908,
+        "winner": "D",
+        "color": "#4292c6"
       },
       "7": {
-        "dem_votes": 111008,
-        "rep_votes": 178560,
-        "other_votes": 12883,
-        "total_votes": 302451,
+        "dem_votes": 112162,
+        "rep_votes": 180528,
+        "other_votes": 13019,
+        "total_votes": 305709,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 67552,
-        "margin_pct": 22.3349,
+        "margin": 68366,
+        "margin_pct": 22.3631,
         "winner": "R",
         "color": "#cb181d"
-      },
-      "4": {
-        "dem_votes": 75499,
-        "rep_votes": 202063,
-        "other_votes": 24341,
-        "total_votes": 301903,
-        "dem_candidate": "Brad Hutto",
-        "rep_candidate": "Lindsey Graham",
-        "margin": 126564,
-        "margin_pct": 41.9221,
-        "winner": "R",
-        "color": "#67000d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 96.5174,
-    "precinct_rows_total": 2211,
-    "precinct_rows_matched": 2134,
-    "precinct_rows_block_weighted": 2134
+    "match_coverage_pct": 97.7404,
+    "precinct_rows_total": 2257,
+    "precinct_rows_overlap_weighted": 2206,
+    "precinct_rows_county_share_fallback": 51,
+    "precinct_votes_county_share_fallback": 4693,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

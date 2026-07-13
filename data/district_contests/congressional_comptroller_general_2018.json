@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
+      "1": {
         "dem_votes": 0,
-        "rep_votes": 149172,
-        "other_votes": 2152,
-        "total_votes": 151324,
+        "rep_votes": 136715,
+        "other_votes": 2883,
+        "total_votes": 139598,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 149172,
-        "margin_pct": 98.5779,
+        "margin": 136715,
+        "margin_pct": 97.9348,
         "winner": "R",
         "color": "#67000d"
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 154418,
-        "other_votes": 3965,
-        "total_votes": 158383,
+        "rep_votes": 153504,
+        "other_votes": 3916,
+        "total_votes": 157420,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 154418,
-        "margin_pct": 97.4966,
+        "margin": 153504,
+        "margin_pct": 97.5124,
         "winner": "R",
         "color": "#67000d"
       },
-      "6": {
+      "3": {
         "dem_votes": 0,
-        "rep_votes": 71647,
-        "other_votes": 2830,
-        "total_votes": 74477,
+        "rep_votes": 158626,
+        "other_votes": 2221,
+        "total_votes": 160847,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 71647,
-        "margin_pct": 96.2002,
-        "winner": "R",
-        "color": "#67000d"
-      },
-      "1": {
-        "dem_votes": 0,
-        "rep_votes": 146633,
-        "other_votes": 3496,
-        "total_votes": 150129,
-        "dem_candidate": "",
-        "rep_candidate": "Richard Eckstrom",
-        "margin": 146633,
-        "margin_pct": 97.6713,
-        "winner": "R",
-        "color": "#67000d"
-      },
-      "5": {
-        "dem_votes": 0,
-        "rep_votes": 145433,
-        "other_votes": 2915,
-        "total_votes": 148348,
-        "dem_candidate": "",
-        "rep_candidate": "Richard Eckstrom",
-        "margin": 145433,
-        "margin_pct": 98.035,
-        "winner": "R",
-        "color": "#67000d"
-      },
-      "7": {
-        "dem_votes": 0,
-        "rep_votes": 134478,
-        "other_votes": 2184,
-        "total_votes": 136662,
-        "dem_candidate": "",
-        "rep_candidate": "Richard Eckstrom",
-        "margin": 134478,
-        "margin_pct": 98.4019,
+        "margin": 158626,
+        "margin_pct": 98.6192,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 153871,
-        "other_votes": 3551,
-        "total_votes": 157422,
+        "rep_votes": 147973,
+        "other_votes": 3503,
+        "total_votes": 151476,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 153871,
-        "margin_pct": 97.7443,
+        "margin": 147973,
+        "margin_pct": 97.6874,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 146179,
+        "other_votes": 2930,
+        "total_votes": 149109,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 146179,
+        "margin_pct": 98.035,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 90950,
+        "other_votes": 3735,
+        "total_votes": 94685,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 90950,
+        "margin_pct": 96.0553,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 139298,
+        "other_votes": 2247,
+        "total_votes": 141545,
+        "dem_candidate": "",
+        "rep_candidate": "Richard Eckstrom",
+        "margin": 139298,
+        "margin_pct": 98.4125,
         "winner": "R",
         "color": "#67000d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 95.0607,
-    "precinct_rows_total": 2308,
-    "precinct_rows_matched": 2194,
-    "precinct_rows_block_weighted": 2194
+    "match_coverage_pct": 97.5631,
+    "precinct_rows_total": 2339,
+    "precinct_rows_overlap_weighted": 2282,
+    "precinct_rows_county_share_fallback": 57,
+    "precinct_votes_county_share_fallback": 3104,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }
