@@ -32,6 +32,9 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
   - Added `data/precinct_friendly_names.json`.
   - `index.html` loads the friendly-name JSON through `CONFIG.paths.precinct_friendly_names`.
   - Precinct polygons and centroids include `precinct_code`, `precinct_full_name`, and `precinct_display_name` fields.
+  - Friendly names now prefer source VTD20 fields (`NAME20`, `NAMELSAD20`, `prec_id`, `PREC_ID`) over previously generated display fields, so reruns do not feed on older friendly-name output.
+  - Standalone `And` is normalized to lowercase `and` in precinct display labels/tooltips.
+  - Source spelling/pluralization is preserved when counties differ; for example Dorchester remains `Four Hole` while Orangeburg remains `Four Holes`.
 
 - **HD-40 / Newberry county district-contest fix:**
   - Updated State House District 40 rows in district contest files so HD-40 matches Newberry County totals where the district covers all of Newberry County.
@@ -378,6 +381,8 @@ For friendly precinct display:
 - `data/precinct_friendly_names.json` maps county/code/name variants to display names.
 - `index.html` loads it before precinct normalization when available.
 - `data/Voting_Precincts.geojson` and `data/precinct_centroids.geojson` carry `precinct_code`, `precinct_full_name`, and `precinct_display_name`.
+- `scripts/build_sc_precinct_friendly_names.js` treats source geography labels as authoritative for county-specific naming differences. Do not add broad spelling/pluralization overrides when the underlying VTD20 source distinguishes names by county, such as `Dorchester - Four Hole` versus `Orangeburg - Four Holes`.
+- The front-end applies the same precinct-name style pass for tooltip fallbacks, including lowercase standalone `and`.
 
 ## Common Maintenance Commands
 
