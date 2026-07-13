@@ -13,12 +13,23 @@ function normalizeKey(raw) {
 function toTitleCaseName(raw) {
   const s = String(raw || '').replace(/[_]+/g, ' ').replace(/\s+/g, ' ').trim();
   if (!s) return '';
-  return s
+  const titled = s
     .toLowerCase()
     .replace(/\b([a-z])/g, (m, c) => c.toUpperCase())
+    .replace(/'([A-Z])\b/g, (m, c) => `'${c.toLowerCase()}`)
     .replace(/\b([A-Z])([a-z])\b/g, (m, a, b) => `${a}${b}`)
     .replace(/\b([A-Z][a-z]*)(\d+[A-Z]?)\b/g, '$1 $2')
     .replace(/\bNo\.\s*(\d+)/gi, 'No. $1');
+  return applyNameOverride(titled);
+}
+
+function applyNameOverride(raw) {
+  const name = String(raw || '').replace(/\s+/g, ' ').trim();
+  const key = normalizeKey(name);
+  const overrides = {
+    'FOUR HOLE': 'Four Holes',
+  };
+  return overrides[key] || name;
 }
 
 function normalizeAliasNameCandidate(raw) {
