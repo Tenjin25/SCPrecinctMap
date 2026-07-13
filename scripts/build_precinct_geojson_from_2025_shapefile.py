@@ -9,6 +9,7 @@ from pathlib import Path
 
 
 STATEFP = "45"
+NONRESIDENT_PRECINCT_NORMS = {"AIKEN - SRS", "BARNWELL - SRS"}
 STATE_PLANE_FOOT_TO_METER = 0.3048
 FALSE_EASTING_FT = 2000000.0
 FALSE_NORTHING_FT = 0.0
@@ -218,6 +219,8 @@ def main() -> None:
         if not row or not rings:
             continue
         props = build_properties(row)
+        if props["precinct_norm"] in NONRESIDENT_PRECINCT_NORMS:
+            continue
         geometry = {"type": "Polygon", "coordinates": rings}
         features.append({"type": "Feature", "properties": props, "geometry": geometry})
         centroids.append({

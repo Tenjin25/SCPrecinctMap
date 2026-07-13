@@ -3422,19 +3422,6 @@
       "color": "#fcbba1"
     },
     {
-      "county": "Barnwell - Srs",
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0,
-      "total_votes": 0,
-      "dem_candidate": "Vincent A. Sheheen",
-      "rep_candidate": "Nikki R. Haley",
-      "margin": 0,
-      "margin_pct": 0,
-      "winner": "T",
-      "color": "#f0f0f0"
-    },
-    {
       "county": "Barnwell - Williston 1",
       "dem_votes": 401,
       "rep_votes": 194,

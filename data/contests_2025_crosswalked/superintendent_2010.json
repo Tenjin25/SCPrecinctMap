@@ -3422,19 +3422,6 @@
       "color": "#f0f0f0"
     },
     {
-      "county": "Barnwell - Srs",
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0,
-      "total_votes": 0,
-      "dem_candidate": "Frank Holleman",
-      "rep_candidate": "Mick Zais",
-      "margin": 0,
-      "margin_pct": 0,
-      "winner": "T",
-      "color": "#f0f0f0"
-    },
-    {
       "county": "Barnwell - Williston 1",
       "dem_votes": 388,
       "rep_votes": 181,

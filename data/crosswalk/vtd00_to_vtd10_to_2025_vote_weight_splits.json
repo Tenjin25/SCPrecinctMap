@@ -233,8 +233,7 @@
     "Aiken - New Ellenton": 4.903e-05
   },
   "Aiken - VTD 43": {
-    "Aiken - White Pond": 0.99855,
-    "Aiken - Srs": 0.00145
+    "Aiken - White Pond": 1.0
   },
   "Aiken - VTD 44": {
     "Aiken - N. Augusta No. 67": 0.803191,
@@ -353,9 +352,8 @@
     "Aiken - Sandstone No. 79": 0.00049396
   },
   "Aiken - VTD 65": {
-    "Aiken - Windsor": 0.59791599,
-    "Aiken - Windsor No. 82": 0.40013101,
-    "Aiken - Srs": 0.001953
+    "Aiken - Windsor": 0.599086,
+    "Aiken - Windsor No. 82": 0.400914
   },
   "Aiken - VTD 66": {
     "Aiken - Beech Island": 1.0
@@ -365,18 +363,16 @@
     "Aiken - Hammond": 0.220269
   },
   "Aiken - VTD 68": {
-    "Aiken - Silver Bluff": 0.99631,
-    "Aiken - Srs": 0.00369
+    "Aiken - Silver Bluff": 1.0
   },
   "Aiken - VTD 69": {
-    "Aiken - Talatha": 0.47045084,
-    "Aiken - Silver Bluff": 0.23497,
-    "Aiken - Cedar Creek No. 64": 0.16739335,
-    "Aiken - Sleepy Hollow No. 65": 0.115434,
-    "Aiken - Montmorenci No. 78": 0.00563932,
-    "Aiken - Srs": 0.002823,
-    "Aiken - Montmorenci No. 22": 0.00168295,
-    "Aiken - New Ellenton": 0.00160654
+    "Aiken - Talatha": 0.47178267,
+    "Aiken - Silver Bluff": 0.2356352,
+    "Aiken - Cedar Creek No. 64": 0.16786724,
+    "Aiken - Sleepy Hollow No. 65": 0.11576079,
+    "Aiken - Montmorenci No. 78": 0.00565529,
+    "Aiken - Montmorenci No. 22": 0.00168772,
+    "Aiken - New Ellenton": 0.00161109
   },
   "Aiken - VTD 7": {
     "Aiken - Shiloh": 1.0
@@ -397,15 +393,13 @@
     "Aiken - Jackson": 1.0
   },
   "Aiken - VTD 74": {
-    "Aiken - Srs": 0.983042,
-    "Aiken - Silver Bluff": 0.009095,
-    "Aiken - Jackson": 0.007863
+    "Aiken - Silver Bluff": 0.53632504,
+    "Aiken - Jackson": 0.46367496
   },
   "Aiken - VTD 75": {
-    "Aiken - Srs": 0.99974,
-    "Aiken - Talatha": 0.00025932,
-    "Aiken - New Ellenton": 4.9e-07,
-    "Aiken - Cedar Creek No. 64": 1.9e-07
+    "Aiken - Talatha": 0.99739399,
+    "Aiken - New Ellenton": 0.00188701,
+    "Aiken - Cedar Creek No. 64": 0.000719
   },
   "Aiken - VTD 8": {
     "Aiken - New Holland": 1.0
@@ -955,8 +949,7 @@
     "Barnwell - Blackville 2": 0.00054779
   },
   "Barnwell - VTD 12": {
-    "Barnwell - Srs": 0.79279326,
-    "Barnwell - Snelling": 0.20720674
+    "Barnwell - Snelling": 1.0
   },
   "Barnwell - VTD 13": {
     "Barnwell - Williston 1": 1.0
@@ -11323,8 +11316,8 @@
   "_stats": {
     "first_stage_rows": 4680,
     "source_count": 2173,
-    "multi_target_source_count": 1608,
+    "multi_target_source_count": 1605,
     "max_targets_per_source": 29,
-    "missing_mid_stage_rows": 0
+    "missing_mid_stage_rows": 7
   }
 }

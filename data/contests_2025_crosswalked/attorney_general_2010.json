@@ -3422,19 +3422,6 @@
       "color": "#6baed6"
     },
     {
-      "county": "Barnwell - Srs",
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0,
-      "total_votes": 0,
-      "dem_candidate": "Matthew Richardson",
-      "rep_candidate": "Alan Wilson",
-      "margin": 0,
-      "margin_pct": 0,
-      "winner": "T",
-      "color": "#f0f0f0"
-    },
-    {
       "county": "Barnwell - Williston 1",
       "dem_votes": 408,
       "rep_votes": 180,

@@ -3422,19 +3422,6 @@
       "color": "#fc8a6a"
     },
     {
-      "county": "Barnwell - Srs",
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0,
-      "total_votes": 0,
-      "dem_candidate": "Tom E. Elliott",
-      "rep_candidate": "Hugh Weathers",
-      "margin": 0,
-      "margin_pct": 0,
-      "winner": "T",
-      "color": "#f0f0f0"
-    },
-    {
       "county": "Barnwell - Williston 1",
       "dem_votes": 379,
       "rep_votes": 212,

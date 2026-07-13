@@ -286,9 +286,6 @@
     "AIKEN - SOUTH AIKEN NO. 76": 0.720029,
     "AIKEN - SOUTH CREEK NO. 89": 0.279971
   },
-  "Aiken - SRS": {
-    "AIKEN - SRS": 1.0
-  },
   "Aiken - Tabernacle": {
     "AIKEN - TABERNACLE": 1.0
   },
@@ -699,11 +696,7 @@
     "BARNWELL - KLINE": 1.0
   },
   "Barnwell - Snelling": {
-    "BARNWELL - SNELLING": 0.99928017,
-    "BARNWELL - SRS": 0.00071983
-  },
-  "Barnwell - SRS": {
-    "BARNWELL - SRS": 1.0
+    "BARNWELL - SNELLING": 1.0
   },
   "Barnwell - Williston No. 1": {
     "BARNWELL - WILLISTON 1": 1.0
@@ -7905,8 +7898,8 @@
     "YORK - YORK NO. 2": 1.0
   },
   "_stats": {
-    "source_count": 2119,
-    "multi_target_source_count": 894,
+    "source_count": 2117,
+    "multi_target_source_count": 893,
     "max_targets_per_source": 8,
     "dropped_empty_source_count": 0
   }

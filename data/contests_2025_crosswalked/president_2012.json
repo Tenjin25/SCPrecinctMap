@@ -3474,19 +3474,6 @@
       "color": "#fcbba1"
     },
     {
-      "county": "Barnwell - Srs",
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0,
-      "total_votes": 0,
-      "dem_candidate": "Barack Obama and Joe Biden",
-      "rep_candidate": "Mitt Romney and Paul Ryan",
-      "margin": 0,
-      "margin_pct": 0,
-      "winner": "T",
-      "color": "#f0f0f0"
-    },
-    {
       "county": "Barnwell - Williston 1",
       "dem_votes": 588,
       "rep_votes": 269,

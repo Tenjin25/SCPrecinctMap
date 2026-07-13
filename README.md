@@ -14,6 +14,7 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
   - The app now points `CONFIG.paths.contests_dir` at `./data/contests_2025_crosswalked`.
   - These files preserve county rows, normalize precinct rows onto the 2025 RFA precinct geography, and keep vote totals equal to the source contest files.
   - The committed crosswalked contest JSON files are pretty-printed for reviewable diffs.
+  - Removed the nonresident Savannah River Site target precincts (`Aiken - SRS` and `Barnwell - SRS`) from the served 2025 precinct GeoJSON, centroids, friendly-name map, and crosswalk target weights.
   - Spartanburg County's Fairgrounds/Cleveland Elementary rename is handled county-safely; the 2024 statewide CSV `division_id` `11588` row lands on the 2025 RFA target `Spartanburg - Fairgrounds`, while the later York County `Fairgrounds` row remains `York - Fairgrounds`.
   - Additional 2024 Spartanburg precinct corrections split the Converse/Converse Fire Station rows and assign the Converse University-area row, formerly Converse College (`division_id` `11587`), to `Converse`; `Trinity Methodist Church` (`division_id` `11581`) is merged into `Trinity Methodist`/`Trinity Presbyterian` by generated overlap weights; `Bethany Baptist` maps to current `Hearon Circle`; `Cedar Grove Baptist` maps to current `Wade Hampton`; `Chapman Elementary` maps to current `Peach Blossom`.
   - The 2025 statewide precinct shapefile confirms Spartanburg's Act 48 precinct layer (`P-83-23A`, effective July 1, 2023) includes `Trinity Methodist`, `Trinity Presbyterian`, and `West View Elementary`; those rows now use generated RFA-target overlap weights rather than a hard-coded override.
@@ -246,7 +247,7 @@ The Census insight includes a simple "growth driver" label. These are heuristics
 The committed generated data currently includes:
 
 - 46 county polygons (`data/census/tl_2020_45_county20.geojson`)
-- 2,315 current precinct polygons from the 2025 RFA layer (`data/Voting_Precincts.geojson`)
+- 2,313 current precinct polygons from the 2025 RFA layer (`data/Voting_Precincts.geojson`)
 - 7 congressional districts (`data/tileset/sc_cd118_tileset.geojson`)
 - 124 state house districts (`data/tileset/sc_state_house_2022_lines_tileset.geojson`)
 - 46 state senate districts (`data/tileset/sc_state_senate_2022_lines_tileset.geojson`)

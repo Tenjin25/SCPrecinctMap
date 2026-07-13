@@ -1590,14 +1590,14 @@
     },
     {
       "county": "Aiken - Montmorenci No. 22",
-      "dem_votes": 244,
+      "dem_votes": 245,
       "rep_votes": 542,
       "other_votes": 0,
-      "total_votes": 786,
+      "total_votes": 787,
       "dem_candidate": "Drew Theodore",
       "rep_candidate": "Richard Eckstrom",
-      "margin": 298,
-      "margin_pct": 37.9135,
+      "margin": 297,
+      "margin_pct": 37.7382,
       "winner": "R",
       "color": "#a50f15"
     },
@@ -1838,28 +1838,15 @@
     {
       "county": "Aiken - Montmorenci No. 78",
       "dem_votes": 1,
-      "rep_votes": 1,
+      "rep_votes": 2,
       "other_votes": 0,
-      "total_votes": 2,
+      "total_votes": 3,
       "dem_candidate": "Drew Theodore",
       "rep_candidate": "Richard Eckstrom",
-      "margin": 0,
-      "margin_pct": 0,
-      "winner": "T",
-      "color": "#f0f0f0"
-    },
-    {
-      "county": "Aiken - Srs",
-      "dem_votes": 1,
-      "rep_votes": 1,
-      "other_votes": 0,
-      "total_votes": 2,
-      "dem_candidate": "Drew Theodore",
-      "rep_candidate": "Richard Eckstrom",
-      "margin": 0,
-      "margin_pct": 0,
-      "winner": "T",
-      "color": "#f0f0f0"
+      "margin": 1,
+      "margin_pct": 33.3333,
+      "winner": "R",
+      "color": "#a50f15"
     },
     {
       "county": "Aiken - Vaucluse",
@@ -3241,14 +3228,14 @@
     },
     {
       "county": "Barnwell - Snelling",
-      "dem_votes": 48,
-      "rep_votes": 45,
+      "dem_votes": 231,
+      "rep_votes": 219,
       "other_votes": 0,
-      "total_votes": 93,
+      "total_votes": 450,
       "dem_candidate": "Drew Theodore",
       "rep_candidate": "Richard Eckstrom",
-      "margin": -3,
-      "margin_pct": -3.2258,
+      "margin": -12,
+      "margin_pct": -2.6667,
       "winner": "D",
       "color": "#c6dbef"
     },
@@ -3394,19 +3381,6 @@
       "margin_pct": -7.7551,
       "winner": "D",
       "color": "#9ecae1"
-    },
-    {
-      "county": "Barnwell - Srs",
-      "dem_votes": 183,
-      "rep_votes": 174,
-      "other_votes": 0,
-      "total_votes": 357,
-      "dem_candidate": "Drew Theodore",
-      "rep_candidate": "Richard Eckstrom",
-      "margin": -9,
-      "margin_pct": -2.521,
-      "winner": "D",
-      "color": "#c6dbef"
     },
     {
       "county": "Barnwell - Williston 1",
