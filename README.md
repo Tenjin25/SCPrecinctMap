@@ -7,26 +7,32 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 
 ## Recent Updates (July 2026)
 
-- **VTD20-normalized statewide contest layer:**
-  - Added `data/contests_vtd20_crosswalked/` as the front-end statewide contest source.
-  - The app now points `CONFIG.paths.contests_dir` at `./data/contests_vtd20_crosswalked`.
-  - These files preserve county rows, normalize precinct rows onto the 2020 VTD/precinct geography, and keep vote totals equal to the source contest files.
+- **2025 Fiscal Affairs precinct layer:**
+  - Switched the live precinct geography to the South Carolina Revenue and Fiscal Affairs Office 2025 statewide precinct shapefile (`2025Precincts.zip`).
+  - Added `scripts/build_precinct_geojson_from_2025_shapefile.py` to convert the StatePlane shapefile into app-ready WGS84 GeoJSON with the existing `precinct_norm`, `precinct_display_name`, centroid, and friendly-name fields.
+  - Added `data/contests_2025_crosswalked/` as the front-end statewide contest source.
+  - The app now points `CONFIG.paths.contests_dir` at `./data/contests_2025_crosswalked`.
+  - These files preserve county rows, normalize precinct rows onto the 2025 RFA precinct geography, and keep vote totals equal to the source contest files.
   - The committed crosswalked contest JSON files are pretty-printed for reviewable diffs.
-  - Spartanburg County's former `Fairgrounds` voting precinct is treated as the renamed `Cleveland Elementary` precinct, effective July 1, 2023; the 2024 statewide CSV `division_id` `11588` row is assigned to `Spartanburg - Cleveland Elementary`, while the later York County `Fairgrounds` row remains `York - Fairgrounds`.
-  - Additional 2024 Spartanburg precinct corrections split the Converse/Converse Fire Station rows and assign the Converse University-area row, formerly Converse College (`division_id` `11587`), to `Beaumont Methodist`; `Trinity Methodist Church` (`division_id` `11581`) is merged into `Trinity Presbyterian`; `Hearon Circle` (`division_id` `11597`) is treated as the renamed `Bethany Baptist` precinct; `Wade Hampton` (`division_id` `11558`) is treated as the renamed `Cedar Grove Baptist` precinct; `Peach Blossom` (`division_id` `11617`) is treated as the renamed `Chapman Elementary` precinct.
+  - Spartanburg County's Fairgrounds/Cleveland Elementary rename is handled county-safely; the 2024 statewide CSV `division_id` `11588` row lands on the 2025 RFA target `Spartanburg - Fairgrounds`, while the later York County `Fairgrounds` row remains `York - Fairgrounds`.
+  - Additional 2024 Spartanburg precinct corrections split the Converse/Converse Fire Station rows and assign the Converse University-area row, formerly Converse College (`division_id` `11587`), to `Converse`; `Trinity Methodist Church` (`division_id` `11581`) is merged into `Trinity Methodist`/`Trinity Presbyterian` by generated overlap weights; `Bethany Baptist` maps to current `Hearon Circle`; `Cedar Grove Baptist` maps to current `Wade Hampton`; `Chapman Elementary` maps to current `Peach Blossom`.
+  - The 2025 statewide precinct shapefile confirms Spartanburg's Act 48 precinct layer (`P-83-23A`, effective July 1, 2023) includes `Trinity Methodist`, `Trinity Presbyterian`, and `West View Elementary`; those rows now use generated RFA-target overlap weights rather than a hard-coded override.
 
 - **Areal and vote-weighted crosswalk workflow:**
   - Added pro-method overlap scripts for legacy VTD/block geography:
     - `scripts/build_legacy_vtd_overlap_pro.py`
     - `scripts/build_weighted_splits_from_areal_crosswalk.py`
     - `scripts/compose_areal_weight_crosswalks.py`
-  - Added 2000/2010/2020 bridge support so older precinct results can flow through VTD00 -> VTD10 -> VTD20 when direct VTD20 matching is not enough.
+  - Added 2000/2010/2020 bridge support so older precinct results can flow through VTD00 -> VTD10 -> the 2025 current precinct layer when direct current-name matching is not enough.
   - Added `scripts/build_legacy_name_weighted_splits.py` to combine legacy name bridge candidates with VTD20 vote-weight splits.
   - Added `scripts/aggregate_contests_to_vtd20_crosswalks.py` to write app-ready contest files without modifying the raw `data/contests/` inputs.
+  - Rebuilt current-target crosswalks into `data/crosswalk/`: `vtd20_to_2025_*`, `vtd10_to_2025_*`, `vtd00_to_vtd10_to_2025_vote_weight_splits.json`, and `legacy_name_to_2025_vote_weight_splits.json`.
+  - Added `scripts/report_current_crosswalk_unmatched.py` and `data/crosswalk/current_crosswalk_unmatched_report.json` to track remaining unmatched legacy precinct labels.
+  - Current QA preserves vote totals across all 45 generated contest files. The remaining geo-like unmatched report is down to 96 unique names / 672 file hits, concentrated in older 2006/2008 legacy labels without a trusted VTD00/VTD10 geometry bridge; those should be closed with reviewed areal/vote-weight rows rather than broad aliases.
 
 - **SCVotes legacy precinct-name support:**
   - Added `scripts/fetch_scvotes_enr_precinct_names.py` for legacy ENR county/precinct names.
-  - Added `scripts/build_vtd00_name_bridge_candidates.py` to help bridge 2006/2008 result names to VTD00 sources and then onward to VTD20.
+  - Added `scripts/build_vtd00_name_bridge_candidates.py` to help bridge 2006/2008 result names to VTD00 sources and then onward to the current precinct layer.
   - Review cases remain inspectable through generated CSVs in `scripts/out/` during maintenance runs.
 
 - **NC Election Atlas-style friendly VTD20 names:**
@@ -41,7 +47,7 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
 - **HD-40 / Newberry county district-contest fix:**
   - Updated State House District 40 rows in district contest files so HD-40 matches Newberry County totals where the district covers all of Newberry County.
   - The update covers base State House district contest files, `state_house_2022_lines/`, and the relevant `state_house_2024_lines/` superintendent files.
-  - Validation checks confirmed only district `40` changed and every HD-40 row matches the Newberry county row in `data/contests_vtd20_crosswalked`.
+  - Validation checks confirmed only district `40` changed and every HD-40 row matches the Newberry county row in the crosswalked statewide contest output.
 
 - **Overlay opacity and cache busting:**
   - Map Reveal and Balanced opacity presets now have more distinct behavior when precinct overlays are visible.
@@ -240,16 +246,16 @@ The Census insight includes a simple "growth driver" label. These are heuristics
 The committed generated data currently includes:
 
 - 46 county polygons (`data/census/tl_2020_45_county20.geojson`)
-- 2,266 precinct polygons (`data/Voting_Precincts.geojson`)
+- 2,315 current precinct polygons from the 2025 RFA layer (`data/Voting_Precincts.geojson`)
 - 7 congressional districts (`data/tileset/sc_cd118_tileset.geojson`)
 - 124 state house districts (`data/tileset/sc_state_house_2022_lines_tileset.geojson`)
 - 46 state senate districts (`data/tileset/sc_state_senate_2022_lines_tileset.geojson`)
 - 45 raw county/precinct contest slice files (`data/contests/manifest.json`)
-- 45 VTD20-crosswalked county/precinct contest slice files (`data/contests_vtd20_crosswalked/manifest.json`)
+- 45 2025-crosswalked county/precinct contest slice files (`data/contests_2025_crosswalked/manifest.json`)
 - 155 district contest manifest entries (`data/district_contests/manifest.json`)
-- Friendly VTD20 precinct-name lookup for all 46 counties (`data/precinct_friendly_names.json`)
+- Friendly current-precinct name lookup for all 46 counties (`data/precinct_friendly_names.json`)
 
-Coverage varies by office and year. The live app uses `data/contests_vtd20_crosswalked/` for statewide county/precinct contests and `data/district_contests/` for district views.
+Coverage varies by office and year. The live app uses `data/contests_2025_crosswalked/` for statewide county/precinct contests and `data/district_contests/` for district views.
 
 ## Stack
 
@@ -324,7 +330,7 @@ SCPrecinctMap/
     |-- census/
     |-- tileset/
     |-- contests/
-    |-- contests_vtd20_crosswalked/
+    |-- contests_2025_crosswalked/
     |-- precinct_friendly_names.json
     `-- district_contests/
 ```
@@ -338,12 +344,12 @@ SCPrecinctMap/
 3. Aggregates precinct election CSV rows into raw county/precinct contest slices in `data/contests/`.
 4. Builds district-level contest slices and manifests.
 
-The VTD20-normalized contest layer is a follow-on pipeline, not a replacement for the raw build:
+The 2025-current precinct contest layer is a follow-on pipeline, not a replacement for the raw build:
 
-1. Build or refresh legacy VTD/block overlap CSVs in `scripts/out/`.
+1. Convert the 2025 RFA precinct shapefile into `data/Voting_Precincts.geojson` and `data/precinct_centroids.geojson`.
 2. Build vote-weighted split JSONs from those overlaps.
 3. Build legacy name bridge candidates for older result names.
-4. Aggregate raw `data/contests/` into `data/contests_vtd20_crosswalked/`.
+4. Aggregate raw `data/contests/` into `data/contests_2025_crosswalked/`.
 5. Point the frontend at the crosswalked directory through `CONFIG.paths.contests_dir`.
 
 The app-ready crosswalked contest files are committed. Large intermediate files under `scripts/out/` and source TIGER zips are intentionally treated as scratch/maintenance artifacts.
@@ -371,10 +377,10 @@ For county/precinct contest slices in `data/contests/*.json`:
 
 The front-end split logic depends on the `" - "` separator.
 
-For crosswalked contest slices in `data/contests_vtd20_crosswalked/*.json`:
+For crosswalked contest slices in `data/contests_2025_crosswalked/*.json`:
 
 - County summary rows are preserved from the raw contest slice.
-- Precinct rows are normalized to the 2020 VTD/precinct geography.
+- Precinct rows are normalized to the 2025 RFA precinct geography.
 - Split precincts can emit multiple weighted target rows.
 - File-level vote totals should match the corresponding raw contest file exactly.
 
@@ -383,7 +389,7 @@ For friendly precinct display:
 - `data/precinct_friendly_names.json` maps county/code/name variants to display names.
 - `index.html` loads it before precinct normalization when available.
 - `data/Voting_Precincts.geojson` and `data/precinct_centroids.geojson` carry `precinct_code`, `precinct_full_name`, and `precinct_display_name`.
-- `scripts/build_sc_precinct_friendly_names.js` treats source geography labels as authoritative for county-specific naming differences. Do not add broad spelling/pluralization overrides when the underlying VTD20 source distinguishes names by county, such as `Dorchester - Four Hole` versus `Orangeburg - Four Holes`.
+- `scripts/build_sc_precinct_friendly_names.js` treats source geography labels as authoritative for county-specific naming differences. Do not add broad spelling/pluralization overrides when the underlying source geography distinguishes names by county, such as `Dorchester - Four Hole` versus `Orangeburg - Four Holes`.
 - The front-end applies the same precinct-name style pass for tooltip fallbacks, including lowercase standalone `and`.
 
 ## Common Maintenance Commands
@@ -400,28 +406,31 @@ Apply precinct aliases/splits across all contest slices:
 python scripts/apply_precinct_aliases_to_slice.py --all
 ```
 
-Build friendly VTD20 precinct names:
+Convert the 2025 RFA precinct shapefile and rebuild friendly current precinct names:
 
 ```powershell
+python scripts/build_precinct_geojson_from_2025_shapefile.py
 node scripts/build_sc_precinct_friendly_names.js
 ```
 
-Build pro-method areal overlap crosswalks:
+Build pro-method areal overlap crosswalks to the 2025 RFA layer:
 
 ```powershell
-python scripts/build_legacy_vtd_overlap_pro.py --source work/crosswalk_inputs/tl_2012_45_vtd10.zip --target work/crosswalk_inputs/tl_2020_45_vtd20.zip --source-kind vtd --target-kind vtd --out scripts/out/vtd10_to_vtd20_areal_top5.csv
+python scripts/build_legacy_vtd_overlap_pro.py --source work/crosswalk_inputs/tl_2020_45_vtd20.zip --source-kind vtd --source-vintage 20 --target data/Voting_Precincts.geojson --out scripts/out/vtd20_to_2025_areal_top8.csv --top-n 8
+python scripts/build_legacy_vtd_overlap_pro.py --source work/crosswalk_inputs/tl_2012_45_vtd10.zip --source-kind vtd --source-vintage 10 --target data/Voting_Precincts.geojson --out scripts/out/vtd10_to_2025_areal_top8.csv --top-n 8
 ```
 
 Build vote-weighted split JSONs from areal crosswalks:
 
 ```powershell
-python scripts/build_weighted_splits_from_areal_crosswalk.py --areal scripts/out/vtd10_to_vtd20_areal_top5.csv --out scripts/out/vtd10_to_vtd20_vote_weight_splits.json
+python scripts/build_weighted_splits_from_areal_crosswalk.py --crosswalk scripts/out/vtd20_to_2025_areal_top8.csv --out scripts/out/vtd20_to_2025_vote_weight_splits.json --source-label vtd20_to_2025
+python scripts/build_weighted_splits_from_areal_crosswalk.py --crosswalk scripts/out/vtd10_to_2025_areal_top8.csv --out scripts/out/vtd10_to_2025_vote_weight_splits.json --source-label vtd10_to_2025
 ```
 
-Compose VTD00 -> VTD10 -> VTD20 weights:
+Compose VTD00 -> VTD10 -> 2025 weights:
 
 ```powershell
-python scripts/compose_areal_weight_crosswalks.py --first scripts/out/vtd00_to_vtd10_areal_top8.csv --second scripts/out/vtd10_to_vtd20_areal_top5.csv --out scripts/out/vtd00_to_vtd10_to_vtd20_vote_weight_splits.json
+python scripts/compose_areal_weight_crosswalks.py --first-csv scripts/out/vtd00_to_vtd10_areal_top8.csv --second-json scripts/out/vtd10_to_2025_vote_weight_splits.json --out scripts/out/vtd00_to_vtd10_to_2025_vote_weight_splits.json --precincts data/Voting_Precincts.geojson --label vtd00_to_vtd10_to_2025
 ```
 
 Fetch official legacy SCVotes ENR precinct names:
@@ -442,28 +451,29 @@ Build legacy name weighted splits:
 python scripts/build_legacy_name_weighted_splits.py
 ```
 
-Aggregate raw statewide contests to VTD20-normalized app data:
+Aggregate raw statewide contests to 2025-normalized app data:
 
 ```powershell
 python scripts/aggregate_contests_to_vtd20_crosswalks.py
+python scripts/report_current_crosswalk_unmatched.py
 ```
 
 Pretty-print crosswalked contest JSON after generation:
 
 ```powershell
-node -e "const fs=require('fs'),path=require('path');const root='data/contests_vtd20_crosswalked';for(const name of fs.readdirSync(root).filter(n=>n.endsWith('.json'))){const p=path.join(root,name);fs.writeFileSync(p,JSON.stringify(JSON.parse(fs.readFileSync(p,'utf8')),null,2)+'\n');}"
+node -e "const fs=require('fs'),path=require('path');const root='data/contests_2025_crosswalked';for(const name of fs.readdirSync(root).filter(n=>n.endsWith('.json'))){const p=path.join(root,name);fs.writeFileSync(p,JSON.stringify(JSON.parse(fs.readFileSync(p,'utf8')),null,2)+'\n');}"
 ```
 
 Validate crosswalked contest totals against raw contest totals:
 
 ```powershell
-node -e "const fs=require('fs'),path=require('path');const src='data/contests',out='data/contests_vtd20_crosswalked';const manifest=JSON.parse(fs.readFileSync(path.join(out,'manifest.json'),'utf8')).files;const keys=['dem_votes','rep_votes','other_votes','total_votes'];let bad=0;for(const e of manifest){const s=JSON.parse(fs.readFileSync(path.join(src,e.file),'utf8')).rows||[];const o=JSON.parse(fs.readFileSync(path.join(out,e.file),'utf8')).rows||[];for(const k of keys){const sv=s.reduce((a,r)=>a+Number(r[k]||0),0);const ov=o.reduce((a,r)=>a+Number(r[k]||0),0);if(Math.abs(sv-ov)>0.01)bad++;}}console.log('checked',manifest.length,'bad',bad);"
+node -e "const fs=require('fs'),path=require('path');const src='data/contests',out='data/contests_2025_crosswalked';const manifest=JSON.parse(fs.readFileSync(path.join(out,'manifest.json'),'utf8')).files;const keys=['dem_votes','rep_votes','other_votes','total_votes'];let bad=0;for(const e of manifest){const s=JSON.parse(fs.readFileSync(path.join(src,e.file),'utf8')).rows||[];const o=JSON.parse(fs.readFileSync(path.join(out,e.file),'utf8')).rows||[];for(const k of keys){const sv=s.reduce((a,r)=>a+Number(r[k]||0),0);const ov=o.reduce((a,r)=>a+Number(r[k]||0),0);if(Math.abs(sv-ov)>0.01)bad++;}}console.log('checked',manifest.length,'bad',bad);"
 ```
 
 Validate the HD-40/Newberry district-contest contract:
 
 ```powershell
-node -e "const fs=require('fs'),path=require('path'),cp=require('child_process');const files=cp.execSync('git diff --name-only -- data/district_contests',{encoding:'utf8'}).trim().split(/\r?\n/).filter(Boolean);const bad=[];const changed=new Map();for(const f of files){const old=JSON.parse(cp.execSync('git show HEAD:'+f,{encoding:'utf8',maxBuffer:80*1024*1024}));const cur=JSON.parse(fs.readFileSync(f,'utf8'));const a=old.general.results||{},b=cur.general.results||{};for(const k of new Set([...Object.keys(a),...Object.keys(b)])){if(JSON.stringify(a[k])!==JSON.stringify(b[k]))changed.set(k,(changed.get(k)||0)+1);}const name=path.basename(f,'.json');const m=name.match(/^state_house_(.+)_(\d{4})(?:_(?:2022|2024)_lines)?$/);const contestFile=path.join('data','contests_vtd20_crosswalked',m[1]+'_'+m[2]+'.json');const county=(JSON.parse(fs.readFileSync(contestFile,'utf8')).rows||[]).find(r=>String(r.county||'').toUpperCase()==='NEWBERRY'&&!r.precinct&&!r.precinct_norm);const row=cur.general.results['40'];for(const k of ['dem_votes','rep_votes','other_votes','total_votes'])if(Number(row[k])!==Number(county[k]))bad.push([f,k,row[k],county[k]]);}console.log('files',files.length,'changedDistricts',JSON.stringify([...changed.entries()]),'bad',bad.length);"
+node -e "const fs=require('fs'),path=require('path'),cp=require('child_process');const files=cp.execSync('git diff --name-only -- data/district_contests',{encoding:'utf8'}).trim().split(/\r?\n/).filter(Boolean);const bad=[];const changed=new Map();for(const f of files){const old=JSON.parse(cp.execSync('git show HEAD:'+f,{encoding:'utf8',maxBuffer:80*1024*1024}));const cur=JSON.parse(fs.readFileSync(f,'utf8'));const a=old.general.results||{},b=cur.general.results||{};for(const k of new Set([...Object.keys(a),...Object.keys(b)])){if(JSON.stringify(a[k])!==JSON.stringify(b[k]))changed.set(k,(changed.get(k)||0)+1);}const name=path.basename(f,'.json');const m=name.match(/^state_house_(.+)_(\d{4})(?:_(?:2022|2024)_lines)?$/);const contestFile=path.join('data','contests_2025_crosswalked',m[1]+'_'+m[2]+'.json');const county=(JSON.parse(fs.readFileSync(contestFile,'utf8')).rows||[]).find(r=>String(r.county||'').toUpperCase()==='NEWBERRY'&&!r.precinct&&!r.precinct_norm);const row=cur.general.results['40'];for(const k of ['dem_votes','rep_votes','other_votes','total_votes'])if(Number(row[k])!==Number(county[k]))bad.push([f,k,row[k],county[k]]);}console.log('files',files.length,'changedDistricts',JSON.stringify([...changed.entries()]),'bad',bad.length);"
 ```
 
 Check likely precinct name mismatches for a contest/year:
@@ -541,9 +551,9 @@ Desktop layout remains available with the full side/control experience.
 - `index.html`: app UI, rendering logic, and `CONFIG`
 - `build_data.py`: primary data build pipeline
 - `data/contests/manifest.json`: raw county/precinct contests
-- `data/contests_vtd20_crosswalked/manifest.json`: VTD20-normalized county/precinct contests used by the live app
+- `data/contests_2025_crosswalked/manifest.json`: 2025 RFA-normalized county/precinct contests used by the live app
 - `data/district_contests/manifest.json`: available district contest slices
-- `data/precinct_friendly_names.json`: VTD20 precinct display-name lookup
+- `data/precinct_friendly_names.json`: current precinct display-name lookup
 - `precinct_aliases.json`: manual precinct name normalization overrides
 - `scripts/out/`: ignored maintenance outputs such as overlap CSVs, bridge candidates, and weighted split JSONs
 
@@ -569,7 +579,7 @@ No backend service is required.
 
 - Data availability differs by office/year. Some cycles are partial.
 - Historical results may be shown on newer district boundaries depending on available boundary vintages.
-- Historical precinct names are not always one-to-one across sources. The VTD20 crosswalk workflow uses a mix of direct matches, aliases, areal overlaps, vote-weighted splits, and legacy name bridges.
+- Historical precinct names are not always one-to-one across sources. The current precinct crosswalk workflow uses a mix of direct matches, aliases, areal overlaps, vote-weighted splits, VTD20 fallbacks, and legacy name bridges.
 - Crosswalked precinct splits are estimates. County/file vote totals are preserved, but precinct-level allocation depends on the best available areal/vote-weight bridge.
 - Review-held legacy name bridge candidates should not be promoted into weighted splits without manual inspection.
 - HD-40 is treated as all-Newberry for the affected State House district-contest files; revalidate this if district geography/source files are regenerated.

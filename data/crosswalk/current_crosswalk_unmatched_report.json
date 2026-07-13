@@ -1,0 +1,4072 @@
+{
+  "summary": {
+    "unique_unmatched_geo_names": 96,
+    "total_unmatched_geo_file_hits": 672
+  },
+  "top_unmatched_geo_names": [
+    {
+      "name": "Lexington - Bethany",
+      "file_hits": 17,
+      "sample_files": [
+        "president_2012.json",
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json"
+      ]
+    },
+    {
+      "name": "Georgetown - Grier'S",
+      "file_hits": 10,
+      "sample_files": [
+        "president_2016.json",
+        "us_senate_2016.json",
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Mount Sinai Baptist",
+      "file_hits": 9,
+      "sample_files": [
+        "president_2012.json",
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json"
+      ]
+    },
+    {
+      "name": "Chesterfield - Cat Pond",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Chesterfield - Vaughn",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Chesterfield - Wexford",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Chesterfield - White Oak",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Arcadia-Johnson City",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Arkwright",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Arlington",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Arrowood",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Ballenger",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Ben Avon",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Bobo",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Bowen",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Brklyn Cs Fingv",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Camelot",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Campobello",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Campton A",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Campton B",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Cannons Campgrd",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Cedar Springs",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Central Fire Station",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Chesnee",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Clifton",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Cowpens A",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Cowpens B",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Croft",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Cross Anchor",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Cunningham",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Deyoung",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Duncan A",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Duncan B",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - East Greer",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Fairmont",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Hayne Shop",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Inman A",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Inman B",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Mayo",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Moore-Switzer",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Motlow",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Pacolet",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Pacolet Mills",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Pauline-Glenn S",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Pelham",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Poplar Springs B",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Startex",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Una",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Walnut Grove",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - West View B",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - White Stone",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Whitney A 1",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Whitney A 2",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Woodruff No. 1",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Woodruff No. 2",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Woodruff No. 3",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Zion Hill A",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Zion Hill B",
+      "file_hits": 8,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json",
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json"
+      ]
+    },
+    {
+      "name": "Aiken - College Acre 13",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Aiken - Ward No. 40",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Anderson - Barkers Creek - Mcadams",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Charleston - N. Charleston 22",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Charleston - N. Charleston 24",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Charleston - N. Charleston 25",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Charleston - N. Charleston 26",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Charleston - N. Charleston 28",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Charleston - N. Charleston 30",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Cherokee - Ljohns/Sarratt",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Cherokee - Wilkins./Metcalf",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Chesterfield - Cross Roads",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Darlington - Hartsville 2&3",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Greenville - Gilder Creek",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Greenville - Highland Creek",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Lexington - Tn Of Pineridge",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Oconee - Mt. Rest",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Richland - Harbison",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Bunton Church",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Cavins-Hobbysv",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Cherokee Sprgs A",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Crescent",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Enoree",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Glendale",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Mt.Moriah",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Pine St Elementary School",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Whitney Sta. B-Hill Top",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Sumter - Ebenezer",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Union - Ward 2",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Union - Ward 3",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "York - Museum",
+      "file_hits": 6,
+      "sample_files": [
+        "governor_2006.json",
+        "attorney_general_2006.json",
+        "secretary_of_state_2006.json",
+        "state_treasurer_2006.json",
+        "comptroller_general_2006.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Park Hills Elementary School",
+      "file_hits": 2,
+      "sample_files": [
+        "superintendent_2014.json",
+        "superintendent_2010.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Bunton",
+      "file_hits": 2,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Whitney Station B-Hill Top",
+      "file_hits": 2,
+      "sample_files": [
+        "president_2008.json",
+        "us_senate_2008.json"
+      ]
+    },
+    {
+      "name": "Georgetown - Griers",
+      "file_hits": 1,
+      "sample_files": [
+        "superintendent_2014.json"
+      ]
+    },
+    {
+      "name": "Aiken - Ward 40",
+      "file_hits": 1,
+      "sample_files": [
+        "president_2012.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - North Spartanburg # 2 Fir",
+      "file_hits": 1,
+      "sample_files": [
+        "president_2012.json"
+      ]
+    },
+    {
+      "name": "Spartanburg - Woodruff Armory Drive",
+      "file_hits": 1,
+      "sample_files": [
+        "president_2012.json"
+      ]
+    }
+  ],
+  "files": {
+    "president_2024.json": {
+      "year": 2024,
+      "contest_type": "president",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": []
+    },
+    "governor_2022.json": {
+      "year": 2022,
+      "contest_type": "governor",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": []
+    },
+    "us_senate_2022.json": {
+      "year": 2022,
+      "contest_type": "us_senate",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": []
+    },
+    "attorney_general_2022.json": {
+      "year": 2022,
+      "contest_type": "attorney_general",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": []
+    },
+    "secretary_of_state_2022.json": {
+      "year": 2022,
+      "contest_type": "secretary_of_state",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": []
+    },
+    "superintendent_2022.json": {
+      "year": 2022,
+      "contest_type": "superintendent",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": []
+    },
+    "state_treasurer_2022.json": {
+      "year": 2022,
+      "contest_type": "state_treasurer",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": []
+    },
+    "comptroller_general_2022.json": {
+      "year": 2022,
+      "contest_type": "comptroller_general",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": []
+    },
+    "commissioner_agriculture_2022.json": {
+      "year": 2022,
+      "contest_type": "commissioner_agriculture",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": []
+    },
+    "president_2020.json": {
+      "year": 2020,
+      "contest_type": "president",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": []
+    },
+    "us_senate_2020.json": {
+      "year": 2020,
+      "contest_type": "us_senate",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": []
+    },
+    "governor_2018.json": {
+      "year": 2018,
+      "contest_type": "governor",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 56,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 1777
+        },
+        {
+          "name": "Bamberg - Emergency",
+          "total_votes": 863
+        },
+        {
+          "name": "Pickens - Emergency",
+          "total_votes": 701
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 317
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 151
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 100
+        },
+        {
+          "name": "Anderson - Emergency 2",
+          "total_votes": 87
+        },
+        {
+          "name": "Calhoun - Emergency",
+          "total_votes": 83
+        },
+        {
+          "name": "Charleston - Emergency",
+          "total_votes": 56
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 34
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 31
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 11
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 10
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 10
+        },
+        {
+          "name": "Lancaster - Emergency",
+          "total_votes": 9
+        }
+      ]
+    },
+    "attorney_general_2018.json": {
+      "year": 2018,
+      "contest_type": "attorney_general",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 56,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 1781
+        },
+        {
+          "name": "Bamberg - Emergency",
+          "total_votes": 854
+        },
+        {
+          "name": "Pickens - Emergency",
+          "total_votes": 705
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 323
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 150
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 100
+        },
+        {
+          "name": "Anderson - Emergency 2",
+          "total_votes": 87
+        },
+        {
+          "name": "Calhoun - Emergency",
+          "total_votes": 83
+        },
+        {
+          "name": "Charleston - Emergency",
+          "total_votes": 56
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 34
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 31
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 11
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 10
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 10
+        },
+        {
+          "name": "Lancaster - Emergency",
+          "total_votes": 9
+        }
+      ]
+    },
+    "secretary_of_state_2018.json": {
+      "year": 2018,
+      "contest_type": "secretary_of_state",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 56,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 1777
+        },
+        {
+          "name": "Bamberg - Emergency",
+          "total_votes": 856
+        },
+        {
+          "name": "Pickens - Emergency",
+          "total_votes": 704
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 322
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 150
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 100
+        },
+        {
+          "name": "Anderson - Emergency 2",
+          "total_votes": 87
+        },
+        {
+          "name": "Calhoun - Emergency",
+          "total_votes": 84
+        },
+        {
+          "name": "Charleston - Emergency",
+          "total_votes": 55
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 34
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 31
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 11
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 10
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 10
+        },
+        {
+          "name": "Lancaster - Emergency",
+          "total_votes": 9
+        }
+      ]
+    },
+    "superintendent_2018.json": {
+      "year": 2018,
+      "contest_type": "superintendent",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 56,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 1088
+        },
+        {
+          "name": "Pickens - Emergency",
+          "total_votes": 581
+        },
+        {
+          "name": "Bamberg - Emergency",
+          "total_votes": 401
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 215
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 139
+        },
+        {
+          "name": "Anderson - Emergency 2",
+          "total_votes": 69
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 65
+        },
+        {
+          "name": "Calhoun - Emergency",
+          "total_votes": 53
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 22
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 7
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 6
+        },
+        {
+          "name": "Charleston - Emergency",
+          "total_votes": 5
+        },
+        {
+          "name": "Chesterfield - Emergency",
+          "total_votes": 4
+        },
+        {
+          "name": "Lancaster - Emergency",
+          "total_votes": 4
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 3
+        }
+      ]
+    },
+    "state_treasurer_2018.json": {
+      "year": 2018,
+      "contest_type": "state_treasurer",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 56,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 1779
+        },
+        {
+          "name": "Bamberg - Emergency",
+          "total_votes": 852
+        },
+        {
+          "name": "Pickens - Emergency",
+          "total_votes": 704
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 321
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 150
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 99
+        },
+        {
+          "name": "Anderson - Emergency 2",
+          "total_votes": 87
+        },
+        {
+          "name": "Calhoun - Emergency",
+          "total_votes": 84
+        },
+        {
+          "name": "Charleston - Emergency",
+          "total_votes": 56
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 34
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 31
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 11
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 10
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 10
+        },
+        {
+          "name": "Lancaster - Emergency",
+          "total_votes": 8
+        }
+      ]
+    },
+    "comptroller_general_2018.json": {
+      "year": 2018,
+      "contest_type": "comptroller_general",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 56,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 1187
+        },
+        {
+          "name": "Pickens - Emergency",
+          "total_votes": 612
+        },
+        {
+          "name": "Bamberg - Emergency",
+          "total_votes": 456
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 236
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 141
+        },
+        {
+          "name": "Anderson - Emergency 2",
+          "total_votes": 73
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 69
+        },
+        {
+          "name": "Calhoun - Emergency",
+          "total_votes": 57
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 23
+        },
+        {
+          "name": "Charleston - Emergency",
+          "total_votes": 14
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 12
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 8
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 5
+        },
+        {
+          "name": "Lancaster - Emergency",
+          "total_votes": 5
+        },
+        {
+          "name": "Chesterfield - Emergency",
+          "total_votes": 4
+        }
+      ]
+    },
+    "commissioner_agriculture_2018.json": {
+      "year": 2018,
+      "contest_type": "commissioner_agriculture",
+      "unmatched_geo_count": 0,
+      "unmatched_non_geo_count": 56,
+      "top_unmatched_geo": [],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 1380
+        },
+        {
+          "name": "Pickens - Emergency",
+          "total_votes": 662
+        },
+        {
+          "name": "Bamberg - Emergency",
+          "total_votes": 548
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 264
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 141
+        },
+        {
+          "name": "Anderson - Emergency 2",
+          "total_votes": 78
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 74
+        },
+        {
+          "name": "Calhoun - Emergency",
+          "total_votes": 66
+        },
+        {
+          "name": "Charleston - Emergency",
+          "total_votes": 35
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 28
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 20
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 9
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 8
+        },
+        {
+          "name": "Lancaster - Emergency",
+          "total_votes": 7
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 5
+        }
+      ]
+    },
+    "president_2016.json": {
+      "year": 2016,
+      "contest_type": "president",
+      "unmatched_geo_count": 1,
+      "unmatched_non_geo_count": 17,
+      "top_unmatched_geo": [
+        {
+          "name": "Georgetown - Grier'S",
+          "total_votes": 306
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 240
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 63
+        },
+        {
+          "name": "Spartanburg - Emergency",
+          "total_votes": 59
+        },
+        {
+          "name": "Sumter - Emergency 1",
+          "total_votes": 55
+        },
+        {
+          "name": "Kershaw - Emergency 1",
+          "total_votes": 40
+        },
+        {
+          "name": "Spartanburg - Emergency 2",
+          "total_votes": 39
+        },
+        {
+          "name": "Dorchester - Emergency",
+          "total_votes": 32
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 30
+        },
+        {
+          "name": "Horry - Emergency 2",
+          "total_votes": 24
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 21
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 12
+        },
+        {
+          "name": "Dorchester - Emergency 2",
+          "total_votes": 12
+        },
+        {
+          "name": "Saluda - Emergency",
+          "total_votes": 5
+        },
+        {
+          "name": "Kershaw - Emergency 2",
+          "total_votes": 3
+        },
+        {
+          "name": "Spartanburg - Emergency 3",
+          "total_votes": 3
+        }
+      ]
+    },
+    "us_senate_2016.json": {
+      "year": 2016,
+      "contest_type": "us_senate",
+      "unmatched_geo_count": 1,
+      "unmatched_non_geo_count": 17,
+      "top_unmatched_geo": [
+        {
+          "name": "Georgetown - Grier'S",
+          "total_votes": 304
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 233
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 62
+        },
+        {
+          "name": "Spartanburg - Emergency",
+          "total_votes": 59
+        },
+        {
+          "name": "Sumter - Emergency 1",
+          "total_votes": 55
+        },
+        {
+          "name": "Kershaw - Emergency 1",
+          "total_votes": 39
+        },
+        {
+          "name": "Spartanburg - Emergency 2",
+          "total_votes": 38
+        },
+        {
+          "name": "Dorchester - Emergency",
+          "total_votes": 32
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 30
+        },
+        {
+          "name": "Horry - Emergency 2",
+          "total_votes": 21
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 20
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 12
+        },
+        {
+          "name": "Dorchester - Emergency 2",
+          "total_votes": 12
+        },
+        {
+          "name": "Saluda - Emergency",
+          "total_votes": 5
+        },
+        {
+          "name": "Kershaw - Emergency 2",
+          "total_votes": 3
+        },
+        {
+          "name": "Spartanburg - Emergency 3",
+          "total_votes": 3
+        }
+      ]
+    },
+    "governor_2014.json": {
+      "year": 2014,
+      "contest_type": "governor",
+      "unmatched_geo_count": 1,
+      "unmatched_non_geo_count": 46,
+      "top_unmatched_geo": [
+        {
+          "name": "Georgetown - Grier'S",
+          "total_votes": 227
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 93
+        },
+        {
+          "name": "Greenville - Emergency 2",
+          "total_votes": 56
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 51
+        },
+        {
+          "name": "Florence - Emergency 2",
+          "total_votes": 36
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 33
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 27
+        },
+        {
+          "name": "Orangeburg - Emergency",
+          "total_votes": 24
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 23
+        },
+        {
+          "name": "Marion - Emergency",
+          "total_votes": 17
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 11
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 11
+        },
+        {
+          "name": "Richland - Emergency 2",
+          "total_votes": 10
+        },
+        {
+          "name": "Allendale - Emergency",
+          "total_votes": 6
+        },
+        {
+          "name": "Florence - Emergency 3",
+          "total_votes": 6
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 5
+        }
+      ]
+    },
+    "us_senate_2014.json": {
+      "year": 2014,
+      "contest_type": "us_senate",
+      "unmatched_geo_count": 1,
+      "unmatched_non_geo_count": 46,
+      "top_unmatched_geo": [
+        {
+          "name": "Georgetown - Grier'S",
+          "total_votes": 454
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 188
+        },
+        {
+          "name": "Greenville - Emergency 2",
+          "total_votes": 112
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 96
+        },
+        {
+          "name": "Florence - Emergency 2",
+          "total_votes": 76
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 66
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 54
+        },
+        {
+          "name": "Orangeburg - Emergency",
+          "total_votes": 48
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 45
+        },
+        {
+          "name": "Marion - Emergency",
+          "total_votes": 34
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 22
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 22
+        },
+        {
+          "name": "Richland - Emergency 2",
+          "total_votes": 19
+        },
+        {
+          "name": "Allendale - Emergency",
+          "total_votes": 12
+        },
+        {
+          "name": "Florence - Emergency 3",
+          "total_votes": 12
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 10
+        }
+      ]
+    },
+    "attorney_general_2014.json": {
+      "year": 2014,
+      "contest_type": "attorney_general",
+      "unmatched_geo_count": 1,
+      "unmatched_non_geo_count": 46,
+      "top_unmatched_geo": [
+        {
+          "name": "Georgetown - Grier'S",
+          "total_votes": 225
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 92
+        },
+        {
+          "name": "Greenville - Emergency 2",
+          "total_votes": 57
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 48
+        },
+        {
+          "name": "Florence - Emergency 2",
+          "total_votes": 38
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 33
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 27
+        },
+        {
+          "name": "Orangeburg - Emergency",
+          "total_votes": 24
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 23
+        },
+        {
+          "name": "Marion - Emergency",
+          "total_votes": 17
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 11
+        },
+        {
+          "name": "Richland - Emergency 2",
+          "total_votes": 10
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 10
+        },
+        {
+          "name": "Allendale - Emergency",
+          "total_votes": 6
+        },
+        {
+          "name": "Florence - Emergency 3",
+          "total_votes": 6
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 5
+        }
+      ]
+    },
+    "secretary_of_state_2014.json": {
+      "year": 2014,
+      "contest_type": "secretary_of_state",
+      "unmatched_geo_count": 1,
+      "unmatched_non_geo_count": 46,
+      "top_unmatched_geo": [
+        {
+          "name": "Georgetown - Grier'S",
+          "total_votes": 226
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 93
+        },
+        {
+          "name": "Greenville - Emergency 2",
+          "total_votes": 57
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 48
+        },
+        {
+          "name": "Florence - Emergency 2",
+          "total_votes": 38
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 33
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 27
+        },
+        {
+          "name": "Orangeburg - Emergency",
+          "total_votes": 24
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 23
+        },
+        {
+          "name": "Marion - Emergency",
+          "total_votes": 17
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 11
+        },
+        {
+          "name": "Richland - Emergency 2",
+          "total_votes": 10
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 10
+        },
+        {
+          "name": "Allendale - Emergency",
+          "total_votes": 6
+        },
+        {
+          "name": "Florence - Emergency 3",
+          "total_votes": 6
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 5
+        }
+      ]
+    },
+    "superintendent_2014.json": {
+      "year": 2014,
+      "contest_type": "superintendent",
+      "unmatched_geo_count": 2,
+      "unmatched_non_geo_count": 46,
+      "top_unmatched_geo": [
+        {
+          "name": "Spartanburg - Park Hills Elementary School",
+          "total_votes": 321
+        },
+        {
+          "name": "Georgetown - Griers",
+          "total_votes": 226
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 93
+        },
+        {
+          "name": "Greenville - Emergency 2",
+          "total_votes": 55
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 48
+        },
+        {
+          "name": "Florence - Emergency 2",
+          "total_votes": 38
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 33
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 27
+        },
+        {
+          "name": "Orangeburg - Emergency",
+          "total_votes": 24
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 23
+        },
+        {
+          "name": "Marion - Emergency",
+          "total_votes": 17
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 11
+        },
+        {
+          "name": "Richland - Emergency 2",
+          "total_votes": 10
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 10
+        },
+        {
+          "name": "Allendale - Emergency",
+          "total_votes": 6
+        },
+        {
+          "name": "Florence - Emergency 3",
+          "total_votes": 6
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 5
+        }
+      ]
+    },
+    "state_treasurer_2014.json": {
+      "year": 2014,
+      "contest_type": "state_treasurer",
+      "unmatched_geo_count": 1,
+      "unmatched_non_geo_count": 46,
+      "top_unmatched_geo": [
+        {
+          "name": "Georgetown - Grier'S",
+          "total_votes": 45
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Greenville - Emergency 2",
+          "total_votes": 52
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 41
+        },
+        {
+          "name": "Florence - Emergency 2",
+          "total_votes": 37
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 37
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 23
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 12
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 9
+        },
+        {
+          "name": "Marion - Emergency",
+          "total_votes": 9
+        },
+        {
+          "name": "Orangeburg - Emergency",
+          "total_votes": 9
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 8
+        },
+        {
+          "name": "Richland - Emergency 2",
+          "total_votes": 6
+        },
+        {
+          "name": "Florence - Emergency 3",
+          "total_votes": 3
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 3
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 3
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 2
+        }
+      ]
+    },
+    "comptroller_general_2014.json": {
+      "year": 2014,
+      "contest_type": "comptroller_general",
+      "unmatched_geo_count": 1,
+      "unmatched_non_geo_count": 46,
+      "top_unmatched_geo": [
+        {
+          "name": "Georgetown - Grier'S",
+          "total_votes": 226
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 92
+        },
+        {
+          "name": "Greenville - Emergency 2",
+          "total_votes": 57
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 47
+        },
+        {
+          "name": "Florence - Emergency 2",
+          "total_votes": 38
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 33
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 27
+        },
+        {
+          "name": "Orangeburg - Emergency",
+          "total_votes": 24
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 23
+        },
+        {
+          "name": "Marion - Emergency",
+          "total_votes": 17
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 11
+        },
+        {
+          "name": "Richland - Emergency 2",
+          "total_votes": 10
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 10
+        },
+        {
+          "name": "Allendale - Emergency",
+          "total_votes": 6
+        },
+        {
+          "name": "Florence - Emergency 3",
+          "total_votes": 6
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 5
+        }
+      ]
+    },
+    "commissioner_agriculture_2014.json": {
+      "year": 2014,
+      "contest_type": "commissioner_agriculture",
+      "unmatched_geo_count": 1,
+      "unmatched_non_geo_count": 46,
+      "top_unmatched_geo": [
+        {
+          "name": "Georgetown - Grier'S",
+          "total_votes": 65
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 58
+        },
+        {
+          "name": "Greenville - Emergency 2",
+          "total_votes": 53
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 40
+        },
+        {
+          "name": "Florence - Emergency 2",
+          "total_votes": 36
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 24
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 13
+        },
+        {
+          "name": "Lee - Emergency",
+          "total_votes": 13
+        },
+        {
+          "name": "Marion - Emergency",
+          "total_votes": 12
+        },
+        {
+          "name": "Orangeburg - Emergency",
+          "total_votes": 12
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 10
+        },
+        {
+          "name": "Richland - Emergency 2",
+          "total_votes": 8
+        },
+        {
+          "name": "Florence - Emergency 3",
+          "total_votes": 5
+        },
+        {
+          "name": "Allendale - Emergency",
+          "total_votes": 4
+        },
+        {
+          "name": "Horry - Emergency 2",
+          "total_votes": 3
+        },
+        {
+          "name": "Laurens - Emergency",
+          "total_votes": 3
+        }
+      ]
+    },
+    "president_2012.json": {
+      "year": 2012,
+      "contest_type": "president",
+      "unmatched_geo_count": 6,
+      "unmatched_non_geo_count": 51,
+      "top_unmatched_geo": [
+        {
+          "name": "Lexington - Bethany",
+          "total_votes": 1603
+        },
+        {
+          "name": "Spartanburg - North Spartanburg # 2 Fir",
+          "total_votes": 1045
+        },
+        {
+          "name": "Spartanburg - Mount Sinai Baptist",
+          "total_votes": 1026
+        },
+        {
+          "name": "Aiken - Ward 40",
+          "total_votes": 756
+        },
+        {
+          "name": "Spartanburg - Woodruff Armory Drive",
+          "total_votes": 394
+        },
+        {
+          "name": "Georgetown - Grier'S",
+          "total_votes": 332
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Spartanburg - Emergency",
+          "total_votes": 919
+        },
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 126
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 107
+        },
+        {
+          "name": "Abbeville - Emergency",
+          "total_votes": 72
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 51
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 50
+        },
+        {
+          "name": "Newberry - Emergency",
+          "total_votes": 46
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 37
+        },
+        {
+          "name": "Chester - Emergency",
+          "total_votes": 32
+        },
+        {
+          "name": "Richland - Emergency 1",
+          "total_votes": 19
+        },
+        {
+          "name": "Aiken - Emergency",
+          "total_votes": 15
+        },
+        {
+          "name": "Anderson - Emergency 2",
+          "total_votes": 10
+        },
+        {
+          "name": "Aiken - Emergency 2",
+          "total_votes": 8
+        },
+        {
+          "name": "Marion - Emergency",
+          "total_votes": 8
+        },
+        {
+          "name": "Kershaw - Emergency 2",
+          "total_votes": 6
+        }
+      ]
+    },
+    "governor_2010.json": {
+      "year": 2010,
+      "contest_type": "governor",
+      "unmatched_geo_count": 2,
+      "unmatched_non_geo_count": 35,
+      "top_unmatched_geo": [
+        {
+          "name": "Lexington - Bethany",
+          "total_votes": 1001
+        },
+        {
+          "name": "Spartanburg - Mount Sinai Baptist",
+          "total_votes": 943
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 206
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 83
+        },
+        {
+          "name": "Dorchester - Emergency",
+          "total_votes": 73
+        },
+        {
+          "name": "Sumter - Emergency",
+          "total_votes": 63
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 53
+        },
+        {
+          "name": "Mccormick - Emergency",
+          "total_votes": 39
+        },
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 26
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 21
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 13
+        },
+        {
+          "name": "Newberry - Emergency",
+          "total_votes": 7
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Abbeville - Emergency",
+          "total_votes": 1
+        },
+        {
+          "name": "Aiken - Emergency",
+          "total_votes": 0
+        }
+      ]
+    },
+    "us_senate_2010.json": {
+      "year": 2010,
+      "contest_type": "us_senate",
+      "unmatched_geo_count": 2,
+      "unmatched_non_geo_count": 35,
+      "top_unmatched_geo": [
+        {
+          "name": "Lexington - Bethany",
+          "total_votes": 977
+        },
+        {
+          "name": "Spartanburg - Mount Sinai Baptist",
+          "total_votes": 937
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 201
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 83
+        },
+        {
+          "name": "Dorchester - Emergency",
+          "total_votes": 74
+        },
+        {
+          "name": "Sumter - Emergency",
+          "total_votes": 62
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 50
+        },
+        {
+          "name": "Mccormick - Emergency",
+          "total_votes": 39
+        },
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 26
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 21
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 13
+        },
+        {
+          "name": "Newberry - Emergency",
+          "total_votes": 7
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Abbeville - Emergency",
+          "total_votes": 1
+        },
+        {
+          "name": "Aiken - Emergency",
+          "total_votes": 0
+        }
+      ]
+    },
+    "attorney_general_2010.json": {
+      "year": 2010,
+      "contest_type": "attorney_general",
+      "unmatched_geo_count": 2,
+      "unmatched_non_geo_count": 35,
+      "top_unmatched_geo": [
+        {
+          "name": "Lexington - Bethany",
+          "total_votes": 998
+        },
+        {
+          "name": "Spartanburg - Mount Sinai Baptist",
+          "total_votes": 928
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 203
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 83
+        },
+        {
+          "name": "Dorchester - Emergency",
+          "total_votes": 73
+        },
+        {
+          "name": "Sumter - Emergency",
+          "total_votes": 62
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 52
+        },
+        {
+          "name": "Mccormick - Emergency",
+          "total_votes": 39
+        },
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 26
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 22
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 12
+        },
+        {
+          "name": "Newberry - Emergency",
+          "total_votes": 7
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Abbeville - Emergency",
+          "total_votes": 1
+        },
+        {
+          "name": "Aiken - Emergency",
+          "total_votes": 0
+        }
+      ]
+    },
+    "secretary_of_state_2010.json": {
+      "year": 2010,
+      "contest_type": "secretary_of_state",
+      "unmatched_geo_count": 2,
+      "unmatched_non_geo_count": 35,
+      "top_unmatched_geo": [
+        {
+          "name": "Lexington - Bethany",
+          "total_votes": 998
+        },
+        {
+          "name": "Spartanburg - Mount Sinai Baptist",
+          "total_votes": 936
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 203
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 83
+        },
+        {
+          "name": "Dorchester - Emergency",
+          "total_votes": 71
+        },
+        {
+          "name": "Sumter - Emergency",
+          "total_votes": 61
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 53
+        },
+        {
+          "name": "Mccormick - Emergency",
+          "total_votes": 38
+        },
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 26
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 21
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 13
+        },
+        {
+          "name": "Newberry - Emergency",
+          "total_votes": 7
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Abbeville - Emergency",
+          "total_votes": 1
+        },
+        {
+          "name": "Aiken - Emergency",
+          "total_votes": 0
+        }
+      ]
+    },
+    "superintendent_2010.json": {
+      "year": 2010,
+      "contest_type": "superintendent",
+      "unmatched_geo_count": 3,
+      "unmatched_non_geo_count": 35,
+      "top_unmatched_geo": [
+        {
+          "name": "Lexington - Bethany",
+          "total_votes": 991
+        },
+        {
+          "name": "Spartanburg - Mount Sinai Baptist",
+          "total_votes": 932
+        },
+        {
+          "name": "Spartanburg - Park Hills Elementary School",
+          "total_votes": 477
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 201
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 83
+        },
+        {
+          "name": "Dorchester - Emergency",
+          "total_votes": 74
+        },
+        {
+          "name": "Sumter - Emergency",
+          "total_votes": 62
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 53
+        },
+        {
+          "name": "Mccormick - Emergency",
+          "total_votes": 38
+        },
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 26
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 22
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 13
+        },
+        {
+          "name": "Newberry - Emergency",
+          "total_votes": 7
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Abbeville - Emergency",
+          "total_votes": 1
+        },
+        {
+          "name": "Aiken - Emergency",
+          "total_votes": 0
+        }
+      ]
+    },
+    "state_treasurer_2010.json": {
+      "year": 2010,
+      "contest_type": "state_treasurer",
+      "unmatched_geo_count": 2,
+      "unmatched_non_geo_count": 35,
+      "top_unmatched_geo": [
+        {
+          "name": "Lexington - Bethany",
+          "total_votes": 836
+        },
+        {
+          "name": "Spartanburg - Mount Sinai Baptist",
+          "total_votes": 796
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 156
+        },
+        {
+          "name": "Dorchester - Emergency",
+          "total_votes": 51
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 49
+        },
+        {
+          "name": "Sumter - Emergency",
+          "total_votes": 22
+        },
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 21
+        },
+        {
+          "name": "Mccormick - Emergency",
+          "total_votes": 20
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 18
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 18
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 5
+        },
+        {
+          "name": "Newberry - Emergency",
+          "total_votes": 4
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Abbeville - Emergency",
+          "total_votes": 1
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 1
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 1
+        },
+        {
+          "name": "Aiken - Emergency",
+          "total_votes": 0
+        }
+      ]
+    },
+    "comptroller_general_2010.json": {
+      "year": 2010,
+      "contest_type": "comptroller_general",
+      "unmatched_geo_count": 2,
+      "unmatched_non_geo_count": 35,
+      "top_unmatched_geo": [
+        {
+          "name": "Lexington - Bethany",
+          "total_votes": 987
+        },
+        {
+          "name": "Spartanburg - Mount Sinai Baptist",
+          "total_votes": 924
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 204
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 83
+        },
+        {
+          "name": "Dorchester - Emergency",
+          "total_votes": 73
+        },
+        {
+          "name": "Sumter - Emergency",
+          "total_votes": 62
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 53
+        },
+        {
+          "name": "Mccormick - Emergency",
+          "total_votes": 38
+        },
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 26
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 22
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 13
+        },
+        {
+          "name": "Newberry - Emergency",
+          "total_votes": 7
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Abbeville - Emergency",
+          "total_votes": 1
+        },
+        {
+          "name": "Aiken - Emergency",
+          "total_votes": 0
+        }
+      ]
+    },
+    "commissioner_agriculture_2010.json": {
+      "year": 2010,
+      "contest_type": "commissioner_agriculture",
+      "unmatched_geo_count": 2,
+      "unmatched_non_geo_count": 35,
+      "top_unmatched_geo": [
+        {
+          "name": "Lexington - Bethany",
+          "total_votes": 986
+        },
+        {
+          "name": "Spartanburg - Mount Sinai Baptist",
+          "total_votes": 915
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 198
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 82
+        },
+        {
+          "name": "Dorchester - Emergency",
+          "total_votes": 72
+        },
+        {
+          "name": "Sumter - Emergency",
+          "total_votes": 62
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 52
+        },
+        {
+          "name": "Mccormick - Emergency",
+          "total_votes": 37
+        },
+        {
+          "name": "Colleton - Emergency",
+          "total_votes": 26
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 22
+        },
+        {
+          "name": "Lexington - Emergency",
+          "total_votes": 13
+        },
+        {
+          "name": "Newberry - Emergency",
+          "total_votes": 7
+        },
+        {
+          "name": "Beaufort - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Fairfield - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 2
+        },
+        {
+          "name": "Abbeville - Emergency",
+          "total_votes": 1
+        },
+        {
+          "name": "Aiken - Emergency",
+          "total_votes": 0
+        }
+      ]
+    },
+    "president_2008.json": {
+      "year": 2008,
+      "contest_type": "president",
+      "unmatched_geo_count": 58,
+      "unmatched_non_geo_count": 31,
+      "top_unmatched_geo": [
+        {
+          "name": "Spartanburg - Campton A",
+          "total_votes": 2481
+        },
+        {
+          "name": "Spartanburg - West View B",
+          "total_votes": 2152
+        },
+        {
+          "name": "Spartanburg - Ben Avon",
+          "total_votes": 1980
+        },
+        {
+          "name": "Spartanburg - Bowen",
+          "total_votes": 1854
+        },
+        {
+          "name": "Spartanburg - Ballenger",
+          "total_votes": 1738
+        },
+        {
+          "name": "Spartanburg - Arlington",
+          "total_votes": 1586
+        },
+        {
+          "name": "Spartanburg - Walnut Grove",
+          "total_votes": 1574
+        },
+        {
+          "name": "Lexington - Bethany",
+          "total_votes": 1443
+        },
+        {
+          "name": "Spartanburg - Fairmont",
+          "total_votes": 1381
+        },
+        {
+          "name": "Spartanburg - Cunningham",
+          "total_votes": 1344
+        },
+        {
+          "name": "Spartanburg - Campobello",
+          "total_votes": 1316
+        },
+        {
+          "name": "Spartanburg - Poplar Springs B",
+          "total_votes": 1314
+        },
+        {
+          "name": "Spartanburg - Inman A",
+          "total_votes": 1259
+        },
+        {
+          "name": "Spartanburg - Brklyn Cs Fingv",
+          "total_votes": 1233
+        },
+        {
+          "name": "Spartanburg - Cedar Springs",
+          "total_votes": 1212
+        },
+        {
+          "name": "Spartanburg - Campton B",
+          "total_votes": 1188
+        },
+        {
+          "name": "Spartanburg - Camelot",
+          "total_votes": 1153
+        },
+        {
+          "name": "Spartanburg - Whitney A 1",
+          "total_votes": 1133
+        },
+        {
+          "name": "Spartanburg - Inman B",
+          "total_votes": 1103
+        },
+        {
+          "name": "Spartanburg - Cowpens A",
+          "total_votes": 1068
+        },
+        {
+          "name": "Spartanburg - Chesnee",
+          "total_votes": 1060
+        },
+        {
+          "name": "Spartanburg - Woodruff No. 1",
+          "total_votes": 1029
+        },
+        {
+          "name": "Spartanburg - Moore-Switzer",
+          "total_votes": 997
+        },
+        {
+          "name": "Spartanburg - Duncan B",
+          "total_votes": 994
+        },
+        {
+          "name": "Spartanburg - Bobo",
+          "total_votes": 973
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 512
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 137
+        },
+        {
+          "name": "Orangeburg - Emergency",
+          "total_votes": 94
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 84
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 82
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 35
+        },
+        {
+          "name": "Bamberg - Emergency",
+          "total_votes": 23
+        },
+        {
+          "name": "Dorchester - Emergency",
+          "total_votes": 22
+        },
+        {
+          "name": "Marlboro - Emergency",
+          "total_votes": 20
+        },
+        {
+          "name": "Abbeville - Emergency",
+          "total_votes": 19
+        },
+        {
+          "name": "Allendale - Emergency",
+          "total_votes": 11
+        },
+        {
+          "name": "Chester - Emergency",
+          "total_votes": 11
+        },
+        {
+          "name": "Marion - Emergency",
+          "total_votes": 7
+        },
+        {
+          "name": "Newberry - Emergency",
+          "total_votes": 3
+        },
+        {
+          "name": "Barnwell - Emergency",
+          "total_votes": 0
+        }
+      ]
+    },
+    "us_senate_2008.json": {
+      "year": 2008,
+      "contest_type": "us_senate",
+      "unmatched_geo_count": 58,
+      "unmatched_non_geo_count": 31,
+      "top_unmatched_geo": [
+        {
+          "name": "Spartanburg - Campton A",
+          "total_votes": 2413
+        },
+        {
+          "name": "Spartanburg - West View B",
+          "total_votes": 2090
+        },
+        {
+          "name": "Spartanburg - Ben Avon",
+          "total_votes": 1944
+        },
+        {
+          "name": "Spartanburg - Bowen",
+          "total_votes": 1835
+        },
+        {
+          "name": "Spartanburg - Ballenger",
+          "total_votes": 1703
+        },
+        {
+          "name": "Spartanburg - Arlington",
+          "total_votes": 1554
+        },
+        {
+          "name": "Spartanburg - Walnut Grove",
+          "total_votes": 1544
+        },
+        {
+          "name": "Lexington - Bethany",
+          "total_votes": 1407
+        },
+        {
+          "name": "Spartanburg - Fairmont",
+          "total_votes": 1355
+        },
+        {
+          "name": "Spartanburg - Cunningham",
+          "total_votes": 1313
+        },
+        {
+          "name": "Spartanburg - Poplar Springs B",
+          "total_votes": 1296
+        },
+        {
+          "name": "Spartanburg - Campobello",
+          "total_votes": 1275
+        },
+        {
+          "name": "Spartanburg - Inman A",
+          "total_votes": 1231
+        },
+        {
+          "name": "Spartanburg - Brklyn Cs Fingv",
+          "total_votes": 1200
+        },
+        {
+          "name": "Spartanburg - Cedar Springs",
+          "total_votes": 1183
+        },
+        {
+          "name": "Spartanburg - Campton B",
+          "total_votes": 1163
+        },
+        {
+          "name": "Spartanburg - Camelot",
+          "total_votes": 1127
+        },
+        {
+          "name": "Spartanburg - Whitney A 1",
+          "total_votes": 1113
+        },
+        {
+          "name": "Spartanburg - Inman B",
+          "total_votes": 1069
+        },
+        {
+          "name": "Spartanburg - Cowpens A",
+          "total_votes": 1040
+        },
+        {
+          "name": "Spartanburg - Chesnee",
+          "total_votes": 1019
+        },
+        {
+          "name": "Spartanburg - Woodruff No. 1",
+          "total_votes": 998
+        },
+        {
+          "name": "Spartanburg - Moore-Switzer",
+          "total_votes": 986
+        },
+        {
+          "name": "Spartanburg - Duncan B",
+          "total_votes": 967
+        },
+        {
+          "name": "Spartanburg - Bobo",
+          "total_votes": 948
+        }
+      ],
+      "top_unmatched_non_geo": [
+        {
+          "name": "Horry - Emergency",
+          "total_votes": 497
+        },
+        {
+          "name": "Kershaw - Emergency",
+          "total_votes": 134
+        },
+        {
+          "name": "Orangeburg - Emergency",
+          "total_votes": 92
+        },
+        {
+          "name": "Darlington - Emergency",
+          "total_votes": 81
+        },
+        {
+          "name": "Clarendon - Emergency",
+          "total_votes": 80
+        },
+        {
+          "name": "Williamsburg - Emergency",
+          "total_votes": 34
+        },
+        {
+          "name": "Bamberg - Emergency",
+          "total_votes": 23
+        },
+        {
+          "name": "Dorchester - Emergency",
+          "total_votes": 22
+        },
+        {
+          "name": "Abbeville - Emergency",
+          "total_votes": 19
+        },
+        {
+          "name": "Marlboro - Emergency",
+          "total_votes": 17
+        },
+        {
+          "name": "Chester - Emergency",
+          "total_votes": 11
+        },
+        {
+          "name": "Allendale - Emergency",
+          "total_votes": 7
+        },
+        {
+          "name": "Marion - Emergency",
+          "total_votes": 7
+        },
+        {
+          "name": "Newberry - Emergency",
+          "total_votes": 3
+        },
+        {
+          "name": "Barnwell - Emergency",
+          "total_votes": 0
+        }
+      ]
+    },
+    "governor_2006.json": {
+      "year": 2006,
+      "contest_type": "governor",
+      "unmatched_geo_count": 87,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [
+        {
+          "name": "York - Museum",
+          "total_votes": 2305
+        },
+        {
+          "name": "Spartanburg - Campton A",
+          "total_votes": 1610
+        },
+        {
+          "name": "Spartanburg - West View B",
+          "total_votes": 1440
+        },
+        {
+          "name": "Spartanburg - Ben Avon",
+          "total_votes": 1270
+        },
+        {
+          "name": "Lexington - Tn Of Pineridge",
+          "total_votes": 1239
+        },
+        {
+          "name": "Greenville - Gilder Creek",
+          "total_votes": 1234
+        },
+        {
+          "name": "Spartanburg - Bowen",
+          "total_votes": 1158
+        },
+        {
+          "name": "Richland - Harbison",
+          "total_votes": 1137
+        },
+        {
+          "name": "Spartanburg - Arlington",
+          "total_votes": 1089
+        },
+        {
+          "name": "Greenville - Highland Creek",
+          "total_votes": 1065
+        },
+        {
+          "name": "Spartanburg - Ballenger",
+          "total_votes": 973
+        },
+        {
+          "name": "Spartanburg - Walnut Grove",
+          "total_votes": 972
+        },
+        {
+          "name": "Spartanburg - Campobello",
+          "total_votes": 871
+        },
+        {
+          "name": "Spartanburg - Fairmont",
+          "total_votes": 863
+        },
+        {
+          "name": "Spartanburg - Cunningham",
+          "total_votes": 802
+        },
+        {
+          "name": "Spartanburg - Cedar Springs",
+          "total_votes": 761
+        },
+        {
+          "name": "Spartanburg - Inman A",
+          "total_votes": 757
+        },
+        {
+          "name": "Spartanburg - Brklyn Cs Fingv",
+          "total_votes": 735
+        },
+        {
+          "name": "Spartanburg - Woodruff No. 1",
+          "total_votes": 724
+        },
+        {
+          "name": "Spartanburg - Pine St Elementary School",
+          "total_votes": 705
+        },
+        {
+          "name": "Spartanburg - Poplar Springs B",
+          "total_votes": 705
+        },
+        {
+          "name": "Spartanburg - Cowpens A",
+          "total_votes": 700
+        },
+        {
+          "name": "Spartanburg - Whitney A 1",
+          "total_votes": 698
+        },
+        {
+          "name": "Spartanburg - Campton B",
+          "total_votes": 696
+        },
+        {
+          "name": "Spartanburg - Inman B",
+          "total_votes": 681
+        }
+      ],
+      "top_unmatched_non_geo": []
+    },
+    "attorney_general_2006.json": {
+      "year": 2006,
+      "contest_type": "attorney_general",
+      "unmatched_geo_count": 87,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [
+        {
+          "name": "York - Museum",
+          "total_votes": 1910
+        },
+        {
+          "name": "Spartanburg - Campton A",
+          "total_votes": 1228
+        },
+        {
+          "name": "Spartanburg - West View B",
+          "total_votes": 1162
+        },
+        {
+          "name": "Lexington - Tn Of Pineridge",
+          "total_votes": 1086
+        },
+        {
+          "name": "Spartanburg - Ben Avon",
+          "total_votes": 1080
+        },
+        {
+          "name": "Greenville - Gilder Creek",
+          "total_votes": 1061
+        },
+        {
+          "name": "Spartanburg - Bowen",
+          "total_votes": 1022
+        },
+        {
+          "name": "Spartanburg - Arlington",
+          "total_votes": 919
+        },
+        {
+          "name": "Greenville - Highland Creek",
+          "total_votes": 865
+        },
+        {
+          "name": "Spartanburg - Walnut Grove",
+          "total_votes": 856
+        },
+        {
+          "name": "Spartanburg - Ballenger",
+          "total_votes": 829
+        },
+        {
+          "name": "Richland - Harbison",
+          "total_votes": 736
+        },
+        {
+          "name": "Spartanburg - Campobello",
+          "total_votes": 727
+        },
+        {
+          "name": "Spartanburg - Cunningham",
+          "total_votes": 679
+        },
+        {
+          "name": "Spartanburg - Fairmont",
+          "total_votes": 611
+        },
+        {
+          "name": "Spartanburg - Pine St Elementary School",
+          "total_votes": 593
+        },
+        {
+          "name": "Spartanburg - Poplar Springs B",
+          "total_votes": 580
+        },
+        {
+          "name": "Lexington - Bethany",
+          "total_votes": 576
+        },
+        {
+          "name": "Spartanburg - Cedar Springs",
+          "total_votes": 574
+        },
+        {
+          "name": "Spartanburg - Moore-Switzer",
+          "total_votes": 569
+        },
+        {
+          "name": "Spartanburg - Campton B",
+          "total_votes": 558
+        },
+        {
+          "name": "Spartanburg - Cowpens A",
+          "total_votes": 552
+        },
+        {
+          "name": "Spartanburg - Whitney A 1",
+          "total_votes": 549
+        },
+        {
+          "name": "Spartanburg - Inman A",
+          "total_votes": 546
+        },
+        {
+          "name": "Spartanburg - Inman B",
+          "total_votes": 546
+        }
+      ],
+      "top_unmatched_non_geo": []
+    },
+    "secretary_of_state_2006.json": {
+      "year": 2006,
+      "contest_type": "secretary_of_state",
+      "unmatched_geo_count": 87,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [
+        {
+          "name": "York - Museum",
+          "total_votes": 2245
+        },
+        {
+          "name": "Spartanburg - Campton A",
+          "total_votes": 1592
+        },
+        {
+          "name": "Spartanburg - West View B",
+          "total_votes": 1423
+        },
+        {
+          "name": "Spartanburg - Ben Avon",
+          "total_votes": 1258
+        },
+        {
+          "name": "Lexington - Tn Of Pineridge",
+          "total_votes": 1215
+        },
+        {
+          "name": "Greenville - Gilder Creek",
+          "total_votes": 1208
+        },
+        {
+          "name": "Spartanburg - Bowen",
+          "total_votes": 1141
+        },
+        {
+          "name": "Richland - Harbison",
+          "total_votes": 1115
+        },
+        {
+          "name": "Spartanburg - Arlington",
+          "total_votes": 1067
+        },
+        {
+          "name": "Greenville - Highland Creek",
+          "total_votes": 1047
+        },
+        {
+          "name": "Spartanburg - Ballenger",
+          "total_votes": 960
+        },
+        {
+          "name": "Spartanburg - Walnut Grove",
+          "total_votes": 952
+        },
+        {
+          "name": "Spartanburg - Fairmont",
+          "total_votes": 864
+        },
+        {
+          "name": "Spartanburg - Campobello",
+          "total_votes": 856
+        },
+        {
+          "name": "Spartanburg - Cunningham",
+          "total_votes": 790
+        },
+        {
+          "name": "Spartanburg - Cedar Springs",
+          "total_votes": 757
+        },
+        {
+          "name": "Spartanburg - Inman A",
+          "total_votes": 755
+        },
+        {
+          "name": "Spartanburg - Brklyn Cs Fingv",
+          "total_votes": 722
+        },
+        {
+          "name": "Spartanburg - Woodruff No. 1",
+          "total_votes": 705
+        },
+        {
+          "name": "Spartanburg - Poplar Springs B",
+          "total_votes": 698
+        },
+        {
+          "name": "Spartanburg - Whitney A 1",
+          "total_votes": 696
+        },
+        {
+          "name": "Spartanburg - Campton B",
+          "total_votes": 693
+        },
+        {
+          "name": "Spartanburg - Pine St Elementary School",
+          "total_votes": 689
+        },
+        {
+          "name": "Spartanburg - Cowpens A",
+          "total_votes": 688
+        },
+        {
+          "name": "Charleston - N. Charleston 30",
+          "total_votes": 673
+        }
+      ],
+      "top_unmatched_non_geo": []
+    },
+    "state_treasurer_2006.json": {
+      "year": 2006,
+      "contest_type": "state_treasurer",
+      "unmatched_geo_count": 87,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [
+        {
+          "name": "York - Museum",
+          "total_votes": 2248
+        },
+        {
+          "name": "Spartanburg - Campton A",
+          "total_votes": 1602
+        },
+        {
+          "name": "Spartanburg - West View B",
+          "total_votes": 1429
+        },
+        {
+          "name": "Spartanburg - Ben Avon",
+          "total_votes": 1261
+        },
+        {
+          "name": "Lexington - Tn Of Pineridge",
+          "total_votes": 1238
+        },
+        {
+          "name": "Greenville - Gilder Creek",
+          "total_votes": 1228
+        },
+        {
+          "name": "Spartanburg - Bowen",
+          "total_votes": 1148
+        },
+        {
+          "name": "Richland - Harbison",
+          "total_votes": 1132
+        },
+        {
+          "name": "Spartanburg - Arlington",
+          "total_votes": 1076
+        },
+        {
+          "name": "Greenville - Highland Creek",
+          "total_votes": 1056
+        },
+        {
+          "name": "Spartanburg - Ballenger",
+          "total_votes": 974
+        },
+        {
+          "name": "Spartanburg - Walnut Grove",
+          "total_votes": 959
+        },
+        {
+          "name": "Spartanburg - Campobello",
+          "total_votes": 870
+        },
+        {
+          "name": "Spartanburg - Fairmont",
+          "total_votes": 864
+        },
+        {
+          "name": "Spartanburg - Cunningham",
+          "total_votes": 799
+        },
+        {
+          "name": "Spartanburg - Inman A",
+          "total_votes": 760
+        },
+        {
+          "name": "Spartanburg - Cedar Springs",
+          "total_votes": 756
+        },
+        {
+          "name": "Spartanburg - Brklyn Cs Fingv",
+          "total_votes": 730
+        },
+        {
+          "name": "Spartanburg - Woodruff No. 1",
+          "total_votes": 714
+        },
+        {
+          "name": "Spartanburg - Poplar Springs B",
+          "total_votes": 702
+        },
+        {
+          "name": "Spartanburg - Whitney A 1",
+          "total_votes": 698
+        },
+        {
+          "name": "Spartanburg - Pine St Elementary School",
+          "total_votes": 697
+        },
+        {
+          "name": "Spartanburg - Cowpens A",
+          "total_votes": 694
+        },
+        {
+          "name": "Spartanburg - Campton B",
+          "total_votes": 693
+        },
+        {
+          "name": "Charleston - N. Charleston 30",
+          "total_votes": 684
+        }
+      ],
+      "top_unmatched_non_geo": []
+    },
+    "comptroller_general_2006.json": {
+      "year": 2006,
+      "contest_type": "comptroller_general",
+      "unmatched_geo_count": 87,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [
+        {
+          "name": "York - Museum",
+          "total_votes": 2224
+        },
+        {
+          "name": "Spartanburg - Campton A",
+          "total_votes": 1588
+        },
+        {
+          "name": "Spartanburg - West View B",
+          "total_votes": 1413
+        },
+        {
+          "name": "Spartanburg - Ben Avon",
+          "total_votes": 1233
+        },
+        {
+          "name": "Lexington - Tn Of Pineridge",
+          "total_votes": 1229
+        },
+        {
+          "name": "Greenville - Gilder Creek",
+          "total_votes": 1219
+        },
+        {
+          "name": "Spartanburg - Bowen",
+          "total_votes": 1133
+        },
+        {
+          "name": "Richland - Harbison",
+          "total_votes": 1119
+        },
+        {
+          "name": "Spartanburg - Arlington",
+          "total_votes": 1069
+        },
+        {
+          "name": "Greenville - Highland Creek",
+          "total_votes": 1043
+        },
+        {
+          "name": "Spartanburg - Ballenger",
+          "total_votes": 960
+        },
+        {
+          "name": "Spartanburg - Walnut Grove",
+          "total_votes": 947
+        },
+        {
+          "name": "Spartanburg - Campobello",
+          "total_votes": 860
+        },
+        {
+          "name": "Spartanburg - Fairmont",
+          "total_votes": 857
+        },
+        {
+          "name": "Spartanburg - Cunningham",
+          "total_votes": 787
+        },
+        {
+          "name": "Spartanburg - Cedar Springs",
+          "total_votes": 755
+        },
+        {
+          "name": "Spartanburg - Inman A",
+          "total_votes": 752
+        },
+        {
+          "name": "Spartanburg - Brklyn Cs Fingv",
+          "total_votes": 713
+        },
+        {
+          "name": "Spartanburg - Woodruff No. 1",
+          "total_votes": 709
+        },
+        {
+          "name": "Spartanburg - Poplar Springs B",
+          "total_votes": 699
+        },
+        {
+          "name": "Spartanburg - Whitney A 1",
+          "total_votes": 696
+        },
+        {
+          "name": "Spartanburg - Campton B",
+          "total_votes": 687
+        },
+        {
+          "name": "Spartanburg - Cowpens A",
+          "total_votes": 684
+        },
+        {
+          "name": "Spartanburg - Pine St Elementary School",
+          "total_votes": 677
+        },
+        {
+          "name": "Spartanburg - Inman B",
+          "total_votes": 671
+        }
+      ],
+      "top_unmatched_non_geo": []
+    },
+    "commissioner_agriculture_2006.json": {
+      "year": 2006,
+      "contest_type": "commissioner_agriculture",
+      "unmatched_geo_count": 87,
+      "unmatched_non_geo_count": 0,
+      "top_unmatched_geo": [
+        {
+          "name": "York - Museum",
+          "total_votes": 2201
+        },
+        {
+          "name": "Spartanburg - Campton A",
+          "total_votes": 1566
+        },
+        {
+          "name": "Spartanburg - West View B",
+          "total_votes": 1394
+        },
+        {
+          "name": "Spartanburg - Ben Avon",
+          "total_votes": 1228
+        },
+        {
+          "name": "Lexington - Tn Of Pineridge",
+          "total_votes": 1213
+        },
+        {
+          "name": "Greenville - Gilder Creek",
+          "total_votes": 1188
+        },
+        {
+          "name": "Spartanburg - Bowen",
+          "total_votes": 1121
+        },
+        {
+          "name": "Richland - Harbison",
+          "total_votes": 1104
+        },
+        {
+          "name": "Spartanburg - Arlington",
+          "total_votes": 1049
+        },
+        {
+          "name": "Greenville - Highland Creek",
+          "total_votes": 1030
+        },
+        {
+          "name": "Spartanburg - Ballenger",
+          "total_votes": 959
+        },
+        {
+          "name": "Spartanburg - Walnut Grove",
+          "total_votes": 945
+        },
+        {
+          "name": "Spartanburg - Fairmont",
+          "total_votes": 851
+        },
+        {
+          "name": "Spartanburg - Campobello",
+          "total_votes": 836
+        },
+        {
+          "name": "Spartanburg - Cunningham",
+          "total_votes": 782
+        },
+        {
+          "name": "Spartanburg - Inman A",
+          "total_votes": 742
+        },
+        {
+          "name": "Spartanburg - Cedar Springs",
+          "total_votes": 741
+        },
+        {
+          "name": "Spartanburg - Brklyn Cs Fingv",
+          "total_votes": 714
+        },
+        {
+          "name": "Spartanburg - Poplar Springs B",
+          "total_votes": 694
+        },
+        {
+          "name": "Spartanburg - Woodruff No. 1",
+          "total_votes": 693
+        },
+        {
+          "name": "Spartanburg - Whitney A 1",
+          "total_votes": 690
+        },
+        {
+          "name": "Spartanburg - Campton B",
+          "total_votes": 682
+        },
+        {
+          "name": "Spartanburg - Cowpens A",
+          "total_votes": 668
+        },
+        {
+          "name": "Spartanburg - Pine St Elementary School",
+          "total_votes": 668
+        },
+        {
+          "name": "Charleston - N. Charleston 30",
+          "total_votes": 667
+        }
+      ],
+      "top_unmatched_non_geo": []
+    }
+  }
+}

@@ -11,6 +11,12 @@ VOTE_FIELDS = ("dem_votes", "rep_votes", "other_votes")
 
 def norm(value: str) -> str:
     cleaned = re.sub(r"[^A-Za-z0-9 .\-]", "", str(value or ""))
+    cleaned = re.sub(r"\b(?:NO\.?|NUMBER)\s*(?=\d)", "", cleaned, flags=re.I)
+    cleaned = re.sub(r"\bI\b", "1", cleaned, flags=re.I)
+    cleaned = re.sub(r"\bII\b", "2", cleaned, flags=re.I)
+    cleaned = re.sub(r"\bIII\b", "3", cleaned, flags=re.I)
+    cleaned = re.sub(r"\bIV\b", "4", cleaned, flags=re.I)
+    cleaned = re.sub(r"\bV\b", "5", cleaned, flags=re.I)
     return re.sub(r"\s+", " ", cleaned).strip().upper()
 
 
@@ -121,6 +127,38 @@ def load_weighted_splits(path: str, display_by_norm: dict[str, str]) -> dict[str
     return out
 
 
+def load_manual_weighted_splits(path: str, display_by_norm: dict[str, str]) -> dict[str, list[tuple[str, float]]]:
+    if not path or not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as fh:
+        raw = json.load(fh) or {}
+    out: dict[str, list[tuple[str, float]]] = {}
+    entries = raw.get("overrides") if isinstance(raw, dict) else None
+    if not isinstance(entries, list):
+        return out
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        src = str(entry.get("source") or "").strip()
+        targets = entry.get("targets") or {}
+        if not src or not isinstance(targets, dict):
+            continue
+        pairs: list[tuple[str, float]] = []
+        for target, weight in targets.items():
+            try:
+                wf = float(weight)
+            except (TypeError, ValueError):
+                continue
+            nt = norm(target)
+            if wf <= 0 or not nt:
+                continue
+            pairs.append((display_by_norm.get(nt, str(target).strip()), wf))
+        total = sum(w for _, w in pairs)
+        if total > 0:
+            out[norm(src)] = [(target, weight / total) for target, weight in pairs]
+    return out
+
+
 def finalize_row(row: dict) -> dict:
     dem = int(row.get("dem_votes") or 0)
     rep = int(row.get("rep_votes") or 0)
@@ -159,10 +197,11 @@ def remap_precinct_row(
     display_by_norm: dict[str, str],
     aliases: dict[str, str],
     weighted_sources: list[tuple[str, dict[str, list[tuple[str, float]]]]],
+    fallback_weighted_sources: list[tuple[str, dict[str, list[tuple[str, float]]]]] | None = None,
 ) -> tuple[list[dict], str]:
     key = str(row.get("county") or "").strip()
     nk = norm(key)
-    for label, weighted in weighted_sources:
+    def apply_weighted(label: str, weighted: dict[str, list[tuple[str, float]]]) -> tuple[list[dict], str] | None:
         if nk in weighted:
             pairs = weighted[nk]
             targets = [target for target, _ in pairs]
@@ -176,6 +215,12 @@ def remap_precinct_row(
                     nr[field] = split_votes[field][idx]
                 out.append(finalize_row(nr))
             return out, f"weighted_{label}"
+        return None
+
+    for label, weighted in weighted_sources:
+        result = apply_weighted(label, weighted)
+        if result:
+            return result
     if nk in aliases:
         nr = dict(row)
         nr["county"] = aliases[nk]
@@ -184,6 +229,10 @@ def remap_precinct_row(
         nr = dict(row)
         nr["county"] = display_by_norm[nk]
         return [finalize_row(nr)], "direct"
+    for label, weighted in fallback_weighted_sources or []:
+        result = apply_weighted(label, weighted)
+        if result:
+            return result
     return [finalize_row(dict(row))], "unmatched"
 
 
@@ -194,10 +243,22 @@ def process_contest(path: str, args, display_by_norm, aliases, weighted_by_year)
     contest_type = str(payload.get("contest_type") or os.path.basename(path).rsplit("_", 1)[0])
     weighted_sources: list[tuple[str, dict[str, list[tuple[str, float]]]]] = []
     if year <= int(args.vtd00_chain_year_max):
+        weighted_sources.append(("manual_historical", weighted_by_year.get("manual_historical") or {}))
         weighted_sources.append(("legacy_name", weighted_by_year.get("legacy_name") or {}))
         weighted_sources.append(("vtd00_chain", weighted_by_year.get("vtd00_chain") or {}))
     if year <= int(args.legacy_year_max):
+        if ("manual_historical", weighted_by_year.get("manual_historical") or {}) not in weighted_sources:
+            weighted_sources.append(("manual_historical", weighted_by_year.get("manual_historical") or {}))
         weighted_sources.append(("vtd10", weighted_by_year.get("vtd10") or {}))
+    if int(args.legacy_year_max) < year <= int(args.recent_year_max):
+        weighted_sources.append(("vtd20_current", weighted_by_year.get("vtd20_current") or {}))
+    fallback_weighted_sources = []
+    if year <= 2024 and not any(label == "vtd20_current" for label, _ in weighted_sources):
+        fallback_weighted_sources.append(("vtd20_current_fallback", weighted_by_year.get("vtd20_current") or {}))
+    if year <= 2016 and not any(label == "vtd10" for label, _ in weighted_sources):
+        fallback_weighted_sources.append(("vtd10_fallback", weighted_by_year.get("vtd10") or {}))
+    if year <= 2016 and not any(label == "legacy_name" for label, _ in weighted_sources):
+        fallback_weighted_sources.append(("legacy_name_fallback", weighted_by_year.get("legacy_name") or {}))
     county_bucket: OrderedDict[str, dict] = OrderedDict()
     precinct_bucket: OrderedDict[str, dict] = OrderedDict()
     stats = {
@@ -208,9 +269,14 @@ def process_contest(path: str, args, display_by_norm, aliases, weighted_by_year)
         "county_rows": 0,
         "precinct_rows": 0,
         "weighted_rows": 0,
+        "weighted_vtd20_current_rows": 0,
+        "weighted_vtd20_current_fallback_rows": 0,
+        "weighted_manual_historical_rows": 0,
         "weighted_legacy_name_rows": 0,
+        "weighted_legacy_name_fallback_rows": 0,
         "weighted_vtd00_chain_rows": 0,
         "weighted_vtd10_rows": 0,
+        "weighted_vtd10_fallback_rows": 0,
         "weighted_expanded_extra_rows": 0,
         "alias_rows": 0,
         "direct_rows": 0,
@@ -227,15 +293,31 @@ def process_contest(path: str, args, display_by_norm, aliases, weighted_by_year)
             add_to_bucket(county_bucket, finalize_row(dict(row)))
             continue
         stats["precinct_rows"] += 1
-        mapped_rows, source = remap_precinct_row(row, display_by_norm=display_by_norm, aliases=aliases, weighted_sources=weighted_sources)
+        mapped_rows, source = remap_precinct_row(
+            row,
+            display_by_norm=display_by_norm,
+            aliases=aliases,
+            weighted_sources=weighted_sources,
+            fallback_weighted_sources=fallback_weighted_sources,
+        )
         if source.startswith("weighted_"):
             stats["weighted_rows"] += 1
-            if source == "weighted_legacy_name":
+            if source == "weighted_vtd20_current":
+                stats["weighted_vtd20_current_rows"] += 1
+            elif source == "weighted_vtd20_current_fallback":
+                stats["weighted_vtd20_current_fallback_rows"] += 1
+            elif source == "weighted_manual_historical":
+                stats["weighted_manual_historical_rows"] += 1
+            elif source == "weighted_legacy_name":
                 stats["weighted_legacy_name_rows"] += 1
+            elif source == "weighted_legacy_name_fallback":
+                stats["weighted_legacy_name_fallback_rows"] += 1
             elif source == "weighted_vtd00_chain":
                 stats["weighted_vtd00_chain_rows"] += 1
             elif source == "weighted_vtd10":
                 stats["weighted_vtd10_rows"] += 1
+            elif source == "weighted_vtd10_fallback":
+                stats["weighted_vtd10_fallback_rows"] += 1
             stats["weighted_expanded_extra_rows"] += max(0, len(mapped_rows) - 1)
         elif source == "alias":
             stats["alias_rows"] += 1
@@ -253,15 +335,18 @@ def process_contest(path: str, args, display_by_norm, aliases, weighted_by_year)
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Aggregate contest JSON rows onto VTD20 precinct keys using areal crosswalk weights.")
+    ap = argparse.ArgumentParser(description="Aggregate contest JSON rows onto current precinct keys using areal crosswalk weights.")
     ap.add_argument("--base", default=".", help="Repository root")
     ap.add_argument("--contests-dir", default="data/contests", help="Input contests directory relative to base")
-    ap.add_argument("--out-dir", default="data/contests_vtd20_crosswalked", help="Output directory relative to base")
-    ap.add_argument("--legacy-year-max", type=int, default=2012, help="Apply VTD10->VTD20 weights through this year")
-    ap.add_argument("--vtd00-chain-year-max", type=int, default=2008, help="Try chained VTD00->VTD10->VTD20 weights through this year")
-    ap.add_argument("--weights-vtd00-chain", default="scripts/out/vtd00_to_vtd10_to_vtd20_vote_weight_splits.json")
-    ap.add_argument("--weights-legacy-name", default="scripts/out/legacy_name_to_vtd20_vote_weight_splits.json")
-    ap.add_argument("--weights-vtd10", default="scripts/out/vtd10_to_vtd20_vote_weight_splits.json")
+    ap.add_argument("--out-dir", default="data/contests_2025_crosswalked", help="Output directory relative to base")
+    ap.add_argument("--recent-year-max", type=int, default=2022, help="Apply VTD20->current weights through this year")
+    ap.add_argument("--legacy-year-max", type=int, default=2012, help="Apply VTD10->current weights through this year")
+    ap.add_argument("--vtd00-chain-year-max", type=int, default=2008, help="Try chained VTD00->VTD10->current weights through this year")
+    ap.add_argument("--weights-vtd20-current", default="data/crosswalk/vtd20_to_2025_vote_weight_splits.json")
+    ap.add_argument("--weights-vtd00-chain", default="data/crosswalk/vtd00_to_vtd10_to_2025_vote_weight_splits.json")
+    ap.add_argument("--weights-legacy-name", default="data/crosswalk/legacy_name_to_2025_vote_weight_splits.json")
+    ap.add_argument("--weights-vtd10", default="data/crosswalk/vtd10_to_2025_vote_weight_splits.json")
+    ap.add_argument("--manual-historical-weights", default="data/crosswalk/manual_historical_current_weight_overrides.json")
     ap.add_argument("--aliases", default="precinct_aliases.json")
     ap.add_argument("--precincts", default="data/Voting_Precincts.geojson")
     args = ap.parse_args()
@@ -274,6 +359,8 @@ def main() -> None:
     display_by_norm = load_precinct_display_by_norm(os.path.join(base, args.precincts))
     aliases = load_aliases(os.path.join(base, args.aliases), display_by_norm)
     weighted_by_year = {
+        "vtd20_current": load_weighted_splits(os.path.join(base, args.weights_vtd20_current), display_by_norm),
+        "manual_historical": load_manual_weighted_splits(os.path.join(base, args.manual_historical_weights), display_by_norm),
         "legacy_name": load_weighted_splits(os.path.join(base, args.weights_legacy_name), display_by_norm),
         "vtd00_chain": load_weighted_splits(os.path.join(base, args.weights_vtd00_chain), display_by_norm),
         "vtd10": load_weighted_splits(os.path.join(base, args.weights_vtd10), display_by_norm),
@@ -306,7 +393,8 @@ def main() -> None:
 
     with open(os.path.join(out_dir, "manifest.json"), "w", encoding="utf-8", newline="") as fh:
         json.dump(out_manifest, fh, separators=(",", ":"))
-    with open(os.path.join(out_dir, "qa_vtd20_crosswalked.json"), "w", encoding="utf-8", newline="") as fh:
+    qa_name = "qa_2025_crosswalked.json" if "2025" in os.path.basename(out_dir) else "qa_vtd20_crosswalked.json"
+    with open(os.path.join(out_dir, qa_name), "w", encoding="utf-8", newline="") as fh:
         json.dump({"stats": qa}, fh, indent=2)
         fh.write("\n")
 
@@ -316,7 +404,7 @@ def main() -> None:
             print(
                 f"{row['contest_type']}_{row['year']}: "
                 f"weighted={row['weighted_rows']} "
-                f"(legacy_name={row['weighted_legacy_name_rows']},vtd00_chain={row['weighted_vtd00_chain_rows']},vtd10={row['weighted_vtd10_rows']}) "
+                f"(vtd20_current={row['weighted_vtd20_current_rows']},vtd20_fallback={row['weighted_vtd20_current_fallback_rows']},manual_historical={row['weighted_manual_historical_rows']},legacy_name={row['weighted_legacy_name_rows']},legacy_name_fallback={row['weighted_legacy_name_fallback_rows']},vtd00_chain={row['weighted_vtd00_chain_rows']},vtd10={row['weighted_vtd10_rows']},vtd10_fallback={row['weighted_vtd10_fallback_rows']}) "
                 f"alias={row['alias_rows']} "
                 f"direct={row['direct_rows']} unmatched={row['unmatched_rows']} "
                 f"out_rows={row['output_rows']}"

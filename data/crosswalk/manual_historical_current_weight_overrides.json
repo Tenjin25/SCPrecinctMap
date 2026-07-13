@@ -1,0 +1,6 @@
+{
+  "_comment": "Reviewed administrative overrides applied before generated areal weights when aggregating historical contest rows onto the current precinct layer.",
+  "_scope": "Historical contest crosswalks only; raw 2024 SCVotes county precinct rows remain in data/contests.",
+  "_note": "The 2025 Fiscal Affairs rebuild supersedes the earlier hard Spartanburg Trinity/West View override; those rows now use generated VTD10/VTD20 -> 2025 overlap weights.",
+  "overrides": []
+}

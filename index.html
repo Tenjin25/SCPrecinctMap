@@ -10646,8 +10646,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-12-12';
-    const APP_BUILD_ID = '2026-07-12-12';
+    const DATA_CACHE_BUSTER = '2026-07-12-14';
+    const APP_BUILD_ID = '2026-07-12-14';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -10704,7 +10704,7 @@ document.addEventListener('DOMContentLoaded', function() {
         state_senate_info: withBase('./data/sc_state_senate_districts.csv'),
         district_descriptions: withBase('./data/district_descriptions.json'),
         cvap_by_precinct_norm: withBase('./data/sc_cvap_2024_by_precinct_norm.json'),
-        contests_dir: withBase('./data/contests_vtd20_crosswalked')
+        contests_dir: withBase('./data/contests_2025_crosswalked')
       },
       center: [-80.9, 33.8],
       zoom: 6.5,
