@@ -30,6 +30,8 @@ The latest combined audit covers 10 election source files, 46 contest slices, 23
 
 - `0` hard integrity errors
 - `0` district vote-conservation failures
+- `221` comparisons against pre-July-13 district snapshots, with `188` safe calibrations and `0` calibration failures
+- `33` older State House snapshots retained as comparison-only because forcing them onto the current rebuild would exceed the drift guardrail
 - `45` historical-coverage warnings requiring continued review
 - all `2,313` current precincts mapped in every district scope
 
@@ -53,8 +55,10 @@ This sequence:
 2. Records source filenames, row counts, SHA-256 hashes, and contest vote accounting in `data/contests/source_integrity.json`.
 3. Crosswalks geographic precinct returns onto the 2025 South Carolina Revenue and Fiscal Affairs Office precinct layer.
 4. Recalculates equal-area overlap weights for congressional, 2022 State House, 2024 State House, and 2022 State Senate boundaries.
-5. Rebuilds the district contest files and line-specific manifests.
-6. Audits source accounting, current-precinct coverage, weight sums, and district vote conservation.
+5. Rebuilds the district contest files and line-specific manifests, comparing eligible Congressional, State Senate, and State House projections with their pre-July-13 committed snapshots.
+6. Calibrates safe snapshot matches while preserving every district total and the exact statewide Dem/Rep/other totals; incompatible historical House snapshots remain comparison-only.
+7. Calibrates the 2024 presidential projection separately for the 2022 enacted House map and the court-ordered 2024 redraw.
+8. Audits source accounting, current-precinct coverage, weight sums, snapshot drift, and district vote conservation.
 
 Do not publish a rebuild if either `errors` or `district_conservation_failures` is nonzero in `data/contest_integrity_report.json`.
 
@@ -102,6 +106,15 @@ For the State House election contest itself, the line vintage and election year 
 
 Statewide contests can be projected onto both boundary vintages for comparison. The strict matching rule applies specifically to the `state_house` election contest.
 
+The 2024 presidential projections use separate committed calibration snapshots because the geometries are different:
+
+- `data/district-statistics 2024 pres state house.csv` targets the 2022 enacted House lines.
+- `data/district-statistics state house 2024 pres.csv` targets the court-ordered 2024 redraw.
+- Calibration preserves each district's total votes and the exact statewide Dem/Rep/other totals.
+- QA allows at most 1.0 percentage point of snapshot drift on the 2022 geometry and 0.25 on the 2024 redraw.
+
+Other eligible Congressional, State Senate, and State House contests are checked against the compact pre-July-13 share ledger in `data/district_contests/district_snapshot_targets.json`. The ledger is reproducibly extracted by `scripts/build_district_snapshot_targets.py` from commit `918f2f6`. A snapshot is calibrated only when it is compatible with the current geometry-derived result and exact statewide party balancing; otherwise QA records it as comparison-only rather than forcing a misleading district pattern.
+
 ## Key Integrity Outputs
 
 | File | Purpose |
@@ -123,6 +136,8 @@ Statewide contests can be projected onto both boundary vintages for comparison. 
   - Added `scripts/rebuild_district_contests_from_current_geojson.py` and `scripts/audit_contest_integrity.py` as the canonical district rebuild and QA path.
   - Restored the original line-specific district folder and filename convention.
   - Restricted State House election results to the matching line vintage: 2022 results on 2022 lines and 2024 results on 2024 lines.
+  - Added geometry-specific 2024 presidential calibration against the two committed State House snapshot CSVs while preserving exact statewide party totals.
+  - Extended pre-July-13 snapshot comparison and safe calibration across eligible Congressional, State Senate, and State House contest files, with incompatible older snapshots explicitly retained as comparison-only.
   - Normalized and pretty-printed the county-scoped precinct friendly-name map, including the corrected `Bennettsville` spelling.
 
 - **2025 Fiscal Affairs precinct layer:**

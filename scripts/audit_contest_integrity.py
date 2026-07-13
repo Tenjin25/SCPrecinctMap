@@ -127,6 +127,30 @@ def main() -> int:
     district_conservation_failures = sum(any(int(v) for v in row.get("conservation_delta", {}).values()) for row in district_files)
     if district_conservation_failures:
         errors.append(f"district conservation failures: {district_conservation_failures}")
+    snapshot_calibrations = [row for row in district_files if row.get("calibration_target_file")]
+    snapshot_comparisons = [row for row in district_files if row.get("snapshot_comparison_target_file")]
+    skipped_snapshot_calibrations = [
+        row for row in snapshot_comparisons
+        if str(row.get("snapshot_calibration_status") or "").startswith("comparison_only")
+    ]
+    expected_snapshot_comparisons = int(district_report.get("snapshot_comparisons_expected") or 0)
+    expected_snapshot_calibrations = int(district_report.get("snapshot_calibrations_expected") or 0)
+    snapshot_calibration_failures = sum(
+        int(row.get("calibration_districts") or 0) != int(row.get("calibration_expected_districts") or 0)
+        or float(row.get("calibration_max_abs_share_delta_pp") or 0) > float(row.get("calibration_tolerance_pp") or 0)
+        or any(int(v) for v in (row.get("calibration_conservation_delta") or {}).values())
+        for row in snapshot_calibrations
+    )
+    if len(snapshot_calibrations) != expected_snapshot_calibrations:
+        errors.append(
+            f"expected {expected_snapshot_calibrations} district snapshot calibrations, found {len(snapshot_calibrations)}"
+        )
+    if len(snapshot_comparisons) != expected_snapshot_comparisons:
+        errors.append(
+            f"expected {expected_snapshot_comparisons} district snapshot comparisons, found {len(snapshot_comparisons)}"
+        )
+    if snapshot_calibration_failures:
+        errors.append(f"snapshot calibration failures: {snapshot_calibration_failures}")
     report = {
         "summary": {
             "source_files": len(source_report.get("sources") or []),
@@ -136,6 +160,10 @@ def main() -> int:
             "errors": len(errors),
             "warnings": len(warnings),
             "district_conservation_failures": district_conservation_failures,
+            "snapshot_calibrations": len(snapshot_calibrations),
+            "snapshot_calibration_failures": snapshot_calibration_failures,
+            "snapshot_comparisons": len(snapshot_comparisons),
+            "snapshot_calibrations_skipped": len(skipped_snapshot_calibrations),
         },
         "errors": errors,
         "warnings": warnings,

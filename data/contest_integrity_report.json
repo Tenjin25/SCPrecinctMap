@@ -6,7 +6,11 @@
     "district_crosswalk_scopes": 4,
     "errors": 0,
     "warnings": 45,
-    "district_conservation_failures": 0
+    "district_conservation_failures": 0,
+    "snapshot_calibrations": 188,
+    "snapshot_calibration_failures": 0,
+    "snapshot_comparisons": 221,
+    "snapshot_calibrations_skipped": 33
   },
   "errors": [],
   "warnings": [
