@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
-        "dem_votes": 54321,
-        "rep_votes": 131819,
-        "other_votes": 3633,
-        "total_votes": 189773,
+      "1": {
+        "dem_votes": 81540,
+        "rep_votes": 109727,
+        "other_votes": 5238,
+        "total_votes": 196505,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 77498,
-        "margin_pct": 40.8372,
+        "margin": 28187,
+        "margin_pct": 14.3442,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "2": {
+        "dem_votes": 87787,
+        "rep_votes": 123211,
+        "other_votes": 5374,
+        "total_votes": 216372,
+        "dem_candidate": "Constance Anastopoulo",
+        "rep_candidate": "Alan Wilson",
+        "margin": 35424,
+        "margin_pct": 16.3718,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "3": {
+        "dem_votes": 57319,
+        "rep_votes": 140198,
+        "other_votes": 3831,
+        "total_votes": 201348,
+        "dem_candidate": "Constance Anastopoulo",
+        "rep_candidate": "Alan Wilson",
+        "margin": 82879,
+        "margin_pct": 41.1621,
         "winner": "R",
         "color": "#67000d"
       },
-      "2": {
-        "dem_votes": 87152,
-        "rep_votes": 123883,
-        "other_votes": 5413,
-        "total_votes": 216448,
+      "4": {
+        "dem_votes": 74395,
+        "rep_votes": 125593,
+        "other_votes": 3985,
+        "total_votes": 203973,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 36731,
-        "margin_pct": 16.9699,
-        "winner": "R",
-        "color": "#ef3b2c"
-      },
-      "6": {
-        "dem_votes": 101570,
-        "rep_votes": 49992,
-        "other_votes": 3651,
-        "total_votes": 155213,
-        "dem_candidate": "Constance Anastopoulo",
-        "rep_candidate": "Alan Wilson",
-        "margin": -51578,
-        "margin_pct": -33.2305,
-        "winner": "D",
-        "color": "#2171b5"
-      },
-      "1": {
-        "dem_votes": 88935,
-        "rep_votes": 115520,
-        "other_votes": 5947,
-        "total_votes": 210402,
-        "dem_candidate": "Constance Anastopoulo",
-        "rep_candidate": "Alan Wilson",
-        "margin": 26585,
-        "margin_pct": 12.6353,
-        "winner": "R",
-        "color": "#ef3b2c"
-      },
-      "5": {
-        "dem_votes": 80576,
-        "rep_votes": 121909,
-        "other_votes": 4328,
-        "total_votes": 206813,
-        "dem_candidate": "Constance Anastopoulo",
-        "rep_candidate": "Alan Wilson",
-        "margin": 41333,
-        "margin_pct": 19.9857,
-        "winner": "R",
-        "color": "#ef3b2c"
-      },
-      "7": {
-        "dem_votes": 75145,
-        "rep_votes": 116333,
-        "other_votes": 3543,
-        "total_votes": 195021,
-        "dem_candidate": "Constance Anastopoulo",
-        "rep_candidate": "Alan Wilson",
-        "margin": 41188,
-        "margin_pct": 21.1198,
+        "margin": 51198,
+        "margin_pct": 25.1004,
         "winner": "R",
         "color": "#cb181d"
       },
-      "4": {
-        "dem_votes": 75011,
-        "rep_votes": 131077,
-        "other_votes": 4085,
-        "total_votes": 210173,
+      "5": {
+        "dem_votes": 78839,
+        "rep_votes": 123016,
+        "other_votes": 4311,
+        "total_votes": 206166,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 56066,
-        "margin_pct": 26.6761,
+        "margin": 44177,
+        "margin_pct": 21.4279,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "6": {
+        "dem_votes": 117150,
+        "rep_votes": 63010,
+        "other_votes": 4682,
+        "total_votes": 184842,
+        "dem_candidate": "Constance Anastopoulo",
+        "rep_candidate": "Alan Wilson",
+        "margin": -54140,
+        "margin_pct": -29.2899,
+        "winner": "D",
+        "color": "#4292c6"
+      },
+      "7": {
+        "dem_votes": 77706,
+        "rep_votes": 120616,
+        "other_votes": 3667,
+        "total_votes": 201989,
+        "dem_candidate": "Constance Anastopoulo",
+        "rep_candidate": "Alan Wilson",
+        "margin": 42910,
+        "margin_pct": 21.2437,
         "winner": "R",
         "color": "#cb181d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 95.0607,
-    "precinct_rows_total": 2308,
-    "precinct_rows_matched": 2194,
-    "precinct_rows_block_weighted": 2194
+    "match_coverage_pct": 97.5631,
+    "precinct_rows_total": 2339,
+    "precinct_rows_overlap_weighted": 2282,
+    "precinct_rows_county_share_fallback": 57,
+    "precinct_votes_county_share_fallback": 4634,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

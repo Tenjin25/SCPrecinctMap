@@ -1,0 +1,4374 @@
+{
+  "files": [
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2024,
+      "file": "congressional_president_2024.json",
+      "match_coverage_pct": 100.0,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2310,
+      "precinct_rows_county_share_fallback": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2022,
+      "file": "congressional_governor_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2583,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2022,
+      "file": "congressional_us_senate_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2583,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "attorney_general",
+      "year": 2022,
+      "file": "congressional_attorney_general_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2131,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "secretary_of_state",
+      "year": 2022,
+      "file": "congressional_secretary_of_state_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2574,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "superintendent",
+      "year": 2022,
+      "file": "congressional_superintendent_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2572,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "state_treasurer",
+      "year": 2022,
+      "file": "congressional_state_treasurer_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2267,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "comptroller_general",
+      "year": 2022,
+      "file": "congressional_comptroller_general_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2128,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "commissioner_agriculture",
+      "year": 2022,
+      "file": "congressional_commissioner_agriculture_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2241,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2020,
+      "file": "congressional_president_2020.json",
+      "match_coverage_pct": 99.9131,
+      "precinct_rows_total": 2301,
+      "precinct_rows_overlap_weighted": 2299,
+      "precinct_rows_county_share_fallback": 2,
+      "precinct_votes_county_share_fallback": 3038,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2020,
+      "file": "congressional_us_senate_2020.json",
+      "match_coverage_pct": 99.9131,
+      "precinct_rows_total": 2301,
+      "precinct_rows_overlap_weighted": 2299,
+      "precinct_rows_county_share_fallback": 2,
+      "precinct_votes_county_share_fallback": 3042,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2018,
+      "file": "congressional_governor_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4629,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "attorney_general",
+      "year": 2018,
+      "file": "congressional_attorney_general_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4634,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "secretary_of_state",
+      "year": 2018,
+      "file": "congressional_secretary_of_state_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4629,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "superintendent",
+      "year": 2018,
+      "file": "congressional_superintendent_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 2824,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "state_treasurer",
+      "year": 2018,
+      "file": "congressional_state_treasurer_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4626,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "comptroller_general",
+      "year": 2018,
+      "file": "congressional_comptroller_general_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 3104,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "commissioner_agriculture",
+      "year": 2018,
+      "file": "congressional_commissioner_agriculture_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 3595,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2016,
+      "file": "congressional_president_2016.json",
+      "match_coverage_pct": 99.1274,
+      "precinct_rows_total": 2292,
+      "precinct_rows_overlap_weighted": 2272,
+      "precinct_rows_county_share_fallback": 20,
+      "precinct_votes_county_share_fallback": 2177,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2016,
+      "file": "congressional_us_senate_2016.json",
+      "match_coverage_pct": 99.1274,
+      "precinct_rows_total": 2292,
+      "precinct_rows_overlap_weighted": 2272,
+      "precinct_rows_county_share_fallback": 20,
+      "precinct_votes_county_share_fallback": 2124,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2014,
+      "file": "congressional_governor_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2355,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "file": "congressional_us_senate_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 4693,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "attorney_general",
+      "year": 2014,
+      "file": "congressional_attorney_general_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2324,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "secretary_of_state",
+      "year": 2014,
+      "file": "congressional_secretary_of_state_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2329,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "superintendent",
+      "year": 2014,
+      "file": "congressional_superintendent_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2340,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "state_treasurer",
+      "year": 2014,
+      "file": "congressional_state_treasurer_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 1309,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "comptroller_general",
+      "year": 2014,
+      "file": "congressional_comptroller_general_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2331,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "commissioner_agriculture",
+      "year": 2014,
+      "file": "congressional_commissioner_agriculture_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 1502,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2012,
+      "file": "congressional_president_2012.json",
+      "match_coverage_pct": 97.2783,
+      "precinct_rows_total": 2278,
+      "precinct_rows_overlap_weighted": 2216,
+      "precinct_rows_county_share_fallback": 62,
+      "precinct_votes_county_share_fallback": 10246,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2010,
+      "file": "congressional_governor_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 6067,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2010,
+      "file": "congressional_us_senate_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5936,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "attorney_general",
+      "year": 2010,
+      "file": "congressional_attorney_general_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 6012,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "secretary_of_state",
+      "year": 2010,
+      "file": "congressional_secretary_of_state_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5979,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "superintendent",
+      "year": 2010,
+      "file": "congressional_superintendent_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5998,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "state_treasurer",
+      "year": 2010,
+      "file": "congressional_state_treasurer_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 4074,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "comptroller_general",
+      "year": 2010,
+      "file": "congressional_comptroller_general_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5976,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "commissioner_agriculture",
+      "year": 2010,
+      "file": "congressional_commissioner_agriculture_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5952,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2008,
+      "file": "congressional_president_2008.json",
+      "match_coverage_pct": 95.5337,
+      "precinct_rows_total": 2239,
+      "precinct_rows_overlap_weighted": 2139,
+      "precinct_rows_county_share_fallback": 100,
+      "precinct_votes_county_share_fallback": 66054,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "file": "congressional_us_senate_2008.json",
+      "match_coverage_pct": 95.5337,
+      "precinct_rows_total": 2239,
+      "precinct_rows_overlap_weighted": 2139,
+      "precinct_rows_county_share_fallback": 100,
+      "precinct_votes_county_share_fallback": 64408,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2006,
+      "file": "congressional_governor_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 94518,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "attorney_general",
+      "year": 2006,
+      "file": "congressional_attorney_general_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 73316,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "secretary_of_state",
+      "year": 2006,
+      "file": "congressional_secretary_of_state_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 92716,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "superintendent",
+      "year": 2006,
+      "file": "congressional_superintendent_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 93569,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "state_treasurer",
+      "year": 2006,
+      "file": "congressional_state_treasurer_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 93726,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "comptroller_general",
+      "year": 2006,
+      "file": "congressional_comptroller_general_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 92384,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "commissioner_agriculture",
+      "year": 2006,
+      "file": "congressional_commissioner_agriculture_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 91451,
+      "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "president",
+      "year": 2024,
+      "file": "state_house_president_2024.json",
+      "match_coverage_pct": 100.0,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2310,
+      "precinct_rows_county_share_fallback": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "governor",
+      "year": 2022,
+      "file": "state_house_governor_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2583,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "us_senate",
+      "year": 2022,
+      "file": "state_house_us_senate_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2583,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "attorney_general",
+      "year": 2022,
+      "file": "state_house_attorney_general_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2131,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2022,
+      "file": "state_house_secretary_of_state_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2574,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "superintendent",
+      "year": 2022,
+      "file": "state_house_superintendent_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2572,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "state_treasurer",
+      "year": 2022,
+      "file": "state_house_state_treasurer_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2267,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "comptroller_general",
+      "year": 2022,
+      "file": "state_house_comptroller_general_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2128,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2022,
+      "file": "state_house_commissioner_agriculture_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2241,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "president",
+      "year": 2020,
+      "file": "state_house_president_2020.json",
+      "match_coverage_pct": 99.9131,
+      "precinct_rows_total": 2301,
+      "precinct_rows_overlap_weighted": 2299,
+      "precinct_rows_county_share_fallback": 2,
+      "precinct_votes_county_share_fallback": 3038,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "us_senate",
+      "year": 2020,
+      "file": "state_house_us_senate_2020.json",
+      "match_coverage_pct": 99.9131,
+      "precinct_rows_total": 2301,
+      "precinct_rows_overlap_weighted": 2299,
+      "precinct_rows_county_share_fallback": 2,
+      "precinct_votes_county_share_fallback": 3042,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "governor",
+      "year": 2018,
+      "file": "state_house_governor_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4629,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "attorney_general",
+      "year": 2018,
+      "file": "state_house_attorney_general_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4634,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2018,
+      "file": "state_house_secretary_of_state_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4629,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "superintendent",
+      "year": 2018,
+      "file": "state_house_superintendent_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 2824,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "state_treasurer",
+      "year": 2018,
+      "file": "state_house_state_treasurer_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4626,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "comptroller_general",
+      "year": 2018,
+      "file": "state_house_comptroller_general_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 3104,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2018,
+      "file": "state_house_commissioner_agriculture_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 3595,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "president",
+      "year": 2016,
+      "file": "state_house_president_2016.json",
+      "match_coverage_pct": 99.1274,
+      "precinct_rows_total": 2292,
+      "precinct_rows_overlap_weighted": 2272,
+      "precinct_rows_county_share_fallback": 20,
+      "precinct_votes_county_share_fallback": 2177,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "us_senate",
+      "year": 2016,
+      "file": "state_house_us_senate_2016.json",
+      "match_coverage_pct": 99.1274,
+      "precinct_rows_total": 2292,
+      "precinct_rows_overlap_weighted": 2272,
+      "precinct_rows_county_share_fallback": 20,
+      "precinct_votes_county_share_fallback": 2124,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "governor",
+      "year": 2014,
+      "file": "state_house_governor_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2355,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "file": "state_house_us_senate_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 4693,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "attorney_general",
+      "year": 2014,
+      "file": "state_house_attorney_general_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2324,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2014,
+      "file": "state_house_secretary_of_state_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2329,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "superintendent",
+      "year": 2014,
+      "file": "state_house_superintendent_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2340,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "state_treasurer",
+      "year": 2014,
+      "file": "state_house_state_treasurer_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 1309,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "comptroller_general",
+      "year": 2014,
+      "file": "state_house_comptroller_general_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2331,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2014,
+      "file": "state_house_commissioner_agriculture_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 1502,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "president",
+      "year": 2012,
+      "file": "state_house_president_2012.json",
+      "match_coverage_pct": 97.2783,
+      "precinct_rows_total": 2278,
+      "precinct_rows_overlap_weighted": 2216,
+      "precinct_rows_county_share_fallback": 62,
+      "precinct_votes_county_share_fallback": 10246,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "governor",
+      "year": 2010,
+      "file": "state_house_governor_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 6067,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "us_senate",
+      "year": 2010,
+      "file": "state_house_us_senate_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5936,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "attorney_general",
+      "year": 2010,
+      "file": "state_house_attorney_general_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 6012,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2010,
+      "file": "state_house_secretary_of_state_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5979,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "superintendent",
+      "year": 2010,
+      "file": "state_house_superintendent_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5998,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "state_treasurer",
+      "year": 2010,
+      "file": "state_house_state_treasurer_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 4074,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "comptroller_general",
+      "year": 2010,
+      "file": "state_house_comptroller_general_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5976,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2010,
+      "file": "state_house_commissioner_agriculture_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5952,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "president",
+      "year": 2008,
+      "file": "state_house_president_2008.json",
+      "match_coverage_pct": 95.5337,
+      "precinct_rows_total": 2239,
+      "precinct_rows_overlap_weighted": 2139,
+      "precinct_rows_county_share_fallback": 100,
+      "precinct_votes_county_share_fallback": 66054,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "file": "state_house_us_senate_2008.json",
+      "match_coverage_pct": 95.5337,
+      "precinct_rows_total": 2239,
+      "precinct_rows_overlap_weighted": 2139,
+      "precinct_rows_county_share_fallback": 100,
+      "precinct_votes_county_share_fallback": 64408,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "governor",
+      "year": 2006,
+      "file": "state_house_governor_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 94518,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "attorney_general",
+      "year": 2006,
+      "file": "state_house_attorney_general_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 73316,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2006,
+      "file": "state_house_secretary_of_state_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 92716,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "superintendent",
+      "year": 2006,
+      "file": "state_house_superintendent_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 93569,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "state_treasurer",
+      "year": 2006,
+      "file": "state_house_state_treasurer_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 93726,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "comptroller_general",
+      "year": 2006,
+      "file": "state_house_comptroller_general_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 92384,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2006,
+      "file": "state_house_commissioner_agriculture_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 91451,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "president",
+      "year": 2024,
+      "file": "state_senate_president_2024.json",
+      "match_coverage_pct": 100.0,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2310,
+      "precinct_rows_county_share_fallback": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "governor",
+      "year": 2022,
+      "file": "state_senate_governor_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2583,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "us_senate",
+      "year": 2022,
+      "file": "state_senate_us_senate_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2583,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "attorney_general",
+      "year": 2022,
+      "file": "state_senate_attorney_general_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2131,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2022,
+      "file": "state_senate_secretary_of_state_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2574,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "superintendent",
+      "year": 2022,
+      "file": "state_senate_superintendent_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2572,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "state_treasurer",
+      "year": 2022,
+      "file": "state_senate_state_treasurer_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2267,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "comptroller_general",
+      "year": 2022,
+      "file": "state_senate_comptroller_general_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2128,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2022,
+      "file": "state_senate_commissioner_agriculture_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2241,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "president",
+      "year": 2020,
+      "file": "state_senate_president_2020.json",
+      "match_coverage_pct": 99.9131,
+      "precinct_rows_total": 2301,
+      "precinct_rows_overlap_weighted": 2299,
+      "precinct_rows_county_share_fallback": 2,
+      "precinct_votes_county_share_fallback": 3038,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "us_senate",
+      "year": 2020,
+      "file": "state_senate_us_senate_2020.json",
+      "match_coverage_pct": 99.9131,
+      "precinct_rows_total": 2301,
+      "precinct_rows_overlap_weighted": 2299,
+      "precinct_rows_county_share_fallback": 2,
+      "precinct_votes_county_share_fallback": 3042,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "governor",
+      "year": 2018,
+      "file": "state_senate_governor_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4629,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "attorney_general",
+      "year": 2018,
+      "file": "state_senate_attorney_general_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4634,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2018,
+      "file": "state_senate_secretary_of_state_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4629,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "superintendent",
+      "year": 2018,
+      "file": "state_senate_superintendent_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 2824,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "state_treasurer",
+      "year": 2018,
+      "file": "state_senate_state_treasurer_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4626,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "comptroller_general",
+      "year": 2018,
+      "file": "state_senate_comptroller_general_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 3104,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2018,
+      "file": "state_senate_commissioner_agriculture_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 3595,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "president",
+      "year": 2016,
+      "file": "state_senate_president_2016.json",
+      "match_coverage_pct": 99.1274,
+      "precinct_rows_total": 2292,
+      "precinct_rows_overlap_weighted": 2272,
+      "precinct_rows_county_share_fallback": 20,
+      "precinct_votes_county_share_fallback": 2177,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "us_senate",
+      "year": 2016,
+      "file": "state_senate_us_senate_2016.json",
+      "match_coverage_pct": 99.1274,
+      "precinct_rows_total": 2292,
+      "precinct_rows_overlap_weighted": 2272,
+      "precinct_rows_county_share_fallback": 20,
+      "precinct_votes_county_share_fallback": 2124,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "governor",
+      "year": 2014,
+      "file": "state_senate_governor_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2355,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "file": "state_senate_us_senate_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 4693,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "attorney_general",
+      "year": 2014,
+      "file": "state_senate_attorney_general_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2324,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2014,
+      "file": "state_senate_secretary_of_state_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2329,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "superintendent",
+      "year": 2014,
+      "file": "state_senate_superintendent_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2340,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "state_treasurer",
+      "year": 2014,
+      "file": "state_senate_state_treasurer_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 1309,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "comptroller_general",
+      "year": 2014,
+      "file": "state_senate_comptroller_general_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2331,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2014,
+      "file": "state_senate_commissioner_agriculture_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 1502,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "president",
+      "year": 2012,
+      "file": "state_senate_president_2012.json",
+      "match_coverage_pct": 97.2783,
+      "precinct_rows_total": 2278,
+      "precinct_rows_overlap_weighted": 2216,
+      "precinct_rows_county_share_fallback": 62,
+      "precinct_votes_county_share_fallback": 10246,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "governor",
+      "year": 2010,
+      "file": "state_senate_governor_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 6067,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "us_senate",
+      "year": 2010,
+      "file": "state_senate_us_senate_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5936,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "attorney_general",
+      "year": 2010,
+      "file": "state_senate_attorney_general_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 6012,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2010,
+      "file": "state_senate_secretary_of_state_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5979,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "superintendent",
+      "year": 2010,
+      "file": "state_senate_superintendent_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5998,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "state_treasurer",
+      "year": 2010,
+      "file": "state_senate_state_treasurer_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 4074,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "comptroller_general",
+      "year": 2010,
+      "file": "state_senate_comptroller_general_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5976,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2010,
+      "file": "state_senate_commissioner_agriculture_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5952,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "president",
+      "year": 2008,
+      "file": "state_senate_president_2008.json",
+      "match_coverage_pct": 95.5337,
+      "precinct_rows_total": 2239,
+      "precinct_rows_overlap_weighted": 2139,
+      "precinct_rows_county_share_fallback": 100,
+      "precinct_votes_county_share_fallback": 66054,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "file": "state_senate_us_senate_2008.json",
+      "match_coverage_pct": 95.5337,
+      "precinct_rows_total": 2239,
+      "precinct_rows_overlap_weighted": 2139,
+      "precinct_rows_county_share_fallback": 100,
+      "precinct_votes_county_share_fallback": 64408,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "governor",
+      "year": 2006,
+      "file": "state_senate_governor_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 94518,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "attorney_general",
+      "year": 2006,
+      "file": "state_senate_attorney_general_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 73316,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2006,
+      "file": "state_senate_secretary_of_state_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 92716,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "superintendent",
+      "year": 2006,
+      "file": "state_senate_superintendent_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 93569,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "state_treasurer",
+      "year": 2006,
+      "file": "state_senate_state_treasurer_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 93726,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "comptroller_general",
+      "year": 2006,
+      "file": "state_senate_comptroller_general_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 92384,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_senate_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2006,
+      "file": "state_senate_commissioner_agriculture_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 91451,
+      "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "president",
+      "year": 2024,
+      "file": "state_house_president_2024.json",
+      "match_coverage_pct": 100.0,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2310,
+      "precinct_rows_county_share_fallback": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "governor",
+      "year": 2022,
+      "file": "state_house_governor_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2583,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "us_senate",
+      "year": 2022,
+      "file": "state_house_us_senate_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2583,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "attorney_general",
+      "year": 2022,
+      "file": "state_house_attorney_general_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2131,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2022,
+      "file": "state_house_secretary_of_state_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2574,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "superintendent",
+      "year": 2022,
+      "file": "state_house_superintendent_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2572,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "state_treasurer",
+      "year": 2022,
+      "file": "state_house_state_treasurer_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2267,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "comptroller_general",
+      "year": 2022,
+      "file": "state_house_comptroller_general_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2128,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2022,
+      "file": "state_house_commissioner_agriculture_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2241,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "president",
+      "year": 2020,
+      "file": "state_house_president_2020.json",
+      "match_coverage_pct": 99.9131,
+      "precinct_rows_total": 2301,
+      "precinct_rows_overlap_weighted": 2299,
+      "precinct_rows_county_share_fallback": 2,
+      "precinct_votes_county_share_fallback": 3038,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "us_senate",
+      "year": 2020,
+      "file": "state_house_us_senate_2020.json",
+      "match_coverage_pct": 99.9131,
+      "precinct_rows_total": 2301,
+      "precinct_rows_overlap_weighted": 2299,
+      "precinct_rows_county_share_fallback": 2,
+      "precinct_votes_county_share_fallback": 3042,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "governor",
+      "year": 2018,
+      "file": "state_house_governor_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4629,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "attorney_general",
+      "year": 2018,
+      "file": "state_house_attorney_general_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4634,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2018,
+      "file": "state_house_secretary_of_state_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4629,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "superintendent",
+      "year": 2018,
+      "file": "state_house_superintendent_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 2824,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "state_treasurer",
+      "year": 2018,
+      "file": "state_house_state_treasurer_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4626,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "comptroller_general",
+      "year": 2018,
+      "file": "state_house_comptroller_general_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 3104,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2018,
+      "file": "state_house_commissioner_agriculture_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 3595,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "president",
+      "year": 2016,
+      "file": "state_house_president_2016.json",
+      "match_coverage_pct": 99.1274,
+      "precinct_rows_total": 2292,
+      "precinct_rows_overlap_weighted": 2272,
+      "precinct_rows_county_share_fallback": 20,
+      "precinct_votes_county_share_fallback": 2177,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "us_senate",
+      "year": 2016,
+      "file": "state_house_us_senate_2016.json",
+      "match_coverage_pct": 99.1274,
+      "precinct_rows_total": 2292,
+      "precinct_rows_overlap_weighted": 2272,
+      "precinct_rows_county_share_fallback": 20,
+      "precinct_votes_county_share_fallback": 2124,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "governor",
+      "year": 2014,
+      "file": "state_house_governor_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2355,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "file": "state_house_us_senate_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 4693,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "attorney_general",
+      "year": 2014,
+      "file": "state_house_attorney_general_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2324,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2014,
+      "file": "state_house_secretary_of_state_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2329,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "superintendent",
+      "year": 2014,
+      "file": "state_house_superintendent_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2340,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "state_treasurer",
+      "year": 2014,
+      "file": "state_house_state_treasurer_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 1309,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "comptroller_general",
+      "year": 2014,
+      "file": "state_house_comptroller_general_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2331,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2014,
+      "file": "state_house_commissioner_agriculture_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 1502,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "president",
+      "year": 2012,
+      "file": "state_house_president_2012.json",
+      "match_coverage_pct": 97.2783,
+      "precinct_rows_total": 2278,
+      "precinct_rows_overlap_weighted": 2216,
+      "precinct_rows_county_share_fallback": 62,
+      "precinct_votes_county_share_fallback": 10246,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "governor",
+      "year": 2010,
+      "file": "state_house_governor_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 6067,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "us_senate",
+      "year": 2010,
+      "file": "state_house_us_senate_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5936,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "attorney_general",
+      "year": 2010,
+      "file": "state_house_attorney_general_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 6012,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2010,
+      "file": "state_house_secretary_of_state_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5979,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "superintendent",
+      "year": 2010,
+      "file": "state_house_superintendent_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5998,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "state_treasurer",
+      "year": 2010,
+      "file": "state_house_state_treasurer_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 4074,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "comptroller_general",
+      "year": 2010,
+      "file": "state_house_comptroller_general_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5976,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2010,
+      "file": "state_house_commissioner_agriculture_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5952,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "president",
+      "year": 2008,
+      "file": "state_house_president_2008.json",
+      "match_coverage_pct": 95.5337,
+      "precinct_rows_total": 2239,
+      "precinct_rows_overlap_weighted": 2139,
+      "precinct_rows_county_share_fallback": 100,
+      "precinct_votes_county_share_fallback": 66054,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "file": "state_house_us_senate_2008.json",
+      "match_coverage_pct": 95.5337,
+      "precinct_rows_total": 2239,
+      "precinct_rows_overlap_weighted": 2139,
+      "precinct_rows_county_share_fallback": 100,
+      "precinct_votes_county_share_fallback": 64408,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "governor",
+      "year": 2006,
+      "file": "state_house_governor_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 94518,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "attorney_general",
+      "year": 2006,
+      "file": "state_house_attorney_general_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 73316,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "secretary_of_state",
+      "year": 2006,
+      "file": "state_house_secretary_of_state_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 92716,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "superintendent",
+      "year": 2006,
+      "file": "state_house_superintendent_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 93569,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "state_treasurer",
+      "year": 2006,
+      "file": "state_house_state_treasurer_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 93726,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "comptroller_general",
+      "year": 2006,
+      "file": "state_house_comptroller_general_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 92384,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2022",
+      "contest_type": "commissioner_agriculture",
+      "year": 2006,
+      "file": "state_house_commissioner_agriculture_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 91451,
+      "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "president",
+      "year": 2024,
+      "file": "state_house_president_2024.json",
+      "match_coverage_pct": 100.0,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2310,
+      "precinct_rows_county_share_fallback": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "governor",
+      "year": 2022,
+      "file": "state_house_governor_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2583,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "us_senate",
+      "year": 2022,
+      "file": "state_house_us_senate_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2583,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "attorney_general",
+      "year": 2022,
+      "file": "state_house_attorney_general_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2131,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "secretary_of_state",
+      "year": 2022,
+      "file": "state_house_secretary_of_state_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2574,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "superintendent",
+      "year": 2022,
+      "file": "state_house_superintendent_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2572,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "state_treasurer",
+      "year": 2022,
+      "file": "state_house_state_treasurer_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2267,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "comptroller_general",
+      "year": 2022,
+      "file": "state_house_comptroller_general_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2128,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "commissioner_agriculture",
+      "year": 2022,
+      "file": "state_house_commissioner_agriculture_2022.json",
+      "match_coverage_pct": 99.8701,
+      "precinct_rows_total": 2310,
+      "precinct_rows_overlap_weighted": 2307,
+      "precinct_rows_county_share_fallback": 3,
+      "precinct_votes_county_share_fallback": 2241,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "president",
+      "year": 2020,
+      "file": "state_house_president_2020.json",
+      "match_coverage_pct": 99.9131,
+      "precinct_rows_total": 2301,
+      "precinct_rows_overlap_weighted": 2299,
+      "precinct_rows_county_share_fallback": 2,
+      "precinct_votes_county_share_fallback": 3038,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "us_senate",
+      "year": 2020,
+      "file": "state_house_us_senate_2020.json",
+      "match_coverage_pct": 99.9131,
+      "precinct_rows_total": 2301,
+      "precinct_rows_overlap_weighted": 2299,
+      "precinct_rows_county_share_fallback": 2,
+      "precinct_votes_county_share_fallback": 3042,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "governor",
+      "year": 2018,
+      "file": "state_house_governor_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4629,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "attorney_general",
+      "year": 2018,
+      "file": "state_house_attorney_general_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4634,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "secretary_of_state",
+      "year": 2018,
+      "file": "state_house_secretary_of_state_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4629,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "superintendent",
+      "year": 2018,
+      "file": "state_house_superintendent_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 2824,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "state_treasurer",
+      "year": 2018,
+      "file": "state_house_state_treasurer_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 4626,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "comptroller_general",
+      "year": 2018,
+      "file": "state_house_comptroller_general_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 3104,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "commissioner_agriculture",
+      "year": 2018,
+      "file": "state_house_commissioner_agriculture_2018.json",
+      "match_coverage_pct": 97.5631,
+      "precinct_rows_total": 2339,
+      "precinct_rows_overlap_weighted": 2282,
+      "precinct_rows_county_share_fallback": 57,
+      "precinct_votes_county_share_fallback": 3595,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "president",
+      "year": 2016,
+      "file": "state_house_president_2016.json",
+      "match_coverage_pct": 99.1274,
+      "precinct_rows_total": 2292,
+      "precinct_rows_overlap_weighted": 2272,
+      "precinct_rows_county_share_fallback": 20,
+      "precinct_votes_county_share_fallback": 2177,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "us_senate",
+      "year": 2016,
+      "file": "state_house_us_senate_2016.json",
+      "match_coverage_pct": 99.1274,
+      "precinct_rows_total": 2292,
+      "precinct_rows_overlap_weighted": 2272,
+      "precinct_rows_county_share_fallback": 20,
+      "precinct_votes_county_share_fallback": 2124,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "governor",
+      "year": 2014,
+      "file": "state_house_governor_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2355,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "file": "state_house_us_senate_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 4693,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "attorney_general",
+      "year": 2014,
+      "file": "state_house_attorney_general_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2324,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "secretary_of_state",
+      "year": 2014,
+      "file": "state_house_secretary_of_state_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2329,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "superintendent",
+      "year": 2014,
+      "file": "state_house_superintendent_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2340,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "state_treasurer",
+      "year": 2014,
+      "file": "state_house_state_treasurer_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 1309,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "comptroller_general",
+      "year": 2014,
+      "file": "state_house_comptroller_general_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 2331,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "commissioner_agriculture",
+      "year": 2014,
+      "file": "state_house_commissioner_agriculture_2014.json",
+      "match_coverage_pct": 97.7404,
+      "precinct_rows_total": 2257,
+      "precinct_rows_overlap_weighted": 2206,
+      "precinct_rows_county_share_fallback": 51,
+      "precinct_votes_county_share_fallback": 1502,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "president",
+      "year": 2012,
+      "file": "state_house_president_2012.json",
+      "match_coverage_pct": 97.2783,
+      "precinct_rows_total": 2278,
+      "precinct_rows_overlap_weighted": 2216,
+      "precinct_rows_county_share_fallback": 62,
+      "precinct_votes_county_share_fallback": 10246,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "governor",
+      "year": 2010,
+      "file": "state_house_governor_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 6067,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "us_senate",
+      "year": 2010,
+      "file": "state_house_us_senate_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5936,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "attorney_general",
+      "year": 2010,
+      "file": "state_house_attorney_general_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 6012,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "secretary_of_state",
+      "year": 2010,
+      "file": "state_house_secretary_of_state_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5979,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "superintendent",
+      "year": 2010,
+      "file": "state_house_superintendent_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5998,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "state_treasurer",
+      "year": 2010,
+      "file": "state_house_state_treasurer_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 4074,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "comptroller_general",
+      "year": 2010,
+      "file": "state_house_comptroller_general_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5976,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "commissioner_agriculture",
+      "year": 2010,
+      "file": "state_house_commissioner_agriculture_2010.json",
+      "match_coverage_pct": 98.153,
+      "precinct_rows_total": 2274,
+      "precinct_rows_overlap_weighted": 2232,
+      "precinct_rows_county_share_fallback": 42,
+      "precinct_votes_county_share_fallback": 5952,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "president",
+      "year": 2008,
+      "file": "state_house_president_2008.json",
+      "match_coverage_pct": 95.5337,
+      "precinct_rows_total": 2239,
+      "precinct_rows_overlap_weighted": 2139,
+      "precinct_rows_county_share_fallback": 100,
+      "precinct_votes_county_share_fallback": 66054,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "file": "state_house_us_senate_2008.json",
+      "match_coverage_pct": 95.5337,
+      "precinct_rows_total": 2239,
+      "precinct_rows_overlap_weighted": 2139,
+      "precinct_rows_county_share_fallback": 100,
+      "precinct_votes_county_share_fallback": 64408,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "governor",
+      "year": 2006,
+      "file": "state_house_governor_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 94518,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "attorney_general",
+      "year": 2006,
+      "file": "state_house_attorney_general_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 73316,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "secretary_of_state",
+      "year": 2006,
+      "file": "state_house_secretary_of_state_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 92716,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "superintendent",
+      "year": 2006,
+      "file": "state_house_superintendent_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 93569,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "state_treasurer",
+      "year": 2006,
+      "file": "state_house_state_treasurer_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 93726,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "comptroller_general",
+      "year": 2006,
+      "file": "state_house_comptroller_general_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 92384,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    },
+    {
+      "scope": "state_house_2024",
+      "contest_type": "commissioner_agriculture",
+      "year": 2006,
+      "file": "state_house_commissioner_agriculture_2006.json",
+      "match_coverage_pct": 92.9965,
+      "precinct_rows_total": 2256,
+      "precinct_rows_overlap_weighted": 2098,
+      "precinct_rows_county_share_fallback": 158,
+      "precinct_votes_county_share_fallback": 91451,
+      "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+      "precinct_lines_file": "data/Voting_Precincts.geojson",
+      "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+      "conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0
+      }
+    }
+  ]
+}

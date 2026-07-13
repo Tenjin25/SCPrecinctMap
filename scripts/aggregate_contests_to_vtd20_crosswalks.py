@@ -101,16 +101,23 @@ def load_precinct_display_by_norm(path: str) -> dict[str, str]:
     out: dict[str, str] = {}
     for feat in gj.get("features", []) or []:
         props = (feat or {}).get("properties") or {}
-        pn = norm(props.get("precinct_norm") or "")
-        if not pn:
-            continue
         display = str(props.get("precinct_display_name") or "").strip()
         if not display:
             county = str(props.get("county_nam") or "").strip()
             prec = str(props.get("precinct_full_name") or props.get("prec_id") or "").strip()
             display = f"{county} - {prec}".strip()
-        if display:
-            out[pn] = display
+        if not display:
+            continue
+        county = str(props.get("county_nam") or "").strip()
+        for value in (
+            props.get("precinct_norm"),
+            display,
+            f"{county} - {str(props.get('precinct_full_name') or '').strip()}",
+            f"{county} - {str(props.get('prec_id') or '').strip()}",
+        ):
+            key = norm(value)
+            if key:
+                out[key] = display
     return out
 
 
@@ -232,9 +239,9 @@ def remap_precinct_row(
 ) -> tuple[list[dict], str]:
     key = str(row.get("county") or "").strip()
     nk = norm(key)
-    def apply_weighted(label: str, weighted: dict[str, list[tuple[str, float]]]) -> tuple[list[dict], str] | None:
-        if nk in weighted:
-            pairs = weighted[nk]
+    def apply_weighted(label: str, weighted: dict[str, list[tuple[str, float]]], lookup_key: str = nk) -> tuple[list[dict], str] | None:
+        if lookup_key in weighted:
+            pairs = weighted[lookup_key]
             targets = [target for target, _ in pairs]
             weights = [weight for _, weight in pairs]
             split_votes = {field: split_integer_by_weights(int(row.get(field) or 0), weights) for field in VOTE_FIELDS}
@@ -257,8 +264,21 @@ def remap_precinct_row(
         nr["county"] = display_by_norm[nk]
         return [finalize_row(nr)], "direct"
     if nk in aliases:
+        alias_target = aliases[nk]
+        alias_key = norm(alias_target)
+        if alias_key in display_by_norm:
+            nr = dict(row)
+            nr["county"] = display_by_norm[alias_key]
+            return [finalize_row(nr)], "alias"
+        # Some historical aliases point to an intermediate VTD00/VTD10/VTD20
+        # name. Chain that reviewed name through the applicable spatial
+        # crosswalk instead of emitting a non-current key.
+        for label, weighted in [*weighted_sources, *(fallback_weighted_sources or [])]:
+            result = apply_weighted(label, weighted, alias_key)
+            if result:
+                return result
         nr = dict(row)
-        nr["county"] = aliases[nk]
+        nr["county"] = alias_target
         return [finalize_row(nr)], "alias"
     if nk in display_by_norm:
         nr = dict(row)

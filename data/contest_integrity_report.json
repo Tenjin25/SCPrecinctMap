@@ -1,0 +1,1099 @@
+{
+  "summary": {
+    "source_files": 10,
+    "contest_files": 46,
+    "district_files": 230,
+    "district_crosswalk_scopes": 4,
+    "errors": 0,
+    "warnings": 45,
+    "district_conservation_failures": 0
+  },
+  "errors": [],
+  "warnings": [
+    "governor_2022.json: 3 unmatched current rows / 2583 votes",
+    "us_senate_2022.json: 3 unmatched current rows / 2583 votes",
+    "attorney_general_2022.json: 3 unmatched current rows / 2131 votes",
+    "secretary_of_state_2022.json: 3 unmatched current rows / 2574 votes",
+    "superintendent_2022.json: 3 unmatched current rows / 2572 votes",
+    "state_treasurer_2022.json: 3 unmatched current rows / 2267 votes",
+    "comptroller_general_2022.json: 3 unmatched current rows / 2128 votes",
+    "commissioner_agriculture_2022.json: 3 unmatched current rows / 2241 votes",
+    "president_2020.json: 2 unmatched current rows / 3038 votes",
+    "us_senate_2020.json: 2 unmatched current rows / 3042 votes",
+    "governor_2018.json: 57 unmatched current rows / 4629 votes",
+    "attorney_general_2018.json: 57 unmatched current rows / 4634 votes",
+    "secretary_of_state_2018.json: 57 unmatched current rows / 4629 votes",
+    "superintendent_2018.json: 57 unmatched current rows / 2824 votes",
+    "state_treasurer_2018.json: 57 unmatched current rows / 4626 votes",
+    "comptroller_general_2018.json: 57 unmatched current rows / 3104 votes",
+    "commissioner_agriculture_2018.json: 57 unmatched current rows / 3595 votes",
+    "president_2016.json: 20 unmatched current rows / 2177 votes",
+    "us_senate_2016.json: 20 unmatched current rows / 2124 votes",
+    "governor_2014.json: 51 unmatched current rows / 2355 votes",
+    "us_senate_2014.json: 51 unmatched current rows / 4693 votes",
+    "attorney_general_2014.json: 51 unmatched current rows / 2324 votes",
+    "secretary_of_state_2014.json: 51 unmatched current rows / 2329 votes",
+    "superintendent_2014.json: 51 unmatched current rows / 2340 votes",
+    "state_treasurer_2014.json: 51 unmatched current rows / 1309 votes",
+    "comptroller_general_2014.json: 51 unmatched current rows / 2331 votes",
+    "commissioner_agriculture_2014.json: 51 unmatched current rows / 1502 votes",
+    "president_2012.json: 62 unmatched current rows / 10246 votes",
+    "governor_2010.json: 42 unmatched current rows / 6067 votes",
+    "us_senate_2010.json: 42 unmatched current rows / 5936 votes",
+    "attorney_general_2010.json: 42 unmatched current rows / 6012 votes",
+    "secretary_of_state_2010.json: 42 unmatched current rows / 5979 votes",
+    "superintendent_2010.json: 42 unmatched current rows / 5998 votes",
+    "state_treasurer_2010.json: 42 unmatched current rows / 4074 votes",
+    "comptroller_general_2010.json: 42 unmatched current rows / 5976 votes",
+    "commissioner_agriculture_2010.json: 42 unmatched current rows / 5952 votes",
+    "president_2008.json: 100 unmatched current rows / 66054 votes",
+    "us_senate_2008.json: 100 unmatched current rows / 64408 votes",
+    "governor_2006.json: 158 unmatched current rows / 94518 votes",
+    "attorney_general_2006.json: 158 unmatched current rows / 73316 votes",
+    "secretary_of_state_2006.json: 158 unmatched current rows / 92716 votes",
+    "superintendent_2006.json: 158 unmatched current rows / 93569 votes",
+    "state_treasurer_2006.json: 158 unmatched current rows / 93726 votes",
+    "comptroller_general_2006.json: 158 unmatched current rows / 92384 votes",
+    "commissioner_agriculture_2006.json: 158 unmatched current rows / 91451 votes"
+  ],
+  "district_crosswalks": [
+    {
+      "scope": "congressional",
+      "precincts_mapped": 2313,
+      "precincts_unmapped": 0,
+      "bad_weight_sums": 0
+    },
+    {
+      "scope": "state_house_2022",
+      "precincts_mapped": 2313,
+      "precincts_unmapped": 0,
+      "bad_weight_sums": 0
+    },
+    {
+      "scope": "state_house_2024",
+      "precincts_mapped": 2313,
+      "precincts_unmapped": 0,
+      "bad_weight_sums": 0
+    },
+    {
+      "scope": "state_senate_2022",
+      "precincts_mapped": 2313,
+      "precincts_unmapped": 0,
+      "bad_weight_sums": 0
+    }
+  ],
+  "contests": [
+    {
+      "year": 2024,
+      "contest_type": "president",
+      "file": "president_2024.json",
+      "base_rows": 2354,
+      "current_rows": 2356,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 0,
+      "unmatched_current_precinct_votes": 0
+    },
+    {
+      "year": 2022,
+      "contest_type": "governor",
+      "file": "governor_2022.json",
+      "base_rows": 2303,
+      "current_rows": 2356,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 3,
+      "unmatched_current_precinct_votes": 2583
+    },
+    {
+      "year": 2022,
+      "contest_type": "us_senate",
+      "file": "us_senate_2022.json",
+      "base_rows": 2303,
+      "current_rows": 2356,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 3,
+      "unmatched_current_precinct_votes": 2583
+    },
+    {
+      "year": 2022,
+      "contest_type": "attorney_general",
+      "file": "attorney_general_2022.json",
+      "base_rows": 2303,
+      "current_rows": 2356,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 3,
+      "unmatched_current_precinct_votes": 2131
+    },
+    {
+      "year": 2022,
+      "contest_type": "secretary_of_state",
+      "file": "secretary_of_state_2022.json",
+      "base_rows": 2303,
+      "current_rows": 2356,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 3,
+      "unmatched_current_precinct_votes": 2574
+    },
+    {
+      "year": 2022,
+      "contest_type": "superintendent",
+      "file": "superintendent_2022.json",
+      "base_rows": 2303,
+      "current_rows": 2356,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 3,
+      "unmatched_current_precinct_votes": 2572
+    },
+    {
+      "year": 2022,
+      "contest_type": "state_treasurer",
+      "file": "state_treasurer_2022.json",
+      "base_rows": 2303,
+      "current_rows": 2356,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 3,
+      "unmatched_current_precinct_votes": 2267
+    },
+    {
+      "year": 2022,
+      "contest_type": "comptroller_general",
+      "file": "comptroller_general_2022.json",
+      "base_rows": 2303,
+      "current_rows": 2356,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 3,
+      "unmatched_current_precinct_votes": 2128
+    },
+    {
+      "year": 2022,
+      "contest_type": "commissioner_agriculture",
+      "file": "commissioner_agriculture_2022.json",
+      "base_rows": 2303,
+      "current_rows": 2356,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 3,
+      "unmatched_current_precinct_votes": 2241
+    },
+    {
+      "year": 2020,
+      "contest_type": "president",
+      "file": "president_2020.json",
+      "base_rows": 2307,
+      "current_rows": 2347,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 2,
+      "unmatched_current_precinct_votes": 3038
+    },
+    {
+      "year": 2020,
+      "contest_type": "us_senate",
+      "file": "us_senate_2020.json",
+      "base_rows": 2307,
+      "current_rows": 2347,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 2,
+      "unmatched_current_precinct_votes": 3042
+    },
+    {
+      "year": 2018,
+      "contest_type": "governor",
+      "file": "governor_2018.json",
+      "base_rows": 2355,
+      "current_rows": 2385,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 57,
+      "unmatched_current_precinct_votes": 4629
+    },
+    {
+      "year": 2018,
+      "contest_type": "attorney_general",
+      "file": "attorney_general_2018.json",
+      "base_rows": 2355,
+      "current_rows": 2385,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 57,
+      "unmatched_current_precinct_votes": 4634
+    },
+    {
+      "year": 2018,
+      "contest_type": "secretary_of_state",
+      "file": "secretary_of_state_2018.json",
+      "base_rows": 2355,
+      "current_rows": 2385,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 57,
+      "unmatched_current_precinct_votes": 4629
+    },
+    {
+      "year": 2018,
+      "contest_type": "superintendent",
+      "file": "superintendent_2018.json",
+      "base_rows": 2355,
+      "current_rows": 2385,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 57,
+      "unmatched_current_precinct_votes": 2824
+    },
+    {
+      "year": 2018,
+      "contest_type": "state_treasurer",
+      "file": "state_treasurer_2018.json",
+      "base_rows": 2355,
+      "current_rows": 2385,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 57,
+      "unmatched_current_precinct_votes": 4626
+    },
+    {
+      "year": 2018,
+      "contest_type": "comptroller_general",
+      "file": "comptroller_general_2018.json",
+      "base_rows": 2355,
+      "current_rows": 2385,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 57,
+      "unmatched_current_precinct_votes": 3104
+    },
+    {
+      "year": 2018,
+      "contest_type": "commissioner_agriculture",
+      "file": "commissioner_agriculture_2018.json",
+      "base_rows": 2355,
+      "current_rows": 2385,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 57,
+      "unmatched_current_precinct_votes": 3595
+    },
+    {
+      "year": 2016,
+      "contest_type": "president",
+      "file": "president_2016.json",
+      "base_rows": 2299,
+      "current_rows": 2338,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 20,
+      "unmatched_current_precinct_votes": 2177
+    },
+    {
+      "year": 2016,
+      "contest_type": "us_senate",
+      "file": "us_senate_2016.json",
+      "base_rows": 2299,
+      "current_rows": 2338,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 20,
+      "unmatched_current_precinct_votes": 2124
+    },
+    {
+      "year": 2014,
+      "contest_type": "governor",
+      "file": "governor_2014.json",
+      "base_rows": 2266,
+      "current_rows": 2303,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 51,
+      "unmatched_current_precinct_votes": 2355
+    },
+    {
+      "year": 2014,
+      "contest_type": "us_senate",
+      "file": "us_senate_2014.json",
+      "base_rows": 2266,
+      "current_rows": 2303,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 51,
+      "unmatched_current_precinct_votes": 4693
+    },
+    {
+      "year": 2014,
+      "contest_type": "attorney_general",
+      "file": "attorney_general_2014.json",
+      "base_rows": 2266,
+      "current_rows": 2303,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 51,
+      "unmatched_current_precinct_votes": 2324
+    },
+    {
+      "year": 2014,
+      "contest_type": "secretary_of_state",
+      "file": "secretary_of_state_2014.json",
+      "base_rows": 2266,
+      "current_rows": 2303,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 51,
+      "unmatched_current_precinct_votes": 2329
+    },
+    {
+      "year": 2014,
+      "contest_type": "superintendent",
+      "file": "superintendent_2014.json",
+      "base_rows": 2266,
+      "current_rows": 2303,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 51,
+      "unmatched_current_precinct_votes": 2340
+    },
+    {
+      "year": 2014,
+      "contest_type": "state_treasurer",
+      "file": "state_treasurer_2014.json",
+      "base_rows": 2266,
+      "current_rows": 2303,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 51,
+      "unmatched_current_precinct_votes": 1309
+    },
+    {
+      "year": 2014,
+      "contest_type": "comptroller_general",
+      "file": "comptroller_general_2014.json",
+      "base_rows": 2266,
+      "current_rows": 2303,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 51,
+      "unmatched_current_precinct_votes": 2331
+    },
+    {
+      "year": 2014,
+      "contest_type": "commissioner_agriculture",
+      "file": "commissioner_agriculture_2014.json",
+      "base_rows": 2266,
+      "current_rows": 2303,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 51,
+      "unmatched_current_precinct_votes": 1502
+    },
+    {
+      "year": 2012,
+      "contest_type": "president",
+      "file": "president_2012.json",
+      "base_rows": 2176,
+      "current_rows": 2324,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 62,
+      "unmatched_current_precinct_votes": 10246
+    },
+    {
+      "year": 2010,
+      "contest_type": "governor",
+      "file": "governor_2010.json",
+      "base_rows": 2152,
+      "current_rows": 2320,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 42,
+      "unmatched_current_precinct_votes": 6067
+    },
+    {
+      "year": 2010,
+      "contest_type": "us_senate",
+      "file": "us_senate_2010.json",
+      "base_rows": 2152,
+      "current_rows": 2320,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 42,
+      "unmatched_current_precinct_votes": 5936
+    },
+    {
+      "year": 2010,
+      "contest_type": "attorney_general",
+      "file": "attorney_general_2010.json",
+      "base_rows": 2152,
+      "current_rows": 2320,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 42,
+      "unmatched_current_precinct_votes": 6012
+    },
+    {
+      "year": 2010,
+      "contest_type": "secretary_of_state",
+      "file": "secretary_of_state_2010.json",
+      "base_rows": 2152,
+      "current_rows": 2320,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 42,
+      "unmatched_current_precinct_votes": 5979
+    },
+    {
+      "year": 2010,
+      "contest_type": "superintendent",
+      "file": "superintendent_2010.json",
+      "base_rows": 2152,
+      "current_rows": 2320,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 42,
+      "unmatched_current_precinct_votes": 5998
+    },
+    {
+      "year": 2010,
+      "contest_type": "state_treasurer",
+      "file": "state_treasurer_2010.json",
+      "base_rows": 2152,
+      "current_rows": 2320,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 42,
+      "unmatched_current_precinct_votes": 4074
+    },
+    {
+      "year": 2010,
+      "contest_type": "comptroller_general",
+      "file": "comptroller_general_2010.json",
+      "base_rows": 2152,
+      "current_rows": 2320,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 42,
+      "unmatched_current_precinct_votes": 5976
+    },
+    {
+      "year": 2010,
+      "contest_type": "commissioner_agriculture",
+      "file": "commissioner_agriculture_2010.json",
+      "base_rows": 2152,
+      "current_rows": 2320,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 42,
+      "unmatched_current_precinct_votes": 5952
+    },
+    {
+      "year": 2008,
+      "contest_type": "president",
+      "file": "president_2008.json",
+      "base_rows": 2046,
+      "current_rows": 2285,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 100,
+      "unmatched_current_precinct_votes": 66054
+    },
+    {
+      "year": 2008,
+      "contest_type": "us_senate",
+      "file": "us_senate_2008.json",
+      "base_rows": 2046,
+      "current_rows": 2285,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 100,
+      "unmatched_current_precinct_votes": 64408
+    },
+    {
+      "year": 2006,
+      "contest_type": "governor",
+      "file": "governor_2006.json",
+      "base_rows": 2054,
+      "current_rows": 2302,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 158,
+      "unmatched_current_precinct_votes": 94518
+    },
+    {
+      "year": 2006,
+      "contest_type": "attorney_general",
+      "file": "attorney_general_2006.json",
+      "base_rows": 2054,
+      "current_rows": 2302,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 158,
+      "unmatched_current_precinct_votes": 73316
+    },
+    {
+      "year": 2006,
+      "contest_type": "secretary_of_state",
+      "file": "secretary_of_state_2006.json",
+      "base_rows": 2054,
+      "current_rows": 2302,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 158,
+      "unmatched_current_precinct_votes": 92716
+    },
+    {
+      "year": 2006,
+      "contest_type": "superintendent",
+      "file": "superintendent_2006.json",
+      "base_rows": 2054,
+      "current_rows": 2302,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 158,
+      "unmatched_current_precinct_votes": 93569
+    },
+    {
+      "year": 2006,
+      "contest_type": "state_treasurer",
+      "file": "state_treasurer_2006.json",
+      "base_rows": 2054,
+      "current_rows": 2302,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 158,
+      "unmatched_current_precinct_votes": 93726
+    },
+    {
+      "year": 2006,
+      "contest_type": "comptroller_general",
+      "file": "comptroller_general_2006.json",
+      "base_rows": 2054,
+      "current_rows": 2302,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 158,
+      "unmatched_current_precinct_votes": 92384
+    },
+    {
+      "year": 2006,
+      "contest_type": "commissioner_agriculture",
+      "file": "commissioner_agriculture_2006.json",
+      "base_rows": 2054,
+      "current_rows": 2302,
+      "duplicate_base_keys": 0,
+      "duplicate_current_keys": 0,
+      "calculation_errors": 0,
+      "source_delta": {
+        "county_votes": 0,
+        "geographic_precinct_votes": 0
+      },
+      "current_crosswalk_conservation_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "unmatched_current_precinct_rows": 158,
+      "unmatched_current_precinct_votes": 91451
+    }
+  ]
+}

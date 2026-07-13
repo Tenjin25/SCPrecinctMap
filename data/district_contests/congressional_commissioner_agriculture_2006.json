@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
-        "dem_votes": 37348,
-        "rep_votes": 73323,
-        "other_votes": 34,
-        "total_votes": 110705,
-        "dem_candidate": "Emile DeFelice",
-        "rep_candidate": "Hugh Weathers",
-        "margin": 35975,
-        "margin_pct": 32.4963,
-        "winner": "R",
-        "color": "#a50f15"
-      },
-      "2": {
-        "dem_votes": 38119,
-        "rep_votes": 71196,
-        "other_votes": 37,
-        "total_votes": 109352,
-        "dem_candidate": "Emile DeFelice",
-        "rep_candidate": "Hugh Weathers",
-        "margin": 33077,
-        "margin_pct": 30.2482,
-        "winner": "R",
-        "color": "#a50f15"
-      },
-      "6": {
-        "dem_votes": 69407,
-        "rep_votes": 39916,
-        "other_votes": 30,
-        "total_votes": 109353,
-        "dem_candidate": "Emile DeFelice",
-        "rep_candidate": "Hugh Weathers",
-        "margin": -29491,
-        "margin_pct": -26.9686,
-        "winner": "D",
-        "color": "#4292c6"
-      },
       "1": {
-        "dem_votes": 50657,
-        "rep_votes": 80025,
-        "other_votes": 42,
-        "total_votes": 130724,
+        "dem_votes": 45667,
+        "rep_votes": 71738,
+        "other_votes": 33,
+        "total_votes": 117438,
         "dem_candidate": "Emile DeFelice",
         "rep_candidate": "Hugh Weathers",
-        "margin": 29368,
-        "margin_pct": 22.4657,
+        "margin": 26071,
+        "margin_pct": 22.1998,
         "winner": "R",
         "color": "#cb181d"
       },
-      "5": {
-        "dem_votes": 42329,
-        "rep_votes": 57041,
-        "other_votes": 26,
-        "total_votes": 99396,
+      "2": {
+        "dem_votes": 53434,
+        "rep_votes": 101077,
+        "other_votes": 61,
+        "total_votes": 154572,
         "dem_candidate": "Emile DeFelice",
         "rep_candidate": "Hugh Weathers",
-        "margin": 14712,
-        "margin_pct": 14.8014,
-        "winner": "R",
-        "color": "#ef3b2c"
-      },
-      "7": {
-        "dem_votes": 39884,
-        "rep_votes": 54936,
-        "other_votes": 18,
-        "total_votes": 94838,
-        "dem_candidate": "Emile DeFelice",
-        "rep_candidate": "Hugh Weathers",
-        "margin": 15052,
-        "margin_pct": 15.8713,
-        "winner": "R",
-        "color": "#ef3b2c"
-      },
-      "4": {
-        "dem_votes": 28213,
-        "rep_votes": 61654,
-        "other_votes": 26,
-        "total_votes": 89893,
-        "dem_candidate": "Emile DeFelice",
-        "rep_candidate": "Hugh Weathers",
-        "margin": 33441,
-        "margin_pct": 37.2009,
+        "margin": 47643,
+        "margin_pct": 30.8225,
         "winner": "R",
         "color": "#a50f15"
+      },
+      "3": {
+        "dem_votes": 50136,
+        "rep_votes": 100842,
+        "other_votes": 54,
+        "total_votes": 151032,
+        "dem_candidate": "Emile DeFelice",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 50706,
+        "margin_pct": 33.573,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "4": {
+        "dem_votes": 44383,
+        "rep_votes": 92874,
+        "other_votes": 34,
+        "total_votes": 137291,
+        "dem_candidate": "Emile DeFelice",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 48491,
+        "margin_pct": 35.3199,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "5": {
+        "dem_votes": 54832,
+        "rep_votes": 81059,
+        "other_votes": 35,
+        "total_votes": 135926,
+        "dem_candidate": "Emile DeFelice",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 26227,
+        "margin_pct": 19.2951,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "6": {
+        "dem_votes": 91882,
+        "rep_votes": 66104,
+        "other_votes": 54,
+        "total_votes": 158040,
+        "dem_candidate": "Emile DeFelice",
+        "rep_candidate": "Hugh Weathers",
+        "margin": -25778,
+        "margin_pct": -16.3111,
+        "winner": "D",
+        "color": "#6baed6"
+      },
+      "7": {
+        "dem_votes": 54416,
+        "rep_votes": 75657,
+        "other_votes": 23,
+        "total_votes": 130096,
+        "dem_candidate": "Emile DeFelice",
+        "rep_candidate": "Hugh Weathers",
+        "margin": 21241,
+        "margin_pct": 16.3272,
+        "winner": "R",
+        "color": "#ef3b2c"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 72.1811,
-    "precinct_rows_total": 2164,
-    "precinct_rows_matched": 1562,
-    "precinct_rows_block_weighted": 1562
+    "match_coverage_pct": 92.9965,
+    "precinct_rows_total": 2256,
+    "precinct_rows_overlap_weighted": 2098,
+    "precinct_rows_county_share_fallback": 158,
+    "precinct_votes_county_share_fallback": 91451,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

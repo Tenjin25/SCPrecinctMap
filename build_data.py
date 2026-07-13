@@ -837,7 +837,7 @@ def build_election_data():
         for fn in os.listdir(contests_dir):
             if not fn.endswith('.json'):
                 continue
-            if fn == 'manifest.json':
+            if fn in {'manifest.json', 'source_integrity.json'}:
                 continue
             if fn.endswith('_from_7131_list.json'):
                 continue

@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
-        "dem_votes": 46900,
-        "rep_votes": 65930,
-        "other_votes": 84,
-        "total_votes": 112914,
-        "dem_candidate": "Tommy Moore",
-        "rep_candidate": "Mark Sanford",
-        "margin": 19030,
-        "margin_pct": 16.8535,
-        "winner": "R",
-        "color": "#ef3b2c"
-      },
-      "2": {
-        "dem_votes": 51668,
-        "rep_votes": 59984,
-        "other_votes": 128,
-        "total_votes": 111780,
-        "dem_candidate": "Tommy Moore",
-        "rep_candidate": "Mark Sanford",
-        "margin": 8316,
-        "margin_pct": 7.4396,
-        "winner": "R",
-        "color": "#fc8a6a"
-      },
-      "6": {
-        "dem_votes": 73404,
-        "rep_votes": 37698,
-        "other_votes": 75,
-        "total_votes": 111177,
-        "dem_candidate": "Tommy Moore",
-        "rep_candidate": "Mark Sanford",
-        "margin": -35706,
-        "margin_pct": -32.1164,
-        "winner": "D",
-        "color": "#2171b5"
-      },
       "1": {
-        "dem_votes": 48377,
-        "rep_votes": 86587,
-        "other_votes": 134,
-        "total_votes": 135098,
+        "dem_votes": 44661,
+        "rep_votes": 76298,
+        "other_votes": 106,
+        "total_votes": 121065,
         "dem_candidate": "Tommy Moore",
         "rep_candidate": "Mark Sanford",
-        "margin": 38210,
-        "margin_pct": 28.2832,
+        "margin": 31637,
+        "margin_pct": 26.1322,
         "winner": "R",
         "color": "#cb181d"
       },
-      "5": {
-        "dem_votes": 48925,
-        "rep_votes": 53330,
-        "other_votes": 50,
-        "total_votes": 102305,
+      "2": {
+        "dem_votes": 72499,
+        "rep_votes": 85435,
+        "other_votes": 157,
+        "total_votes": 158091,
         "dem_candidate": "Tommy Moore",
         "rep_candidate": "Mark Sanford",
-        "margin": 4405,
-        "margin_pct": 4.3058,
+        "margin": 12936,
+        "margin_pct": 8.1826,
         "winner": "R",
-        "color": "#fcbba1"
+        "color": "#fc8a6a"
       },
-      "7": {
-        "dem_votes": 43369,
-        "rep_votes": 53716,
-        "other_votes": 49,
-        "total_votes": 97134,
+      "3": {
+        "dem_votes": 64173,
+        "rep_votes": 89771,
+        "other_votes": 117,
+        "total_votes": 154061,
         "dem_candidate": "Tommy Moore",
         "rep_candidate": "Mark Sanford",
-        "margin": 10347,
-        "margin_pct": 10.6523,
+        "margin": 25598,
+        "margin_pct": 16.6155,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "4": {
-        "dem_votes": 31744,
-        "rep_votes": 60893,
-        "other_votes": 69,
-        "total_votes": 92706,
+        "dem_votes": 51368,
+        "rep_votes": 90046,
+        "other_votes": 105,
+        "total_votes": 141519,
         "dem_candidate": "Tommy Moore",
         "rep_candidate": "Mark Sanford",
-        "margin": 29149,
-        "margin_pct": 31.4424,
+        "margin": 38678,
+        "margin_pct": 27.3306,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#cb181d"
+      },
+      "5": {
+        "dem_votes": 63701,
+        "rep_votes": 76382,
+        "other_votes": 60,
+        "total_votes": 140143,
+        "dem_candidate": "Tommy Moore",
+        "rep_candidate": "Mark Sanford",
+        "margin": 12681,
+        "margin_pct": 9.0486,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "6": {
+        "dem_votes": 95393,
+        "rep_votes": 65958,
+        "other_votes": 151,
+        "total_votes": 161502,
+        "dem_candidate": "Tommy Moore",
+        "rep_candidate": "Mark Sanford",
+        "margin": -29435,
+        "margin_pct": -18.2258,
+        "winner": "D",
+        "color": "#6baed6"
+      },
+      "7": {
+        "dem_votes": 58996,
+        "rep_votes": 74300,
+        "other_votes": 69,
+        "total_votes": 133365,
+        "dem_candidate": "Tommy Moore",
+        "rep_candidate": "Mark Sanford",
+        "margin": 15304,
+        "margin_pct": 11.4753,
+        "winner": "R",
+        "color": "#ef3b2c"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 72.1811,
-    "precinct_rows_total": 2164,
-    "precinct_rows_matched": 1562,
-    "precinct_rows_block_weighted": 1562
+    "match_coverage_pct": 92.9965,
+    "precinct_rows_total": 2256,
+    "precinct_rows_overlap_weighted": 2098,
+    "precinct_rows_county_share_fallback": 158,
+    "precinct_votes_county_share_fallback": 94518,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

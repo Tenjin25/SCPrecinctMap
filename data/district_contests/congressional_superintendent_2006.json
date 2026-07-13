@@ -1,0 +1,105 @@
+{
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 46811,
+        "rep_votes": 65192,
+        "other_votes": 7731,
+        "total_votes": 119734,
+        "dem_candidate": "Jim Rex",
+        "rep_candidate": "Karen Floyd",
+        "margin": 18381,
+        "margin_pct": 15.3515,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "2": {
+        "dem_votes": 74655,
+        "rep_votes": 73903,
+        "other_votes": 7760,
+        "total_votes": 156318,
+        "dem_candidate": "Jim Rex",
+        "rep_candidate": "Karen Floyd",
+        "margin": -752,
+        "margin_pct": -0.4811,
+        "winner": "D",
+        "color": "#c6dbef"
+      },
+      "3": {
+        "dem_votes": 65783,
+        "rep_votes": 79599,
+        "other_votes": 8058,
+        "total_votes": 153440,
+        "dem_candidate": "Jim Rex",
+        "rep_candidate": "Karen Floyd",
+        "margin": 13816,
+        "margin_pct": 9.0042,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "4": {
+        "dem_votes": 59134,
+        "rep_votes": 74320,
+        "other_votes": 6830,
+        "total_votes": 140284,
+        "dem_candidate": "Jim Rex",
+        "rep_candidate": "Karen Floyd",
+        "margin": 15186,
+        "margin_pct": 10.8252,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "5": {
+        "dem_votes": 66562,
+        "rep_votes": 64176,
+        "other_votes": 7242,
+        "total_votes": 137980,
+        "dem_candidate": "Jim Rex",
+        "rep_candidate": "Karen Floyd",
+        "margin": -2386,
+        "margin_pct": -1.7292,
+        "winner": "D",
+        "color": "#c6dbef"
+      },
+      "6": {
+        "dem_votes": 97502,
+        "rep_votes": 55546,
+        "other_votes": 7219,
+        "total_votes": 160267,
+        "dem_candidate": "Jim Rex",
+        "rep_candidate": "Karen Floyd",
+        "margin": -41956,
+        "margin_pct": -26.1788,
+        "winner": "D",
+        "color": "#4292c6"
+      },
+      "7": {
+        "dem_votes": 62976,
+        "rep_votes": 62753,
+        "other_votes": 6272,
+        "total_votes": 132001,
+        "dem_candidate": "Jim Rex",
+        "rep_candidate": "Karen Floyd",
+        "margin": -223,
+        "margin_pct": -0.1689,
+        "winner": "D",
+        "color": "#c6dbef"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 92.9965,
+    "precinct_rows_total": 2256,
+    "precinct_rows_overlap_weighted": 2098,
+    "precinct_rows_county_share_fallback": 158,
+    "precinct_votes_county_share_fallback": 93569,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
+  }
+}

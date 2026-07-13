@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
-        "dem_votes": 58827,
-        "rep_votes": 83232,
-        "other_votes": 3312,
-        "total_votes": 145371,
+      "1": {
+        "dem_votes": 56921,
+        "rep_votes": 82281,
+        "other_votes": 2700,
+        "total_votes": 141902,
         "dem_candidate": "Vincent A. Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 24405,
-        "margin_pct": 16.7881,
+        "margin": 25360,
+        "margin_pct": 17.8715,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 80169,
-        "rep_votes": 92983,
-        "other_votes": 2750,
-        "total_votes": 175902,
+        "dem_votes": 84117,
+        "rep_votes": 98988,
+        "other_votes": 2932,
+        "total_votes": 186037,
         "dem_candidate": "Vincent A. Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 12814,
-        "margin_pct": 7.2847,
+        "margin": 14871,
+        "margin_pct": 7.9936,
         "winner": "R",
         "color": "#fc8a6a"
       },
-      "6": {
-        "dem_votes": 112284,
-        "rep_votes": 48573,
-        "other_votes": 2803,
-        "total_votes": 163660,
+      "3": {
+        "dem_votes": 66730,
+        "rep_votes": 93635,
+        "other_votes": 3660,
+        "total_votes": 164025,
         "dem_candidate": "Vincent A. Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": -63711,
-        "margin_pct": -38.9289,
-        "winner": "D",
-        "color": "#2171b5"
+        "margin": 26905,
+        "margin_pct": 16.403,
+        "winner": "R",
+        "color": "#ef3b2c"
       },
-      "1": {
-        "dem_votes": 62041,
-        "rep_votes": 90876,
-        "other_votes": 2951,
-        "total_votes": 155868,
+      "4": {
+        "dem_votes": 67236,
+        "rep_votes": 94036,
+        "other_votes": 2969,
+        "total_votes": 164241,
         "dem_candidate": "Vincent A. Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 28835,
-        "margin_pct": 18.4996,
+        "margin": 26800,
+        "margin_pct": 16.3175,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "5": {
-        "dem_votes": 74429,
-        "rep_votes": 78678,
-        "other_votes": 2431,
-        "total_votes": 155538,
+        "dem_votes": 73721,
+        "rep_votes": 81066,
+        "other_votes": 2513,
+        "total_votes": 157300,
         "dem_candidate": "Vincent A. Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 4249,
-        "margin_pct": 2.7318,
+        "margin": 7345,
+        "margin_pct": 4.6694,
         "winner": "R",
         "color": "#fcbba1"
       },
-      "7": {
-        "dem_votes": 74871,
-        "rep_votes": 86856,
-        "other_votes": 2524,
-        "total_votes": 164251,
+      "6": {
+        "dem_votes": 119289,
+        "rep_votes": 59331,
+        "other_votes": 3133,
+        "total_votes": 181753,
         "dem_candidate": "Vincent A. Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 11985,
-        "margin_pct": 7.2968,
+        "margin": -59958,
+        "margin_pct": -32.9887,
+        "winner": "D",
+        "color": "#2171b5"
+      },
+      "7": {
+        "dem_votes": 75555,
+        "rep_votes": 88230,
+        "other_votes": 2559,
+        "total_votes": 166344,
+        "dem_candidate": "Vincent A. Sheheen",
+        "rep_candidate": "Nikki R. Haley",
+        "margin": 12675,
+        "margin_pct": 7.6198,
         "winner": "R",
         "color": "#fc8a6a"
-      },
-      "4": {
-        "dem_votes": 65527,
-        "rep_votes": 96345,
-        "other_votes": 2992,
-        "total_votes": 164864,
-        "dem_candidate": "Vincent A. Sheheen",
-        "rep_candidate": "Nikki R. Haley",
-        "margin": 30818,
-        "margin_pct": 18.693,
-        "winner": "R",
-        "color": "#ef3b2c"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 94.9048,
-    "precinct_rows_total": 2100,
-    "precinct_rows_matched": 1993,
-    "precinct_rows_block_weighted": 1993
+    "match_coverage_pct": 98.153,
+    "precinct_rows_total": 2274,
+    "precinct_rows_overlap_weighted": 2232,
+    "precinct_rows_county_share_fallback": 42,
+    "precinct_votes_county_share_fallback": 6067,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

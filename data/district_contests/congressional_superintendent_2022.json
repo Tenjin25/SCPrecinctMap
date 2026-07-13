@@ -1,1 +1,105 @@
-{"general":{"results":{"3":{"dem_votes":65957,"rep_votes":149533,"other_votes":10897,"total_votes":226387,"dem_candidate":"Lisa Ellis","rep_candidate":"Ellen Weaver","margin":83576,"margin_pct":36.9173,"winner":"R","color":"#a50f15"},"2":{"dem_votes":102029,"rep_votes":127993,"other_votes":14703,"total_votes":244725,"dem_candidate":"Lisa Ellis","rep_candidate":"Ellen Weaver","margin":25964,"margin_pct":10.6095,"winner":"R","color":"#ef3b2c"},"6":{"dem_votes":109799,"rep_votes":63239,"other_votes":8592,"total_votes":181630,"dem_candidate":"Lisa Ellis","rep_candidate":"Ellen Weaver","margin":-46560,"margin_pct":-25.6345,"winner":"D","color":"#4292c6"},"1":{"dem_votes":121081,"rep_votes":158536,"other_votes":14939,"total_votes":294556,"dem_candidate":"Lisa Ellis","rep_candidate":"Ellen Weaver","margin":37455,"margin_pct":12.7157,"winner":"R","color":"#ef3b2c"},"5":{"dem_votes":91918,"rep_votes":137932,"other_votes":12602,"total_votes":242452,"dem_candidate":"Lisa Ellis","rep_candidate":"Ellen Weaver","margin":46014,"margin_pct":18.9786,"winner":"R","color":"#ef3b2c"},"7":{"dem_votes":88320,"rep_votes":154911,"other_votes":8780,"total_votes":252011,"dem_candidate":"Lisa Ellis","rep_candidate":"Ellen Weaver","margin":66591,"margin_pct":26.4238,"winner":"R","color":"#cb181d"},"4":{"dem_votes":87661,"rep_votes":142495,"other_votes":11323,"total_votes":241479,"dem_candidate":"Lisa Ellis","rep_candidate":"Ellen Weaver","margin":54834,"margin_pct":22.7076,"winner":"R","color":"#cb181d"}}},"meta":{"match_coverage_pct":100.0,"precinct_rows_total":2270,"precinct_rows_matched":2270,"precinct_rows_block_weighted":2270,"precinct_rows_county_share_fallback":0,"precinct_votes_county_share_fallback":0.0}}
+{
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 106470,
+        "rep_votes": 148264,
+        "other_votes": 12871,
+        "total_votes": 267605,
+        "dem_candidate": "Lisa Ellis",
+        "rep_candidate": "Ellen Weaver",
+        "margin": 41794,
+        "margin_pct": 15.6178,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "2": {
+        "dem_votes": 102149,
+        "rep_votes": 127672,
+        "other_votes": 14491,
+        "total_votes": 244312,
+        "dem_candidate": "Lisa Ellis",
+        "rep_candidate": "Ellen Weaver",
+        "margin": 25523,
+        "margin_pct": 10.4469,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "3": {
+        "dem_votes": 68905,
+        "rep_votes": 155012,
+        "other_votes": 11567,
+        "total_votes": 235484,
+        "dem_candidate": "Lisa Ellis",
+        "rep_candidate": "Ellen Weaver",
+        "margin": 86107,
+        "margin_pct": 36.566,
+        "winner": "R",
+        "color": "#a50f15"
+      },
+      "4": {
+        "dem_votes": 85661,
+        "rep_votes": 134817,
+        "other_votes": 10947,
+        "total_votes": 231425,
+        "dem_candidate": "Lisa Ellis",
+        "rep_candidate": "Ellen Weaver",
+        "margin": 49156,
+        "margin_pct": 21.2406,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "5": {
+        "dem_votes": 89515,
+        "rep_votes": 138326,
+        "other_votes": 12157,
+        "total_votes": 239998,
+        "dem_candidate": "Lisa Ellis",
+        "rep_candidate": "Ellen Weaver",
+        "margin": 48811,
+        "margin_pct": 20.3381,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "6": {
+        "dem_votes": 125345,
+        "rep_votes": 74694,
+        "other_votes": 10968,
+        "total_votes": 211007,
+        "dem_candidate": "Lisa Ellis",
+        "rep_candidate": "Ellen Weaver",
+        "margin": -50651,
+        "margin_pct": -24.0044,
+        "winner": "D",
+        "color": "#4292c6"
+      },
+      "7": {
+        "dem_votes": 88581,
+        "rep_votes": 155478,
+        "other_votes": 8808,
+        "total_votes": 252867,
+        "dem_candidate": "Lisa Ellis",
+        "rep_candidate": "Ellen Weaver",
+        "margin": 66897,
+        "margin_pct": 26.4554,
+        "winner": "R",
+        "color": "#cb181d"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 99.8701,
+    "precinct_rows_total": 2310,
+    "precinct_rows_overlap_weighted": 2307,
+    "precinct_rows_county_share_fallback": 3,
+    "precinct_votes_county_share_fallback": 2572,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
+  }
+}

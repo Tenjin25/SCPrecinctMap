@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
-        "dem_votes": 63763,
-        "rep_votes": 160101,
-        "other_votes": 3007,
-        "total_votes": 226871,
+      "1": {
+        "dem_votes": 120756,
+        "rep_votes": 148086,
+        "other_votes": 2907,
+        "total_votes": 271749,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 96338,
-        "margin_pct": 42.4638,
-        "winner": "R",
-        "color": "#67000d"
-      },
-      "2": {
-        "dem_votes": 103051,
-        "rep_votes": 138877,
-        "other_votes": 3693,
-        "total_votes": 245621,
-        "dem_candidate": "Joe Cunningham/Tally Parham Casey",
-        "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 35826,
-        "margin_pct": 14.5859,
+        "margin": 27330,
+        "margin_pct": 10.0571,
         "winner": "R",
         "color": "#ef3b2c"
       },
-      "6": {
-        "dem_votes": 111176,
-        "rep_votes": 64427,
-        "other_votes": 2161,
-        "total_votes": 177764,
+      "2": {
+        "dem_votes": 103425,
+        "rep_votes": 139065,
+        "other_votes": 3677,
+        "total_votes": 246167,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": -46749,
-        "margin_pct": -26.2984,
+        "margin": 35640,
+        "margin_pct": 14.478,
+        "winner": "R",
+        "color": "#ef3b2c"
+      },
+      "3": {
+        "dem_votes": 66488,
+        "rep_votes": 167340,
+        "other_votes": 3137,
+        "total_votes": 236965,
+        "dem_candidate": "Joe Cunningham/Tally Parham Casey",
+        "rep_candidate": "Henry McMaster/Pamela Evette",
+        "margin": 100852,
+        "margin_pct": 42.5599,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "4": {
+        "dem_votes": 86517,
+        "rep_votes": 142660,
+        "other_votes": 3662,
+        "total_votes": 232839,
+        "dem_candidate": "Joe Cunningham/Tally Parham Casey",
+        "rep_candidate": "Henry McMaster/Pamela Evette",
+        "margin": 56143,
+        "margin_pct": 24.1124,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "5": {
+        "dem_votes": 88827,
+        "rep_votes": 148906,
+        "other_votes": 3512,
+        "total_votes": 241245,
+        "dem_candidate": "Joe Cunningham/Tally Parham Casey",
+        "rep_candidate": "Henry McMaster/Pamela Evette",
+        "margin": 60079,
+        "margin_pct": 24.9037,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "6": {
+        "dem_votes": 132994,
+        "rep_votes": 77712,
+        "other_votes": 2631,
+        "total_votes": 213337,
+        "dem_candidate": "Joe Cunningham/Tally Parham Casey",
+        "rep_candidate": "Henry McMaster/Pamela Evette",
+        "margin": -55282,
+        "margin_pct": -25.913,
         "winner": "D",
         "color": "#4292c6"
       },
-      "1": {
-        "dem_votes": 133683,
-        "rep_votes": 154533,
-        "other_votes": 3179,
-        "total_votes": 291395,
-        "dem_candidate": "Joe Cunningham/Tally Parham Casey",
-        "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 20850,
-        "margin_pct": 7.1552,
-        "winner": "R",
-        "color": "#fc8a6a"
-      },
-      "5": {
-        "dem_votes": 89007,
-        "rep_votes": 143544,
-        "other_votes": 3448,
-        "total_votes": 235999,
-        "dem_candidate": "Joe Cunningham/Tally Parham Casey",
-        "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 54537,
-        "margin_pct": 23.109,
-        "winner": "R",
-        "color": "#cb181d"
-      },
       "7": {
-        "dem_votes": 87918,
-        "rep_votes": 155295,
-        "other_votes": 2297,
-        "total_votes": 245510,
+        "dem_votes": 91095,
+        "rep_votes": 161351,
+        "other_votes": 2367,
+        "total_votes": 254813,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 67377,
-        "margin_pct": 27.4437,
-        "winner": "R",
-        "color": "#cb181d"
-      },
-      "4": {
-        "dem_votes": 87403,
-        "rep_votes": 150271,
-        "other_votes": 3755,
-        "total_votes": 241429,
-        "dem_candidate": "Joe Cunningham/Tally Parham Casey",
-        "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 62868,
-        "margin_pct": 26.04,
+        "margin": 70256,
+        "margin_pct": 27.5716,
         "winner": "R",
         "color": "#cb181d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 97.7394,
-    "precinct_rows_total": 2256,
-    "precinct_rows_matched": 2205,
-    "precinct_rows_block_weighted": 2205
+    "match_coverage_pct": 99.8701,
+    "precinct_rows_total": 2310,
+    "precinct_rows_overlap_weighted": 2307,
+    "precinct_rows_county_share_fallback": 3,
+    "precinct_votes_county_share_fallback": 2583,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }

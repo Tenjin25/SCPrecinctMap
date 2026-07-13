@@ -1,96 +1,105 @@
 {
   "general": {
     "results": {
-      "3": {
+      "1": {
         "dem_votes": 0,
-        "rep_votes": 87490,
-        "other_votes": 520,
-        "total_votes": 88010,
+        "rep_votes": 90026,
+        "other_votes": 644,
+        "total_votes": 90670,
         "dem_candidate": "",
         "rep_candidate": "Henry McMaster",
-        "margin": 87490,
-        "margin_pct": 99.4092,
+        "margin": 90026,
+        "margin_pct": 99.2897,
         "winner": "R",
         "color": "#67000d"
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 86969,
-        "other_votes": 712,
-        "total_votes": 87681,
+        "rep_votes": 123263,
+        "other_votes": 942,
+        "total_votes": 124205,
         "dem_candidate": "",
         "rep_candidate": "Henry McMaster",
-        "margin": 86969,
-        "margin_pct": 99.188,
+        "margin": 123263,
+        "margin_pct": 99.2416,
         "winner": "R",
         "color": "#67000d"
       },
-      "6": {
+      "3": {
         "dem_votes": 0,
-        "rep_votes": 54999,
-        "other_votes": 687,
-        "total_votes": 55686,
+        "rep_votes": 120021,
+        "other_votes": 720,
+        "total_votes": 120741,
         "dem_candidate": "",
         "rep_candidate": "Henry McMaster",
-        "margin": 54999,
-        "margin_pct": 98.7663,
-        "winner": "R",
-        "color": "#67000d"
-      },
-      "1": {
-        "dem_votes": 0,
-        "rep_votes": 101358,
-        "other_votes": 840,
-        "total_votes": 102198,
-        "dem_candidate": "",
-        "rep_candidate": "Henry McMaster",
-        "margin": 101358,
-        "margin_pct": 99.1781,
-        "winner": "R",
-        "color": "#67000d"
-      },
-      "5": {
-        "dem_votes": 0,
-        "rep_votes": 71593,
-        "other_votes": 367,
-        "total_votes": 71960,
-        "dem_candidate": "",
-        "rep_candidate": "Henry McMaster",
-        "margin": 71593,
-        "margin_pct": 99.49,
-        "winner": "R",
-        "color": "#67000d"
-      },
-      "7": {
-        "dem_votes": 0,
-        "rep_votes": 66131,
-        "other_votes": 356,
-        "total_votes": 66487,
-        "dem_candidate": "",
-        "rep_candidate": "Henry McMaster",
-        "margin": 66131,
-        "margin_pct": 99.4646,
+        "margin": 120021,
+        "margin_pct": 99.4037,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 71958,
-        "other_votes": 666,
-        "total_votes": 72624,
+        "rep_votes": 108020,
+        "other_votes": 894,
+        "total_votes": 108914,
         "dem_candidate": "",
         "rep_candidate": "Henry McMaster",
-        "margin": 71958,
-        "margin_pct": 99.0829,
+        "margin": 108020,
+        "margin_pct": 99.1792,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 101448,
+        "other_votes": 540,
+        "total_votes": 101988,
+        "dem_candidate": "",
+        "rep_candidate": "Henry McMaster",
+        "margin": 101448,
+        "margin_pct": 99.4705,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 89765,
+        "other_votes": 1169,
+        "total_votes": 90934,
+        "dem_candidate": "",
+        "rep_candidate": "Henry McMaster",
+        "margin": 89765,
+        "margin_pct": 98.7145,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 91293,
+        "other_votes": 508,
+        "total_votes": 91801,
+        "dem_candidate": "",
+        "rep_candidate": "Henry McMaster",
+        "margin": 91293,
+        "margin_pct": 99.4466,
         "winner": "R",
         "color": "#67000d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 72.1811,
-    "precinct_rows_total": 2164,
-    "precinct_rows_matched": 1562,
-    "precinct_rows_block_weighted": 1562
+    "match_coverage_pct": 92.9965,
+    "precinct_rows_total": 2256,
+    "precinct_rows_overlap_weighted": 2098,
+    "precinct_rows_county_share_fallback": 158,
+    "precinct_votes_county_share_fallback": 73316,
+    "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
+    "precinct_lines_file": "data/Voting_Precincts.geojson",
+    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "conservation_delta": {
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    }
   }
 }
