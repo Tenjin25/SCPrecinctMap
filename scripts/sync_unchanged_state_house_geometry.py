@@ -7,7 +7,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 LINES_2022 = ROOT / "data" / "tileset" / "sc_state_house_2022_census.geojson"
 LINES_2024 = ROOT / "data" / "tileset" / "sc_state_house_2024_lines_tileset.geojson"
-UNCHANGED_DISTRICTS = {"082"}
+CHANGED_DISTRICTS = {"052", "054", "055", "057", "059", "070", "090", "091", "093", "095", "097", "105"}
+UNCHANGED_DISTRICTS = {f"{district:03d}" for district in range(1, 125)} - CHANGED_DISTRICTS
 
 
 def district_id(feature: dict) -> str:
