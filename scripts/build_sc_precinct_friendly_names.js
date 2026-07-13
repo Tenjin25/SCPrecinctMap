@@ -19,8 +19,14 @@ function toTitleCaseName(raw) {
     .replace(/'([A-Z])\b/g, (m, c) => `'${c.toLowerCase()}`)
     .replace(/\b([A-Z])([a-z])\b/g, (m, a, b) => `${a}${b}`)
     .replace(/\b([A-Z][a-z]*)(\d+[A-Z]?)\b/g, '$1 $2')
+    .replace(/\bMc([a-z])/g, (m, c) => `Mc${c.toUpperCase()}`)
+    .replace(/\b(\d+)([a-z])\b/g, (m, number, suffix) => `${number}${suffix.toUpperCase()}`)
     .replace(/\bNo\.\s*(\d+)/gi, 'No. $1')
-    .replace(/\bAnd\b/g, 'and');
+    .replace(/^Mt\s+/i, 'Mt. ')
+    .replace(/^St\s+/i, 'St. ')
+    .replace(/\bUmc\b/g, 'UMC')
+    .replace(/\bAnd\b/g, 'and')
+    .replace(/\bOf\b/g, 'of');
   return applyNameOverride(titled);
 }
 
@@ -28,6 +34,14 @@ function applyNameOverride(raw) {
   const name = String(raw || '').replace(/\s+/g, ' ').trim();
   const key = normalizeKey(name);
   const overrides = {
+    'E BENNETTSVILLE': 'East Bennettsville',
+    'N BENNETTSVILLE': 'North Bennettsville',
+    'S BENNETTSVILLE': 'South Bennettsville',
+    'W BENNETTSVILLE': 'West Bennettsville',
+    'N EAST MULLINS': 'Northeast Mullins',
+    'N WEST MULLINS': 'Northwest Mullins',
+    'S EAST MULLINS': 'Southeast Mullins',
+    'S WEST MULLINS': 'Southwest Mullins',
   };
   return overrides[key] || name;
 }
@@ -180,16 +194,19 @@ function main() {
     fs.writeFileSync(centroidPath, JSON.stringify(centroids), 'utf8');
   }
 
+  const sortedFriendlyByCounty = Object.fromEntries(
+    Object.entries(friendlyByCounty).sort(([left], [right]) => left.localeCompare(right)),
+  );
   const friendlyOut = {
     version: 1,
     generated_at: new Date().toISOString(),
     generated_from: [path.relative(repoRoot, precinctPath).replace(/\\/g, '/')],
-    counties: friendlyByCounty,
+    counties: sortedFriendlyByCounty,
   };
 
   fs.writeFileSync(precinctPath, JSON.stringify(precincts), 'utf8');
-  fs.writeFileSync(friendlyPath, JSON.stringify(friendlyOut), 'utf8');
-  console.log(`Wrote ${Object.keys(friendlyByCounty).length} counties -> ${path.relative(repoRoot, friendlyPath)}`);
+  fs.writeFileSync(friendlyPath, `${JSON.stringify(friendlyOut, null, 2)}\n`, 'utf8');
+  console.log(`Wrote ${Object.keys(sortedFriendlyByCounty).length} counties -> ${path.relative(repoRoot, friendlyPath)}`);
   console.log(`Updated ${path.relative(repoRoot, precinctPath)} and ${path.relative(repoRoot, centroidPath)}`);
 }
 
