@@ -1492,6 +1492,9 @@
     }
   },
   "meta": {
-    "match_coverage_pct": 100
+    "match_coverage_pct": 100,
+    "district_lines_version": "2022_lines",
+    "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
+    "source_file": "state_house_state_house_2024.json"
   }
 }

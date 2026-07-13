@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import shutil
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -21,8 +20,8 @@ OUTPUTS = (
     ("congressional", Path("data/district_contests"), "congressional", "", None),
     ("state_house_2022", Path("data/district_contests"), "state_house", "", None),
     ("state_senate_2022", Path("data/district_contests"), "state_senate", "", None),
-    ("state_house_2022", Path("data/district_contests/state_house_2022_lines"), "state_house", "", "2022_lines"),
-    ("state_house_2024", Path("data/district_contests/state_house_2024_lines"), "state_house", "", "2024_lines"),
+    ("state_house_2022", Path("data/district_contests/state_house_2022_lines"), "state_house", "_2022_lines", "2022_lines"),
+    ("state_house_2024", Path("data/district_contests/state_house_2024_lines"), "state_house", "_2024_lines", "2024_lines"),
 )
 FIELDS = ("dem_votes", "rep_votes", "other_votes")
 
@@ -146,7 +145,8 @@ def rebuild_manifest(directory: Path, line_suffix: str, district_lines: str | No
             entry["district_lines"] = district_lines
         entries.append(entry)
     entries.sort(key=lambda item: (-item["year"], item["scope"], item["contest_type"]))
-    (directory / "manifest.json").write_text(json.dumps({"files": entries}, indent=2) + "\n", encoding="utf-8")
+    name = f"manifest{line_suffix}.json" if line_suffix else "manifest.json"
+    (directory / name).write_text(json.dumps({"files": entries}, indent=2) + "\n", encoding="utf-8")
 
 
 def main() -> int:
@@ -199,19 +199,13 @@ def main() -> int:
             qa.append({"scope": scope_key, "contest_type": entry["contest_type"], "year": entry["year"], "file": name, **meta})
     for directory, suffix, district_lines in rebuilt_dirs:
         if district_lines:
-            for stale in directory.glob(f"*_{district_lines}.json"):
-                stale.unlink()
-            for stale in directory.glob("manifest_*_lines.json"):
-                stale.unlink()
-            house_year = int(district_lines.split("_", 1)[0])
-            house_name = f"state_house_state_house_{house_year}.json"
-            for stale in directory.glob("state_house_state_house_*.json"):
-                if stale.name != house_name:
+            for stale in directory.glob("state_house_*.json"):
+                if not stale.name.endswith(f"{suffix}.json"):
                     stale.unlink()
-            shutil.copyfile(
-                REPO_ROOT / "data/district_contests" / house_name,
-                directory / house_name,
-            )
+            desired_manifest = f"manifest{suffix}.json"
+            for stale in directory.glob("manifest*.json"):
+                if stale.name != desired_manifest:
+                    stale.unlink()
         rebuild_manifest(directory, suffix, district_lines)
     qa_path = REPO_ROOT / "data/district_contests/current_geojson_qa.json"
     qa_path.write_text(json.dumps({"files": qa}, indent=2) + "\n", encoding="utf-8")

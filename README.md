@@ -5,7 +5,125 @@ It is the successor project to the original SCPrecinctMap release.
 
 Its user experience is intentionally inspired by the NC Election Atlas UI, then adapted for South Carolina boundaries, contests, and workflows.
 
+Live site: https://tenjin25.github.io/SCPrecinctMap/
+
+## Current Build and Integrity Status
+
+The live app is a static deployment: `index.html` loads committed JSON, GeoJSON, and CSV assets directly from the repository. There is no backend or deployment-time data build.
+
+Current committed data as of July 13, 2026:
+
+| Dataset | Count |
+| --- | ---: |
+| South Carolina counties | 46 |
+| 2025 RFA voting precincts | 2,313 |
+| Congressional districts | 7 |
+| State House districts per line vintage | 124 |
+| State Senate districts | 46 |
+| Raw statewide contest slices | 46 |
+| 2025-crosswalked contest slices | 46 |
+| Root district-contest manifest entries | 158 |
+| 2022-line State House manifest entries | 54 |
+| 2024-line State House manifest entries | 46 |
+
+The latest combined audit covers 10 election source files, 46 contest slices, 230 statewide-by-district files, and four current precinct-to-district crosswalk scopes. It reports:
+
+- `0` hard integrity errors
+- `0` district vote-conservation failures
+- `45` historical-coverage warnings requiring continued review
+- all `2,313` current precincts mapped in every district scope
+
+The machine-readable result is `data/contest_integrity_report.json`. Warnings identify historical precinct labels that cannot yet be assigned confidently to a current precinct; they must not be hidden with broad aliases that could join the wrong county or precinct.
+
+## Canonical Rebuild Workflow
+
+Run the following sequence from the repository root for a complete statewide election and district refresh:
+
+```powershell
+python scripts/rebuild_all_contests_from_sources.py
+python scripts/aggregate_contests_to_vtd20_crosswalks.py
+python scripts/build_current_precinct_district_crosswalks.py
+python scripts/rebuild_district_contests_from_current_geojson.py
+python scripts/audit_contest_integrity.py
+```
+
+This sequence:
+
+1. Rebuilds covered 2006-2024 statewide contest slices from the configured source CSVs.
+2. Records source filenames, row counts, SHA-256 hashes, and contest vote accounting in `data/contests/source_integrity.json`.
+3. Crosswalks geographic precinct returns onto the 2025 South Carolina Revenue and Fiscal Affairs Office precinct layer.
+4. Recalculates equal-area overlap weights for congressional, 2022 State House, 2024 State House, and 2022 State Senate boundaries.
+5. Rebuilds the district contest files and line-specific manifests.
+6. Audits source accounting, current-precinct coverage, weight sums, and district vote conservation.
+
+Do not publish a rebuild if either `errors` or `district_conservation_failures` is nonzero in `data/contest_integrity_report.json`.
+
+The geometry workflow requires Python 3 with `pyshp`, `shapely`, and `pyproj`. Node.js is required for the friendly-name builder.
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install pyshp shapely pyproj
+```
+
+## Current Source and Naming Contracts
+
+- The authoritative live precinct geography is the 2025 RFA statewide precinct layer in `data/Voting_Precincts.geojson`.
+- `data/precinct_friendly_names.json` is county-scoped presentation data; it does not replace election keys or geometry labels.
+- `precinct_aliases.json` contains reviewed matching aliases. Similar names in different counties must remain county-safe.
+- Raw election slices live in `data/contests/`; live current-precinct slices live in `data/contests_2025_crosswalked/`.
+- County rows use a county name such as `Richland`; precinct rows use the county-qualified `Richland - Forest Acres 1` form. The `" - "` separator is part of the frontend join contract.
+- Non-geographic absentee, failsafe, provisional, and similar buckets must not be treated as map precincts.
+- Weighted splits may redistribute a source precinct among current targets, but integer allocations must conserve source vote totals.
+
+The source election rebuild expects large 2006-2022 maintenance CSVs under `Data/_tmpdata/` by default. The committed full 2024 input is `data/20241105__sc__general__precinct_complete.csv`.
+
+## State House Line-Vintage Contract
+
+The original line-specific folder convention is intentional and must be preserved:
+
+```text
+data/district_contests/
+|-- state_house_<contest>_<year>.json
+|-- manifest.json
+|-- state_house_2022_lines/
+|   |-- state_house_<contest>_<year>_2022_lines.json
+|   `-- manifest_2022_lines.json
+`-- state_house_2024_lines/
+    |-- state_house_<contest>_<year>_2024_lines.json
+    `-- manifest_2024_lines.json
+```
+
+For the State House election contest itself, the line vintage and election year are strict:
+
+- On 2022 lines, the frontend exposes only `state_house_state_house_2022_2022_lines.json` from the original 2022-lines folder.
+- On 2024 lines, the frontend uses the original root file `data/district_contests/state_house_state_house_2024.json`.
+- The frontend must not fall back to a State House election slice for the other line vintage.
+
+Statewide contests can be projected onto both boundary vintages for comparison. The strict matching rule applies specifically to the `state_house` election contest.
+
+## Key Integrity Outputs
+
+| File | Purpose |
+| --- | --- |
+| `data/contests/source_integrity.json` | Source hashes, row counts, and contest vote accounting |
+| `data/contests_2025_crosswalked/qa_2025_crosswalked.json` | Current-precinct crosswalk QA |
+| `data/crosswalk/current_precinct_to_district_weights.json` | Full district overlap weights and scope metadata |
+| `data/crosswalk/current_precinct_to_district_weights.csv` | Flat, reviewable district weights |
+| `data/district_contests/current_geojson_qa.json` | Per-contest district allocation QA |
+| `data/contest_integrity_report.json` | Combined errors, warnings, and conservation results |
+
 ## Recent Updates (July 2026)
+
+- **Source-exact historical rebuild and district integrity pass (July 13):**
+  - Rebuilt all 46 covered statewide contest slices from 10 source election files spanning 2006-2024.
+  - Added `scripts/rebuild_all_contests_from_sources.py` and committed the source hash/accounting ledger in `data/contests/source_integrity.json`.
+  - Rebuilt 2024 results from the complete OpenElections-format CSV, including reviewed Spartanburg County precinct assignments.
+  - Added `scripts/build_current_precinct_district_crosswalks.py` for equal-area overlap weights against current congressional, 2022 House, 2024 House, and 2022 Senate GeoJSON.
+  - Added `scripts/rebuild_district_contests_from_current_geojson.py` and `scripts/audit_contest_integrity.py` as the canonical district rebuild and QA path.
+  - Restored the original line-specific district folder and filename convention.
+  - Restricted State House election results to the matching line vintage: 2022 results on 2022 lines and 2024 results on 2024 lines.
+  - Normalized and pretty-printed the county-scoped precinct friendly-name map, including the corrected `Bennettsville` spelling.
 
 - **2025 Fiscal Affairs precinct layer:**
   - Switched the live precinct geography to the South Carolina Revenue and Fiscal Affairs Office 2025 statewide precinct shapefile (`2025Precincts.zip`).
@@ -29,7 +147,7 @@ Its user experience is intentionally inspired by the NC Election Atlas UI, then 
   - Added `scripts/aggregate_contests_to_vtd20_crosswalks.py` to write app-ready contest files without modifying the raw `data/contests/` inputs.
   - Rebuilt current-target crosswalks into `data/crosswalk/`: `vtd20_to_2025_*`, `vtd10_to_2025_*`, `vtd00_to_vtd10_to_2025_vote_weight_splits.json`, and `legacy_name_to_2025_vote_weight_splits.json`.
   - Added `scripts/report_current_crosswalk_unmatched.py` and `data/crosswalk/current_crosswalk_unmatched_report.json` to track remaining unmatched legacy precinct labels.
-  - Current QA preserves vote totals across all 45 generated contest files. The remaining geo-like unmatched report is down to 96 unique names / 672 file hits, concentrated in older 2006/2008 legacy labels without a trusted VTD00/VTD10 geometry bridge; those should be closed with reviewed areal/vote-weight rows rather than broad aliases.
+  - At that stage, QA preserved vote totals across 45 generated contest files. The then-current geo-like unmatched report was down to 96 unique names / 672 file hits, concentrated in older 2006/2008 legacy labels without a trusted VTD00/VTD10 geometry bridge; those should be closed with reviewed areal/vote-weight rows rather than broad aliases.
 
 - **SCVotes legacy precinct-name support:**
   - Added `scripts/fetch_scvotes_enr_precinct_names.py` for legacy ENR county/precinct names.
@@ -251,9 +369,10 @@ The committed generated data currently includes:
 - 7 congressional districts (`data/tileset/sc_cd118_tileset.geojson`)
 - 124 state house districts (`data/tileset/sc_state_house_2022_lines_tileset.geojson`)
 - 46 state senate districts (`data/tileset/sc_state_senate_2022_lines_tileset.geojson`)
-- 45 raw county/precinct contest slice files (`data/contests/manifest.json`)
-- 45 2025-crosswalked county/precinct contest slice files (`data/contests_2025_crosswalked/manifest.json`)
-- 155 district contest manifest entries (`data/district_contests/manifest.json`)
+- 46 raw county/precinct contest slice files (`data/contests/manifest.json`)
+- 46 2025-crosswalked county/precinct contest slice files (`data/contests_2025_crosswalked/manifest.json`)
+- 158 root district contest manifest entries (`data/district_contests/manifest.json`)
+- 54 entries in the 2022-line State House manifest and 46 entries in the 2024-line manifest
 - Friendly current-precinct name lookup for all 46 counties (`data/precinct_friendly_names.json`)
 
 Coverage varies by office and year. The live app uses `data/contests_2025_crosswalked/` for statewide county/precinct contests and `data/district_contests/` for district views.
@@ -309,6 +428,10 @@ SCPrecinctMap/
 |-- README.md
 |-- precinct_aliases.json
 |-- scripts/
+|   |-- rebuild_all_contests_from_sources.py
+|   |-- build_current_precinct_district_crosswalks.py
+|   |-- rebuild_district_contests_from_current_geojson.py
+|   |-- audit_contest_integrity.py
 |   |-- backfill_missing_contest_rows_from_oe_csv.py
 |   |-- aggregate_contests_to_vtd20_crosswalks.py
 |   |-- build_statewide_contest_mismatch_report.py
@@ -338,12 +461,14 @@ SCPrecinctMap/
 
 ## Data Pipeline
 
-`build_data.py` is the main offline pipeline. It:
+`build_data.py` is the legacy/general geography and aggregation pipeline. It:
 
 1. Builds county and precinct GeoJSON.
 2. Builds congressional/state-house/state-senate district GeoJSON.
 3. Aggregates precinct election CSV rows into raw county/precinct contest slices in `data/contests/`.
 4. Builds district-level contest slices and manifests.
+
+For a current source-exact statewide rebuild, use the canonical five-command workflow near the top of this README. It layers source hashing, 2025-precinct normalization, current district overlap weights, and the combined integrity audit on top of the base data model.
 
 The 2025-current precinct contest layer is a follow-on pipeline, not a replacement for the raw build:
 
@@ -360,7 +485,7 @@ The app-ready crosswalked contest files are committed. Large intermediate files 
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
-pip install pyshp
+pip install pyshp shapely pyproj
 ```
 
 ### Build
@@ -550,10 +675,15 @@ Desktop layout remains available with the full side/control experience.
 ## Key Data and Config Files
 
 - `index.html`: app UI, rendering logic, and `CONFIG`
-- `build_data.py`: primary data build pipeline
+- `build_data.py`: legacy/general geography and aggregation pipeline
 - `data/contests/manifest.json`: raw county/precinct contests
+- `data/contests/source_integrity.json`: source hashes and vote-accounting ledger
 - `data/contests_2025_crosswalked/manifest.json`: 2025 RFA-normalized county/precinct contests used by the live app
+- `data/crosswalk/current_precinct_to_district_weights.json`: current precinct-to-district overlap weights
 - `data/district_contests/manifest.json`: available district contest slices
+- `data/district_contests/state_house_2022_lines/manifest_2022_lines.json`: State House slices on 2022 lines
+- `data/district_contests/state_house_2024_lines/manifest_2024_lines.json`: State House slices on 2024 lines
+- `data/contest_integrity_report.json`: combined rebuild and conservation audit
 - `data/precinct_friendly_names.json`: current precinct display-name lookup
 - `precinct_aliases.json`: manual precinct name normalization overrides
 - `scripts/out/`: ignored maintenance outputs such as overlap CSVs, bridge candidates, and weighted split JSONs
