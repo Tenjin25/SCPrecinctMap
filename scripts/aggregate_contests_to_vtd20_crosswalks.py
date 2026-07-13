@@ -8,13 +8,31 @@ from collections import OrderedDict
 
 VOTE_FIELDS = ("dem_votes", "rep_votes", "other_votes")
 
-# Spartanburg's 2024 results use the predecessor precinct labels even though the
-# current precinct plan took effect in 2023. Apply the VTD20->current crosswalk
-# before direct-name matching so split precincts receive their estimated votes.
-FORCE_VTD20_CURRENT_BY_YEAR_COUNTY = {
-    2024: {"SPARTANBURG"},
-}
+# These counties adopted the current precinct layer after the November 2024
+# election, so their 2024 rows must be translated through the VTD20 crosswalk.
+POST_2024_PLAN_COUNTIES = {"BEAUFORT", "CLARENDON", "LANCASTER", "LAURENS"}
 
+# Current-plan spellings for 2024 election labels that do not normalize to an
+# RFA display key. Keep these separate from historical aliases, whose direction
+# can intentionally differ for older precinct plans.
+CURRENT_2024_ALIAS_TARGETS_RAW = {
+    "ANDERSON - MT AIRY": "Anderson - Mt. Airy",
+    "CHESTER - LANDSFORD": "Chester - Lando/Landsford",
+    "CHESTER - LANDO/LANSFORD": "Chester - Lando/Landsford",
+    "EDGEFIELD - MERRIWEATHER NO.1": "Edgefield - Merriwether No. 1",
+    "EDGEFIELD - MERRIWEATHER NO.2": "Edgefield - Merriwether No. 2",
+    "EDGEFIELD - TRENTON NO.1": "Edgefield - Trenton",
+    "EDGEFIELD - TRENTON NO.2": "Edgefield - Trenton 2",
+    "HORRY - JERNIGANS XROADS": "Horry - Jernigans X Roads",
+    "HORRY - JERIGANS X ROADS": "Horry - Jernigans X Roads",
+    "JASPER - OKATIE": "Jasper - Okatie 1",
+    "KERSHAW - CAMDEN NO. 2 3": "Kershaw - Camden No. 2",
+    "LANCASTER - MCILWAIN": "Lancaster - McLlwain",
+    "MARLBORO - E BENNETTSVILLE": "Marlboro - East Bennettsville",
+    "SUMTER - ST. JOHN": "Sumter - St. John",
+    "SUMTER - ST.JOHN": "Sumter - St. John",
+    "UNION - MONARCH": "Union - Monarch, Box 1",
+}
 
 def norm(value: str) -> str:
     cleaned = re.sub(r"[^A-Za-z0-9 .\-]", "", str(value or ""))
@@ -25,6 +43,11 @@ def norm(value: str) -> str:
     cleaned = re.sub(r"\bIV\b", "4", cleaned, flags=re.I)
     cleaned = re.sub(r"\bV\b", "5", cleaned, flags=re.I)
     return re.sub(r"\s+", " ", cleaned).strip().upper()
+
+
+CURRENT_2024_ALIAS_TARGETS = {
+    norm(source): target for source, target in CURRENT_2024_ALIAS_TARGETS_RAW.items()
+}
 
 
 def margin_color(signed_pct: float) -> str:
@@ -205,6 +228,7 @@ def remap_precinct_row(
     aliases: dict[str, str],
     weighted_sources: list[tuple[str, dict[str, list[tuple[str, float]]]]],
     fallback_weighted_sources: list[tuple[str, dict[str, list[tuple[str, float]]]]] | None = None,
+    prefer_direct_match: bool = False,
 ) -> tuple[list[dict], str]:
     key = str(row.get("county") or "").strip()
     nk = norm(key)
@@ -228,6 +252,10 @@ def remap_precinct_row(
         result = apply_weighted(label, weighted)
         if result:
             return result
+    if prefer_direct_match and nk in display_by_norm:
+        nr = dict(row)
+        nr["county"] = display_by_norm[nk]
+        return [finalize_row(nr)], "direct"
     if nk in aliases:
         nr = dict(row)
         nr["county"] = aliases[nk]
@@ -300,24 +328,27 @@ def process_contest(path: str, args, display_by_norm, aliases, weighted_by_year)
             add_to_bucket(county_bucket, finalize_row(dict(row)))
             continue
         stats["precinct_rows"] += 1
+        county_norm = norm(key.split(" - ", 1)[0])
         row_weighted_sources = weighted_sources
         row_fallback_weighted_sources = fallback_weighted_sources
-        county_norm = norm(key.split(" - ", 1)[0])
-        force_vtd20_current = county_norm in FORCE_VTD20_CURRENT_BY_YEAR_COUNTY.get(year, set())
-        if force_vtd20_current and not any(label == "vtd20_current" for label, _ in weighted_sources):
-            vtd20_current = weighted_by_year.get("vtd20_current") or {}
-            row_weighted_sources = [("vtd20_current", vtd20_current), *weighted_sources]
-            row_fallback_weighted_sources = [
-                (label, weighted)
-                for label, weighted in fallback_weighted_sources
-                if label != "vtd20_current_fallback"
-            ]
+        if year == 2024 and county_norm in POST_2024_PLAN_COUNTIES:
+            row_weighted_sources = [("vtd20_current", weighted_by_year.get("vtd20_current") or {})]
+            row_fallback_weighted_sources = []
+        row_aliases = aliases
+        current_target = CURRENT_2024_ALIAS_TARGETS.get(norm(key)) if year == 2024 else None
+        if current_target:
+            row_aliases = dict(aliases)
+            row_aliases[norm(key)] = display_by_norm.get(norm(current_target), current_target)
         mapped_rows, source = remap_precinct_row(
             row,
             display_by_norm=display_by_norm,
-            aliases=aliases,
+            aliases=row_aliases,
             weighted_sources=row_weighted_sources,
             fallback_weighted_sources=row_fallback_weighted_sources,
+            # The complete 2024 OpenElections export already uses the precinct
+            # plan in effect for that election. Preserve exact RFA-name matches
+            # before consulting aliases for precincts whose labels changed.
+            prefer_direct_match=(year == 2024),
         )
         if source.startswith("weighted_"):
             stats["weighted_rows"] += 1
