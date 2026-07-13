@@ -8,6 +8,13 @@ from collections import OrderedDict
 
 VOTE_FIELDS = ("dem_votes", "rep_votes", "other_votes")
 
+# Spartanburg's 2024 results use the predecessor precinct labels even though the
+# current precinct plan took effect in 2023. Apply the VTD20->current crosswalk
+# before direct-name matching so split precincts receive their estimated votes.
+FORCE_VTD20_CURRENT_BY_YEAR_COUNTY = {
+    2024: {"SPARTANBURG"},
+}
+
 
 def norm(value: str) -> str:
     cleaned = re.sub(r"[^A-Za-z0-9 .\-]", "", str(value or ""))
@@ -293,12 +300,24 @@ def process_contest(path: str, args, display_by_norm, aliases, weighted_by_year)
             add_to_bucket(county_bucket, finalize_row(dict(row)))
             continue
         stats["precinct_rows"] += 1
+        row_weighted_sources = weighted_sources
+        row_fallback_weighted_sources = fallback_weighted_sources
+        county_norm = norm(key.split(" - ", 1)[0])
+        force_vtd20_current = county_norm in FORCE_VTD20_CURRENT_BY_YEAR_COUNTY.get(year, set())
+        if force_vtd20_current and not any(label == "vtd20_current" for label, _ in weighted_sources):
+            vtd20_current = weighted_by_year.get("vtd20_current") or {}
+            row_weighted_sources = [("vtd20_current", vtd20_current), *weighted_sources]
+            row_fallback_weighted_sources = [
+                (label, weighted)
+                for label, weighted in fallback_weighted_sources
+                if label != "vtd20_current_fallback"
+            ]
         mapped_rows, source = remap_precinct_row(
             row,
             display_by_norm=display_by_norm,
             aliases=aliases,
-            weighted_sources=weighted_sources,
-            fallback_weighted_sources=fallback_weighted_sources,
+            weighted_sources=row_weighted_sources,
+            fallback_weighted_sources=row_fallback_weighted_sources,
         )
         if source.startswith("weighted_"):
             stats["weighted_rows"] += 1
