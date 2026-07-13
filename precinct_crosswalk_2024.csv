@@ -597,7 +597,6 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,,Spartanburg - Cherokee Springs Fire Station,Spartanburg - Cherokee Springs Fire Station,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_autofix_manual_hard_county_guard
 2024,president,,Spartanburg - Chesnee Elementary,Spartanburg - Chesnee Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_manual_next30b_applied
 2024,president,,Spartanburg - Chestnut Lake,Spartanburg - Boiling Springs Intermediate,1.0000,approved,medium,generated_from_legacy_alias_mapping
-2024,president,,Spartanburg - Oakland Elementary,Spartanburg - Cleveland Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_manual_next30_applied
 2024,president,,Spartanburg - Arcadia Elementary,Spartanburg - Broome High School,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_autofix_manual_medium
 2024,president,,Spartanburg - Clifton Glendale,Spartanburg - Glendale Fire Station,1.0000,approved,medium,generated_from_legacy_alias_mapping
 2024,president,,Spartanburg - Converse,Spartanburg - Converse Fire Station,1.0000,approved,medium,generated_from_legacy_alias_mapping
@@ -609,7 +608,6 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,,Spartanburg - Enoree First Baptist,Spartanburg - Enoree First Baptist,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_autofix_likely_safe
 2024,president,,Spartanburg - Enoree River,Spartanburg - Woodruff Fire Station,1.0000,approved,medium,generated_from_legacy_alias_mapping
 2024,president,,Spartanburg - Airport,Spartanburg - Fairforest Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_autofix_manual_medium
-2024,president,,Spartanburg - Fairgrounds,Spartanburg - Cleveland Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping
 2024,president,,Spartanburg - Mt. Moriah Baptist,Spartanburg - D. R. Hill Middle School,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_manual_next30b_applied
 2024,president,,Spartanburg - Apalache Baptist,Spartanburg - Duncan United Methodist,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_autofix_manual_medium
 2024,president,,Spartanburg - Rainbow,Spartanburg - Gramling Methodist,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_manual_next30_applied
@@ -630,6 +628,7 @@ year,contest_type,county,source_result_key,target_polygon_key,score,status,confi
 2024,president,,Spartanburg - New Prospect,Spartanburg - Swofford Career Center,1.0000,approved,medium,generated_from_legacy_alias_mapping
 2024,president,,Spartanburg - Poplar Springs Fire Station,Spartanburg - Fairforest Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_manual_next30_applied
 2024,president,,Spartanburg - Old Bridge,Spartanburg - Ebenezer Baptist,1.0000,approved,medium,generated_from_legacy_alias_mapping
+2024,president,,Spartanburg - Oakland Elementary,Spartanburg - Oakland Elementary,1.0000,approved,high,vtd10_to_vtd20_overlap_identity; rejects prior Oakland-to-Cleveland fuzzy alias
 2024,president,,Spartanburg - Palmetto,Spartanburg - Pacolet Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_manual_next30b_applied
 2024,president,,Spartanburg - Palmetto,Spartanburg - Cowpens Depot Museum,1.0000,approved,medium,generated_from_legacy_alias_mapping
 2024,president,,Spartanburg - Anderson Mill Elementary,Spartanburg - Park Hills Elementary,1.0000,approved,medium,generated_from_legacy_alias_mapping; source_key_manual_next30b_applied
