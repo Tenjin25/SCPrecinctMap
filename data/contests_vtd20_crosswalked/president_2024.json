@@ -25939,16 +25939,16 @@
     },
     {
       "county": "Spartanburg - Beaumont Methodist",
-      "dem_votes": 498,
-      "rep_votes": 858,
-      "other_votes": 22,
-      "total_votes": 1378,
+      "dem_votes": 221,
+      "rep_votes": 219,
+      "other_votes": 9,
+      "total_votes": 449,
       "dem_candidate": "Kamala D. Harris and Tim Walz",
       "rep_candidate": "Donald J. Trump and JD Vance",
-      "margin": 360,
-      "margin_pct": 26.1248,
-      "winner": "R",
-      "color": "#cb181d"
+      "margin": -2,
+      "margin_pct": -0.4454,
+      "winner": "D",
+      "color": "#f0f0f0"
     },
     {
       "county": "Spartanburg - Bethany Baptist",
@@ -26186,16 +26186,16 @@
     },
     {
       "county": "Spartanburg - Converse Fire Station",
-      "dem_votes": 452,
-      "rep_votes": 788,
-      "other_votes": 17,
-      "total_votes": 1257,
+      "dem_votes": 231,
+      "rep_votes": 569,
+      "other_votes": 8,
+      "total_votes": 808,
       "dem_candidate": "Kamala D. Harris and Tim Walz",
       "rep_candidate": "Donald J. Trump and JD Vance",
-      "margin": 336,
-      "margin_pct": 26.7303,
+      "margin": 338,
+      "margin_pct": 41.8317,
       "winner": "R",
-      "color": "#cb181d"
+      "color": "#a50f15"
     },
     {
       "county": "Spartanburg - Cooley Springs Baptist",
@@ -26731,6 +26731,19 @@
       "color": "#c6dbef"
     },
     {
+      "county": "Spartanburg - Cleveland Elementary",
+      "dem_votes": 608,
+      "rep_votes": 145,
+      "other_votes": 13,
+      "total_votes": 766,
+      "dem_candidate": "Kamala D. Harris and Tim Walz",
+      "rep_candidate": "Donald J. Trump and JD Vance",
+      "margin": -463,
+      "margin_pct": -60.4439,
+      "winner": "D",
+      "color": "#08519c"
+    },
+    {
       "county": "Spartanburg - Oakland Elementary",
       "dem_votes": 320,
       "rep_votes": 1265,
@@ -26965,17 +26978,17 @@
       "color": "#ef3b2c"
     },
     {
-      "county": "Spartanburg - Trinity Methodist",
-      "dem_votes": 82,
-      "rep_votes": 79,
-      "other_votes": 3,
-      "total_votes": 164,
+      "county": "Spartanburg - Westview Elementary",
+      "dem_votes": 658,
+      "rep_votes": 634,
+      "other_votes": 28,
+      "total_votes": 1320,
       "dem_candidate": "Kamala D. Harris and Tim Walz",
       "rep_candidate": "Donald J. Trump and JD Vance",
-      "margin": -3,
-      "margin_pct": -1.8293,
+      "margin": -24,
+      "margin_pct": -1.8182,
       "winner": "D",
-      "color": "#c6dbef"
+      "color": "#f0f0f0"
     },
     {
       "county": "Spartanburg - Trinity Presbyterian",
@@ -28695,14 +28708,14 @@
     },
     {
       "county": "York - Fairgrounds",
-      "dem_votes": 1401,
-      "rep_votes": 395,
-      "other_votes": 33,
-      "total_votes": 1829,
+      "dem_votes": 793,
+      "rep_votes": 250,
+      "other_votes": 20,
+      "total_votes": 1063,
       "dem_candidate": "Kamala D. Harris and Tim Walz",
       "rep_candidate": "Donald J. Trump and JD Vance",
-      "margin": -1006,
-      "margin_pct": -55.0027,
+      "margin": -543,
+      "margin_pct": -51.0818,
       "winner": "D",
       "color": "#08519c"
     },
