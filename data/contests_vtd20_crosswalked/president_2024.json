@@ -15279,16 +15279,16 @@
     },
     {
       "county": "Greenville - Wade Hampton",
-      "dem_votes": 882,
-      "rep_votes": 1104,
-      "other_votes": 55,
-      "total_votes": 2041,
+      "dem_votes": 438,
+      "rep_votes": 928,
+      "other_votes": 33,
+      "total_votes": 1399,
       "dem_candidate": "Kamala D. Harris and Tim Walz",
       "rep_candidate": "Donald J. Trump and JD Vance",
-      "margin": 222,
-      "margin_pct": 10.877,
+      "margin": 490,
+      "margin_pct": 35.025,
       "winner": "R",
-      "color": "#ef3b2c"
+      "color": "#a50f15"
     },
     {
       "county": "Greenville - Walnut Springs",
@@ -26081,6 +26081,19 @@
       "color": "#cb181d"
     },
     {
+      "county": "Spartanburg - Cedar Grove Baptist",
+      "dem_votes": 444,
+      "rep_votes": 176,
+      "other_votes": 22,
+      "total_votes": 642,
+      "dem_candidate": "Kamala D. Harris and Tim Walz",
+      "rep_candidate": "Donald J. Trump and JD Vance",
+      "margin": -268,
+      "margin_pct": -41.7445,
+      "winner": "D",
+      "color": "#2171b5"
+    },
+    {
       "county": "Spartanburg - Cannons Elementary",
       "dem_votes": 436,
       "rep_votes": 726,
@@ -26966,29 +26979,29 @@
     },
     {
       "county": "Spartanburg - West View Elementary",
-      "dem_votes": 1238,
-      "rep_votes": 1739,
-      "other_votes": 52,
-      "total_votes": 3029,
+      "dem_votes": 580,
+      "rep_votes": 1105,
+      "other_votes": 24,
+      "total_votes": 1709,
       "dem_candidate": "Kamala D. Harris and Tim Walz",
       "rep_candidate": "Donald J. Trump and JD Vance",
-      "margin": 501,
-      "margin_pct": 16.5401,
+      "margin": 525,
+      "margin_pct": 30.7197,
       "winner": "R",
-      "color": "#ef3b2c"
+      "color": "#a50f15"
     },
     {
       "county": "Spartanburg - Trinity Presbyterian",
-      "dem_votes": 641,
-      "rep_votes": 948,
-      "other_votes": 19,
-      "total_votes": 1608,
+      "dem_votes": 1299,
+      "rep_votes": 1582,
+      "other_votes": 47,
+      "total_votes": 2928,
       "dem_candidate": "Kamala D. Harris and Tim Walz",
       "rep_candidate": "Donald J. Trump and JD Vance",
-      "margin": 307,
-      "margin_pct": 19.092,
+      "margin": 283,
+      "margin_pct": 9.6653,
       "winner": "R",
-      "color": "#ef3b2c"
+      "color": "#fc8a6a"
     },
     {
       "county": "Spartanburg - Victor Mill Methodist",
