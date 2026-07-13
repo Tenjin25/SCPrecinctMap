@@ -10646,8 +10646,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-13-8';
-    const APP_BUILD_ID = '2026-07-13-8';
+    const DATA_CACHE_BUSTER = '2026-07-13-9';
+    const APP_BUILD_ID = '2026-07-13-9';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -12163,8 +12163,14 @@ document.addEventListener('DOMContentLoaded', function() {
       if (ly === 2022 && scope === 'congressional' && Number.isFinite(y) && y >= 2020 && calibrated2020Dir) {
         out.push(`${calibrated2020Dir}/${key}.json`);
       }
+      if (ly === 2022 && scope === 'state_house' && baseDir) {
+        out.push(`${baseDir}/${key}_2022_lines.json`);
+      }
+      if (ly === 2024 && scope === 'state_house' && baseDir) {
+        out.push(`${baseDir}/${key}_2024_lines.json`);
+      }
       if (baseDir) out.push(`${baseDir}/${key}.json`);
-      if (ly === 2024 && scope === 'state_house' && genericDir && genericDir !== baseDir) {
+      if (ly === 2024 && scope === 'state_house' && contestType !== 'state_house' && genericDir && genericDir !== baseDir) {
         out.push(`${genericDir}/${key}.json`);
       }
 
@@ -32206,7 +32212,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let files = dManifest?.files || [];
             if (linesYear === 2022 && CONFIG.paths?.district_contests_state_house_2022_lines_dir) {
               try {
-                const sh2022 = await loadJSON(`${CONFIG.paths.district_contests_state_house_2022_lines_dir}/manifest.json`);
+                const sh2022 = await loadJSON(`${CONFIG.paths.district_contests_state_house_2022_lines_dir}/manifest_2022_lines.json`);
                 const shFiles = sh2022?.files || [];
                 const filtered = files.filter(e => (e?.scope || '').toString().trim() !== 'state_house');
                 files = filtered.concat(shFiles);
@@ -32214,17 +32220,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             if (linesYear === 2024 && CONFIG.paths?.district_contests_state_house_2024_lines_dir) {
               try {
-                const sh2024 = await loadJSON(`${CONFIG.paths.district_contests_state_house_2024_lines_dir}/manifest.json`);
+                const sh2024 = await loadJSON(`${CONFIG.paths.district_contests_state_house_2024_lines_dir}/manifest_2024_lines.json`);
                 const shFiles = sh2024?.files || [];
-                const replacementKeys = new Set(
-                  shFiles.map(e => `state_house|${String(e?.contest_type || '').trim()}|${Number(e?.year) || ''}`)
-                );
-                const filtered = files.filter(e => {
-                  const scope = (e?.scope || '').toString().trim();
-                  const contestType = String(e?.contest_type || '').trim();
-                  const year = Number(e?.year) || '';
-                  return !replacementKeys.has(`${scope}|${contestType}|${year}`);
-                });
+                const filtered = files.filter(e => (e?.scope || '').toString().trim() !== 'state_house');
                 files = filtered.concat(shFiles);
               } catch (_) {}
             }

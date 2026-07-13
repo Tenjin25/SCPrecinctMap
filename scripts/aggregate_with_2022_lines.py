@@ -314,7 +314,7 @@ def _sum_district_results(dist_payload: dict) -> dict:
 def write_state_house_2022_lines_qa_report() -> int:
     contests_dir = os.path.join(REPO_ROOT, "data", "contests")
     dist_dir = os.path.join(REPO_ROOT, "data", "district_contests", "state_house_2022_lines")
-    out_path = os.path.join(dist_dir, "qa.json")
+    out_path = os.path.join(dist_dir, "qa_2022_lines.json")
     if not os.path.isdir(dist_dir):
         return 0
 
@@ -441,8 +441,8 @@ def apply_state_house_2022_lines_quality_gate(
 ) -> int:
     dist_dir = os.path.join(REPO_ROOT, "data", "district_contests", "state_house_2022_lines")
     manifest_path = os.path.join(dist_dir, "manifest_2022_lines.json")
-    qa_path = os.path.join(dist_dir, "qa.json")
-    gate_report_path = os.path.join(dist_dir, "qa_gate_report.json")
+    qa_path = os.path.join(dist_dir, "qa_2022_lines.json")
+    gate_report_path = os.path.join(dist_dir, "qa_2022_lines_gate_report.json")
     if not (os.path.exists(manifest_path) and os.path.exists(qa_path)):
         return 0
 
@@ -518,7 +518,7 @@ def _run_quality_gate_and_artifacts(args) -> int:
 
 def _auto_backfill_flagged(args) -> int:
     dist_dir = os.path.join(REPO_ROOT, "data", "district_contests", "state_house_2022_lines")
-    gate_report_path = os.path.join(dist_dir, "qa_gate_report.json")
+    gate_report_path = os.path.join(dist_dir, "qa_2022_lines_gate_report.json")
     if not os.path.exists(gate_report_path):
         return 0
     gate = _load_json(gate_report_path) or {}
