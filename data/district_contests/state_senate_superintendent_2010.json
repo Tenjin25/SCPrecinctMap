@@ -576,7 +576,7 @@
     "snapshot_comparison_max_abs_share_delta_pp": 12.648806,
     "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
     "calibration_geometry": "state_senate_2022",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/superintendent_2010",
+    "calibration_target_file": "C:/Users/Shama/OneDrive/Documents/Side_Projects/Side_Projects/SCPrecinctMap/scprecinctmap-tooltip-branch/data/district_contests/district_snapshot_targets.json#state_senate_2022/superintendent_2010",
     "calibration_districts": 46,
     "calibration_expected_districts": 46,
     "calibration_snapshot_districts": 46,
@@ -589,6 +589,13 @@
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
-    }
+    },
+    "margin_calibration_mode": "both_district_totals_and_statewide_party",
+    "calibration_frozen_districts": [],
+    "margin_calibration_mean_abs_delta_pp_before": 1.2385,
+    "margin_calibration_max_abs_delta_pp_before": 2.1936,
+    "margin_calibration_mean_abs_delta_pp_after": 1.2385,
+    "margin_calibration_max_abs_delta_pp_after": 2.1936,
+    "margin_calibration_ignored_uncontested_districts": []
   }
 }

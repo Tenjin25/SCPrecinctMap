@@ -1512,19 +1512,29 @@
     "snapshot_comparison_max_abs_share_delta_pp": 21.568806,
     "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
     "calibration_geometry": "state_house_root",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#state_house_root/president_2016",
-    "calibration_districts": 124,
+    "calibration_target_file": "C:/Users/Shama/OneDrive/Documents/Side_Projects/Side_Projects/SCPrecinctMap/scprecinctmap-tooltip-branch/data/district_contests/district_snapshot_targets.json#state_house_root/president_2016",
+    "calibration_districts": 122,
     "calibration_expected_districts": 124,
-    "calibration_snapshot_districts": 124,
+    "calibration_snapshot_districts": 122,
     "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 1.161296,
+    "calibration_mean_abs_share_delta_pp": 1.15968,
     "calibration_max_abs_share_delta_pp": 3.49494,
-    "calibration_statewide_mix_gap_pp": 1.699134,
-    "calibration_tolerance_pp": 3.699134,
+    "calibration_statewide_mix_gap_pp": 1.696612,
+    "calibration_tolerance_pp": 3.696612,
     "calibration_conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
-    }
+    },
+    "margin_calibration_mode": "both_district_totals_and_statewide_party",
+    "calibration_frozen_districts": [
+      "40",
+      "82"
+    ],
+    "margin_calibration_mean_abs_delta_pp_before": 3.0056,
+    "margin_calibration_max_abs_delta_pp_before": 6.4881,
+    "margin_calibration_mean_abs_delta_pp_after": 3.0056,
+    "margin_calibration_max_abs_delta_pp_after": 6.4881,
+    "margin_calibration_ignored_uncontested_districts": []
   }
 }
