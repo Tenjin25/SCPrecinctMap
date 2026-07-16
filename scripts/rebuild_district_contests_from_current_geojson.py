@@ -160,24 +160,37 @@ def calibrate_to_snapshot(
     tolerance_pp: float,
     geometry_key: str,
     dynamic_tolerance: bool = True,
+    frozen_districts: set[str] | None = None,
 ) -> dict:
     results = (payload.get("general") or {}).get("results") or {}
-    snapshot_districts = set(results) & set(targets)
-    missing = sorted(set(results) - set(targets), key=build_data._district_sort_key)
-    targets = {district: dict(shares) for district, shares in targets.items() if district in results}
+    frozen = {str(int(d)) if str(d).isdigit() else str(d) for d in (frozen_districts or set())}
+    frozen |= {str(d) for d in (frozen_districts or set())}
+    def _norm_district(key: str) -> str:
+        return str(int(key)) if str(key).isdigit() else str(key)
+
+    frozen_keys = {key for key in results if _norm_district(key) in frozen or str(key) in frozen}
+    active_results = {key: row for key, row in results.items() if key not in frozen_keys}
+    snapshot_districts = set(active_results) & set(targets)
+    missing = sorted(set(active_results) - set(targets), key=build_data._district_sort_key)
+    targets = {district: dict(shares) for district, shares in targets.items() if district in active_results}
     for district in missing:
-        row = results[district]
+        row = active_results[district]
         total = sum(int(row.get(field) or 0) for field in FIELDS)
         targets[district] = {
             field: (int(row.get(field) or 0) / total if total else 0)
             for field in FIELDS
         }
 
-    source_totals = {field: sum(int(row.get(field) or 0) for row in results.values()) for field in FIELDS}
-    row_totals = {district: int(row.get("total_votes") or 0) for district, row in results.items()}
-    grand_total = sum(row_totals.values())
+    source_totals_all = {field: sum(int(row.get(field) or 0) for row in results.values()) for field in FIELDS}
+    frozen_party = {
+        field: sum(int(results[key].get(field) or 0) for key in frozen_keys)
+        for field in FIELDS
+    }
+    source_totals = {field: source_totals_all[field] - frozen_party[field] for field in FIELDS}
+    row_totals = {district: int(row.get("total_votes") or 0) for district, row in active_results.items()}
+    grand_total = sum(row_totals.values()) or 1
     target_party_totals = {
-        field: sum(row_totals[district] * targets[district][field] for district in results)
+        field: sum(row_totals[district] * targets[district][field] for district in active_results)
         for field in FIELDS
     }
     statewide_mix_gap_pp = max(
@@ -185,19 +198,35 @@ def calibrate_to_snapshot(
         default=0.0,
     )
     effective_tolerance_pp = max(tolerance_pp, statewide_mix_gap_pp + 2.0) if dynamic_tolerance else tolerance_pp
-    other_desired = {district: row_totals[district] * targets[district]["other_votes"] for district in results}
+    if not active_results:
+        return {
+            "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
+            "calibration_geometry": geometry_key,
+            "calibration_target_file": target_label,
+            "calibration_districts": 0,
+            "calibration_expected_districts": len(results),
+            "calibration_snapshot_districts": 0,
+            "calibration_source_fallback_districts": 0,
+            "calibration_frozen_districts": sorted(frozen_keys, key=build_data._district_sort_key),
+            "calibration_mean_abs_share_delta_pp": 0.0,
+            "calibration_max_abs_share_delta_pp": 0.0,
+            "calibration_statewide_mix_gap_pp": 0.0,
+            "calibration_tolerance_pp": round(effective_tolerance_pp, 6),
+            "calibration_conservation_delta": {field: 0 for field in FIELDS},
+        }
+    other_desired = {district: row_totals[district] * targets[district]["other_votes"] for district in active_results}
     other_alloc = allocate_capped_total(source_totals["other_votes"], other_desired, row_totals)
-    two_party_caps = {district: row_totals[district] - other_alloc[district] for district in results}
+    two_party_caps = {district: row_totals[district] - other_alloc[district] for district in active_results}
     dem_desired = {
         district: two_party_caps[district]
         * targets[district]["dem_votes"]
-        / (targets[district]["dem_votes"] + targets[district]["rep_votes"])
-        for district in results
+        / (targets[district]["dem_votes"] + targets[district]["rep_votes"] or 1)
+        for district in active_results
     }
     dem_alloc = allocate_capped_total(source_totals["dem_votes"], dem_desired, two_party_caps)
 
     share_deltas = []
-    for district, previous in results.items():
+    for district, previous in active_results.items():
         values = {
             "dem_votes": dem_alloc[district],
             "other_votes": other_alloc[district],
@@ -210,7 +239,7 @@ def calibrate_to_snapshot(
             share_deltas.append(abs(actual - targets[district][field]) * 100)
 
     calibrated_totals = {field: sum(int(row.get(field) or 0) for row in results.values()) for field in FIELDS}
-    conservation_delta = {field: calibrated_totals[field] - source_totals[field] for field in FIELDS}
+    conservation_delta = {field: calibrated_totals[field] - source_totals_all[field] for field in FIELDS}
     if any(conservation_delta.values()):
         raise SystemExit(f"Snapshot calibration conservation failure for {target_label}: {conservation_delta}")
     max_delta = max(share_deltas, default=0.0)
@@ -222,6 +251,7 @@ def calibrate_to_snapshot(
         "calibration_expected_districts": len(results),
         "calibration_snapshot_districts": len(snapshot_districts),
         "calibration_source_fallback_districts": len(missing),
+        "calibration_frozen_districts": sorted(frozen_keys, key=build_data._district_sort_key),
         "calibration_mean_abs_share_delta_pp": round(sum(share_deltas) / len(share_deltas), 6),
         "calibration_max_abs_share_delta_pp": round(max_delta, 6),
         "calibration_statewide_mix_gap_pp": round(statewide_mix_gap_pp, 6),
