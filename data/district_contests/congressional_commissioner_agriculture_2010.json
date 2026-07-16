@@ -2,86 +2,86 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 46393,
-        "rep_votes": 91368,
-        "other_votes": 53,
+        "dem_votes": 46930,
+        "rep_votes": 90832,
+        "other_votes": 52,
         "total_votes": 137814,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 44975,
-        "margin_pct": 32.6346,
+        "margin": 43902,
+        "margin_pct": 31.856,
         "winner": "R",
         "color": "#a50f15"
       },
       "2": {
-        "dem_votes": 64070,
-        "rep_votes": 118213,
-        "other_votes": 91,
+        "dem_votes": 64812,
+        "rep_votes": 117472,
+        "other_votes": 90,
         "total_votes": 182374,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 54143,
-        "margin_pct": 29.6879,
+        "margin": 52660,
+        "margin_pct": 28.8747,
         "winner": "R",
         "color": "#cb181d"
       },
       "3": {
-        "dem_votes": 48455,
-        "rep_votes": 112802,
-        "other_votes": 83,
+        "dem_votes": 49016,
+        "rep_votes": 112242,
+        "other_votes": 82,
         "total_votes": 161340,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 64347,
-        "margin_pct": 39.8829,
+        "margin": 63226,
+        "margin_pct": 39.1881,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 47740,
-        "rep_votes": 112994,
+        "dem_votes": 48292,
+        "rep_votes": 112442,
         "other_votes": 77,
         "total_votes": 160811,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 65254,
-        "margin_pct": 40.5781,
+        "margin": 64150,
+        "margin_pct": 39.8915,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       },
       "5": {
-        "dem_votes": 62056,
-        "rep_votes": 92150,
-        "other_votes": 42,
+        "dem_votes": 62774,
+        "rep_votes": 91433,
+        "other_votes": 41,
         "total_votes": 154248,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 30094,
-        "margin_pct": 19.5101,
+        "margin": 28659,
+        "margin_pct": 18.5798,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 115221,
-        "rep_votes": 63066,
+        "dem_votes": 116554,
+        "rep_votes": 61733,
         "other_votes": 51,
         "total_votes": 178338,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": -52155,
-        "margin_pct": -29.245,
+        "margin": -54821,
+        "margin_pct": -30.7399,
         "winner": "D",
-        "color": "#4292c6"
+        "color": "#2171b5"
       },
       "7": {
-        "dem_votes": 66563,
-        "rep_votes": 96931,
+        "dem_votes": 67333,
+        "rep_votes": 96161,
         "other_votes": 40,
         "total_votes": 163534,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 30368,
-        "margin_pct": 18.5698,
+        "margin": 28828,
+        "margin_pct": 17.6281,
         "winner": "R",
         "color": "#ef3b2c"
       }
@@ -121,6 +121,11 @@
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
-    }
+    },
+    "margin_calibration_mode": "margins_only_original_shares",
+    "margin_calibration_mean_abs_delta_pp_before": 0.9058,
+    "margin_calibration_max_abs_delta_pp_before": 1.4944,
+    "margin_calibration_mean_abs_delta_pp_after": 0.0003,
+    "margin_calibration_max_abs_delta_pp_after": 0.0005
   }
 }

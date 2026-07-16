@@ -79,7 +79,7 @@ def extract_local_directory(directory: Path, expected_scope: str) -> dict[str, d
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--commit", default="a8cc58a212653d9a8cd8bb4a5d66712e5dd3cb68")
+    parser.add_argument("--commit", default="285202983cdee267c6a34cca0ad6dde912938159")
     parser.add_argument("--out", default="data/district_contests/district_snapshot_targets.json")
     args = parser.parse_args()
 
