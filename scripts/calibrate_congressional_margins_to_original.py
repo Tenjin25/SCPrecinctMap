@@ -5,10 +5,12 @@ Default mode (`both`) keeps:
   1. each district's current total_votes
   2. statewide dem/rep/other totals
 
-and pushes district party shares toward the pre-rebuild baseline (918f2f6).
+and pushes district party shares toward the pre-July-12 baseline (a8cc58a).
 
 Scopes: congressional, state_senate, state_house_root, state_house_2022_lines,
-state_house_2024_lines. State House freezes HD-40 and HD-82 by default.
+state_house_2024_lines. Root state_house_*.json are the 2024-lines originals;
+state_house_2024_lines is calibrated against those. State House freezes HD-40
+and HD-82 by default.
 """
 
 from __future__ import annotations
@@ -30,7 +32,7 @@ from rebuild_district_contests_from_current_geojson import (  # noqa: E402
     load_district_snapshot_targets,
 )
 
-BASE = "918f2f65f4052458461b802a8f4190bb542d1924"
+BASE = "a8cc58a212653d9a8cd8bb4a5d66712e5dd3cb68"  # 2026-05-22 pre-July-12 current-lines
 FIELDS = ("dem_votes", "rep_votes", "other_votes")
 SNAPSHOT = REPO / "data/district_contests/district_snapshot_targets.json"
 FREEZE_HOUSE = {"40", "82"}
@@ -63,11 +65,13 @@ SCOPE_SPECS = {
         "freeze": FREEZE_HOUSE,
     },
     "state_house_2024_lines": {
+        # Root state_house_*.json files are the 2024-lines originals.
         "geometry": "state_house_2024",
         "glob": "data/district_contests/state_house_2024_lines/state_house_*.json",
         "prefix": "state_house_",
         "suffix": "_2024_lines",
         "freeze": FREEZE_HOUSE,
+        "baseline_from_root": True,
     },
 }
 
@@ -84,6 +88,25 @@ def git_json(rel: str):
         return json.loads(txt)
     except subprocess.CalledProcessError:
         return None
+
+
+def load_baseline(rel: str, key: str | None, spec: dict):
+    """Load original margins for a scope.
+
+    For state_house_2024_lines, root state_house_{key}.json is the original
+    (those dedicated 2024_lines paths often did not exist at the baseline commit).
+    Prefer the baseline-commit root file; fall back to the current root file.
+    """
+    if spec.get("baseline_from_root") and key:
+        root_rel = f"data/district_contests/state_house_{key}.json"
+        baseline = git_json(root_rel)
+        if baseline is not None:
+            return baseline
+        root_path = REPO / root_rel
+        if root_path.is_file():
+            return json.loads(root_path.read_text(encoding="utf-8"))
+        return None
+    return git_json(rel)
 
 
 def margin_pct(row: dict) -> float:
@@ -250,7 +273,7 @@ def main() -> int:
                 continue
             rel = path.relative_to(REPO).as_posix()
             cur = json.loads(path.read_text(encoding="utf-8"))
-            orig = git_json(rel)
+            orig = load_baseline(rel, key, spec)
             if not orig:
                 reports.append({"scope": scope, "file": rel, "status": "no_baseline"})
                 continue
