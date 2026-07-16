@@ -5,7 +5,7 @@ Default mode (`both`) keeps:
   1. each district's current total_votes
   2. statewide dem/rep/other totals
 
-and pushes district party shares toward the pre-July-12 baseline (a8cc58a).
+and pushes district party shares toward the Jun 19 baseline (2852029).
 
 Scopes: congressional, state_senate, state_house_root, state_house_2022_lines,
 state_house_2024_lines. Root state_house_*.json are the 2024-lines originals;
@@ -32,7 +32,7 @@ from rebuild_district_contests_from_current_geojson import (  # noqa: E402
     load_district_snapshot_targets,
 )
 
-BASE = "a8cc58a212653d9a8cd8bb4a5d66712e5dd3cb68"  # 2026-05-22 pre-July-12 current-lines
+BASE = "285202983cdee267c6a34cca0ad6dde912938159"  # 2026-06-19 district_contests reference
 FIELDS = ("dem_votes", "rep_votes", "other_votes")
 SNAPSHOT = REPO / "data/district_contests/district_snapshot_targets.json"
 FREEZE_HOUSE = {"40", "82"}
