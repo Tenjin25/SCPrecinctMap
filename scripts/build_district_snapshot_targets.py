@@ -31,6 +31,16 @@ def tree_files(commit: str, directory: str) -> list[str]:
     return [line.strip() for line in output.splitlines() if line.strip().endswith(".json")]
 
 
+def shares_from_payload(payload: dict) -> dict[str, list[float]]:
+    shares = {}
+    for district, row in ((payload.get("general") or {}).get("results") or {}).items():
+        values = [int(row.get(field) or 0) for field in FIELDS]
+        total = sum(values)
+        if total:
+            shares[str(int(district))] = [round(value / total, 10) for value in values]
+    return shares
+
+
 def extract_directory(commit: str, directory: str, expected_scope: str) -> dict[str, dict]:
     contests = {}
     for path in tree_files(commit, directory):
@@ -39,33 +49,56 @@ def extract_directory(commit: str, directory: str, expected_scope: str) -> dict[
             continue
         contest_key = f"{match.group(2)}_{match.group(3)}"
         payload = json.loads(git_text(commit, path))
-        shares = {}
-        for district, row in ((payload.get("general") or {}).get("results") or {}).items():
-            values = [int(row.get(field) or 0) for field in FIELDS]
-            total = sum(values)
-            if total:
-                shares[str(int(district))] = [round(value / total, 10) for value in values]
+        shares = shares_from_payload(payload)
         if shares:
             contests[contest_key] = {"source_file": path, "shares": shares}
     return contests
 
 
+def extract_local_directory(directory: Path, expected_scope: str) -> dict[str, dict]:
+    """Fill gaps from on-disk files (e.g. contests added after the baseline commit)."""
+    contests = {}
+    if not directory.is_dir():
+        return contests
+    for path in sorted(directory.glob("*.json")):
+        match = FILE_RE.match(path.name)
+        if not match or match.group(1) != expected_scope:
+            continue
+        if match.group(4):
+            continue  # skip *_2022_lines / *_2024_lines copies in subdirs if present
+        contest_key = f"{match.group(2)}_{match.group(3)}"
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        shares = shares_from_payload(payload)
+        if shares:
+            contests[contest_key] = {
+                "source_file": path.relative_to(REPO_ROOT).as_posix(),
+                "shares": shares,
+            }
+    return contests
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--commit", default="918f2f65f4052458461b802a8f4190bb542d1924")
+    parser.add_argument("--commit", default="a8cc58a212653d9a8cd8bb4a5d66712e5dd3cb68")
     parser.add_argument("--out", default="data/district_contests/district_snapshot_targets.json")
     args = parser.parse_args()
 
     congressional = extract_directory(args.commit, "data/district_contests", "congressional")
     state_senate = extract_directory(args.commit, "data/district_contests", "state_senate")
     state_house_root = extract_directory(args.commit, "data/district_contests", "state_house")
+    # Contests present on disk as root 2024-lines originals but missing from the baseline commit.
+    for key, value in extract_local_directory(REPO_ROOT / "data/district_contests", "state_house").items():
+        state_house_root.setdefault(key, value)
     lines_2022 = extract_directory(args.commit, "data/district_contests/state_house_2022_lines", "state_house")
+    # Root State House district contests are the 2024-lines originals.
     lines_2024 = dict(state_house_root)
-    lines_2024.update(extract_directory(args.commit, "data/district_contests/state_house_2024_lines", "state_house"))
     output = {
         "meta": {
             "baseline_commit": args.commit,
             "method": "party shares extracted from pre-rebuild committed district JSONs",
+            "notes": {
+                "state_house_2024": "Root data/district_contests/state_house_*.json are the 2024-lines originals.",
+            },
             "field_order": list(FIELDS),
         },
         "geometries": {
