@@ -1070,16 +1070,16 @@
         "color": "#fc8a6a"
       },
       "90": {
-        "dem_votes": 4844,
-        "rep_votes": 6170,
-        "other_votes": 549,
+        "dem_votes": 6451,
+        "rep_votes": 4651,
+        "other_votes": 461,
         "total_votes": 11563,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 1326,
-        "margin_pct": 11.4676,
-        "winner": "R",
-        "color": "#ef3b2c"
+        "margin": -1800,
+        "margin_pct": -15.5669,
+        "winner": "D",
+        "color": "#6baed6"
       },
       "91": {
         "dem_votes": 6171,
@@ -1535,6 +1535,11 @@
     "margin_calibration_max_abs_delta_pp_before": 2.2901,
     "margin_calibration_mean_abs_delta_pp_after": 0.0036,
     "margin_calibration_max_abs_delta_pp_after": 0.012,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "hd90_margin_override": {
+      "contest": "superintendent_2022",
+      "source": "fdbe62d dual-constraint Dem-leaning HD-90 shares",
+      "note": "Aligned root HD-90 to Dem lean; kept current total_votes"
+    }
   }
 }
