@@ -90,14 +90,19 @@ def main() -> int:
     for key, value in extract_local_directory(REPO_ROOT / "data/district_contests", "state_house").items():
         state_house_root.setdefault(key, value)
     lines_2022 = extract_directory(args.commit, "data/district_contests/state_house_2022_lines", "state_house")
-    # Root State House district contests are the 2024-lines originals.
+    # Default 2024 targets from root; overlay dedicated 2024_lines files when present
+    # at the baseline (e.g. superintendent at 2852029 — those differ on changed HDs).
     lines_2024 = dict(state_house_root)
+    lines_2024.update(extract_directory(args.commit, "data/district_contests/state_house_2024_lines", "state_house"))
     output = {
         "meta": {
             "baseline_commit": args.commit,
             "method": "party shares extracted from pre-rebuild committed district JSONs",
             "notes": {
-                "state_house_2024": "Root data/district_contests/state_house_*.json are the 2024-lines originals.",
+                "state_house_2024": (
+                    "Prefer data/district_contests/state_house_2024_lines/* when present "
+                    "at the baseline commit; otherwise root state_house_*.json."
+                ),
             },
             "field_order": list(FIELDS),
         },
