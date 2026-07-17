@@ -8,9 +8,9 @@ Default mode (`both`) keeps:
 and pushes district party shares toward the Jun 19 baseline (2852029).
 
 Scopes: congressional, state_senate, state_house_root, state_house_2022_lines,
-state_house_2024_lines. Root state_house_*.json are the 2024-lines originals;
-state_house_2024_lines is calibrated against those. State House freezes HD-40
-and HD-82 by default.
+state_house_2024_lines. Prefer same-path 2024_lines baselines at REF when
+present (e.g. superintendent); otherwise root state_house_*.json. State House
+freezes HD-40 and HD-82 by default.
 """
 
 from __future__ import annotations
@@ -65,13 +65,13 @@ SCOPE_SPECS = {
         "freeze": FREEZE_HOUSE,
     },
     "state_house_2024_lines": {
-        # Root state_house_*.json files are the 2024-lines originals.
+        # Prefer same-path 2024_lines baselines when present at REF; else root.
         "geometry": "state_house_2024",
         "glob": "data/district_contests/state_house_2024_lines/state_house_*.json",
         "prefix": "state_house_",
         "suffix": "_2024_lines",
         "freeze": FREEZE_HOUSE,
-        "baseline_from_root": True,
+        "baseline_prefer_same_path_then_root": True,
     },
 }
 
@@ -93,10 +93,22 @@ def git_json(rel: str):
 def load_baseline(rel: str, key: str | None, spec: dict):
     """Load original margins for a scope.
 
-    For state_house_2024_lines, root state_house_{key}.json is the original
-    (those dedicated 2024_lines paths often did not exist at the baseline commit).
-    Prefer the baseline-commit root file; fall back to the current root file.
+    For state_house_2024_lines, prefer the same-path file at the baseline commit
+    when it exists (superintendent files at 2852029 differ from root on changed
+    districts). Fall back to root state_house_{key}.json, then current root.
     """
+    if spec.get("baseline_prefer_same_path_then_root") and key:
+        same = git_json(rel)
+        if same is not None:
+            return same
+        root_rel = f"data/district_contests/state_house_{key}.json"
+        baseline = git_json(root_rel)
+        if baseline is not None:
+            return baseline
+        root_path = REPO / root_rel
+        if root_path.is_file():
+            return json.loads(root_path.read_text(encoding="utf-8"))
+        return None
     if spec.get("baseline_from_root") and key:
         root_rel = f"data/district_contests/state_house_{key}.json"
         baseline = git_json(root_rel)
