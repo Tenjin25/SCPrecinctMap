@@ -11238,55 +11238,73 @@ document.addEventListener('DOMContentLoaded', function() {
     const showUncontestedContests = false;
     const contestUncontestedCache = new Map(); // key: `${contestType}_${year}` -> boolean (true = uncontested)
     const contestUncontestedScanInflight = new Set();
+    const contestUncontestedFailureRetryAt = new Map();
+    const UNCONTESTED_SCAN_CONCURRENCY = 3;
     async function queueUncontestedContestScan(manifestEntries, opts = {}) {
       if (showUncontestedContests) return;
       const maybeUncontestedTypes = opts?.maybeUncontestedTypes instanceof Set ? opts.maybeUncontestedTypes : null;
       const entries = Array.isArray(manifestEntries) ? manifestEntries : [];
+      const seenPendingKeys = new Set();
+      const now = Date.now();
       const pending = entries.filter(entry => {
         const contestType = (entry?.contest_type || '').toString().trim();
         const year = Number(entry?.year);
         const rows = Number(entry?.rows || entry?.districts || 0) || 0;
         const scope = (entry?.scope || '').toString().trim().toLowerCase();
-        if (!contestType || !Number.isFinite(year) || rows <= 0) return false;
+        const manifestFile = (entry?.file || '').toString().trim();
+        if (!contestType || !Number.isFinite(year) || rows <= 0 || !manifestFile) return false;
         if (scope) return false;
         if (maybeUncontestedTypes && !maybeUncontestedTypes.has(contestType)) return false;
         const key = `${contestType}_${year}`;
         if (contestUncontestedCache.has(key) || contestUncontestedScanInflight.has(key)) return false;
+        if ((contestUncontestedFailureRetryAt.get(key) || 0) > now) return false;
+        if (seenPendingKeys.has(key)) return false;
+        seenPendingKeys.add(key);
         return true;
       });
       if (!pending.length) return;
 
       const previousValue = document.getElementById('contestSelect')?.value || '';
       let changed = false;
-
-      await Promise.allSettled(pending.map(async entry => {
-        const contestType = (entry?.contest_type || '').toString().trim();
-        const year = Number(entry?.year);
-        const key = `${contestType}_${year}`;
-        const manifestFile = (entry?.file || '').toString().trim();
-        if (!contestType || !Number.isFinite(year) || !manifestFile) return;
-
+      const queue = pending.slice();
+      queue.forEach(entry => {
+        const key = `${String(entry?.contest_type || '').trim()}_${Number(entry?.year)}`;
         contestUncontestedScanInflight.add(key);
-        try {
-          const payload = await loadJSON(`${CONFIG.paths.contests_dir}/${manifestFile}`);
-          const rows = Array.isArray(payload?.rows) ? payload.rows : [];
-          let demTotal = 0;
-          let repTotal = 0;
-          rows.forEach(row => {
-            const rowName = (row?.county || '').toString().trim();
-            if (!rowName || rowName.includes(' - ')) return;
-            demTotal += Number(row?.dem_votes) || 0;
-            repTotal += Number(row?.rep_votes) || 0;
-          });
-          const uncontested = !(demTotal > 0 && repTotal > 0);
-          contestUncontestedCache.set(key, uncontested);
-          changed = true;
-        } catch (err) {
-          console.warn('Uncontested scan failed for', key, err?.message || err);
-        } finally {
-          contestUncontestedScanInflight.delete(key);
+      });
+
+      const runWorker = async () => {
+        while (queue.length) {
+          const entry = queue.shift();
+          const contestType = (entry?.contest_type || '').toString().trim();
+          const year = Number(entry?.year);
+          const key = `${contestType}_${year}`;
+          const manifestFile = (entry?.file || '').toString().trim();
+          try {
+            const payload = await loadJSON(`${CONFIG.paths.contests_dir}/${manifestFile}`);
+            const rows = Array.isArray(payload?.rows) ? payload.rows : [];
+            let demTotal = 0;
+            let repTotal = 0;
+            rows.forEach(row => {
+              const rowName = (row?.county || '').toString().trim();
+              if (!rowName || rowName.includes(' - ')) return;
+              demTotal += Number(row?.dem_votes) || 0;
+              repTotal += Number(row?.rep_votes) || 0;
+            });
+            const uncontested = !(demTotal > 0 && repTotal > 0);
+            contestUncontestedCache.set(key, uncontested);
+            contestUncontestedFailureRetryAt.delete(key);
+            changed = true;
+          } catch (err) {
+            contestUncontestedFailureRetryAt.set(key, Date.now() + 60000);
+            console.warn('Uncontested scan failed for', key, err?.message || err);
+          } finally {
+            contestUncontestedScanInflight.delete(key);
+          }
         }
-      }));
+      };
+
+      const workerCount = Math.min(UNCONTESTED_SCAN_CONCURRENCY, queue.length);
+      await Promise.allSettled(Array.from({ length: workerCount }, () => runWorker()));
 
       if (changed) {
         updateContestSelectForCurrentView();
@@ -12933,6 +12951,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const data = await loadJSON(path);
       districtGeometryCache.set(cacheKey, data);
       return data;
+    }
+
+    async function ensureCongressionalDistrictSource(linesYear = currentDistrictLinesYear) {
+      if (!map) return false;
+      if (map.getSource('districts')) return true;
+      const vectorUrl = CONFIG.tilesets?.enabled ? CONFIG.tilesets?.sources?.districts?.url : '';
+      if (vectorUrl) {
+        map.addSource('districts', { type: 'vector', url: vectorUrl });
+        return true;
+      }
+      const districtsGeoJSON = await loadDistrictGeometry('congressional', linesYear);
+      if (!districtsGeoJSON) throw new Error('Congressional district geometry returned no data');
+      map.addSource('districts', { type: 'geojson', data: districtsGeoJSON });
+      window['districts__search_geojson'] = districtsGeoJSON;
+      return true;
     }
 
     async function refreshDistrictGeometrySources(linesYear = currentDistrictLinesYear) {
@@ -15815,11 +15848,51 @@ document.addEventListener('DOMContentLoaded', function() {
       queueVoteBreakdownLayoutMeasure();
     });
 
+    const TRANSIENT_FETCH_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504]);
+
+    function atlasRetryDelayMs(response, attempt) {
+      const retryAfter = response?.headers?.get?.('Retry-After');
+      if (retryAfter) {
+        const seconds = Number(retryAfter);
+        if (Number.isFinite(seconds) && seconds >= 0) {
+          return Math.min(8000, Math.max(250, seconds * 1000));
+        }
+        const retryDate = Date.parse(retryAfter);
+        if (Number.isFinite(retryDate)) {
+          return Math.min(8000, Math.max(250, retryDate - Date.now()));
+        }
+      }
+      const backoff = [450, 1000, 2200][Math.min(attempt, 2)] || 2200;
+      return backoff + Math.round(Math.random() * 180);
+    }
+
+    async function fetchAtlasResource(requestPath, init = {}, { maxAttempts = 4 } = {}) {
+      let lastError = null;
+      for (let attempt = 0; attempt < maxAttempts; attempt++) {
+        let response = null;
+        try {
+          response = await fetch(requestPath, {
+            ...init,
+            cache: attempt === 0 ? (init.cache || 'force-cache') : 'reload'
+          });
+          if (response.ok || !TRANSIENT_FETCH_STATUSES.has(response.status) || attempt >= maxAttempts - 1) {
+            return response;
+          }
+          try { await response.body?.cancel?.(); } catch (_) {}
+        } catch (err) {
+          lastError = err;
+          if (attempt >= maxAttempts - 1) throw err;
+        }
+        await new Promise(resolve => setTimeout(resolve, atlasRetryDelayMs(response, attempt)));
+      }
+      throw lastError || new Error(`${requestPath} fetch failed`);
+    }
+
     async function loadJSON(path) {
       const requestPath = withCacheBuster(path);
       if (jsonInflightByPath.has(requestPath)) return jsonInflightByPath.get(requestPath);
       const p = atlasPerf(`json:${requestPath}`, async () => {
-        const r = await fetch(requestPath, { cache: 'force-cache' });
+        const r = await fetchAtlasResource(requestPath, { cache: 'force-cache' });
         if (!r.ok) throw new Error(`${requestPath} fetch failed: ${r.status}`);
         return r.json();
       });
@@ -15835,7 +15908,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	      const requestPath = withCacheBuster(path);
 	      if (csvInflightByPath.has(requestPath)) return csvInflightByPath.get(requestPath);
 	      const p = atlasPerf(`csv:${requestPath}`, async () => {
-	        const r = await fetch(requestPath, { cache: 'force-cache' });
+	        const r = await fetchAtlasResource(requestPath, { cache: 'force-cache' });
 	        if (!r.ok) throw new Error(`${requestPath} fetch failed: ${r.status}`);
 	        return r.text();
 	      });
@@ -20668,6 +20741,16 @@ document.addEventListener('DOMContentLoaded', function() {
       // cannot skip the repaint because lastCountyFillExpr points to an old layer.
       lastCountyFillExpr = null;
       clearHoverOutline();
+
+      if (view === 'districts' && !map.getSource('districts')) {
+        setStatus('Loading congressional districts...');
+        try {
+          await ensureCongressionalDistrictSource(currentDistrictLinesYear);
+        } catch (err) {
+          console.warn('Congressional GeoJSON retry failed:', err?.message || err);
+          setStatus('Congressional districts are temporarily unavailable. Try Congress again in a moment.');
+        }
+      }
       
       // Add appropriate layers
       if (view === 'counties') {
@@ -32480,18 +32563,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
       try {
         setStatus('Loading congressional districts...');
-        if (CONFIG.tilesets?.enabled && CONFIG.tilesets?.sources?.districts?.url) {
-          if (!map.getSource('districts')) {
-            map.addSource('districts', { type: 'vector', url: CONFIG.tilesets.sources.districts.url });
+        if (map.getSource('districts')) {
+          const districtsGeoJSON = await loadDistrictGeometry('congressional', currentDistrictLinesYear);
+          const source = map.getSource('districts');
+          if (districtsGeoJSON && source?.type === 'geojson' && typeof source.setData === 'function') {
+            source.setData(districtsGeoJSON);
+            window['districts__search_geojson'] = districtsGeoJSON;
           }
         } else {
-          const districtsGeoJSON = await loadDistrictGeometry('congressional', currentDistrictLinesYear);
-          if (map.getSource('districts')) {
-            map.getSource('districts').setData(districtsGeoJSON);
-          } else {
-            map.addSource('districts', { type: 'geojson', data: districtsGeoJSON });
-          }
-          window['districts__search_geojson'] = districtsGeoJSON;
+          await ensureCongressionalDistrictSource(currentDistrictLinesYear);
         }
         setStatus('Congressional districts loaded');
       } catch (err) {
