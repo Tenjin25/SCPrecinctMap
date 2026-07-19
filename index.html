@@ -18,15 +18,15 @@
     --initial-margin-1: #67000d;
     --initial-margin-2: #a50f15;
     --initial-margin-3: #cb181d;
-    --initial-margin-4: #d6362e;
-    --initial-margin-5: #ed4e46;
-    --initial-margin-6: #fb9875;
+    --initial-margin-4: #de3030;
+    --initial-margin-5: #ee464a;
+    --initial-margin-6: #f99a90;
     --initial-margin-7: #f5d6c4;
     --initial-margin-8: #f7f7f7;
     --initial-margin-9: #b8d4ec;
     --initial-margin-10: #8bbde0;
-    --initial-margin-11: #6baed6;
-    --initial-margin-12: #4e9ad4;
+    --initial-margin-11: #5eabd8;
+    --initial-margin-12: #3f8fd0;
     --initial-margin-13: #3182bd;
     --initial-margin-14: #08519c;
     --initial-margin-15: #08306b;
@@ -10752,8 +10752,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-18-south-carolina-dra-1';
-    const APP_BUILD_ID = '2026-07-18-south-carolina-dra-1';
+    const DATA_CACHE_BUSTER = '2026-07-19-dra-hybrid-20';
+    const APP_BUILD_ID = '2026-07-19-dra-hybrid-20';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -32813,11 +32813,11 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (marginPct >= 20) {
         return winner === 'R' ? '#cb181d' : '#3182bd';
       } else if (marginPct >= 10) {
-        return winner === 'R' ? '#d6362e' : '#4e9ad4';
+        return winner === 'R' ? '#de3030' : '#3f8fd0';
       } else if (marginPct >= 5.5) {
-        return winner === 'R' ? '#ed4e46' : '#6baed6';
+        return winner === 'R' ? '#ee464a' : '#5eabd8';
       } else if (marginPct >= 1.0) {
-        return winner === 'R' ? '#fb9875' : '#8bbde0';
+        return winner === 'R' ? '#f99a90' : '#8bbde0';
       } else if (marginPct >= 0.5) {
         return winner === 'R' ? '#f5d6c4' : '#b8d4ec';
       } else {
