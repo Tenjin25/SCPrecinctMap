@@ -859,7 +859,7 @@
       const pad = (window && typeof window.computeMapViewportPadding === 'function')
         ? window.computeMapViewportPadding(40)
         : 40;
-      map.fitBounds(bbox, { padding: pad, maxZoom: 10 });
+      map.fitBounds(bbox, { padding: pad, maxZoom: 9.15 });
     }
   </script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js'></script>
@@ -10053,7 +10053,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="map-topbar-badge">The Palmetto Explorer</div>
       <div class="map-topbar-copy">
         <strong>Fly to a county, district, or precinct</strong>
-        <span>Try Lexington, CD 2, HD 85, SD 22, or Lexington 01.</span>
+        <span>Try Greenville, Charleston, CD 1, HD 25, SD 7, or Richland 01.</span>
       </div>
     </div>
     <form class="fly-search-bar" id="fly-search-form" role="search">
@@ -10065,7 +10065,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <path d="M16 16L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
           </svg>
         </span>
-        <input type="search" id="county-search" placeholder="Fly to Lexington, CD 2, HD 85..." autocomplete="off" spellcheck="false" />
+        <input type="search" id="county-search" placeholder="Fly to Greenville, CD 1, HD 25..." autocomplete="off" spellcheck="false" />
         <button type="button" class="fly-search-clear" id="fly-search-clear" aria-label="Clear search">x</button>
       </div>
       <button type="submit" class="fly-search-submit" data-testid="fly-submit">Fly to</button>
@@ -10075,11 +10075,11 @@ document.addEventListener('DOMContentLoaded', function() {
     <button type="button" class="mobile-topbar-toggle" id="mobile-topbar-toggle" aria-controls="map-topbar-details" aria-expanded="false">Show details</button>
     <div class="map-topbar-details" id="map-topbar-details">
       <div class="map-topbar-hints" aria-label="Search examples">
-        <button type="button" class="fly-search-chip" data-search-example="Lexington">Lexington</button>
-        <button type="button" class="fly-search-chip" data-search-example="CD 2">CD 2</button>
-        <button type="button" class="fly-search-chip" data-search-example="HD 85">HD 85</button>
-        <button type="button" class="fly-search-chip" data-search-example="SD 22">SD 22</button>
-        <button type="button" class="fly-search-chip" data-search-example="Lexington 01">Lexington 01</button>
+        <button type="button" class="fly-search-chip" data-search-example="Greenville">Greenville</button>
+        <button type="button" class="fly-search-chip" data-search-example="Charleston">Charleston</button>
+        <button type="button" class="fly-search-chip" data-search-example="CD 1">CD 1</button>
+        <button type="button" class="fly-search-chip" data-search-example="HD 25">HD 25</button>
+        <button type="button" class="fly-search-chip" data-search-example="SD 7">SD 7</button>
       </div>
       <div class="context-banner" id="context-banner" aria-label="Current map state">
         <div class="context-banner-item">
@@ -10147,18 +10147,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 <label class="control-section-label" for="desktop-fly-search">Fly to</label>
                 <div class="desktop-fly-search-wrap">
                   <div class="desktop-fly-search-field fly-search-field">
-                    <input id="desktop-fly-search" type="search" placeholder="Lexington County, CD 2, HD 85, SD 22, Lexington 01" autocomplete="off" spellcheck="false" inputmode="search" />
+                    <input id="desktop-fly-search" type="search" placeholder="Greenville, Charleston, CD 1, HD 25, SD 7, Richland 01" autocomplete="off" spellcheck="false" inputmode="search" />
                   </div>
                   <button id="desktop-fly-submit" class="desktop-fly-submit" type="button">Go</button>
                 </div>
                 <div class="desktop-fly-helper">Jump to counties, districts, or precincts without changing the selected contest.</div>
                 <div class="desktop-quick-stats" data-viewport-precinct-count>Viewing precincts...</div>
                 <div class="desktop-fly-chip-row" aria-label="Fly-to examples">
-                  <button class="desktop-fly-chip" type="button" data-search-example="Lexington">Lexington</button>
-                  <button class="desktop-fly-chip" type="button" data-search-example="CD 2">CD 2</button>
-                  <button class="desktop-fly-chip" type="button" data-search-example="HD 85">HD 85</button>
-                  <button class="desktop-fly-chip" type="button" data-search-example="SD 22">SD 22</button>
-                  <button class="desktop-fly-chip" type="button" data-search-example="Lexington 01">Lexington 01</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="Greenville">Greenville</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="Charleston">Charleston</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="CD 1">CD 1</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="HD 25">HD 25</button>
+                  <button class="desktop-fly-chip" type="button" data-search-example="SD 7">SD 7</button>
                 </div>
             </div>
             <div class="control-group control-group-contest control-group-primary">
@@ -10665,8 +10665,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-19-sd39-jun19';
-    const APP_BUILD_ID = '2026-07-19-sd39-jun19';
+    const DATA_CACHE_BUSTER = '2026-07-19-statewide-examples';
+    const APP_BUILD_ID = '2026-07-19-statewide-examples';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -13529,7 +13529,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     try { window.computeMapViewportPadding = computeMapViewportPadding; } catch (_) {}
 
-    function zoomToClickedPrecinctFeature(feature, { padding = 42, duration = 880, maxZoom = 13.8 } = {}) {
+    function expandBbox(bbox, factor = 0.35) {
+      if (!Array.isArray(bbox) || bbox.length < 4) return bbox;
+      const minX = Number(bbox[0]);
+      const minY = Number(bbox[1]);
+      const maxX = Number(bbox[2]);
+      const maxY = Number(bbox[3]);
+      if (![minX, minY, maxX, maxY].every(Number.isFinite)) return bbox;
+      const dx = Math.max((maxX - minX) * factor, 0.035);
+      const dy = Math.max((maxY - minY) * factor, 0.035);
+      return [minX - dx, minY - dy, maxX + dx, maxY + dy];
+    }
+
+    // Keep search / click zooms contextual instead of tight on a single feature.
+    const SEARCH_ZOOM = {
+      countyMaxZoom: 9.15,
+      districtMaxZoom: 9.55,
+      precinctMaxZoom: 11.6,
+      myLocationZoom: 10.15,
+      bboxExpand: 0.38,
+      padding: 48
+    };
+
+    function zoomToClickedPrecinctFeature(feature, { padding = SEARCH_ZOOM.padding, duration = 880, maxZoom = SEARCH_ZOOM.precinctMaxZoom } = {}) {
       try {
         if (!feature) return;
         const geomType = String(feature?.geometry?.type || '');
@@ -13537,11 +13559,11 @@ document.addEventListener('DOMContentLoaded', function() {
           const coords = feature?.geometry?.coordinates || null;
           if (Array.isArray(coords) && coords.length >= 2) {
             const pad = computeMapViewportPadding(padding);
-            const cap = Number.isFinite(Number(maxZoom)) ? Number(maxZoom) : 13.8;
-            const desired = cap;
+            const cap = Number.isFinite(Number(maxZoom)) ? Number(maxZoom) : SEARCH_ZOOM.precinctMaxZoom;
+            const desired = Math.min(cap, Math.max(Number(map.getZoom() || 0), 10.35));
             map.flyTo({
               center: coords,
-              zoom: Math.max(map.getZoom() || 0, desired),
+              zoom: desired,
               padding: pad,
               duration,
               essential: true
@@ -13549,7 +13571,8 @@ document.addEventListener('DOMContentLoaded', function() {
           }
           return;
         }
-        const bbox = turf.bbox(feature);
+        const rawBbox = turf.bbox(feature);
+        const bbox = expandBbox(rawBbox, SEARCH_ZOOM.bboxExpand);
         if (!Array.isArray(bbox) || bbox.length < 4) return;
         map.fitBounds(
           [[bbox[0], bbox[1]], [bbox[2], bbox[3]]],
@@ -26079,7 +26102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const coords = [lng, lat];
         try { ensureMyLocationSourceAndLayer(coords); } catch (_) {}
-        map.flyTo({ center: coords, zoom: Math.max(11.5, map.getZoom() || 0), padding: computeMapViewportPadding(22), speed: 0.95, essential: true });
+        map.flyTo({ center: coords, zoom: Math.min(SEARCH_ZOOM.myLocationZoom, Math.max(10.0, map.getZoom() || 0)), padding: computeMapViewportPadding(SEARCH_ZOOM.padding), speed: 0.95, essential: true });
         map.once('moveend', () => {
           try {
             const point = map.project(coords);
@@ -29510,7 +29533,7 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
           if (e?.point && e?.features?.[0]) {
             if (precinctNorm) setSelectedPrecinctNorm(precinctNorm);
-            zoomToClickedPrecinctFeature(e.features[0], { padding: 44, duration: 900, maxZoom: 13.8 });
+            zoomToClickedPrecinctFeature(e.features[0], { padding: SEARCH_ZOOM.padding, duration: 900, maxZoom: SEARCH_ZOOM.precinctMaxZoom });
             setTooltipPinned(false);
             renderPrecinctHoverAtPoint(e.point, e.features[0], { forceTooltip: true, pinSelection: true });
             const full = (props.precinct_full_name || props.precinct_desc || props.enr_desc || props.ENR_DESC || '').toString().replace(/\s+/g, ' ').trim();
@@ -30114,7 +30137,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const props = f.properties || {};
             const precinctNorm = (props.precinct_norm || '').toString().trim().toUpperCase();
             if (precinctNorm) setSelectedPrecinctNorm(precinctNorm);
-            zoomToClickedPrecinctFeature(f, { padding: 42, duration: 880, maxZoom: 13.0 });
+            zoomToClickedPrecinctFeature(f, { padding: SEARCH_ZOOM.padding, duration: 880, maxZoom: SEARCH_ZOOM.precinctMaxZoom });
             setTooltipPinned(false);
             renderPrecinctHoverAtPoint(e.point, f, { forceTooltip: true, pinSelection: true });
             if (props.county_nam && props.prec_id) {
@@ -30226,10 +30249,10 @@ document.addEventListener('DOMContentLoaded', function() {
       saveUIState();
     }
 
-    function zoomToClickedDistrictFeature(feature, { padding = 40, duration = 800, maxZoom = 10.8 } = {}) {
+    function zoomToClickedDistrictFeature(feature, { padding = SEARCH_ZOOM.padding, duration = 800, maxZoom = SEARCH_ZOOM.districtMaxZoom } = {}) {
       try {
         if (!feature) return;
-        const bbox = turf.bbox(feature);
+        const bbox = expandBbox(turf.bbox(feature), SEARCH_ZOOM.bboxExpand);
         if (!Array.isArray(bbox) || bbox.length < 4) return;
         map.fitBounds(
           [[bbox[0], bbox[1]], [bbox[2], bbox[3]]],
@@ -30375,7 +30398,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const props = e.features[0].properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.CD118FP || props.CD119FP || props.district_id || props.district);
             if (districtNum) {
-              zoomToClickedDistrictFeature(e.features[0], { padding: 40, duration: 850, maxZoom: 10.5 });
+            zoomToClickedDistrictFeature(e.features[0], { padding: SEARCH_ZOOM.padding, duration: 850, maxZoom: SEARCH_ZOOM.districtMaxZoom });
               // Show detailed sidebar (results + trends).
               showDistrictDetails(districtNum);
               lastSelectedCounty = `District ${districtNum}`;
@@ -30494,7 +30517,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const props = e.features[0].properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.SLDLST || props.district_id || props.district);
             if (districtNum) {
-              zoomToClickedDistrictFeature(e.features[0], { padding: 40, duration: 850, maxZoom: 11.2 });
+              zoomToClickedDistrictFeature(e.features[0], { padding: SEARCH_ZOOM.padding, duration: 850, maxZoom: SEARCH_ZOOM.districtMaxZoom });
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'house');
               lastSelectedCounty = getDistrictTitleForScope('state_house', districtNum);
@@ -30611,7 +30634,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const props = e.features[0].properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.SLDUST || props.district_id || props.district);
             if (districtNum) {
-              zoomToClickedDistrictFeature(e.features[0], { padding: 40, duration: 850, maxZoom: 11.0 });
+              zoomToClickedDistrictFeature(e.features[0], { padding: SEARCH_ZOOM.padding, duration: 850, maxZoom: SEARCH_ZOOM.districtMaxZoom });
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'senate');
               lastSelectedCounty = getDistrictTitleForScope('state_senate', districtNum);
@@ -31071,13 +31094,17 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      const bbox = turf.bbox(match);
+      const bbox = expandBbox(turf.bbox(match), SEARCH_ZOOM.bboxExpand);
       const canonicalQuery = sourceId === 'districts'
         ? `CD ${districtNum}`
         : (sourceId === 'state-house' ? `HD ${districtNum}` : `SD ${districtNum}`);
       syncFlySearchInputs(canonicalQuery);
       setFlySearchFeedback('#10b981');
-      map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], { padding: computeMapViewportPadding(28), duration: 900 });
+      map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], {
+        padding: computeMapViewportPadding(SEARCH_ZOOM.padding),
+        duration: 900,
+        maxZoom: SEARCH_ZOOM.districtMaxZoom
+      });
 
       const scope = sourceId === 'districts'
         ? 'congressional'
@@ -31142,7 +31169,7 @@ document.addEventListener('DOMContentLoaded', function() {
       syncFlySearchInputs(matchedTarget);
       setFlySearchFeedback('#10b981');
       if (coords && coords.length >= 2) {
-        zoomToClickedPrecinctFeature(hit, { padding: 42, duration: 920, maxZoom: 13.8 });
+        zoomToClickedPrecinctFeature(hit, { padding: SEARCH_ZOOM.padding, duration: 920, maxZoom: SEARCH_ZOOM.precinctMaxZoom });
       }
 
       const resolvedCode = matchedTarget.includes(' - ') ? matchedTarget.split(' - ')[1].trim().toUpperCase() : code;
@@ -31223,11 +31250,15 @@ document.addEventListener('DOMContentLoaded', function() {
         if (found) {
           const props = found.properties || {};
           lastSelectedCounty = props.NAME20 || props.NAMELSAD20 || props.county_name || props.County || props.COUNTYNAME || props.NAME || props.name;
-          const bbox = turf.bbox(found);
+          const bbox = expandBbox(turf.bbox(found), SEARCH_ZOOM.bboxExpand);
           debugLog('[DIAGNOSTIC] Matched county for', countyName, '->', lastSelectedCounty, 'bbox:', bbox);
           syncFlySearchInputs(lastSelectedCounty);
           setFlySearchFeedback('#10b981');
-          map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], { padding: computeMapViewportPadding(28), duration: 1000 });
+          map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], {
+            padding: computeMapViewportPadding(SEARCH_ZOOM.padding),
+            duration: 1000,
+            maxZoom: SEARCH_ZOOM.countyMaxZoom
+          });
           showCountyDetails(lastSelectedCounty);
         } else {
           console.warn('[DIAGNOSTIC] County not found:', countyName, 'normalized:', normTarget);
