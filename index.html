@@ -30257,6 +30257,12 @@ document.addEventListener('DOMContentLoaded', function() {
       return SEARCH_ZOOM.districtMaxZoom;
     }
 
+    function getDistrictZoomMin(scope) {
+      // Keep congressional selections above the basemap's useful place-label
+      // threshold, even when fitting the district's full extent would zoom out.
+      return scope === 'congressional' ? 7.15 : null;
+    }
+
     function getDistrictBboxExpand(scope) {
       // Congressional districts already cover large portions of the state. The
       // general 38% search buffer makes their fitted bounds nearly statewide.
@@ -30297,10 +30303,33 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!Array.isArray(bbox) || bbox.length < 4 || !bbox.every(Number.isFinite)) return false;
         const hasExplicitZoomCap = maxZoom !== null && maxZoom !== undefined && Number.isFinite(Number(maxZoom));
         const zoomCap = hasExplicitZoomCap ? Number(maxZoom) : getDistrictZoomMax(scope);
+        const fitPadding = computeMapViewportPadding(padding);
+        const bounds = [[bbox[0], bbox[1]], [bbox[2], bbox[3]]];
+        const minZoom = getDistrictZoomMin(scope);
+
+        if (Number.isFinite(minZoom) && typeof map.cameraForBounds === 'function' && typeof map.easeTo === 'function') {
+          const fittedCamera = map.cameraForBounds(bounds, { padding: fitPadding, maxZoom: zoomCap });
+          const fittedZoom = Number(fittedCamera?.zoom);
+          if (fittedCamera?.center && Number.isFinite(fittedZoom) && fittedZoom < minZoom) {
+            map.easeTo({
+              center: fittedCamera.center,
+              zoom: Math.min(zoomCap, minZoom),
+              bearing: fittedCamera.bearing,
+              pitch: fittedCamera.pitch,
+              padding: fitPadding,
+              retainPadding: false,
+              duration,
+              essential: true
+            });
+            return true;
+          }
+        }
+
         map.fitBounds(
-          [[bbox[0], bbox[1]], [bbox[2], bbox[3]]],
+          bounds,
           {
-            padding: computeMapViewportPadding(padding),
+            padding: fitPadding,
+            retainPadding: false,
             duration,
             maxZoom: zoomCap,
             essential: true
