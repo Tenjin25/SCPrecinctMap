@@ -10665,8 +10665,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-22-congressional-place-labels';
-    const APP_BUILD_ID = '2026-07-22-congressional-place-labels';
+    const DATA_CACHE_BUSTER = '2026-07-22-original-congressional-zoom';
+    const APP_BUILD_ID = '2026-07-22-original-congressional-zoom';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -30254,19 +30254,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function getDistrictZoomMax(scope) {
       if (scope === 'state_house') return 10.8;
       if (scope === 'state_senate') return 10.4;
-      return SEARCH_ZOOM.districtMaxZoom;
-    }
-
-    function getDistrictZoomMin(scope) {
-      // Keep congressional selections above the basemap's useful place-label
-      // threshold, even when fitting the district's full extent would zoom out.
-      return scope === 'congressional' ? 7.15 : null;
-    }
-
-    function getDistrictBboxExpand(scope) {
-      // Congressional districts already cover large portions of the state. The
-      // general 38% search buffer makes their fitted bounds nearly statewide.
-      return scope === 'congressional' ? 0.08 : SEARCH_ZOOM.bboxExpand;
+      return 10.5;
     }
 
     function getDistrictSourceIdForScope(scope) {
@@ -30279,51 +30267,41 @@ document.addEventListener('DOMContentLoaded', function() {
       scope,
       districtNum,
       fallbackFeature = null,
-      { padding = SEARCH_ZOOM.padding, duration = 850, maxZoom = null } = {}
+      { padding = null, duration = 850, maxZoom = null } = {}
     ) {
       const requestId = ++districtZoomRequestId;
       let feature = fallbackFeature;
 
-      // Rendered vector-tile features may contain only the piece of a district in
-      // the current tile. Prefer the complete GeoJSON feature so every entry path
-      // frames the same district footprint.
-      try {
-        const sourceId = getDistrictSourceIdForScope(scope);
-        const path = getDistrictGeometryPath(scope, currentDistrictLinesYear);
-        const gj = await ensureSearchGeoJSON(sourceId, path);
-        const fullFeature = gj?.features?.find(
-          candidate => getDistrictNumberFromPropsNumeric(candidate?.properties) === Number(districtNum)
-        );
-        if (fullFeature) feature = fullFeature;
-      } catch (_) {}
+      // Preserve the original congressional click behavior by fitting the
+      // rendered feature directly. Legislative districts still prefer their
+      // complete geometry because their smaller shapes are more tile-sensitive.
+      if (scope !== 'congressional' || !feature) {
+        try {
+          const sourceId = getDistrictSourceIdForScope(scope);
+          const path = getDistrictGeometryPath(scope, currentDistrictLinesYear);
+          const gj = await ensureSearchGeoJSON(sourceId, path);
+          const fullFeature = gj?.features?.find(
+            candidate => getDistrictNumberFromPropsNumeric(candidate?.properties) === Number(districtNum)
+          );
+          if (fullFeature) feature = fullFeature;
+        } catch (_) {}
+      }
 
       if (requestId !== districtZoomRequestId || !feature) return false;
       try {
-        const bbox = expandBbox(turf.bbox(feature), getDistrictBboxExpand(scope));
+        const rawBbox = turf.bbox(feature);
+        const bbox = scope === 'congressional'
+          ? rawBbox
+          : expandBbox(rawBbox, SEARCH_ZOOM.bboxExpand);
         if (!Array.isArray(bbox) || bbox.length < 4 || !bbox.every(Number.isFinite)) return false;
         const hasExplicitZoomCap = maxZoom !== null && maxZoom !== undefined && Number.isFinite(Number(maxZoom));
         const zoomCap = hasExplicitZoomCap ? Number(maxZoom) : getDistrictZoomMax(scope);
-        const fitPadding = computeMapViewportPadding(padding);
+        const hasExplicitPadding = padding !== null && padding !== undefined && Number.isFinite(Number(padding));
+        const basePadding = hasExplicitPadding
+          ? Number(padding)
+          : (scope === 'congressional' ? 32 : SEARCH_ZOOM.padding);
+        const fitPadding = computeMapViewportPadding(basePadding);
         const bounds = [[bbox[0], bbox[1]], [bbox[2], bbox[3]]];
-        const minZoom = getDistrictZoomMin(scope);
-
-        if (Number.isFinite(minZoom) && typeof map.cameraForBounds === 'function' && typeof map.easeTo === 'function') {
-          const fittedCamera = map.cameraForBounds(bounds, { padding: fitPadding, maxZoom: zoomCap });
-          const fittedZoom = Number(fittedCamera?.zoom);
-          if (fittedCamera?.center && Number.isFinite(fittedZoom) && fittedZoom < minZoom) {
-            map.easeTo({
-              center: fittedCamera.center,
-              zoom: Math.min(zoomCap, minZoom),
-              bearing: fittedCamera.bearing,
-              pitch: fittedCamera.pitch,
-              padding: fitPadding,
-              retainPadding: false,
-              duration,
-              essential: true
-            });
-            return true;
-          }
-        }
 
         map.fitBounds(
           bounds,
