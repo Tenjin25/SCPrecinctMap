@@ -30249,16 +30249,61 @@ document.addEventListener('DOMContentLoaded', function() {
       saveUIState();
     }
 
-    function zoomToClickedDistrictFeature(feature, { padding = SEARCH_ZOOM.padding, duration = 800, maxZoom = SEARCH_ZOOM.districtMaxZoom } = {}) {
+    let districtZoomRequestId = 0;
+
+    function getDistrictZoomMax(scope) {
+      if (scope === 'state_house') return 10.8;
+      if (scope === 'state_senate') return 10.4;
+      return SEARCH_ZOOM.districtMaxZoom;
+    }
+
+    function getDistrictSourceIdForScope(scope) {
+      if (scope === 'state_house') return 'state-house';
+      if (scope === 'state_senate') return 'state-senate';
+      return 'districts';
+    }
+
+    async function zoomToDistrictSelection(
+      scope,
+      districtNum,
+      fallbackFeature = null,
+      { padding = SEARCH_ZOOM.padding, duration = 850, maxZoom = null } = {}
+    ) {
+      const requestId = ++districtZoomRequestId;
+      let feature = fallbackFeature;
+
+      // Rendered vector-tile features may contain only the piece of a district in
+      // the current tile. Prefer the complete GeoJSON feature so every entry path
+      // frames the same district footprint.
       try {
-        if (!feature) return;
+        const sourceId = getDistrictSourceIdForScope(scope);
+        const path = getDistrictGeometryPath(scope, currentDistrictLinesYear);
+        const gj = await ensureSearchGeoJSON(sourceId, path);
+        const fullFeature = gj?.features?.find(
+          candidate => getDistrictNumberFromPropsNumeric(candidate?.properties) === Number(districtNum)
+        );
+        if (fullFeature) feature = fullFeature;
+      } catch (_) {}
+
+      if (requestId !== districtZoomRequestId || !feature) return false;
+      try {
         const bbox = expandBbox(turf.bbox(feature), SEARCH_ZOOM.bboxExpand);
-        if (!Array.isArray(bbox) || bbox.length < 4) return;
+        if (!Array.isArray(bbox) || bbox.length < 4 || !bbox.every(Number.isFinite)) return false;
+        const hasExplicitZoomCap = maxZoom !== null && maxZoom !== undefined && Number.isFinite(Number(maxZoom));
+        const zoomCap = hasExplicitZoomCap ? Number(maxZoom) : getDistrictZoomMax(scope);
         map.fitBounds(
           [[bbox[0], bbox[1]], [bbox[2], bbox[3]]],
-          { padding: computeMapViewportPadding(padding), duration, maxZoom }
+          {
+            padding: computeMapViewportPadding(padding),
+            duration,
+            maxZoom: zoomCap,
+            essential: true
+          }
         );
-      } catch (_) {}
+        return true;
+      } catch (_) {
+        return false;
+      }
     }
 
     const DISTRICT_LINE_STYLE = (() => {
@@ -30398,10 +30443,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const props = e.features[0].properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.CD118FP || props.CD119FP || props.district_id || props.district);
             if (districtNum) {
-            zoomToClickedDistrictFeature(e.features[0], { padding: SEARCH_ZOOM.padding, duration: 850, maxZoom: SEARCH_ZOOM.districtMaxZoom });
               // Show detailed sidebar (results + trends).
               showDistrictDetails(districtNum);
               lastSelectedCounty = `District ${districtNum}`;
+              await zoomToDistrictSelection('congressional', districtNum, e.features[0]);
 
               // Pin vote counter to this district for current contest (if any).
               const contestValue = document.getElementById('contestSelect')?.value || '';
@@ -30517,10 +30562,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const props = e.features[0].properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.SLDLST || props.district_id || props.district);
             if (districtNum) {
-              zoomToClickedDistrictFeature(e.features[0], { padding: SEARCH_ZOOM.padding, duration: 850, maxZoom: SEARCH_ZOOM.districtMaxZoom });
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'house');
               lastSelectedCounty = getDistrictTitleForScope('state_house', districtNum);
+              await zoomToDistrictSelection('state_house', districtNum, e.features[0]);
 
               const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
@@ -30634,10 +30679,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const props = e.features[0].properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.SLDUST || props.district_id || props.district);
             if (districtNum) {
-              zoomToClickedDistrictFeature(e.features[0], { padding: SEARCH_ZOOM.padding, duration: 850, maxZoom: SEARCH_ZOOM.districtMaxZoom });
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'senate');
               lastSelectedCounty = getDistrictTitleForScope('state_senate', districtNum);
+              await zoomToDistrictSelection('state_senate', districtNum, e.features[0]);
 
               const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
@@ -31094,22 +31139,17 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      const bbox = expandBbox(turf.bbox(match), SEARCH_ZOOM.bboxExpand);
       const canonicalQuery = sourceId === 'districts'
         ? `CD ${districtNum}`
         : (sourceId === 'state-house' ? `HD ${districtNum}` : `SD ${districtNum}`);
       syncFlySearchInputs(canonicalQuery);
       setFlySearchFeedback('#10b981');
-      map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], {
-        padding: computeMapViewportPadding(SEARCH_ZOOM.padding),
-        duration: 900,
-        maxZoom: SEARCH_ZOOM.districtMaxZoom
-      });
 
       const scope = sourceId === 'districts'
         ? 'congressional'
         : (sourceId === 'state-house' ? 'state_house' : 'state_senate');
       await showAndPinDistrictSelection(scope, districtNum, document.getElementById('contestSelect')?.value || '');
+      await zoomToDistrictSelection(scope, districtNum, match, { duration: 900 });
     }
 
     async function handlePrecinctSelection(countyNameRaw, precinctCodeRaw) {
