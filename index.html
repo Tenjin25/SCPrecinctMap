@@ -30257,6 +30257,12 @@ document.addEventListener('DOMContentLoaded', function() {
       return SEARCH_ZOOM.districtMaxZoom;
     }
 
+    function getDistrictBboxExpand(scope) {
+      // Congressional districts already cover large portions of the state. The
+      // general 38% search buffer makes their fitted bounds nearly statewide.
+      return scope === 'congressional' ? 0.08 : SEARCH_ZOOM.bboxExpand;
+    }
+
     function getDistrictSourceIdForScope(scope) {
       if (scope === 'state_house') return 'state-house';
       if (scope === 'state_senate') return 'state-senate';
@@ -30287,7 +30293,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (requestId !== districtZoomRequestId || !feature) return false;
       try {
-        const bbox = expandBbox(turf.bbox(feature), SEARCH_ZOOM.bboxExpand);
+        const bbox = expandBbox(turf.bbox(feature), getDistrictBboxExpand(scope));
         if (!Array.isArray(bbox) || bbox.length < 4 || !bbox.every(Number.isFinite)) return false;
         const hasExplicitZoomCap = maxZoom !== null && maxZoom !== undefined && Number.isFinite(Number(maxZoom));
         const zoomCap = hasExplicitZoomCap ? Number(maxZoom) : getDistrictZoomMax(scope);
