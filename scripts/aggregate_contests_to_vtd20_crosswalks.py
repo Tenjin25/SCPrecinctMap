@@ -10,7 +10,7 @@ VOTE_FIELDS = ("dem_votes", "rep_votes", "other_votes")
 
 # These counties adopted the current precinct layer after the November 2024
 # election, so their 2024 rows must be translated through the VTD20 crosswalk.
-POST_2024_PLAN_COUNTIES = {"BEAUFORT", "CLARENDON", "LANCASTER", "LAURENS"}
+POST_2024_PLAN_COUNTIES = {"CLARENDON", "LANCASTER", "LAURENS"}
 
 # Current-plan spellings for 2024 election labels that do not normalize to an
 # RFA display key. Keep these separate from historical aliases, whose direction
@@ -236,12 +236,20 @@ def remap_precinct_row(
     weighted_sources: list[tuple[str, dict[str, list[tuple[str, float]]]]],
     fallback_weighted_sources: list[tuple[str, dict[str, list[tuple[str, float]]]]] | None = None,
     prefer_direct_match: bool = False,
+    protected_target_norms: set[str] | None = None,
 ) -> tuple[list[dict], str]:
     key = str(row.get("county") or "").strip()
     nk = norm(key)
+    protected_target_norms = protected_target_norms or set()
     def apply_weighted(label: str, weighted: dict[str, list[tuple[str, float]]], lookup_key: str = nk) -> tuple[list[dict], str] | None:
         if lookup_key in weighted:
-            pairs = weighted[lookup_key]
+            pairs = [
+                (target, weight)
+                for target, weight in weighted[lookup_key]
+                if norm(target) not in protected_target_norms
+            ]
+            if not pairs:
+                return None
             targets = [target for target, _ in pairs]
             weights = [weight for _, weight in pairs]
             split_votes = {field: split_integer_by_weights(int(row.get(field) or 0), weights) for field in VOTE_FIELDS}
@@ -255,18 +263,22 @@ def remap_precinct_row(
             return out, f"weighted_{label}"
         return None
 
-    for label, weighted in weighted_sources:
-        result = apply_weighted(label, weighted)
-        if result:
-            return result
+    # The source-exact 2024 export already carries the election-plan vote
+    # totals. An exact current-key match is authoritative and must win over
+    # spatial weights; otherwise a real precinct row can be split and then
+    # recombined with neighboring rows, producing duplicated/incorrect margins.
     if prefer_direct_match and nk in display_by_norm:
         nr = dict(row)
         nr["county"] = display_by_norm[nk]
         return [finalize_row(nr)], "direct"
+    for label, weighted in weighted_sources:
+        result = apply_weighted(label, weighted)
+        if result:
+            return result
     if nk in aliases:
         alias_target = aliases[nk]
         alias_key = norm(alias_target)
-        if alias_key in display_by_norm:
+        if alias_key in display_by_norm and alias_key not in protected_target_norms:
             nr = dict(row)
             nr["county"] = display_by_norm[alias_key]
             return [finalize_row(nr)], "alias"
@@ -299,7 +311,13 @@ def process_contest(path: str, args, display_by_norm, aliases, weighted_by_year)
     weighted_sources: list[tuple[str, dict[str, list[tuple[str, float]]]]] = []
     if year <= int(args.vtd00_chain_year_max):
         weighted_sources.append(("manual_historical", weighted_by_year.get("manual_historical") or {}))
+        year_legacy = weighted_by_year.get(f"legacy_name_{year}") or {}
+        year_vtd00 = weighted_by_year.get(f"vtd00_chain_{year}") or {}
+        if year_legacy:
+            weighted_sources.append((f"legacy_name_{year}", year_legacy))
         weighted_sources.append(("legacy_name", weighted_by_year.get("legacy_name") or {}))
+        if year_vtd00:
+            weighted_sources.append((f"vtd00_chain_{year}", year_vtd00))
         weighted_sources.append(("vtd00_chain", weighted_by_year.get("vtd00_chain") or {}))
     if year <= int(args.legacy_year_max):
         if ("manual_historical", weighted_by_year.get("manual_historical") or {}) not in weighted_sources:
@@ -338,6 +356,18 @@ def process_contest(path: str, args, display_by_norm, aliases, weighted_by_year)
         "unmatched_rows": 0,
         "output_rows": 0,
     }
+    # Protect source-exact 2024 precincts from receiving additional votes
+    # through a different row's alias or spatial split. Counties with a known
+    # post-election plan still need their entire 2024 source plan translated.
+    protected_target_norms = {
+        norm(str(row.get("county") or ""))
+        for row in payload.get("rows") or []
+        if year == 2024
+        and isinstance(row, dict)
+        and " - " in str(row.get("county") or "")
+        and norm(str(row.get("county") or "").split(" - ", 1)[0]) not in POST_2024_PLAN_COUNTIES
+        and norm(str(row.get("county") or "")) in display_by_norm
+    }
 
     for row in payload.get("rows") or []:
         if not isinstance(row, dict):
@@ -368,7 +398,8 @@ def process_contest(path: str, args, display_by_norm, aliases, weighted_by_year)
             # The complete 2024 OpenElections export already uses the precinct
             # plan in effect for that election. Preserve exact RFA-name matches
             # before consulting aliases for precincts whose labels changed.
-            prefer_direct_match=(year == 2024),
+            prefer_direct_match=(year == 2024 and county_norm not in POST_2024_PLAN_COUNTIES),
+            protected_target_norms=protected_target_norms,
         )
         if source.startswith("weighted_"):
             stats["weighted_rows"] += 1
@@ -415,6 +446,10 @@ def main() -> None:
     ap.add_argument("--weights-vtd20-current", default="data/crosswalk/vtd20_to_2025_vote_weight_splits.json")
     ap.add_argument("--weights-vtd00-chain", default="data/crosswalk/vtd00_to_vtd10_to_2025_vote_weight_splits.json")
     ap.add_argument("--weights-legacy-name", default="data/crosswalk/legacy_name_to_2025_vote_weight_splits.json")
+    ap.add_argument("--weights-vtd00-chain-2006", default="data/crosswalk/vtd00_2007fe_to_2025_vote_weight_splits.json")
+    ap.add_argument("--weights-vtd00-chain-2008", default="data/crosswalk/vtd00_2008_to_2025_vote_weight_splits.json")
+    ap.add_argument("--weights-legacy-name-2006", default="data/crosswalk/legacy_name_2006_to_2025_vote_weight_splits.json")
+    ap.add_argument("--weights-legacy-name-2008", default="data/crosswalk/legacy_name_2008_to_2025_vote_weight_splits.json")
     ap.add_argument("--weights-vtd10", default="data/crosswalk/vtd10_to_2025_vote_weight_splits.json")
     ap.add_argument("--manual-historical-weights", default="data/crosswalk/manual_historical_current_weight_overrides.json")
     ap.add_argument("--aliases", default="precinct_aliases.json")
@@ -432,7 +467,11 @@ def main() -> None:
         "vtd20_current": load_weighted_splits(os.path.join(base, args.weights_vtd20_current), display_by_norm),
         "manual_historical": load_manual_weighted_splits(os.path.join(base, args.manual_historical_weights), display_by_norm),
         "legacy_name": load_weighted_splits(os.path.join(base, args.weights_legacy_name), display_by_norm),
+        "legacy_name_2006": load_weighted_splits(os.path.join(base, args.weights_legacy_name_2006), display_by_norm),
+        "legacy_name_2008": load_weighted_splits(os.path.join(base, args.weights_legacy_name_2008), display_by_norm),
         "vtd00_chain": load_weighted_splits(os.path.join(base, args.weights_vtd00_chain), display_by_norm),
+        "vtd00_chain_2006": load_weighted_splits(os.path.join(base, args.weights_vtd00_chain_2006), display_by_norm),
+        "vtd00_chain_2008": load_weighted_splits(os.path.join(base, args.weights_vtd00_chain_2008), display_by_norm),
         "vtd10": load_weighted_splits(os.path.join(base, args.weights_vtd10), display_by_norm),
     }
 

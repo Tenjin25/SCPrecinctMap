@@ -92,7 +92,7 @@
       "contest_type": "president",
       "file": "president_2024.json",
       "base_rows": 2354,
-      "current_rows": 2356,
+      "current_rows": 2351,
       "duplicate_base_keys": 0,
       "duplicate_current_keys": 0,
       "calculation_errors": 0,
@@ -107,7 +107,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 0,
-      "unmatched_current_precinct_votes": 0
+      "unmatched_current_precinct_votes": 0,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2022,
@@ -129,7 +130,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 3,
-      "unmatched_current_precinct_votes": 2583
+      "unmatched_current_precinct_votes": 2583,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2022,
@@ -151,7 +153,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 3,
-      "unmatched_current_precinct_votes": 2583
+      "unmatched_current_precinct_votes": 2583,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2022,
@@ -173,7 +176,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 3,
-      "unmatched_current_precinct_votes": 2131
+      "unmatched_current_precinct_votes": 2131,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2022,
@@ -195,7 +199,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 3,
-      "unmatched_current_precinct_votes": 2574
+      "unmatched_current_precinct_votes": 2574,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2022,
@@ -217,7 +222,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 3,
-      "unmatched_current_precinct_votes": 2572
+      "unmatched_current_precinct_votes": 2572,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2022,
@@ -239,7 +245,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 3,
-      "unmatched_current_precinct_votes": 2267
+      "unmatched_current_precinct_votes": 2267,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2022,
@@ -261,7 +268,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 3,
-      "unmatched_current_precinct_votes": 2128
+      "unmatched_current_precinct_votes": 2128,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2022,
@@ -283,7 +291,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 3,
-      "unmatched_current_precinct_votes": 2241
+      "unmatched_current_precinct_votes": 2241,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2020,
@@ -305,7 +314,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 2,
-      "unmatched_current_precinct_votes": 3038
+      "unmatched_current_precinct_votes": 3038,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2020,
@@ -327,7 +337,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 2,
-      "unmatched_current_precinct_votes": 3042
+      "unmatched_current_precinct_votes": 3042,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2018,
@@ -349,7 +360,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 57,
-      "unmatched_current_precinct_votes": 4629
+      "unmatched_current_precinct_votes": 4629,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2018,
@@ -371,7 +383,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 57,
-      "unmatched_current_precinct_votes": 4634
+      "unmatched_current_precinct_votes": 4634,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2018,
@@ -393,7 +406,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 57,
-      "unmatched_current_precinct_votes": 4629
+      "unmatched_current_precinct_votes": 4629,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2018,
@@ -415,7 +429,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 57,
-      "unmatched_current_precinct_votes": 2824
+      "unmatched_current_precinct_votes": 2824,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2018,
@@ -437,7 +452,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 57,
-      "unmatched_current_precinct_votes": 4626
+      "unmatched_current_precinct_votes": 4626,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2018,
@@ -459,7 +475,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 57,
-      "unmatched_current_precinct_votes": 3104
+      "unmatched_current_precinct_votes": 3104,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2018,
@@ -481,7 +498,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 57,
-      "unmatched_current_precinct_votes": 3595
+      "unmatched_current_precinct_votes": 3595,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2016,
@@ -503,7 +521,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 20,
-      "unmatched_current_precinct_votes": 2177
+      "unmatched_current_precinct_votes": 2177,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2016,
@@ -525,7 +544,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 20,
-      "unmatched_current_precinct_votes": 2124
+      "unmatched_current_precinct_votes": 2124,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2014,
@@ -547,7 +567,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 51,
-      "unmatched_current_precinct_votes": 2355
+      "unmatched_current_precinct_votes": 2355,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2014,
@@ -569,7 +590,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 51,
-      "unmatched_current_precinct_votes": 4693
+      "unmatched_current_precinct_votes": 4693,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2014,
@@ -591,7 +613,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 51,
-      "unmatched_current_precinct_votes": 2324
+      "unmatched_current_precinct_votes": 2324,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2014,
@@ -613,7 +636,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 51,
-      "unmatched_current_precinct_votes": 2329
+      "unmatched_current_precinct_votes": 2329,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2014,
@@ -635,7 +659,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 51,
-      "unmatched_current_precinct_votes": 2340
+      "unmatched_current_precinct_votes": 2340,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2014,
@@ -657,7 +682,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 51,
-      "unmatched_current_precinct_votes": 1309
+      "unmatched_current_precinct_votes": 1309,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2014,
@@ -679,7 +705,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 51,
-      "unmatched_current_precinct_votes": 2331
+      "unmatched_current_precinct_votes": 2331,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2014,
@@ -701,7 +728,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 51,
-      "unmatched_current_precinct_votes": 1502
+      "unmatched_current_precinct_votes": 1502,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2012,
@@ -723,7 +751,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 62,
-      "unmatched_current_precinct_votes": 10246
+      "unmatched_current_precinct_votes": 10246,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2010,
@@ -745,7 +774,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 42,
-      "unmatched_current_precinct_votes": 6067
+      "unmatched_current_precinct_votes": 6067,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2010,
@@ -767,7 +797,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 42,
-      "unmatched_current_precinct_votes": 5936
+      "unmatched_current_precinct_votes": 5936,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2010,
@@ -789,7 +820,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 42,
-      "unmatched_current_precinct_votes": 6012
+      "unmatched_current_precinct_votes": 6012,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2010,
@@ -811,7 +843,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 42,
-      "unmatched_current_precinct_votes": 5979
+      "unmatched_current_precinct_votes": 5979,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2010,
@@ -833,7 +866,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 42,
-      "unmatched_current_precinct_votes": 5998
+      "unmatched_current_precinct_votes": 5998,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2010,
@@ -855,7 +889,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 42,
-      "unmatched_current_precinct_votes": 4074
+      "unmatched_current_precinct_votes": 4074,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2010,
@@ -877,7 +912,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 42,
-      "unmatched_current_precinct_votes": 5976
+      "unmatched_current_precinct_votes": 5976,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2010,
@@ -899,7 +935,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 42,
-      "unmatched_current_precinct_votes": 5952
+      "unmatched_current_precinct_votes": 5952,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2008,
@@ -921,7 +958,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 100,
-      "unmatched_current_precinct_votes": 66054
+      "unmatched_current_precinct_votes": 66054,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2008,
@@ -943,14 +981,15 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 100,
-      "unmatched_current_precinct_votes": 64408
+      "unmatched_current_precinct_votes": 64408,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2006,
       "contest_type": "governor",
       "file": "governor_2006.json",
       "base_rows": 2054,
-      "current_rows": 2302,
+      "current_rows": 2312,
       "duplicate_base_keys": 0,
       "duplicate_current_keys": 0,
       "calculation_errors": 0,
@@ -965,14 +1004,15 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 158,
-      "unmatched_current_precinct_votes": 94518
+      "unmatched_current_precinct_votes": 94518,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2006,
       "contest_type": "attorney_general",
       "file": "attorney_general_2006.json",
       "base_rows": 2054,
-      "current_rows": 2302,
+      "current_rows": 2312,
       "duplicate_base_keys": 0,
       "duplicate_current_keys": 0,
       "calculation_errors": 0,
@@ -987,14 +1027,15 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 158,
-      "unmatched_current_precinct_votes": 73316
+      "unmatched_current_precinct_votes": 73316,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2006,
       "contest_type": "secretary_of_state",
       "file": "secretary_of_state_2006.json",
       "base_rows": 2054,
-      "current_rows": 2302,
+      "current_rows": 2312,
       "duplicate_base_keys": 0,
       "duplicate_current_keys": 0,
       "calculation_errors": 0,
@@ -1009,14 +1050,15 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 158,
-      "unmatched_current_precinct_votes": 92716
+      "unmatched_current_precinct_votes": 92716,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2006,
       "contest_type": "superintendent",
       "file": "superintendent_2006.json",
       "base_rows": 2054,
-      "current_rows": 2302,
+      "current_rows": 2312,
       "duplicate_base_keys": 0,
       "duplicate_current_keys": 0,
       "calculation_errors": 0,
@@ -1031,14 +1073,15 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 158,
-      "unmatched_current_precinct_votes": 93569
+      "unmatched_current_precinct_votes": 93569,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2006,
       "contest_type": "state_treasurer",
       "file": "state_treasurer_2006.json",
       "base_rows": 2054,
-      "current_rows": 2302,
+      "current_rows": 2312,
       "duplicate_base_keys": 0,
       "duplicate_current_keys": 0,
       "calculation_errors": 0,
@@ -1053,14 +1096,15 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 158,
-      "unmatched_current_precinct_votes": 93726
+      "unmatched_current_precinct_votes": 93726,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2006,
       "contest_type": "comptroller_general",
       "file": "comptroller_general_2006.json",
       "base_rows": 2054,
-      "current_rows": 2302,
+      "current_rows": 2312,
       "duplicate_base_keys": 0,
       "duplicate_current_keys": 0,
       "calculation_errors": 0,
@@ -1075,14 +1119,15 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 158,
-      "unmatched_current_precinct_votes": 92384
+      "unmatched_current_precinct_votes": 92384,
+      "source_exact_2024_vote_drifts": 0
     },
     {
       "year": 2006,
       "contest_type": "commissioner_agriculture",
       "file": "commissioner_agriculture_2006.json",
       "base_rows": 2054,
-      "current_rows": 2302,
+      "current_rows": 2312,
       "duplicate_base_keys": 0,
       "duplicate_current_keys": 0,
       "calculation_errors": 0,
@@ -1097,7 +1142,8 @@
         "total_votes": 0
       },
       "unmatched_current_precinct_rows": 158,
-      "unmatched_current_precinct_votes": 91451
+      "unmatched_current_precinct_votes": 91451,
+      "source_exact_2024_vote_drifts": 0
     }
   ]
 }

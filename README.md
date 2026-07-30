@@ -574,6 +574,21 @@ Compose VTD00 -> VTD10 -> 2025 weights:
 python scripts/compose_areal_weight_crosswalks.py --first-csv scripts/out/vtd00_to_vtd10_areal_top8.csv --second-json scripts/out/vtd10_to_2025_vote_weight_splits.json --out scripts/out/vtd00_to_vtd10_to_2025_vote_weight_splits.json --precincts data/Voting_Precincts.geojson --label vtd00_to_vtd10_to_2025
 ```
 
+Build election-vintage 2006 and 2008 VTD00 bridges:
+
+```powershell
+python scripts/fetch_tiger2007fe_vtd00.py
+python scripts/fetch_tiger2008_vtd00.py
+python scripts/build_legacy_vtd_overlap_pro.py --source work/crosswalk_inputs/tiger2007fe_vtd00 --source-kind vtd --source-vintage 00 --target work/crosswalk_inputs/tl_2012_45_vtd10.zip --out data/crosswalk/vtd00_2007fe_to_vtd10_areal_top8.csv --top-n 8
+python scripts/build_legacy_vtd_overlap_pro.py --source work/crosswalk_inputs/tiger2008_vtd00 --source-kind vtd --source-vintage 00 --target work/crosswalk_inputs/tl_2012_45_vtd10.zip --out data/crosswalk/vtd00_2008_to_vtd10_areal_top8.csv --top-n 8
+python scripts/compose_areal_weight_crosswalks.py --first-csv data/crosswalk/vtd00_2007fe_to_vtd10_areal_top8.csv --second-json data/crosswalk/vtd10_to_2025_vote_weight_splits.json --out data/crosswalk/vtd00_2007fe_to_2025_vote_weight_splits.json --precincts data/Voting_Precincts.geojson --label vtd00_2007fe_to_vtd10_to_2025
+python scripts/compose_areal_weight_crosswalks.py --first-csv data/crosswalk/vtd00_2008_to_vtd10_areal_top8.csv --second-json data/crosswalk/vtd10_to_2025_vote_weight_splits.json --out data/crosswalk/vtd00_2008_to_2025_vote_weight_splits.json --precincts data/Voting_Precincts.geojson --label vtd00_2008_to_vtd10_to_2025
+```
+
+The election-vintage TIGER layers are only intermediate sources. Every chain
+still terminates on the authoritative 2025 RFA target in
+`data/Voting_Precincts.geojson`.
+
 Fetch official legacy SCVotes ENR precinct names:
 
 ```powershell
@@ -584,12 +599,16 @@ Build legacy name bridge candidates:
 
 ```powershell
 python scripts/build_vtd00_name_bridge_candidates.py
+python scripts/build_vtd00_name_bridge_candidates.py --overlap data/crosswalk/vtd00_2007fe_to_vtd10_areal_top8.csv --years 2006 --out scripts/out/vtd00_name_bridge_candidates_2006_2007fe.csv
+python scripts/build_vtd00_name_bridge_candidates.py --overlap data/crosswalk/vtd00_2008_to_vtd10_areal_top8.csv --years 2008 --out scripts/out/vtd00_name_bridge_candidates_2008.csv
 ```
 
 Build legacy name weighted splits:
 
 ```powershell
 python scripts/build_legacy_name_weighted_splits.py
+python scripts/build_legacy_name_weighted_splits.py --bridge scripts/out/vtd00_name_bridge_candidates_2006_2007fe.csv --vtd00-chain-weights data/crosswalk/vtd00_2007fe_to_2025_vote_weight_splits.json --out-json data/crosswalk/legacy_name_2006_to_2025_vote_weight_splits.json --out-csv scripts/out/legacy_name_2006_2007fe_bridge_summary.csv
+python scripts/build_legacy_name_weighted_splits.py --bridge scripts/out/vtd00_name_bridge_candidates_2008.csv --vtd00-chain-weights data/crosswalk/vtd00_2008_to_2025_vote_weight_splits.json --out-json data/crosswalk/legacy_name_2008_to_2025_vote_weight_splits.json --out-csv scripts/out/legacy_name_2008_bridge_summary.csv
 ```
 
 Aggregate raw statewide contests to 2025-normalized app data:
