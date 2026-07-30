@@ -11,7 +11,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
-from aggregate_contests_to_vtd20_crosswalks import norm  # noqa: E402
+from aggregate_contests_to_vtd20_crosswalks import POST_2024_PLAN_COUNTIES, norm  # noqa: E402
 
 
 FIELDS = ("dem_votes", "rep_votes", "other_votes", "total_votes")
@@ -87,6 +87,27 @@ def main() -> int:
             row for row in current_rows
             if " - " in str(row.get("county") or "") and norm(row.get("county")) not in current_keys
         ]
+        exact_2024_drifts = []
+        if int(entry["year"]) == 2024:
+            current_by_norm = {
+                norm(row.get("county")): row
+                for row in current_rows
+                if " - " in str(row.get("county") or "")
+            }
+            for row in base_rows:
+                source_key = str(row.get("county") or "")
+                source_norm = norm(source_key)
+                county_norm = norm(source_key.split(" - ", 1)[0])
+                if (
+                    " - " not in source_key
+                    or county_norm in POST_2024_PLAN_COUNTIES
+                    or source_norm not in current_keys
+                    or source_norm not in current_by_norm
+                ):
+                    continue
+                target = current_by_norm[source_norm]
+                if any(int(row.get(field) or 0) != int(target.get(field) or 0) for field in FIELDS):
+                    exact_2024_drifts.append(source_key)
         record = {
             "year": entry["year"],
             "contest_type": entry["contest_type"],
@@ -100,11 +121,19 @@ def main() -> int:
             "current_crosswalk_conservation_delta": conservation,
             "unmatched_current_precinct_rows": len(unmatched),
             "unmatched_current_precinct_votes": sum(int(row.get("total_votes") or 0) for row in unmatched),
+            "source_exact_2024_vote_drifts": len(exact_2024_drifts),
         }
         contests.append(record)
         if file_name not in current_entries:
             errors.append(f"missing current manifest entry: {file_name}")
-        if duplicate_base or duplicate_current or calculation_errors or any(source_delta.values()) or any(conservation.values()):
+        if (
+            duplicate_base
+            or duplicate_current
+            or calculation_errors
+            or any(source_delta.values())
+            or any(conservation.values())
+            or exact_2024_drifts
+        ):
             errors.append(f"contest integrity failure: {file_name}")
         if unmatched:
             warnings.append(f"{file_name}: {len(unmatched)} unmatched current rows / {record['unmatched_current_precinct_votes']} votes")
