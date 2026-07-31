@@ -9689,15 +9689,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     };
   }
-  const districtLines2026Btn = document.getElementById('district-lines-2026');
-  if (districtLines2026Btn) {
-    districtLines2026Btn.onclick = function() {
-      if (typeof setDistrictLinesMode === 'function') {
-        setDistrictLinesMode(2026).catch(() => {});
-      }
-    };
-  }
-
   const splitTicketBtn = document.getElementById('split-ticket-toggle');
   if (splitTicketBtn) {
     if (typeof syncSplitTicketToggleUI === 'function') syncSplitTicketToggleUI();
@@ -10262,10 +10253,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div id="district-lines-controls" class="view-toggle-row" style="display:flex;gap:6px;flex-wrap:wrap;">
                   <button id="district-lines-2022" class="view-toggle-btn active" type="button" data-testid="lines-2022" aria-label="Use 2022 district lines" aria-pressed="true">2022 Lines</button>
                   <button id="district-lines-2024" class="view-toggle-btn" type="button" data-testid="lines-2024" aria-label="Use 2024 district lines" aria-pressed="false">2024 Lines</button>
-                  <button id="district-lines-2026" class="view-toggle-btn" type="button" data-testid="lines-2026" aria-label="Use 2026 district lines" aria-pressed="false">2026 Lines</button>
                 </div>
                 <div style="margin-top:4px;font-size:11px;color:#6b7280;">
-                  2022 keeps the longer history; 2024 and 2026 use newer boundaries.
+                  2022 keeps the longer history; 2024 uses newer state house boundaries.
                 </div>
                 <div id="district-lines-loading-hint" class="district-lines-loading-hint" aria-live="polite" aria-atomic="true"></div>
             </div>
@@ -12162,7 +12152,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const y = normalizeDistrictLinesYear(linesYear);
       const v = String(view || '').trim();
       if (y === 2024) return v === 'state_house';
-      if (y === 2026) return v === 'districts';
+      // 2026 congressional lines toggle is temporarily disabled.
+      if (y === 2026) return false;
       return true;
     }
 
@@ -12822,14 +12813,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const y = normalizeDistrictLinesYear(currentDistrictLinesYear);
       const btn2022 = document.getElementById('district-lines-2022');
       const btn2024 = document.getElementById('district-lines-2024');
-      const btn2026 = document.getElementById('district-lines-2026');
       const linesControls = document.getElementById('district-lines-controls');
       const isDistrictView = currentView === 'districts' || currentView === 'state_house' || currentView === 'state_senate';
       const show2022 = currentView !== 'counties' && currentView !== 'vtds_2000' && currentView !== 'precincts';
       const show2024 = currentView === 'state_house';
-      const show2026 = currentView === 'districts';
       const canUse2024 = isDistrictLinesYearAllowedForView(currentView, 2024);
-      const canUse2026 = isDistrictLinesYearAllowedForView(currentView, 2026);
       if (linesControls) {
         linesControls.style.display = isDistrictView ? 'flex' : 'none';
       }
@@ -12842,11 +12830,6 @@ document.addEventListener('DOMContentLoaded', function() {
         btn2024.style.display = (show2024 && canUse2024) ? '' : 'none';
         btn2024.classList.toggle('active', y === 2024);
         btn2024.setAttribute('aria-pressed', y === 2024 ? 'true' : 'false');
-      }
-      if (btn2026) {
-        btn2026.style.display = (show2026 && canUse2026) ? '' : 'none';
-        btn2026.classList.toggle('active', y === 2026);
-        btn2026.setAttribute('aria-pressed', y === 2026 ? 'true' : 'false');
       }
     }
 
@@ -12945,7 +12928,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const nextYear = normalizeDistrictLinesYear(linesYear);
       if (!isDistrictLinesYearAllowedForView(currentView, nextYear)) {
         if (nextYear === 2024) setStatus('2024 lines are only available for state house view.');
-        if (nextYear === 2026) setStatus('2026 lines are only available for congressional view.');
         updateDistrictLinesToggleUI();
         return;
       }
