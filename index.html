@@ -10655,8 +10655,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-08-01-legislative-zoom';
-    const APP_BUILD_ID = '2026-08-01-legislative-zoom';
+    const DATA_CACHE_BUSTER = '2026-08-01-legislative-zoom-rendered-feature';
+    const APP_BUILD_ID = '2026-08-01-legislative-zoom-rendered-feature';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -30264,10 +30264,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const requestId = ++districtZoomRequestId;
       let feature = fallbackFeature;
 
-      // Preserve the original congressional click behavior by fitting the
-      // rendered feature directly. Legislative districts still prefer their
-      // complete geometry because their smaller shapes are more tile-sensitive.
-      if (scope !== 'congressional' || !feature) {
+      // Match NCPrecinctMap: legislative clicks fit the rendered feature
+      // directly. Only congressional clicks/searches need the full geometry.
+      if (scope === 'congressional' || !feature) {
         try {
           const sourceId = getDistrictSourceIdForScope(scope);
           const path = getDistrictGeometryPath(scope, currentDistrictLinesYear);
