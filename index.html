@@ -907,6 +907,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* Keep native controls on the same atlas type system in every browser mode. */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
 #map {
   position: absolute;
   top: 0;
@@ -1664,7 +1671,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.95);
   color: var(--ui-text);
-  font-size: 14px;
+  font-size: 14px;`n  font-weight: 700;
 }
 
 /* Legend */
@@ -4018,7 +4025,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     background: transparent;
     box-shadow: none;
     color: #0f172a;
-    font-size: 14px;
+    font-size: 14px;`n  font-weight: 700;
   }
 
   .map-topbar #county-search {
