@@ -21472,9 +21472,9 @@ document.addEventListener('DOMContentLoaded', function() {
       // Use tolerant surname-pair detection so variants like
       // "Donald J Trump Michael R Pence" normalize consistently.
       if (/\btrump\b[\s\S]*\bpence\b/i.test(cleanedRaw)) return 'Donald J. Trump';
-      if (/\btrump\b[\s\S]*\bvance\b/i.test(cleanedRaw)) return 'Donald Trump';
+      if (/\btrump\b[\s\S]*\bvance\b/i.test(cleanedRaw)) return 'Donald J. Trump';
       if (/\bbiden\b[\s\S]*\bharris\b/i.test(cleanedRaw)) return 'Joseph R. Biden';
-      if (/\bharris\b[\s\S]*\bwalz\b/i.test(cleanedRaw)) return 'Kamala Harris';
+      if (/\bharris\b[\s\S]*\bwalz\b/i.test(cleanedRaw)) return 'Kamala D. Harris';
       // Remove common "running mate" annotation formats.
       const runningMateSplit = cleanedRaw.split(/\b(?:running\s+mate|with\s+running\s+mate|vp|vice\s+president)\b/i, 1)[0].trim();
       const normalizedRaw = runningMateSplit || cleanedRaw;
