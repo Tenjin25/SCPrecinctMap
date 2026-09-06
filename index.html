@@ -10698,8 +10698,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-09-02-sc-original-dropdown-v1';
-    const APP_BUILD_ID = '2026-09-02-sc-original-dropdown-v1';
+    const DATA_CACHE_BUSTER = '2026-09-05-cvap-main-merge-v2';
+    const APP_BUILD_ID = '2026-09-05-cvap-main-merge-v2';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -10756,6 +10756,15 @@ document.addEventListener('DOMContentLoaded', function() {
         state_senate_info: withBase('./data/sc_state_senate_districts.csv'),
         district_descriptions: withBase('./data/district_descriptions.json'),
         cvap_by_precinct_norm: withBase('./data/sc_cvap_2024_by_precinct_norm.json'),
+        precinct_demographics: withBase('./data/sc_cvap_2024_by_2025_precinct.csv'),
+        cvap_aggregates: {
+          county_2020: withBase('./data/cvap_aggregates/county_2025.csv'),
+          precinct_2020: withBase('./data/sc_cvap_2024_by_2025_precinct.csv'),
+          cd118_2022: withBase('./data/cvap_aggregates/congressional_2022.csv'),
+          state_house_2022: withBase('./data/cvap_aggregates/state_house_2022.csv'),
+          state_house_2024: withBase('./data/cvap_aggregates/state_house_2024.csv'),
+          state_senate_2022: withBase('./data/cvap_aggregates/state_senate_2022.csv')
+        },
         contests_dir: withBase('./data/contests_2025_crosswalked')
       },
       center: [-80.9, 33.8],
@@ -21215,7 +21224,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function cvapTotalFromAggRow(r) {
       // Backward/forward compatibility: older aggregates use CVAP_TOT24; renamed outputs may use cvap_total_24.
-      const raw = r?.CVAP_TOT24 ?? r?.cvap_total_24;
+      const raw = r?.CVAP_TOT24 ?? r?.cvap_total_24 ?? r?.cvap_18plus;
       return Number(raw);
     }
 
@@ -21432,22 +21441,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const codeNorm = (codeRaw || '').toString().trim().toUpperCase();
         if (!countyNorm || !codeNorm) return;
 
-        const vap = numericOrZero(rawRow.vap_18plus);
-        const whiteVotes = numericOrZero(rawRow.white_vap);
-        const blackVotes = numericOrZero(rawRow.black_vap);
-        const nativeVotes = numericOrNull(rawRow.native_vap);
-        const asianVotes = numericOrNull(rawRow.asian_vap);
-        const pacificVotes = numericOrNull(rawRow.pacific_vap);
-        const multiracialVotes = numericOrNull(rawRow.multiracial_vap);
-        const hispanicVotes = numericOrNull(rawRow.hispanic_vap);
+        const vap = numericOrZero(rawRow.vap_18plus ?? rawRow.cvap_18plus);
+        const whiteVotes = numericOrZero(rawRow.white_vap ?? rawRow.white_cvap);
+        const blackVotes = numericOrZero(rawRow.black_vap ?? rawRow.black_cvap);
+        const nativeVotes = numericOrNull(rawRow.native_vap ?? rawRow.native_cvap);
+        const asianVotes = numericOrNull(rawRow.asian_vap ?? rawRow.asian_cvap);
+        const pacificVotes = numericOrNull(rawRow.pacific_vap ?? rawRow.pacific_cvap);
+        const multiracialVotes = numericOrNull(rawRow.multiracial_vap ?? rawRow.multiracial_cvap);
+        const hispanicVotes = numericOrNull(rawRow.hispanic_vap ?? rawRow.hispanic_cvap);
 
-        const whitePctRaw = numericOrNull(rawRow.white_vap_pct);
-        const blackPctRaw = numericOrNull(rawRow.black_vap_pct);
-        const nativePctRaw = numericOrNull(rawRow.native_vap_pct);
-        const asianPctRaw = numericOrNull(rawRow.asian_vap_pct);
-        const pacificPctRaw = numericOrNull(rawRow.pacific_vap_pct);
-        const multiracialPctRaw = numericOrNull(rawRow.multiracial_vap_pct);
-        const hispanicPctRaw = numericOrNull(rawRow.hispanic_vap_pct);
+        const whitePctRaw = numericOrNull(rawRow.white_vap_pct ?? rawRow.white_cvap_pct);
+        const blackPctRaw = numericOrNull(rawRow.black_vap_pct ?? rawRow.black_cvap_pct);
+        const nativePctRaw = numericOrNull(rawRow.native_vap_pct ?? rawRow.native_cvap_pct);
+        const asianPctRaw = numericOrNull(rawRow.asian_vap_pct ?? rawRow.asian_cvap_pct);
+        const pacificPctRaw = numericOrNull(rawRow.pacific_vap_pct ?? rawRow.pacific_cvap_pct);
+        const multiracialPctRaw = numericOrNull(rawRow.multiracial_vap_pct ?? rawRow.multiracial_cvap_pct);
+        const hispanicPctRaw = numericOrNull(rawRow.hispanic_vap_pct ?? rawRow.hispanic_cvap_pct);
         const whitePct = whitePctRaw !== null ? whitePctRaw : (vap > 0 ? (whiteVotes / vap) * 100 : 0);
         const blackPct = blackPctRaw !== null ? blackPctRaw : (vap > 0 ? (blackVotes / vap) * 100 : 0);
         const nativePct = nativePctRaw !== null

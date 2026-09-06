@@ -1,0 +1,46 @@
+{
+  "source_cvap": "data/sc_cvap_2024_by_precinct_norm.json",
+  "crosswalk": "data/crosswalk/vtd20_to_2025_vote_weight_splits.json",
+  "precinct_geometry": "data/Voting_Precincts.geojson",
+  "source_precinct_count": 2266,
+  "current_precinct_count": 2313,
+  "output_precinct_count": 2313,
+  "populated_precinct_count": 2312,
+  "zero_total_precincts": [
+    "BERKELEY - PINE GROVE"
+  ],
+  "missing_source_crosswalks": [],
+  "source_field_totals": {
+    "CVAP_TOT24": 4009629,
+    "CVAP_HSP24": 165259,
+    "CVAP_NHS24": 3844370,
+    "CVAP_WHT24": 2692070,
+    "CVAP_BLA24": 995472,
+    "CVAP_ASI24": 53978,
+    "CVAP_AMI24": 7774,
+    "CVAP_NHP24": 1732,
+    "CVAP_2OM24": 10520
+  },
+  "output_field_totals": {
+    "CVAP_TOT24": 4009629,
+    "CVAP_HSP24": 165259,
+    "CVAP_NHS24": 3844370,
+    "CVAP_WHT24": 2692070,
+    "CVAP_BLA24": 995472,
+    "CVAP_ASI24": 53978,
+    "CVAP_AMI24": 7774,
+    "CVAP_NHP24": 1732,
+    "CVAP_2OM24": 10520
+  },
+  "field_total_differences": {
+    "CVAP_TOT24": 0,
+    "CVAP_HSP24": 0,
+    "CVAP_NHS24": 0,
+    "CVAP_WHT24": 0,
+    "CVAP_BLA24": 0,
+    "CVAP_ASI24": 0,
+    "CVAP_AMI24": 0,
+    "CVAP_NHP24": 0,
+    "CVAP_2OM24": 0
+  }
+}
