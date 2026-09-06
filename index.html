@@ -6,15 +6,15 @@
     --initial-margin-1: #67000d;
     --initial-margin-2: #a50f15;
     --initial-margin-3: #cb181d;
-    --initial-margin-4: #ef3b2c;
-    --initial-margin-5: #fb6a4a;
+    --initial-margin-4: #e93a2d;
+    --initial-margin-5: #f7634b;
     --initial-margin-6: #fcae91;
     --initial-margin-7: #f5d6c4;
     --initial-margin-8: #f7f7f7;
-    --initial-margin-9: #c7ddf0;
-    --initial-margin-10: #c6dbef;
+    --initial-margin-9: #9ecae1;
+    --initial-margin-10: #9ecae1;
     --initial-margin-11: #9ecae1;
-    --initial-margin-12: #6baed6;
+    --initial-margin-12: #5b9fd0;
     --initial-margin-13: #2876b5;
     --initial-margin-14: #08519c;
     --initial-margin-15: #08306b;
@@ -886,7 +886,7 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap&v=2026-08-25-typography-tooltip-v2" rel="stylesheet">
     <style>
 html, body {
   height: 100vh;
@@ -895,12 +895,14 @@ html, body {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
+  font-synthesis: weight;
 }
 body {
   height: 100vh;
   margin: 0;
   padding: 0;
   font-family: 'Manrope', 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-weight: 400;
   color: #0f172a;
   overflow: hidden;
   touch-action: pan-x pan-y;
@@ -988,6 +990,8 @@ a:focus-visible {
 
 /* Hover Tooltip - VoteHub Style */
 .hover-tooltip {
+  font-family: 'Manrope', 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-variant-numeric: tabular-nums;
   position: absolute;
   background: rgba(17, 24, 39, 0.96);
   color: white;
@@ -1390,19 +1394,26 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   list-style: none;
   cursor: pointer;
   user-select: none;
-  display: inline-flex;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
   min-height: 44px;
-  padding: 8px 12px;
+  padding: 11px 14px;
   border-radius: 12px;
   border: 1px solid rgba(148, 163, 184, 0.22);
   background: rgba(15, 23, 42, 0.18);
   color: rgba(226, 232, 240, 0.96);
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 900;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .hover-tooltip .tooltip-more summary::-webkit-details-marker {
@@ -3044,6 +3055,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 
   body {
     font-family: 'Manrope', 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-weight: 400;
     background: radial-gradient(circle at 18% 12%, #dbeafe 0%, #eaf2ff 28%, #f8fafc 75%);
     color: var(--ui-text);
   }
@@ -4632,6 +4644,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   }
 
   .focus-pill {
+    min-width: 0;
     padding: 9px 11px;
     border-radius: 14px;
     border: 1px solid rgba(15, 23, 42, 0.08);
@@ -4654,6 +4667,8 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     font-weight: 900;
     color: #0f172a;
     line-height: 1.2;
+    min-width: 0;
+    max-width: 100%;
     white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -4661,6 +4676,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     -webkit-line-clamp: 2;
     line-clamp: 2;
     -webkit-box-orient: vertical;
+    overflow-wrap: anywhere;
     word-break: break-word;
   }
 
@@ -7747,7 +7763,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     :root {
       --topbar-h: 0px;
       --desktop-left-w: 500px;
-      --desktop-right-w: 340px;
+      --desktop-right-w: 372px;
       --desktop-right-gap: 14px;
       --desktop-vote-counter-h: 0px;
     }
@@ -7949,7 +7965,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
       right: 24px !important;
       width: min(var(--desktop-right-w), calc(100vw - 48px)) !important;
       max-width: var(--desktop-right-w) !important;
-      min-width: 0 !important;
+      min-width: min(320px, 100%) !important;
       max-height: min(58vh, 620px) !important;
       overflow-x: hidden;
       overflow-y: auto;
@@ -9547,7 +9563,23 @@ body.focus-active #hover-tooltip[data-context="preview"] {
       color: #1e3a8a !important;
     }
   }
-    </style>
+
+</style>
+<style id="selected-panel-type-scale">
+  #focus-card .focus-pill-value { font-size: 16.5px; }
+  .desktop-statewide-kicker,
+  .desktop-statewide-tag,
+  .desktop-statewide-title,
+  .statewide-results h4,
+  .statewide-kicker,
+  .statewide-competitive,
+  .statewide-share-chip,
+  .statewide-share-chip strong,
+  .statewide-breakdown-label,
+  .statewide-breakdown-value,
+  .statewide-stat span,
+  .statewide-stat strong { font-weight: 700; }
+</style>
 </head>
 <body>
 <!-- Move JS to script block -->
@@ -10383,15 +10415,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span class="legend-segment legend-color" style="background: #67000d;"></span>
                 <span class="legend-segment legend-color" style="background: #a50f15;"></span>
                 <span class="legend-segment legend-color" style="background: #cb181d;"></span>
-                <span class="legend-segment legend-color" style="background: #ef3b2c;"></span>
-                <span class="legend-segment legend-color" style="background: #fb6a4a;"></span>
+                <span class="legend-segment legend-color" style="background: #e93a2d;"></span>
+                <span class="legend-segment legend-color" style="background: #f7634b;"></span>
                 <span class="legend-segment legend-color" style="background: #fcae91;"></span>
                 <span class="legend-segment legend-color" style="background: #f4c9c5;"></span>
                 <span class="legend-segment legend-color" style="background: #f7f7f7; border-left: 1px solid rgba(15,23,42,0.12); border-right: 1px solid rgba(15,23,42,0.12);"></span>
                 <span class="legend-segment legend-color" style="background: #c7ddf0;"></span>
-                <span class="legend-segment legend-color" style="background: #c6dbef;"></span>
                 <span class="legend-segment legend-color" style="background: #9ecae1;"></span>
-                <span class="legend-segment legend-color" style="background: #9ecae1;"></span>
+                <span class="legend-segment legend-color" style="background: #5b9fd0;"></span>
+                <span class="legend-segment legend-color" style="background: #3f8fc9;"></span>
                 <span class="legend-segment legend-color" style="background: #2876b5;"></span>
                 <span class="legend-segment legend-color" style="background: #08519c;"></span>
                 <span class="legend-segment legend-color" style="background: #08306b;"></span>
@@ -10653,8 +10685,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-08-11-shared-margin-palette';
-    const APP_BUILD_ID = '2026-08-11-shared-margin-palette';
+    const DATA_CACHE_BUSTER = '2026-09-05-cvap-2025-precincts-v1';
+    const APP_BUILD_ID = '2026-09-05-cvap-2025-precincts-v1';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -10711,6 +10743,15 @@ document.addEventListener('DOMContentLoaded', function() {
         state_senate_info: withBase('./data/sc_state_senate_districts.csv'),
         district_descriptions: withBase('./data/district_descriptions.json'),
         cvap_by_precinct_norm: withBase('./data/sc_cvap_2024_by_precinct_norm.json'),
+        precinct_demographics: withBase('./data/sc_cvap_2024_by_2025_precinct.csv'),
+        cvap_aggregates: {
+          county_2020: withBase('./data/cvap_aggregates/county_2025.csv'),
+          precinct_2020: withBase('./data/sc_cvap_2024_by_2025_precinct.csv'),
+          cd118_2022: withBase('./data/cvap_aggregates/congressional_2022.csv'),
+          state_house_2022: withBase('./data/cvap_aggregates/state_house_2022.csv'),
+          state_house_2024: withBase('./data/cvap_aggregates/state_house_2024.csv'),
+          state_senate_2022: withBase('./data/cvap_aggregates/state_senate_2022.csv')
+        },
         contests_dir: withBase('./data/contests_2025_crosswalked')
       },
       center: [-80.9, 33.8],
@@ -21099,7 +21140,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function cvapTotalFromAggRow(r) {
       // Backward/forward compatibility: older aggregates use CVAP_TOT24; renamed outputs may use cvap_total_24.
-      const raw = r?.CVAP_TOT24 ?? r?.cvap_total_24;
+      const raw = r?.CVAP_TOT24 ?? r?.cvap_total_24 ?? r?.cvap_18plus;
       return Number(raw);
     }
 
@@ -21316,22 +21357,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const codeNorm = (codeRaw || '').toString().trim().toUpperCase();
         if (!countyNorm || !codeNorm) return;
 
-        const vap = numericOrZero(rawRow.vap_18plus);
-        const whiteVotes = numericOrZero(rawRow.white_vap);
-        const blackVotes = numericOrZero(rawRow.black_vap);
-        const nativeVotes = numericOrNull(rawRow.native_vap);
-        const asianVotes = numericOrNull(rawRow.asian_vap);
-        const pacificVotes = numericOrNull(rawRow.pacific_vap);
-        const multiracialVotes = numericOrNull(rawRow.multiracial_vap);
-        const hispanicVotes = numericOrNull(rawRow.hispanic_vap);
+        const vap = numericOrZero(rawRow.vap_18plus ?? rawRow.cvap_18plus);
+        const whiteVotes = numericOrZero(rawRow.white_vap ?? rawRow.white_cvap);
+        const blackVotes = numericOrZero(rawRow.black_vap ?? rawRow.black_cvap);
+        const nativeVotes = numericOrNull(rawRow.native_vap ?? rawRow.native_cvap);
+        const asianVotes = numericOrNull(rawRow.asian_vap ?? rawRow.asian_cvap);
+        const pacificVotes = numericOrNull(rawRow.pacific_vap ?? rawRow.pacific_cvap);
+        const multiracialVotes = numericOrNull(rawRow.multiracial_vap ?? rawRow.multiracial_cvap);
+        const hispanicVotes = numericOrNull(rawRow.hispanic_vap ?? rawRow.hispanic_cvap);
 
-        const whitePctRaw = numericOrNull(rawRow.white_vap_pct);
-        const blackPctRaw = numericOrNull(rawRow.black_vap_pct);
-        const nativePctRaw = numericOrNull(rawRow.native_vap_pct);
-        const asianPctRaw = numericOrNull(rawRow.asian_vap_pct);
-        const pacificPctRaw = numericOrNull(rawRow.pacific_vap_pct);
-        const multiracialPctRaw = numericOrNull(rawRow.multiracial_vap_pct);
-        const hispanicPctRaw = numericOrNull(rawRow.hispanic_vap_pct);
+        const whitePctRaw = numericOrNull(rawRow.white_vap_pct ?? rawRow.white_cvap_pct);
+        const blackPctRaw = numericOrNull(rawRow.black_vap_pct ?? rawRow.black_cvap_pct);
+        const nativePctRaw = numericOrNull(rawRow.native_vap_pct ?? rawRow.native_cvap_pct);
+        const asianPctRaw = numericOrNull(rawRow.asian_vap_pct ?? rawRow.asian_cvap_pct);
+        const pacificPctRaw = numericOrNull(rawRow.pacific_vap_pct ?? rawRow.pacific_cvap_pct);
+        const multiracialPctRaw = numericOrNull(rawRow.multiracial_vap_pct ?? rawRow.multiracial_cvap_pct);
+        const hispanicPctRaw = numericOrNull(rawRow.hispanic_vap_pct ?? rawRow.hispanic_cvap_pct);
         const whitePct = whitePctRaw !== null ? whitePctRaw : (vap > 0 ? (whiteVotes / vap) * 100 : 0);
         const blackPct = blackPctRaw !== null ? blackPctRaw : (vap > 0 ? (blackVotes / vap) * 100 : 0);
         const nativePct = nativePctRaw !== null
@@ -21440,9 +21481,9 @@ document.addEventListener('DOMContentLoaded', function() {
       // Use tolerant surname-pair detection so variants like
       // "Donald J Trump Michael R Pence" normalize consistently.
       if (/\btrump\b[\s\S]*\bpence\b/i.test(cleanedRaw)) return 'Donald J. Trump';
-      if (/\btrump\b[\s\S]*\bvance\b/i.test(cleanedRaw)) return 'Donald Trump';
+      if (/\btrump\b[\s\S]*\bvance\b/i.test(cleanedRaw)) return 'Donald J. Trump';
       if (/\bbiden\b[\s\S]*\bharris\b/i.test(cleanedRaw)) return 'Joseph R. Biden';
-      if (/\bharris\b[\s\S]*\bwalz\b/i.test(cleanedRaw)) return 'Kamala Harris';
+      if (/\bharris\b[\s\S]*\bwalz\b/i.test(cleanedRaw)) return 'Kamala D. Harris';
       // Remove common "running mate" annotation formats.
       const runningMateSplit = cleanedRaw.split(/\b(?:running\s+mate|with\s+running\s+mate|vp|vice\s+president)\b/i, 1)[0].trim();
       const normalizedRaw = runningMateSplit || cleanedRaw;
@@ -32796,11 +32837,11 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (marginPct >= 20) {
         return winner === 'R' ? '#cb181d' : '#2876b5'; // Stronghold — midpoint blue, OG red
       } else if (marginPct >= 10) {
-        return winner === 'R' ? '#ef3b2c' : '#6baed6'; // Safe — near-original Atlas red, slightly tempered
+        return winner === 'R' ? '#e93a2d' : '#3f8fc9'; // Safe — near-original Atlas red, slightly tempered
       } else if (marginPct >= 5.5) {
-        return winner === 'R' ? '#fb6a4a' : '#9ecae1'; // Likely — near-original Atlas red, slightly tempered
+        return winner === 'R' ? '#f7634b' : '#5b9fd0'; // Likely — near-original Atlas red, slightly tempered
       } else if (marginPct >= 1.0) {
-        return winner === 'R' ? '#fcae91' : '#c6dbef'; // Lean — near-original Atlas red with a restrained rosy shift
+        return winner === 'R' ? '#fcae91' : '#9ecae1'; // Lean — near-original Atlas red with a restrained rosy shift
       } else if (marginPct >= 0.5) {
         return winner === 'R' ? '#f4c9c5' : '#c7ddf0'; // Balanced Tilt shades, still clearly lighter than Lean
       } else {
