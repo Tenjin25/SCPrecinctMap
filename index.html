@@ -10698,8 +10698,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-09-05-cvap-main-merge-v2';
-    const APP_BUILD_ID = '2026-09-05-cvap-main-merge-v2';
+    const DATA_CACHE_BUSTER = '2026-09-05-cvap-demographics-fallback-v3';
+    const APP_BUILD_ID = '2026-09-05-cvap-demographics-fallback-v3';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -34074,10 +34074,12 @@ document.addEventListener('DOMContentLoaded', function() {
             countyExpr.push(color);
           });
         }
-        countyExpr.push('#e2e8f0');
+        const countyFillPaint = countyExpr.length > 1
+          ? [...countyExpr, '#e2e8f0']
+          : '#e2e8f0';
         if (staleCheck()) return;
         if (map.getLayer('county-fill')) {
-          map.setPaintProperty('county-fill', 'fill-color', countyExpr);
+          map.setPaintProperty('county-fill', 'fill-color', countyFillPaint);
         }
         if (map.getLayer('county-stroke')) {
           try {
@@ -34108,16 +34110,18 @@ document.addEventListener('DOMContentLoaded', function() {
             exprPrecinct.push(color);
           });
         }
-        exprPrecinct.push('#d1d5db');
+        const precinctFillPaint = exprPrecinct.length > 1
+          ? [...exprPrecinct, '#d1d5db']
+          : '#d1d5db';
         if (staleCheck()) return;
-        lastPrecinctFillExpr = exprPrecinct;
-        lastPrecinctDotExpr = exprPrecinct;
+        lastPrecinctFillExpr = precinctFillPaint;
+        lastPrecinctDotExpr = precinctFillPaint;
         if (needsPrecinctDetail) {
           if (map.getLayer('precinct-fill')) {
-            map.setPaintProperty('precinct-fill', 'fill-color', exprPrecinct);
+            map.setPaintProperty('precinct-fill', 'fill-color', precinctFillPaint);
           }
           if (map.getLayer('precinct-dot')) {
-            map.setPaintProperty('precinct-dot', 'circle-color', exprPrecinct);
+            map.setPaintProperty('precinct-dot', 'circle-color', precinctFillPaint);
           }
         }
 
