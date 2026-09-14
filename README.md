@@ -749,3 +749,12 @@ No backend service is required.
 - Review-held legacy name bridge candidates should not be promoted into weighted splits without manual inspection.
 - HD-40 is treated as all-Newberry for the affected State House district-contest files; revalidate this if district geography/source files are regenerated.
 - This repository currently has no explicit `LICENSE` file. Add one before broad reuse or redistribution.
+
+## CVAP data attribution
+
+Citizen Voting Age Population (CVAP) totals use the U.S. Census Bureau's 2020-2024 American Community Survey five-year CVAP Special Tabulation. Precinct and legacy-boundary aggregates use the Redistricting Data Hub's **2024 CVAP Data Disaggregated to 2020 Census Blocks**.
+
+- Census source: https://www.census.gov/programs-surveys/decennial-census/about/voting-rights/cvap/2020-2024-CVAP.html
+- Block-level source and processing: https://redistrictingdatahub.org/
+
+Credit: **U.S. Census Bureau; Redistricting Data Hub.**
