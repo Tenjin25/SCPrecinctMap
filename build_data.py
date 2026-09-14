@@ -108,8 +108,11 @@ ELECTION_FILES = {
                        '20201103__sc__general__precinct.csv'),
     2022: os.path.join(DATA_SRC, 'openelections-data-sc', '2022',
                        '20221108__sc__general__precinct.csv'),
-    2024: os.path.join(DATA_SRC, 'openelections-data-sc', '2024',
-                       '20241105__sc__general__precinct.csv'),
+    2024: _first_existing(
+        os.path.join(DATA_SRC, 'openelections-data-sc', '2024',
+                     '20241105__sc__general__precinct.csv'),
+        os.path.join(DATA_OUT, '20241105__sc__general__precinct.csv'),
+    ),
 }
 
 # Local override: if you generated an OpenElections-style precinct file from ELSTATS,
@@ -247,10 +250,14 @@ def margin_color(signed_pct: float) -> str:
     return best
 
 
-def write_json(obj, path: str) -> None:
+def write_json(obj, path: str, *, indent=None) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, 'w', encoding='utf-8') as fh:
-        json.dump(obj, fh, separators=(',', ':'))
+    with open(path, 'w', encoding='utf-8', newline='\n') as fh:
+        if indent is None:
+            json.dump(obj, fh, separators=(',', ':'))
+        else:
+            json.dump(obj, fh, indent=indent)
+            fh.write('\n')
     rel = os.path.relpath(path, BASE_DIR)
     print(f'  wrote  {rel}')
 
@@ -892,7 +899,13 @@ def build_district_contests():
     print('\n=== District Contest JSONs ===')
     dist_dir = os.path.join(DATA_OUT, 'district_contests')
     os.makedirs(dist_dir, exist_ok=True)
-    manifest_entries = []
+    manifest_path = os.path.join(dist_dir, 'manifest.json')
+    try:
+        with open(manifest_path, encoding='utf-8') as fh:
+            manifest_entries = list((json.load(fh) or {}).get('files') or [])
+    except (FileNotFoundError, json.JSONDecodeError):
+        manifest_entries = []
+    rebuilt_keys = set()
 
     for year, csv_path in sorted(ELECTION_FILES.items()):
         if not os.path.exists(csv_path):
@@ -910,6 +923,14 @@ def build_district_contests():
             by_scope.setdefault(mapping, []).append(row)
 
         for (scope, ct), d_rows in by_scope.items():
+            # ELSTATS-derived files contain both county/district summary rows and
+            # their precinct detail. Summing both doubles every direct district
+            # contest. Prefer the authoritative summary layer when it exists;
+            # older OpenElections files that only contain precinct detail keep
+            # their existing aggregation behavior.
+            summary_rows = [row for row in d_rows if not (row.get('precinct') or '').strip()]
+            if summary_rows:
+                d_rows = summary_rows
             # Aggregate by district number
             agg: dict[str, dict] = {}
             for row in d_rows:
@@ -963,21 +984,41 @@ def build_district_contests():
             fname = f'{scope}_{ct}_{year}.json'
             payload = {
                 'general': {'results': results},
-                'meta':    {'match_coverage_pct': 100},
+                'meta':    {
+                    'match_coverage_pct': 100,
+                    'source_row_level': 'county_district_summary' if summary_rows else 'precinct_detail',
+                    'mixed_detail_rows_ignored': len(by_scope[(scope, ct)]) - len(d_rows),
+                },
             }
-            write_json(payload, os.path.join(dist_dir, fname))
+            write_json(payload, os.path.join(dist_dir, fname), indent=2)
             print(f'    {scope}/{ct} {year}: {len(results)} district(s)')
             manifest_entries.append({
-                'year':         year,
-                'contest_type': ct,
                 'scope':        scope,
+                'contest_type': ct,
+                'year':         year,
                 'file':         fname,
                 'rows':         len(results),
             })
+            rebuilt_keys.add((year, scope, ct))
 
-    manifest_entries.sort(key=lambda e: (-e['year'], _PRIORITY.get(e['contest_type'], 99)))
-    write_json({'files': manifest_entries},
-               os.path.join(dist_dir, 'manifest.json'))
+    manifest_entries = [
+        entry for entry in manifest_entries
+        if (entry.get('year'), entry.get('scope'), entry.get('contest_type')) not in rebuilt_keys
+    ] + [
+        entry for entry in manifest_entries
+        if (entry.get('year'), entry.get('scope'), entry.get('contest_type')) in rebuilt_keys
+    ]
+    # De-duplicate keys while retaining the freshly appended entry.
+    merged = {}
+    for entry in manifest_entries:
+        merged[(entry.get('year'), entry.get('scope'), entry.get('contest_type'))] = entry
+    manifest_entries = list(merged.values())
+    scope_order = {'congressional': 0, 'state_house': 1, 'state_senate': 2}
+    manifest_entries.sort(key=lambda e: (
+        -e['year'], scope_order.get(e.get('scope'), 99),
+        _PRIORITY.get(e['contest_type'], 99),
+    ))
+    write_json({'files': manifest_entries}, manifest_path, indent=2)
     print(f'\n  manifest: {len(manifest_entries)} district contest(s)')
 
 

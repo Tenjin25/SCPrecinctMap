@@ -44,30 +44,23 @@
     },
     {
       "scope": "congressional",
-      "contest_type": "attorney_general",
-      "year": 2022,
-      "file": "congressional_attorney_general_2022.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
-      "contest_type": "commissioner_agriculture",
-      "year": 2022,
-      "file": "congressional_commissioner_agriculture_2022.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
-      "contest_type": "comptroller_general",
-      "year": 2022,
-      "file": "congressional_comptroller_general_2022.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
       "contest_type": "governor",
       "year": 2022,
       "file": "congressional_governor_2022.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2022,
+      "file": "congressional_us_senate_2022.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "attorney_general",
+      "year": 2022,
+      "file": "congressional_attorney_general_2022.json",
       "rows": 7
     },
     {
@@ -79,6 +72,13 @@
     },
     {
       "scope": "congressional",
+      "contest_type": "superintendent",
+      "year": 2022,
+      "file": "congressional_superintendent_2022.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
       "contest_type": "state_treasurer",
       "year": 2022,
       "file": "congressional_state_treasurer_2022.json",
@@ -86,9 +86,16 @@
     },
     {
       "scope": "congressional",
-      "contest_type": "superintendent",
+      "contest_type": "comptroller_general",
       "year": 2022,
-      "file": "congressional_superintendent_2022.json",
+      "file": "congressional_comptroller_general_2022.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "commissioner_agriculture",
+      "year": 2022,
+      "file": "congressional_commissioner_agriculture_2022.json",
       "rows": 7
     },
     {
@@ -99,38 +106,24 @@
       "rows": 7
     },
     {
-      "scope": "congressional",
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2022,
+      "file": "state_house_governor_2022.json",
+      "rows": 124
+    },
+    {
+      "scope": "state_house",
       "contest_type": "us_senate",
       "year": 2022,
-      "file": "congressional_us_senate_2022.json",
-      "rows": 7
+      "file": "state_house_us_senate_2022.json",
+      "rows": 124
     },
     {
       "scope": "state_house",
       "contest_type": "attorney_general",
       "year": 2022,
       "file": "state_house_attorney_general_2022.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
-      "contest_type": "commissioner_agriculture",
-      "year": 2022,
-      "file": "state_house_commissioner_agriculture_2022.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
-      "contest_type": "comptroller_general",
-      "year": 2022,
-      "file": "state_house_comptroller_general_2022.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
-      "contest_type": "governor",
-      "year": 2022,
-      "file": "state_house_governor_2022.json",
       "rows": 124
     },
     {
@@ -142,9 +135,9 @@
     },
     {
       "scope": "state_house",
-      "contest_type": "state_house",
+      "contest_type": "superintendent",
       "year": 2022,
-      "file": "state_house_state_house_2022.json",
+      "file": "state_house_superintendent_2022.json",
       "rows": 124
     },
     {
@@ -156,44 +149,44 @@
     },
     {
       "scope": "state_house",
-      "contest_type": "superintendent",
+      "contest_type": "comptroller_general",
       "year": 2022,
-      "file": "state_house_superintendent_2022.json",
+      "file": "state_house_comptroller_general_2022.json",
       "rows": 124
     },
     {
       "scope": "state_house",
-      "contest_type": "us_senate",
+      "contest_type": "commissioner_agriculture",
       "year": 2022,
-      "file": "state_house_us_senate_2022.json",
+      "file": "state_house_commissioner_agriculture_2022.json",
       "rows": 124
     },
     {
-      "scope": "state_senate",
-      "contest_type": "attorney_general",
+      "scope": "state_house",
+      "contest_type": "state_house",
       "year": 2022,
-      "file": "state_senate_attorney_general_2022.json",
-      "rows": 46
-    },
-    {
-      "scope": "state_senate",
-      "contest_type": "commissioner_agriculture",
-      "year": 2022,
-      "file": "state_senate_commissioner_agriculture_2022.json",
-      "rows": 46
-    },
-    {
-      "scope": "state_senate",
-      "contest_type": "comptroller_general",
-      "year": 2022,
-      "file": "state_senate_comptroller_general_2022.json",
-      "rows": 46
+      "file": "state_house_state_house_2022.json",
+      "rows": 124
     },
     {
       "scope": "state_senate",
       "contest_type": "governor",
       "year": 2022,
       "file": "state_senate_governor_2022.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "us_senate",
+      "year": 2022,
+      "file": "state_senate_us_senate_2022.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "attorney_general",
+      "year": 2022,
+      "file": "state_senate_attorney_general_2022.json",
       "rows": 46
     },
     {
@@ -205,13 +198,6 @@
     },
     {
       "scope": "state_senate",
-      "contest_type": "state_treasurer",
-      "year": 2022,
-      "file": "state_senate_state_treasurer_2022.json",
-      "rows": 46
-    },
-    {
-      "scope": "state_senate",
       "contest_type": "superintendent",
       "year": 2022,
       "file": "state_senate_superintendent_2022.json",
@@ -219,9 +205,23 @@
     },
     {
       "scope": "state_senate",
-      "contest_type": "us_senate",
+      "contest_type": "state_treasurer",
       "year": 2022,
-      "file": "state_senate_us_senate_2022.json",
+      "file": "state_senate_state_treasurer_2022.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "comptroller_general",
+      "year": 2022,
+      "file": "state_senate_comptroller_general_2022.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "commissioner_agriculture",
+      "year": 2022,
+      "file": "state_senate_commissioner_agriculture_2022.json",
       "rows": 46
     },
     {
@@ -233,16 +233,16 @@
     },
     {
       "scope": "congressional",
-      "contest_type": "us_house",
+      "contest_type": "us_senate",
       "year": 2020,
-      "file": "congressional_us_house_2020.json",
+      "file": "congressional_us_senate_2020.json",
       "rows": 7
     },
     {
       "scope": "congressional",
-      "contest_type": "us_senate",
+      "contest_type": "us_house",
       "year": 2020,
-      "file": "congressional_us_senate_2020.json",
+      "file": "congressional_us_house_2020.json",
       "rows": 7
     },
     {
@@ -254,16 +254,16 @@
     },
     {
       "scope": "state_house",
-      "contest_type": "state_house",
+      "contest_type": "us_senate",
       "year": 2020,
-      "file": "state_house_state_house_2020.json",
+      "file": "state_house_us_senate_2020.json",
       "rows": 124
     },
     {
       "scope": "state_house",
-      "contest_type": "us_senate",
+      "contest_type": "state_house",
       "year": 2020,
-      "file": "state_house_us_senate_2020.json",
+      "file": "state_house_state_house_2020.json",
       "rows": 124
     },
     {
@@ -275,44 +275,30 @@
     },
     {
       "scope": "state_senate",
-      "contest_type": "state_senate",
-      "year": 2020,
-      "file": "state_senate_state_senate_2020.json",
-      "rows": 46
-    },
-    {
-      "scope": "state_senate",
       "contest_type": "us_senate",
       "year": 2020,
       "file": "state_senate_us_senate_2020.json",
       "rows": 46
     },
     {
-      "scope": "congressional",
-      "contest_type": "attorney_general",
-      "year": 2018,
-      "file": "congressional_attorney_general_2018.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
-      "contest_type": "commissioner_agriculture",
-      "year": 2018,
-      "file": "congressional_commissioner_agriculture_2018.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
-      "contest_type": "comptroller_general",
-      "year": 2018,
-      "file": "congressional_comptroller_general_2018.json",
-      "rows": 7
+      "scope": "state_senate",
+      "contest_type": "state_senate",
+      "year": 2020,
+      "file": "state_senate_state_senate_2020.json",
+      "rows": 46
     },
     {
       "scope": "congressional",
       "contest_type": "governor",
       "year": 2018,
       "file": "congressional_governor_2018.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "attorney_general",
+      "year": 2018,
+      "file": "congressional_attorney_general_2018.json",
       "rows": 7
     },
     {
@@ -324,6 +310,13 @@
     },
     {
       "scope": "congressional",
+      "contest_type": "superintendent",
+      "year": 2018,
+      "file": "congressional_superintendent_2018.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
       "contest_type": "state_treasurer",
       "year": 2018,
       "file": "congressional_state_treasurer_2018.json",
@@ -331,9 +324,16 @@
     },
     {
       "scope": "congressional",
-      "contest_type": "superintendent",
+      "contest_type": "comptroller_general",
       "year": 2018,
-      "file": "congressional_superintendent_2018.json",
+      "file": "congressional_comptroller_general_2018.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "commissioner_agriculture",
+      "year": 2018,
+      "file": "congressional_commissioner_agriculture_2018.json",
       "rows": 7
     },
     {
@@ -345,30 +345,16 @@
     },
     {
       "scope": "state_house",
-      "contest_type": "attorney_general",
-      "year": 2018,
-      "file": "state_house_attorney_general_2018.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
-      "contest_type": "commissioner_agriculture",
-      "year": 2018,
-      "file": "state_house_commissioner_agriculture_2018.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
-      "contest_type": "comptroller_general",
-      "year": 2018,
-      "file": "state_house_comptroller_general_2018.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
       "contest_type": "governor",
       "year": 2018,
       "file": "state_house_governor_2018.json",
+      "rows": 124
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "attorney_general",
+      "year": 2018,
+      "file": "state_house_attorney_general_2018.json",
       "rows": 124
     },
     {
@@ -380,10 +366,10 @@
     },
     {
       "scope": "state_house",
-      "contest_type": "state_house",
+      "contest_type": "superintendent",
       "year": 2018,
-      "file": "state_house_state_house_2018.json",
-      "rows": 123
+      "file": "state_house_superintendent_2018.json",
+      "rows": 124
     },
     {
       "scope": "state_house",
@@ -394,37 +380,37 @@
     },
     {
       "scope": "state_house",
-      "contest_type": "superintendent",
+      "contest_type": "comptroller_general",
       "year": 2018,
-      "file": "state_house_superintendent_2018.json",
+      "file": "state_house_comptroller_general_2018.json",
       "rows": 124
     },
     {
-      "scope": "state_senate",
-      "contest_type": "attorney_general",
-      "year": 2018,
-      "file": "state_senate_attorney_general_2018.json",
-      "rows": 46
-    },
-    {
-      "scope": "state_senate",
+      "scope": "state_house",
       "contest_type": "commissioner_agriculture",
       "year": 2018,
-      "file": "state_senate_commissioner_agriculture_2018.json",
-      "rows": 46
+      "file": "state_house_commissioner_agriculture_2018.json",
+      "rows": 124
     },
     {
-      "scope": "state_senate",
-      "contest_type": "comptroller_general",
+      "scope": "state_house",
+      "contest_type": "state_house",
       "year": 2018,
-      "file": "state_senate_comptroller_general_2018.json",
-      "rows": 46
+      "file": "state_house_state_house_2018.json",
+      "rows": 123
     },
     {
       "scope": "state_senate",
       "contest_type": "governor",
       "year": 2018,
       "file": "state_senate_governor_2018.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "attorney_general",
+      "year": 2018,
+      "file": "state_senate_attorney_general_2018.json",
       "rows": 46
     },
     {
@@ -436,6 +422,13 @@
     },
     {
       "scope": "state_senate",
+      "contest_type": "superintendent",
+      "year": 2018,
+      "file": "state_senate_superintendent_2018.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
       "contest_type": "state_treasurer",
       "year": 2018,
       "file": "state_senate_state_treasurer_2018.json",
@@ -443,9 +436,16 @@
     },
     {
       "scope": "state_senate",
-      "contest_type": "superintendent",
+      "contest_type": "comptroller_general",
       "year": 2018,
-      "file": "state_senate_superintendent_2018.json",
+      "file": "state_senate_comptroller_general_2018.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "commissioner_agriculture",
+      "year": 2018,
+      "file": "state_senate_commissioner_agriculture_2018.json",
       "rows": 46
     },
     {
@@ -492,30 +492,23 @@
     },
     {
       "scope": "congressional",
-      "contest_type": "attorney_general",
-      "year": 2014,
-      "file": "congressional_attorney_general_2014.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
-      "contest_type": "commissioner_agriculture",
-      "year": 2014,
-      "file": "congressional_commissioner_agriculture_2014.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
-      "contest_type": "comptroller_general",
-      "year": 2014,
-      "file": "congressional_comptroller_general_2014.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
       "contest_type": "governor",
       "year": 2014,
       "file": "congressional_governor_2014.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "file": "congressional_us_senate_2014.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "attorney_general",
+      "year": 2014,
+      "file": "congressional_attorney_general_2014.json",
       "rows": 7
     },
     {
@@ -527,6 +520,13 @@
     },
     {
       "scope": "congressional",
+      "contest_type": "superintendent",
+      "year": 2014,
+      "file": "congressional_superintendent_2014.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
       "contest_type": "state_treasurer",
       "year": 2014,
       "file": "congressional_state_treasurer_2014.json",
@@ -534,9 +534,16 @@
     },
     {
       "scope": "congressional",
-      "contest_type": "superintendent",
+      "contest_type": "comptroller_general",
       "year": 2014,
-      "file": "congressional_superintendent_2014.json",
+      "file": "congressional_comptroller_general_2014.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "commissioner_agriculture",
+      "year": 2014,
+      "file": "congressional_commissioner_agriculture_2014.json",
       "rows": 7
     },
     {
@@ -547,38 +554,24 @@
       "rows": 7
     },
     {
-      "scope": "congressional",
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2014,
+      "file": "state_house_governor_2014.json",
+      "rows": 124
+    },
+    {
+      "scope": "state_house",
       "contest_type": "us_senate",
       "year": 2014,
-      "file": "congressional_us_senate_2014.json",
-      "rows": 7
+      "file": "state_house_us_senate_2014.json",
+      "rows": 124
     },
     {
       "scope": "state_house",
       "contest_type": "attorney_general",
       "year": 2014,
       "file": "state_house_attorney_general_2014.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
-      "contest_type": "commissioner_agriculture",
-      "year": 2014,
-      "file": "state_house_commissioner_agriculture_2014.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
-      "contest_type": "comptroller_general",
-      "year": 2014,
-      "file": "state_house_comptroller_general_2014.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
-      "contest_type": "governor",
-      "year": 2014,
-      "file": "state_house_governor_2014.json",
       "rows": 124
     },
     {
@@ -590,9 +583,9 @@
     },
     {
       "scope": "state_house",
-      "contest_type": "state_house",
+      "contest_type": "superintendent",
       "year": 2014,
-      "file": "state_house_state_house_2014.json",
+      "file": "state_house_superintendent_2014.json",
       "rows": 124
     },
     {
@@ -604,44 +597,44 @@
     },
     {
       "scope": "state_house",
-      "contest_type": "superintendent",
+      "contest_type": "comptroller_general",
       "year": 2014,
-      "file": "state_house_superintendent_2014.json",
+      "file": "state_house_comptroller_general_2014.json",
       "rows": 124
     },
     {
       "scope": "state_house",
-      "contest_type": "us_senate",
+      "contest_type": "commissioner_agriculture",
       "year": 2014,
-      "file": "state_house_us_senate_2014.json",
+      "file": "state_house_commissioner_agriculture_2014.json",
       "rows": 124
     },
     {
-      "scope": "state_senate",
-      "contest_type": "attorney_general",
+      "scope": "state_house",
+      "contest_type": "state_house",
       "year": 2014,
-      "file": "state_senate_attorney_general_2014.json",
-      "rows": 46
-    },
-    {
-      "scope": "state_senate",
-      "contest_type": "commissioner_agriculture",
-      "year": 2014,
-      "file": "state_senate_commissioner_agriculture_2014.json",
-      "rows": 46
-    },
-    {
-      "scope": "state_senate",
-      "contest_type": "comptroller_general",
-      "year": 2014,
-      "file": "state_senate_comptroller_general_2014.json",
-      "rows": 46
+      "file": "state_house_state_house_2014.json",
+      "rows": 124
     },
     {
       "scope": "state_senate",
       "contest_type": "governor",
       "year": 2014,
       "file": "state_senate_governor_2014.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "file": "state_senate_us_senate_2014.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "attorney_general",
+      "year": 2014,
+      "file": "state_senate_attorney_general_2014.json",
       "rows": 46
     },
     {
@@ -653,10 +646,10 @@
     },
     {
       "scope": "state_senate",
-      "contest_type": "state_senate",
+      "contest_type": "superintendent",
       "year": 2014,
-      "file": "state_senate_state_senate_2014.json",
-      "rows": 1
+      "file": "state_senate_superintendent_2014.json",
+      "rows": 46
     },
     {
       "scope": "state_senate",
@@ -667,17 +660,24 @@
     },
     {
       "scope": "state_senate",
-      "contest_type": "superintendent",
+      "contest_type": "comptroller_general",
       "year": 2014,
-      "file": "state_senate_superintendent_2014.json",
+      "file": "state_senate_comptroller_general_2014.json",
       "rows": 46
     },
     {
       "scope": "state_senate",
-      "contest_type": "us_senate",
+      "contest_type": "commissioner_agriculture",
       "year": 2014,
-      "file": "state_senate_us_senate_2014.json",
+      "file": "state_senate_commissioner_agriculture_2014.json",
       "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "state_senate",
+      "year": 2014,
+      "file": "state_senate_state_senate_2014.json",
+      "rows": 1
     },
     {
       "scope": "congressional",
@@ -723,30 +723,23 @@
     },
     {
       "scope": "congressional",
-      "contest_type": "attorney_general",
-      "year": 2010,
-      "file": "congressional_attorney_general_2010.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
-      "contest_type": "commissioner_agriculture",
-      "year": 2010,
-      "file": "congressional_commissioner_agriculture_2010.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
-      "contest_type": "comptroller_general",
-      "year": 2010,
-      "file": "congressional_comptroller_general_2010.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
       "contest_type": "governor",
       "year": 2010,
       "file": "congressional_governor_2010.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2010,
+      "file": "congressional_us_senate_2010.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "attorney_general",
+      "year": 2010,
+      "file": "congressional_attorney_general_2010.json",
       "rows": 7
     },
     {
@@ -758,6 +751,13 @@
     },
     {
       "scope": "congressional",
+      "contest_type": "superintendent",
+      "year": 2010,
+      "file": "congressional_superintendent_2010.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
       "contest_type": "state_treasurer",
       "year": 2010,
       "file": "congressional_state_treasurer_2010.json",
@@ -765,9 +765,16 @@
     },
     {
       "scope": "congressional",
-      "contest_type": "superintendent",
+      "contest_type": "comptroller_general",
       "year": 2010,
-      "file": "congressional_superintendent_2010.json",
+      "file": "congressional_comptroller_general_2010.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "commissioner_agriculture",
+      "year": 2010,
+      "file": "congressional_commissioner_agriculture_2010.json",
       "rows": 7
     },
     {
@@ -778,38 +785,24 @@
       "rows": 6
     },
     {
-      "scope": "congressional",
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2010,
+      "file": "state_house_governor_2010.json",
+      "rows": 124
+    },
+    {
+      "scope": "state_house",
       "contest_type": "us_senate",
       "year": 2010,
-      "file": "congressional_us_senate_2010.json",
-      "rows": 7
+      "file": "state_house_us_senate_2010.json",
+      "rows": 124
     },
     {
       "scope": "state_house",
       "contest_type": "attorney_general",
       "year": 2010,
       "file": "state_house_attorney_general_2010.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
-      "contest_type": "commissioner_agriculture",
-      "year": 2010,
-      "file": "state_house_commissioner_agriculture_2010.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
-      "contest_type": "comptroller_general",
-      "year": 2010,
-      "file": "state_house_comptroller_general_2010.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
-      "contest_type": "governor",
-      "year": 2010,
-      "file": "state_house_governor_2010.json",
       "rows": 124
     },
     {
@@ -821,9 +814,9 @@
     },
     {
       "scope": "state_house",
-      "contest_type": "state_house",
+      "contest_type": "superintendent",
       "year": 2010,
-      "file": "state_house_state_house_2010.json",
+      "file": "state_house_superintendent_2010.json",
       "rows": 124
     },
     {
@@ -835,44 +828,44 @@
     },
     {
       "scope": "state_house",
-      "contest_type": "superintendent",
+      "contest_type": "comptroller_general",
       "year": 2010,
-      "file": "state_house_superintendent_2010.json",
+      "file": "state_house_comptroller_general_2010.json",
       "rows": 124
     },
     {
       "scope": "state_house",
-      "contest_type": "us_senate",
+      "contest_type": "commissioner_agriculture",
       "year": 2010,
-      "file": "state_house_us_senate_2010.json",
+      "file": "state_house_commissioner_agriculture_2010.json",
       "rows": 124
     },
     {
-      "scope": "state_senate",
-      "contest_type": "attorney_general",
+      "scope": "state_house",
+      "contest_type": "state_house",
       "year": 2010,
-      "file": "state_senate_attorney_general_2010.json",
-      "rows": 46
-    },
-    {
-      "scope": "state_senate",
-      "contest_type": "commissioner_agriculture",
-      "year": 2010,
-      "file": "state_senate_commissioner_agriculture_2010.json",
-      "rows": 46
-    },
-    {
-      "scope": "state_senate",
-      "contest_type": "comptroller_general",
-      "year": 2010,
-      "file": "state_senate_comptroller_general_2010.json",
-      "rows": 46
+      "file": "state_house_state_house_2010.json",
+      "rows": 124
     },
     {
       "scope": "state_senate",
       "contest_type": "governor",
       "year": 2010,
       "file": "state_senate_governor_2010.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "us_senate",
+      "year": 2010,
+      "file": "state_senate_us_senate_2010.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "attorney_general",
+      "year": 2010,
+      "file": "state_senate_attorney_general_2010.json",
       "rows": 46
     },
     {
@@ -884,13 +877,6 @@
     },
     {
       "scope": "state_senate",
-      "contest_type": "state_treasurer",
-      "year": 2010,
-      "file": "state_senate_state_treasurer_2010.json",
-      "rows": 46
-    },
-    {
-      "scope": "state_senate",
       "contest_type": "superintendent",
       "year": 2010,
       "file": "state_senate_superintendent_2010.json",
@@ -898,9 +884,23 @@
     },
     {
       "scope": "state_senate",
-      "contest_type": "us_senate",
+      "contest_type": "state_treasurer",
       "year": 2010,
-      "file": "state_senate_us_senate_2010.json",
+      "file": "state_senate_state_treasurer_2010.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "comptroller_general",
+      "year": 2010,
+      "file": "state_senate_comptroller_general_2010.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "commissioner_agriculture",
+      "year": 2010,
+      "file": "state_senate_commissioner_agriculture_2010.json",
       "rows": 46
     },
     {
@@ -912,17 +912,17 @@
     },
     {
       "scope": "congressional",
-      "contest_type": "us_house",
-      "year": 2008,
-      "file": "congressional_us_house_2008.json",
-      "rows": 6
-    },
-    {
-      "scope": "congressional",
       "contest_type": "us_senate",
       "year": 2008,
       "file": "congressional_us_senate_2008.json",
       "rows": 7
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_house",
+      "year": 2008,
+      "file": "congressional_us_house_2008.json",
+      "rows": 6
     },
     {
       "scope": "state_house",
@@ -933,16 +933,16 @@
     },
     {
       "scope": "state_house",
-      "contest_type": "state_house",
+      "contest_type": "us_senate",
       "year": 2008,
-      "file": "state_house_state_house_2008.json",
+      "file": "state_house_us_senate_2008.json",
       "rows": 124
     },
     {
       "scope": "state_house",
-      "contest_type": "us_senate",
+      "contest_type": "state_house",
       "year": 2008,
-      "file": "state_house_us_senate_2008.json",
+      "file": "state_house_state_house_2008.json",
       "rows": 124
     },
     {
@@ -961,30 +961,16 @@
     },
     {
       "scope": "congressional",
-      "contest_type": "attorney_general",
-      "year": 2006,
-      "file": "congressional_attorney_general_2006.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
-      "contest_type": "commissioner_agriculture",
-      "year": 2006,
-      "file": "congressional_commissioner_agriculture_2006.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
-      "contest_type": "comptroller_general",
-      "year": 2006,
-      "file": "congressional_comptroller_general_2006.json",
-      "rows": 7
-    },
-    {
-      "scope": "congressional",
       "contest_type": "governor",
       "year": 2006,
       "file": "congressional_governor_2006.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "attorney_general",
+      "year": 2006,
+      "file": "congressional_attorney_general_2006.json",
       "rows": 7
     },
     {
@@ -996,6 +982,13 @@
     },
     {
       "scope": "congressional",
+      "contest_type": "superintendent",
+      "year": 2006,
+      "file": "congressional_superintendent_2006.json",
+      "rows": 7
+    },
+    {
+      "scope": "congressional",
       "contest_type": "state_treasurer",
       "year": 2006,
       "file": "congressional_state_treasurer_2006.json",
@@ -1003,37 +996,30 @@
     },
     {
       "scope": "congressional",
-      "contest_type": "superintendent",
+      "contest_type": "comptroller_general",
       "year": 2006,
-      "file": "congressional_superintendent_2006.json",
+      "file": "congressional_comptroller_general_2006.json",
       "rows": 7
     },
     {
-      "scope": "state_house",
-      "contest_type": "attorney_general",
-      "year": 2006,
-      "file": "state_house_attorney_general_2006.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
+      "scope": "congressional",
       "contest_type": "commissioner_agriculture",
       "year": 2006,
-      "file": "state_house_commissioner_agriculture_2006.json",
-      "rows": 124
-    },
-    {
-      "scope": "state_house",
-      "contest_type": "comptroller_general",
-      "year": 2006,
-      "file": "state_house_comptroller_general_2006.json",
-      "rows": 124
+      "file": "congressional_commissioner_agriculture_2006.json",
+      "rows": 7
     },
     {
       "scope": "state_house",
       "contest_type": "governor",
       "year": 2006,
       "file": "state_house_governor_2006.json",
+      "rows": 124
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "attorney_general",
+      "year": 2006,
+      "file": "state_house_attorney_general_2006.json",
       "rows": 124
     },
     {
@@ -1045,6 +1031,13 @@
     },
     {
       "scope": "state_house",
+      "contest_type": "superintendent",
+      "year": 2006,
+      "file": "state_house_superintendent_2006.json",
+      "rows": 124
+    },
+    {
+      "scope": "state_house",
       "contest_type": "state_treasurer",
       "year": 2006,
       "file": "state_house_state_treasurer_2006.json",
@@ -1052,37 +1045,30 @@
     },
     {
       "scope": "state_house",
-      "contest_type": "superintendent",
+      "contest_type": "comptroller_general",
       "year": 2006,
-      "file": "state_house_superintendent_2006.json",
+      "file": "state_house_comptroller_general_2006.json",
       "rows": 124
     },
     {
-      "scope": "state_senate",
-      "contest_type": "attorney_general",
-      "year": 2006,
-      "file": "state_senate_attorney_general_2006.json",
-      "rows": 46
-    },
-    {
-      "scope": "state_senate",
+      "scope": "state_house",
       "contest_type": "commissioner_agriculture",
       "year": 2006,
-      "file": "state_senate_commissioner_agriculture_2006.json",
-      "rows": 46
-    },
-    {
-      "scope": "state_senate",
-      "contest_type": "comptroller_general",
-      "year": 2006,
-      "file": "state_senate_comptroller_general_2006.json",
-      "rows": 46
+      "file": "state_house_commissioner_agriculture_2006.json",
+      "rows": 124
     },
     {
       "scope": "state_senate",
       "contest_type": "governor",
       "year": 2006,
       "file": "state_senate_governor_2006.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "attorney_general",
+      "year": 2006,
+      "file": "state_senate_attorney_general_2006.json",
       "rows": 46
     },
     {
@@ -1094,6 +1080,13 @@
     },
     {
       "scope": "state_senate",
+      "contest_type": "superintendent",
+      "year": 2006,
+      "file": "state_senate_superintendent_2006.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
       "contest_type": "state_treasurer",
       "year": 2006,
       "file": "state_senate_state_treasurer_2006.json",
@@ -1101,9 +1094,16 @@
     },
     {
       "scope": "state_senate",
-      "contest_type": "superintendent",
+      "contest_type": "comptroller_general",
       "year": 2006,
-      "file": "state_senate_superintendent_2006.json",
+      "file": "state_senate_comptroller_general_2006.json",
+      "rows": 46
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "commissioner_agriculture",
+      "year": 2006,
+      "file": "state_senate_commissioner_agriculture_2006.json",
       "rows": 46
     }
   ]
