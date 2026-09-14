@@ -362,16 +362,16 @@
         "color": "#67000d"
       },
       "31": {
-        "dem_votes": 3445,
-        "rep_votes": 3472,
-        "other_votes": 8,
+        "dem_votes": 4533,
+        "rep_votes": 2383,
+        "other_votes": 9,
         "total_votes": 6925,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 27,
-        "margin_pct": 0.3899,
-        "winner": "R",
-        "color": "#fcbba1"
+        "margin": -2150,
+        "margin_pct": -31.0469,
+        "winner": "D",
+        "color": "#2171b5"
       },
       "32": {
         "dem_votes": 3461,
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 5167,
-        "rep_votes": 9187,
-        "other_votes": 7,
+        "dem_votes": 4079,
+        "rep_votes": 10276,
+        "other_votes": 6,
         "total_votes": 14361,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 4020,
-        "margin_pct": 27.9925,
+        "margin": 6197,
+        "margin_pct": 43.1516,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -1535,6 +1535,12 @@
     "margin_calibration_max_abs_delta_pp_before": 3.0772,
     "margin_calibration_mean_abs_delta_pp_after": 0.0036,
     "margin_calibration_max_abs_delta_pp_after": 0.0117,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

@@ -363,13 +363,13 @@
       },
       "31": {
         "dem_votes": 0,
-        "rep_votes": 3213,
-        "other_votes": 137,
+        "rep_votes": 3128,
+        "other_votes": 222,
         "total_votes": 3350,
         "dem_candidate": "",
         "rep_candidate": "Alan Wilson",
-        "margin": 3213,
-        "margin_pct": 95.9104,
+        "margin": 3128,
+        "margin_pct": 93.3731,
         "winner": "R",
         "color": "#67000d"
       },
@@ -615,13 +615,13 @@
       },
       "52": {
         "dem_votes": 0,
-        "rep_votes": 10774,
-        "other_votes": 224,
+        "rep_votes": 10859,
+        "other_votes": 139,
         "total_votes": 10998,
         "dem_candidate": "",
         "rep_candidate": "Alan Wilson",
-        "margin": 10774,
-        "margin_pct": 97.9633,
+        "margin": 10859,
+        "margin_pct": 98.7361,
         "winner": "R",
         "color": "#67000d"
       },
@@ -1534,6 +1534,12 @@
     "margin_calibration_mean_abs_delta_pp_before": 0.2289,
     "margin_calibration_max_abs_delta_pp_before": 2.5074,
     "margin_calibration_mean_abs_delta_pp_after": 0.0132,
-    "margin_calibration_max_abs_delta_pp_after": 0.0688
+    "margin_calibration_max_abs_delta_pp_after": 0.0688,
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

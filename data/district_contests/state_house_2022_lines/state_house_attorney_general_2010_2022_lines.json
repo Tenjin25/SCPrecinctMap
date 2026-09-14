@@ -362,16 +362,16 @@
         "color": "#cb181d"
       },
       "31": {
-        "dem_votes": 4174,
-        "rep_votes": 2546,
-        "other_votes": 123,
+        "dem_votes": 4828,
+        "rep_votes": 1899,
+        "other_votes": 116,
         "total_votes": 6843,
         "dem_candidate": "Matthew Richardson",
         "rep_candidate": "Alan Wilson",
-        "margin": -1628,
-        "margin_pct": -23.7907,
+        "margin": -2929,
+        "margin_pct": -42.8029,
         "winner": "D",
-        "color": "#4292c6"
+        "color": "#08519c"
       },
       "32": {
         "dem_votes": 3000,
@@ -614,14 +614,14 @@
         "color": "#08519c"
       },
       "52": {
-        "dem_votes": 5718,
-        "rep_votes": 6071,
-        "other_votes": 242,
+        "dem_votes": 5064,
+        "rep_votes": 6718,
+        "other_votes": 249,
         "total_votes": 12031,
         "dem_candidate": "Matthew Richardson",
         "rep_candidate": "Alan Wilson",
-        "margin": 353,
-        "margin_pct": 2.9341,
+        "margin": 1654,
+        "margin_pct": 13.7478,
         "winner": "R",
         "color": "#fcbba1"
       },
@@ -1536,6 +1536,12 @@
     "margin_calibration_max_abs_delta_pp_before": 2.5627,
     "margin_calibration_mean_abs_delta_pp_after": 0.0052,
     "margin_calibration_max_abs_delta_pp_after": 0.0168,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

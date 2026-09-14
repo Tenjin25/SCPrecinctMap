@@ -362,16 +362,16 @@
         "color": "#67000d"
       },
       "31": {
-        "dem_votes": 5780,
-        "rep_votes": 5470,
-        "other_votes": 179,
+        "dem_votes": 7588,
+        "rep_votes": 3669,
+        "other_votes": 172,
         "total_votes": 11429,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": -310,
-        "margin_pct": -2.7124,
+        "margin": -3919,
+        "margin_pct": -34.29,
         "winner": "D",
-        "color": "#c6dbef"
+        "color": "#2171b5"
       },
       "32": {
         "dem_votes": 6002,
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 7912,
-        "rep_votes": 13584,
-        "other_votes": 283,
+        "dem_votes": 6104,
+        "rep_votes": 15385,
+        "other_votes": 290,
         "total_votes": 21779,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 5672,
-        "margin_pct": 26.0434,
+        "margin": 9281,
+        "margin_pct": 42.6144,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -1535,6 +1535,12 @@
     "margin_calibration_max_abs_delta_pp_before": 2.5993,
     "margin_calibration_mean_abs_delta_pp_after": 0.0023,
     "margin_calibration_max_abs_delta_pp_after": 0.0084,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

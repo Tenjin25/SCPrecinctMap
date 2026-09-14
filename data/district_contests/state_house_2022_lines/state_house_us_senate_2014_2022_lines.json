@@ -362,16 +362,16 @@
         "color": "#67000d"
       },
       "31": {
-        "dem_votes": 5156,
-        "rep_votes": 4333,
-        "other_votes": 588,
+        "dem_votes": 6014,
+        "rep_votes": 3516,
+        "other_votes": 547,
         "total_votes": 10077,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": -823,
-        "margin_pct": -8.1671,
+        "margin": -2498,
+        "margin_pct": -24.7891,
         "winner": "D",
-        "color": "#9ecae1"
+        "color": "#4292c6"
       },
       "32": {
         "dem_votes": 4174,
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 7281,
-        "rep_votes": 13023,
-        "other_votes": 1022,
+        "dem_votes": 6423,
+        "rep_votes": 13840,
+        "other_votes": 1063,
         "total_votes": 21326,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 5742,
-        "margin_pct": 26.9249,
+        "margin": 7417,
+        "margin_pct": 34.7791,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -1536,6 +1536,12 @@
     "margin_calibration_max_abs_delta_pp_before": 3.3791,
     "margin_calibration_mean_abs_delta_pp_after": 0.0026,
     "margin_calibration_max_abs_delta_pp_after": 0.0077,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

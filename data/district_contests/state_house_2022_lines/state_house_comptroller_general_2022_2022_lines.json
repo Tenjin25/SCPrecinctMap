@@ -363,13 +363,13 @@
       },
       "31": {
         "dem_votes": 0,
-        "rep_votes": 3209,
-        "other_votes": 99,
+        "rep_votes": 3129,
+        "other_votes": 179,
         "total_votes": 3308,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 3209,
-        "margin_pct": 97.0073,
+        "margin": 3129,
+        "margin_pct": 94.5889,
         "winner": "R",
         "color": "#67000d"
       },
@@ -615,13 +615,13 @@
       },
       "52": {
         "dem_votes": 0,
-        "rep_votes": 10841,
-        "other_votes": 169,
+        "rep_votes": 10921,
+        "other_votes": 89,
         "total_votes": 11010,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 10841,
-        "margin_pct": 98.465,
+        "margin": 10921,
+        "margin_pct": 99.1916,
         "winner": "R",
         "color": "#67000d"
       },
@@ -1534,6 +1534,12 @@
     "margin_calibration_mean_abs_delta_pp_before": 0.1731,
     "margin_calibration_max_abs_delta_pp_before": 2.4193,
     "margin_calibration_mean_abs_delta_pp_after": 0.0042,
-    "margin_calibration_max_abs_delta_pp_after": 0.0236
+    "margin_calibration_max_abs_delta_pp_after": 0.0236,
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

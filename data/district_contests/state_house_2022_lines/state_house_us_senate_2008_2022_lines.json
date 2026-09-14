@@ -362,16 +362,16 @@
         "color": "#cb181d"
       },
       "31": {
-        "dem_votes": 6828,
-        "rep_votes": 5794,
-        "other_votes": 42,
+        "dem_votes": 8344,
+        "rep_votes": 4289,
+        "other_votes": 31,
         "total_votes": 12664,
         "dem_candidate": "Bob Conley",
         "rep_candidate": "Lindsey Graham",
-        "margin": -1034,
-        "margin_pct": -8.1649,
+        "margin": -4055,
+        "margin_pct": -32.0199,
         "winner": "D",
-        "color": "#9ecae1"
+        "color": "#2171b5"
       },
       "32": {
         "dem_votes": 4142,
@@ -614,14 +614,14 @@
         "color": "#4292c6"
       },
       "52": {
-        "dem_votes": 4459,
-        "rep_votes": 9358,
-        "other_votes": 9,
+        "dem_votes": 2943,
+        "rep_votes": 10863,
+        "other_votes": 20,
         "total_votes": 13826,
         "dem_candidate": "Bob Conley",
         "rep_candidate": "Lindsey Graham",
-        "margin": 4899,
-        "margin_pct": 35.4332,
+        "margin": 7920,
+        "margin_pct": 57.2834,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -1536,6 +1536,12 @@
     "margin_calibration_max_abs_delta_pp_before": 2.7952,
     "margin_calibration_mean_abs_delta_pp_after": 0.004,
     "margin_calibration_max_abs_delta_pp_after": 0.0123,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

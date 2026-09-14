@@ -362,16 +362,16 @@
         "color": "#a50f15"
       },
       "31": {
-        "dem_votes": 2806,
-        "rep_votes": 2119,
-        "other_votes": 122,
+        "dem_votes": 3265,
+        "rep_votes": 1657,
+        "other_votes": 125,
         "total_votes": 5047,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": -687,
-        "margin_pct": -13.612,
+        "margin": -1608,
+        "margin_pct": -31.8605,
         "winner": "D",
-        "color": "#6baed6"
+        "color": "#2171b5"
       },
       "32": {
         "dem_votes": 2730,
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 5265,
-        "rep_votes": 5274,
-        "other_votes": 206,
+        "dem_votes": 4806,
+        "rep_votes": 5736,
+        "other_votes": 203,
         "total_votes": 10745,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 9,
-        "margin_pct": 0.0838,
+        "margin": 930,
+        "margin_pct": 8.6552,
         "winner": "R",
         "color": "#fcbba1"
       },
@@ -1536,6 +1536,12 @@
     "margin_calibration_max_abs_delta_pp_before": 3.1932,
     "margin_calibration_mean_abs_delta_pp_after": 0.0057,
     "margin_calibration_max_abs_delta_pp_after": 0.0204,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

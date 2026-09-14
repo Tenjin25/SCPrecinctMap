@@ -362,16 +362,16 @@
         "color": "#67000d"
       },
       "31": {
-        "dem_votes": 3911,
-        "rep_votes": 3148,
-        "other_votes": 165,
+        "dem_votes": 5060,
+        "rep_votes": 2005,
+        "other_votes": 159,
         "total_votes": 7224,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": -763,
-        "margin_pct": -10.562,
+        "margin": -3055,
+        "margin_pct": -42.2896,
         "winner": "D",
-        "color": "#6baed6"
+        "color": "#08519c"
       },
       "32": {
         "dem_votes": 3368,
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 4677,
-        "rep_votes": 7005,
-        "other_votes": 344,
+        "dem_votes": 3528,
+        "rep_votes": 8148,
+        "other_votes": 350,
         "total_votes": 12026,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 2328,
-        "margin_pct": 19.3581,
+        "margin": 4620,
+        "margin_pct": 38.4168,
         "winner": "R",
         "color": "#ef3b2c"
       },
@@ -1535,6 +1535,12 @@
     "margin_calibration_max_abs_delta_pp_before": 2.7508,
     "margin_calibration_mean_abs_delta_pp_after": 0.0036,
     "margin_calibration_max_abs_delta_pp_after": 0.0088,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

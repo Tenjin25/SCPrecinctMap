@@ -362,16 +362,16 @@
         "color": "#67000d"
       },
       "31": {
-        "dem_votes": 4122,
-        "rep_votes": 3082,
-        "other_votes": 13,
+        "dem_votes": 5237,
+        "rep_votes": 1969,
+        "other_votes": 11,
         "total_votes": 7217,
         "dem_candidate": "James Smith / Mandy Powers Norrell",
         "rep_candidate": "Henry McMaster / Pamela Evette",
-        "margin": -1040,
-        "margin_pct": -14.4104,
+        "margin": -3268,
+        "margin_pct": -45.282,
         "winner": "D",
-        "color": "#6baed6"
+        "color": "#08519c"
       },
       "32": {
         "dem_votes": 3796,
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 5209,
-        "rep_votes": 6830,
-        "other_votes": 14,
+        "dem_votes": 4094,
+        "rep_votes": 7943,
+        "other_votes": 16,
         "total_votes": 12053,
         "dem_candidate": "James Smith / Mandy Powers Norrell",
         "rep_candidate": "Henry McMaster / Pamela Evette",
-        "margin": 1621,
-        "margin_pct": 13.4489,
+        "margin": 3849,
+        "margin_pct": 31.934,
         "winner": "R",
         "color": "#ef3b2c"
       },
@@ -1535,6 +1535,12 @@
     "margin_calibration_max_abs_delta_pp_before": 2.5425,
     "margin_calibration_mean_abs_delta_pp_after": 0.0034,
     "margin_calibration_max_abs_delta_pp_after": 0.0106,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

@@ -363,13 +363,13 @@
       },
       "31": {
         "dem_votes": 0,
-        "rep_votes": 3149,
-        "other_votes": 1122,
+        "rep_votes": 2671,
+        "other_votes": 1600,
         "total_votes": 4271,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 3149,
-        "margin_pct": 73.7298,
+        "margin": 2671,
+        "margin_pct": 62.538,
         "winner": "R",
         "color": "#67000d"
       },
@@ -615,13 +615,13 @@
       },
       "52": {
         "dem_votes": 0,
-        "rep_votes": 10170,
-        "other_votes": 2084,
+        "rep_votes": 10648,
+        "other_votes": 1606,
         "total_votes": 12254,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 10170,
-        "margin_pct": 82.9933,
+        "margin": 10648,
+        "margin_pct": 86.8941,
         "winner": "R",
         "color": "#67000d"
       },
@@ -1534,6 +1534,12 @@
     "margin_calibration_mean_abs_delta_pp_before": 1.4047,
     "margin_calibration_max_abs_delta_pp_before": 14.8227,
     "margin_calibration_mean_abs_delta_pp_after": 0.2898,
-    "margin_calibration_max_abs_delta_pp_after": 0.6969
+    "margin_calibration_max_abs_delta_pp_after": 0.6969,
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

@@ -362,14 +362,14 @@
         "color": "#cb181d"
       },
       "31": {
-        "dem_votes": 4584,
-        "rep_votes": 2003,
+        "dem_votes": 4596,
+        "rep_votes": 1991,
         "other_votes": 287,
         "total_votes": 6874,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": -2581,
-        "margin_pct": -37.5473,
+        "margin": -2605,
+        "margin_pct": -37.8964,
         "winner": "D",
         "color": "#2171b5"
       },
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 4922,
-        "rep_votes": 6260,
+        "dem_votes": 4910,
+        "rep_votes": 6272,
         "other_votes": 783,
         "total_votes": 11965,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 1338,
-        "margin_pct": 11.1826,
+        "margin": 1362,
+        "margin_pct": 11.3832,
         "winner": "R",
         "color": "#ef3b2c"
       },
@@ -1504,6 +1504,12 @@
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
-    }
+    },
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

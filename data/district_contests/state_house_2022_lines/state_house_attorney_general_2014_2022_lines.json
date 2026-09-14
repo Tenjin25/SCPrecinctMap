@@ -362,16 +362,16 @@
         "color": "#67000d"
       },
       "31": {
-        "dem_votes": 2792,
-        "rep_votes": 2178,
-        "other_votes": 7,
+        "dem_votes": 3251,
+        "rep_votes": 1717,
+        "other_votes": 9,
         "total_votes": 4977,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": -614,
-        "margin_pct": -12.3367,
+        "margin": -1534,
+        "margin_pct": -30.8218,
         "winner": "D",
-        "color": "#6baed6"
+        "color": "#2171b5"
       },
       "32": {
         "dem_votes": 2421,
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 3765,
-        "rep_votes": 6756,
-        "other_votes": 7,
+        "dem_votes": 3306,
+        "rep_votes": 7217,
+        "other_votes": 5,
         "total_votes": 10528,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": 2991,
-        "margin_pct": 28.41,
+        "margin": 3911,
+        "margin_pct": 37.1486,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -1536,6 +1536,12 @@
     "margin_calibration_max_abs_delta_pp_before": 3.1266,
     "margin_calibration_mean_abs_delta_pp_after": 0.005,
     "margin_calibration_max_abs_delta_pp_after": 0.0246,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

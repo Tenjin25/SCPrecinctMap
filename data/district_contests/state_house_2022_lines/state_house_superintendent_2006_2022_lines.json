@@ -362,14 +362,14 @@
         "color": "#fc8a6a"
       },
       "31": {
-        "dem_votes": 3792,
-        "rep_votes": 2673,
+        "dem_votes": 3793,
+        "rep_votes": 2672,
         "other_votes": 295,
         "total_votes": 6760,
         "dem_candidate": "Jim Rex",
         "rep_candidate": "Karen Floyd",
-        "margin": -1119,
-        "margin_pct": -16.5533,
+        "margin": -1121,
+        "margin_pct": -16.5828,
         "winner": "D",
         "color": "#6baed6"
       },
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 5128,
-        "rep_votes": 4806,
+        "dem_votes": 5127,
+        "rep_votes": 4807,
         "other_votes": 501,
         "total_votes": 10435,
         "dem_candidate": "Jim Rex",
         "rep_candidate": "Karen Floyd",
-        "margin": -322,
-        "margin_pct": -3.0858,
+        "margin": -320,
+        "margin_pct": -3.0666,
         "winner": "D",
         "color": "#c6dbef"
       },
@@ -1504,6 +1504,12 @@
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
-    }
+    },
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

@@ -362,16 +362,16 @@
         "color": "#cb181d"
       },
       "31": {
-        "dem_votes": 5613,
-        "rep_votes": 3336,
-        "other_votes": 100,
+        "dem_votes": 6762,
+        "rep_votes": 2185,
+        "other_votes": 102,
         "total_votes": 9049,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "Mitt Romney and Paul Ryan",
-        "margin": -2277,
-        "margin_pct": -25.163,
+        "margin": -4577,
+        "margin_pct": -50.5802,
         "winner": "D",
-        "color": "#4292c6"
+        "color": "#08519c"
       },
       "32": {
         "dem_votes": 3536,
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 5251,
-        "rep_votes": 8671,
-        "other_votes": 204,
+        "dem_votes": 4102,
+        "rep_votes": 9822,
+        "other_votes": 202,
         "total_votes": 14126,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "Mitt Romney and Paul Ryan",
-        "margin": 3420,
-        "margin_pct": 24.2107,
+        "margin": 5720,
+        "margin_pct": 40.4927,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -1536,6 +1536,12 @@
     "margin_calibration_max_abs_delta_pp_before": 3.0451,
     "margin_calibration_mean_abs_delta_pp_after": 0.0044,
     "margin_calibration_max_abs_delta_pp_after": 0.018,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

@@ -362,16 +362,16 @@
         "color": "#67000d"
       },
       "31": {
-        "dem_votes": 2978,
-        "rep_votes": 3005,
-        "other_votes": 778,
+        "dem_votes": 3576,
+        "rep_votes": 2382,
+        "other_votes": 803,
         "total_votes": 6761,
         "dem_candidate": "Alvin M. Greene",
         "rep_candidate": "Jim DeMint",
-        "margin": 27,
-        "margin_pct": 0.3993,
-        "winner": "R",
-        "color": "#fcbba1"
+        "margin": -1194,
+        "margin_pct": -17.6601,
+        "winner": "D",
+        "color": "#6baed6"
       },
       "32": {
         "dem_votes": 1436,
@@ -614,14 +614,14 @@
         "color": "#6baed6"
       },
       "52": {
-        "dem_votes": 2802,
-        "rep_votes": 7713,
-        "other_votes": 1326,
+        "dem_votes": 2204,
+        "rep_votes": 8336,
+        "other_votes": 1301,
         "total_votes": 11841,
         "dem_candidate": "Alvin M. Greene",
         "rep_candidate": "Jim DeMint",
-        "margin": 4911,
-        "margin_pct": 41.4745,
+        "margin": 6132,
+        "margin_pct": 51.7862,
         "winner": "R",
         "color": "#67000d"
       },
@@ -1536,6 +1536,12 @@
     "margin_calibration_max_abs_delta_pp_before": 3.7177,
     "margin_calibration_mean_abs_delta_pp_after": 0.005,
     "margin_calibration_max_abs_delta_pp_after": 0.0209,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

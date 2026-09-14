@@ -362,16 +362,16 @@
         "color": "#67000d"
       },
       "31": {
-        "dem_votes": 7705,
-        "rep_votes": 5521,
-        "other_votes": 202,
+        "dem_votes": 9705,
+        "rep_votes": 3560,
+        "other_votes": 163,
         "total_votes": 13428,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": -2184,
-        "margin_pct": -16.2645,
+        "margin": -6145,
+        "margin_pct": -45.7626,
         "winner": "D",
-        "color": "#6baed6"
+        "color": "#08519c"
       },
       "32": {
         "dem_votes": 6843,
@@ -614,14 +614,14 @@
         "color": "#08519c"
       },
       "52": {
-        "dem_votes": 9590,
-        "rep_votes": 11690,
-        "other_votes": 330,
+        "dem_votes": 7590,
+        "rep_votes": 13651,
+        "other_votes": 369,
         "total_votes": 21610,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": 2100,
-        "margin_pct": 9.7177,
+        "margin": 6061,
+        "margin_pct": 28.0472,
         "winner": "R",
         "color": "#fc8a6a"
       },
@@ -1535,6 +1535,12 @@
     "margin_calibration_max_abs_delta_pp_before": 2.5234,
     "margin_calibration_mean_abs_delta_pp_after": 0.0024,
     "margin_calibration_max_abs_delta_pp_after": 0.006,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

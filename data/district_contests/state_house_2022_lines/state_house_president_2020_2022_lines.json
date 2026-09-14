@@ -362,16 +362,16 @@
         "color": "#67000d"
       },
       "31": {
-        "dem_votes": 7544,
-        "rep_votes": 5660,
-        "other_votes": 218,
+        "dem_votes": 9490,
+        "rep_votes": 3738,
+        "other_votes": 194,
         "total_votes": 13422,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": -1884,
-        "margin_pct": -14.0367,
+        "margin": -5752,
+        "margin_pct": -42.855,
         "winner": "D",
-        "color": "#6baed6"
+        "color": "#08519c"
       },
       "32": {
         "dem_votes": 6766,
@@ -614,14 +614,14 @@
         "color": "#08519c"
       },
       "52": {
-        "dem_votes": 9507,
-        "rep_votes": 11823,
-        "other_votes": 280,
+        "dem_votes": 7561,
+        "rep_votes": 13745,
+        "other_votes": 304,
         "total_votes": 21610,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 2316,
-        "margin_pct": 10.7173,
+        "margin": 6184,
+        "margin_pct": 28.6164,
         "winner": "R",
         "color": "#ef3b2c"
       },
@@ -1535,6 +1535,12 @@
     "margin_calibration_max_abs_delta_pp_before": 2.4571,
     "margin_calibration_mean_abs_delta_pp_after": 0.002,
     "margin_calibration_max_abs_delta_pp_after": 0.0056,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

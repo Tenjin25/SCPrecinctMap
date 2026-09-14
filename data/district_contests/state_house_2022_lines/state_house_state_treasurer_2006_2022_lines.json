@@ -362,14 +362,14 @@
         "color": "#ef3b2c"
       },
       "31": {
-        "dem_votes": 3425,
-        "rep_votes": 3318,
-        "other_votes": 4,
+        "dem_votes": 3416,
+        "rep_votes": 3330,
+        "other_votes": 1,
         "total_votes": 6747,
         "dem_candidate": "Grady L Patterson Jr",
         "rep_candidate": "Thomas Ravenel",
-        "margin": -107,
-        "margin_pct": -1.5859,
+        "margin": -86,
+        "margin_pct": -1.2746,
         "winner": "D",
         "color": "#c6dbef"
       },
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 5029,
-        "rep_votes": 5479,
-        "other_votes": 4,
+        "dem_votes": 5038,
+        "rep_votes": 5467,
+        "other_votes": 7,
         "total_votes": 10512,
         "dem_candidate": "Grady L Patterson Jr",
         "rep_candidate": "Thomas Ravenel",
-        "margin": 450,
-        "margin_pct": 4.2808,
+        "margin": 429,
+        "margin_pct": 4.0811,
         "winner": "R",
         "color": "#fcbba1"
       },
@@ -1539,6 +1539,12 @@
     "margin_calibration_max_abs_delta_pp_after": 0.0433,
     "margin_calibration_ignored_uncontested_districts": [
       "80"
+    ],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
     ]
   }
 }

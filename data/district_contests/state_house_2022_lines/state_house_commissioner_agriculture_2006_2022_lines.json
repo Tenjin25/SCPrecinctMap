@@ -362,14 +362,14 @@
         "color": "#a50f15"
       },
       "31": {
-        "dem_votes": 2984,
-        "rep_votes": 3606,
-        "other_votes": 1,
+        "dem_votes": 2979,
+        "rep_votes": 3612,
+        "other_votes": 0,
         "total_votes": 6591,
         "dem_candidate": "Emile DeFelice",
         "rep_candidate": "Hugh Weathers",
-        "margin": 622,
-        "margin_pct": 9.4371,
+        "margin": 633,
+        "margin_pct": 9.604,
         "winner": "R",
         "color": "#fc8a6a"
       },
@@ -614,14 +614,14 @@
         "color": "#4292c6"
       },
       "52": {
-        "dem_votes": 3867,
-        "rep_votes": 6393,
-        "other_votes": 4,
+        "dem_votes": 3872,
+        "rep_votes": 6387,
+        "other_votes": 5,
         "total_votes": 10264,
         "dem_candidate": "Emile DeFelice",
         "rep_candidate": "Hugh Weathers",
-        "margin": 2526,
-        "margin_pct": 24.6103,
+        "margin": 2515,
+        "margin_pct": 24.5031,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -1539,6 +1539,12 @@
     "margin_calibration_max_abs_delta_pp_after": 0.066,
     "margin_calibration_ignored_uncontested_districts": [
       "80"
+    ],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
     ]
   }
 }

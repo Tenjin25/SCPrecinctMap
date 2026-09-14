@@ -363,13 +363,13 @@
       },
       "31": {
         "dem_votes": 0,
-        "rep_votes": 2032,
-        "other_votes": 743,
+        "rep_votes": 1803,
+        "other_votes": 972,
         "total_votes": 2775,
         "dem_candidate": "",
         "rep_candidate": "Hugh E. Weathers",
-        "margin": 2032,
-        "margin_pct": 73.2252,
+        "margin": 1803,
+        "margin_pct": 64.973,
         "winner": "R",
         "color": "#67000d"
       },
@@ -615,13 +615,13 @@
       },
       "52": {
         "dem_votes": 0,
-        "rep_votes": 7151,
-        "other_votes": 1616,
+        "rep_votes": 7380,
+        "other_votes": 1387,
         "total_votes": 8767,
         "dem_candidate": "",
         "rep_candidate": "Hugh E. Weathers",
-        "margin": 7151,
-        "margin_pct": 81.5672,
+        "margin": 7380,
+        "margin_pct": 84.1793,
         "winner": "R",
         "color": "#67000d"
       },
@@ -1534,6 +1534,12 @@
     "margin_calibration_mean_abs_delta_pp_before": 1.47,
     "margin_calibration_max_abs_delta_pp_before": 24.1082,
     "margin_calibration_mean_abs_delta_pp_after": 0.4674,
-    "margin_calibration_max_abs_delta_pp_after": 1.2542
+    "margin_calibration_max_abs_delta_pp_after": 1.2542,
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

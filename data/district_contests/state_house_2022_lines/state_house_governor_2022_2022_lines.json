@@ -362,16 +362,16 @@
         "color": "#67000d"
       },
       "31": {
-        "dem_votes": 3628,
-        "rep_votes": 3200,
-        "other_votes": 111,
+        "dem_votes": 4665,
+        "rep_votes": 2172,
+        "other_votes": 102,
         "total_votes": 6939,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": -428,
-        "margin_pct": -6.168,
+        "margin": -2493,
+        "margin_pct": -35.9274,
         "winner": "D",
-        "color": "#9ecae1"
+        "color": "#2171b5"
       },
       "32": {
         "dem_votes": 4036,
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 5648,
-        "rep_votes": 8570,
-        "other_votes": 214,
+        "dem_votes": 4611,
+        "rep_votes": 9598,
+        "other_votes": 223,
         "total_votes": 14432,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 2922,
-        "margin_pct": 20.2467,
+        "margin": 4987,
+        "margin_pct": 34.5552,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -1535,6 +1535,12 @@
     "margin_calibration_max_abs_delta_pp_before": 2.502,
     "margin_calibration_mean_abs_delta_pp_after": 0.0033,
     "margin_calibration_max_abs_delta_pp_after": 0.013,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

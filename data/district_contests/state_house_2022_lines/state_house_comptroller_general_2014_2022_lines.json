@@ -362,16 +362,16 @@
         "color": "#67000d"
       },
       "31": {
-        "dem_votes": 2779,
-        "rep_votes": 2186,
-        "other_votes": 6,
+        "dem_votes": 3228,
+        "rep_votes": 1735,
+        "other_votes": 8,
         "total_votes": 4971,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": -593,
-        "margin_pct": -11.9292,
+        "margin": -1493,
+        "margin_pct": -30.0342,
         "winner": "D",
-        "color": "#6baed6"
+        "color": "#2171b5"
       },
       "32": {
         "dem_votes": 2384,
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 3733,
-        "rep_votes": 6740,
-        "other_votes": 5,
+        "dem_votes": 3284,
+        "rep_votes": 7191,
+        "other_votes": 3,
         "total_votes": 10478,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 3007,
-        "margin_pct": 28.6982,
+        "margin": 3907,
+        "margin_pct": 37.2877,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -1536,6 +1536,12 @@
     "margin_calibration_max_abs_delta_pp_before": 3.12,
     "margin_calibration_mean_abs_delta_pp_after": 0.0049,
     "margin_calibration_max_abs_delta_pp_after": 0.0179,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

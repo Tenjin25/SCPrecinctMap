@@ -362,14 +362,14 @@
         "color": "#ef3b2c"
       },
       "31": {
-        "dem_votes": 3500,
-        "rep_votes": 3160,
-        "other_votes": 4,
+        "dem_votes": 3499,
+        "rep_votes": 3164,
+        "other_votes": 1,
         "total_votes": 6664,
         "dem_candidate": "Drew Theodore",
         "rep_candidate": "Richard Eckstrom",
-        "margin": -340,
-        "margin_pct": -5.102,
+        "margin": -335,
+        "margin_pct": -5.027,
         "winner": "D",
         "color": "#9ecae1"
       },
@@ -614,14 +614,14 @@
         "color": "#4292c6"
       },
       "52": {
-        "dem_votes": 4921,
-        "rep_votes": 5424,
-        "other_votes": 4,
+        "dem_votes": 4922,
+        "rep_votes": 5420,
+        "other_votes": 7,
         "total_votes": 10349,
         "dem_candidate": "Drew Theodore",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 503,
-        "margin_pct": 4.8604,
+        "margin": 498,
+        "margin_pct": 4.8121,
         "winner": "R",
         "color": "#fcbba1"
       },
@@ -1539,6 +1539,12 @@
     "margin_calibration_max_abs_delta_pp_after": 0.0619,
     "margin_calibration_ignored_uncontested_districts": [
       "80"
+    ],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
     ]
   }
 }

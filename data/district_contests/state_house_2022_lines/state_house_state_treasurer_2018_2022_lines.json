@@ -362,16 +362,16 @@
         "color": "#67000d"
       },
       "31": {
-        "dem_votes": 3794,
-        "rep_votes": 3196,
-        "other_votes": 233,
+        "dem_votes": 4973,
+        "rep_votes": 2029,
+        "other_votes": 221,
         "total_votes": 7223,
         "dem_candidate": "Rosalyn L Glenn",
         "rep_candidate": "Curtis Loftis",
-        "margin": -598,
-        "margin_pct": -8.2791,
+        "margin": -2944,
+        "margin_pct": -40.7587,
         "winner": "D",
-        "color": "#9ecae1"
+        "color": "#08519c"
       },
       "32": {
         "dem_votes": 3130,
@@ -614,14 +614,14 @@
         "color": "#2171b5"
       },
       "52": {
-        "dem_votes": 4452,
-        "rep_votes": 7064,
-        "other_votes": 446,
+        "dem_votes": 3273,
+        "rep_votes": 8231,
+        "other_votes": 458,
         "total_votes": 11962,
         "dem_candidate": "Rosalyn L Glenn",
         "rep_candidate": "Curtis Loftis",
-        "margin": 2612,
-        "margin_pct": 21.8358,
+        "margin": 4958,
+        "margin_pct": 41.4479,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -1535,6 +1535,12 @@
     "margin_calibration_max_abs_delta_pp_before": 2.931,
     "margin_calibration_mean_abs_delta_pp_after": 0.0037,
     "margin_calibration_max_abs_delta_pp_after": 0.0103,
-    "margin_calibration_ignored_uncontested_districts": []
+    "margin_calibration_ignored_uncontested_districts": [],
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }

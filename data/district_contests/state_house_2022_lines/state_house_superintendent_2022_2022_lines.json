@@ -362,14 +362,14 @@
         "color": "#67000d"
       },
       "31": {
-        "dem_votes": 4407,
-        "rep_votes": 2171,
+        "dem_votes": 4409,
+        "rep_votes": 2169,
         "other_votes": 320,
         "total_votes": 6898,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": -2236,
-        "margin_pct": -32.4152,
+        "margin": -2240,
+        "margin_pct": -32.4732,
         "winner": "D",
         "color": "#2171b5"
       },
@@ -614,14 +614,14 @@
         "color": "#4292c6"
       },
       "52": {
-        "dem_votes": 5937,
-        "rep_votes": 7467,
+        "dem_votes": 5935,
+        "rep_votes": 7469,
         "other_votes": 917,
         "total_votes": 14321,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 1530,
-        "margin_pct": 10.6836,
+        "margin": 1534,
+        "margin_pct": 10.7115,
         "winner": "R",
         "color": "#ef3b2c"
       },
@@ -1504,6 +1504,12 @@
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
-    }
+    },
+    "unchanged_districts_synced_from_2024_lines": [
+      "31"
+    ],
+    "conservation_rebalanced_changed_districts": [
+      "52"
+    ]
   }
 }
