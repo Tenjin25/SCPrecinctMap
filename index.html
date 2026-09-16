@@ -7288,6 +7288,10 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     grid-template-columns: repeat(15, minmax(0, 1fr));
   }
 
+  .legend-spectrum.population-change {
+    grid-template-columns: repeat(11, minmax(0, 1fr));
+  }
+
   .legend-segment.legend-color {
     width: auto;
     height: auto;
@@ -7329,6 +7333,13 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     letter-spacing: 0;
   }
 
+  .legend-axis.population-change {
+    grid-template-columns: repeat(11, minmax(0, 1fr));
+    gap: 1px;
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+
   .legend-axis span {
     text-align: center;
     line-height: 1.2;
@@ -7354,6 +7365,15 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
+  }
+
+  .legend-scale-caption.population-change {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 1fr) minmax(0, 3fr) minmax(0, 3fr);
+    gap: 4px;
+  }
+
+  .legend-scale-caption.population-change span:nth-child(3) {
+    text-align: center;
   }
 
   .legend-scale-caption span {
@@ -22341,8 +22361,24 @@ document.addEventListener('DOMContentLoaded', function() {
     function buildPopulationChangeLegendHTML() {
       const useAbs = String(populationChangeMetric || 'pct') === 'abs';
       const flatColor = useAbs ? colorForPopulationChangeAbsMode(0) : colorForPopulationChangeMode(0);
+      const colors = useAbs
+        ? [-60000, -30000, -15000, -4000, 0, 4000, 15000, 30000, 60000, 120000, 180000].map(colorForPopulationChangeAbsMode)
+        : [-12, -7, -3, -1, 0, 1, 3, 7, 12, 22, 32].map(colorForPopulationChangeMode);
       return `
         <div class="legend-scale-shell">
+        ${buildLegendSpectrum(colors, 'population-change')}
+        <div class="legend-scale-caption population-change">
+          <span class="dem">Decline</span>
+          <span>Near flat</span>
+          <span class="rep">Growth</span>
+          <span class="rep">${useAbs ? 'Large gains' : 'Explosive growth'}</span>
+        </div>
+        <div class="legend-axis population-change">
+          ${useAbs
+            ? '<span class="dem">-50k+</span><span class="dem">-25k</span><span class="dem">-10k</span><span class="dem">-2.5k</span><span>Flat</span><span class="rep">+2.5k</span><span class="rep">+10k</span><span class="rep">+25k</span><span class="rep">+50k</span><span class="rep">+100k</span><span class="rep">+150k+</span>'
+            : '<span class="dem">-10%+</span><span class="dem">-5%</span><span class="dem">-2%</span><span class="dem">-0.5%</span><span>Flat</span><span class="rep">+1%</span><span class="rep">+2%</span><span class="rep">+5%</span><span class="rep">+10%</span><span class="rep">+20%</span><span class="rep">+30%+</span>'
+          }
+        </div>
         <div class="legend-tier-list population-tiers" role="list">
           <div class="legend-tier-row" role="listitem"><span class="legend-color" style="background: ${useAbs ? colorForPopulationChangeAbsMode(-60000) : colorForPopulationChangeMode(-12)};"></span><span class="legend-tier-label">${useAbs ? 'Severe loss' : 'Severe decline'}</span><span class="legend-tier-range">${useAbs ? '≤−50k' : '≤−10%'}</span></div>
           <div class="legend-tier-row" role="listitem"><span class="legend-color" style="background: ${useAbs ? colorForPopulationChangeAbsMode(-30000) : colorForPopulationChangeMode(-7)};"></span><span class="legend-tier-label">${useAbs ? 'Sharp loss' : 'Sharp decline'}</span><span class="legend-tier-range">${useAbs ? '−49.9k to −25k' : '−9.9 to −5%'}</span></div>
