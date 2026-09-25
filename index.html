@@ -10855,7 +10855,7 @@ document.addEventListener('DOMContentLoaded', function() {
         counties: withBase('./data/census/tl_2020_45_county20.geojson'),
         precincts: withBase('./data/Voting_Precincts.geojson'),
         precinct_centroids: withBase('./data/precinct_centroids.geojson'),
-        precinct_friendly_names: withBase('./data/precinct_friendly_names.json'),
+        precinct_friendly_names: withCacheBuster(withBase('./data/precinct_friendly_names.json')),
         precinct_aliases: withBase('./precinct_aliases.json'),
         districts: withBase('./data/tileset/sc_cd118_tileset.geojson'),
         state_house: withBase('./data/tileset/sc_state_house_2022_lines_tileset.geojson'),
@@ -30324,6 +30324,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // for joins and lookup only; appending it produces redundant labels such as
       // "North Bennettsville (N Bennettsville)".
       const friendlyLabel = friendly;
+      // Preserve verified affiliations even when geometry has an older venue label.
+      if (friendlyLabel && /,\s*(?:PCA|PCUSA|EPC|OPC|ECO|Evangel Presbytery)\s*$/i.test(friendlyLabel)) return friendlyLabel;
 
       const cleanPrecinctFullName = (value) => String(value || '')
         .replace(/\s+/g, ' ')
