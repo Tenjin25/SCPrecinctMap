@@ -37,6 +37,10 @@ The latest combined audit covers 10 election source files, 46 contest slices, 23
 
 The machine-readable result is `data/contest_integrity_report.json`. Warnings identify historical precinct labels that cannot yet be assigned confidently to a current precinct; they must not be hidden with broad aliases that could join the wrong county or precinct.
 
+## Precinct display names
+
+`data/precinct_friendly_names.json` supplies county-scoped display labels. Verified church affiliations (PCA, PCUSA, EPC, OPC, ECO, or Evangel Presbytery) take precedence over older venue names in geometry, and the app cache-busts the lookup. Friendly names do not change precinct IDs, boundaries, or election-result joins.
+
 ## Canonical Rebuild Workflow
 
 Run the following sequence from the repository root for a complete statewide election and district refresh:
