@@ -1,0 +1,1574 @@
+{
+  "method": "Compare 2022 House ballot district labels with source precincts mapped through the selected crosswalk, then current precinct-to-2022-House block/area weights; non-geographic labels excluded. Ballot vote shares are not direct crosswalk weights.",
+  "mapping": "vtd20-reviewed",
+  "source": "C:\\Users\\Shama\\OneDrive\\Documents\\Side_Projects\\SCPrecinctMap\\Data\\_tmpdata\\openelections-data-sc\\2022\\20221108__sc__general__precinct.csv",
+  "summary": {
+    "ballot_precincts": 2391,
+    "matched_geographic_precincts": 2256,
+    "unmatched_geographic_precincts": 0,
+    "meaningful_precincts_100_votes": 2203,
+    "primary_matches_100_votes": 2161,
+    "matched_house_votes": 1486437,
+    "unmatched_house_votes": 0,
+    "unsupported_house_votes_100_votes": 86,
+    "high_unsupported_precincts_100_votes": 0
+  },
+  "largest_unsupported": [
+    {
+      "source_precinct": "CHARLESTON - DEER PARK 1B",
+      "house_votes": 950,
+      "ballot_district_votes": {
+        "15": 595,
+        "113": 333,
+        "94": 22
+      },
+      "expected_district_weights": {
+        "113": 0.396077,
+        "15": 0.594039,
+        "94": 0.009884
+      },
+      "ballot_primary": "15",
+      "expected_primary": "15",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 22,
+      "unsupported_ballot_share": 0.0232
+    },
+    {
+      "source_precinct": "RICHLAND - BRANDON 1",
+      "house_votes": 863,
+      "ballot_district_votes": {
+        "70": 849,
+        "75": 14
+      },
+      "expected_district_weights": {
+        "70": 0.993528,
+        "75": 0.006472
+      },
+      "ballot_primary": "70",
+      "expected_primary": "70",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 14,
+      "unsupported_ballot_share": 0.0162
+    },
+    {
+      "source_precinct": "RICHLAND - NORTH SPRINGS 1",
+      "house_votes": 747,
+      "ballot_district_votes": {
+        "76": 10,
+        "79": 737
+      },
+      "expected_district_weights": {
+        "76": 0.00826,
+        "79": 0.99174
+      },
+      "ballot_primary": "79",
+      "expected_primary": "79",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 10,
+      "unsupported_ballot_share": 0.0134
+    },
+    {
+      "source_precinct": "HORRY - JET PORT 2",
+      "house_votes": 665,
+      "ballot_district_votes": {
+        "106": 657,
+        "107": 8
+      },
+      "expected_district_weights": {
+        "106": 0.999787,
+        "107": 0.000213
+      },
+      "ballot_primary": "106",
+      "expected_primary": "106",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 8,
+      "unsupported_ballot_share": 0.012
+    },
+    {
+      "source_precinct": "HORRY - JERIGANS X ROADS",
+      "house_votes": 353,
+      "ballot_district_votes": {
+        "55": 348,
+        "105": 5
+      },
+      "expected_district_weights": {
+        "105": 0.009732,
+        "55": 0.990268
+      },
+      "ballot_primary": "55",
+      "expected_primary": "55",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 5,
+      "unsupported_ballot_share": 0.0142
+    },
+    {
+      "source_precinct": "ABBEVILLE - KEOWEE",
+      "house_votes": 536,
+      "ballot_district_votes": {
+        "7": 4,
+        "11": 532
+      },
+      "expected_district_weights": {
+        "11": 0.999241,
+        "7": 0.000759
+      },
+      "ballot_primary": "11",
+      "expected_primary": "11",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 4,
+      "unsupported_ballot_share": 0.0075
+    },
+    {
+      "source_precinct": "ANDERSON - ANDERSON 41",
+      "house_votes": 279,
+      "ballot_district_votes": {
+        "8": 4,
+        "9": 275
+      },
+      "expected_district_weights": {
+        "8": 0.007072,
+        "9": 0.992928
+      },
+      "ballot_primary": "9",
+      "expected_primary": "9",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 4,
+      "unsupported_ballot_share": 0.0143
+    },
+    {
+      "source_precinct": "BEAUFORT - BURTON 3",
+      "house_votes": 187,
+      "ballot_district_votes": {
+        "121": 183,
+        "124": 4
+      },
+      "expected_district_weights": {
+        "121": 0.992641,
+        "124": 0.007359
+      },
+      "ballot_primary": "121",
+      "expected_primary": "121",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 4,
+      "unsupported_ballot_share": 0.0214
+    },
+    {
+      "source_precinct": "CHESTER - CHESTER WARD 4",
+      "house_votes": 386,
+      "ballot_district_votes": {
+        "41": 383,
+        "43": 3
+      },
+      "expected_district_weights": {
+        "41": 0.990842,
+        "43": 0.009158
+      },
+      "ballot_primary": "41",
+      "expected_primary": "41",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 3,
+      "unsupported_ballot_share": 0.0078
+    },
+    {
+      "source_precinct": "SPARTANBURG - BETHANY BAPTIST",
+      "house_votes": 303,
+      "ballot_district_votes": {
+        "31": 300,
+        "32": 3
+      },
+      "expected_district_weights": {
+        "31": 0.991556,
+        "32": 0.008444
+      },
+      "ballot_primary": "31",
+      "expected_primary": "31",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 3,
+      "unsupported_ballot_share": 0.0099
+    },
+    {
+      "source_precinct": "GREENVILLE - PARIS MOUNTAIN",
+      "house_votes": 703,
+      "ballot_district_votes": {
+        "19": 261,
+        "17": 2,
+        "20": 440
+      },
+      "expected_district_weights": {
+        "17": 0.00281,
+        "19": 0.354233,
+        "20": 0.642957
+      },
+      "ballot_primary": "20",
+      "expected_primary": "20",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 2,
+      "unsupported_ballot_share": 0.0028
+    },
+    {
+      "source_precinct": "CHEROKEE - ALMA MILL",
+      "house_votes": 368,
+      "ballot_district_votes": {
+        "29": 2,
+        "30": 366
+      },
+      "expected_district_weights": {
+        "29": 0.003807,
+        "30": 0.996193
+      },
+      "ballot_primary": "30",
+      "expected_primary": "30",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 2,
+      "unsupported_ballot_share": 0.0054
+    },
+    {
+      "source_precinct": "ORANGEBURG - ORANGEBURG WD 4",
+      "house_votes": 139,
+      "ballot_district_votes": {
+        "93": 2,
+        "95": 137
+      },
+      "expected_district_weights": {
+        "95": 1.0
+      },
+      "ballot_primary": "95",
+      "expected_primary": "95",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 2,
+      "unsupported_ballot_share": 0.0144
+    },
+    {
+      "source_precinct": "YORK - STATELINE",
+      "house_votes": 882,
+      "ballot_district_votes": {
+        "66": 1,
+        "26": 881
+      },
+      "expected_district_weights": {
+        "26": 0.991329,
+        "66": 0.008671
+      },
+      "ballot_primary": "26",
+      "expected_primary": "26",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 1,
+      "unsupported_ballot_share": 0.0011
+    },
+    {
+      "source_precinct": "SPARTANBURG - ROEBUCK BETHLEHEM",
+      "house_votes": 524,
+      "ballot_district_votes": {
+        "31": 1,
+        "33": 523
+      },
+      "expected_district_weights": {
+        "31": 0.00913,
+        "33": 0.99087
+      },
+      "ballot_primary": "33",
+      "expected_primary": "33",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 1,
+      "unsupported_ballot_share": 0.0019
+    },
+    {
+      "source_precinct": "HORRY - COOL SPRINGS",
+      "house_votes": 241,
+      "ballot_district_votes": {
+        "57": 1,
+        "58": 240
+      },
+      "expected_district_weights": {
+        "58": 1.0
+      },
+      "ballot_primary": "58",
+      "expected_primary": "58",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 1,
+      "unsupported_ballot_share": 0.0041
+    },
+    {
+      "source_precinct": "CHARLESTON - JOHNS ISLAND 2",
+      "house_votes": 3267,
+      "ballot_district_votes": {
+        "119": 3267
+      },
+      "expected_district_weights": {
+        "115": 0.001493,
+        "116": 6e-06,
+        "119": 0.998501
+      },
+      "ballot_primary": "119",
+      "expected_primary": "119",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "CHARLESTON - MT. PLEASANT 35",
+      "house_votes": 3149,
+      "ballot_district_votes": {
+        "112": 173,
+        "80": 2976
+      },
+      "expected_district_weights": {
+        "103": 0.0,
+        "108": 0.0,
+        "112": 0.06083,
+        "80": 0.93917,
+        "99": 0.0
+      },
+      "ballot_primary": "80",
+      "expected_primary": "80",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "RICHLAND - LONGCREEK",
+      "house_votes": 3131,
+      "ballot_district_votes": {
+        "77": 3131
+      },
+      "expected_district_weights": {
+        "41": 0.000274,
+        "77": 0.999726
+      },
+      "ballot_primary": "77",
+      "expected_primary": "77",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "CHARLESTON - JOHNS ISLAND 3A",
+      "house_votes": 2964,
+      "ballot_district_votes": {
+        "115": 2357,
+        "119": 607
+      },
+      "expected_district_weights": {
+        "115": 0.865365,
+        "119": 0.134635
+      },
+      "ballot_primary": "115",
+      "expected_primary": "115",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "LANCASTER - OSCEOLA",
+      "house_votes": 2953,
+      "ballot_district_votes": {
+        "44": 2953
+      },
+      "expected_district_weights": {
+        "44": 0.929566,
+        "45": 0.070434
+      },
+      "ballot_primary": "44",
+      "expected_primary": "44",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "CHARLESTON - MT. PLEASANT 33",
+      "house_votes": 2898,
+      "ballot_district_votes": {
+        "80": 2898
+      },
+      "expected_district_weights": {
+        "103": 0.0,
+        "108": 1e-06,
+        "80": 0.999998,
+        "99": 0.0
+      },
+      "ballot_primary": "80",
+      "expected_primary": "80",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "CHARLESTON - MT. PLEASANT 39",
+      "house_votes": 2878,
+      "ballot_district_votes": {
+        "112": 2878
+      },
+      "expected_district_weights": {
+        "108": 1e-06,
+        "112": 0.998438,
+        "80": 0.001561
+      },
+      "ballot_primary": "112",
+      "expected_primary": "112",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "YORK - FORT MILL 2",
+      "house_votes": 2738,
+      "ballot_district_votes": {
+        "26": 2738
+      },
+      "expected_district_weights": {
+        "26": 1.0
+      },
+      "ballot_primary": "26",
+      "expected_primary": "26",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "CHARLESTON - ST. ANDREWS 37",
+      "house_votes": 2480,
+      "ballot_district_votes": {
+        "114": 2480
+      },
+      "expected_district_weights": {
+        "114": 1.0,
+        "116": 0.0
+      },
+      "ballot_primary": "114",
+      "expected_primary": "114",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - WALNUT SPRINGS",
+      "house_votes": 2429,
+      "ballot_district_votes": {
+        "16": 2429
+      },
+      "expected_district_weights": {
+        "16": 0.999939,
+        "35": 6.1e-05
+      },
+      "ballot_primary": "16",
+      "expected_primary": "16",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "LANCASTER - THE LODGE",
+      "house_votes": 2324,
+      "ballot_district_votes": {
+        "44": 2324
+      },
+      "expected_district_weights": {
+        "44": 1.0
+      },
+      "ballot_primary": "44",
+      "expected_primary": "44",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "HORRY - DEERFIELD",
+      "house_votes": 2277,
+      "ballot_district_votes": {
+        "68": 545,
+        "106": 1732
+      },
+      "expected_district_weights": {
+        "106": 0.830498,
+        "68": 0.169502
+      },
+      "ballot_primary": "106",
+      "expected_primary": "106",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "HORRY - PALMETTO BAYS",
+      "house_votes": 2268,
+      "ballot_district_votes": {
+        "61": 2268
+      },
+      "expected_district_weights": {
+        "61": 1.0
+      },
+      "ballot_primary": "61",
+      "expected_primary": "61",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "SPARTANBURG - LAKE BOWEN BAPTIST",
+      "house_votes": 2243,
+      "ballot_district_votes": {
+        "38": 2243
+      },
+      "expected_district_weights": {
+        "38": 1.0
+      },
+      "ballot_primary": "38",
+      "expected_primary": "38",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "CHARLESTON - ST. ANDREWS 27",
+      "house_votes": 2241,
+      "ballot_district_votes": {
+        "116": 2241
+      },
+      "expected_district_weights": {
+        "116": 1.0,
+        "119": 0.0
+      },
+      "ballot_primary": "116",
+      "expected_primary": "116",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "HORRY - SOCASTEE 3",
+      "house_votes": 2225,
+      "ballot_district_votes": {
+        "61": 613,
+        "68": 1612
+      },
+      "expected_district_weights": {
+        "61": 0.198138,
+        "68": 0.801862
+      },
+      "ballot_primary": "68",
+      "expected_primary": "68",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "HORRY - MARLOWE 3",
+      "house_votes": 2223,
+      "ballot_district_votes": {
+        "68": 2223
+      },
+      "expected_district_weights": {
+        "68": 1.0
+      },
+      "ballot_primary": "68",
+      "expected_primary": "68",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "CHARLESTON - MT. PLEASANT 37",
+      "house_votes": 2185,
+      "ballot_district_votes": {
+        "112": 2185
+      },
+      "expected_district_weights": {
+        "112": 1.0,
+        "80": 0.0
+      },
+      "ballot_primary": "112",
+      "expected_primary": "112",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "HORRY - MARLOWE 2",
+      "house_votes": 2177,
+      "ballot_district_votes": {
+        "68": 2177
+      },
+      "expected_district_weights": {
+        "68": 1.0
+      },
+      "ballot_primary": "68",
+      "expected_primary": "68",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "LEXINGTON - AMICKS FERRY",
+      "house_votes": 2156,
+      "ballot_district_votes": {
+        "85": 1958,
+        "40": 198
+      },
+      "expected_district_weights": {
+        "40": 0.110896,
+        "85": 0.889104
+      },
+      "ballot_primary": "85",
+      "expected_primary": "85",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - MOORE CREEK",
+      "house_votes": 2151,
+      "ballot_district_votes": {
+        "27": 170,
+        "28": 1981
+      },
+      "expected_district_weights": {
+        "27": 0.08768,
+        "28": 0.91232
+      },
+      "ballot_primary": "28",
+      "expected_primary": "28",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "LANCASTER - BLACK HORSE RUN",
+      "house_votes": 2108,
+      "ballot_district_votes": {
+        "44": 2108
+      },
+      "expected_district_weights": {
+        "44": 1.0
+      },
+      "ballot_primary": "44",
+      "expected_primary": "44",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "ANDERSON - HUNT MEADOWS",
+      "house_votes": 2100,
+      "ballot_district_votes": {
+        "10": 2100
+      },
+      "expected_district_weights": {
+        "10": 1.0,
+        "6": 0.0
+      },
+      "ballot_primary": "10",
+      "expected_primary": "10",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "HORRY - WACCAMAW",
+      "house_votes": 2099,
+      "ballot_district_votes": {
+        "61": 2099
+      },
+      "expected_district_weights": {
+        "61": 1.0
+      },
+      "ballot_primary": "61",
+      "expected_primary": "61",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "LANCASTER - HARRISBURG",
+      "house_votes": 2068,
+      "ballot_district_votes": {
+        "44": 2068
+      },
+      "expected_district_weights": {
+        "44": 1.0
+      },
+      "ballot_primary": "44",
+      "expected_primary": "44",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - NEELY FARMS",
+      "house_votes": 2002,
+      "ballot_district_votes": {
+        "28": 2002
+      },
+      "expected_district_weights": {
+        "16": 0.0,
+        "27": 0.000504,
+        "28": 0.999496
+      },
+      "ballot_primary": "28",
+      "expected_primary": "28",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "HORRY - DUNES 1",
+      "house_votes": 1992,
+      "ballot_district_votes": {
+        "56": 523,
+        "107": 1469
+      },
+      "expected_district_weights": {
+        "107": 0.739699,
+        "56": 0.260301
+      },
+      "ballot_primary": "107",
+      "expected_primary": "107",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - ONEAL",
+      "house_votes": 1980,
+      "ballot_district_votes": {
+        "18": 1980
+      },
+      "expected_district_weights": {
+        "17": 0.012101,
+        "18": 0.987899,
+        "36": 0.0,
+        "38": 0.0
+      },
+      "ballot_primary": "18",
+      "expected_primary": "18",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - SANDY FLAT",
+      "house_votes": 1973,
+      "ballot_district_votes": {
+        "17": 1973
+      },
+      "expected_district_weights": {
+        "17": 0.99786,
+        "18": 0.00214
+      },
+      "ballot_primary": "17",
+      "expected_primary": "17",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "FLORENCE - EBENEZER 1",
+      "house_votes": 1969,
+      "ballot_district_votes": {
+        "63": 1969
+      },
+      "expected_district_weights": {
+        "60": 9.9e-05,
+        "63": 0.999901
+      },
+      "ballot_primary": "63",
+      "expected_primary": "63",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "HORRY - WILD WING",
+      "house_votes": 1915,
+      "ballot_district_votes": {
+        "56": 1352,
+        "105": 563
+      },
+      "expected_district_weights": {
+        "105": 0.408758,
+        "56": 0.590916,
+        "61": 0.000326
+      },
+      "ballot_primary": "56",
+      "expected_primary": "56",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "JASPER - SUN CITY",
+      "house_votes": 1910,
+      "ballot_district_votes": {
+        "120": 1910
+      },
+      "expected_district_weights": {
+        "118": 0.0,
+        "120": 1.0
+      },
+      "ballot_primary": "120",
+      "expected_primary": "120",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "HORRY - EMERALD FOREST 2",
+      "house_votes": 1895,
+      "ballot_district_votes": {
+        "56": 1895
+      },
+      "expected_district_weights": {
+        "56": 1.0
+      },
+      "ballot_primary": "56",
+      "expected_primary": "56",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "LANCASTER - LAKE HOUSE",
+      "house_votes": 1876,
+      "ballot_district_votes": {
+        "44": 1876
+      },
+      "expected_district_weights": {
+        "44": 1.0
+      },
+      "ballot_primary": "44",
+      "expected_primary": "44",
+      "primary_matches": true,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    }
+  ],
+  "primary_mismatches": [
+    {
+      "source_precinct": "AIKEN - AIKEN 5",
+      "house_votes": 379,
+      "ballot_district_votes": {
+        "81": 205,
+        "82": 174
+      },
+      "expected_district_weights": {
+        "81": 0.443787,
+        "82": 0.556213
+      },
+      "ballot_primary": "81",
+      "expected_primary": "82",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "ANDERSON - ANDERSON 32",
+      "house_votes": 313,
+      "ballot_district_votes": {
+        "7": 172,
+        "9": 141
+      },
+      "expected_district_weights": {
+        "7": 0.471572,
+        "9": 0.528428
+      },
+      "ballot_primary": "7",
+      "expected_primary": "9",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "ANDERSON - EDGEWOOD STATION A",
+      "house_votes": 744,
+      "ballot_district_votes": {
+        "6": 317,
+        "8": 427
+      },
+      "expected_district_weights": {
+        "6": 0.700779,
+        "8": 0.299221
+      },
+      "ballot_primary": "8",
+      "expected_primary": "6",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "ANDERSON - SOUTH FANT",
+      "house_votes": 297,
+      "ballot_district_votes": {
+        "7": 126,
+        "8": 171
+      },
+      "expected_district_weights": {
+        "7": 0.564032,
+        "8": 0.433364,
+        "9": 0.002604
+      },
+      "ballot_primary": "8",
+      "expected_primary": "7",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "ANDERSON - VARENNES",
+      "house_votes": 276,
+      "ballot_district_votes": {
+        "11": 125,
+        "8": 151
+      },
+      "expected_district_weights": {
+        "11": 0.541184,
+        "7": 0.0,
+        "8": 0.458816
+      },
+      "ballot_primary": "8",
+      "expected_primary": "11",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "ANDERSON - WEST PELZER",
+      "house_votes": 873,
+      "ballot_district_votes": {
+        "9": 400,
+        "10": 473
+      },
+      "expected_district_weights": {
+        "10": 0.436859,
+        "6": 0.0,
+        "9": 0.563141
+      },
+      "ballot_primary": "10",
+      "expected_primary": "9",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "BEAUFORT - BEAUFORT 1",
+      "house_votes": 427,
+      "ballot_district_votes": {
+        "121": 122,
+        "124": 305
+      },
+      "expected_district_weights": {
+        "121": 0.524829,
+        "124": 0.475171
+      },
+      "ballot_primary": "124",
+      "expected_primary": "121",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "BEAUFORT - BURTON 1C",
+      "house_votes": 767,
+      "ballot_district_votes": {
+        "120": 553,
+        "121": 214
+      },
+      "expected_district_weights": {
+        "120": 0.460957,
+        "121": 0.539043
+      },
+      "ballot_primary": "120",
+      "expected_primary": "121",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "BERKELEY - JAMESTOWN",
+      "house_votes": 190,
+      "ballot_district_votes": {
+        "103": 86,
+        "101": 104
+      },
+      "expected_district_weights": {
+        "101": 0.484211,
+        "103": 0.515789
+      },
+      "ballot_primary": "101",
+      "expected_primary": "103",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "BERKELEY - LIBERTY HALL",
+      "house_votes": 859,
+      "ballot_district_votes": {
+        "15": 454,
+        "92": 405
+      },
+      "expected_district_weights": {
+        "100": 0.002388,
+        "15": 0.426251,
+        "92": 0.571361
+      },
+      "ballot_primary": "15",
+      "expected_primary": "92",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "BERKELEY - MEDWAY",
+      "house_votes": 872,
+      "ballot_district_votes": {
+        "92": 550,
+        "100": 322
+      },
+      "expected_district_weights": {
+        "100": 0.544007,
+        "92": 0.455993
+      },
+      "ballot_primary": "92",
+      "expected_primary": "100",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "CHARLESTON - LADSON",
+      "house_votes": 1013,
+      "ballot_district_votes": {
+        "113": 370,
+        "94": 643
+      },
+      "expected_district_weights": {
+        "113": 0.554929,
+        "94": 0.445071
+      },
+      "ballot_primary": "94",
+      "expected_primary": "113",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "CHARLESTON - LINCOLNVILLE",
+      "house_votes": 722,
+      "ballot_district_votes": {
+        "113": 241,
+        "94": 481
+      },
+      "expected_district_weights": {
+        "113": 0.505324,
+        "94": 0.494676
+      },
+      "ballot_primary": "94",
+      "expected_primary": "113",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "CHARLESTON - NORTH CHARLESTON 2",
+      "house_votes": 126,
+      "ballot_district_votes": {
+        "109": 49,
+        "111": 77
+      },
+      "expected_district_weights": {
+        "109": 0.75,
+        "111": 0.25
+      },
+      "ballot_primary": "111",
+      "expected_primary": "109",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "CHARLESTON - ST. ANDREWS 20",
+      "house_votes": 982,
+      "ballot_district_votes": {
+        "111": 285,
+        "114": 241,
+        "119": 456
+      },
+      "expected_district_weights": {
+        "111": 0.501292,
+        "114": 0.136922,
+        "119": 0.361786
+      },
+      "ballot_primary": "119",
+      "expected_primary": "111",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "CHARLESTON - ST. ANDREWS 4",
+      "house_votes": 884,
+      "ballot_district_votes": {
+        "110": 429,
+        "119": 455
+      },
+      "expected_district_weights": {
+        "110": 0.521777,
+        "111": 0.0,
+        "119": 0.478223
+      },
+      "ballot_primary": "119",
+      "expected_primary": "110",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "DORCHESTER - CLEMSON 3",
+      "house_votes": 553,
+      "ballot_district_votes": {
+        "97": 319,
+        "102": 234
+      },
+      "expected_district_weights": {
+        "102": 0.50256,
+        "97": 0.49744
+      },
+      "ballot_primary": "97",
+      "expected_primary": "102",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "FLORENCE - FLORENCE WARD 5",
+      "house_votes": 334,
+      "ballot_district_votes": {
+        "59": 122,
+        "63": 212
+      },
+      "expected_district_weights": {
+        "59": 0.509383,
+        "63": 0.490617
+      },
+      "ballot_primary": "63",
+      "expected_primary": "59",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - CHESTNUT HILLS",
+      "house_votes": 438,
+      "ballot_district_votes": {
+        "23": 180,
+        "24": 248,
+        "25": 10
+      },
+      "expected_district_weights": {
+        "23": 0.492537,
+        "24": 0.462583,
+        "25": 0.04488
+      },
+      "ballot_primary": "24",
+      "expected_primary": "23",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - CLEAR CREEK",
+      "house_votes": 901,
+      "ballot_district_votes": {
+        "17": 432,
+        "18": 469
+      },
+      "expected_district_weights": {
+        "17": 0.556049,
+        "18": 0.440181,
+        "20": 0.00377
+      },
+      "ballot_primary": "18",
+      "expected_primary": "17",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - GOWENSVILLE",
+      "house_votes": 1128,
+      "ballot_district_votes": {
+        "17": 572,
+        "18": 556
+      },
+      "expected_district_weights": {
+        "17": 0.485157,
+        "18": 0.514843
+      },
+      "ballot_primary": "17",
+      "expected_primary": "18",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - GREENVILLE 27",
+      "house_votes": 508,
+      "ballot_district_votes": {
+        "20": 17,
+        "22": 491
+      },
+      "expected_district_weights": {
+        "20": 0.591727,
+        "22": 0.408273
+      },
+      "ballot_primary": "22",
+      "expected_primary": "20",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - GREENVILLE 28",
+      "house_votes": 310,
+      "ballot_district_votes": {
+        "22": 201,
+        "23": 109
+      },
+      "expected_district_weights": {
+        "22": 0.326542,
+        "23": 0.673458
+      },
+      "ballot_primary": "22",
+      "expected_primary": "23",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - PIEDMONT",
+      "house_votes": 1168,
+      "ballot_district_votes": {
+        "10": 489,
+        "25": 679
+      },
+      "expected_district_weights": {
+        "10": 0.53429,
+        "25": 0.465134,
+        "28": 0.000577
+      },
+      "ballot_primary": "25",
+      "expected_primary": "10",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - RAINTREE",
+      "house_votes": 1413,
+      "ballot_district_votes": {
+        "16": 650,
+        "28": 763
+      },
+      "expected_district_weights": {
+        "16": 0.549929,
+        "28": 0.450071
+      },
+      "ballot_primary": "28",
+      "expected_primary": "16",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - SOUTHSIDE",
+      "house_votes": 1038,
+      "ballot_district_votes": {
+        "24": 489,
+        "25": 549
+      },
+      "expected_district_weights": {
+        "24": 0.715996,
+        "25": 0.284004
+      },
+      "ballot_primary": "25",
+      "expected_primary": "24",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - TANGLEWOOD",
+      "house_votes": 778,
+      "ballot_district_votes": {
+        "10": 331,
+        "25": 447
+      },
+      "expected_district_weights": {
+        "10": 0.638163,
+        "25": 0.361837
+      },
+      "ballot_primary": "25",
+      "expected_primary": "10",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENVILLE - TRAVELERS REST 1",
+      "house_votes": 1053,
+      "ballot_district_votes": {
+        "19": 542,
+        "17": 511
+      },
+      "expected_district_weights": {
+        "17": 0.602253,
+        "19": 0.397747
+      },
+      "ballot_primary": "19",
+      "expected_primary": "17",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENWOOD - NINETY SIX",
+      "house_votes": 406,
+      "ballot_district_votes": {
+        "12": 243,
+        "13": 163
+      },
+      "expected_district_weights": {
+        "12": 0.484585,
+        "13": 0.515415
+      },
+      "ballot_primary": "12",
+      "expected_primary": "13",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "GREENWOOD - VERDERY",
+      "house_votes": 565,
+      "ballot_district_votes": {
+        "12": 268,
+        "13": 297
+      },
+      "expected_district_weights": {
+        "12": 0.562469,
+        "13": 0.437531
+      },
+      "ballot_primary": "13",
+      "expected_primary": "12",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "HORRY - ADRIAN",
+      "house_votes": 796,
+      "ballot_district_votes": {
+        "58": 261,
+        "105": 535
+      },
+      "expected_district_weights": {
+        "105": 0.488173,
+        "58": 0.511827
+      },
+      "ballot_primary": "105",
+      "expected_primary": "58",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "HORRY - WEST LORIS",
+      "house_votes": 264,
+      "ballot_district_votes": {
+        "55": 158,
+        "105": 106
+      },
+      "expected_district_weights": {
+        "105": 0.632364,
+        "55": 0.367636
+      },
+      "ballot_primary": "55",
+      "expected_primary": "105",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "KERSHAW - SALT POND",
+      "house_votes": 653,
+      "ballot_district_votes": {
+        "52": 335,
+        "45": 318
+      },
+      "expected_district_weights": {
+        "45": 0.529789,
+        "52": 0.470211
+      },
+      "ballot_primary": "52",
+      "expected_primary": "45",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "LEXINGTON - BOILING SPRINGS",
+      "house_votes": 1040,
+      "ballot_district_votes": {
+        "39": 511,
+        "96": 529
+      },
+      "expected_district_weights": {
+        "39": 0.521724,
+        "96": 0.478276
+      },
+      "ballot_primary": "96",
+      "expected_primary": "39",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "LEXINGTON - GRENADIER",
+      "house_votes": 578,
+      "ballot_district_votes": {
+        "69": 157,
+        "85": 421
+      },
+      "expected_district_weights": {
+        "69": 0.515877,
+        "85": 0.484123
+      },
+      "ballot_primary": "85",
+      "expected_primary": "69",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "LEXINGTON - LEXINGTON 3",
+      "house_votes": 1614,
+      "ballot_district_votes": {
+        "69": 929,
+        "87": 685
+      },
+      "expected_district_weights": {
+        "69": 0.477484,
+        "87": 0.522516
+      },
+      "ballot_primary": "69",
+      "expected_primary": "87",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "PICKENS - VINLAND",
+      "house_votes": 516,
+      "ballot_district_votes": {
+        "4": 186,
+        "5": 330
+      },
+      "expected_district_weights": {
+        "4": 0.508229,
+        "5": 0.491771
+      },
+      "ballot_primary": "5",
+      "expected_primary": "4",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "RICHLAND - GREGG PARK",
+      "house_votes": 802,
+      "ballot_district_votes": {
+        "75": 434,
+        "78": 368
+      },
+      "expected_district_weights": {
+        "75": 0.302235,
+        "78": 0.697765
+      },
+      "ballot_primary": "75",
+      "expected_primary": "78",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "RICHLAND - KEENAN",
+      "house_votes": 720,
+      "ballot_district_votes": {
+        "74": 407,
+        "76": 296,
+        "78": 17
+      },
+      "expected_district_weights": {
+        "74": 0.471171,
+        "76": 0.494238,
+        "78": 0.034591
+      },
+      "ballot_primary": "74",
+      "expected_primary": "76",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "RICHLAND - WARD 1",
+      "house_votes": 423,
+      "ballot_district_votes": {
+        "72": 194,
+        "74": 229
+      },
+      "expected_district_weights": {
+        "72": 0.651828,
+        "74": 0.348172
+      },
+      "ballot_primary": "74",
+      "expected_primary": "72",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "RICHLAND - WARD 6",
+      "house_votes": 666,
+      "ballot_district_votes": {
+        "74": 286,
+        "75": 380
+      },
+      "expected_district_weights": {
+        "74": 0.609206,
+        "75": 0.390794
+      },
+      "ballot_primary": "75",
+      "expected_primary": "74",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    },
+    {
+      "source_precinct": "SUMTER - OSWEGO",
+      "house_votes": 483,
+      "ballot_district_votes": {
+        "50": 288,
+        "51": 195
+      },
+      "expected_district_weights": {
+        "50": 0.334026,
+        "51": 0.665974
+      },
+      "ballot_primary": "50",
+      "expected_primary": "51",
+      "primary_matches": false,
+      "unsupported_ballot_votes": 0,
+      "unsupported_ballot_share": 0.0
+    }
+  ],
+  "unmatched": []
+}

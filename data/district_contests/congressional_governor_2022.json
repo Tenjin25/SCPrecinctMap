@@ -2,130 +2,202 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 124670,
-        "rep_votes": 144114,
-        "other_votes": 2965,
-        "total_votes": 271749,
+        "dem_votes": 121683,
+        "rep_votes": 149372,
+        "other_votes": 2941,
+        "total_votes": 273996,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 19444,
-        "margin_pct": 7.1551,
+        "margin": 27689,
+        "margin_pct": 10.1056,
         "winner": "R",
-        "color": "#fc8a6a"
+        "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 103280,
-        "rep_votes": 139186,
-        "other_votes": 3701,
-        "total_votes": 246167,
+        "dem_votes": 104178,
+        "rep_votes": 139763,
+        "other_votes": 3709,
+        "total_votes": 247650,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 35906,
-        "margin_pct": 14.586,
+        "margin": 35585,
+        "margin_pct": 14.3691,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 66600,
-        "rep_votes": 167224,
-        "other_votes": 3141,
-        "total_votes": 236965,
+        "dem_votes": 66834,
+        "rep_votes": 168083,
+        "other_votes": 3162,
+        "total_votes": 238079,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 100624,
-        "margin_pct": 42.4637,
+        "margin": 101249,
+        "margin_pct": 42.5275,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
-        "dem_votes": 84293,
-        "rep_votes": 144924,
-        "other_votes": 3622,
-        "total_votes": 232839,
+        "dem_votes": 87098,
+        "rep_votes": 143416,
+        "other_votes": 3682,
+        "total_votes": 234196,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 60631,
-        "margin_pct": 26.0399,
+        "margin": 56318,
+        "margin_pct": 24.0474,
         "winner": "R",
         "color": "#cb181d"
       },
       "5": {
-        "dem_votes": 90985,
-        "rep_votes": 146735,
-        "other_votes": 3525,
-        "total_votes": 241245,
+        "dem_votes": 89075,
+        "rep_votes": 149561,
+        "other_votes": 3523,
+        "total_votes": 242159,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 55750,
-        "margin_pct": 23.1093,
+        "margin": 60486,
+        "margin_pct": 24.9778,
         "winner": "R",
         "color": "#cb181d"
       },
       "6": {
-        "dem_votes": 133424,
-        "rep_votes": 77320,
-        "other_votes": 2593,
-        "total_votes": 213337,
+        "dem_votes": 132602,
+        "rep_votes": 76797,
+        "other_votes": 2610,
+        "total_votes": 212009,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": -56104,
-        "margin_pct": -26.2983,
+        "margin": -55805,
+        "margin_pct": -26.322,
         "winner": "D",
         "color": "#4292c6"
       },
       "7": {
-        "dem_votes": 91249,
-        "rep_votes": 161180,
-        "other_votes": 2384,
-        "total_votes": 254813,
+        "dem_votes": 91221,
+        "rep_votes": 161509,
+        "other_votes": 2373,
+        "total_votes": 255103,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 69931,
-        "margin_pct": 27.444,
+        "margin": 70288,
+        "margin_pct": 27.5528,
         "winner": "R",
         "color": "#cb181d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 99.8701,
+    "match_coverage_pct": 100.0,
     "precinct_rows_total": 2310,
-    "precinct_rows_overlap_weighted": 2307,
-    "precinct_rows_county_share_fallback": 3,
-    "precinct_votes_county_share_fallback": 2583,
+    "precinct_rows_overlap_weighted": 2310,
+    "precinct_rows_county_share_fallback": 0,
+    "precinct_votes_county_share_fallback": 0,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 36,
+    "whole_county_vote_components": {
+      "3": {
+        "dem_votes": 59254,
+        "rep_votes": 153530,
+        "other_votes": 2796
+      },
+      "2": {
+        "dem_votes": 54302,
+        "rep_votes": 103919,
+        "other_votes": 2552
+      },
+      "6": {
+        "dem_votes": 19456,
+        "rep_votes": 18433,
+        "other_votes": 415
+      },
+      "1": {
+        "dem_votes": 59857,
+        "rep_votes": 81668,
+        "other_votes": 1581
+      },
+      "5": {
+        "dem_votes": 73806,
+        "rep_votes": 124135,
+        "other_votes": 3048
+      },
+      "7": {
+        "dem_votes": 74710,
+        "rep_votes": 139995,
+        "other_votes": 1920
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 61826,
+        "rep_votes": 67704,
+        "other_votes": 1360
+      },
+      "2": {
+        "dem_votes": 49876,
+        "rep_votes": 35844,
+        "other_votes": 1157
+      },
+      "3": {
+        "dem_votes": 7580,
+        "rep_votes": 14553,
+        "other_votes": 366
+      },
+      "4": {
+        "dem_votes": 87098,
+        "rep_votes": 143416,
+        "other_votes": 3682
+      },
+      "5": {
+        "dem_votes": 15269,
+        "rep_votes": 25426,
+        "other_votes": 475
+      },
+      "6": {
+        "dem_votes": 113146,
+        "rep_votes": 58364,
+        "other_votes": 2195
+      },
+      "7": {
+        "dem_votes": 16511,
+        "rep_votes": 21514,
+        "other_votes": 453
+      }
+    },
+    "split_counties_reconciled": 10,
     "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 692691,
+      "rep_votes": 988501,
+      "other_votes": 22000
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "reviewed_congress_ballot_file": "data/crosswalk/reviewed_2022_congress_ballot_district_overrides.json",
+    "reviewed_congress_ballot_votes": 584,
+    "punctuation_alias_rows": 2,
+    "punctuation_alias_votes": 2894,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 2,
+    "historical_name_bridge_votes": 1280,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/governor_2022",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.353383,
-    "snapshot_comparison_max_abs_share_delta_pp": 1.46153,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "congressional",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#congressional/governor_2022",
-    "calibration_districts": 7,
-    "calibration_expected_districts": 7,
-    "calibration_snapshot_districts": 7,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.175371,
-    "calibration_max_abs_share_delta_pp": 0.398561,
-    "calibration_statewide_mix_gap_pp": 0.26146,
-    "calibration_tolerance_pp": 2.26146,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "margin_calibration_mean_abs_delta_pp_before": 0.5239,
-    "margin_calibration_max_abs_delta_pp_before": 0.795,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0002,
-    "margin_calibration_max_abs_delta_pp_after": 0.0004
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.347384,
+    "snapshot_comparison_max_abs_share_delta_pp": 1.483986,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 692691,
+      "rep_votes": 988501,
+      "other_votes": 22000
+    }
   }
 }

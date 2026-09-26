@@ -325,6 +325,8 @@ def process_contest(path: str, args, display_by_norm, aliases, weighted_by_year)
         weighted_sources.append(("vtd10", weighted_by_year.get("vtd10") or {}))
     if int(args.legacy_year_max) < year <= int(args.recent_year_max):
         weighted_sources.append(("vtd20_current", weighted_by_year.get("vtd20_current") or {}))
+    if year == 2022 and weighted_by_year.get("reviewed_2022_house_ballot"):
+        weighted_sources.insert(0, ("reviewed_2022_house_ballot", weighted_by_year["reviewed_2022_house_ballot"]))
     fallback_weighted_sources = []
     if year <= 2024 and not any(label == "vtd20_current" for label, _ in weighted_sources):
         fallback_weighted_sources.append(("vtd20_current_fallback", weighted_by_year.get("vtd20_current") or {}))
@@ -343,6 +345,7 @@ def process_contest(path: str, args, display_by_norm, aliases, weighted_by_year)
         "precinct_rows": 0,
         "weighted_rows": 0,
         "weighted_vtd20_current_rows": 0,
+        "weighted_reviewed_2022_house_ballot_rows": 0,
         "weighted_vtd20_current_fallback_rows": 0,
         "weighted_manual_historical_rows": 0,
         "weighted_legacy_name_rows": 0,
@@ -405,6 +408,8 @@ def process_contest(path: str, args, display_by_norm, aliases, weighted_by_year)
             stats["weighted_rows"] += 1
             if source == "weighted_vtd20_current":
                 stats["weighted_vtd20_current_rows"] += 1
+            elif source == "weighted_reviewed_2022_house_ballot":
+                stats["weighted_reviewed_2022_house_ballot_rows"] += 1
             elif source == "weighted_vtd20_current_fallback":
                 stats["weighted_vtd20_current_fallback_rows"] += 1
             elif source == "weighted_manual_historical":
@@ -444,6 +449,8 @@ def main() -> None:
     ap.add_argument("--legacy-year-max", type=int, default=2012, help="Apply VTD10->current weights through this year")
     ap.add_argument("--vtd00-chain-year-max", type=int, default=2008, help="Try chained VTD00->VTD10->current weights through this year")
     ap.add_argument("--weights-vtd20-current", default="data/crosswalk/vtd20_to_2025_vote_weight_splits.json")
+    ap.add_argument("--reviewed-2022-house-ballot-overrides",
+                    default="data/crosswalk/reviewed_2022_house_ballot_source_overrides.json")
     ap.add_argument("--weights-vtd00-chain", default="data/crosswalk/vtd00_to_vtd10_to_2025_vote_weight_splits.json")
     ap.add_argument("--weights-legacy-name", default="data/crosswalk/legacy_name_to_2025_vote_weight_splits.json")
     ap.add_argument("--weights-vtd00-chain-2006", default="data/crosswalk/vtd00_2007fe_to_2025_vote_weight_splits.json")
@@ -465,6 +472,8 @@ def main() -> None:
     aliases = load_aliases(os.path.join(base, args.aliases), display_by_norm)
     weighted_by_year = {
         "vtd20_current": load_weighted_splits(os.path.join(base, args.weights_vtd20_current), display_by_norm),
+        "reviewed_2022_house_ballot": load_weighted_splits(
+            os.path.join(base, args.reviewed_2022_house_ballot_overrides), display_by_norm),
         "manual_historical": load_manual_weighted_splits(os.path.join(base, args.manual_historical_weights), display_by_norm),
         "legacy_name": load_weighted_splits(os.path.join(base, args.weights_legacy_name), display_by_norm),
         "legacy_name_2006": load_weighted_splits(os.path.join(base, args.weights_legacy_name_2006), display_by_norm),
@@ -492,16 +501,21 @@ def main() -> None:
         out_path = os.path.join(out_dir, file_name)
         with open(out_path, "w", encoding="utf-8", newline="") as fh:
             json.dump(out_payload, fh, separators=(",", ":"))
+        county_rows = [row for row in out_payload["rows"] if " - " not in str(row.get("county") or "")]
+        dem_total = sum(int(row.get("dem_votes") or 0) for row in county_rows)
+        rep_total = sum(int(row.get("rep_votes") or 0) for row in county_rows)
         out_manifest["files"].append({
             "year": out_payload["year"],
             "contest_type": out_payload["contest_type"],
             "file": file_name,
             "rows": len(out_payload["rows"]),
+            "major_party_contested": dem_total > 0 and rep_total > 0,
         })
         qa.append(stats)
 
     with open(os.path.join(out_dir, "manifest.json"), "w", encoding="utf-8", newline="") as fh:
-        json.dump(out_manifest, fh, separators=(",", ":"))
+        json.dump(out_manifest, fh, indent=2)
+        fh.write("\n")
     qa_name = "qa_2025_crosswalked.json" if "2025" in os.path.basename(out_dir) else "qa_vtd20_crosswalked.json"
     with open(os.path.join(out_dir, qa_name), "w", encoding="utf-8", newline="") as fh:
         json.dump({"stats": qa}, fh, indent=2)

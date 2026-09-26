@@ -3,592 +3,902 @@
     "results": {
       "1": {
         "dem_votes": 0,
-        "rep_votes": 16110,
-        "other_votes": 130,
-        "total_votes": 16240,
+        "rep_votes": 20309,
+        "other_votes": 174,
+        "total_votes": 20483,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 16110,
-        "margin_pct": 99.1995,
+        "margin": 20309,
+        "margin_pct": 99.1505,
         "winner": "R",
         "color": "#67000d"
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 22512,
-        "other_votes": 153,
-        "total_votes": 22665,
+        "rep_votes": 24180,
+        "other_votes": 171,
+        "total_votes": 24351,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 22512,
-        "margin_pct": 99.325,
+        "margin": 24180,
+        "margin_pct": 99.2978,
         "winner": "R",
         "color": "#67000d"
       },
       "3": {
         "dem_votes": 0,
-        "rep_votes": 23444,
-        "other_votes": 178,
-        "total_votes": 23622,
+        "rep_votes": 25814,
+        "other_votes": 211,
+        "total_votes": 26025,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 23444,
-        "margin_pct": 99.2465,
+        "margin": 25814,
+        "margin_pct": 99.1892,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 16565,
-        "other_votes": 122,
-        "total_votes": 16687,
+        "rep_votes": 18319,
+        "other_votes": 145,
+        "total_votes": 18464,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 16565,
-        "margin_pct": 99.2689,
+        "margin": 18319,
+        "margin_pct": 99.2147,
         "winner": "R",
         "color": "#67000d"
       },
       "5": {
         "dem_votes": 0,
-        "rep_votes": 21521,
-        "other_votes": 152,
-        "total_votes": 21673,
+        "rep_votes": 23243,
+        "other_votes": 170,
+        "total_votes": 23413,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 21521,
-        "margin_pct": 99.2987,
+        "margin": 23243,
+        "margin_pct": 99.2739,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
         "dem_votes": 0,
-        "rep_votes": 24675,
-        "other_votes": 263,
-        "total_votes": 24938,
+        "rep_votes": 26440,
+        "other_votes": 293,
+        "total_votes": 26733,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 24675,
-        "margin_pct": 98.9454,
+        "margin": 26440,
+        "margin_pct": 98.904,
         "winner": "R",
         "color": "#67000d"
       },
       "7": {
         "dem_votes": 0,
-        "rep_votes": 10601,
-        "other_votes": 258,
-        "total_votes": 10859,
+        "rep_votes": 11508,
+        "other_votes": 288,
+        "total_votes": 11796,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 10601,
-        "margin_pct": 97.6241,
+        "margin": 11508,
+        "margin_pct": 97.5585,
         "winner": "R",
         "color": "#67000d"
       },
       "8": {
         "dem_votes": 0,
-        "rep_votes": 24226,
-        "other_votes": 226,
-        "total_votes": 24452,
+        "rep_votes": 26055,
+        "other_votes": 253,
+        "total_votes": 26308,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 24226,
-        "margin_pct": 99.0757,
+        "margin": 26055,
+        "margin_pct": 99.0383,
         "winner": "R",
         "color": "#67000d"
       },
       "9": {
         "dem_votes": 0,
-        "rep_votes": 17260,
-        "other_votes": 157,
-        "total_votes": 17417,
+        "rep_votes": 20533,
+        "other_votes": 205,
+        "total_votes": 20738,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 17260,
-        "margin_pct": 99.0986,
+        "margin": 20533,
+        "margin_pct": 99.0115,
         "winner": "R",
         "color": "#67000d"
       },
       "10": {
         "dem_votes": 0,
-        "rep_votes": 22793,
-        "other_votes": 184,
-        "total_votes": 22977,
+        "rep_votes": 26570,
+        "other_votes": 245,
+        "total_votes": 26815,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 22793,
-        "margin_pct": 99.1992,
+        "margin": 26570,
+        "margin_pct": 99.0863,
         "winner": "R",
         "color": "#67000d"
       },
       "11": {
         "dem_votes": 0,
-        "rep_votes": 13436,
-        "other_votes": 137,
-        "total_votes": 13573,
+        "rep_votes": 15011,
+        "other_votes": 168,
+        "total_votes": 15179,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 13436,
-        "margin_pct": 98.9906,
+        "margin": 15011,
+        "margin_pct": 98.8932,
         "winner": "R",
         "color": "#67000d"
       },
       "12": {
         "dem_votes": 0,
-        "rep_votes": 20085,
-        "other_votes": 186,
-        "total_votes": 20271,
+        "rep_votes": 22156,
+        "other_votes": 202,
+        "total_votes": 22358,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 20085,
-        "margin_pct": 99.0824,
+        "margin": 22156,
+        "margin_pct": 99.0965,
         "winner": "R",
         "color": "#67000d"
       },
       "13": {
         "dem_votes": 0,
-        "rep_votes": 20822,
-        "other_votes": 147,
-        "total_votes": 20969,
+        "rep_votes": 23267,
+        "other_votes": 171,
+        "total_votes": 23438,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 20822,
-        "margin_pct": 99.299,
+        "margin": 23267,
+        "margin_pct": 99.2704,
         "winner": "R",
         "color": "#67000d"
       },
       "14": {
         "dem_votes": 0,
-        "rep_votes": 15853,
-        "other_votes": 79,
-        "total_votes": 15932,
+        "rep_votes": 18421,
+        "other_votes": 94,
+        "total_votes": 18515,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 15853,
-        "margin_pct": 99.5041,
+        "margin": 18421,
+        "margin_pct": 99.4923,
         "winner": "R",
         "color": "#67000d"
       },
       "15": {
         "dem_votes": 0,
-        "rep_votes": 18141,
-        "other_votes": 130,
-        "total_votes": 18271,
+        "rep_votes": 25824,
+        "other_votes": 199,
+        "total_votes": 26023,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 18141,
-        "margin_pct": 99.2885,
+        "margin": 25824,
+        "margin_pct": 99.2353,
         "winner": "R",
         "color": "#67000d"
       },
       "16": {
         "dem_votes": 0,
-        "rep_votes": 14525,
-        "other_votes": 97,
-        "total_votes": 14622,
+        "rep_votes": 19588,
+        "other_votes": 131,
+        "total_votes": 19719,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 14525,
-        "margin_pct": 99.3366,
+        "margin": 19588,
+        "margin_pct": 99.3357,
         "winner": "R",
         "color": "#67000d"
       },
       "17": {
         "dem_votes": 0,
-        "rep_votes": 14522,
-        "other_votes": 173,
-        "total_votes": 14695,
+        "rep_votes": 18096,
+        "other_votes": 242,
+        "total_votes": 18338,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 14522,
-        "margin_pct": 98.8227,
+        "margin": 18096,
+        "margin_pct": 98.6803,
         "winner": "R",
         "color": "#67000d"
       },
       "18": {
         "dem_votes": 0,
-        "rep_votes": 24925,
-        "other_votes": 226,
-        "total_votes": 25151,
+        "rep_votes": 29444,
+        "other_votes": 289,
+        "total_votes": 29733,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 24925,
-        "margin_pct": 99.1014,
+        "margin": 29444,
+        "margin_pct": 99.028,
         "winner": "R",
         "color": "#67000d"
       },
       "19": {
         "dem_votes": 0,
-        "rep_votes": 11760,
-        "other_votes": 382,
-        "total_votes": 12142,
+        "rep_votes": 12694,
+        "other_votes": 442,
+        "total_votes": 13136,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 11760,
-        "margin_pct": 96.8539,
+        "margin": 12694,
+        "margin_pct": 96.6352,
         "winner": "R",
         "color": "#67000d"
       },
       "20": {
         "dem_votes": 0,
-        "rep_votes": 14407,
-        "other_votes": 313,
-        "total_votes": 14720,
+        "rep_votes": 19333,
+        "other_votes": 435,
+        "total_votes": 19768,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 14407,
-        "margin_pct": 97.8736,
+        "margin": 19333,
+        "margin_pct": 97.7995,
         "winner": "R",
         "color": "#67000d"
       },
       "21": {
         "dem_votes": 0,
-        "rep_votes": 13839,
-        "other_votes": 465,
-        "total_votes": 14304,
+        "rep_votes": 14926,
+        "other_votes": 533,
+        "total_votes": 15459,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 13839,
-        "margin_pct": 96.7492,
+        "margin": 14926,
+        "margin_pct": 96.5522,
         "winner": "R",
         "color": "#67000d"
       },
       "22": {
         "dem_votes": 0,
-        "rep_votes": 18854,
-        "other_votes": 348,
-        "total_votes": 19202,
+        "rep_votes": 20323,
+        "other_votes": 398,
+        "total_votes": 20721,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 18854,
-        "margin_pct": 98.1877,
+        "margin": 20323,
+        "margin_pct": 98.0792,
         "winner": "R",
         "color": "#67000d"
       },
       "23": {
         "dem_votes": 0,
-        "rep_votes": 20190,
-        "other_votes": 170,
-        "total_votes": 20360,
+        "rep_votes": 22988,
+        "other_votes": 207,
+        "total_votes": 23195,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 20190,
-        "margin_pct": 99.165,
+        "margin": 22988,
+        "margin_pct": 99.1076,
         "winner": "R",
         "color": "#67000d"
       },
       "24": {
         "dem_votes": 0,
-        "rep_votes": 22995,
-        "other_votes": 194,
-        "total_votes": 23189,
+        "rep_votes": 26261,
+        "other_votes": 232,
+        "total_votes": 26493,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 22995,
-        "margin_pct": 99.1634,
+        "margin": 26261,
+        "margin_pct": 99.1243,
         "winner": "R",
         "color": "#67000d"
       },
       "25": {
         "dem_votes": 0,
-        "rep_votes": 19478,
-        "other_votes": 116,
-        "total_votes": 19594,
+        "rep_votes": 22469,
+        "other_votes": 150,
+        "total_votes": 22619,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 19478,
-        "margin_pct": 99.408,
+        "margin": 22469,
+        "margin_pct": 99.3368,
         "winner": "R",
         "color": "#67000d"
       },
       "26": {
         "dem_votes": 0,
-        "rep_votes": 18950,
-        "other_votes": 388,
-        "total_votes": 19338,
+        "rep_votes": 21383,
+        "other_votes": 462,
+        "total_votes": 21845,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 18950,
-        "margin_pct": 97.9936,
+        "margin": 21383,
+        "margin_pct": 97.8851,
         "winner": "R",
         "color": "#67000d"
       },
       "27": {
         "dem_votes": 0,
-        "rep_votes": 20003,
-        "other_votes": 139,
-        "total_votes": 20142,
+        "rep_votes": 23031,
+        "other_votes": 166,
+        "total_votes": 23197,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 20003,
-        "margin_pct": 99.3099,
+        "margin": 23031,
+        "margin_pct": 99.2844,
         "winner": "R",
         "color": "#67000d"
       },
       "28": {
         "dem_votes": 0,
-        "rep_votes": 15233,
-        "other_votes": 70,
-        "total_votes": 15303,
+        "rep_votes": 16679,
+        "other_votes": 80,
+        "total_votes": 16759,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 15233,
-        "margin_pct": 99.5426,
+        "margin": 16679,
+        "margin_pct": 99.5226,
         "winner": "R",
         "color": "#67000d"
       },
       "29": {
         "dem_votes": 0,
-        "rep_votes": 15853,
-        "other_votes": 122,
-        "total_votes": 15975,
+        "rep_votes": 18208,
+        "other_votes": 165,
+        "total_votes": 18373,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 15853,
-        "margin_pct": 99.2363,
+        "margin": 18208,
+        "margin_pct": 99.1019,
         "winner": "R",
         "color": "#67000d"
       },
       "30": {
         "dem_votes": 0,
-        "rep_votes": 13837,
-        "other_votes": 116,
-        "total_votes": 13953,
+        "rep_votes": 15536,
+        "other_votes": 138,
+        "total_votes": 15674,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 13837,
-        "margin_pct": 99.1686,
+        "margin": 15536,
+        "margin_pct": 99.1196,
         "winner": "R",
         "color": "#67000d"
       },
       "31": {
         "dem_votes": 0,
-        "rep_votes": 20538,
-        "other_votes": 154,
-        "total_votes": 20692,
+        "rep_votes": 22257,
+        "other_votes": 163,
+        "total_votes": 22420,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 20538,
-        "margin_pct": 99.2558,
+        "margin": 22257,
+        "margin_pct": 99.273,
         "winner": "R",
         "color": "#67000d"
       },
       "32": {
         "dem_votes": 0,
-        "rep_votes": 13429,
-        "other_votes": 132,
-        "total_votes": 13561,
+        "rep_votes": 15485,
+        "other_votes": 158,
+        "total_votes": 15643,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 13429,
-        "margin_pct": 99.0266,
+        "margin": 15485,
+        "margin_pct": 98.99,
         "winner": "R",
         "color": "#67000d"
       },
       "33": {
         "dem_votes": 0,
-        "rep_votes": 13127,
-        "other_votes": 100,
-        "total_votes": 13227,
+        "rep_votes": 14370,
+        "other_votes": 120,
+        "total_votes": 14490,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 13127,
-        "margin_pct": 99.244,
+        "margin": 14370,
+        "margin_pct": 99.1718,
         "winner": "R",
         "color": "#67000d"
       },
       "34": {
         "dem_votes": 0,
-        "rep_votes": 20244,
-        "other_votes": 102,
-        "total_votes": 20346,
+        "rep_votes": 22612,
+        "other_votes": 118,
+        "total_votes": 22730,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 20244,
-        "margin_pct": 99.4987,
+        "margin": 22612,
+        "margin_pct": 99.4809,
         "winner": "R",
         "color": "#67000d"
       },
       "35": {
         "dem_votes": 0,
-        "rep_votes": 15141,
-        "other_votes": 143,
-        "total_votes": 15284,
+        "rep_votes": 17245,
+        "other_votes": 187,
+        "total_votes": 17432,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 15141,
-        "margin_pct": 99.0644,
+        "margin": 17245,
+        "margin_pct": 98.9273,
         "winner": "R",
         "color": "#67000d"
       },
       "36": {
         "dem_votes": 0,
-        "rep_votes": 16809,
-        "other_votes": 166,
-        "total_votes": 16975,
+        "rep_votes": 19704,
+        "other_votes": 250,
+        "total_votes": 19954,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 16809,
-        "margin_pct": 99.0221,
+        "margin": 19704,
+        "margin_pct": 98.7471,
         "winner": "R",
         "color": "#67000d"
       },
       "37": {
         "dem_votes": 0,
-        "rep_votes": 15149,
-        "other_votes": 94,
-        "total_votes": 15243,
+        "rep_votes": 18110,
+        "other_votes": 133,
+        "total_votes": 18243,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 15149,
-        "margin_pct": 99.3833,
+        "margin": 18110,
+        "margin_pct": 99.271,
         "winner": "R",
         "color": "#67000d"
       },
       "38": {
         "dem_votes": 0,
-        "rep_votes": 15455,
-        "other_votes": 185,
-        "total_votes": 15640,
+        "rep_votes": 16844,
+        "other_votes": 215,
+        "total_votes": 17059,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 15455,
-        "margin_pct": 98.8171,
+        "margin": 16844,
+        "margin_pct": 98.7397,
         "winner": "R",
         "color": "#67000d"
       },
       "39": {
         "dem_votes": 0,
-        "rep_votes": 9295,
-        "other_votes": 118,
-        "total_votes": 9413,
+        "rep_votes": 10175,
+        "other_votes": 130,
+        "total_votes": 10305,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 9295,
-        "margin_pct": 98.7464,
+        "margin": 10175,
+        "margin_pct": 98.7385,
         "winner": "R",
         "color": "#67000d"
       },
       "40": {
         "dem_votes": 0,
-        "rep_votes": 15708,
-        "other_votes": 130,
-        "total_votes": 15838,
+        "rep_votes": 17013,
+        "other_votes": 160,
+        "total_votes": 17173,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 15708,
-        "margin_pct": 99.1792,
+        "margin": 17013,
+        "margin_pct": 99.0683,
         "winner": "R",
         "color": "#67000d"
       },
       "41": {
         "dem_votes": 0,
-        "rep_votes": 12683,
-        "other_votes": 125,
-        "total_votes": 12808,
+        "rep_votes": 15233,
+        "other_votes": 149,
+        "total_votes": 15382,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 12683,
-        "margin_pct": 99.024,
+        "margin": 15233,
+        "margin_pct": 99.0313,
         "winner": "R",
         "color": "#67000d"
       },
       "42": {
         "dem_votes": 0,
-        "rep_votes": 6300,
-        "other_votes": 121,
-        "total_votes": 6421,
+        "rep_votes": 8024,
+        "other_votes": 161,
+        "total_votes": 8185,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 6300,
-        "margin_pct": 98.1156,
+        "margin": 8024,
+        "margin_pct": 98.033,
         "winner": "R",
         "color": "#67000d"
       },
       "43": {
         "dem_votes": 0,
-        "rep_votes": 19230,
-        "other_votes": 192,
-        "total_votes": 19422,
+        "rep_votes": 24428,
+        "other_votes": 256,
+        "total_votes": 24684,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 19230,
-        "margin_pct": 99.0114,
+        "margin": 24428,
+        "margin_pct": 98.9629,
         "winner": "R",
         "color": "#67000d"
       },
       "44": {
         "dem_votes": 0,
-        "rep_votes": 16734,
-        "other_votes": 140,
-        "total_votes": 16874,
+        "rep_votes": 19657,
+        "other_votes": 174,
+        "total_votes": 19831,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 16734,
-        "margin_pct": 99.1703,
+        "margin": 19657,
+        "margin_pct": 99.1226,
         "winner": "R",
         "color": "#67000d"
       },
       "45": {
         "dem_votes": 0,
-        "rep_votes": 11191,
-        "other_votes": 86,
-        "total_votes": 11277,
+        "rep_votes": 13320,
+        "other_votes": 123,
+        "total_votes": 13443,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 11191,
-        "margin_pct": 99.2374,
+        "margin": 13320,
+        "margin_pct": 99.085,
         "winner": "R",
         "color": "#67000d"
       },
       "46": {
         "dem_votes": 0,
-        "rep_votes": 20366,
-        "other_votes": 148,
-        "total_votes": 20514,
+        "rep_votes": 24669,
+        "other_votes": 192,
+        "total_votes": 24861,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 20366,
-        "margin_pct": 99.2785,
+        "margin": 24669,
+        "margin_pct": 99.2277,
         "winner": "R",
         "color": "#67000d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 98.153,
+    "match_coverage_pct": 98.3729,
     "precinct_rows_total": 2274,
-    "precinct_rows_overlap_weighted": 2232,
-    "precinct_rows_county_share_fallback": 42,
-    "precinct_votes_county_share_fallback": 4074,
+    "precinct_rows_overlap_weighted": 2237,
+    "precinct_rows_county_share_fallback": 20,
+    "precinct_votes_county_share_fallback": 1924,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 19,
+    "whole_county_vote_components": {
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 4748,
+        "other_votes": 38
+      },
+      "40": {
+        "dem_votes": 0,
+        "rep_votes": 6853,
+        "other_votes": 47
+      },
+      "14": {
+        "dem_votes": 0,
+        "rep_votes": 10648,
+        "other_votes": 58
+      },
+      "17": {
+        "dem_votes": 0,
+        "rep_votes": 9506,
+        "other_votes": 128
+      },
+      "36": {
+        "dem_votes": 0,
+        "rep_votes": 5887,
+        "other_votes": 58
+      },
+      "30": {
+        "dem_votes": 0,
+        "rep_votes": 8745,
+        "other_votes": 89
+      },
+      "25": {
+        "dem_votes": 0,
+        "rep_votes": 7573,
+        "other_votes": 29
+      },
+      "10": {
+        "dem_votes": 0,
+        "rep_votes": 13860,
+        "other_votes": 146
+      },
+      "45": {
+        "dem_votes": 0,
+        "rep_votes": 2797,
+        "other_votes": 11
+      },
+      "9": {
+        "dem_votes": 0,
+        "rep_votes": 12185,
+        "other_votes": 105
+      },
+      "29": {
+        "dem_votes": 0,
+        "rep_votes": 3257,
+        "other_votes": 44
+      },
+      "18": {
+        "dem_votes": 0,
+        "rep_votes": 8477,
+        "other_votes": 66
+      },
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 17198,
+        "other_votes": 108
+      },
+      "32": {
+        "dem_votes": 0,
+        "rep_votes": 4293,
+        "other_votes": 74
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 3111,
+        "other_votes": 66
+      },
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 24180,
+        "other_votes": 171
+      },
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 25814,
+        "other_votes": 211
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 13571,
+        "other_votes": 107
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 23243,
+        "other_votes": 170
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 26440,
+        "other_votes": 293
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 11508,
+        "other_votes": 288
+      },
+      "8": {
+        "dem_votes": 0,
+        "rep_votes": 26055,
+        "other_votes": 253
+      },
+      "9": {
+        "dem_votes": 0,
+        "rep_votes": 8348,
+        "other_votes": 100
+      },
+      "10": {
+        "dem_votes": 0,
+        "rep_votes": 12710,
+        "other_votes": 99
+      },
+      "11": {
+        "dem_votes": 0,
+        "rep_votes": 15011,
+        "other_votes": 168
+      },
+      "12": {
+        "dem_votes": 0,
+        "rep_votes": 22156,
+        "other_votes": 202
+      },
+      "13": {
+        "dem_votes": 0,
+        "rep_votes": 23267,
+        "other_votes": 171
+      },
+      "14": {
+        "dem_votes": 0,
+        "rep_votes": 7773,
+        "other_votes": 36
+      },
+      "15": {
+        "dem_votes": 0,
+        "rep_votes": 25824,
+        "other_votes": 199
+      },
+      "16": {
+        "dem_votes": 0,
+        "rep_votes": 19588,
+        "other_votes": 131
+      },
+      "17": {
+        "dem_votes": 0,
+        "rep_votes": 8590,
+        "other_votes": 114
+      },
+      "18": {
+        "dem_votes": 0,
+        "rep_votes": 20967,
+        "other_votes": 223
+      },
+      "19": {
+        "dem_votes": 0,
+        "rep_votes": 12694,
+        "other_votes": 442
+      },
+      "20": {
+        "dem_votes": 0,
+        "rep_votes": 19333,
+        "other_votes": 435
+      },
+      "21": {
+        "dem_votes": 0,
+        "rep_votes": 14926,
+        "other_votes": 533
+      },
+      "22": {
+        "dem_votes": 0,
+        "rep_votes": 20323,
+        "other_votes": 398
+      },
+      "23": {
+        "dem_votes": 0,
+        "rep_votes": 22988,
+        "other_votes": 207
+      },
+      "24": {
+        "dem_votes": 0,
+        "rep_votes": 26261,
+        "other_votes": 232
+      },
+      "25": {
+        "dem_votes": 0,
+        "rep_votes": 14896,
+        "other_votes": 121
+      },
+      "26": {
+        "dem_votes": 0,
+        "rep_votes": 21383,
+        "other_votes": 462
+      },
+      "27": {
+        "dem_votes": 0,
+        "rep_votes": 23031,
+        "other_votes": 166
+      },
+      "28": {
+        "dem_votes": 0,
+        "rep_votes": 16679,
+        "other_votes": 80
+      },
+      "29": {
+        "dem_votes": 0,
+        "rep_votes": 14951,
+        "other_votes": 121
+      },
+      "30": {
+        "dem_votes": 0,
+        "rep_votes": 6791,
+        "other_votes": 49
+      },
+      "31": {
+        "dem_votes": 0,
+        "rep_votes": 22257,
+        "other_votes": 163
+      },
+      "32": {
+        "dem_votes": 0,
+        "rep_votes": 11192,
+        "other_votes": 84
+      },
+      "33": {
+        "dem_votes": 0,
+        "rep_votes": 14370,
+        "other_votes": 120
+      },
+      "34": {
+        "dem_votes": 0,
+        "rep_votes": 22612,
+        "other_votes": 118
+      },
+      "35": {
+        "dem_votes": 0,
+        "rep_votes": 17245,
+        "other_votes": 187
+      },
+      "36": {
+        "dem_votes": 0,
+        "rep_votes": 13817,
+        "other_votes": 192
+      },
+      "37": {
+        "dem_votes": 0,
+        "rep_votes": 18110,
+        "other_votes": 133
+      },
+      "38": {
+        "dem_votes": 0,
+        "rep_votes": 16844,
+        "other_votes": 215
+      },
+      "39": {
+        "dem_votes": 0,
+        "rep_votes": 10175,
+        "other_votes": 130
+      },
+      "40": {
+        "dem_votes": 0,
+        "rep_votes": 10160,
+        "other_votes": 113
+      },
+      "41": {
+        "dem_votes": 0,
+        "rep_votes": 15233,
+        "other_votes": 149
+      },
+      "42": {
+        "dem_votes": 0,
+        "rep_votes": 8024,
+        "other_votes": 161
+      },
+      "43": {
+        "dem_votes": 0,
+        "rep_votes": 24428,
+        "other_votes": 256
+      },
+      "44": {
+        "dem_votes": 0,
+        "rep_votes": 19657,
+        "other_votes": 174
+      },
+      "45": {
+        "dem_votes": 0,
+        "rep_votes": 10523,
+        "other_votes": 112
+      },
+      "46": {
+        "dem_votes": 0,
+        "rep_votes": 24669,
+        "other_votes": 192
+      }
+    },
+    "split_counties_reconciled": 27,
     "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 0,
+      "rep_votes": 907755,
+      "other_votes": 9748
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "punctuation_alias_rows": 1,
+    "punctuation_alias_votes": 927,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 5,
+    "historical_name_bridge_votes": 2073,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/state_treasurer_2010",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.011707,
-    "snapshot_comparison_max_abs_share_delta_pp": 0.083036,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "state_senate_2022",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/state_treasurer_2010",
-    "calibration_districts": 46,
-    "calibration_expected_districts": 46,
-    "calibration_snapshot_districts": 46,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.001384,
-    "calibration_max_abs_share_delta_pp": 0.008856,
-    "calibration_statewide_mix_gap_pp": 0.001254,
-    "calibration_tolerance_pp": 2.001254,
-    "calibration_conservation_delta": {
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.049273,
+    "snapshot_comparison_max_abs_share_delta_pp": 0.278856,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
       "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
+      "rep_votes": 907755,
+      "other_votes": 9748
     }
   }
 }

@@ -1,0 +1,13 @@
+{
+  "_evidence": "The local 2022 general-election precinct CSV reports all 808 Trinity Methodist State House votes in district 32, all 888 West View Elementary votes in district 34, and all 584 Lancaster 521 North votes in district 45. The current named precinct polygons have the same respective House districts. The generic VTD20 name crosswalk sends the Spartanburg election labels to the opposite district; the existing Lancaster alias sends 521 North to district 44.",
+  "_source": "../Data/_tmpdata/openelections-data-sc/2022/20221108__sc__general__precinct.csv",
+  "Spartanburg - Trinity Methodist": {
+    "SPARTANBURG - TRINITY METHODIST": 1.0
+  },
+  "Spartanburg - West View Elementary": {
+    "SPARTANBURG - WEST VIEW ELEMENTARY": 1.0
+  },
+  "Lancaster - 521 North": {
+    "LANCASTER - 521 NORTH": 1.0
+  }
+}

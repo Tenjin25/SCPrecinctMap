@@ -1,0 +1,767 @@
+{
+  "method": "Compare signed Republican-minus-Democratic margin percentage points with local DRA district-statistics CSVs; DRA estimates are diagnostic, not official returns.",
+  "summary": {
+    "benchmarks": 10,
+    "district_rows": 1240,
+    "served": {
+      "mean_abs_margin_delta_pp": 5.239,
+      "median_abs_margin_delta_pp": 2.9527,
+      "p95_abs_margin_delta_pp": 17.9323,
+      "max_abs_margin_delta_pp": 83.1369
+    },
+    "staged": {
+      "mean_abs_margin_delta_pp": 1.3187,
+      "median_abs_margin_delta_pp": 0.3684,
+      "p95_abs_margin_delta_pp": 5.9674,
+      "max_abs_margin_delta_pp": 36.3687
+    },
+    "staged_closer": 991,
+    "served_closer": 249
+  },
+  "files": [
+    {
+      "benchmark": "data/2022 state house files/district-statistics 2008 Pres.csv",
+      "districts": 124,
+      "served": {
+        "mean_abs_margin_delta_pp": 6.9611,
+        "median_abs_margin_delta_pp": 4.8268,
+        "p95_abs_margin_delta_pp": 19.7174,
+        "max_abs_margin_delta_pp": 65.4094
+      },
+      "staged": {
+        "mean_abs_margin_delta_pp": 2.5004,
+        "median_abs_margin_delta_pp": 1.2889,
+        "p95_abs_margin_delta_pp": 6.7764,
+        "max_abs_margin_delta_pp": 36.3687
+      },
+      "staged_closer": 95,
+      "served_closer": 29,
+      "staged_winner_matches": 124,
+      "served_winner_matches": 120
+    },
+    {
+      "benchmark": "data/2022 state house files/district-statistics 2008 US Senate.csv",
+      "districts": 124,
+      "served": {
+        "mean_abs_margin_delta_pp": 5.5051,
+        "median_abs_margin_delta_pp": 3.1219,
+        "p95_abs_margin_delta_pp": 14.4719,
+        "max_abs_margin_delta_pp": 73.6173
+      },
+      "staged": {
+        "mean_abs_margin_delta_pp": 4.9828,
+        "median_abs_margin_delta_pp": 3.8633,
+        "p95_abs_margin_delta_pp": 11.1746,
+        "max_abs_margin_delta_pp": 28.1181
+      },
+      "staged_closer": 48,
+      "served_closer": 76,
+      "staged_winner_matches": 122,
+      "served_winner_matches": 120
+    },
+    {
+      "benchmark": "data/2022 state house files/district-statistics 2010 gov.csv",
+      "districts": 124,
+      "served": {
+        "mean_abs_margin_delta_pp": 6.0766,
+        "median_abs_margin_delta_pp": 3.1632,
+        "p95_abs_margin_delta_pp": 17.3424,
+        "max_abs_margin_delta_pp": 83.1369
+      },
+      "staged": {
+        "mean_abs_margin_delta_pp": 1.4325,
+        "median_abs_margin_delta_pp": 0.8954,
+        "p95_abs_margin_delta_pp": 4.3478,
+        "max_abs_margin_delta_pp": 14.895
+      },
+      "staged_closer": 100,
+      "served_closer": 24,
+      "staged_winner_matches": 123,
+      "served_winner_matches": 117
+    },
+    {
+      "benchmark": "data/2022 state house files/district-statistics 2010 supt.csv",
+      "districts": 124,
+      "served": {
+        "mean_abs_margin_delta_pp": 1.6445,
+        "median_abs_margin_delta_pp": 0.875,
+        "p95_abs_margin_delta_pp": 6.1047,
+        "max_abs_margin_delta_pp": 12.6032
+      },
+      "staged": {
+        "mean_abs_margin_delta_pp": 1.5661,
+        "median_abs_margin_delta_pp": 1.1611,
+        "p95_abs_margin_delta_pp": 4.2516,
+        "max_abs_margin_delta_pp": 13.8249
+      },
+      "staged_closer": 53,
+      "served_closer": 71,
+      "staged_winner_matches": 123,
+      "served_winner_matches": 123
+    },
+    {
+      "benchmark": "data/2022 state house files/district-statistics 2012 Pres.csv",
+      "districts": 124,
+      "served": {
+        "mean_abs_margin_delta_pp": 6.5824,
+        "median_abs_margin_delta_pp": 4.1145,
+        "p95_abs_margin_delta_pp": 21.7198,
+        "max_abs_margin_delta_pp": 67.1041
+      },
+      "staged": {
+        "mean_abs_margin_delta_pp": 1.6873,
+        "median_abs_margin_delta_pp": 1.0552,
+        "p95_abs_margin_delta_pp": 5.1738,
+        "max_abs_margin_delta_pp": 9.1631
+      },
+      "staged_closer": 94,
+      "served_closer": 30,
+      "staged_winner_matches": 123,
+      "served_winner_matches": 120
+    },
+    {
+      "benchmark": "data/2022 state house files/district-statistics 2016 Pres.csv",
+      "districts": 124,
+      "served": {
+        "mean_abs_margin_delta_pp": 5.6802,
+        "median_abs_margin_delta_pp": 3.2038,
+        "p95_abs_margin_delta_pp": 19.6157,
+        "max_abs_margin_delta_pp": 52.0531
+      },
+      "staged": {
+        "mean_abs_margin_delta_pp": 0.3147,
+        "median_abs_margin_delta_pp": 0.1385,
+        "p95_abs_margin_delta_pp": 1.1893,
+        "max_abs_margin_delta_pp": 2.387
+      },
+      "staged_closer": 118,
+      "served_closer": 6,
+      "staged_winner_matches": 124,
+      "served_winner_matches": 116
+    },
+    {
+      "benchmark": "data/2022 state house files/district-statistics 2020 Pres.csv",
+      "districts": 124,
+      "served": {
+        "mean_abs_margin_delta_pp": 4.9979,
+        "median_abs_margin_delta_pp": 3.1794,
+        "p95_abs_margin_delta_pp": 14.5499,
+        "max_abs_margin_delta_pp": 46.5105
+      },
+      "staged": {
+        "mean_abs_margin_delta_pp": 0.2071,
+        "median_abs_margin_delta_pp": 0.1075,
+        "p95_abs_margin_delta_pp": 0.7084,
+        "max_abs_margin_delta_pp": 1.884
+      },
+      "staged_closer": 122,
+      "served_closer": 2,
+      "staged_winner_matches": 124,
+      "served_winner_matches": 119
+    },
+    {
+      "benchmark": "data/2022 state house files/district-statistics 2020 US Senate.csv",
+      "districts": 124,
+      "served": {
+        "mean_abs_margin_delta_pp": 5.0627,
+        "median_abs_margin_delta_pp": 3.1547,
+        "p95_abs_margin_delta_pp": 13.3503,
+        "max_abs_margin_delta_pp": 47.1992
+      },
+      "staged": {
+        "mean_abs_margin_delta_pp": 0.2024,
+        "median_abs_margin_delta_pp": 0.1056,
+        "p95_abs_margin_delta_pp": 0.6754,
+        "max_abs_margin_delta_pp": 1.483
+      },
+      "staged_closer": 120,
+      "served_closer": 4,
+      "staged_winner_matches": 124,
+      "served_winner_matches": 120
+    },
+    {
+      "benchmark": "data/2022 state house files/district-statistics 2022 US Senate.csv",
+      "districts": 124,
+      "served": {
+        "mean_abs_margin_delta_pp": 4.9962,
+        "median_abs_margin_delta_pp": 2.909,
+        "p95_abs_margin_delta_pp": 15.4516,
+        "max_abs_margin_delta_pp": 47.9891
+      },
+      "staged": {
+        "mean_abs_margin_delta_pp": 0.1543,
+        "median_abs_margin_delta_pp": 0.0997,
+        "p95_abs_margin_delta_pp": 0.4793,
+        "max_abs_margin_delta_pp": 1.1251
+      },
+      "staged_closer": 119,
+      "served_closer": 5,
+      "staged_winner_matches": 124,
+      "served_winner_matches": 118
+    },
+    {
+      "benchmark": "data/2022 state house files/district-statistics 2024 Pres.csv",
+      "districts": 124,
+      "served": {
+        "mean_abs_margin_delta_pp": 4.883,
+        "median_abs_margin_delta_pp": 2.6859,
+        "p95_abs_margin_delta_pp": 17.1062,
+        "max_abs_margin_delta_pp": 38.616
+      },
+      "staged": {
+        "mean_abs_margin_delta_pp": 0.1394,
+        "median_abs_margin_delta_pp": 0.0722,
+        "p95_abs_margin_delta_pp": 0.4358,
+        "max_abs_margin_delta_pp": 1.5135
+      },
+      "staged_closer": 122,
+      "served_closer": 2,
+      "staged_winner_matches": 124,
+      "served_winner_matches": 115
+    }
+  ],
+  "largest_staged_errors": [
+    {
+      "file": "state_house_president_2008_2022_lines.json",
+      "district": "31",
+      "dra_margin_pp": -48.41,
+      "served_margin_pp": -36.254,
+      "staged_margin_pp": -12.0413,
+      "served_abs_delta_pp": 12.156,
+      "staged_abs_delta_pp": 36.3687
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "31",
+      "dra_margin_pp": -41.25,
+      "served_margin_pp": -32.0199,
+      "staged_margin_pp": -13.1319,
+      "served_abs_delta_pp": 9.2301,
+      "staged_abs_delta_pp": 28.1181
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "73",
+      "dra_margin_pp": -30.59,
+      "served_margin_pp": -44.9153,
+      "staged_margin_pp": -48.3849,
+      "served_abs_delta_pp": 14.3253,
+      "staged_abs_delta_pp": 17.7949
+    },
+    {
+      "file": "state_house_governor_2010_2022_lines.json",
+      "district": "74",
+      "dra_margin_pp": -70.17,
+      "served_margin_pp": -49.1846,
+      "staged_margin_pp": -55.275,
+      "served_abs_delta_pp": 20.9854,
+      "staged_abs_delta_pp": 14.895
+    },
+    {
+      "file": "state_house_president_2008_2022_lines.json",
+      "district": "38",
+      "dra_margin_pp": 50.17,
+      "served_margin_pp": 38.3555,
+      "staged_margin_pp": 35.956,
+      "served_abs_delta_pp": 11.8145,
+      "staged_abs_delta_pp": 14.214
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "38",
+      "dra_margin_pp": 41.25,
+      "served_margin_pp": 29.3923,
+      "staged_margin_pp": 27.0547,
+      "served_abs_delta_pp": 11.8577,
+      "staged_abs_delta_pp": 14.1953
+    },
+    {
+      "file": "state_house_president_2008_2022_lines.json",
+      "district": "74",
+      "dra_margin_pp": -66.35,
+      "served_margin_pp": -49.5162,
+      "staged_margin_pp": -52.4768,
+      "served_abs_delta_pp": 16.8338,
+      "staged_abs_delta_pp": 13.8732
+    },
+    {
+      "file": "state_house_superintendent_2010_2022_lines.json",
+      "district": "74",
+      "dra_margin_pp": -62.03,
+      "served_margin_pp": -49.4268,
+      "staged_margin_pp": -48.2051,
+      "served_abs_delta_pp": 12.6032,
+      "staged_abs_delta_pp": 13.8249
+    },
+    {
+      "file": "state_house_president_2008_2022_lines.json",
+      "district": "73",
+      "dra_margin_pp": -52.71,
+      "served_margin_pp": -65.1,
+      "staged_margin_pp": -66.0264,
+      "served_abs_delta_pp": 12.39,
+      "staged_abs_delta_pp": 13.3164
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "33",
+      "dra_margin_pp": 29.03,
+      "served_margin_pp": 14.5581,
+      "staged_margin_pp": 15.9285,
+      "served_abs_delta_pp": 14.4719,
+      "staged_abs_delta_pp": 13.1015
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "64",
+      "dra_margin_pp": -0.26,
+      "served_margin_pp": -0.9921,
+      "staged_margin_pp": -12.8622,
+      "served_abs_delta_pp": 0.7321,
+      "staged_abs_delta_pp": 12.6022
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "71",
+      "dra_margin_pp": 46.91,
+      "served_margin_pp": 36.0322,
+      "staged_margin_pp": 35.4816,
+      "served_abs_delta_pp": 10.8778,
+      "staged_abs_delta_pp": 11.4284
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "54",
+      "dra_margin_pp": -3.74,
+      "served_margin_pp": 2.8154,
+      "staged_margin_pp": -15.003,
+      "served_abs_delta_pp": 6.5554,
+      "staged_abs_delta_pp": 11.263
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "43",
+      "dra_margin_pp": 22.27,
+      "served_margin_pp": 12.7906,
+      "staged_margin_pp": 11.0954,
+      "served_abs_delta_pp": 9.4794,
+      "staged_abs_delta_pp": 11.1746
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "51",
+      "dra_margin_pp": -22.89,
+      "served_margin_pp": -28.5714,
+      "staged_margin_pp": -33.577,
+      "served_abs_delta_pp": 5.6814,
+      "staged_abs_delta_pp": 10.687
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "122",
+      "dra_margin_pp": -5.79,
+      "served_margin_pp": -7.9508,
+      "staged_margin_pp": -16.4299,
+      "served_abs_delta_pp": 2.1608,
+      "staged_abs_delta_pp": 10.6399
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "124",
+      "dra_margin_pp": 36.23,
+      "served_margin_pp": 34.402,
+      "staged_margin_pp": 25.6683,
+      "served_abs_delta_pp": 1.828,
+      "staged_abs_delta_pp": 10.5617
+    },
+    {
+      "file": "state_house_president_2008_2022_lines.json",
+      "district": "33",
+      "dra_margin_pp": 30.37,
+      "served_margin_pp": 18.9567,
+      "staged_margin_pp": 20.3193,
+      "served_abs_delta_pp": 11.4133,
+      "staged_abs_delta_pp": 10.0507
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "118",
+      "dra_margin_pp": 26.33,
+      "served_margin_pp": 21.5371,
+      "staged_margin_pp": 16.2833,
+      "served_abs_delta_pp": 4.7929,
+      "staged_abs_delta_pp": 10.0467
+    },
+    {
+      "file": "state_house_president_2008_2022_lines.json",
+      "district": "72",
+      "dra_margin_pp": -37.66,
+      "served_margin_pp": -31.1721,
+      "staged_margin_pp": -27.6881,
+      "served_abs_delta_pp": 6.4879,
+      "staged_abs_delta_pp": 9.9719
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "108",
+      "dra_margin_pp": 40.29,
+      "served_margin_pp": 36.8997,
+      "staged_margin_pp": 30.4604,
+      "served_abs_delta_pp": 3.3903,
+      "staged_abs_delta_pp": 9.8296
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "11",
+      "dra_margin_pp": 29.89,
+      "served_margin_pp": 29.1758,
+      "staged_margin_pp": 20.293,
+      "served_abs_delta_pp": 0.7142,
+      "staged_abs_delta_pp": 9.597
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "7",
+      "dra_margin_pp": 33.48,
+      "served_margin_pp": 29.0728,
+      "staged_margin_pp": 24.1124,
+      "served_abs_delta_pp": 4.4072,
+      "staged_abs_delta_pp": 9.3676
+    },
+    {
+      "file": "state_house_president_2012_2022_lines.json",
+      "district": "72",
+      "dra_margin_pp": -38.5,
+      "served_margin_pp": -30.8936,
+      "staged_margin_pp": -29.3369,
+      "served_abs_delta_pp": 7.6064,
+      "staged_abs_delta_pp": 9.1631
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "13",
+      "dra_margin_pp": 48.73,
+      "served_margin_pp": 40.3391,
+      "staged_margin_pp": 39.6007,
+      "served_abs_delta_pp": 8.3909,
+      "staged_abs_delta_pp": 9.1293
+    },
+    {
+      "file": "state_house_president_2008_2022_lines.json",
+      "district": "71",
+      "dra_margin_pp": 30.67,
+      "served_margin_pp": 21.1073,
+      "staged_margin_pp": 21.9499,
+      "served_abs_delta_pp": 9.5627,
+      "staged_abs_delta_pp": 8.7201
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "90",
+      "dra_margin_pp": -5.6,
+      "served_margin_pp": 5.2588,
+      "staged_margin_pp": -14.2715,
+      "served_abs_delta_pp": 10.8588,
+      "staged_abs_delta_pp": 8.6715
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "52",
+      "dra_margin_pp": 37.38,
+      "served_margin_pp": 57.2834,
+      "staged_margin_pp": 28.8395,
+      "served_abs_delta_pp": 19.9034,
+      "staged_abs_delta_pp": 8.5405
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "74",
+      "dra_margin_pp": -42.18,
+      "served_margin_pp": -29.9073,
+      "staged_margin_pp": -34.0722,
+      "served_abs_delta_pp": 12.2727,
+      "staged_abs_delta_pp": 8.1078
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "123",
+      "dra_margin_pp": 36.67,
+      "served_margin_pp": 40.0914,
+      "staged_margin_pp": 28.7436,
+      "served_abs_delta_pp": 3.4214,
+      "staged_abs_delta_pp": 7.9264
+    }
+  ],
+  "largest_improvements": [
+    {
+      "file": "state_house_governor_2010_2022_lines.json",
+      "district": "66",
+      "dra_margin_pp": 40.44,
+      "served_margin_pp": -42.6969,
+      "staged_margin_pp": 41.6163,
+      "served_abs_delta_pp": 83.1369,
+      "staged_abs_delta_pp": 1.1763
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "66",
+      "dra_margin_pp": 42.02,
+      "served_margin_pp": -31.5973,
+      "staged_margin_pp": 39.5158,
+      "served_abs_delta_pp": 73.6173,
+      "staged_abs_delta_pp": 2.5042
+    },
+    {
+      "file": "state_house_president_2012_2022_lines.json",
+      "district": "66",
+      "dra_margin_pp": 30.08,
+      "served_margin_pp": -37.0241,
+      "staged_margin_pp": 29.9172,
+      "served_abs_delta_pp": 67.1041,
+      "staged_abs_delta_pp": 0.1628
+    },
+    {
+      "file": "state_house_president_2008_2022_lines.json",
+      "district": "66",
+      "dra_margin_pp": 26.94,
+      "served_margin_pp": -38.4694,
+      "staged_margin_pp": 29.664,
+      "served_abs_delta_pp": 65.4094,
+      "staged_abs_delta_pp": 2.724
+    },
+    {
+      "file": "state_house_governor_2010_2022_lines.json",
+      "district": "80",
+      "dra_margin_pp": 31.79,
+      "served_margin_pp": -24.3093,
+      "staged_margin_pp": 33.2759,
+      "served_abs_delta_pp": 56.0993,
+      "staged_abs_delta_pp": 1.4859
+    },
+    {
+      "file": "state_house_president_2016_2022_lines.json",
+      "district": "66",
+      "dra_margin_pp": 21.3,
+      "served_margin_pp": -30.7531,
+      "staged_margin_pp": 21.3358,
+      "served_abs_delta_pp": 52.0531,
+      "staged_abs_delta_pp": 0.0358
+    },
+    {
+      "file": "state_house_president_2012_2022_lines.json",
+      "district": "80",
+      "dra_margin_pp": 37.84,
+      "served_margin_pp": -12.7487,
+      "staged_margin_pp": 38.4388,
+      "served_abs_delta_pp": 50.5887,
+      "staged_abs_delta_pp": 0.5988
+    },
+    {
+      "file": "state_house_us_senate_2022_2022_lines.json",
+      "district": "66",
+      "dra_margin_pp": 22.69,
+      "served_margin_pp": -25.2991,
+      "staged_margin_pp": 22.7037,
+      "served_abs_delta_pp": 47.9891,
+      "staged_abs_delta_pp": 0.0137
+    },
+    {
+      "file": "state_house_us_senate_2020_2022_lines.json",
+      "district": "66",
+      "dra_margin_pp": 9.33,
+      "served_margin_pp": -37.8692,
+      "staged_margin_pp": 9.3202,
+      "served_abs_delta_pp": 47.1992,
+      "staged_abs_delta_pp": 0.0098
+    },
+    {
+      "file": "state_house_us_senate_2022_2022_lines.json",
+      "district": "80",
+      "dra_margin_pp": 31.44,
+      "served_margin_pp": -15.6482,
+      "staged_margin_pp": 31.4472,
+      "served_abs_delta_pp": 47.0882,
+      "staged_abs_delta_pp": 0.0072
+    },
+    {
+      "file": "state_house_president_2020_2022_lines.json",
+      "district": "66",
+      "dra_margin_pp": 10.54,
+      "served_margin_pp": -35.9705,
+      "staged_margin_pp": 10.5445,
+      "served_abs_delta_pp": 46.5105,
+      "staged_abs_delta_pp": 0.0045
+    },
+    {
+      "file": "state_house_governor_2010_2022_lines.json",
+      "district": "44",
+      "dra_margin_pp": 37.57,
+      "served_margin_pp": -10.4274,
+      "staged_margin_pp": 35.4157,
+      "served_abs_delta_pp": 47.9974,
+      "staged_abs_delta_pp": 2.1543
+    },
+    {
+      "file": "state_house_us_senate_2020_2022_lines.json",
+      "district": "80",
+      "dra_margin_pp": 16.24,
+      "served_margin_pp": -23.0282,
+      "staged_margin_pp": 16.3434,
+      "served_abs_delta_pp": 39.2682,
+      "staged_abs_delta_pp": 0.1034
+    },
+    {
+      "file": "state_house_president_2024_2022_lines.json",
+      "district": "66",
+      "dra_margin_pp": 13.04,
+      "served_margin_pp": -25.576,
+      "staged_margin_pp": 13.0903,
+      "served_abs_delta_pp": 38.616,
+      "staged_abs_delta_pp": 0.0503
+    },
+    {
+      "file": "state_house_president_2008_2022_lines.json",
+      "district": "80",
+      "dra_margin_pp": 28.79,
+      "served_margin_pp": -10.4925,
+      "staged_margin_pp": 29.5087,
+      "served_abs_delta_pp": 39.2825,
+      "staged_abs_delta_pp": 0.7187
+    },
+    {
+      "file": "state_house_governor_2010_2022_lines.json",
+      "district": "61",
+      "dra_margin_pp": 33.12,
+      "served_margin_pp": -5.5711,
+      "staged_margin_pp": 33.8839,
+      "served_abs_delta_pp": 38.6911,
+      "staged_abs_delta_pp": 0.7639
+    },
+    {
+      "file": "state_house_president_2024_2022_lines.json",
+      "district": "80",
+      "dra_margin_pp": 18.63,
+      "served_margin_pp": -19.3483,
+      "staged_margin_pp": 18.7033,
+      "served_abs_delta_pp": 37.9783,
+      "staged_abs_delta_pp": 0.0733
+    },
+    {
+      "file": "state_house_us_senate_2008_2022_lines.json",
+      "district": "80",
+      "dra_margin_pp": 46.25,
+      "served_margin_pp": 4.2572,
+      "staged_margin_pp": 41.8118,
+      "served_abs_delta_pp": 41.9928,
+      "staged_abs_delta_pp": 4.4382
+    },
+    {
+      "file": "state_house_governor_2010_2022_lines.json",
+      "district": "45",
+      "dra_margin_pp": -11.5,
+      "served_margin_pp": 25.5463,
+      "staged_margin_pp": -12.3693,
+      "served_abs_delta_pp": 37.0463,
+      "staged_abs_delta_pp": 0.8693
+    },
+    {
+      "file": "state_house_president_2008_2022_lines.json",
+      "district": "52",
+      "dra_margin_pp": 18.0,
+      "served_margin_pp": 54.2182,
+      "staged_margin_pp": 19.1064,
+      "served_abs_delta_pp": 36.2182,
+      "staged_abs_delta_pp": 1.1064
+    },
+    {
+      "file": "state_house_president_2016_2022_lines.json",
+      "district": "90",
+      "dra_margin_pp": -26.08,
+      "served_margin_pp": 8.9373,
+      "staged_margin_pp": -26.29,
+      "served_abs_delta_pp": 35.0173,
+      "staged_abs_delta_pp": 0.21
+    },
+    {
+      "file": "state_house_president_2020_2022_lines.json",
+      "district": "80",
+      "dra_margin_pp": 13.38,
+      "served_margin_pp": -21.2471,
+      "staged_margin_pp": 13.4872,
+      "served_abs_delta_pp": 34.6271,
+      "staged_abs_delta_pp": 0.1072
+    },
+    {
+      "file": "state_house_president_2024_2022_lines.json",
+      "district": "90",
+      "dra_margin_pp": -17.37,
+      "served_margin_pp": 15.8728,
+      "staged_margin_pp": -17.318,
+      "served_abs_delta_pp": 33.2428,
+      "staged_abs_delta_pp": 0.052
+    },
+    {
+      "file": "state_house_us_senate_2022_2022_lines.json",
+      "district": "90",
+      "dra_margin_pp": -11.72,
+      "served_margin_pp": 21.4945,
+      "staged_margin_pp": -11.9643,
+      "served_abs_delta_pp": 33.2145,
+      "staged_abs_delta_pp": 0.2443
+    },
+    {
+      "file": "state_house_president_2020_2022_lines.json",
+      "district": "90",
+      "dra_margin_pp": -24.16,
+      "served_margin_pp": 6.2205,
+      "staged_margin_pp": -24.4164,
+      "served_abs_delta_pp": 30.3805,
+      "staged_abs_delta_pp": 0.2564
+    },
+    {
+      "file": "state_house_us_senate_2020_2022_lines.json",
+      "district": "90",
+      "dra_margin_pp": -25.97,
+      "served_margin_pp": 3.8876,
+      "staged_margin_pp": -26.2177,
+      "served_abs_delta_pp": 29.8576,
+      "staged_abs_delta_pp": 0.2477
+    },
+    {
+      "file": "state_house_president_2016_2022_lines.json",
+      "district": "80",
+      "dra_margin_pp": 22.48,
+      "served_margin_pp": -6.9757,
+      "staged_margin_pp": 22.5445,
+      "served_abs_delta_pp": 29.4557,
+      "staged_abs_delta_pp": 0.0645
+    },
+    {
+      "file": "state_house_president_2012_2022_lines.json",
+      "district": "90",
+      "dra_margin_pp": -31.4,
+      "served_margin_pp": -2.4028,
+      "staged_margin_pp": -31.0019,
+      "served_abs_delta_pp": 28.9972,
+      "staged_abs_delta_pp": 0.3981
+    },
+    {
+      "file": "state_house_us_senate_2020_2022_lines.json",
+      "district": "117",
+      "dra_margin_pp": 16.07,
+      "served_margin_pp": -12.2252,
+      "staged_margin_pp": 16.3393,
+      "served_abs_delta_pp": 28.2952,
+      "staged_abs_delta_pp": 0.2693
+    },
+    {
+      "file": "state_house_us_senate_2022_2022_lines.json",
+      "district": "117",
+      "dra_margin_pp": 30.86,
+      "served_margin_pp": 2.7451,
+      "staged_margin_pp": 31.1129,
+      "served_abs_delta_pp": 28.1149,
+      "staged_abs_delta_pp": 0.2529
+    }
+  ]
+}

@@ -2,130 +2,200 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 174927,
-        "rep_votes": 199163,
-        "other_votes": 5138,
-        "total_votes": 379228,
+        "dem_votes": 172291,
+        "rep_votes": 205097,
+        "other_votes": 5135,
+        "total_votes": 382523,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": 24236,
-        "margin_pct": 6.3909,
+        "margin": 32806,
+        "margin_pct": 8.5762,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "2": {
-        "dem_votes": 161261,
-        "rep_votes": 199769,
-        "other_votes": 5129,
-        "total_votes": 366159,
+        "dem_votes": 162974,
+        "rep_votes": 198801,
+        "other_votes": 5158,
+        "total_votes": 366933,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": 38508,
-        "margin_pct": 10.5167,
+        "margin": 35827,
+        "margin_pct": 9.7639,
         "winner": "R",
-        "color": "#ef3b2c"
+        "color": "#fc8a6a"
       },
       "3": {
-        "dem_votes": 109278,
-        "rep_votes": 232251,
-        "other_votes": 5441,
-        "total_votes": 346970,
+        "dem_votes": 109507,
+        "rep_votes": 233463,
+        "other_votes": 5495,
+        "total_votes": 348465,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": 122973,
-        "margin_pct": 35.442,
+        "margin": 123956,
+        "margin_pct": 35.572,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 137228,
-        "rep_votes": 203339,
-        "other_votes": 4981,
-        "total_votes": 345548,
+        "dem_votes": 141050,
+        "rep_votes": 201428,
+        "other_votes": 4986,
+        "total_votes": 347464,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": 66111,
-        "margin_pct": 19.1322,
+        "margin": 60378,
+        "margin_pct": 17.3768,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "5": {
-        "dem_votes": 153254,
-        "rep_votes": 204637,
-        "other_votes": 5915,
-        "total_votes": 363806,
+        "dem_votes": 151080,
+        "rep_votes": 208186,
+        "other_votes": 6006,
+        "total_votes": 365272,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": 51383,
-        "margin_pct": 14.1237,
+        "margin": 57106,
+        "margin_pct": 15.6338,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 228949,
-        "rep_votes": 106071,
-        "other_votes": 3458,
-        "total_votes": 338478,
+        "dem_votes": 223502,
+        "rep_votes": 110661,
+        "other_votes": 3581,
+        "total_votes": 337744,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": -122878,
-        "margin_pct": -36.3031,
+        "margin": -112841,
+        "margin_pct": -33.4102,
         "winner": "D",
         "color": "#2171b5"
       },
       "7": {
-        "dem_votes": 150182,
-        "rep_votes": 210910,
-        "other_votes": 4749,
-        "total_votes": 365841,
+        "dem_votes": 150424,
+        "rep_votes": 211501,
+        "other_votes": 4778,
+        "total_votes": 366703,
         "dem_candidate": "Jaime Harrison",
         "rep_candidate": "Lindsey Graham",
-        "margin": 60728,
-        "margin_pct": 16.5996,
+        "margin": 61077,
+        "margin_pct": 16.6557,
         "winner": "R",
         "color": "#ef3b2c"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 99.9131,
+    "match_coverage_pct": 100.0,
     "precinct_rows_total": 2301,
-    "precinct_rows_overlap_weighted": 2299,
-    "precinct_rows_county_share_fallback": 2,
-    "precinct_votes_county_share_fallback": 3042,
+    "precinct_rows_overlap_weighted": 2301,
+    "precinct_rows_county_share_fallback": 0,
+    "precinct_votes_county_share_fallback": 0,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 36,
+    "whole_county_vote_components": {
+      "3": {
+        "dem_votes": 97918,
+        "rep_votes": 213409,
+        "other_votes": 4990
+      },
+      "2": {
+        "dem_votes": 87891,
+        "rep_votes": 148402,
+        "other_votes": 3951
+      },
+      "6": {
+        "dem_votes": 35151,
+        "rep_votes": 24712,
+        "other_votes": 593
+      },
+      "1": {
+        "dem_votes": 89722,
+        "rep_votes": 109933,
+        "other_votes": 2808
+      },
+      "5": {
+        "dem_votes": 125649,
+        "rep_votes": 171679,
+        "other_votes": 4964
+      },
+      "7": {
+        "dem_votes": 121867,
+        "rep_votes": 180975,
+        "other_votes": 4132
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 82569,
+        "rep_votes": 95164,
+        "other_votes": 2327
+      },
+      "2": {
+        "dem_votes": 75083,
+        "rep_votes": 50399,
+        "other_votes": 1207
+      },
+      "3": {
+        "dem_votes": 11589,
+        "rep_votes": 20054,
+        "other_votes": 505
+      },
+      "4": {
+        "dem_votes": 141050,
+        "rep_votes": 201428,
+        "other_votes": 4986
+      },
+      "5": {
+        "dem_votes": 25431,
+        "rep_votes": 36507,
+        "other_votes": 1042
+      },
+      "6": {
+        "dem_votes": 188351,
+        "rep_votes": 85949,
+        "other_votes": 2988
+      },
+      "7": {
+        "dem_votes": 28557,
+        "rep_votes": 30526,
+        "other_votes": 646
+      }
+    },
+    "split_counties_reconciled": 10,
     "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 1110828,
+      "rep_votes": 1369137,
+      "other_votes": 35139
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "punctuation_alias_rows": 2,
+    "punctuation_alias_votes": 4142,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 1,
+    "historical_name_bridge_votes": 1127,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/us_senate_2020",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.454383,
-    "snapshot_comparison_max_abs_share_delta_pp": 1.645246,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "congressional",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#congressional/us_senate_2020",
-    "calibration_districts": 7,
-    "calibration_expected_districts": 7,
-    "calibration_snapshot_districts": 7,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.215544,
-    "calibration_max_abs_share_delta_pp": 0.489779,
-    "calibration_statewide_mix_gap_pp": 0.322569,
-    "calibration_tolerance_pp": 2.322569,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "margin_calibration_mean_abs_delta_pp_before": 0.6424,
-    "margin_calibration_max_abs_delta_pp_before": 0.9763,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0002,
-    "margin_calibration_max_abs_delta_pp_after": 0.0002
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.446532,
+    "snapshot_comparison_max_abs_share_delta_pp": 1.4657,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 1110828,
+      "rep_votes": 1369137,
+      "other_votes": 35139
+    }
   }
 }

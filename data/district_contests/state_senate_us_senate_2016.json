@@ -2,600 +2,903 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 5800,
-        "rep_votes": 22155,
-        "other_votes": 1744,
-        "total_votes": 29699,
+        "dem_votes": 8130,
+        "rep_votes": 29605,
+        "other_votes": 2060,
+        "total_votes": 39795,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 16355,
-        "margin_pct": 55.0692,
+        "margin": 21475,
+        "margin_pct": 53.9641,
         "winner": "R",
         "color": "#67000d"
       },
       "2": {
-        "dem_votes": 5727,
-        "rep_votes": 30380,
-        "other_votes": 2230,
-        "total_votes": 38337,
+        "dem_votes": 6856,
+        "rep_votes": 35962,
+        "other_votes": 2463,
+        "total_votes": 45281,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 24653,
-        "margin_pct": 64.306,
+        "margin": 29106,
+        "margin_pct": 64.2786,
         "winner": "R",
         "color": "#67000d"
       },
       "3": {
-        "dem_votes": 6845,
-        "rep_votes": 30299,
-        "other_votes": 2116,
-        "total_votes": 39260,
+        "dem_votes": 8605,
+        "rep_votes": 36793,
+        "other_votes": 2371,
+        "total_votes": 47769,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 23454,
-        "margin_pct": 59.7402,
+        "margin": 28188,
+        "margin_pct": 59.009,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
-        "dem_votes": 8376,
-        "rep_votes": 22407,
-        "other_votes": 2061,
-        "total_votes": 32844,
+        "dem_votes": 11218,
+        "rep_votes": 27551,
+        "other_votes": 2347,
+        "total_votes": 41116,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 14031,
-        "margin_pct": 42.7201,
+        "margin": 16333,
+        "margin_pct": 39.7242,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       },
       "5": {
-        "dem_votes": 5924,
-        "rep_votes": 29663,
-        "other_votes": 2105,
-        "total_votes": 37692,
+        "dem_votes": 7510,
+        "rep_votes": 34861,
+        "other_votes": 2338,
+        "total_votes": 44709,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 23739,
-        "margin_pct": 62.9815,
+        "margin": 27351,
+        "margin_pct": 61.1756,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
-        "dem_votes": 8980,
-        "rep_votes": 29821,
-        "other_votes": 2149,
-        "total_votes": 40950,
+        "dem_votes": 11064,
+        "rep_votes": 34169,
+        "other_votes": 2373,
+        "total_votes": 47606,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 20841,
-        "margin_pct": 50.8938,
+        "margin": 23105,
+        "margin_pct": 48.5338,
         "winner": "R",
         "color": "#67000d"
       },
       "7": {
-        "dem_votes": 15166,
-        "rep_votes": 12867,
-        "other_votes": 1704,
-        "total_votes": 29737,
+        "dem_votes": 18722,
+        "rep_votes": 15149,
+        "other_votes": 1923,
+        "total_votes": 35794,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": -2299,
-        "margin_pct": -7.7311,
+        "margin": -3573,
+        "margin_pct": -9.9821,
         "winner": "D",
         "color": "#9ecae1"
       },
       "8": {
-        "dem_votes": 10636,
-        "rep_votes": 30780,
-        "other_votes": 1994,
-        "total_votes": 43410,
+        "dem_votes": 13170,
+        "rep_votes": 35488,
+        "other_votes": 2211,
+        "total_votes": 50869,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 20144,
-        "margin_pct": 46.4041,
+        "margin": 22318,
+        "margin_pct": 43.8735,
         "winner": "R",
         "color": "#67000d"
       },
       "9": {
-        "dem_votes": 9978,
-        "rep_votes": 25627,
-        "other_votes": 2387,
-        "total_votes": 37992,
+        "dem_votes": 12486,
+        "rep_votes": 30221,
+        "other_votes": 2724,
+        "total_votes": 45431,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 15649,
-        "margin_pct": 41.1903,
+        "margin": 17735,
+        "margin_pct": 39.0372,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       },
       "10": {
-        "dem_votes": 7579,
-        "rep_votes": 26778,
-        "other_votes": 1895,
-        "total_votes": 36252,
+        "dem_votes": 11803,
+        "rep_votes": 33215,
+        "other_votes": 2213,
+        "total_votes": 47231,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 19199,
-        "margin_pct": 52.9598,
+        "margin": 21412,
+        "margin_pct": 45.3346,
         "winner": "R",
         "color": "#67000d"
       },
       "11": {
-        "dem_votes": 8791,
-        "rep_votes": 16606,
-        "other_votes": 1729,
-        "total_votes": 27126,
+        "dem_votes": 11880,
+        "rep_votes": 21627,
+        "other_votes": 2010,
+        "total_votes": 35517,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 7815,
-        "margin_pct": 28.81,
+        "margin": 9747,
+        "margin_pct": 27.4432,
         "winner": "R",
         "color": "#cb181d"
       },
       "12": {
-        "dem_votes": 9404,
-        "rep_votes": 23542,
-        "other_votes": 1929,
-        "total_votes": 34875,
+        "dem_votes": 12296,
+        "rep_votes": 29646,
+        "other_votes": 2263,
+        "total_votes": 44205,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 14138,
-        "margin_pct": 40.5391,
+        "margin": 17350,
+        "margin_pct": 39.249,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       },
       "13": {
-        "dem_votes": 8888,
-        "rep_votes": 27161,
-        "other_votes": 2166,
-        "total_votes": 38215,
+        "dem_votes": 11712,
+        "rep_votes": 34163,
+        "other_votes": 2526,
+        "total_votes": 48401,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 18273,
-        "margin_pct": 47.8163,
+        "margin": 22451,
+        "margin_pct": 46.3854,
         "winner": "R",
         "color": "#67000d"
       },
       "14": {
-        "dem_votes": 7248,
-        "rep_votes": 23961,
-        "other_votes": 2489,
-        "total_votes": 33698,
+        "dem_votes": 9752,
+        "rep_votes": 30176,
+        "other_votes": 2883,
+        "total_votes": 42811,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 16713,
-        "margin_pct": 49.5964,
+        "margin": 20424,
+        "margin_pct": 47.7074,
         "winner": "R",
         "color": "#67000d"
       },
       "15": {
-        "dem_votes": 9184,
-        "rep_votes": 21923,
-        "other_votes": 2573,
-        "total_votes": 33680,
+        "dem_votes": 12982,
+        "rep_votes": 28785,
+        "other_votes": 3082,
+        "total_votes": 44849,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 12739,
-        "margin_pct": 37.8236,
+        "margin": 15803,
+        "margin_pct": 35.236,
         "winner": "R",
         "color": "#a50f15"
       },
       "16": {
-        "dem_votes": 9897,
-        "rep_votes": 23216,
-        "other_votes": 2413,
-        "total_votes": 35526,
+        "dem_votes": 14108,
+        "rep_votes": 30773,
+        "other_votes": 2907,
+        "total_votes": 47788,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 13319,
-        "margin_pct": 37.4909,
+        "margin": 16665,
+        "margin_pct": 34.8728,
         "winner": "R",
         "color": "#a50f15"
       },
       "17": {
-        "dem_votes": 15920,
-        "rep_votes": 16617,
-        "other_votes": 2325,
-        "total_votes": 34862,
+        "dem_votes": 23119,
+        "rep_votes": 22144,
+        "other_votes": 2906,
+        "total_votes": 48169,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 697,
-        "margin_pct": 1.9993,
-        "winner": "R",
-        "color": "#fcbba1"
+        "margin": -975,
+        "margin_pct": -2.0241,
+        "winner": "D",
+        "color": "#c6dbef"
       },
       "18": {
-        "dem_votes": 9007,
-        "rep_votes": 29558,
-        "other_votes": 2305,
-        "total_votes": 40870,
+        "dem_votes": 13586,
+        "rep_votes": 37868,
+        "other_votes": 2776,
+        "total_votes": 54230,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 20551,
-        "margin_pct": 50.2838,
+        "margin": 24282,
+        "margin_pct": 44.776,
         "winner": "R",
         "color": "#67000d"
       },
       "19": {
-        "dem_votes": 18600,
-        "rep_votes": 7732,
-        "other_votes": 1626,
-        "total_votes": 27958,
+        "dem_votes": 29034,
+        "rep_votes": 11036,
+        "other_votes": 2056,
+        "total_votes": 42126,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": -10868,
-        "margin_pct": -38.8726,
+        "margin": -17998,
+        "margin_pct": -42.7242,
         "winner": "D",
-        "color": "#2171b5"
+        "color": "#08519c"
       },
       "20": {
-        "dem_votes": 12385,
-        "rep_votes": 16898,
-        "other_votes": 2212,
-        "total_votes": 31495,
+        "dem_votes": 19385,
+        "rep_votes": 25545,
+        "other_votes": 2814,
+        "total_votes": 47744,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 4513,
-        "margin_pct": 14.3293,
+        "margin": 6160,
+        "margin_pct": 12.9021,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "21": {
-        "dem_votes": 18293,
-        "rep_votes": 10349,
-        "other_votes": 1713,
-        "total_votes": 30355,
+        "dem_votes": 28511,
+        "rep_votes": 14752,
+        "other_votes": 2162,
+        "total_votes": 45425,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": -7944,
-        "margin_pct": -26.1703,
+        "margin": -13759,
+        "margin_pct": -30.2895,
         "winner": "D",
-        "color": "#4292c6"
+        "color": "#2171b5"
       },
       "22": {
-        "dem_votes": 14290,
-        "rep_votes": 15953,
-        "other_votes": 1628,
-        "total_votes": 31871,
+        "dem_votes": 22264,
+        "rep_votes": 22726,
+        "other_votes": 2055,
+        "total_votes": 47045,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 1663,
-        "margin_pct": 5.2179,
+        "margin": 462,
+        "margin_pct": 0.982,
         "winner": "R",
-        "color": "#fc8a6a"
+        "color": "#fcbba1"
       },
       "23": {
-        "dem_votes": 6444,
-        "rep_votes": 24751,
-        "other_votes": 2720,
-        "total_votes": 33915,
+        "dem_votes": 8490,
+        "rep_votes": 31826,
+        "other_votes": 3101,
+        "total_votes": 43417,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 18307,
-        "margin_pct": 53.9791,
+        "margin": 23336,
+        "margin_pct": 53.7485,
         "winner": "R",
         "color": "#67000d"
       },
       "24": {
-        "dem_votes": 11038,
-        "rep_votes": 25312,
-        "other_votes": 2273,
-        "total_votes": 38623,
+        "dem_votes": 14618,
+        "rep_votes": 32690,
+        "other_votes": 2620,
+        "total_votes": 49928,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 14274,
-        "margin_pct": 36.9573,
+        "margin": 18072,
+        "margin_pct": 36.1961,
         "winner": "R",
         "color": "#a50f15"
       },
       "25": {
-        "dem_votes": 10426,
-        "rep_votes": 23484,
-        "other_votes": 2245,
-        "total_votes": 36155,
+        "dem_votes": 14553,
+        "rep_votes": 30499,
+        "other_votes": 2601,
+        "total_votes": 47653,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 13058,
-        "margin_pct": 36.1167,
+        "margin": 15946,
+        "margin_pct": 33.4627,
         "winner": "R",
         "color": "#a50f15"
       },
       "26": {
-        "dem_votes": 11410,
-        "rep_votes": 16126,
-        "other_votes": 1928,
-        "total_votes": 29464,
+        "dem_votes": 15928,
+        "rep_votes": 21431,
+        "other_votes": 2444,
+        "total_votes": 39803,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 4716,
-        "margin_pct": 16.006,
+        "margin": 5503,
+        "margin_pct": 13.8256,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "27": {
-        "dem_votes": 9844,
-        "rep_votes": 21718,
-        "other_votes": 2406,
-        "total_votes": 33968,
+        "dem_votes": 13954,
+        "rep_votes": 28066,
+        "other_votes": 2852,
+        "total_votes": 44872,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 11874,
-        "margin_pct": 34.9564,
+        "margin": 14112,
+        "margin_pct": 31.4495,
         "winner": "R",
         "color": "#a50f15"
       },
       "28": {
-        "dem_votes": 8061,
-        "rep_votes": 25998,
-        "other_votes": 1776,
-        "total_votes": 35835,
+        "dem_votes": 9793,
+        "rep_votes": 30168,
+        "other_votes": 1943,
+        "total_votes": 41904,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 17937,
-        "margin_pct": 50.0544,
+        "margin": 20375,
+        "margin_pct": 48.623,
         "winner": "R",
         "color": "#67000d"
       },
       "29": {
-        "dem_votes": 16393,
-        "rep_votes": 16789,
-        "other_votes": 1754,
-        "total_votes": 34936,
+        "dem_votes": 24329,
+        "rep_votes": 22471,
+        "other_votes": 2161,
+        "total_votes": 48961,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 396,
-        "margin_pct": 1.1335,
-        "winner": "R",
-        "color": "#fcbba1"
+        "margin": -1858,
+        "margin_pct": -3.7949,
+        "winner": "D",
+        "color": "#c6dbef"
       },
       "30": {
-        "dem_votes": 14538,
-        "rep_votes": 17788,
-        "other_votes": 1707,
-        "total_votes": 34033,
+        "dem_votes": 21202,
+        "rep_votes": 20504,
+        "other_votes": 1963,
+        "total_votes": 43669,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 3250,
-        "margin_pct": 9.5496,
-        "winner": "R",
-        "color": "#fc8a6a"
+        "margin": -698,
+        "margin_pct": -1.5984,
+        "winner": "D",
+        "color": "#c6dbef"
       },
       "31": {
-        "dem_votes": 8799,
-        "rep_votes": 20568,
-        "other_votes": 1319,
-        "total_votes": 30686,
+        "dem_votes": 14098,
+        "rep_votes": 28163,
+        "other_votes": 1790,
+        "total_votes": 44051,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 11769,
-        "margin_pct": 38.353,
+        "margin": 14065,
+        "margin_pct": 31.9289,
         "winner": "R",
         "color": "#a50f15"
       },
       "32": {
-        "dem_votes": 18148,
-        "rep_votes": 16051,
-        "other_votes": 1371,
-        "total_votes": 35570,
+        "dem_votes": 25608,
+        "rep_votes": 20933,
+        "other_votes": 1674,
+        "total_votes": 48215,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": -2097,
-        "margin_pct": -5.8954,
+        "margin": -4675,
+        "margin_pct": -9.6962,
         "winner": "D",
         "color": "#9ecae1"
       },
       "33": {
-        "dem_votes": 8373,
-        "rep_votes": 19449,
-        "other_votes": 1626,
-        "total_votes": 29448,
+        "dem_votes": 10169,
+        "rep_votes": 22574,
+        "other_votes": 1778,
+        "total_votes": 34521,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 11076,
-        "margin_pct": 37.6121,
+        "margin": 12405,
+        "margin_pct": 35.9346,
         "winner": "R",
         "color": "#a50f15"
       },
       "34": {
-        "dem_votes": 8586,
-        "rep_votes": 31525,
-        "other_votes": 1936,
-        "total_votes": 42047,
+        "dem_votes": 11254,
+        "rep_votes": 38083,
+        "other_votes": 2251,
+        "total_votes": 51588,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 22939,
-        "margin_pct": 54.5556,
+        "margin": 26829,
+        "margin_pct": 52.0063,
         "winner": "R",
         "color": "#67000d"
       },
       "35": {
-        "dem_votes": 12016,
-        "rep_votes": 15755,
-        "other_votes": 1742,
-        "total_votes": 29513,
+        "dem_votes": 18744,
+        "rep_votes": 21103,
+        "other_votes": 2124,
+        "total_votes": 41971,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 3739,
-        "margin_pct": 12.669,
-        "winner": "R",
-        "color": "#ef3b2c"
-      },
-      "36": {
-        "dem_votes": 14566,
-        "rep_votes": 16599,
-        "other_votes": 1356,
-        "total_votes": 32521,
-        "dem_candidate": "Thomas Dixon",
-        "rep_candidate": "Tim Scott",
-        "margin": 2033,
-        "margin_pct": 6.2513,
+        "margin": 2359,
+        "margin_pct": 5.6205,
         "winner": "R",
         "color": "#fc8a6a"
       },
-      "37": {
-        "dem_votes": 7535,
-        "rep_votes": 21280,
-        "other_votes": 1353,
-        "total_votes": 30168,
+      "36": {
+        "dem_votes": 24196,
+        "rep_votes": 22930,
+        "other_votes": 1697,
+        "total_votes": 48823,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 13745,
-        "margin_pct": 45.5615,
+        "margin": -1266,
+        "margin_pct": -2.593,
+        "winner": "D",
+        "color": "#c6dbef"
+      },
+      "37": {
+        "dem_votes": 10479,
+        "rep_votes": 27998,
+        "other_votes": 1574,
+        "total_votes": 40051,
+        "dem_candidate": "Thomas Dixon",
+        "rep_candidate": "Tim Scott",
+        "margin": 17519,
+        "margin_pct": 43.7417,
         "winner": "R",
         "color": "#67000d"
       },
       "38": {
-        "dem_votes": 7405,
-        "rep_votes": 20736,
-        "other_votes": 1673,
-        "total_votes": 29814,
+        "dem_votes": 10393,
+        "rep_votes": 27119,
+        "other_votes": 1966,
+        "total_votes": 39478,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 13331,
-        "margin_pct": 44.7139,
+        "margin": 16726,
+        "margin_pct": 42.3679,
         "winner": "R",
         "color": "#67000d"
       },
       "39": {
-        "dem_votes": 11611,
-        "rep_votes": 14384,
-        "other_votes": 1270,
-        "total_votes": 27265,
+        "dem_votes": 17535,
+        "rep_votes": 17087,
+        "other_votes": 1461,
+        "total_votes": 36083,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 2773,
-        "margin_pct": 10.1705,
-        "winner": "R",
-        "color": "#ef3b2c"
+        "margin": -448,
+        "margin_pct": -1.2416,
+        "winner": "D",
+        "color": "#c6dbef"
       },
       "40": {
-        "dem_votes": 16324,
-        "rep_votes": 17030,
-        "other_votes": 1710,
-        "total_votes": 35064,
+        "dem_votes": 24676,
+        "rep_votes": 20866,
+        "other_votes": 1978,
+        "total_votes": 47520,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 706,
-        "margin_pct": 2.0135,
-        "winner": "R",
-        "color": "#fcbba1"
+        "margin": -3810,
+        "margin_pct": -8.0177,
+        "winner": "D",
+        "color": "#9ecae1"
       },
       "41": {
-        "dem_votes": 8379,
-        "rep_votes": 18549,
-        "other_votes": 1528,
-        "total_votes": 28456,
+        "dem_votes": 12368,
+        "rep_votes": 26118,
+        "other_votes": 1861,
+        "total_votes": 40347,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 10170,
-        "margin_pct": 35.7394,
+        "margin": 13750,
+        "margin_pct": 34.0794,
         "winner": "R",
         "color": "#a50f15"
       },
       "42": {
-        "dem_votes": 13433,
-        "rep_votes": 8373,
-        "other_votes": 1647,
-        "total_votes": 23453,
+        "dem_votes": 20778,
+        "rep_votes": 12421,
+        "other_votes": 2079,
+        "total_votes": 35278,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": -5060,
-        "margin_pct": -21.5751,
+        "margin": -8357,
+        "margin_pct": -23.689,
         "winner": "D",
         "color": "#4292c6"
       },
       "43": {
-        "dem_votes": 9518,
-        "rep_votes": 25997,
-        "other_votes": 1822,
-        "total_votes": 37337,
+        "dem_votes": 15493,
+        "rep_votes": 36259,
+        "other_votes": 2209,
+        "total_votes": 53961,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 16479,
-        "margin_pct": 44.1358,
+        "margin": 20766,
+        "margin_pct": 38.4833,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       },
       "44": {
-        "dem_votes": 8154,
-        "rep_votes": 22162,
-        "other_votes": 1666,
-        "total_votes": 31982,
+        "dem_votes": 11450,
+        "rep_votes": 28637,
+        "other_votes": 1955,
+        "total_votes": 42042,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 14008,
-        "margin_pct": 43.7996,
+        "margin": 17187,
+        "margin_pct": 40.8805,
         "winner": "R",
         "color": "#67000d"
       },
       "45": {
-        "dem_votes": 14492,
-        "rep_votes": 13567,
-        "other_votes": 1894,
-        "total_votes": 29953,
+        "dem_votes": 22228,
+        "rep_votes": 18357,
+        "other_votes": 2320,
+        "total_votes": 42905,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": -925,
-        "margin_pct": -3.0882,
+        "margin": -3871,
+        "margin_pct": -9.0223,
         "winner": "D",
-        "color": "#c6dbef"
+        "color": "#9ecae1"
       },
       "46": {
-        "dem_votes": 8903,
-        "rep_votes": 24768,
-        "other_votes": 1536,
-        "total_votes": 35207,
+        "dem_votes": 14011,
+        "rep_votes": 33051,
+        "other_votes": 1879,
+        "total_votes": 48941,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 15865,
-        "margin_pct": 45.0621,
+        "margin": 19040,
+        "margin_pct": 38.904,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 99.1274,
+    "match_coverage_pct": 99.2147,
     "precinct_rows_total": 2292,
-    "precinct_rows_overlap_weighted": 2272,
-    "precinct_rows_county_share_fallback": 20,
-    "precinct_votes_county_share_fallback": 2124,
+    "precinct_rows_overlap_weighted": 2274,
+    "precinct_rows_county_share_fallback": 16,
+    "precinct_votes_county_share_fallback": 848,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 19,
+    "whole_county_vote_components": {
+      "4": {
+        "dem_votes": 3285,
+        "rep_votes": 6669,
+        "other_votes": 516
+      },
+      "40": {
+        "dem_votes": 10156,
+        "rep_votes": 7748,
+        "other_votes": 751
+      },
+      "14": {
+        "dem_votes": 5239,
+        "rep_votes": 14565,
+        "other_votes": 1216
+      },
+      "17": {
+        "dem_votes": 12032,
+        "rep_votes": 10914,
+        "other_votes": 1500
+      },
+      "36": {
+        "dem_votes": 6965,
+        "rep_votes": 7477,
+        "other_votes": 492
+      },
+      "30": {
+        "dem_votes": 12102,
+        "rep_votes": 11243,
+        "other_votes": 1162
+      },
+      "25": {
+        "dem_votes": 6174,
+        "rep_votes": 9361,
+        "other_votes": 740
+      },
+      "10": {
+        "dem_votes": 9086,
+        "rep_votes": 17568,
+        "other_votes": 1315
+      },
+      "45": {
+        "dem_votes": 4518,
+        "rep_votes": 3265,
+        "other_votes": 516
+      },
+      "9": {
+        "dem_votes": 6889,
+        "rep_votes": 17051,
+        "other_votes": 1685
+      },
+      "29": {
+        "dem_votes": 5364,
+        "rep_votes": 4132,
+        "other_votes": 519
+      },
+      "18": {
+        "dem_votes": 5311,
+        "rep_votes": 10048,
+        "other_votes": 949
+      },
+      "1": {
+        "dem_votes": 5863,
+        "rep_votes": 25248,
+        "other_votes": 1636
+      },
+      "32": {
+        "dem_votes": 8902,
+        "rep_votes": 5138,
+        "other_votes": 433
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 2267,
+        "rep_votes": 4357,
+        "other_votes": 424
+      },
+      "2": {
+        "dem_votes": 6856,
+        "rep_votes": 35962,
+        "other_votes": 2463
+      },
+      "3": {
+        "dem_votes": 8605,
+        "rep_votes": 36793,
+        "other_votes": 2371
+      },
+      "4": {
+        "dem_votes": 7933,
+        "rep_votes": 20882,
+        "other_votes": 1831
+      },
+      "5": {
+        "dem_votes": 7510,
+        "rep_votes": 34861,
+        "other_votes": 2338
+      },
+      "6": {
+        "dem_votes": 11064,
+        "rep_votes": 34169,
+        "other_votes": 2373
+      },
+      "7": {
+        "dem_votes": 18722,
+        "rep_votes": 15149,
+        "other_votes": 1923
+      },
+      "8": {
+        "dem_votes": 13170,
+        "rep_votes": 35488,
+        "other_votes": 2211
+      },
+      "9": {
+        "dem_votes": 5597,
+        "rep_votes": 13170,
+        "other_votes": 1039
+      },
+      "10": {
+        "dem_votes": 2717,
+        "rep_votes": 15647,
+        "other_votes": 898
+      },
+      "11": {
+        "dem_votes": 11880,
+        "rep_votes": 21627,
+        "other_votes": 2010
+      },
+      "12": {
+        "dem_votes": 12296,
+        "rep_votes": 29646,
+        "other_votes": 2263
+      },
+      "13": {
+        "dem_votes": 11712,
+        "rep_votes": 34163,
+        "other_votes": 2526
+      },
+      "14": {
+        "dem_votes": 4513,
+        "rep_votes": 15611,
+        "other_votes": 1667
+      },
+      "15": {
+        "dem_votes": 12982,
+        "rep_votes": 28785,
+        "other_votes": 3082
+      },
+      "16": {
+        "dem_votes": 14108,
+        "rep_votes": 30773,
+        "other_votes": 2907
+      },
+      "17": {
+        "dem_votes": 11087,
+        "rep_votes": 11230,
+        "other_votes": 1406
+      },
+      "18": {
+        "dem_votes": 8275,
+        "rep_votes": 27820,
+        "other_votes": 1827
+      },
+      "19": {
+        "dem_votes": 29034,
+        "rep_votes": 11036,
+        "other_votes": 2056
+      },
+      "20": {
+        "dem_votes": 19385,
+        "rep_votes": 25545,
+        "other_votes": 2814
+      },
+      "21": {
+        "dem_votes": 28511,
+        "rep_votes": 14752,
+        "other_votes": 2162
+      },
+      "22": {
+        "dem_votes": 22264,
+        "rep_votes": 22726,
+        "other_votes": 2055
+      },
+      "23": {
+        "dem_votes": 8490,
+        "rep_votes": 31826,
+        "other_votes": 3101
+      },
+      "24": {
+        "dem_votes": 14618,
+        "rep_votes": 32690,
+        "other_votes": 2620
+      },
+      "25": {
+        "dem_votes": 8379,
+        "rep_votes": 21138,
+        "other_votes": 1861
+      },
+      "26": {
+        "dem_votes": 15928,
+        "rep_votes": 21431,
+        "other_votes": 2444
+      },
+      "27": {
+        "dem_votes": 13954,
+        "rep_votes": 28066,
+        "other_votes": 2852
+      },
+      "28": {
+        "dem_votes": 9793,
+        "rep_votes": 30168,
+        "other_votes": 1943
+      },
+      "29": {
+        "dem_votes": 18965,
+        "rep_votes": 18339,
+        "other_votes": 1642
+      },
+      "30": {
+        "dem_votes": 9100,
+        "rep_votes": 9261,
+        "other_votes": 801
+      },
+      "31": {
+        "dem_votes": 14098,
+        "rep_votes": 28163,
+        "other_votes": 1790
+      },
+      "32": {
+        "dem_votes": 16706,
+        "rep_votes": 15795,
+        "other_votes": 1241
+      },
+      "33": {
+        "dem_votes": 10169,
+        "rep_votes": 22574,
+        "other_votes": 1778
+      },
+      "34": {
+        "dem_votes": 11254,
+        "rep_votes": 38083,
+        "other_votes": 2251
+      },
+      "35": {
+        "dem_votes": 18744,
+        "rep_votes": 21103,
+        "other_votes": 2124
+      },
+      "36": {
+        "dem_votes": 17231,
+        "rep_votes": 15453,
+        "other_votes": 1205
+      },
+      "37": {
+        "dem_votes": 10479,
+        "rep_votes": 27998,
+        "other_votes": 1574
+      },
+      "38": {
+        "dem_votes": 10393,
+        "rep_votes": 27119,
+        "other_votes": 1966
+      },
+      "39": {
+        "dem_votes": 17535,
+        "rep_votes": 17087,
+        "other_votes": 1461
+      },
+      "40": {
+        "dem_votes": 14520,
+        "rep_votes": 13118,
+        "other_votes": 1227
+      },
+      "41": {
+        "dem_votes": 12368,
+        "rep_votes": 26118,
+        "other_votes": 1861
+      },
+      "42": {
+        "dem_votes": 20778,
+        "rep_votes": 12421,
+        "other_votes": 2079
+      },
+      "43": {
+        "dem_votes": 15493,
+        "rep_votes": 36259,
+        "other_votes": 2209
+      },
+      "44": {
+        "dem_votes": 11450,
+        "rep_votes": 28637,
+        "other_votes": 1955
+      },
+      "45": {
+        "dem_votes": 17710,
+        "rep_votes": 15092,
+        "other_votes": 1804
+      },
+      "46": {
+        "dem_votes": 14011,
+        "rep_votes": 33051,
+        "other_votes": 1879
+      }
+    },
+    "split_counties_reconciled": 27,
     "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 704540,
+      "rep_votes": 1241609,
+      "other_votes": 103744
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "punctuation_alias_rows": 2,
+    "punctuation_alias_votes": 2204,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 1,
+    "historical_name_bridge_votes": 467,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/us_senate_2016",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.316004,
-    "snapshot_comparison_max_abs_share_delta_pp": 3.278157,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "state_senate_2022",
-    "calibration_target_file": "C:/Users/Shama/OneDrive/Documents/Side_Projects/Side_Projects/SCPrecinctMap/scprecinctmap-tooltip-branch/data/district_contests/district_snapshot_targets.json#state_senate_2022/us_senate_2016",
-    "calibration_districts": 46,
-    "calibration_expected_districts": 46,
-    "calibration_snapshot_districts": 46,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.217521,
-    "calibration_max_abs_share_delta_pp": 0.660117,
-    "calibration_statewide_mix_gap_pp": 0.317652,
-    "calibration_tolerance_pp": 2.317652,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "calibration_frozen_districts": [],
-    "margin_calibration_mean_abs_delta_pp_before": 0.6469,
-    "margin_calibration_max_abs_delta_pp_before": 1.3144,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0013,
-    "margin_calibration_max_abs_delta_pp_after": 0.003,
-    "margin_calibration_ignored_uncontested_districts": []
+    "snapshot_comparison_mean_abs_share_delta_pp": 1.402977,
+    "snapshot_comparison_max_abs_share_delta_pp": 6.010125,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 704540,
+      "rep_votes": 1241609,
+      "other_votes": 103744
+    }
   }
 }

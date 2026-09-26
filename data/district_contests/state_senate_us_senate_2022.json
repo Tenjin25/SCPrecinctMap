@@ -2,598 +2,903 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 8221,
-        "rep_votes": 26357,
+        "dem_votes": 8246,
+        "rep_votes": 26438,
         "other_votes": 30,
-        "total_votes": 34608,
+        "total_votes": 34714,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 18136,
-        "margin_pct": 52.4041,
+        "margin": 18192,
+        "margin_pct": 52.4054,
         "winner": "R",
         "color": "#67000d"
       },
       "2": {
-        "dem_votes": 6767,
-        "rep_votes": 29900,
-        "other_votes": 37,
-        "total_votes": 36704,
+        "dem_votes": 6708,
+        "rep_votes": 30215,
+        "other_votes": 36,
+        "total_votes": 36959,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 23133,
-        "margin_pct": 63.0258,
+        "margin": 23507,
+        "margin_pct": 63.6029,
         "winner": "R",
         "color": "#67000d"
       },
       "3": {
-        "dem_votes": 9044,
-        "rep_votes": 32127,
-        "other_votes": 50,
-        "total_votes": 41221,
+        "dem_votes": 9190,
+        "rep_votes": 32658,
+        "other_votes": 51,
+        "total_votes": 41899,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 23083,
-        "margin_pct": 55.9982,
+        "margin": 23468,
+        "margin_pct": 56.0109,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
-        "dem_votes": 7632,
-        "rep_votes": 22584,
-        "other_votes": 26,
-        "total_votes": 30242,
+        "dem_votes": 7511,
+        "rep_votes": 22402,
+        "other_votes": 25,
+        "total_votes": 29938,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 14952,
-        "margin_pct": 49.4412,
+        "margin": 14891,
+        "margin_pct": 49.7395,
         "winner": "R",
         "color": "#67000d"
       },
       "5": {
-        "dem_votes": 8247,
-        "rep_votes": 31813,
+        "dem_votes": 8292,
+        "rep_votes": 31956,
         "other_votes": 72,
-        "total_votes": 40132,
+        "total_votes": 40320,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 23566,
-        "margin_pct": 58.7212,
+        "margin": 23664,
+        "margin_pct": 58.6905,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
-        "dem_votes": 12166,
-        "rep_votes": 26727,
+        "dem_votes": 12209,
+        "rep_votes": 26766,
         "other_votes": 89,
-        "total_votes": 38982,
+        "total_votes": 39064,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 14561,
-        "margin_pct": 37.3531,
+        "margin": 14557,
+        "margin_pct": 37.2645,
         "winner": "R",
         "color": "#a50f15"
       },
       "7": {
-        "dem_votes": 15278,
-        "rep_votes": 11857,
+        "dem_votes": 15351,
+        "rep_votes": 12168,
         "other_votes": 43,
-        "total_votes": 27178,
+        "total_votes": 27562,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": -3421,
-        "margin_pct": -12.5874,
+        "margin": -3183,
+        "margin_pct": -11.5485,
         "winner": "D",
         "color": "#6baed6"
       },
       "8": {
-        "dem_votes": 14342,
-        "rep_votes": 29067,
+        "dem_votes": 14448,
+        "rep_votes": 29254,
         "other_votes": 87,
-        "total_votes": 43496,
+        "total_votes": 43789,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 14725,
-        "margin_pct": 33.8537,
+        "margin": 14806,
+        "margin_pct": 33.8121,
         "winner": "R",
         "color": "#a50f15"
       },
       "9": {
-        "dem_votes": 10446,
-        "rep_votes": 26161,
-        "other_votes": 60,
-        "total_votes": 36667,
+        "dem_votes": 10486,
+        "rep_votes": 26318,
+        "other_votes": 62,
+        "total_votes": 36866,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 15715,
-        "margin_pct": 42.8587,
+        "margin": 15832,
+        "margin_pct": 42.9447,
         "winner": "R",
         "color": "#67000d"
       },
       "10": {
-        "dem_votes": 10569,
-        "rep_votes": 30069,
+        "dem_votes": 10646,
+        "rep_votes": 30140,
         "other_votes": 33,
-        "total_votes": 40671,
+        "total_votes": 40819,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 19500,
-        "margin_pct": 47.9457,
+        "margin": 19494,
+        "margin_pct": 47.7572,
         "winner": "R",
         "color": "#67000d"
       },
       "11": {
-        "dem_votes": 9313,
-        "rep_votes": 19852,
-        "other_votes": 27,
-        "total_votes": 29192,
+        "dem_votes": 9597,
+        "rep_votes": 19701,
+        "other_votes": 26,
+        "total_votes": 29324,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 10539,
-        "margin_pct": 36.1024,
+        "margin": 10104,
+        "margin_pct": 34.4564,
         "winner": "R",
         "color": "#a50f15"
       },
       "12": {
-        "dem_votes": 12169,
-        "rep_votes": 24652,
-        "other_votes": 44,
-        "total_votes": 36865,
+        "dem_votes": 12121,
+        "rep_votes": 24927,
+        "other_votes": 36,
+        "total_votes": 37084,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 12483,
-        "margin_pct": 33.8614,
+        "margin": 12806,
+        "margin_pct": 34.5324,
         "winner": "R",
         "color": "#a50f15"
       },
       "13": {
-        "dem_votes": 10601,
-        "rep_votes": 28082,
-        "other_votes": 42,
-        "total_votes": 38725,
+        "dem_votes": 10861,
+        "rep_votes": 27591,
+        "other_votes": 50,
+        "total_votes": 38502,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 17481,
-        "margin_pct": 45.1414,
+        "margin": 16730,
+        "margin_pct": 43.4523,
         "winner": "R",
         "color": "#67000d"
       },
       "14": {
-        "dem_votes": 6963,
-        "rep_votes": 26502,
-        "other_votes": 24,
-        "total_votes": 33489,
+        "dem_votes": 6991,
+        "rep_votes": 27025,
+        "other_votes": 23,
+        "total_votes": 34039,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 19539,
-        "margin_pct": 58.3445,
+        "margin": 20034,
+        "margin_pct": 58.856,
         "winner": "R",
         "color": "#67000d"
       },
       "15": {
-        "dem_votes": 13614,
-        "rep_votes": 26939,
-        "other_votes": 27,
-        "total_votes": 40580,
+        "dem_votes": 13704,
+        "rep_votes": 27125,
+        "other_votes": 28,
+        "total_votes": 40857,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 13325,
-        "margin_pct": 32.8364,
+        "margin": 13421,
+        "margin_pct": 32.8487,
         "winner": "R",
         "color": "#a50f15"
       },
       "16": {
-        "dem_votes": 16740,
-        "rep_votes": 28351,
+        "dem_votes": 16827,
+        "rep_votes": 28517,
         "other_votes": 33,
-        "total_votes": 45124,
+        "total_votes": 45377,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 11611,
-        "margin_pct": 25.7313,
+        "margin": 11690,
+        "margin_pct": 25.7619,
         "winner": "R",
         "color": "#cb181d"
       },
       "17": {
-        "dem_votes": 16699,
-        "rep_votes": 19697,
+        "dem_votes": 16485,
+        "rep_votes": 19460,
         "other_votes": 22,
-        "total_votes": 36418,
+        "total_votes": 35967,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 2998,
-        "margin_pct": 8.2322,
+        "margin": 2975,
+        "margin_pct": 8.2715,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "18": {
-        "dem_votes": 14440,
-        "rep_votes": 32565,
+        "dem_votes": 14479,
+        "rep_votes": 32644,
         "other_votes": 42,
-        "total_votes": 47047,
+        "total_votes": 47165,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 18125,
-        "margin_pct": 38.5253,
+        "margin": 18165,
+        "margin_pct": 38.5137,
         "winner": "R",
         "color": "#a50f15"
       },
       "19": {
-        "dem_votes": 21789,
-        "rep_votes": 6596,
+        "dem_votes": 21882,
+        "rep_votes": 6619,
         "other_votes": 37,
-        "total_votes": 28422,
+        "total_votes": 28538,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": -15193,
-        "margin_pct": -53.4551,
+        "margin": -15263,
+        "margin_pct": -53.4831,
         "winner": "D",
         "color": "#08519c"
       },
       "20": {
-        "dem_votes": 20480,
-        "rep_votes": 17906,
+        "dem_votes": 20621,
+        "rep_votes": 17998,
         "other_votes": 73,
-        "total_votes": 38459,
+        "total_votes": 38692,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": -2574,
-        "margin_pct": -6.6928,
+        "margin": -2623,
+        "margin_pct": -6.7792,
         "winner": "D",
         "color": "#9ecae1"
       },
       "21": {
-        "dem_votes": 22486,
-        "rep_votes": 9627,
-        "other_votes": 81,
-        "total_votes": 32194,
+        "dem_votes": 22554,
+        "rep_votes": 9652,
+        "other_votes": 82,
+        "total_votes": 32288,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": -12859,
-        "margin_pct": -39.9422,
+        "margin": -12902,
+        "margin_pct": -39.9591,
         "winner": "D",
         "color": "#2171b5"
       },
       "22": {
-        "dem_votes": 22630,
-        "rep_votes": 16755,
+        "dem_votes": 22694,
+        "rep_votes": 16793,
         "other_votes": 67,
-        "total_votes": 39452,
+        "total_votes": 39554,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": -5875,
-        "margin_pct": -14.8915,
+        "margin": -5901,
+        "margin_pct": -14.9188,
         "winner": "D",
         "color": "#6baed6"
       },
       "23": {
-        "dem_votes": 9155,
-        "rep_votes": 24311,
+        "dem_votes": 9196,
+        "rep_votes": 24406,
         "other_votes": 37,
-        "total_votes": 33503,
+        "total_votes": 33639,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 15156,
-        "margin_pct": 45.2377,
+        "margin": 15210,
+        "margin_pct": 45.2154,
         "winner": "R",
         "color": "#67000d"
       },
       "24": {
-        "dem_votes": 12257,
-        "rep_votes": 26420,
-        "other_votes": 32,
-        "total_votes": 38709,
+        "dem_votes": 12291,
+        "rep_votes": 26524,
+        "other_votes": 31,
+        "total_votes": 38846,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 14163,
-        "margin_pct": 36.5884,
+        "margin": 14233,
+        "margin_pct": 36.6396,
         "winner": "R",
         "color": "#a50f15"
       },
       "25": {
-        "dem_votes": 10910,
-        "rep_votes": 26008,
-        "other_votes": 28,
-        "total_votes": 36946,
+        "dem_votes": 10902,
+        "rep_votes": 26211,
+        "other_votes": 29,
+        "total_votes": 37142,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 15098,
-        "margin_pct": 40.865,
+        "margin": 15309,
+        "margin_pct": 41.2175,
         "winner": "R",
         "color": "#67000d"
       },
       "26": {
-        "dem_votes": 13010,
-        "rep_votes": 15131,
+        "dem_votes": 13072,
+        "rep_votes": 15201,
         "other_votes": 69,
-        "total_votes": 28210,
+        "total_votes": 28342,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 2121,
-        "margin_pct": 7.5186,
+        "margin": 2129,
+        "margin_pct": 7.5118,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "27": {
-        "dem_votes": 10126,
-        "rep_votes": 24595,
-        "other_votes": 19,
-        "total_votes": 34740,
+        "dem_votes": 10089,
+        "rep_votes": 25281,
+        "other_votes": 23,
+        "total_votes": 35393,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 14469,
-        "margin_pct": 41.6494,
+        "margin": 15192,
+        "margin_pct": 42.9237,
         "winner": "R",
         "color": "#67000d"
       },
       "28": {
-        "dem_votes": 11644,
-        "rep_votes": 34692,
+        "dem_votes": 11769,
+        "rep_votes": 34626,
         "other_votes": 20,
-        "total_votes": 46356,
+        "total_votes": 46415,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 23048,
-        "margin_pct": 49.7196,
+        "margin": 22857,
+        "margin_pct": 49.2449,
         "winner": "R",
         "color": "#67000d"
       },
       "29": {
-        "dem_votes": 15136,
-        "rep_votes": 18160,
+        "dem_votes": 15186,
+        "rep_votes": 18158,
         "other_votes": 24,
-        "total_votes": 33320,
+        "total_votes": 33368,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 3024,
-        "margin_pct": 9.0756,
+        "margin": 2972,
+        "margin_pct": 8.9067,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "30": {
-        "dem_votes": 13838,
-        "rep_votes": 16259,
-        "other_votes": 16,
-        "total_votes": 30113,
+        "dem_votes": 13857,
+        "rep_votes": 16296,
+        "other_votes": 17,
+        "total_votes": 30170,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 2421,
-        "margin_pct": 8.0397,
+        "margin": 2439,
+        "margin_pct": 8.0842,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "31": {
-        "dem_votes": 11727,
-        "rep_votes": 21935,
+        "dem_votes": 11679,
+        "rep_votes": 21986,
         "other_votes": 21,
-        "total_votes": 33683,
+        "total_votes": 33686,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 10208,
-        "margin_pct": 30.3061,
+        "margin": 10307,
+        "margin_pct": 30.5973,
         "winner": "R",
         "color": "#a50f15"
       },
       "32": {
-        "dem_votes": 16989,
-        "rep_votes": 16618,
-        "other_votes": 24,
-        "total_votes": 33631,
+        "dem_votes": 17285,
+        "rep_votes": 17020,
+        "other_votes": 26,
+        "total_votes": 34331,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": -371,
-        "margin_pct": -1.1031,
+        "margin": -265,
+        "margin_pct": -0.7719,
         "winner": "D",
         "color": "#c6dbef"
       },
       "33": {
-        "dem_votes": 12077,
-        "rep_votes": 26005,
+        "dem_votes": 12094,
+        "rep_votes": 26037,
         "other_votes": 26,
-        "total_votes": 38108,
+        "total_votes": 38157,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 13928,
-        "margin_pct": 36.5488,
+        "margin": 13943,
+        "margin_pct": 36.5411,
         "winner": "R",
         "color": "#a50f15"
       },
       "34": {
-        "dem_votes": 14040,
-        "rep_votes": 37949,
+        "dem_votes": 14055,
+        "rep_votes": 37988,
         "other_votes": 28,
-        "total_votes": 52017,
+        "total_votes": 52071,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 23909,
-        "margin_pct": 45.9638,
+        "margin": 23933,
+        "margin_pct": 45.9622,
         "winner": "R",
         "color": "#67000d"
       },
       "35": {
-        "dem_votes": 15290,
-        "rep_votes": 16559,
+        "dem_votes": 15366,
+        "rep_votes": 16513,
         "other_votes": 20,
-        "total_votes": 31869,
+        "total_votes": 31899,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 1269,
-        "margin_pct": 3.9819,
+        "margin": 1147,
+        "margin_pct": 3.5957,
         "winner": "R",
         "color": "#fcbba1"
       },
       "36": {
-        "dem_votes": 16885,
-        "rep_votes": 19241,
+        "dem_votes": 16915,
+        "rep_votes": 19267,
         "other_votes": 29,
-        "total_votes": 36155,
+        "total_votes": 36211,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 2356,
-        "margin_pct": 6.5164,
+        "margin": 2352,
+        "margin_pct": 6.4953,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "37": {
-        "dem_votes": 12953,
-        "rep_votes": 24288,
+        "dem_votes": 12994,
+        "rep_votes": 24346,
         "other_votes": 35,
-        "total_votes": 37276,
+        "total_votes": 37375,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 11335,
-        "margin_pct": 30.4083,
+        "margin": 11352,
+        "margin_pct": 30.3732,
         "winner": "R",
         "color": "#a50f15"
       },
       "38": {
-        "dem_votes": 11570,
-        "rep_votes": 21170,
+        "dem_votes": 11583,
+        "rep_votes": 21195,
         "other_votes": 40,
-        "total_votes": 32780,
+        "total_votes": 32818,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 9600,
-        "margin_pct": 29.2862,
+        "margin": 9612,
+        "margin_pct": 29.2888,
         "winner": "R",
         "color": "#cb181d"
       },
       "39": {
-        "dem_votes": 14749,
-        "rep_votes": 18047,
-        "other_votes": 27,
-        "total_votes": 32823,
+        "dem_votes": 15038,
+        "rep_votes": 17775,
+        "other_votes": 28,
+        "total_votes": 32841,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 3298,
-        "margin_pct": 10.0478,
-        "winner": "R",
-        "color": "#ef3b2c"
-      },
-      "40": {
-        "dem_votes": 14569,
-        "rep_votes": 17387,
-        "other_votes": 20,
-        "total_votes": 31976,
-        "dem_candidate": "Krystle Matthews",
-        "rep_candidate": "Tim Scott",
-        "margin": 2818,
-        "margin_pct": 8.8129,
+        "margin": 2737,
+        "margin_pct": 8.3341,
         "winner": "R",
         "color": "#fc8a6a"
       },
-      "41": {
-        "dem_votes": 15223,
-        "rep_votes": 23101,
-        "other_votes": 40,
-        "total_votes": 38364,
+      "40": {
+        "dem_votes": 15425,
+        "rep_votes": 16570,
+        "other_votes": 22,
+        "total_votes": 32017,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 7878,
-        "margin_pct": 20.5349,
+        "margin": 1145,
+        "margin_pct": 3.5762,
         "winner": "R",
-        "color": "#cb181d"
+        "color": "#fcbba1"
+      },
+      "41": {
+        "dem_votes": 15391,
+        "rep_votes": 22991,
+        "other_votes": 43,
+        "total_votes": 38425,
+        "dem_candidate": "Krystle Matthews",
+        "rep_candidate": "Tim Scott",
+        "margin": 7600,
+        "margin_pct": 19.7788,
+        "winner": "R",
+        "color": "#ef3b2c"
       },
       "42": {
-        "dem_votes": 14726,
-        "rep_votes": 6851,
+        "dem_votes": 14759,
+        "rep_votes": 6868,
         "other_votes": 44,
-        "total_votes": 21621,
+        "total_votes": 21671,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": -7875,
-        "margin_pct": -36.4229,
+        "margin": -7891,
+        "margin_pct": -36.4127,
         "winner": "D",
         "color": "#2171b5"
       },
       "43": {
-        "dem_votes": 18954,
-        "rep_votes": 33132,
-        "other_votes": 71,
-        "total_votes": 52157,
+        "dem_votes": 19238,
+        "rep_votes": 32379,
+        "other_votes": 67,
+        "total_votes": 51684,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 14178,
-        "margin_pct": 27.1833,
+        "margin": 13141,
+        "margin_pct": 25.4257,
         "winner": "R",
         "color": "#cb181d"
       },
       "44": {
-        "dem_votes": 13457,
-        "rep_votes": 22859,
+        "dem_votes": 13406,
+        "rep_votes": 22768,
         "other_votes": 42,
-        "total_votes": 36358,
+        "total_votes": 36216,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 9402,
-        "margin_pct": 25.8595,
+        "margin": 9362,
+        "margin_pct": 25.8505,
         "winner": "R",
         "color": "#cb181d"
       },
       "45": {
-        "dem_votes": 17069,
-        "rep_votes": 16418,
-        "other_votes": 16,
-        "total_votes": 33503,
+        "dem_votes": 17185,
+        "rep_votes": 16620,
+        "other_votes": 15,
+        "total_votes": 33820,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": -651,
-        "margin_pct": -1.9431,
+        "margin": -565,
+        "margin_pct": -1.6706,
         "winner": "D",
         "color": "#c6dbef"
       },
       "46": {
-        "dem_votes": 16852,
-        "rep_votes": 32681,
+        "dem_votes": 16938,
+        "rep_votes": 32881,
         "other_votes": 29,
-        "total_votes": 49562,
+        "total_votes": 49848,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 15829,
-        "margin_pct": 31.9378,
+        "margin": 15943,
+        "margin_pct": 31.9832,
         "winner": "R",
         "color": "#a50f15"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 99.8701,
+    "match_coverage_pct": 100.0,
     "precinct_rows_total": 2310,
-    "precinct_rows_overlap_weighted": 2307,
-    "precinct_rows_county_share_fallback": 3,
-    "precinct_votes_county_share_fallback": 2583,
+    "precinct_rows_overlap_weighted": 2310,
+    "precinct_rows_county_share_fallback": 0,
+    "precinct_votes_county_share_fallback": 0,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 19,
+    "whole_county_vote_components": {
+      "4": {
+        "dem_votes": 2310,
+        "rep_votes": 6259,
+        "other_votes": 4
+      },
+      "40": {
+        "dem_votes": 5826,
+        "rep_votes": 6213,
+        "other_votes": 4
+      },
+      "14": {
+        "dem_votes": 3355,
+        "rep_votes": 12753,
+        "other_votes": 12
+      },
+      "17": {
+        "dem_votes": 8065,
+        "rep_votes": 9837,
+        "other_votes": 11
+      },
+      "36": {
+        "dem_votes": 4792,
+        "rep_votes": 6612,
+        "other_votes": 6
+      },
+      "30": {
+        "dem_votes": 7841,
+        "rep_votes": 8408,
+        "other_votes": 10
+      },
+      "25": {
+        "dem_votes": 4434,
+        "rep_votes": 8926,
+        "other_votes": 13
+      },
+      "10": {
+        "dem_votes": 6720,
+        "rep_votes": 15033,
+        "other_votes": 12
+      },
+      "45": {
+        "dem_votes": 2799,
+        "rep_votes": 2825,
+        "other_votes": 2
+      },
+      "9": {
+        "dem_votes": 5214,
+        "rep_votes": 14504,
+        "other_votes": 38
+      },
+      "29": {
+        "dem_votes": 3169,
+        "rep_votes": 3308,
+        "other_votes": 9
+      },
+      "18": {
+        "dem_votes": 3775,
+        "rep_votes": 8967,
+        "other_votes": 10
+      },
+      "1": {
+        "dem_votes": 5975,
+        "rep_votes": 22923,
+        "other_votes": 21
+      },
+      "32": {
+        "dem_votes": 5695,
+        "rep_votes": 4047,
+        "other_votes": 2
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 2271,
+        "rep_votes": 3515,
+        "other_votes": 9
+      },
+      "2": {
+        "dem_votes": 6708,
+        "rep_votes": 30215,
+        "other_votes": 36
+      },
+      "3": {
+        "dem_votes": 9190,
+        "rep_votes": 32658,
+        "other_votes": 51
+      },
+      "4": {
+        "dem_votes": 5201,
+        "rep_votes": 16143,
+        "other_votes": 21
+      },
+      "5": {
+        "dem_votes": 8292,
+        "rep_votes": 31956,
+        "other_votes": 72
+      },
+      "6": {
+        "dem_votes": 12209,
+        "rep_votes": 26766,
+        "other_votes": 89
+      },
+      "7": {
+        "dem_votes": 15351,
+        "rep_votes": 12168,
+        "other_votes": 43
+      },
+      "8": {
+        "dem_votes": 14448,
+        "rep_votes": 29254,
+        "other_votes": 87
+      },
+      "9": {
+        "dem_votes": 5272,
+        "rep_votes": 11814,
+        "other_votes": 24
+      },
+      "10": {
+        "dem_votes": 3926,
+        "rep_votes": 15107,
+        "other_votes": 21
+      },
+      "11": {
+        "dem_votes": 9597,
+        "rep_votes": 19701,
+        "other_votes": 26
+      },
+      "12": {
+        "dem_votes": 12121,
+        "rep_votes": 24927,
+        "other_votes": 36
+      },
+      "13": {
+        "dem_votes": 10861,
+        "rep_votes": 27591,
+        "other_votes": 50
+      },
+      "14": {
+        "dem_votes": 3636,
+        "rep_votes": 14272,
+        "other_votes": 11
+      },
+      "15": {
+        "dem_votes": 13704,
+        "rep_votes": 27125,
+        "other_votes": 28
+      },
+      "16": {
+        "dem_votes": 16827,
+        "rep_votes": 28517,
+        "other_votes": 33
+      },
+      "17": {
+        "dem_votes": 8420,
+        "rep_votes": 9623,
+        "other_votes": 11
+      },
+      "18": {
+        "dem_votes": 10704,
+        "rep_votes": 23677,
+        "other_votes": 32
+      },
+      "19": {
+        "dem_votes": 21882,
+        "rep_votes": 6619,
+        "other_votes": 37
+      },
+      "20": {
+        "dem_votes": 20621,
+        "rep_votes": 17998,
+        "other_votes": 73
+      },
+      "21": {
+        "dem_votes": 22554,
+        "rep_votes": 9652,
+        "other_votes": 82
+      },
+      "22": {
+        "dem_votes": 22694,
+        "rep_votes": 16793,
+        "other_votes": 67
+      },
+      "23": {
+        "dem_votes": 9196,
+        "rep_votes": 24406,
+        "other_votes": 37
+      },
+      "24": {
+        "dem_votes": 12291,
+        "rep_votes": 26524,
+        "other_votes": 31
+      },
+      "25": {
+        "dem_votes": 6468,
+        "rep_votes": 17285,
+        "other_votes": 16
+      },
+      "26": {
+        "dem_votes": 13072,
+        "rep_votes": 15201,
+        "other_votes": 69
+      },
+      "27": {
+        "dem_votes": 10089,
+        "rep_votes": 25281,
+        "other_votes": 23
+      },
+      "28": {
+        "dem_votes": 11769,
+        "rep_votes": 34626,
+        "other_votes": 20
+      },
+      "29": {
+        "dem_votes": 12017,
+        "rep_votes": 14850,
+        "other_votes": 15
+      },
+      "30": {
+        "dem_votes": 6016,
+        "rep_votes": 7888,
+        "other_votes": 7
+      },
+      "31": {
+        "dem_votes": 11679,
+        "rep_votes": 21986,
+        "other_votes": 21
+      },
+      "32": {
+        "dem_votes": 11590,
+        "rep_votes": 12973,
+        "other_votes": 24
+      },
+      "33": {
+        "dem_votes": 12094,
+        "rep_votes": 26037,
+        "other_votes": 26
+      },
+      "34": {
+        "dem_votes": 14055,
+        "rep_votes": 37988,
+        "other_votes": 28
+      },
+      "35": {
+        "dem_votes": 15366,
+        "rep_votes": 16513,
+        "other_votes": 20
+      },
+      "36": {
+        "dem_votes": 12123,
+        "rep_votes": 12655,
+        "other_votes": 23
+      },
+      "37": {
+        "dem_votes": 12994,
+        "rep_votes": 24346,
+        "other_votes": 35
+      },
+      "38": {
+        "dem_votes": 11583,
+        "rep_votes": 21195,
+        "other_votes": 40
+      },
+      "39": {
+        "dem_votes": 15038,
+        "rep_votes": 17775,
+        "other_votes": 28
+      },
+      "40": {
+        "dem_votes": 9599,
+        "rep_votes": 10357,
+        "other_votes": 18
+      },
+      "41": {
+        "dem_votes": 15391,
+        "rep_votes": 22991,
+        "other_votes": 43
+      },
+      "42": {
+        "dem_votes": 14759,
+        "rep_votes": 6868,
+        "other_votes": 44
+      },
+      "43": {
+        "dem_votes": 19238,
+        "rep_votes": 32379,
+        "other_votes": 67
+      },
+      "44": {
+        "dem_votes": 13406,
+        "rep_votes": 22768,
+        "other_votes": 42
+      },
+      "45": {
+        "dem_votes": 14386,
+        "rep_votes": 13795,
+        "other_votes": 13
+      },
+      "46": {
+        "dem_votes": 16938,
+        "rep_votes": 32881,
+        "other_votes": 29
+      }
+    },
+    "split_counties_reconciled": 27,
     "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 627616,
+      "rep_votes": 1066274,
+      "other_votes": 1812
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "punctuation_alias_rows": 2,
+    "punctuation_alias_votes": 2892,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 2,
+    "historical_name_bridge_votes": 1278,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/us_senate_2022",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.149027,
-    "snapshot_comparison_max_abs_share_delta_pp": 2.630443,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "state_senate_2022",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/us_senate_2022",
-    "calibration_districts": 46,
-    "calibration_expected_districts": 46,
-    "calibration_snapshot_districts": 46,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.060477,
-    "calibration_max_abs_share_delta_pp": 0.182526,
-    "calibration_statewide_mix_gap_pp": 0.087924,
-    "calibration_tolerance_pp": 2.087924,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "margin_calibration_mean_abs_delta_pp_before": 0.1809,
-    "margin_calibration_max_abs_delta_pp_before": 0.3649,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0011,
-    "margin_calibration_max_abs_delta_pp_after": 0.0033
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.148699,
+    "snapshot_comparison_max_abs_share_delta_pp": 2.621746,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 627616,
+      "rep_votes": 1066274,
+      "other_votes": 1812
+    }
   }
 }

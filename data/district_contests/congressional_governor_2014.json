@@ -2,130 +2,200 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 49212,
-        "rep_votes": 83877,
-        "other_votes": 4384,
-        "total_votes": 137473,
+        "dem_votes": 60748,
+        "rep_votes": 99914,
+        "other_votes": 4964,
+        "total_votes": 165626,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 34665,
-        "margin_pct": 25.2159,
+        "margin": 39166,
+        "margin_pct": 23.6473,
         "winner": "R",
         "color": "#cb181d"
       },
       "2": {
-        "dem_votes": 67420,
-        "rep_votes": 96463,
-        "other_votes": 5065,
-        "total_votes": 168948,
+        "dem_votes": 80210,
+        "rep_votes": 111639,
+        "other_votes": 6204,
+        "total_votes": 198053,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 29043,
-        "margin_pct": 17.1905,
+        "margin": 31429,
+        "margin_pct": 15.869,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 43572,
-        "rep_votes": 106036,
-        "other_votes": 3836,
-        "total_votes": 153444,
+        "dem_votes": 51930,
+        "rep_votes": 117526,
+        "other_votes": 4556,
+        "total_votes": 174012,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 62464,
-        "margin_pct": 40.708,
+        "margin": 65596,
+        "margin_pct": 37.6963,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 44983,
-        "rep_votes": 99516,
-        "other_votes": 3763,
-        "total_votes": 148262,
+        "dem_votes": 52863,
+        "rep_votes": 108120,
+        "other_votes": 4312,
+        "total_votes": 165295,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 54533,
-        "margin_pct": 36.7815,
+        "margin": 55257,
+        "margin_pct": 33.4293,
         "winner": "R",
         "color": "#a50f15"
       },
       "5": {
-        "dem_votes": 56685,
-        "rep_votes": 80080,
-        "other_votes": 3349,
-        "total_votes": 140114,
+        "dem_votes": 68773,
+        "rep_votes": 99088,
+        "other_votes": 4160,
+        "total_votes": 172021,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 23395,
-        "margin_pct": 16.6971,
+        "margin": 30315,
+        "margin_pct": 17.6228,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 108400,
-        "rep_votes": 48428,
-        "other_votes": 3392,
-        "total_votes": 160220,
+        "dem_votes": 131143,
+        "rep_votes": 62417,
+        "other_votes": 4837,
+        "total_votes": 198397,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": -59972,
-        "margin_pct": -37.431,
+        "margin": -68726,
+        "margin_pct": -34.6406,
         "winner": "D",
         "color": "#2171b5"
       },
       "7": {
-        "dem_votes": 60529,
-        "rep_votes": 88865,
-        "other_votes": 3847,
-        "total_votes": 153241,
+        "dem_votes": 70499,
+        "rep_votes": 97941,
+        "other_votes": 4457,
+        "total_votes": 172897,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 28336,
-        "margin_pct": 18.4911,
+        "margin": 27442,
+        "margin_pct": 15.8719,
         "winner": "R",
         "color": "#ef3b2c"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 97.7404,
+    "match_coverage_pct": 97.9176,
     "precinct_rows_total": 2257,
-    "precinct_rows_overlap_weighted": 2206,
-    "precinct_rows_county_share_fallback": 51,
-    "precinct_votes_county_share_fallback": 2355,
+    "precinct_rows_overlap_weighted": 2210,
+    "precinct_rows_county_share_fallback": 12,
+    "precinct_votes_county_share_fallback": 132,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 36,
+    "whole_county_vote_components": {
+      "3": {
+        "dem_votes": 48068,
+        "rep_votes": 108187,
+        "other_votes": 4238
+      },
+      "2": {
+        "dem_votes": 41245,
+        "rep_votes": 82058,
+        "other_votes": 4389
+      },
+      "6": {
+        "dem_votes": 24232,
+        "rep_votes": 14544,
+        "other_votes": 700
+      },
+      "1": {
+        "dem_votes": 33857,
+        "rep_votes": 54880,
+        "other_votes": 2251
+      },
+      "5": {
+        "dem_votes": 56077,
+        "rep_votes": 80160,
+        "other_votes": 3463
+      },
+      "7": {
+        "dem_votes": 54937,
+        "rep_votes": 80908,
+        "other_votes": 3642
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 26891,
+        "rep_votes": 45034,
+        "other_votes": 2713
+      },
+      "2": {
+        "dem_votes": 38965,
+        "rep_votes": 29581,
+        "other_votes": 1815
+      },
+      "3": {
+        "dem_votes": 3862,
+        "rep_votes": 9339,
+        "other_votes": 318
+      },
+      "4": {
+        "dem_votes": 52863,
+        "rep_votes": 108120,
+        "other_votes": 4312
+      },
+      "5": {
+        "dem_votes": 12696,
+        "rep_votes": 18928,
+        "other_votes": 697
+      },
+      "6": {
+        "dem_votes": 106911,
+        "rep_votes": 47873,
+        "other_votes": 4137
+      },
+      "7": {
+        "dem_votes": 15562,
+        "rep_votes": 17033,
+        "other_votes": 815
+      }
+    },
+    "split_counties_reconciled": 10,
     "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 516166,
+      "rep_votes": 696645,
+      "other_votes": 33490
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "punctuation_alias_rows": 1,
+    "punctuation_alias_votes": 935,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 4,
+    "historical_name_bridge_votes": 1706,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/governor_2014",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.627966,
-    "snapshot_comparison_max_abs_share_delta_pp": 3.135119,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "congressional",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#congressional/governor_2014",
-    "calibration_districts": 7,
-    "calibration_expected_districts": 7,
-    "calibration_snapshot_districts": 7,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.246921,
-    "calibration_max_abs_share_delta_pp": 0.621075,
-    "calibration_statewide_mix_gap_pp": 0.372977,
-    "calibration_tolerance_pp": 2.372977,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "margin_calibration_mean_abs_delta_pp_before": 0.7309,
-    "margin_calibration_max_abs_delta_pp_before": 1.2339,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0003,
-    "margin_calibration_max_abs_delta_pp_after": 0.0006
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.78674,
+    "snapshot_comparison_max_abs_share_delta_pp": 1.711056,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 516166,
+      "rep_votes": 696645,
+      "other_votes": 33490
+    }
   }
 }

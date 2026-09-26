@@ -1,0 +1,1986 @@
+{
+  "method": "Reproduce the served 2010 2022-line House allocations from source precinct weights, county fallback and official county-row party reconciliation. Compare available VTD10 footprint weights as a diagnostic only. DRA margins are independent estimates, not official returns.",
+  "cases": [
+    {
+      "contest": "governor",
+      "district": "15",
+      "dra_republican_margin_pp": 2.16,
+      "live_republican_margin_pp": 0.0,
+      "live_votes": {
+        "dem_votes": 1599,
+        "rep_votes": 1599,
+        "other_votes": 81
+      },
+      "diagnostic": {
+        "source_precinct_votes_allocated_to_district_before_county_reconciliation": 2823.382,
+        "county_reconciliation_votes_added_to_district": {
+          "dem_votes": 228.947,
+          "rep_votes": 216.064,
+          "other_votes": 10.607
+        },
+        "source_rows_with_vtd10_footprint": 2,
+        "source_rows_without_vtd10_footprint": 9,
+        "absolute_vtd10_vote_shift_where_available": 0
+      },
+      "components": [
+        {
+          "county": "BERKELEY",
+          "kind": "split",
+          "official": {
+            "dem_votes": 17979,
+            "rep_votes": 24164,
+            "other_votes": 927
+          },
+          "source_precinct_sum": {
+            "dem_votes": 16211,
+            "rep_votes": 21861,
+            "other_votes": 852
+          },
+          "unmatched_precincts": [],
+          "fallback_district_share": 0.054706,
+          "estimated_district_votes": {
+            "dem_votes": 979.053,
+            "rep_votes": 1100.936,
+            "other_votes": 49.393
+          },
+          "allocated_district_votes": {
+            "dem_votes": 1086,
+            "rep_votes": 1217,
+            "other_votes": 54
+          },
+          "reconciliation_change": {
+            "dem_votes": 106.947,
+            "rep_votes": 116.064,
+            "other_votes": 4.607
+          },
+          "source_rows": [
+            {
+              "source_precinct": "BERKELEY - FOSTER CREEK 1",
+              "mapping": "BERKELEY - FOSTER CREEK 1",
+              "district_share": 0.235113,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 133,
+                "rep_votes": 213,
+                "other_votes": 5
+              },
+              "estimated_district_votes": {
+                "dem_votes": 31.27,
+                "rep_votes": 50.079,
+                "other_votes": 1.176
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - SEDGEFIELD 1",
+              "mapping": "BERKELEY - SEDGEFIELD 1",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 15,
+                "rep_votes": 19,
+                "other_votes": 1
+              },
+              "estimated_district_votes": {
+                "dem_votes": 15.0,
+                "rep_votes": 19.0,
+                "other_votes": 1.0
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - SEDGEFIELD 3",
+              "mapping": "BERKELEY - SEDGEFIELD 3",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 4,
+                "rep_votes": 6,
+                "other_votes": 0
+              },
+              "estimated_district_votes": {
+                "dem_votes": 4.0,
+                "rep_votes": 6.0,
+                "other_votes": 0.0
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - ST. JAMES",
+              "mapping": "BERKELEY - ST. JAMES",
+              "district_share": 0.642999,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 276,
+                "rep_votes": 297,
+                "other_votes": 11
+              },
+              "estimated_district_votes": {
+                "dem_votes": 177.468,
+                "rep_votes": 190.971,
+                "other_votes": 7.073
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - HARBOUR LAKE",
+              "mapping": "BERKELEY - HARBOUR LAKE",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 167,
+                "rep_votes": 180,
+                "other_votes": 6
+              },
+              "estimated_district_votes": {
+                "dem_votes": 167.0,
+                "rep_votes": 180.0,
+                "other_votes": 6.0
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - HOWE HALL 2",
+              "mapping": "BERKELEY - HOWE HALL 2",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 171,
+                "rep_votes": 235,
+                "other_votes": 14
+              },
+              "estimated_district_votes": {
+                "dem_votes": 171.0,
+                "rep_votes": 235.0,
+                "other_votes": 14.0
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - HOWE HALL 1",
+              "mapping": "BERKELEY - HOWE HALL 1",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 316,
+                "rep_votes": 323,
+                "other_votes": 15
+              },
+              "estimated_district_votes": {
+                "dem_votes": 316.0,
+                "rep_votes": 323.0,
+                "other_votes": 15.0
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - LIBERTY HALL",
+              "mapping": "BERKELEY - LIBERTY HALL",
+              "district_share": 0.428701,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 227,
+                "rep_votes": 226,
+                "other_votes": 12
+              },
+              "estimated_district_votes": {
+                "dem_votes": 97.315,
+                "rep_votes": 96.886,
+                "other_votes": 5.144
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - WESTVIEW 2",
+              "mapping": "BERKELEY - WESTVIEW 2",
+              "district_share": 0.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 255,
+                "rep_votes": 490,
+                "other_votes": 19
+              },
+              "estimated_district_votes": {
+                "dem_votes": 0.0,
+                "rep_votes": 0.0,
+                "other_votes": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "county": "CHARLESTON",
+          "kind": "split",
+          "official": {
+            "dem_votes": 51917,
+            "rep_votes": 48905,
+            "other_votes": 1850
+          },
+          "source_precinct_sum": {
+            "dem_votes": 39538,
+            "rep_votes": 36092,
+            "other_votes": 1430
+          },
+          "unmatched_precincts": [],
+          "fallback_district_share": 0.009006,
+          "estimated_district_votes": {
+            "dem_votes": 391.0,
+            "rep_votes": 282.0,
+            "other_votes": 21.0
+          },
+          "allocated_district_votes": {
+            "dem_votes": 513,
+            "rep_votes": 382,
+            "other_votes": 27
+          },
+          "reconciliation_change": {
+            "dem_votes": 122.0,
+            "rep_votes": 100.0,
+            "other_votes": 6.0
+          },
+          "source_rows": [
+            {
+              "source_precinct": "CHARLESTON - DEER PARK 3",
+              "mapping": "CHARLESTON - DEER PARK 3",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 258,
+                "rep_votes": 176,
+                "other_votes": 7
+              },
+              "estimated_district_votes": {
+                "dem_votes": 258.0,
+                "rep_votes": 176.0,
+                "other_votes": 7.0
+              }
+            },
+            {
+              "source_precinct": "CHARLESTON - NORTH CHARLESTON 29",
+              "mapping": "CHARLESTON - NORTH CHARLESTON 29",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 133,
+                "rep_votes": 106,
+                "other_votes": 14
+              },
+              "estimated_district_votes": {
+                "dem_votes": 133.0,
+                "rep_votes": 106.0,
+                "other_votes": 14.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "contest": "superintendent",
+      "district": "15",
+      "dra_republican_margin_pp": 0.0,
+      "live_republican_margin_pp": -1.5466,
+      "live_votes": {
+        "dem_votes": 1512,
+        "rep_votes": 1462,
+        "other_votes": 259
+      },
+      "diagnostic": {
+        "source_precinct_votes_allocated_to_district_before_county_reconciliation": 2782.977,
+        "county_reconciliation_votes_added_to_district": {
+          "dem_votes": 213.407,
+          "rep_votes": 207.61,
+          "other_votes": 29.006
+        },
+        "source_rows_with_vtd10_footprint": 2,
+        "source_rows_without_vtd10_footprint": 9,
+        "absolute_vtd10_vote_shift_where_available": 0
+      },
+      "components": [
+        {
+          "county": "BERKELEY",
+          "kind": "split",
+          "official": {
+            "dem_votes": 16544,
+            "rep_votes": 22826,
+            "other_votes": 2944
+          },
+          "source_precinct_sum": {
+            "dem_votes": 14991,
+            "rep_votes": 20541,
+            "other_votes": 2710
+          },
+          "unmatched_precincts": [],
+          "fallback_district_share": 0.054678,
+          "estimated_district_votes": {
+            "dem_votes": 922.593,
+            "rep_votes": 984.39,
+            "other_votes": 183.994
+          },
+          "allocated_district_votes": {
+            "dem_votes": 1018,
+            "rep_votes": 1094,
+            "other_votes": 200
+          },
+          "reconciliation_change": {
+            "dem_votes": 95.407,
+            "rep_votes": 109.61,
+            "other_votes": 16.006
+          },
+          "source_rows": [
+            {
+              "source_precinct": "BERKELEY - FOSTER CREEK 1",
+              "mapping": "BERKELEY - FOSTER CREEK 1",
+              "district_share": 0.235113,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 118,
+                "rep_votes": 194,
+                "other_votes": 30
+              },
+              "estimated_district_votes": {
+                "dem_votes": 27.743,
+                "rep_votes": 45.612,
+                "other_votes": 7.053
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - SEDGEFIELD 1",
+              "mapping": "BERKELEY - SEDGEFIELD 1",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 15,
+                "rep_votes": 17,
+                "other_votes": 3
+              },
+              "estimated_district_votes": {
+                "dem_votes": 15.0,
+                "rep_votes": 17.0,
+                "other_votes": 3.0
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - SEDGEFIELD 3",
+              "mapping": "BERKELEY - SEDGEFIELD 3",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 4,
+                "rep_votes": 5,
+                "other_votes": 1
+              },
+              "estimated_district_votes": {
+                "dem_votes": 4.0,
+                "rep_votes": 5.0,
+                "other_votes": 1.0
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - ST. JAMES",
+              "mapping": "BERKELEY - ST. JAMES",
+              "district_share": 0.642999,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 259,
+                "rep_votes": 260,
+                "other_votes": 53
+              },
+              "estimated_district_votes": {
+                "dem_votes": 166.537,
+                "rep_votes": 167.18,
+                "other_votes": 34.079
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - HARBOUR LAKE",
+              "mapping": "BERKELEY - HARBOUR LAKE",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 157,
+                "rep_votes": 158,
+                "other_votes": 32
+              },
+              "estimated_district_votes": {
+                "dem_votes": 157.0,
+                "rep_votes": 158.0,
+                "other_votes": 32.0
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - HOWE HALL 2",
+              "mapping": "BERKELEY - HOWE HALL 2",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 154,
+                "rep_votes": 227,
+                "other_votes": 36
+              },
+              "estimated_district_votes": {
+                "dem_votes": 154.0,
+                "rep_votes": 227.0,
+                "other_votes": 36.0
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - HOWE HALL 1",
+              "mapping": "BERKELEY - HOWE HALL 1",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 307,
+                "rep_votes": 275,
+                "other_votes": 55
+              },
+              "estimated_district_votes": {
+                "dem_votes": 307.0,
+                "rep_votes": 275.0,
+                "other_votes": 55.0
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - LIBERTY HALL",
+              "mapping": "BERKELEY - LIBERTY HALL",
+              "district_share": 0.428701,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 213,
+                "rep_votes": 209,
+                "other_votes": 37
+              },
+              "estimated_district_votes": {
+                "dem_votes": 91.313,
+                "rep_votes": 89.598,
+                "other_votes": 15.862
+              }
+            },
+            {
+              "source_precinct": "BERKELEY - WESTVIEW 2",
+              "mapping": "BERKELEY - WESTVIEW 2",
+              "district_share": 0.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 235,
+                "rep_votes": 465,
+                "other_votes": 56
+              },
+              "estimated_district_votes": {
+                "dem_votes": 0.0,
+                "rep_votes": 0.0,
+                "other_votes": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "county": "CHARLESTON",
+          "kind": "split",
+          "official": {
+            "dem_votes": 45255,
+            "rep_votes": 48124,
+            "other_votes": 6944
+          },
+          "source_precinct_sum": {
+            "dem_votes": 34421,
+            "rep_votes": 35338,
+            "other_votes": 5443
+          },
+          "unmatched_precincts": [],
+          "fallback_district_share": 0.009202,
+          "estimated_district_votes": {
+            "dem_votes": 376.0,
+            "rep_votes": 270.0,
+            "other_votes": 46.0
+          },
+          "allocated_district_votes": {
+            "dem_votes": 494,
+            "rep_votes": 368,
+            "other_votes": 59
+          },
+          "reconciliation_change": {
+            "dem_votes": 118.0,
+            "rep_votes": 98.0,
+            "other_votes": 13.0
+          },
+          "source_rows": [
+            {
+              "source_precinct": "CHARLESTON - DEER PARK 3",
+              "mapping": "CHARLESTON - DEER PARK 3",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 249,
+                "rep_votes": 168,
+                "other_votes": 25
+              },
+              "estimated_district_votes": {
+                "dem_votes": 249.0,
+                "rep_votes": 168.0,
+                "other_votes": 25.0
+              }
+            },
+            {
+              "source_precinct": "CHARLESTON - NORTH CHARLESTON 29",
+              "mapping": "CHARLESTON - NORTH CHARLESTON 29",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 127,
+                "rep_votes": 102,
+                "other_votes": 21
+              },
+              "estimated_district_votes": {
+                "dem_votes": 127.0,
+                "rep_votes": 102.0,
+                "other_votes": 21.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "contest": "superintendent",
+      "district": "78",
+      "dra_republican_margin_pp": -1.59,
+      "live_republican_margin_pp": 0.1978,
+      "live_votes": {
+        "dem_votes": 5055,
+        "rep_votes": 5076,
+        "other_votes": 485
+      },
+      "diagnostic": {
+        "source_precinct_votes_allocated_to_district_before_county_reconciliation": 9592.629,
+        "county_reconciliation_votes_added_to_district": {
+          "dem_votes": 401.284,
+          "rep_votes": 589.389,
+          "other_votes": 32.698
+        },
+        "source_rows_with_vtd10_footprint": 10,
+        "source_rows_without_vtd10_footprint": 7,
+        "absolute_vtd10_vote_shift_where_available": 7.393
+      },
+      "components": [
+        {
+          "county": "RICHLAND",
+          "kind": "split",
+          "official": {
+            "dem_votes": 70538,
+            "rep_votes": 40199,
+            "other_votes": 5652
+          },
+          "source_precinct_sum": {
+            "dem_votes": 64938,
+            "rep_votes": 35533,
+            "other_votes": 5277
+          },
+          "unmatched_precincts": [
+            {
+              "name": "RICHLAND - EMERGENCY",
+              "votes": 0
+            }
+          ],
+          "fallback_district_share": 0.090712,
+          "estimated_district_votes": {
+            "dem_votes": 4653.716,
+            "rep_votes": 4486.611,
+            "other_votes": 452.302
+          },
+          "allocated_district_votes": {
+            "dem_votes": 5055,
+            "rep_votes": 5076,
+            "other_votes": 485
+          },
+          "reconciliation_change": {
+            "dem_votes": 401.284,
+            "rep_votes": 589.389,
+            "other_votes": 32.698
+          },
+          "source_rows": [
+            {
+              "source_precinct": "RICHLAND - ARCADIA",
+              "mapping": "RICHLAND - ARCADIA",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 389,
+                "rep_votes": 321,
+                "other_votes": 47
+              },
+              "estimated_district_votes": {
+                "dem_votes": 389.0,
+                "rep_votes": 321.0,
+                "other_votes": 47.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - COOPER",
+              "mapping": "RICHLAND - COOPER",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 270,
+                "rep_votes": 355,
+                "other_votes": 28
+              },
+              "estimated_district_votes": {
+                "dem_votes": 270.0,
+                "rep_votes": 355.0,
+                "other_votes": 28.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - EAST FOREST ACRES",
+              "mapping": "RICHLAND - EAST FOREST ACRES",
+              "district_share": 0.496575,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 207,
+                "rep_votes": 383,
+                "other_votes": 18
+              },
+              "estimated_district_votes": {
+                "dem_votes": 102.791,
+                "rep_votes": 190.188,
+                "other_votes": 8.938
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - EMERGENCY",
+              "mapping": "county fallback",
+              "district_share": 0.090712,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 0,
+                "rep_votes": 0,
+                "other_votes": 0
+              },
+              "estimated_district_votes": {
+                "dem_votes": 0.0,
+                "rep_votes": 0.0,
+                "other_votes": 0.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - GREGG PARK",
+              "mapping": "RICHLAND - GREGG PARK",
+              "district_share": 0.697765,
+              "vtd10_district_share": 0.697765,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 341,
+                "rep_votes": 342,
+                "other_votes": 37
+              },
+              "estimated_district_votes": {
+                "dem_votes": 237.938,
+                "rep_votes": 238.636,
+                "other_votes": 25.817
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - KEENAN",
+              "mapping": "RICHLAND - KEENAN",
+              "district_share": 0.034591,
+              "vtd10_district_share": 0.034591,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 557,
+                "rep_votes": 230,
+                "other_votes": 41
+              },
+              "estimated_district_votes": {
+                "dem_votes": 19.267,
+                "rep_votes": 7.956,
+                "other_votes": 1.418
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - VALHALLA",
+              "mapping": "RICHLAND - VALHALLA",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 596,
+                "rep_votes": 419,
+                "other_votes": 65
+              },
+              "estimated_district_votes": {
+                "dem_votes": 596.0,
+                "rep_votes": 419.0,
+                "other_votes": 65.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WILDEWOOD",
+              "mapping": "RICHLAND - WILDEWOOD",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 482,
+                "rep_votes": 713,
+                "other_votes": 54
+              },
+              "estimated_district_votes": {
+                "dem_votes": 482.0,
+                "rep_votes": 713.0,
+                "other_votes": 54.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - OAKWOOD",
+              "mapping": "RICHLAND - OAKWOOD",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 249,
+                "rep_votes": 209,
+                "other_votes": 28
+              },
+              "estimated_district_votes": {
+                "dem_votes": 249.0,
+                "rep_votes": 209.0,
+                "other_votes": 28.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 26",
+              "mapping": "RICHLAND - WARD 26",
+              "district_share": 0.373216,
+              "vtd10_district_share": 0.373216,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 240,
+                "rep_votes": 201,
+                "other_votes": 23
+              },
+              "estimated_district_votes": {
+                "dem_votes": 89.572,
+                "rep_votes": 75.016,
+                "other_votes": 8.584
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - POLO ROAD",
+              "mapping": "RICHLAND - POLO ROAD",
+              "district_share": 1.0,
+              "vtd10_district_share": 0.997212,
+              "vtd10_minus_current_vote_shift": -3.608,
+              "source_votes": {
+                "dem_votes": 769,
+                "rep_votes": 467,
+                "other_votes": 58
+              },
+              "estimated_district_votes": {
+                "dem_votes": 769.0,
+                "rep_votes": 467.0,
+                "other_votes": 58.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - MALLET HILL",
+              "mapping": "RICHLAND - MALLET HILL",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 289,
+                "rep_votes": 174,
+                "other_votes": 22
+              },
+              "estimated_district_votes": {
+                "dem_votes": 289.0,
+                "rep_votes": 174.0,
+                "other_votes": 22.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - PONTIAC 1",
+              "mapping": "RICHLAND - PONTIAC 1",
+              "district_share": 0.939333,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 423,
+                "rep_votes": 495,
+                "other_votes": 41
+              },
+              "estimated_district_votes": {
+                "dem_votes": 397.338,
+                "rep_votes": 464.97,
+                "other_votes": 38.513
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - PONTIAC 2",
+              "mapping": "RICHLAND - PONTIAC 2",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 86,
+                "rep_votes": 101,
+                "other_votes": 8
+              },
+              "estimated_district_votes": {
+                "dem_votes": 86.0,
+                "rep_votes": 101.0,
+                "other_votes": 8.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - SATCHELFORD",
+              "mapping": "RICHLAND - SATCHELFORD",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 275,
+                "rep_votes": 396,
+                "other_votes": 32
+              },
+              "estimated_district_votes": {
+                "dem_votes": 275.0,
+                "rep_votes": 396.0,
+                "other_votes": 32.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - TRENHOLM ROAD",
+              "mapping": "RICHLAND - TRENHOLM ROAD",
+              "district_share": 1.0,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 198,
+                "rep_votes": 287,
+                "other_votes": 16
+              },
+              "estimated_district_votes": {
+                "dem_votes": 198.0,
+                "rep_votes": 287.0,
+                "other_votes": 16.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WOODFIELD",
+              "mapping": "RICHLAND - WOODFIELD",
+              "district_share": 0.275792,
+              "vtd10_district_share": 0.272099,
+              "vtd10_minus_current_vote_shift": -3.785,
+              "source_votes": {
+                "dem_votes": 739,
+                "rep_votes": 246,
+                "other_votes": 40
+              },
+              "estimated_district_votes": {
+                "dem_votes": 203.81,
+                "rep_votes": 67.845,
+                "other_votes": 11.032
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "contest": "governor",
+      "district": "74",
+      "dra_republican_margin_pp": -70.17,
+      "live_republican_margin_pp": -55.275,
+      "live_votes": {
+        "dem_votes": 12092,
+        "rep_votes": 3379,
+        "other_votes": 292
+      },
+      "diagnostic": {
+        "source_precinct_votes_allocated_to_district_before_county_reconciliation": 14351.691,
+        "county_reconciliation_votes_added_to_district": {
+          "dem_votes": 1074.236,
+          "rep_votes": 329.378,
+          "other_votes": 7.695
+        },
+        "source_rows_with_vtd10_footprint": 27,
+        "source_rows_without_vtd10_footprint": 1,
+        "absolute_vtd10_vote_shift_where_available": 41.731
+      },
+      "components": [
+        {
+          "county": "RICHLAND",
+          "kind": "split",
+          "official": {
+            "dem_votes": 79378,
+            "rep_votes": 36899,
+            "other_votes": 1433
+          },
+          "source_precinct_sum": {
+            "dem_votes": 72327,
+            "rep_votes": 33305,
+            "other_votes": 1396
+          },
+          "unmatched_precincts": [
+            {
+              "name": "RICHLAND - EMERGENCY",
+              "votes": 0
+            }
+          ],
+          "fallback_district_share": 0.134093,
+          "estimated_district_votes": {
+            "dem_votes": 11017.764,
+            "rep_votes": 3049.622,
+            "other_votes": 284.305
+          },
+          "allocated_district_votes": {
+            "dem_votes": 12092,
+            "rep_votes": 3379,
+            "other_votes": 292
+          },
+          "reconciliation_change": {
+            "dem_votes": 1074.236,
+            "rep_votes": 329.378,
+            "other_votes": 7.695
+          },
+          "source_rows": [
+            {
+              "source_precinct": "RICHLAND - ARDINCAPLE",
+              "mapping": "RICHLAND - ARDINCAPLE",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 189,
+                "rep_votes": 1,
+                "other_votes": 2
+              },
+              "estimated_district_votes": {
+                "dem_votes": 189.0,
+                "rep_votes": 1.0,
+                "other_votes": 2.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - EMERGENCY",
+              "mapping": "county fallback",
+              "district_share": 0.134093,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 0,
+                "rep_votes": 0,
+                "other_votes": 0
+              },
+              "estimated_district_votes": {
+                "dem_votes": 0.0,
+                "rep_votes": 0.0,
+                "other_votes": 0.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - KEENAN",
+              "mapping": "RICHLAND - KEENAN",
+              "district_share": 0.471171,
+              "vtd10_district_share": 0.471171,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 619,
+                "rep_votes": 212,
+                "other_votes": 9
+              },
+              "estimated_district_votes": {
+                "dem_votes": 291.655,
+                "rep_votes": 99.888,
+                "other_votes": 4.241
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - KINGSWOOD",
+              "mapping": "RICHLAND - KINGSWOOD",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 1035,
+                "rep_votes": 159,
+                "other_votes": 14
+              },
+              "estimated_district_votes": {
+                "dem_votes": 1035.0,
+                "rep_votes": 159.0,
+                "other_votes": 14.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - RIDGEWOOD",
+              "mapping": "RICHLAND - RIDGEWOOD",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 315,
+                "rep_votes": 9,
+                "other_votes": 4
+              },
+              "estimated_district_votes": {
+                "dem_votes": 315.0,
+                "rep_votes": 9.0,
+                "other_votes": 4.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - RIVERSIDE",
+              "mapping": "RICHLAND - RIVERSIDE",
+              "district_share": 0.060073,
+              "vtd10_district_share": 0.086586,
+              "vtd10_minus_current_vote_shift": 11.401,
+              "source_votes": {
+                "dem_votes": 303,
+                "rep_votes": 121,
+                "other_votes": 6
+              },
+              "estimated_district_votes": {
+                "dem_votes": 18.202,
+                "rep_votes": 7.269,
+                "other_votes": 0.36
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WESTMINSTER",
+              "mapping": "RICHLAND - WESTMINSTER",
+              "district_share": 0.989021,
+              "vtd10_district_share": 0.974854,
+              "vtd10_minus_current_vote_shift": -29.936,
+              "source_votes": {
+                "dem_votes": 1021,
+                "rep_votes": 998,
+                "other_votes": 94
+              },
+              "estimated_district_votes": {
+                "dem_votes": 1009.791,
+                "rep_votes": 987.043,
+                "other_votes": 92.968
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - SKYLAND",
+              "mapping": "RICHLAND - SKYLAND",
+              "district_share": 0.0,
+              "vtd10_district_share": 0.001118,
+              "vtd10_minus_current_vote_shift": 0.394,
+              "source_votes": {
+                "dem_votes": 240,
+                "rep_votes": 110,
+                "other_votes": 3
+              },
+              "estimated_district_votes": {
+                "dem_votes": 0.0,
+                "rep_votes": 0.0,
+                "other_votes": 0.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WALDEN",
+              "mapping": "RICHLAND - WALDEN",
+              "district_share": 0.059622,
+              "vtd10_district_share": 0.059622,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 270,
+                "rep_votes": 53,
+                "other_votes": 4
+              },
+              "estimated_district_votes": {
+                "dem_votes": 16.098,
+                "rep_votes": 3.16,
+                "other_votes": 0.238
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 1",
+              "mapping": "RICHLAND - WARD 1",
+              "district_share": 0.348172,
+              "vtd10_district_share": 0.348172,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 621,
+                "rep_votes": 217,
+                "other_votes": 11
+              },
+              "estimated_district_votes": {
+                "dem_votes": 216.215,
+                "rep_votes": 75.553,
+                "other_votes": 3.83
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 18",
+              "mapping": "RICHLAND - WARD 18",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 412,
+                "rep_votes": 71,
+                "other_votes": 10
+              },
+              "estimated_district_votes": {
+                "dem_votes": 412.0,
+                "rep_votes": 71.0,
+                "other_votes": 10.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 19",
+              "mapping": "RICHLAND - WARD 19",
+              "district_share": 0.999585,
+              "vtd10_district_share": 0.999585,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 473,
+                "rep_votes": 7,
+                "other_votes": 7
+              },
+              "estimated_district_votes": {
+                "dem_votes": 472.804,
+                "rep_votes": 6.997,
+                "other_votes": 6.997
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 2",
+              "mapping": "RICHLAND - WARD 2",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 746,
+                "rep_votes": 179,
+                "other_votes": 10
+              },
+              "estimated_district_votes": {
+                "dem_votes": 746.0,
+                "rep_votes": 179.0,
+                "other_votes": 10.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 20",
+              "mapping": "RICHLAND - WARD 20",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 591,
+                "rep_votes": 126,
+                "other_votes": 14
+              },
+              "estimated_district_votes": {
+                "dem_votes": 591.0,
+                "rep_votes": 126.0,
+                "other_votes": 14.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 22",
+              "mapping": "RICHLAND - WARD 22",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 594,
+                "rep_votes": 27,
+                "other_votes": 7
+              },
+              "estimated_district_votes": {
+                "dem_votes": 594.0,
+                "rep_votes": 27.0,
+                "other_votes": 7.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 23",
+              "mapping": "RICHLAND - WARD 23",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 371,
+                "rep_votes": 99,
+                "other_votes": 7
+              },
+              "estimated_district_votes": {
+                "dem_votes": 371.0,
+                "rep_votes": 99.0,
+                "other_votes": 7.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 29",
+              "mapping": "RICHLAND - WARD 29",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 539,
+                "rep_votes": 38,
+                "other_votes": 9
+              },
+              "estimated_district_votes": {
+                "dem_votes": 539.0,
+                "rep_votes": 38.0,
+                "other_votes": 9.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 3",
+              "mapping": "RICHLAND - WARD 3",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 795,
+                "rep_votes": 327,
+                "other_votes": 22
+              },
+              "estimated_district_votes": {
+                "dem_votes": 795.0,
+                "rep_votes": 327.0,
+                "other_votes": 22.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 30",
+              "mapping": "RICHLAND - WARD 30",
+              "district_share": 6.4e-05,
+              "vtd10_district_share": 6.4e-05,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 190,
+                "rep_votes": 85,
+                "other_votes": 7
+              },
+              "estimated_district_votes": {
+                "dem_votes": 0.012,
+                "rep_votes": 0.005,
+                "other_votes": 0.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 31",
+              "mapping": "RICHLAND - WARD 31",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 358,
+                "rep_votes": 15,
+                "other_votes": 10
+              },
+              "estimated_district_votes": {
+                "dem_votes": 358.0,
+                "rep_votes": 15.0,
+                "other_votes": 10.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 32",
+              "mapping": "RICHLAND - WARD 32",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 390,
+                "rep_votes": 9,
+                "other_votes": 7
+              },
+              "estimated_district_votes": {
+                "dem_votes": 390.0,
+                "rep_votes": 9.0,
+                "other_votes": 7.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 33",
+              "mapping": "RICHLAND - WARD 33",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 365,
+                "rep_votes": 49,
+                "other_votes": 5
+              },
+              "estimated_district_votes": {
+                "dem_votes": 365.0,
+                "rep_votes": 49.0,
+                "other_votes": 5.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 34",
+              "mapping": "RICHLAND - WARD 34",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 367,
+                "rep_votes": 170,
+                "other_votes": 11
+              },
+              "estimated_district_votes": {
+                "dem_votes": 367.0,
+                "rep_votes": 170.0,
+                "other_votes": 11.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 4",
+              "mapping": "RICHLAND - WARD 4",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 647,
+                "rep_votes": 233,
+                "other_votes": 11
+              },
+              "estimated_district_votes": {
+                "dem_votes": 647.0,
+                "rep_votes": 233.0,
+                "other_votes": 11.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 6",
+              "mapping": "RICHLAND - WARD 6",
+              "district_share": 0.609206,
+              "vtd10_district_share": 0.609206,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 636,
+                "rep_votes": 558,
+                "other_votes": 16
+              },
+              "estimated_district_votes": {
+                "dem_votes": 387.455,
+                "rep_votes": 339.937,
+                "other_votes": 9.747
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 7",
+              "mapping": "RICHLAND - WARD 7",
+              "district_share": 0.154,
+              "vtd10_district_share": 0.154,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 458,
+                "rep_votes": 5,
+                "other_votes": 6
+              },
+              "estimated_district_votes": {
+                "dem_votes": 70.532,
+                "rep_votes": 0.77,
+                "other_votes": 0.924
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 8",
+              "mapping": "RICHLAND - WARD 8",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 407,
+                "rep_votes": 9,
+                "other_votes": 11
+              },
+              "estimated_district_votes": {
+                "dem_votes": 407.0,
+                "rep_votes": 9.0,
+                "other_votes": 11.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 9",
+              "mapping": "RICHLAND - WARD 9",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 414,
+                "rep_votes": 8,
+                "other_votes": 11
+              },
+              "estimated_district_votes": {
+                "dem_votes": 414.0,
+                "rep_votes": 8.0,
+                "other_votes": 11.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "contest": "superintendent",
+      "district": "74",
+      "dra_republican_margin_pp": -62.03,
+      "live_republican_margin_pp": -48.2051,
+      "live_votes": {
+        "dem_votes": 11117,
+        "rep_votes": 3624,
+        "other_votes": 803
+      },
+      "diagnostic": {
+        "source_precinct_votes_allocated_to_district_before_county_reconciliation": 14187.963,
+        "county_reconciliation_votes_added_to_district": {
+          "dem_votes": 882.226,
+          "rep_votes": 420.83,
+          "other_votes": 52.981
+        },
+        "source_rows_with_vtd10_footprint": 27,
+        "source_rows_without_vtd10_footprint": 1,
+        "absolute_vtd10_vote_shift_where_available": 41.256
+      },
+      "components": [
+        {
+          "county": "RICHLAND",
+          "kind": "split",
+          "official": {
+            "dem_votes": 70538,
+            "rep_votes": 40199,
+            "other_votes": 5652
+          },
+          "source_precinct_sum": {
+            "dem_votes": 64938,
+            "rep_votes": 35533,
+            "other_votes": 5277
+          },
+          "unmatched_precincts": [
+            {
+              "name": "RICHLAND - EMERGENCY",
+              "votes": 0
+            }
+          ],
+          "fallback_district_share": 0.134168,
+          "estimated_district_votes": {
+            "dem_votes": 10234.774,
+            "rep_votes": 3203.17,
+            "other_votes": 750.019
+          },
+          "allocated_district_votes": {
+            "dem_votes": 11117,
+            "rep_votes": 3624,
+            "other_votes": 803
+          },
+          "reconciliation_change": {
+            "dem_votes": 882.226,
+            "rep_votes": 420.83,
+            "other_votes": 52.981
+          },
+          "source_rows": [
+            {
+              "source_precinct": "RICHLAND - ARDINCAPLE",
+              "mapping": "RICHLAND - ARDINCAPLE",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 179,
+                "rep_votes": 4,
+                "other_votes": 7
+              },
+              "estimated_district_votes": {
+                "dem_votes": 179.0,
+                "rep_votes": 4.0,
+                "other_votes": 7.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - EMERGENCY",
+              "mapping": "county fallback",
+              "district_share": 0.134168,
+              "vtd10_district_share": null,
+              "vtd10_minus_current_vote_shift": null,
+              "source_votes": {
+                "dem_votes": 0,
+                "rep_votes": 0,
+                "other_votes": 0
+              },
+              "estimated_district_votes": {
+                "dem_votes": 0.0,
+                "rep_votes": 0.0,
+                "other_votes": 0.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - KEENAN",
+              "mapping": "RICHLAND - KEENAN",
+              "district_share": 0.471171,
+              "vtd10_district_share": 0.471171,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 557,
+                "rep_votes": 230,
+                "other_votes": 41
+              },
+              "estimated_district_votes": {
+                "dem_votes": 262.442,
+                "rep_votes": 108.369,
+                "other_votes": 19.318
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - KINGSWOOD",
+              "mapping": "RICHLAND - KINGSWOOD",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 991,
+                "rep_votes": 172,
+                "other_votes": 37
+              },
+              "estimated_district_votes": {
+                "dem_votes": 991.0,
+                "rep_votes": 172.0,
+                "other_votes": 37.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - RIDGEWOOD",
+              "mapping": "RICHLAND - RIDGEWOOD",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 304,
+                "rep_votes": 6,
+                "other_votes": 15
+              },
+              "estimated_district_votes": {
+                "dem_votes": 304.0,
+                "rep_votes": 6.0,
+                "other_votes": 15.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - RIVERSIDE",
+              "mapping": "RICHLAND - RIVERSIDE",
+              "district_share": 0.060073,
+              "vtd10_district_share": 0.086586,
+              "vtd10_minus_current_vote_shift": 11.215,
+              "source_votes": {
+                "dem_votes": 276,
+                "rep_votes": 125,
+                "other_votes": 22
+              },
+              "estimated_district_votes": {
+                "dem_votes": 16.58,
+                "rep_votes": 7.509,
+                "other_votes": 1.322
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WESTMINSTER",
+              "mapping": "RICHLAND - WESTMINSTER",
+              "district_share": 0.989021,
+              "vtd10_district_share": 0.974854,
+              "vtd10_minus_current_vote_shift": -29.652,
+              "source_votes": {
+                "dem_votes": 979,
+                "rep_votes": 987,
+                "other_votes": 127
+              },
+              "estimated_district_votes": {
+                "dem_votes": 968.252,
+                "rep_votes": 976.164,
+                "other_votes": 125.606
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - SKYLAND",
+              "mapping": "RICHLAND - SKYLAND",
+              "district_share": 0.0,
+              "vtd10_district_share": 0.001118,
+              "vtd10_minus_current_vote_shift": 0.389,
+              "source_votes": {
+                "dem_votes": 203,
+                "rep_votes": 110,
+                "other_votes": 35
+              },
+              "estimated_district_votes": {
+                "dem_votes": 0.0,
+                "rep_votes": 0.0,
+                "other_votes": 0.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WALDEN",
+              "mapping": "RICHLAND - WALDEN",
+              "district_share": 0.059622,
+              "vtd10_district_share": 0.059622,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 255,
+                "rep_votes": 54,
+                "other_votes": 11
+              },
+              "estimated_district_votes": {
+                "dem_votes": 15.204,
+                "rep_votes": 3.22,
+                "other_votes": 0.656
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 1",
+              "mapping": "RICHLAND - WARD 1",
+              "district_share": 0.348172,
+              "vtd10_district_share": 0.348172,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 523,
+                "rep_votes": 246,
+                "other_votes": 51
+              },
+              "estimated_district_votes": {
+                "dem_votes": 182.094,
+                "rep_votes": 85.65,
+                "other_votes": 17.757
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 18",
+              "mapping": "RICHLAND - WARD 18",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 387,
+                "rep_votes": 71,
+                "other_votes": 31
+              },
+              "estimated_district_votes": {
+                "dem_votes": 387.0,
+                "rep_votes": 71.0,
+                "other_votes": 31.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 19",
+              "mapping": "RICHLAND - WARD 19",
+              "district_share": 0.999585,
+              "vtd10_district_share": 0.999585,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 470,
+                "rep_votes": 5,
+                "other_votes": 12
+              },
+              "estimated_district_votes": {
+                "dem_votes": 469.805,
+                "rep_votes": 4.998,
+                "other_votes": 11.995
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 2",
+              "mapping": "RICHLAND - WARD 2",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 728,
+                "rep_votes": 173,
+                "other_votes": 34
+              },
+              "estimated_district_votes": {
+                "dem_votes": 728.0,
+                "rep_votes": 173.0,
+                "other_votes": 34.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 20",
+              "mapping": "RICHLAND - WARD 20",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 523,
+                "rep_votes": 135,
+                "other_votes": 60
+              },
+              "estimated_district_votes": {
+                "dem_votes": 523.0,
+                "rep_votes": 135.0,
+                "other_votes": 60.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 22",
+              "mapping": "RICHLAND - WARD 22",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 580,
+                "rep_votes": 28,
+                "other_votes": 21
+              },
+              "estimated_district_votes": {
+                "dem_votes": 580.0,
+                "rep_votes": 28.0,
+                "other_votes": 21.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 23",
+              "mapping": "RICHLAND - WARD 23",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 294,
+                "rep_votes": 144,
+                "other_votes": 31
+              },
+              "estimated_district_votes": {
+                "dem_votes": 294.0,
+                "rep_votes": 144.0,
+                "other_votes": 31.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 29",
+              "mapping": "RICHLAND - WARD 29",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 500,
+                "rep_votes": 47,
+                "other_votes": 27
+              },
+              "estimated_district_votes": {
+                "dem_votes": 500.0,
+                "rep_votes": 47.0,
+                "other_votes": 27.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 3",
+              "mapping": "RICHLAND - WARD 3",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 708,
+                "rep_votes": 337,
+                "other_votes": 78
+              },
+              "estimated_district_votes": {
+                "dem_votes": 708.0,
+                "rep_votes": 337.0,
+                "other_votes": 78.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 30",
+              "mapping": "RICHLAND - WARD 30",
+              "district_share": 6.4e-05,
+              "vtd10_district_share": 6.4e-05,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 153,
+                "rep_votes": 101,
+                "other_votes": 23
+              },
+              "estimated_district_votes": {
+                "dem_votes": 0.01,
+                "rep_votes": 0.006,
+                "other_votes": 0.001
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 31",
+              "mapping": "RICHLAND - WARD 31",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 349,
+                "rep_votes": 21,
+                "other_votes": 12
+              },
+              "estimated_district_votes": {
+                "dem_votes": 349.0,
+                "rep_votes": 21.0,
+                "other_votes": 12.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 32",
+              "mapping": "RICHLAND - WARD 32",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 377,
+                "rep_votes": 8,
+                "other_votes": 16
+              },
+              "estimated_district_votes": {
+                "dem_votes": 377.0,
+                "rep_votes": 8.0,
+                "other_votes": 16.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 33",
+              "mapping": "RICHLAND - WARD 33",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 326,
+                "rep_votes": 61,
+                "other_votes": 23
+              },
+              "estimated_district_votes": {
+                "dem_votes": 326.0,
+                "rep_votes": 61.0,
+                "other_votes": 23.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 34",
+              "mapping": "RICHLAND - WARD 34",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 303,
+                "rep_votes": 196,
+                "other_votes": 35
+              },
+              "estimated_district_votes": {
+                "dem_votes": 303.0,
+                "rep_votes": 196.0,
+                "other_votes": 35.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 4",
+              "mapping": "RICHLAND - WARD 4",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 559,
+                "rep_votes": 250,
+                "other_votes": 64
+              },
+              "estimated_district_votes": {
+                "dem_votes": 559.0,
+                "rep_votes": 250.0,
+                "other_votes": 64.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 6",
+              "mapping": "RICHLAND - WARD 6",
+              "district_share": 0.609206,
+              "vtd10_district_share": 0.609206,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 571,
+                "rep_votes": 569,
+                "other_votes": 66
+              },
+              "estimated_district_votes": {
+                "dem_votes": 347.857,
+                "rep_votes": 346.638,
+                "other_votes": 40.208
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 7",
+              "mapping": "RICHLAND - WARD 7",
+              "district_share": 0.154,
+              "vtd10_district_share": 0.154,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 445,
+                "rep_votes": 4,
+                "other_votes": 14
+              },
+              "estimated_district_votes": {
+                "dem_votes": 68.53,
+                "rep_votes": 0.616,
+                "other_votes": 2.156
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 8",
+              "mapping": "RICHLAND - WARD 8",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 398,
+                "rep_votes": 8,
+                "other_votes": 18
+              },
+              "estimated_district_votes": {
+                "dem_votes": 398.0,
+                "rep_votes": 8.0,
+                "other_votes": 18.0
+              }
+            },
+            {
+              "source_precinct": "RICHLAND - WARD 9",
+              "mapping": "RICHLAND - WARD 9",
+              "district_share": 1.0,
+              "vtd10_district_share": 1.0,
+              "vtd10_minus_current_vote_shift": 0.0,
+              "source_votes": {
+                "dem_votes": 398,
+                "rep_votes": 9,
+                "other_votes": 22
+              },
+              "estimated_district_votes": {
+                "dem_votes": 398.0,
+                "rep_votes": 9.0,
+                "other_votes": 22.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
