@@ -2,130 +2,200 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 169065,
-        "rep_votes": 203456,
-        "other_votes": 6299,
-        "total_votes": 378820,
+        "dem_votes": 171390,
+        "rep_votes": 204373,
+        "other_votes": 6357,
+        "total_votes": 382120,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 34391,
-        "margin_pct": 9.0785,
+        "margin": 32983,
+        "margin_pct": 8.6316,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "2": {
-        "dem_votes": 160639,
-        "rep_votes": 199428,
-        "other_votes": 5676,
-        "total_votes": 365743,
+        "dem_votes": 161016,
+        "rep_votes": 199788,
+        "other_votes": 5711,
+        "total_votes": 366515,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 38789,
-        "margin_pct": 10.6055,
+        "margin": 38772,
+        "margin_pct": 10.5786,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 105705,
-        "rep_votes": 236205,
-        "other_votes": 4883,
-        "total_votes": 346793,
+        "dem_votes": 106444,
+        "rep_votes": 236944,
+        "other_votes": 4904,
+        "total_votes": 348292,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
         "margin": 130500,
-        "margin_pct": 37.6305,
+        "margin_pct": 37.4686,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 137453,
-        "rep_votes": 201482,
-        "other_votes": 6326,
-        "total_votes": 345261,
+        "dem_votes": 138202,
+        "rep_votes": 202610,
+        "other_votes": 6367,
+        "total_votes": 347179,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 64029,
-        "margin_pct": 18.5451,
+        "margin": 64408,
+        "margin_pct": 18.5518,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "5": {
-        "dem_votes": 146681,
-        "rep_votes": 212360,
-        "other_votes": 4882,
-        "total_votes": 363923,
+        "dem_votes": 147058,
+        "rep_votes": 213457,
+        "other_votes": 4893,
+        "total_votes": 365408,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 65679,
-        "margin_pct": 18.0475,
+        "margin": 66399,
+        "margin_pct": 18.1712,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 219230,
-        "rep_votes": 113845,
-        "other_votes": 4918,
-        "total_votes": 337993,
+        "dem_votes": 220159,
+        "rep_votes": 112268,
+        "other_votes": 4834,
+        "total_votes": 337261,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": -105385,
-        "margin_pct": -31.1796,
+        "margin": -107891,
+        "margin_pct": -31.9904,
         "winner": "D",
         "color": "#2171b5"
       },
       "7": {
-        "dem_votes": 146948,
-        "rep_votes": 215124,
-        "other_votes": 3615,
-        "total_votes": 365687,
+        "dem_votes": 147272,
+        "rep_votes": 215663,
+        "other_votes": 3619,
+        "total_votes": 366554,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 68176,
-        "margin_pct": 18.6433,
+        "margin": 68391,
+        "margin_pct": 18.6578,
         "winner": "R",
         "color": "#ef3b2c"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 99.9131,
+    "match_coverage_pct": 100.0,
     "precinct_rows_total": 2301,
-    "precinct_rows_overlap_weighted": 2299,
-    "precinct_rows_county_share_fallback": 2,
-    "precinct_votes_county_share_fallback": 3038,
+    "precinct_rows_overlap_weighted": 2301,
+    "precinct_rows_county_share_fallback": 0,
+    "precinct_votes_county_share_fallback": 0,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 36,
+    "whole_county_vote_components": {
+      "3": {
+        "dem_votes": 95194,
+        "rep_votes": 216615,
+        "other_votes": 4331
+      },
+      "2": {
+        "dem_votes": 86296,
+        "rep_votes": 149898,
+        "other_votes": 3880
+      },
+      "6": {
+        "dem_votes": 34495,
+        "rep_votes": 25356,
+        "other_votes": 538
+      },
+      "1": {
+        "dem_votes": 88642,
+        "rep_votes": 110591,
+        "other_votes": 3060
+      },
+      "5": {
+        "dem_votes": 122214,
+        "rep_votes": 176029,
+        "other_votes": 4155
+      },
+      "7": {
+        "dem_votes": 119251,
+        "rep_votes": 184774,
+        "other_votes": 2931
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 82748,
+        "rep_votes": 93782,
+        "other_votes": 3297
+      },
+      "2": {
+        "dem_votes": 74720,
+        "rep_votes": 49890,
+        "other_votes": 1831
+      },
+      "3": {
+        "dem_votes": 11250,
+        "rep_votes": 20329,
+        "other_votes": 573
+      },
+      "4": {
+        "dem_votes": 138202,
+        "rep_votes": 202610,
+        "other_votes": 6367
+      },
+      "5": {
+        "dem_votes": 24844,
+        "rep_votes": 37428,
+        "other_votes": 738
+      },
+      "6": {
+        "dem_votes": 185664,
+        "rep_votes": 86912,
+        "other_votes": 4296
+      },
+      "7": {
+        "dem_votes": 28021,
+        "rep_votes": 30889,
+        "other_votes": 688
+      }
+    },
+    "split_counties_reconciled": 10,
     "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 1091541,
+      "rep_votes": 1385103,
+      "other_votes": 36685
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "punctuation_alias_rows": 2,
+    "punctuation_alias_votes": 4139,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 1,
+    "historical_name_bridge_votes": 1121,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/president_2020",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.060241,
-    "snapshot_comparison_max_abs_share_delta_pp": 0.271771,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "congressional",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#congressional/president_2020",
-    "calibration_districts": 7,
-    "calibration_expected_districts": 7,
-    "calibration_snapshot_districts": 7,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.058337,
-    "calibration_max_abs_share_delta_pp": 0.130664,
-    "calibration_statewide_mix_gap_pp": 0.087301,
-    "calibration_tolerance_pp": 2.087301,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "margin_calibration_mean_abs_delta_pp_before": 0.1705,
-    "margin_calibration_max_abs_delta_pp_before": 0.2569,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0002,
-    "margin_calibration_max_abs_delta_pp_after": 0.0003
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.077422,
+    "snapshot_comparison_max_abs_share_delta_pp": 0.416125,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 1091541,
+      "rep_votes": 1385103,
+      "other_votes": 36685
+    }
   }
 }

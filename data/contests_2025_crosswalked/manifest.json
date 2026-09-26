@@ -4,277 +4,323 @@
       "year": 2024,
       "contest_type": "president",
       "file": "president_2024.json",
-      "rows": 2351
+      "rows": 2351,
+      "major_party_contested": true
     },
     {
       "year": 2022,
       "contest_type": "governor",
       "file": "governor_2022.json",
-      "rows": 2356
+      "rows": 2356,
+      "major_party_contested": true
     },
     {
       "year": 2022,
       "contest_type": "us_senate",
       "file": "us_senate_2022.json",
-      "rows": 2356
+      "rows": 2356,
+      "major_party_contested": true
     },
     {
       "year": 2022,
       "contest_type": "attorney_general",
       "file": "attorney_general_2022.json",
-      "rows": 2356
+      "rows": 2356,
+      "major_party_contested": false
     },
     {
       "year": 2022,
       "contest_type": "secretary_of_state",
       "file": "secretary_of_state_2022.json",
-      "rows": 2356
+      "rows": 2356,
+      "major_party_contested": true
     },
     {
       "year": 2022,
       "contest_type": "superintendent",
       "file": "superintendent_2022.json",
-      "rows": 2356
+      "rows": 2356,
+      "major_party_contested": true
     },
     {
       "year": 2022,
       "contest_type": "state_treasurer",
       "file": "state_treasurer_2022.json",
-      "rows": 2356
+      "rows": 2356,
+      "major_party_contested": false
     },
     {
       "year": 2022,
       "contest_type": "comptroller_general",
       "file": "comptroller_general_2022.json",
-      "rows": 2356
+      "rows": 2356,
+      "major_party_contested": false
     },
     {
       "year": 2022,
       "contest_type": "commissioner_agriculture",
       "file": "commissioner_agriculture_2022.json",
-      "rows": 2356
+      "rows": 2356,
+      "major_party_contested": false
     },
     {
       "year": 2020,
       "contest_type": "president",
       "file": "president_2020.json",
-      "rows": 2347
+      "rows": 2347,
+      "major_party_contested": true
     },
     {
       "year": 2020,
       "contest_type": "us_senate",
       "file": "us_senate_2020.json",
-      "rows": 2347
+      "rows": 2347,
+      "major_party_contested": true
     },
     {
       "year": 2018,
       "contest_type": "governor",
       "file": "governor_2018.json",
-      "rows": 2385
+      "rows": 2385,
+      "major_party_contested": true
     },
     {
       "year": 2018,
       "contest_type": "attorney_general",
       "file": "attorney_general_2018.json",
-      "rows": 2385
+      "rows": 2385,
+      "major_party_contested": true
     },
     {
       "year": 2018,
       "contest_type": "secretary_of_state",
       "file": "secretary_of_state_2018.json",
-      "rows": 2385
+      "rows": 2385,
+      "major_party_contested": true
     },
     {
       "year": 2018,
       "contest_type": "superintendent",
       "file": "superintendent_2018.json",
-      "rows": 2385
+      "rows": 2385,
+      "major_party_contested": false
     },
     {
       "year": 2018,
       "contest_type": "state_treasurer",
       "file": "state_treasurer_2018.json",
-      "rows": 2385
+      "rows": 2385,
+      "major_party_contested": true
     },
     {
       "year": 2018,
       "contest_type": "comptroller_general",
       "file": "comptroller_general_2018.json",
-      "rows": 2385
+      "rows": 2385,
+      "major_party_contested": false
     },
     {
       "year": 2018,
       "contest_type": "commissioner_agriculture",
       "file": "commissioner_agriculture_2018.json",
-      "rows": 2385
+      "rows": 2385,
+      "major_party_contested": false
     },
     {
       "year": 2016,
       "contest_type": "president",
       "file": "president_2016.json",
-      "rows": 2338
+      "rows": 2338,
+      "major_party_contested": true
     },
     {
       "year": 2016,
       "contest_type": "us_senate",
       "file": "us_senate_2016.json",
-      "rows": 2338
+      "rows": 2338,
+      "major_party_contested": true
     },
     {
       "year": 2014,
       "contest_type": "governor",
       "file": "governor_2014.json",
-      "rows": 2303
+      "rows": 2303,
+      "major_party_contested": true
     },
     {
       "year": 2014,
       "contest_type": "us_senate",
       "file": "us_senate_2014.json",
-      "rows": 2303
+      "rows": 2303,
+      "major_party_contested": true
     },
     {
       "year": 2014,
       "contest_type": "attorney_general",
       "file": "attorney_general_2014.json",
-      "rows": 2303
+      "rows": 2303,
+      "major_party_contested": true
     },
     {
       "year": 2014,
       "contest_type": "secretary_of_state",
       "file": "secretary_of_state_2014.json",
-      "rows": 2303
+      "rows": 2303,
+      "major_party_contested": true
     },
     {
       "year": 2014,
       "contest_type": "superintendent",
       "file": "superintendent_2014.json",
-      "rows": 2303
+      "rows": 2303,
+      "major_party_contested": true
     },
     {
       "year": 2014,
       "contest_type": "state_treasurer",
       "file": "state_treasurer_2014.json",
-      "rows": 2303
+      "rows": 2303,
+      "major_party_contested": false
     },
     {
       "year": 2014,
       "contest_type": "comptroller_general",
       "file": "comptroller_general_2014.json",
-      "rows": 2303
+      "rows": 2303,
+      "major_party_contested": true
     },
     {
       "year": 2014,
       "contest_type": "commissioner_agriculture",
       "file": "commissioner_agriculture_2014.json",
-      "rows": 2303
+      "rows": 2303,
+      "major_party_contested": false
     },
     {
       "year": 2012,
       "contest_type": "president",
       "file": "president_2012.json",
-      "rows": 2324
+      "rows": 2324,
+      "major_party_contested": true
     },
     {
       "year": 2010,
       "contest_type": "governor",
       "file": "governor_2010.json",
-      "rows": 2320
+      "rows": 2320,
+      "major_party_contested": true
     },
     {
       "year": 2010,
       "contest_type": "us_senate",
       "file": "us_senate_2010.json",
-      "rows": 2320
+      "rows": 2320,
+      "major_party_contested": true
     },
     {
       "year": 2010,
       "contest_type": "attorney_general",
       "file": "attorney_general_2010.json",
-      "rows": 2320
+      "rows": 2320,
+      "major_party_contested": true
     },
     {
       "year": 2010,
       "contest_type": "secretary_of_state",
       "file": "secretary_of_state_2010.json",
-      "rows": 2320
+      "rows": 2320,
+      "major_party_contested": true
     },
     {
       "year": 2010,
       "contest_type": "superintendent",
       "file": "superintendent_2010.json",
-      "rows": 2320
+      "rows": 2320,
+      "major_party_contested": true
     },
     {
       "year": 2010,
       "contest_type": "state_treasurer",
       "file": "state_treasurer_2010.json",
-      "rows": 2320
+      "rows": 2320,
+      "major_party_contested": false
     },
     {
       "year": 2010,
       "contest_type": "comptroller_general",
       "file": "comptroller_general_2010.json",
-      "rows": 2320
+      "rows": 2320,
+      "major_party_contested": true
     },
     {
       "year": 2010,
       "contest_type": "commissioner_agriculture",
       "file": "commissioner_agriculture_2010.json",
-      "rows": 2320
+      "rows": 2320,
+      "major_party_contested": true
     },
     {
       "year": 2008,
       "contest_type": "president",
       "file": "president_2008.json",
-      "rows": 2285
+      "rows": 2285,
+      "major_party_contested": true
     },
     {
       "year": 2008,
       "contest_type": "us_senate",
       "file": "us_senate_2008.json",
-      "rows": 2285
+      "rows": 2285,
+      "major_party_contested": true
     },
     {
       "year": 2006,
       "contest_type": "governor",
       "file": "governor_2006.json",
-      "rows": 2312
+      "rows": 2312,
+      "major_party_contested": true
     },
     {
       "year": 2006,
       "contest_type": "attorney_general",
       "file": "attorney_general_2006.json",
-      "rows": 2312
+      "rows": 2312,
+      "major_party_contested": false
     },
     {
       "year": 2006,
       "contest_type": "secretary_of_state",
       "file": "secretary_of_state_2006.json",
-      "rows": 2312
+      "rows": 2312,
+      "major_party_contested": true
     },
     {
       "year": 2006,
       "contest_type": "superintendent",
       "file": "superintendent_2006.json",
-      "rows": 2312
+      "rows": 2312,
+      "major_party_contested": true
     },
     {
       "year": 2006,
       "contest_type": "state_treasurer",
       "file": "state_treasurer_2006.json",
-      "rows": 2312
+      "rows": 2312,
+      "major_party_contested": true
     },
     {
       "year": 2006,
       "contest_type": "comptroller_general",
       "file": "comptroller_general_2006.json",
-      "rows": 2312
+      "rows": 2312,
+      "major_party_contested": true
     },
     {
       "year": 2006,
       "contest_type": "commissioner_agriculture",
       "file": "commissioner_agriculture_2006.json",
-      "rows": 2312
+      "rows": 2312,
+      "major_party_contested": true
     }
   ]
 }

@@ -2,130 +2,200 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 46930,
-        "rep_votes": 90832,
-        "other_votes": 52,
-        "total_votes": 137814,
+        "dem_votes": 58102,
+        "rep_votes": 107645,
+        "other_votes": 64,
+        "total_votes": 165811,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 43902,
-        "margin_pct": 31.856,
+        "margin": 49543,
+        "margin_pct": 29.8792,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#cb181d"
       },
       "2": {
-        "dem_votes": 64812,
-        "rep_votes": 117472,
-        "other_votes": 90,
-        "total_votes": 182374,
+        "dem_votes": 72650,
+        "rep_votes": 133294,
+        "other_votes": 114,
+        "total_votes": 206058,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 52660,
-        "margin_pct": 28.8747,
+        "margin": 60644,
+        "margin_pct": 29.4305,
         "winner": "R",
         "color": "#cb181d"
       },
       "3": {
-        "dem_votes": 49016,
-        "rep_votes": 112242,
-        "other_votes": 82,
-        "total_votes": 161340,
+        "dem_votes": 58724,
+        "rep_votes": 128379,
+        "other_votes": 102,
+        "total_votes": 187205,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 63226,
-        "margin_pct": 39.1881,
+        "margin": 69655,
+        "margin_pct": 37.2079,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 48292,
-        "rep_votes": 112442,
-        "other_votes": 77,
-        "total_votes": 160811,
+        "dem_votes": 56351,
+        "rep_votes": 119872,
+        "other_votes": 85,
+        "total_votes": 176308,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 64150,
-        "margin_pct": 39.8915,
+        "margin": 63521,
+        "margin_pct": 36.0284,
         "winner": "R",
         "color": "#a50f15"
       },
       "5": {
-        "dem_votes": 62774,
-        "rep_votes": 91433,
-        "other_votes": 41,
-        "total_votes": 154248,
+        "dem_votes": 75144,
+        "rep_votes": 116106,
+        "other_votes": 49,
+        "total_votes": 191299,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 28659,
-        "margin_pct": 18.5798,
+        "margin": 40962,
+        "margin_pct": 21.4126,
         "winner": "R",
-        "color": "#ef3b2c"
+        "color": "#cb181d"
       },
       "6": {
-        "dem_votes": 116554,
-        "rep_votes": 61733,
-        "other_votes": 51,
-        "total_votes": 178338,
+        "dem_votes": 128210,
+        "rep_votes": 79836,
+        "other_votes": 73,
+        "total_votes": 208119,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": -54821,
-        "margin_pct": -30.7399,
+        "margin": -48374,
+        "margin_pct": -23.2434,
         "winner": "D",
-        "color": "#2171b5"
+        "color": "#4292c6"
       },
       "7": {
-        "dem_votes": 67333,
-        "rep_votes": 96161,
-        "other_votes": 40,
-        "total_votes": 163534,
+        "dem_votes": 76048,
+        "rep_votes": 107128,
+        "other_votes": 46,
+        "total_votes": 183222,
         "dem_candidate": "Tom E. Elliott",
         "rep_candidate": "Hugh Weathers",
-        "margin": 28828,
-        "margin_pct": 17.6281,
+        "margin": 31080,
+        "margin_pct": 16.963,
         "winner": "R",
         "color": "#ef3b2c"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 98.153,
+    "match_coverage_pct": 98.3729,
     "precinct_rows_total": 2274,
-    "precinct_rows_overlap_weighted": 2232,
-    "precinct_rows_county_share_fallback": 42,
-    "precinct_votes_county_share_fallback": 5952,
+    "precinct_rows_overlap_weighted": 2237,
+    "precinct_rows_county_share_fallback": 6,
+    "precinct_votes_county_share_fallback": 1075,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 36,
+    "whole_county_vote_components": {
+      "3": {
+        "dem_votes": 54547,
+        "rep_votes": 119168,
+        "other_votes": 96
+      },
+      "2": {
+        "dem_votes": 40118,
+        "rep_votes": 96468,
+        "other_votes": 79
+      },
+      "6": {
+        "dem_votes": 25036,
+        "rep_votes": 16918,
+        "other_votes": 8
+      },
+      "1": {
+        "dem_votes": 34168,
+        "rep_votes": 57530,
+        "other_votes": 31
+      },
+      "5": {
+        "dem_votes": 62753,
+        "rep_votes": 95108,
+        "other_votes": 42
+      },
+      "7": {
+        "dem_votes": 60192,
+        "rep_votes": 86166,
+        "other_votes": 36
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 23934,
+        "rep_votes": 50115,
+        "other_votes": 33
+      },
+      "2": {
+        "dem_votes": 32532,
+        "rep_votes": 36826,
+        "other_votes": 35
+      },
+      "3": {
+        "dem_votes": 4177,
+        "rep_votes": 9211,
+        "other_votes": 6
+      },
+      "4": {
+        "dem_votes": 56351,
+        "rep_votes": 119872,
+        "other_votes": 85
+      },
+      "5": {
+        "dem_votes": 12391,
+        "rep_votes": 20998,
+        "other_votes": 7
+      },
+      "6": {
+        "dem_votes": 103174,
+        "rep_votes": 62918,
+        "other_votes": 65
+      },
+      "7": {
+        "dem_votes": 15856,
+        "rep_votes": 20962,
+        "other_votes": 10
+      }
+    },
+    "split_counties_reconciled": 10,
     "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 525229,
+      "rep_votes": 792260,
+      "other_votes": 533
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "punctuation_alias_rows": 1,
+    "punctuation_alias_votes": 998,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 5,
+    "historical_name_bridge_votes": 3473,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/commissioner_agriculture_2010",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.767048,
-    "snapshot_comparison_max_abs_share_delta_pp": 4.067904,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "congressional",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#congressional/commissioner_agriculture_2010",
-    "calibration_districts": 7,
-    "calibration_expected_districts": 7,
-    "calibration_snapshot_districts": 7,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.302041,
-    "calibration_max_abs_share_delta_pp": 0.747243,
-    "calibration_statewide_mix_gap_pp": 0.457917,
-    "calibration_tolerance_pp": 2.457917,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "margin_calibration_mean_abs_delta_pp_before": 0.9058,
-    "margin_calibration_max_abs_delta_pp_before": 1.4944,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0003,
-    "margin_calibration_max_abs_delta_pp_after": 0.0005
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.923305,
+    "snapshot_comparison_max_abs_share_delta_pp": 3.751281,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 525229,
+      "rep_votes": 792260,
+      "other_votes": 533
+    }
   }
 }

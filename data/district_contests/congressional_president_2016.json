@@ -2,130 +2,200 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 82759,
-        "rep_votes": 116999,
-        "other_votes": 14813,
-        "total_votes": 214571,
+        "dem_votes": 117828,
+        "rep_votes": 161513,
+        "other_votes": 16814,
+        "total_votes": 296155,
         "dem_candidate": "Hillary Rodham Clinton / Timothy Michael Kaine",
         "rep_candidate": "Donald J Trump / Michael R Pence",
-        "margin": 34240,
-        "margin_pct": 15.9574,
+        "margin": 43685,
+        "margin_pct": 14.7507,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 85572,
-        "rep_votes": 133249,
-        "other_votes": 13525,
-        "total_votes": 232346,
+        "dem_votes": 121682,
+        "rep_votes": 175255,
+        "other_votes": 15757,
+        "total_votes": 312694,
         "dem_candidate": "Hillary Rodham Clinton / Timothy Michael Kaine",
         "rep_candidate": "Donald J Trump / Michael R Pence",
-        "margin": 47677,
-        "margin_pct": 20.5198,
+        "margin": 53573,
+        "margin_pct": 17.1327,
         "winner": "R",
-        "color": "#cb181d"
+        "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 64076,
-        "rep_votes": 162911,
-        "other_votes": 10065,
-        "total_votes": 237052,
+        "dem_votes": 86407,
+        "rep_votes": 198574,
+        "other_votes": 11742,
+        "total_votes": 296723,
         "dem_candidate": "Hillary Rodham Clinton / Timothy Michael Kaine",
         "rep_candidate": "Donald J Trump / Michael R Pence",
-        "margin": 98835,
-        "margin_pct": 41.6934,
+        "margin": 112167,
+        "margin_pct": 37.8019,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 78131,
-        "rep_votes": 146011,
-        "other_votes": 13692,
-        "total_votes": 237834,
+        "dem_votes": 102331,
+        "rep_votes": 171411,
+        "other_votes": 15595,
+        "total_votes": 289337,
         "dem_candidate": "Hillary Rodham Clinton / Timothy Michael Kaine",
         "rep_candidate": "Donald J Trump / Michael R Pence",
-        "margin": 67880,
-        "margin_pct": 28.5409,
+        "margin": 69080,
+        "margin_pct": 23.8753,
         "winner": "R",
         "color": "#cb181d"
       },
       "5": {
-        "dem_votes": 81620,
-        "rep_votes": 133290,
-        "other_votes": 9679,
-        "total_votes": 224589,
+        "dem_votes": 114385,
+        "rep_votes": 175619,
+        "other_votes": 11969,
+        "total_votes": 301973,
         "dem_candidate": "Hillary Rodham Clinton / Timothy Michael Kaine",
         "rep_candidate": "Donald J Trump / Michael R Pence",
-        "margin": 51670,
-        "margin_pct": 23.0065,
+        "margin": 61234,
+        "margin_pct": 20.278,
         "winner": "R",
         "color": "#cb181d"
       },
       "6": {
-        "dem_votes": 132666,
-        "rep_votes": 70144,
-        "other_votes": 7437,
-        "total_votes": 210247,
+        "dem_votes": 195470,
+        "rep_votes": 98939,
+        "other_votes": 11805,
+        "total_votes": 306214,
         "dem_candidate": "Hillary Rodham Clinton / Timothy Michael Kaine",
         "rep_candidate": "Donald J Trump / Michael R Pence",
-        "margin": -62522,
-        "margin_pct": -29.7374,
+        "margin": -96531,
+        "margin_pct": -31.524,
         "winner": "D",
-        "color": "#4292c6"
+        "color": "#2171b5"
       },
       "7": {
-        "dem_votes": 86204,
-        "rep_votes": 140898,
-        "other_votes": 7262,
-        "total_votes": 234364,
+        "dem_votes": 117270,
+        "rep_votes": 174078,
+        "other_votes": 8583,
+        "total_votes": 299931,
         "dem_candidate": "Hillary Rodham Clinton / Timothy Michael Kaine",
         "rep_candidate": "Donald J Trump / Michael R Pence",
-        "margin": 54694,
-        "margin_pct": 23.3372,
+        "margin": 56808,
+        "margin_pct": 18.9404,
         "winner": "R",
-        "color": "#cb181d"
+        "color": "#ef3b2c"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 99.1274,
+    "match_coverage_pct": 99.2147,
     "precinct_rows_total": 2292,
-    "precinct_rows_overlap_weighted": 2272,
-    "precinct_rows_county_share_fallback": 20,
-    "precinct_votes_county_share_fallback": 2177,
+    "precinct_rows_overlap_weighted": 2274,
+    "precinct_rows_county_share_fallback": 8,
+    "precinct_votes_county_share_fallback": 202,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 36,
+    "whole_county_vote_components": {
+      "3": {
+        "dem_votes": 78790,
+        "rep_votes": 182223,
+        "other_votes": 10489
+      },
+      "2": {
+        "dem_votes": 65085,
+        "rep_votes": 130940,
+        "other_votes": 10404
+      },
+      "6": {
+        "dem_votes": 33061,
+        "rep_votes": 22518,
+        "other_votes": 1031
+      },
+      "1": {
+        "dem_votes": 62843,
+        "rep_votes": 87509,
+        "other_votes": 7689
+      },
+      "5": {
+        "dem_votes": 95279,
+        "rep_votes": 144338,
+        "other_votes": 10139
+      },
+      "7": {
+        "dem_votes": 93823,
+        "rep_votes": 146326,
+        "other_votes": 7046
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 54985,
+        "rep_votes": 74004,
+        "other_votes": 9125
+      },
+      "2": {
+        "dem_votes": 56597,
+        "rep_votes": 44315,
+        "other_votes": 5353
+      },
+      "3": {
+        "dem_votes": 7617,
+        "rep_votes": 16351,
+        "other_votes": 1253
+      },
+      "4": {
+        "dem_votes": 102331,
+        "rep_votes": 171411,
+        "other_votes": 15595
+      },
+      "5": {
+        "dem_votes": 19106,
+        "rep_votes": 31281,
+        "other_votes": 1830
+      },
+      "6": {
+        "dem_votes": 162409,
+        "rep_votes": 76421,
+        "other_votes": 10774
+      },
+      "7": {
+        "dem_votes": 23447,
+        "rep_votes": 27752,
+        "other_votes": 1537
+      }
+    },
+    "split_counties_reconciled": 10,
     "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 855373,
+      "rep_votes": 1155389,
+      "other_votes": 92265
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "punctuation_alias_rows": 2,
+    "punctuation_alias_votes": 2248,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 1,
+    "historical_name_bridge_votes": 484,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/president_2016",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.5567,
-    "snapshot_comparison_max_abs_share_delta_pp": 2.088231,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "congressional",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#congressional/president_2016",
-    "calibration_districts": 7,
-    "calibration_expected_districts": 7,
-    "calibration_snapshot_districts": 7,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.151719,
-    "calibration_max_abs_share_delta_pp": 0.36169,
-    "calibration_statewide_mix_gap_pp": 0.225359,
-    "calibration_tolerance_pp": 2.225359,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "margin_calibration_mean_abs_delta_pp_before": 0.4046,
-    "margin_calibration_max_abs_delta_pp_before": 0.6861,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0002,
-    "margin_calibration_max_abs_delta_pp_after": 0.0004
+    "snapshot_comparison_mean_abs_share_delta_pp": 1.221286,
+    "snapshot_comparison_max_abs_share_delta_pp": 2.516355,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 855373,
+      "rep_votes": 1155389,
+      "other_votes": 92265
+    }
   }
 }

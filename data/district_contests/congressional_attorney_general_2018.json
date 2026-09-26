@@ -2,130 +2,200 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 83061,
-        "rep_votes": 107890,
-        "other_votes": 5554,
-        "total_votes": 196505,
+        "dem_votes": 110848,
+        "rep_votes": 137398,
+        "other_votes": 6342,
+        "total_votes": 254588,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 24829,
-        "margin_pct": 12.6353,
+        "margin": 26550,
+        "margin_pct": 10.4286,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 87121,
-        "rep_votes": 123840,
-        "other_votes": 5411,
-        "total_votes": 216372,
+        "dem_votes": 107870,
+        "rep_votes": 143219,
+        "other_votes": 6128,
+        "total_votes": 257217,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 36719,
-        "margin_pct": 16.9703,
+        "margin": 35349,
+        "margin_pct": 13.7429,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 57634,
-        "rep_votes": 139859,
-        "other_votes": 3855,
-        "total_votes": 201348,
+        "dem_votes": 70909,
+        "rep_votes": 160038,
+        "other_votes": 4369,
+        "total_votes": 235316,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 82225,
-        "margin_pct": 40.8373,
+        "margin": 89129,
+        "margin_pct": 37.8763,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 72798,
-        "rep_votes": 127210,
-        "other_votes": 3965,
-        "total_votes": 203973,
+        "dem_votes": 88664,
+        "rep_votes": 140315,
+        "other_votes": 4428,
+        "total_votes": 233407,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 54412,
-        "margin_pct": 26.6761,
+        "margin": 51651,
+        "margin_pct": 22.1292,
         "winner": "R",
         "color": "#cb181d"
       },
       "5": {
-        "dem_votes": 80324,
-        "rep_votes": 121528,
-        "other_votes": 4314,
-        "total_votes": 206166,
+        "dem_votes": 97226,
+        "rep_votes": 142863,
+        "other_votes": 4916,
+        "total_votes": 245005,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 41204,
-        "margin_pct": 19.9858,
+        "margin": 45637,
+        "margin_pct": 18.627,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 120959,
-        "rep_votes": 59535,
-        "other_votes": 4348,
-        "total_votes": 184842,
+        "dem_votes": 156414,
+        "rep_votes": 76160,
+        "other_votes": 5705,
+        "total_votes": 238279,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": -61424,
-        "margin_pct": -33.2305,
+        "margin": -80254,
+        "margin_pct": -33.6807,
         "winner": "D",
         "color": "#2171b5"
       },
       "7": {
-        "dem_votes": 77830,
-        "rep_votes": 120489,
-        "other_votes": 3670,
-        "total_votes": 201989,
+        "dem_votes": 97763,
+        "rep_votes": 138039,
+        "other_votes": 4220,
+        "total_votes": 240022,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 42659,
-        "margin_pct": 21.1195,
+        "margin": 40276,
+        "margin_pct": 16.7801,
         "winner": "R",
-        "color": "#cb181d"
+        "color": "#ef3b2c"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 97.5631,
+    "match_coverage_pct": 97.6058,
     "precinct_rows_total": 2339,
-    "precinct_rows_overlap_weighted": 2282,
-    "precinct_rows_county_share_fallback": 57,
-    "precinct_votes_county_share_fallback": 4634,
+    "precinct_rows_overlap_weighted": 2283,
+    "precinct_rows_county_share_fallback": 15,
+    "precinct_votes_county_share_fallback": 1840,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 36,
+    "whole_county_vote_components": {
+      "3": {
+        "dem_votes": 63814,
+        "rep_votes": 146710,
+        "other_votes": 3990
+      },
+      "2": {
+        "dem_votes": 56470,
+        "rep_votes": 105716,
+        "other_votes": 3909
+      },
+      "6": {
+        "dem_votes": 25377,
+        "rep_votes": 17244,
+        "other_votes": 686
+      },
+      "1": {
+        "dem_votes": 57825,
+        "rep_votes": 74917,
+        "other_votes": 3043
+      },
+      "5": {
+        "dem_votes": 80890,
+        "rep_votes": 118590,
+        "other_votes": 4157
+      },
+      "7": {
+        "dem_votes": 78365,
+        "rep_votes": 116067,
+        "other_votes": 3497
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 53023,
+        "rep_votes": 62481,
+        "other_votes": 3299
+      },
+      "2": {
+        "dem_votes": 51400,
+        "rep_votes": 37503,
+        "other_votes": 2219
+      },
+      "3": {
+        "dem_votes": 7095,
+        "rep_votes": 13328,
+        "other_votes": 379
+      },
+      "4": {
+        "dem_votes": 88664,
+        "rep_votes": 140315,
+        "other_votes": 4428
+      },
+      "5": {
+        "dem_votes": 16336,
+        "rep_votes": 24273,
+        "other_votes": 759
+      },
+      "6": {
+        "dem_votes": 131037,
+        "rep_votes": 58916,
+        "other_votes": 5019
+      },
+      "7": {
+        "dem_votes": 19398,
+        "rep_votes": 21972,
+        "other_votes": 723
+      }
+    },
+    "split_counties_reconciled": 10,
     "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 729694,
+      "rep_votes": 938032,
+      "other_votes": 36108
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "punctuation_alias_rows": 1,
+    "punctuation_alias_votes": 1289,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 1,
+    "historical_name_bridge_votes": 358,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/attorney_general_2018",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.480846,
-    "snapshot_comparison_max_abs_share_delta_pp": 2.060653,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "congressional",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#congressional/attorney_general_2018",
-    "calibration_districts": 7,
-    "calibration_expected_districts": 7,
-    "calibration_snapshot_districts": 7,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.238963,
-    "calibration_max_abs_share_delta_pp": 0.565294,
-    "calibration_statewide_mix_gap_pp": 0.355718,
-    "calibration_tolerance_pp": 2.355718,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "margin_calibration_mean_abs_delta_pp_before": 0.7149,
-    "margin_calibration_max_abs_delta_pp_before": 1.1285,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0002,
-    "margin_calibration_max_abs_delta_pp_after": 0.0004
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.944527,
+    "snapshot_comparison_max_abs_share_delta_pp": 2.296742,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 729694,
+      "rep_votes": 938032,
+      "other_votes": 36108
+    }
   }
 }

@@ -2,130 +2,202 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 110003,
-        "rep_votes": 144030,
-        "other_votes": 13572,
-        "total_votes": 267605,
+        "dem_votes": 107300,
+        "rep_votes": 149522,
+        "other_votes": 12997,
+        "total_votes": 269819,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 34027,
-        "margin_pct": 12.7154,
+        "margin": 42222,
+        "margin_pct": 15.6483,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 101857,
-        "rep_votes": 127777,
-        "other_votes": 14678,
-        "total_votes": 244312,
+        "dem_votes": 102857,
+        "rep_votes": 128322,
+        "other_votes": 14616,
+        "total_votes": 245795,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 25920,
-        "margin_pct": 10.6094,
+        "margin": 25465,
+        "margin_pct": 10.3603,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 68607,
-        "rep_votes": 155542,
-        "other_votes": 11335,
-        "total_votes": 235484,
+        "dem_votes": 69235,
+        "rep_votes": 155717,
+        "other_votes": 11635,
+        "total_votes": 236587,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 86935,
-        "margin_pct": 36.9176,
+        "margin": 86482,
+        "margin_pct": 36.554,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 84011,
-        "rep_votes": 136562,
-        "other_votes": 10852,
-        "total_votes": 231425,
+        "dem_votes": 86212,
+        "rep_votes": 135527,
+        "other_votes": 11031,
+        "total_votes": 232770,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 52551,
-        "margin_pct": 22.7076,
+        "margin": 49315,
+        "margin_pct": 21.1861,
         "winner": "R",
         "color": "#cb181d"
       },
       "5": {
-        "dem_votes": 90988,
-        "rep_votes": 136536,
-        "other_votes": 12474,
-        "total_votes": 239998,
+        "dem_votes": 89752,
+        "rep_votes": 138938,
+        "other_votes": 12223,
+        "total_votes": 240913,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 45548,
-        "margin_pct": 18.9785,
+        "margin": 49186,
+        "margin_pct": 20.4165,
         "winner": "R",
-        "color": "#ef3b2c"
+        "color": "#cb181d"
       },
       "6": {
-        "dem_votes": 127558,
-        "rep_votes": 73467,
-        "other_votes": 9982,
-        "total_votes": 211007,
+        "dem_votes": 124964,
+        "rep_votes": 73829,
+        "other_votes": 10888,
+        "total_votes": 209681,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": -54091,
-        "margin_pct": -25.6347,
+        "margin": -51135,
+        "margin_pct": -24.387,
         "winner": "D",
         "color": "#4292c6"
       },
       "7": {
-        "dem_votes": 88620,
-        "rep_votes": 155437,
-        "other_votes": 8810,
-        "total_votes": 252867,
+        "dem_votes": 88698,
+        "rep_votes": 155638,
+        "other_votes": 8817,
+        "total_votes": 253153,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 66817,
-        "margin_pct": 26.4238,
+        "margin": 66940,
+        "margin_pct": 26.4425,
         "winner": "R",
         "color": "#cb181d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 99.8701,
+    "match_coverage_pct": 100.0,
     "precinct_rows_total": 2310,
-    "precinct_rows_overlap_weighted": 2307,
-    "precinct_rows_county_share_fallback": 3,
-    "precinct_votes_county_share_fallback": 2572,
+    "precinct_rows_overlap_weighted": 2310,
+    "precinct_rows_county_share_fallback": 0,
+    "precinct_votes_county_share_fallback": 0,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 36,
+    "whole_county_vote_components": {
+      "3": {
+        "dem_votes": 61792,
+        "rep_votes": 141900,
+        "other_votes": 10566
+      },
+      "2": {
+        "dem_votes": 54377,
+        "rep_votes": 96293,
+        "other_votes": 8941
+      },
+      "6": {
+        "dem_votes": 19499,
+        "rep_votes": 16729,
+        "other_votes": 1719
+      },
+      "1": {
+        "dem_votes": 54027,
+        "rep_votes": 81630,
+        "other_votes": 5933
+      },
+      "5": {
+        "dem_votes": 74403,
+        "rep_votes": 115001,
+        "other_votes": 10515
+      },
+      "7": {
+        "dem_votes": 72062,
+        "rep_votes": 135545,
+        "other_votes": 7284
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 53273,
+        "rep_votes": 67892,
+        "other_votes": 7064
+      },
+      "2": {
+        "dem_votes": 48480,
+        "rep_votes": 32029,
+        "other_votes": 5675
+      },
+      "3": {
+        "dem_votes": 7443,
+        "rep_votes": 13817,
+        "other_votes": 1069
+      },
+      "4": {
+        "dem_votes": 86212,
+        "rep_votes": 135527,
+        "other_votes": 11031
+      },
+      "5": {
+        "dem_votes": 15349,
+        "rep_votes": 23937,
+        "other_votes": 1708
+      },
+      "6": {
+        "dem_votes": 105465,
+        "rep_votes": 57100,
+        "other_votes": 9169
+      },
+      "7": {
+        "dem_votes": 16636,
+        "rep_votes": 20093,
+        "other_votes": 1533
+      }
+    },
+    "split_counties_reconciled": 10,
     "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 669018,
+      "rep_votes": 937493,
+      "other_votes": 82207
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "reviewed_congress_ballot_file": "data/crosswalk/reviewed_2022_congress_ballot_district_overrides.json",
+    "reviewed_congress_ballot_votes": 586,
+    "punctuation_alias_rows": 2,
+    "punctuation_alias_votes": 2879,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 2,
+    "historical_name_bridge_votes": 1281,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/superintendent_2022",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.427761,
-    "snapshot_comparison_max_abs_share_delta_pp": 1.582023,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "congressional",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#congressional/superintendent_2022",
-    "calibration_districts": 7,
-    "calibration_expected_districts": 7,
-    "calibration_snapshot_districts": 7,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.200382,
-    "calibration_max_abs_share_delta_pp": 0.451639,
-    "calibration_statewide_mix_gap_pp": 0.298181,
-    "calibration_tolerance_pp": 2.298181,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "margin_calibration_mean_abs_delta_pp_before": 0.5948,
-    "margin_calibration_max_abs_delta_pp_before": 0.897,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0002,
-    "margin_calibration_max_abs_delta_pp_after": 0.0004
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.420409,
+    "snapshot_comparison_max_abs_share_delta_pp": 1.593644,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 669018,
+      "rep_votes": 937493,
+      "other_votes": 82207
+    }
   }
 }

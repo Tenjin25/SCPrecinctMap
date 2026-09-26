@@ -1,0 +1,3609 @@
+{
+  "method": "Unmatched source names in counties split by at least one staged district plan; vote counts sum contest rows and must not be interpreted as unique voters.",
+  "summary": {
+    "year_name_pairs": 178,
+    "contest_rows": 940,
+    "votes_across_contests": 51374,
+    "emergency_year_name_pairs": 169,
+    "emergency_votes_across_contests": 29223,
+    "other_year_name_pairs": 9,
+    "other_votes_across_contests": 22151
+  },
+  "entries": [
+    {
+      "year": 2018,
+      "source_precinct": "COLLETON - EMERGENCY",
+      "county": "COLLETON",
+      "has_emergency_label": true,
+      "votes_across_contests": 10769,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "LEXINGTON - BETHANY",
+      "county": "LEXINGTON",
+      "has_emergency_label": false,
+      "votes_across_contests": 7774,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "SPARTANBURG - MOUNT SINAI BAPTIST",
+      "county": "SPARTANBURG",
+      "has_emergency_label": false,
+      "votes_across_contests": 7311,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "PICKENS - EMERGENCY",
+      "county": "PICKENS",
+      "has_emergency_label": true,
+      "votes_across_contests": 4669,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "HORRY - EMERGENCY",
+      "county": "HORRY",
+      "has_emergency_label": true,
+      "votes_across_contests": 1998,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "GEORGETOWN - GRIERS",
+      "county": "GEORGETOWN",
+      "has_emergency_label": false,
+      "votes_across_contests": 1694,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "LEXINGTON - BETHANY",
+      "county": "LEXINGTON",
+      "has_emergency_label": false,
+      "votes_across_contests": 1603,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "HORRY - EMERGENCY",
+      "county": "HORRY",
+      "has_emergency_label": true,
+      "votes_across_contests": 1572,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "SPARTANBURG - NORTH SPARTANBURG 2 FIR",
+      "county": "SPARTANBURG",
+      "has_emergency_label": false,
+      "votes_across_contests": 1045,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "SPARTANBURG - MOUNT SINAI BAPTIST",
+      "county": "SPARTANBURG",
+      "has_emergency_label": false,
+      "votes_across_contests": 1026,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "WILLIAMSBURG - EMERGENCY",
+      "county": "WILLIAMSBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 1022,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "SPARTANBURG - EMERGENCY",
+      "county": "SPARTANBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 919,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "AIKEN - WARD 40",
+      "county": "AIKEN",
+      "has_emergency_label": false,
+      "votes_across_contests": 756,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "GEORGETOWN - GRIERS",
+      "county": "GEORGETOWN",
+      "has_emergency_label": false,
+      "votes_across_contests": 610,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "ANDERSON - EMERGENCY 2",
+      "county": "ANDERSON",
+      "has_emergency_label": true,
+      "votes_across_contests": 568,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "DORCHESTER - EMERGENCY",
+      "county": "DORCHESTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 561,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "CALHOUN - EMERGENCY",
+      "county": "CALHOUN",
+      "has_emergency_label": true,
+      "votes_across_contests": 510,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "GREENVILLE - EMERGENCY 2",
+      "county": "GREENVILLE",
+      "has_emergency_label": true,
+      "votes_across_contests": 499,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "HORRY - EMERGENCY",
+      "county": "HORRY",
+      "has_emergency_label": true,
+      "votes_across_contests": 473,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "SUMTER - EMERGENCY",
+      "county": "SUMTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 456,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "LEXINGTON - EMERGENCY",
+      "county": "LEXINGTON",
+      "has_emergency_label": true,
+      "votes_across_contests": 415,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "DARLINGTON - EMERGENCY",
+      "county": "DARLINGTON",
+      "has_emergency_label": true,
+      "votes_across_contests": 384,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "FLORENCE - EMERGENCY 2",
+      "county": "FLORENCE",
+      "has_emergency_label": true,
+      "votes_across_contests": 337,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "GEORGETOWN - GRIERS",
+      "county": "GEORGETOWN",
+      "has_emergency_label": false,
+      "votes_across_contests": 332,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "HORRY - EMERGENCY",
+      "county": "HORRY",
+      "has_emergency_label": true,
+      "votes_across_contests": 278,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "CHARLESTON - EMERGENCY",
+      "county": "CHARLESTON",
+      "has_emergency_label": true,
+      "votes_across_contests": 277,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "DARLINGTON - EMERGENCY",
+      "county": "DARLINGTON",
+      "has_emergency_label": true,
+      "votes_across_contests": 214,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "COLLETON - EMERGENCY",
+      "county": "COLLETON",
+      "has_emergency_label": true,
+      "votes_across_contests": 203,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "LEXINGTON - EMERGENCY",
+      "county": "LEXINGTON",
+      "has_emergency_label": true,
+      "votes_across_contests": 197,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "ORANGEBURG - EMERGENCY",
+      "county": "ORANGEBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 189,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "LEE - EMERGENCY",
+      "county": "LEE",
+      "has_emergency_label": true,
+      "votes_across_contests": 182,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "BEAUFORT - EMERGENCY",
+      "county": "BEAUFORT",
+      "has_emergency_label": true,
+      "votes_across_contests": 175,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "KERSHAW - EMERGENCY",
+      "county": "KERSHAW",
+      "has_emergency_label": true,
+      "votes_across_contests": 169,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "MARION - EMERGENCY",
+      "county": "MARION",
+      "has_emergency_label": true,
+      "votes_across_contests": 140,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "HORRY - EMERGENCY",
+      "county": "HORRY",
+      "has_emergency_label": true,
+      "votes_across_contests": 126,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "WILLIAMSBURG - EMERGENCY",
+      "county": "WILLIAMSBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 125,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "SPARTANBURG - EMERGENCY",
+      "county": "SPARTANBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 118,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "SUMTER - EMERGENCY 1",
+      "county": "SUMTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 110,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "LEXINGTON - EMERGENCY",
+      "county": "LEXINGTON",
+      "has_emergency_label": true,
+      "votes_across_contests": 95,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "KERSHAW - EMERGENCY",
+      "county": "KERSHAW",
+      "has_emergency_label": true,
+      "votes_across_contests": 95,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "RICHLAND - EMERGENCY 2",
+      "county": "RICHLAND",
+      "has_emergency_label": true,
+      "votes_across_contests": 83,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "KERSHAW - EMERGENCY 1",
+      "county": "KERSHAW",
+      "has_emergency_label": true,
+      "votes_across_contests": 79,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "WILLIAMSBURG - EMERGENCY",
+      "county": "WILLIAMSBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 78,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "SPARTANBURG - EMERGENCY 2",
+      "county": "SPARTANBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 77,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "DORCHESTER - EMERGENCY",
+      "county": "DORCHESTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 64,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "LAURENS - EMERGENCY",
+      "county": "LAURENS",
+      "has_emergency_label": true,
+      "votes_across_contests": 62,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "LEE - EMERGENCY",
+      "county": "LEE",
+      "has_emergency_label": true,
+      "votes_across_contests": 60,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "KERSHAW - EMERGENCY",
+      "county": "KERSHAW",
+      "has_emergency_label": true,
+      "votes_across_contests": 51,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "LANCASTER - EMERGENCY",
+      "county": "LANCASTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 51,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "LEE - EMERGENCY",
+      "county": "LEE",
+      "has_emergency_label": true,
+      "votes_across_contests": 51,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "LEXINGTON - EMERGENCY",
+      "county": "LEXINGTON",
+      "has_emergency_label": true,
+      "votes_across_contests": 50,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "FLORENCE - EMERGENCY 3",
+      "county": "FLORENCE",
+      "has_emergency_label": true,
+      "votes_across_contests": 50,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "HORRY - EMERGENCY 2",
+      "county": "HORRY",
+      "has_emergency_label": true,
+      "votes_across_contests": 45,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "LAURENS - EMERGENCY",
+      "county": "LAURENS",
+      "has_emergency_label": true,
+      "votes_across_contests": 41,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "LAURENS - EMERGENCY",
+      "county": "LAURENS",
+      "has_emergency_label": true,
+      "votes_across_contests": 41,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "DARLINGTON - EMERGENCY",
+      "county": "DARLINGTON",
+      "has_emergency_label": true,
+      "votes_across_contests": 37,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "CHESTER - EMERGENCY",
+      "county": "CHESTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 32,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "DARLINGTON - EMERGENCY",
+      "county": "DARLINGTON",
+      "has_emergency_label": true,
+      "votes_across_contests": 32,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "HORRY - EMERGENCY 2",
+      "county": "HORRY",
+      "has_emergency_label": true,
+      "votes_across_contests": 30,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "CHESTERFIELD - EMERGENCY",
+      "county": "CHESTERFIELD",
+      "has_emergency_label": true,
+      "votes_across_contests": 28,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "MARLBORO - EMERGENCY",
+      "county": "MARLBORO",
+      "has_emergency_label": true,
+      "votes_across_contests": 27,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "YORK - EMERGENCY 1",
+      "county": "YORK",
+      "has_emergency_label": true,
+      "votes_across_contests": 27,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "HORRY - EMERGENCY 2",
+      "county": "HORRY",
+      "has_emergency_label": true,
+      "votes_across_contests": 26,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "DARLINGTON - EMERGENCY",
+      "county": "DARLINGTON",
+      "has_emergency_label": true,
+      "votes_across_contests": 24,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "DORCHESTER - EMERGENCY 2",
+      "county": "DORCHESTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 24,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "SPARTANBURG - EMERGENCY",
+      "county": "SPARTANBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 21,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "RICHLAND - EMERGENCY 1",
+      "county": "RICHLAND",
+      "has_emergency_label": true,
+      "votes_across_contests": 19,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "KERSHAW - EMERGENCY",
+      "county": "KERSHAW",
+      "has_emergency_label": true,
+      "votes_across_contests": 19,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "WILLIAMSBURG - EMERGENCY",
+      "county": "WILLIAMSBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 16,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "BEAUFORT - EMERGENCY",
+      "county": "BEAUFORT",
+      "has_emergency_label": true,
+      "votes_across_contests": 15,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "AIKEN - EMERGENCY",
+      "county": "AIKEN",
+      "has_emergency_label": true,
+      "votes_across_contests": 15,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "ANDERSON - EMERGENCY 2",
+      "county": "ANDERSON",
+      "has_emergency_label": true,
+      "votes_across_contests": 10,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "SALUDA - EMERGENCY",
+      "county": "SALUDA",
+      "has_emergency_label": true,
+      "votes_across_contests": 10,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "AIKEN - EMERGENCY 2",
+      "county": "AIKEN",
+      "has_emergency_label": true,
+      "votes_across_contests": 8,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "MARION - EMERGENCY",
+      "county": "MARION",
+      "has_emergency_label": true,
+      "votes_across_contests": 8,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "ANDERSON - EMERGENCY 4",
+      "county": "ANDERSON",
+      "has_emergency_label": true,
+      "votes_across_contests": 7,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "CALHOUN - EMERGENCY",
+      "county": "CALHOUN",
+      "has_emergency_label": true,
+      "votes_across_contests": 7,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "KERSHAW - EMERGENCY 2",
+      "county": "KERSHAW",
+      "has_emergency_label": true,
+      "votes_across_contests": 6,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "MARLBORO - EMERGENCY",
+      "county": "MARLBORO",
+      "has_emergency_label": true,
+      "votes_across_contests": 6,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "WILLIAMSBURG - EMERGENCY",
+      "county": "WILLIAMSBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 6,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "KERSHAW - EMERGENCY 2",
+      "county": "KERSHAW",
+      "has_emergency_label": true,
+      "votes_across_contests": 6,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "SPARTANBURG - EMERGENCY 3",
+      "county": "SPARTANBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 6,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "HORRY - EMERGENCY 2",
+      "county": "HORRY",
+      "has_emergency_label": true,
+      "votes_across_contests": 4,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "LEE - EMERGENCY",
+      "county": "LEE",
+      "has_emergency_label": true,
+      "votes_across_contests": 4,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "LAURENS - EMERGENCY",
+      "county": "LAURENS",
+      "has_emergency_label": true,
+      "votes_across_contests": 3,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "ANDERSON - EMERGENCY 3",
+      "county": "ANDERSON",
+      "has_emergency_label": true,
+      "votes_across_contests": 2,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "ANDERSON - EMERGENCY 4",
+      "county": "ANDERSON",
+      "has_emergency_label": true,
+      "votes_across_contests": 2,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "FLORENCE - EMERGENCY 2",
+      "county": "FLORENCE",
+      "has_emergency_label": true,
+      "votes_across_contests": 2,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "FLORENCE - EMERGENCY 4",
+      "county": "FLORENCE",
+      "has_emergency_label": true,
+      "votes_across_contests": 2,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "RICHLAND - EMERGENCY",
+      "county": "RICHLAND",
+      "has_emergency_label": true,
+      "votes_across_contests": 2,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2016,
+      "source_precinct": "SPARTANBURG - EMERGENCY 4",
+      "county": "SPARTANBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 2,
+      "contest_rows": 2,
+      "contests": [
+        "president_2016.json",
+        "us_senate_2016.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "AIKEN - EMERGENCY",
+      "county": "AIKEN",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "ANDERSON - EMERGENCY",
+      "county": "ANDERSON",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "CALHOUN - EMERGENCY",
+      "county": "CALHOUN",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "CHEROKEE - EMERGENCY",
+      "county": "CHEROKEE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "CHESTER - EMERGENCY",
+      "county": "CHESTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "CHESTERFIELD - EMERGENCY",
+      "county": "CHESTERFIELD",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "DILLON - EMERGENCY",
+      "county": "DILLON",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "EDGEFIELD - EMERGENCY",
+      "county": "EDGEFIELD",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "LANCASTER - EMERGENCY",
+      "county": "LANCASTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "LAURENS - EMERGENCY",
+      "county": "LAURENS",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "LEE - EMERGENCY",
+      "county": "LEE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "MARION - EMERGENCY",
+      "county": "MARION",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "MARLBORO - EMERGENCY",
+      "county": "MARLBORO",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "ORANGEBURG - EMERGENCY",
+      "county": "ORANGEBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "PICKENS - EMERGENCY",
+      "county": "PICKENS",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "RICHLAND - EMERGENCY",
+      "county": "RICHLAND",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2010,
+      "source_precinct": "UNION - EMERGENCY",
+      "county": "UNION",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2010.json",
+        "us_senate_2010.json",
+        "attorney_general_2010.json",
+        "secretary_of_state_2010.json",
+        "superintendent_2010.json",
+        "state_treasurer_2010.json",
+        "comptroller_general_2010.json",
+        "commissioner_agriculture_2010.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "AIKEN - EMERGENCY 3",
+      "county": "AIKEN",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "BEAUFORT - EMERGENCY",
+      "county": "BEAUFORT",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "CALHOUN - EMERGENCY",
+      "county": "CALHOUN",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "CHEROKEE - EMERGENCY",
+      "county": "CHEROKEE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "CHESTERFIELD - EMERGENCY",
+      "county": "CHESTERFIELD",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "COLLETON - EMERGENCY",
+      "county": "COLLETON",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "DILLON - EMERGENCY",
+      "county": "DILLON",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "DORCHESTER - EMERGENCY",
+      "county": "DORCHESTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "EDGEFIELD - EMERGENCY",
+      "county": "EDGEFIELD",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "FLORENCE - EMERGENCY 3",
+      "county": "FLORENCE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "FLORENCE - EMERGENCY 5",
+      "county": "FLORENCE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "FLORENCE - EMERGENCY 6",
+      "county": "FLORENCE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "GREENVILLE - EMERGENCY 2",
+      "county": "GREENVILLE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "LANCASTER - EMERGENCY 1",
+      "county": "LANCASTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "LANCASTER - EMERGENCY 2",
+      "county": "LANCASTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "ORANGEBURG - EMERGENCY",
+      "county": "ORANGEBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "PICKENS - EMERGENCY",
+      "county": "PICKENS",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "SPARTANBURG - EMERGENCY 2",
+      "county": "SPARTANBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "SUMTER - EMERGENCY",
+      "county": "SUMTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "UNION - EMERGENCY",
+      "county": "UNION",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2012,
+      "source_precinct": "UNION - EMERGENCY 2",
+      "county": "UNION",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 1,
+      "contests": [
+        "president_2012.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "AIKEN - EMERGENCY",
+      "county": "AIKEN",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "ANDERSON - EMERGENCY 1",
+      "county": "ANDERSON",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "ANDERSON - EMERGENCY 2",
+      "county": "ANDERSON",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "ANDERSON - EMERGENCY 3",
+      "county": "ANDERSON",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "BEAUFORT - EMERGENCY",
+      "county": "BEAUFORT",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "CHEROKEE - EMERGENCY",
+      "county": "CHEROKEE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "CHESTER - EMERGENCY",
+      "county": "CHESTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "CHESTERFIELD - EMERGENCY",
+      "county": "CHESTERFIELD",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "COLLETON - EMERGENCY",
+      "county": "COLLETON",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "DILLON - EMERGENCY",
+      "county": "DILLON",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "DORCHESTER - EMERGENCY",
+      "county": "DORCHESTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "EDGEFIELD - EMERGENCY",
+      "county": "EDGEFIELD",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "FLORENCE - EMERGENCY 4",
+      "county": "FLORENCE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "FLORENCE - EMERGENCY 5",
+      "county": "FLORENCE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "GREENVILLE - EMERGENCY 3",
+      "county": "GREENVILLE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "LANCASTER - EMERGENCY",
+      "county": "LANCASTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "PICKENS - EMERGENCY",
+      "county": "PICKENS",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "RICHLAND - EMERGENCY",
+      "county": "RICHLAND",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "SUMTER - EMERGENCY",
+      "county": "SUMTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2014,
+      "source_precinct": "UNION - EMERGENCY",
+      "county": "UNION",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 8,
+      "contests": [
+        "governor_2014.json",
+        "us_senate_2014.json",
+        "attorney_general_2014.json",
+        "secretary_of_state_2014.json",
+        "superintendent_2014.json",
+        "state_treasurer_2014.json",
+        "comptroller_general_2014.json",
+        "commissioner_agriculture_2014.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "AIKEN - EMERGENCY",
+      "county": "AIKEN",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "AIKEN - EMERGENCY 2",
+      "county": "AIKEN",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "ANDERSON - EMERGENCY 1",
+      "county": "ANDERSON",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "ANDERSON - EMERGENCY 3",
+      "county": "ANDERSON",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "ANDERSON - EMERGENCY 4",
+      "county": "ANDERSON",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "CHEROKEE - EMERGENCY",
+      "county": "CHEROKEE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "CHESTER - EMERGENCY",
+      "county": "CHESTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "DILLON - EMERGENCY",
+      "county": "DILLON",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "DORCHESTER - EMERGENCY",
+      "county": "DORCHESTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "EDGEFIELD - EMERGENCY",
+      "county": "EDGEFIELD",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "FLORENCE - EMERGENCY 2",
+      "county": "FLORENCE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "FLORENCE - EMERGENCY 3",
+      "county": "FLORENCE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "FLORENCE - EMERGENCY 4",
+      "county": "FLORENCE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "FLORENCE - EMERGENCY 5",
+      "county": "FLORENCE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "GREENVILLE - EMERGENCY",
+      "county": "GREENVILLE",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "GREENWOOD - EMERGENCY - B",
+      "county": "GREENWOOD",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "KERSHAW - EMERGENCY 2",
+      "county": "KERSHAW",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "MARION - EMERGENCY",
+      "county": "MARION",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "MARLBORO - EMERGENCY",
+      "county": "MARLBORO",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "ORANGEBURG - EMERGENCY",
+      "county": "ORANGEBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "RICHLAND - EMERGENCY",
+      "county": "RICHLAND",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "RICHLAND - EMERGENCY 2",
+      "county": "RICHLAND",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "SALUDA - EMERGENCY",
+      "county": "SALUDA",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "SPARTANBURG - EMERGENCY 2",
+      "county": "SPARTANBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "SPARTANBURG - EMERGENCY 3",
+      "county": "SPARTANBURG",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "SUMTER - EMERGENCY 1",
+      "county": "SUMTER",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "congressional",
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "UNION - EMERGENCY",
+      "county": "UNION",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "YORK - EMERGENCY 2",
+      "county": "YORK",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    },
+    {
+      "year": 2018,
+      "source_precinct": "YORK - EMERGENCY 3",
+      "county": "YORK",
+      "has_emergency_label": true,
+      "votes_across_contests": 0,
+      "contest_rows": 7,
+      "contests": [
+        "governor_2018.json",
+        "attorney_general_2018.json",
+        "secretary_of_state_2018.json",
+        "superintendent_2018.json",
+        "state_treasurer_2018.json",
+        "comptroller_general_2018.json",
+        "commissioner_agriculture_2018.json"
+      ],
+      "split_county_scopes": [
+        "state_house_2022",
+        "state_house_2024",
+        "state_senate_2022"
+      ]
+    }
+  ]
+}

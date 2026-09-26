@@ -2,600 +2,903 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 4843,
-        "rep_votes": 14865,
-        "other_votes": 1022,
-        "total_votes": 20730,
+        "dem_votes": 5789,
+        "rep_votes": 17318,
+        "other_votes": 1123,
+        "total_votes": 24230,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 10022,
-        "margin_pct": 48.3454,
+        "margin": 11529,
+        "margin_pct": 47.5815,
         "winner": "R",
         "color": "#67000d"
       },
       "2": {
-        "dem_votes": 3960,
-        "rep_votes": 17803,
-        "other_votes": 1708,
-        "total_votes": 23471,
+        "dem_votes": 4504,
+        "rep_votes": 18846,
+        "other_votes": 1846,
+        "total_votes": 25196,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 13843,
-        "margin_pct": 58.9792,
+        "margin": 14342,
+        "margin_pct": 56.9217,
         "winner": "R",
         "color": "#67000d"
       },
       "3": {
-        "dem_votes": 5199,
-        "rep_votes": 18450,
-        "other_votes": 1295,
-        "total_votes": 24944,
+        "dem_votes": 5989,
+        "rep_votes": 20632,
+        "other_votes": 1387,
+        "total_votes": 28008,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 13251,
-        "margin_pct": 53.123,
+        "margin": 14643,
+        "margin_pct": 52.2815,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
-        "dem_votes": 5958,
-        "rep_votes": 13550,
-        "other_votes": 1151,
-        "total_votes": 20659,
+        "dem_votes": 7974,
+        "rep_votes": 14420,
+        "other_votes": 1165,
+        "total_votes": 23559,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 7592,
-        "margin_pct": 36.7491,
+        "margin": 6446,
+        "margin_pct": 27.3611,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#cb181d"
       },
       "5": {
-        "dem_votes": 4284,
-        "rep_votes": 15753,
-        "other_votes": 1931,
-        "total_votes": 21968,
+        "dem_votes": 4702,
+        "rep_votes": 17262,
+        "other_votes": 2106,
+        "total_votes": 24070,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 11469,
-        "margin_pct": 52.2078,
+        "margin": 12560,
+        "margin_pct": 52.1811,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
-        "dem_votes": 6617,
-        "rep_votes": 17913,
-        "other_votes": 2394,
-        "total_votes": 26924,
+        "dem_votes": 7056,
+        "rep_votes": 19694,
+        "other_votes": 2469,
+        "total_votes": 29219,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 11296,
-        "margin_pct": 41.9551,
+        "margin": 12638,
+        "margin_pct": 43.2527,
         "winner": "R",
         "color": "#67000d"
       },
       "7": {
-        "dem_votes": 9770,
-        "rep_votes": 7110,
-        "other_votes": 1040,
-        "total_votes": 17920,
+        "dem_votes": 11059,
+        "rep_votes": 7686,
+        "other_votes": 1107,
+        "total_votes": 19852,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": -2660,
-        "margin_pct": -14.8438,
+        "margin": -3373,
+        "margin_pct": -16.9907,
         "winner": "D",
         "color": "#6baed6"
       },
       "8": {
-        "dem_votes": 7262,
-        "rep_votes": 18622,
-        "other_votes": 1889,
-        "total_votes": 27773,
+        "dem_votes": 7977,
+        "rep_votes": 20399,
+        "other_votes": 1934,
+        "total_votes": 30310,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 11360,
-        "margin_pct": 40.903,
+        "margin": 12422,
+        "margin_pct": 40.9832,
         "winner": "R",
         "color": "#67000d"
       },
       "9": {
-        "dem_votes": 6904,
-        "rep_votes": 14965,
-        "other_votes": 1528,
-        "total_votes": 23397,
+        "dem_votes": 8376,
+        "rep_votes": 16146,
+        "other_votes": 1624,
+        "total_votes": 26146,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 8061,
-        "margin_pct": 34.4531,
-        "winner": "R",
-        "color": "#a50f15"
-      },
-      "10": {
-        "dem_votes": 9602,
-        "rep_votes": 15675,
-        "other_votes": 848,
-        "total_votes": 26125,
-        "dem_candidate": "Tom Thompson",
-        "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 6073,
-        "margin_pct": 23.2459,
+        "margin": 7770,
+        "margin_pct": 29.7177,
         "winner": "R",
         "color": "#cb181d"
       },
-      "11": {
-        "dem_votes": 5499,
-        "rep_votes": 9648,
-        "other_votes": 984,
-        "total_votes": 16131,
+      "10": {
+        "dem_votes": 7804,
+        "rep_votes": 21942,
+        "other_votes": 1145,
+        "total_votes": 30891,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 4149,
-        "margin_pct": 25.7207,
+        "margin": 14138,
+        "margin_pct": 45.7674,
+        "winner": "R",
+        "color": "#67000d"
+      },
+      "11": {
+        "dem_votes": 6970,
+        "rep_votes": 10963,
+        "other_votes": 1162,
+        "total_votes": 19095,
+        "dem_candidate": "Tom Thompson",
+        "rep_candidate": "Molly Mitchell Spearman",
+        "margin": 3993,
+        "margin_pct": 20.9112,
         "winner": "R",
         "color": "#cb181d"
       },
       "12": {
-        "dem_votes": 5286,
-        "rep_votes": 13801,
-        "other_votes": 1312,
-        "total_votes": 20399,
+        "dem_votes": 7062,
+        "rep_votes": 14700,
+        "other_votes": 1456,
+        "total_votes": 23218,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 8515,
-        "margin_pct": 41.7422,
+        "margin": 7638,
+        "margin_pct": 32.8969,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       },
       "13": {
-        "dem_votes": 7707,
-        "rep_votes": 16890,
-        "other_votes": 1558,
-        "total_votes": 26155,
+        "dem_votes": 8082,
+        "rep_votes": 19920,
+        "other_votes": 1772,
+        "total_votes": 29774,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 9183,
-        "margin_pct": 35.1099,
+        "margin": 11838,
+        "margin_pct": 39.7595,
         "winner": "R",
         "color": "#a50f15"
       },
       "14": {
-        "dem_votes": 5214,
-        "rep_votes": 12852,
-        "other_votes": 1010,
-        "total_votes": 19076,
+        "dem_votes": 6087,
+        "rep_votes": 15271,
+        "other_votes": 1172,
+        "total_votes": 22530,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 7638,
-        "margin_pct": 40.0398,
+        "margin": 9184,
+        "margin_pct": 40.7634,
         "winner": "R",
         "color": "#67000d"
       },
       "15": {
-        "dem_votes": 5767,
-        "rep_votes": 12571,
-        "other_votes": 930,
-        "total_votes": 19268,
+        "dem_votes": 7142,
+        "rep_votes": 17232,
+        "other_votes": 1217,
+        "total_votes": 25591,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 6804,
-        "margin_pct": 35.3124,
+        "margin": 10090,
+        "margin_pct": 39.4279,
         "winner": "R",
         "color": "#a50f15"
       },
       "16": {
-        "dem_votes": 5528,
-        "rep_votes": 11189,
-        "other_votes": 873,
-        "total_votes": 17590,
+        "dem_votes": 5757,
+        "rep_votes": 15454,
+        "other_votes": 1124,
+        "total_votes": 22335,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 5661,
-        "margin_pct": 32.1831,
+        "margin": 9697,
+        "margin_pct": 43.4162,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#67000d"
       },
       "17": {
-        "dem_votes": 11105,
-        "rep_votes": 9803,
-        "other_votes": 902,
-        "total_votes": 21810,
+        "dem_votes": 14642,
+        "rep_votes": 11580,
+        "other_votes": 1147,
+        "total_votes": 27369,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": -1302,
-        "margin_pct": -5.9697,
+        "margin": -3062,
+        "margin_pct": -11.1878,
         "winner": "D",
-        "color": "#9ecae1"
+        "color": "#6baed6"
       },
       "18": {
-        "dem_votes": 6804,
-        "rep_votes": 22315,
-        "other_votes": 1311,
-        "total_votes": 30430,
+        "dem_votes": 8967,
+        "rep_votes": 24925,
+        "other_votes": 1526,
+        "total_votes": 35418,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 15511,
-        "margin_pct": 50.9727,
+        "margin": 15958,
+        "margin_pct": 45.0562,
         "winner": "R",
         "color": "#67000d"
       },
       "19": {
-        "dem_votes": 17526,
-        "rep_votes": 4568,
-        "other_votes": 658,
-        "total_votes": 22752,
+        "dem_votes": 20682,
+        "rep_votes": 5985,
+        "other_votes": 790,
+        "total_votes": 27457,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": -12958,
-        "margin_pct": -56.9532,
+        "margin": -14697,
+        "margin_pct": -53.5273,
         "winner": "D",
         "color": "#08519c"
       },
       "20": {
-        "dem_votes": 6947,
-        "rep_votes": 12477,
-        "other_votes": 925,
-        "total_votes": 20349,
+        "dem_votes": 13103,
+        "rep_votes": 13751,
+        "other_votes": 1120,
+        "total_votes": 27974,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 5530,
-        "margin_pct": 27.1758,
+        "margin": 648,
+        "margin_pct": 2.3164,
         "winner": "R",
-        "color": "#cb181d"
+        "color": "#fcbba1"
       },
       "21": {
-        "dem_votes": 18853,
-        "rep_votes": 7141,
-        "other_votes": 689,
-        "total_votes": 26683,
+        "dem_votes": 21393,
+        "rep_votes": 9808,
+        "other_votes": 870,
+        "total_votes": 32071,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": -11712,
-        "margin_pct": -43.8931,
+        "margin": -11585,
+        "margin_pct": -36.123,
         "winner": "D",
-        "color": "#08519c"
+        "color": "#2171b5"
       },
       "22": {
-        "dem_votes": 13014,
-        "rep_votes": 13184,
-        "other_votes": 745,
-        "total_votes": 26943,
+        "dem_votes": 15418,
+        "rep_votes": 15941,
+        "other_votes": 814,
+        "total_votes": 32173,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 170,
-        "margin_pct": 0.631,
+        "margin": 523,
+        "margin_pct": 1.6256,
         "winner": "R",
         "color": "#fcbba1"
       },
       "23": {
-        "dem_votes": 4855,
-        "rep_votes": 15445,
-        "other_votes": 1223,
-        "total_votes": 21523,
+        "dem_votes": 5346,
+        "rep_votes": 18581,
+        "other_votes": 1385,
+        "total_votes": 25312,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 10590,
-        "margin_pct": 49.2032,
+        "margin": 13235,
+        "margin_pct": 52.2875,
         "winner": "R",
         "color": "#67000d"
       },
       "24": {
-        "dem_votes": 7060,
-        "rep_votes": 20315,
-        "other_votes": 1056,
-        "total_votes": 28431,
+        "dem_votes": 9318,
+        "rep_votes": 22043,
+        "other_votes": 1149,
+        "total_votes": 32510,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 13255,
-        "margin_pct": 46.6216,
+        "margin": 12725,
+        "margin_pct": 39.1418,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       },
       "25": {
-        "dem_votes": 6830,
-        "rep_votes": 17298,
-        "other_votes": 936,
-        "total_votes": 25064,
+        "dem_votes": 9577,
+        "rep_votes": 18862,
+        "other_votes": 940,
+        "total_votes": 29379,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 10468,
-        "margin_pct": 41.7651,
+        "margin": 9285,
+        "margin_pct": 31.6042,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       },
       "26": {
-        "dem_votes": 8431,
-        "rep_votes": 11837,
-        "other_votes": 925,
-        "total_votes": 21193,
+        "dem_votes": 10237,
+        "rep_votes": 13635,
+        "other_votes": 1021,
+        "total_votes": 24893,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 3406,
-        "margin_pct": 16.0713,
+        "margin": 3398,
+        "margin_pct": 13.6504,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "27": {
-        "dem_votes": 9721,
-        "rep_votes": 13900,
-        "other_votes": 940,
-        "total_votes": 24561,
+        "dem_votes": 10719,
+        "rep_votes": 17022,
+        "other_votes": 1154,
+        "total_votes": 28895,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 4179,
-        "margin_pct": 17.0148,
+        "margin": 6303,
+        "margin_pct": 21.8135,
         "winner": "R",
-        "color": "#ef3b2c"
+        "color": "#cb181d"
       },
       "28": {
-        "dem_votes": 6339,
-        "rep_votes": 13366,
-        "other_votes": 721,
-        "total_votes": 20426,
+        "dem_votes": 6107,
+        "rep_votes": 15129,
+        "other_votes": 839,
+        "total_votes": 22075,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 7027,
-        "margin_pct": 34.4022,
+        "margin": 9022,
+        "margin_pct": 40.8698,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#67000d"
       },
       "29": {
-        "dem_votes": 14183,
-        "rep_votes": 11470,
-        "other_votes": 610,
-        "total_votes": 26263,
+        "dem_votes": 18090,
+        "rep_votes": 12903,
+        "other_votes": 691,
+        "total_votes": 31684,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": -2713,
-        "margin_pct": -10.3301,
+        "margin": -5187,
+        "margin_pct": -16.371,
         "winner": "D",
         "color": "#6baed6"
       },
       "30": {
-        "dem_votes": 15044,
-        "rep_votes": 8078,
-        "other_votes": 534,
-        "total_votes": 23656,
+        "dem_votes": 15401,
+        "rep_votes": 10707,
+        "other_votes": 662,
+        "total_votes": 26770,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": -6966,
-        "margin_pct": -29.4471,
+        "margin": -4694,
+        "margin_pct": -17.5346,
         "winner": "D",
-        "color": "#4292c6"
+        "color": "#6baed6"
       },
       "31": {
-        "dem_votes": 8764,
-        "rep_votes": 15486,
-        "other_votes": 744,
-        "total_votes": 24994,
+        "dem_votes": 10650,
+        "rep_votes": 16600,
+        "other_votes": 741,
+        "total_votes": 27991,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 6722,
-        "margin_pct": 26.8945,
+        "margin": 5950,
+        "margin_pct": 21.2568,
         "winner": "R",
         "color": "#cb181d"
       },
       "32": {
-        "dem_votes": 16701,
-        "rep_votes": 9657,
-        "other_votes": 586,
-        "total_votes": 26944,
+        "dem_votes": 19542,
+        "rep_votes": 11572,
+        "other_votes": 676,
+        "total_votes": 31790,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": -7044,
-        "margin_pct": -26.1431,
+        "margin": -7970,
+        "margin_pct": -25.0708,
         "winner": "D",
         "color": "#4292c6"
       },
       "33": {
-        "dem_votes": 4578,
-        "rep_votes": 11099,
-        "other_votes": 735,
-        "total_votes": 16412,
+        "dem_votes": 5880,
+        "rep_votes": 11175,
+        "other_votes": 690,
+        "total_votes": 17745,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 6521,
-        "margin_pct": 39.7331,
+        "margin": 5295,
+        "margin_pct": 29.8394,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#cb181d"
       },
       "34": {
-        "dem_votes": 7347,
-        "rep_votes": 17843,
-        "other_votes": 1091,
-        "total_votes": 26281,
+        "dem_votes": 7198,
+        "rep_votes": 20801,
+        "other_votes": 1219,
+        "total_votes": 29218,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 10496,
-        "margin_pct": 39.9376,
+        "margin": 13603,
+        "margin_pct": 46.5569,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#67000d"
       },
       "35": {
-        "dem_votes": 9302,
-        "rep_votes": 12374,
-        "other_votes": 770,
-        "total_votes": 22446,
+        "dem_votes": 13186,
+        "rep_votes": 12828,
+        "other_votes": 881,
+        "total_votes": 26895,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 3072,
-        "margin_pct": 13.6862,
-        "winner": "R",
-        "color": "#ef3b2c"
+        "margin": -358,
+        "margin_pct": -1.3311,
+        "winner": "D",
+        "color": "#c6dbef"
       },
       "36": {
-        "dem_votes": 15494,
-        "rep_votes": 12143,
-        "other_votes": 660,
-        "total_votes": 28297,
+        "dem_votes": 19376,
+        "rep_votes": 15345,
+        "other_votes": 737,
+        "total_votes": 35458,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": -3351,
-        "margin_pct": -11.8422,
+        "margin": -4031,
+        "margin_pct": -11.3684,
         "winner": "D",
         "color": "#6baed6"
       },
       "37": {
-        "dem_votes": 6046,
-        "rep_votes": 12615,
-        "other_votes": 834,
-        "total_votes": 19495,
+        "dem_votes": 7420,
+        "rep_votes": 15188,
+        "other_votes": 946,
+        "total_votes": 23554,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 6569,
-        "margin_pct": 33.6958,
+        "margin": 7768,
+        "margin_pct": 32.9795,
         "winner": "R",
         "color": "#a50f15"
       },
       "38": {
-        "dem_votes": 6019,
-        "rep_votes": 11527,
-        "other_votes": 981,
-        "total_votes": 18527,
+        "dem_votes": 6493,
+        "rep_votes": 13110,
+        "other_votes": 1048,
+        "total_votes": 20651,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 5508,
-        "margin_pct": 29.7296,
+        "margin": 6617,
+        "margin_pct": 32.042,
         "winner": "R",
-        "color": "#cb181d"
+        "color": "#a50f15"
       },
       "39": {
-        "dem_votes": 11322,
-        "rep_votes": 6866,
-        "other_votes": 429,
-        "total_votes": 18617,
+        "dem_votes": 12598,
+        "rep_votes": 8197,
+        "other_votes": 601,
+        "total_votes": 21396,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": -4456,
-        "margin_pct": -23.9351,
+        "margin": -4401,
+        "margin_pct": -20.5693,
         "winner": "D",
         "color": "#4292c6"
       },
       "40": {
-        "dem_votes": 15788,
-        "rep_votes": 11500,
-        "other_votes": 664,
-        "total_votes": 27952,
+        "dem_votes": 18867,
+        "rep_votes": 12802,
+        "other_votes": 753,
+        "total_votes": 32422,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": -4288,
-        "margin_pct": -15.3406,
+        "margin": -6065,
+        "margin_pct": -18.7064,
         "winner": "D",
         "color": "#6baed6"
       },
       "41": {
-        "dem_votes": 5917,
-        "rep_votes": 9639,
-        "other_votes": 746,
-        "total_votes": 16302,
+        "dem_votes": 7483,
+        "rep_votes": 11526,
+        "other_votes": 890,
+        "total_votes": 19899,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 3722,
-        "margin_pct": 22.8316,
+        "margin": 4043,
+        "margin_pct": 20.3176,
         "winner": "R",
         "color": "#cb181d"
       },
       "42": {
-        "dem_votes": 10905,
-        "rep_votes": 3082,
-        "other_votes": 478,
-        "total_votes": 14465,
+        "dem_votes": 14146,
+        "rep_votes": 4736,
+        "other_votes": 606,
+        "total_votes": 19488,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": -7823,
-        "margin_pct": -54.0823,
+        "margin": -9410,
+        "margin_pct": -48.2861,
         "winner": "D",
         "color": "#08519c"
       },
       "43": {
-        "dem_votes": 8258,
-        "rep_votes": 15622,
-        "other_votes": 1034,
-        "total_votes": 24914,
+        "dem_votes": 10203,
+        "rep_votes": 19863,
+        "other_votes": 1243,
+        "total_votes": 31309,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 7364,
-        "margin_pct": 29.5577,
+        "margin": 9660,
+        "margin_pct": 30.8537,
         "winner": "R",
-        "color": "#cb181d"
+        "color": "#a50f15"
       },
       "44": {
-        "dem_votes": 7397,
-        "rep_votes": 12948,
-        "other_votes": 1057,
-        "total_votes": 21402,
+        "dem_votes": 8119,
+        "rep_votes": 16307,
+        "other_votes": 1116,
+        "total_votes": 25542,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 5551,
-        "margin_pct": 25.9368,
+        "margin": 8188,
+        "margin_pct": 32.057,
         "winner": "R",
-        "color": "#cb181d"
+        "color": "#a50f15"
       },
       "45": {
-        "dem_votes": 11574,
-        "rep_votes": 7947,
-        "other_votes": 653,
-        "total_votes": 20174,
+        "dem_votes": 15563,
+        "rep_votes": 9256,
+        "other_votes": 800,
+        "total_votes": 25619,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": -3627,
-        "margin_pct": -17.9786,
+        "margin": -6307,
+        "margin_pct": -24.6184,
         "winner": "D",
-        "color": "#6baed6"
+        "color": "#4292c6"
       },
       "46": {
-        "dem_votes": 7071,
-        "rep_votes": 17799,
-        "other_votes": 877,
-        "total_votes": 25747,
+        "dem_votes": 8304,
+        "rep_votes": 21018,
+        "other_votes": 886,
+        "total_votes": 30208,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 10728,
-        "margin_pct": 41.667,
+        "margin": 12714,
+        "margin_pct": 42.0882,
         "winner": "R",
         "color": "#67000d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 97.7404,
+    "match_coverage_pct": 97.9176,
     "precinct_rows_total": 2257,
-    "precinct_rows_overlap_weighted": 2206,
-    "precinct_rows_county_share_fallback": 51,
-    "precinct_votes_county_share_fallback": 2340,
+    "precinct_rows_overlap_weighted": 2210,
+    "precinct_rows_county_share_fallback": 30,
+    "precinct_votes_county_share_fallback": 506,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 19,
+    "whole_county_vote_components": {
+      "4": {
+        "dem_votes": 2704,
+        "rep_votes": 4156,
+        "other_votes": 254
+      },
+      "40": {
+        "dem_votes": 7755,
+        "rep_votes": 5262,
+        "other_votes": 250
+      },
+      "14": {
+        "dem_votes": 3514,
+        "rep_votes": 8118,
+        "other_votes": 571
+      },
+      "17": {
+        "dem_votes": 8621,
+        "rep_votes": 6725,
+        "other_votes": 657
+      },
+      "36": {
+        "dem_votes": 5532,
+        "rep_votes": 4514,
+        "other_votes": 185
+      },
+      "30": {
+        "dem_votes": 8906,
+        "rep_votes": 5792,
+        "other_votes": 348
+      },
+      "25": {
+        "dem_votes": 4235,
+        "rep_votes": 6033,
+        "other_votes": 283
+      },
+      "10": {
+        "dem_votes": 6072,
+        "rep_votes": 10945,
+        "other_votes": 616
+      },
+      "45": {
+        "dem_votes": 3670,
+        "rep_votes": 1971,
+        "other_votes": 159
+      },
+      "9": {
+        "dem_votes": 4907,
+        "rep_votes": 9245,
+        "other_votes": 883
+      },
+      "29": {
+        "dem_votes": 3912,
+        "rep_votes": 2108,
+        "other_votes": 151
+      },
+      "18": {
+        "dem_votes": 3535,
+        "rep_votes": 7007,
+        "other_votes": 387
+      },
+      "1": {
+        "dem_votes": 4411,
+        "rep_votes": 14693,
+        "other_votes": 966
+      },
+      "32": {
+        "dem_votes": 7345,
+        "rep_votes": 3178,
+        "other_votes": 185
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 1378,
+        "rep_votes": 2625,
+        "other_votes": 157
+      },
+      "2": {
+        "dem_votes": 4504,
+        "rep_votes": 18846,
+        "other_votes": 1846
+      },
+      "3": {
+        "dem_votes": 5989,
+        "rep_votes": 20632,
+        "other_votes": 1387
+      },
+      "4": {
+        "dem_votes": 5270,
+        "rep_votes": 10264,
+        "other_votes": 911
+      },
+      "5": {
+        "dem_votes": 4702,
+        "rep_votes": 17262,
+        "other_votes": 2106
+      },
+      "6": {
+        "dem_votes": 7056,
+        "rep_votes": 19694,
+        "other_votes": 2469
+      },
+      "7": {
+        "dem_votes": 11059,
+        "rep_votes": 7686,
+        "other_votes": 1107
+      },
+      "8": {
+        "dem_votes": 7977,
+        "rep_votes": 20399,
+        "other_votes": 1934
+      },
+      "9": {
+        "dem_votes": 3469,
+        "rep_votes": 6901,
+        "other_votes": 741
+      },
+      "10": {
+        "dem_votes": 1732,
+        "rep_votes": 10997,
+        "other_votes": 529
+      },
+      "11": {
+        "dem_votes": 6970,
+        "rep_votes": 10963,
+        "other_votes": 1162
+      },
+      "12": {
+        "dem_votes": 7062,
+        "rep_votes": 14700,
+        "other_votes": 1456
+      },
+      "13": {
+        "dem_votes": 8082,
+        "rep_votes": 19920,
+        "other_votes": 1772
+      },
+      "14": {
+        "dem_votes": 2573,
+        "rep_votes": 7153,
+        "other_votes": 601
+      },
+      "15": {
+        "dem_votes": 7142,
+        "rep_votes": 17232,
+        "other_votes": 1217
+      },
+      "16": {
+        "dem_votes": 5757,
+        "rep_votes": 15454,
+        "other_votes": 1124
+      },
+      "17": {
+        "dem_votes": 6021,
+        "rep_votes": 4855,
+        "other_votes": 490
+      },
+      "18": {
+        "dem_votes": 5432,
+        "rep_votes": 17918,
+        "other_votes": 1139
+      },
+      "19": {
+        "dem_votes": 20682,
+        "rep_votes": 5985,
+        "other_votes": 790
+      },
+      "20": {
+        "dem_votes": 13103,
+        "rep_votes": 13751,
+        "other_votes": 1120
+      },
+      "21": {
+        "dem_votes": 21393,
+        "rep_votes": 9808,
+        "other_votes": 870
+      },
+      "22": {
+        "dem_votes": 15418,
+        "rep_votes": 15941,
+        "other_votes": 814
+      },
+      "23": {
+        "dem_votes": 5346,
+        "rep_votes": 18581,
+        "other_votes": 1385
+      },
+      "24": {
+        "dem_votes": 9318,
+        "rep_votes": 22043,
+        "other_votes": 1149
+      },
+      "25": {
+        "dem_votes": 5342,
+        "rep_votes": 12829,
+        "other_votes": 657
+      },
+      "26": {
+        "dem_votes": 10237,
+        "rep_votes": 13635,
+        "other_votes": 1021
+      },
+      "27": {
+        "dem_votes": 10719,
+        "rep_votes": 17022,
+        "other_votes": 1154
+      },
+      "28": {
+        "dem_votes": 6107,
+        "rep_votes": 15129,
+        "other_votes": 839
+      },
+      "29": {
+        "dem_votes": 14178,
+        "rep_votes": 10795,
+        "other_votes": 540
+      },
+      "30": {
+        "dem_votes": 6495,
+        "rep_votes": 4915,
+        "other_votes": 314
+      },
+      "31": {
+        "dem_votes": 10650,
+        "rep_votes": 16600,
+        "other_votes": 741
+      },
+      "32": {
+        "dem_votes": 12197,
+        "rep_votes": 8394,
+        "other_votes": 491
+      },
+      "33": {
+        "dem_votes": 5880,
+        "rep_votes": 11175,
+        "other_votes": 690
+      },
+      "34": {
+        "dem_votes": 7198,
+        "rep_votes": 20801,
+        "other_votes": 1219
+      },
+      "35": {
+        "dem_votes": 13186,
+        "rep_votes": 12828,
+        "other_votes": 881
+      },
+      "36": {
+        "dem_votes": 13844,
+        "rep_votes": 10831,
+        "other_votes": 552
+      },
+      "37": {
+        "dem_votes": 7420,
+        "rep_votes": 15188,
+        "other_votes": 946
+      },
+      "38": {
+        "dem_votes": 6493,
+        "rep_votes": 13110,
+        "other_votes": 1048
+      },
+      "39": {
+        "dem_votes": 12598,
+        "rep_votes": 8197,
+        "other_votes": 601
+      },
+      "40": {
+        "dem_votes": 11112,
+        "rep_votes": 7540,
+        "other_votes": 503
+      },
+      "41": {
+        "dem_votes": 7483,
+        "rep_votes": 11526,
+        "other_votes": 890
+      },
+      "42": {
+        "dem_votes": 14146,
+        "rep_votes": 4736,
+        "other_votes": 606
+      },
+      "43": {
+        "dem_votes": 10203,
+        "rep_votes": 19863,
+        "other_votes": 1243
+      },
+      "44": {
+        "dem_votes": 8119,
+        "rep_votes": 16307,
+        "other_votes": 1116
+      },
+      "45": {
+        "dem_votes": 11893,
+        "rep_votes": 7285,
+        "other_votes": 641
+      },
+      "46": {
+        "dem_votes": 8304,
+        "rep_votes": 21018,
+        "other_votes": 886
+      }
+    },
+    "split_counties_reconciled": 27,
     "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 476358,
+      "rep_votes": 699081,
+      "other_votes": 51750
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "punctuation_alias_rows": 1,
+    "punctuation_alias_votes": 920,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 4,
+    "historical_name_bridge_votes": 1696,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/superintendent_2014",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 1.856674,
-    "snapshot_comparison_max_abs_share_delta_pp": 12.602799,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "state_senate_2022",
-    "calibration_target_file": "C:/Users/Shama/OneDrive/Documents/Side_Projects/Side_Projects/SCPrecinctMap/scprecinctmap-tooltip-branch/data/district_contests/district_snapshot_targets.json#state_senate_2022/superintendent_2014",
-    "calibration_districts": 46,
-    "calibration_expected_districts": 46,
-    "calibration_snapshot_districts": 46,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.406877,
-    "calibration_max_abs_share_delta_pp": 1.219182,
-    "calibration_statewide_mix_gap_pp": 0.60802,
-    "calibration_tolerance_pp": 2.60802,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "calibration_frozen_districts": [],
-    "margin_calibration_mean_abs_delta_pp_before": 1.17,
-    "margin_calibration_max_abs_delta_pp_before": 2.4035,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0019,
-    "margin_calibration_max_abs_delta_pp_after": 0.006,
-    "margin_calibration_ignored_uncontested_districts": []
+    "snapshot_comparison_mean_abs_share_delta_pp": 1.891614,
+    "snapshot_comparison_max_abs_share_delta_pp": 12.70249,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 476358,
+      "rep_votes": 699081,
+      "other_votes": 51750
+    }
   }
 }

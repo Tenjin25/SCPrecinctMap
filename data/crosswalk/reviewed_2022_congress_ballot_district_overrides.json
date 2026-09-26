@@ -1,0 +1,9 @@
+{
+  "_scope": "congressional",
+  "_year": 2022,
+  "_evidence": "All 576 Richland Oakwood votes in the local 2022 U.S. House precinct return are labeled Congressional District 2. Each 2022 statewide contest's Richland Oakwood source row is preserved exactly in its current-precinct input. The current 2025 polygon's District 6 assignment is therefore not appropriate for this 2022 source row.",
+  "_source": "../Data/_tmpdata/openelections-data-sc/2022/20221108__sc__general__precinct.csv",
+  "RICHLAND - OAKWOOD": {
+    "2": 1.0
+  }
+}

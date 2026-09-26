@@ -2,130 +2,202 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 105381,
-        "rep_votes": 164229,
-        "other_votes": 317,
-        "total_votes": 269927,
+        "dem_votes": 103625,
+        "rep_votes": 168241,
+        "other_votes": 288,
+        "total_votes": 272154,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 58848,
-        "margin_pct": 21.8015,
+        "margin": 64616,
+        "margin_pct": 23.7424,
         "winner": "R",
         "color": "#cb181d"
       },
       "2": {
-        "dem_votes": 93181,
-        "rep_votes": 151498,
-        "other_votes": 318,
-        "total_votes": 244997,
+        "dem_votes": 94383,
+        "rep_votes": 151789,
+        "other_votes": 301,
+        "total_votes": 246473,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 58317,
-        "margin_pct": 23.8031,
+        "margin": 57406,
+        "margin_pct": 23.291,
         "winner": "R",
         "color": "#cb181d"
       },
       "3": {
-        "dem_votes": 59122,
-        "rep_votes": 176978,
-        "other_votes": 246,
-        "total_votes": 236346,
+        "dem_votes": 59213,
+        "rep_votes": 177995,
+        "other_votes": 244,
+        "total_votes": 237452,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 117856,
-        "margin_pct": 49.8659,
+        "margin": 118782,
+        "margin_pct": 50.0236,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
-        "dem_votes": 74697,
-        "rep_votes": 156908,
-        "other_votes": 379,
-        "total_votes": 231984,
+        "dem_votes": 77403,
+        "rep_votes": 155553,
+        "other_votes": 387,
+        "total_votes": 233343,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 82211,
-        "margin_pct": 35.4382,
+        "margin": 78150,
+        "margin_pct": 33.4915,
         "winner": "R",
         "color": "#a50f15"
       },
       "5": {
-        "dem_votes": 86175,
-        "rep_votes": 154298,
-        "other_votes": 158,
-        "total_votes": 240631,
+        "dem_votes": 84289,
+        "rep_votes": 157098,
+        "other_votes": 160,
+        "total_votes": 241547,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 68123,
-        "margin_pct": 28.3102,
+        "margin": 72809,
+        "margin_pct": 30.1428,
         "winner": "R",
-        "color": "#cb181d"
+        "color": "#a50f15"
       },
       "6": {
-        "dem_votes": 127377,
-        "rep_votes": 84187,
-        "other_votes": 246,
-        "total_votes": 211810,
+        "dem_votes": 123971,
+        "rep_votes": 86229,
+        "other_votes": 291,
+        "total_votes": 210491,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": -43190,
-        "margin_pct": -20.3909,
+        "margin": -37742,
+        "margin_pct": -17.9305,
         "winner": "D",
-        "color": "#4292c6"
+        "color": "#6baed6"
       },
       "7": {
-        "dem_votes": 84649,
-        "rep_votes": 169163,
+        "dem_votes": 84732,
+        "rep_votes": 169369,
         "other_votes": 141,
-        "total_votes": 253953,
+        "total_votes": 254242,
         "dem_candidate": "Krystle Matthews",
         "rep_candidate": "Tim Scott",
-        "margin": 84514,
-        "margin_pct": 33.2794,
+        "margin": 84637,
+        "margin_pct": 33.2899,
         "winner": "R",
         "color": "#a50f15"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 99.8701,
+    "match_coverage_pct": 100.0,
     "precinct_rows_total": 2310,
-    "precinct_rows_overlap_weighted": 2307,
-    "precinct_rows_county_share_fallback": 3,
-    "precinct_votes_county_share_fallback": 2583,
+    "precinct_rows_overlap_weighted": 2310,
+    "precinct_rows_county_share_fallback": 0,
+    "precinct_votes_county_share_fallback": 0,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 36,
+    "whole_county_vote_components": {
+      "3": {
+        "dem_votes": 52436,
+        "rep_votes": 162379,
+        "other_votes": 215
+      },
+      "2": {
+        "dem_votes": 48517,
+        "rep_votes": 111470,
+        "other_votes": 166
+      },
+      "6": {
+        "dem_votes": 18818,
+        "rep_votes": 19319,
+        "other_votes": 20
+      },
+      "1": {
+        "dem_votes": 52959,
+        "rep_votes": 89430,
+        "other_votes": 120
+      },
+      "5": {
+        "dem_votes": 70124,
+        "rep_votes": 130213,
+        "other_votes": 136
+      },
+      "7": {
+        "dem_votes": 69225,
+        "rep_votes": 146528,
+        "other_votes": 118
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 50666,
+        "rep_votes": 78811,
+        "other_votes": 168
+      },
+      "2": {
+        "dem_votes": 45866,
+        "rep_votes": 40319,
+        "other_votes": 135
+      },
+      "3": {
+        "dem_votes": 6777,
+        "rep_votes": 15616,
+        "other_votes": 29
+      },
+      "4": {
+        "dem_votes": 77403,
+        "rep_votes": 155553,
+        "other_votes": 387
+      },
+      "5": {
+        "dem_votes": 14165,
+        "rep_votes": 26885,
+        "other_votes": 24
+      },
+      "6": {
+        "dem_votes": 105153,
+        "rep_votes": 66910,
+        "other_votes": 271
+      },
+      "7": {
+        "dem_votes": 15507,
+        "rep_votes": 22841,
+        "other_votes": 23
+      }
+    },
+    "split_counties_reconciled": 10,
     "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 627616,
+      "rep_votes": 1066274,
+      "other_votes": 1812
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "reviewed_congress_ballot_file": "data/crosswalk/reviewed_2022_congress_ballot_district_overrides.json",
+    "reviewed_congress_ballot_votes": 580,
+    "punctuation_alias_rows": 2,
+    "punctuation_alias_votes": 2892,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 2,
+    "historical_name_bridge_votes": 1278,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/us_senate_2022",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.436551,
-    "snapshot_comparison_max_abs_share_delta_pp": 1.481854,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "congressional",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#congressional/us_senate_2022",
-    "calibration_districts": 7,
-    "calibration_expected_districts": 7,
-    "calibration_snapshot_districts": 7,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.20931,
-    "calibration_max_abs_share_delta_pp": 0.501258,
-    "calibration_statewide_mix_gap_pp": 0.311187,
-    "calibration_tolerance_pp": 2.311187,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "margin_calibration_mean_abs_delta_pp_before": 0.6278,
-    "margin_calibration_max_abs_delta_pp_before": 1.0024,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0002,
-    "margin_calibration_max_abs_delta_pp_after": 0.0004
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.424114,
+    "snapshot_comparison_max_abs_share_delta_pp": 1.241148,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 627616,
+      "rep_votes": 1066274,
+      "other_votes": 1812
+    }
   }
 }

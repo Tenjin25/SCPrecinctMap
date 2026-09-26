@@ -15,6 +15,7 @@ from aggregate_contests_to_vtd20_crosswalks import POST_2024_PLAN_COUNTIES, norm
 
 
 FIELDS = ("dem_votes", "rep_votes", "other_votes", "total_votes")
+COMPONENT_FIELDS = FIELDS[:3]
 
 
 def totals(rows: list[dict], precinct: bool) -> dict[str, int]:
@@ -24,14 +25,16 @@ def totals(rows: list[dict], precinct: bool) -> dict[str, int]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--out", default="data/contest_integrity_report.json")
+    parser.add_argument("--district-root", default="data/district_contests")
+    parser.add_argument("--out", default=None)
     args = parser.parse_args()
+    district_root = REPO_ROOT / args.district_root
     base_dir = REPO_ROOT / "data/contests"
     current_dir = REPO_ROOT / "data/contests_2025_crosswalked"
     base_manifest = json.loads((base_dir / "manifest.json").read_text(encoding="utf-8"))
     current_manifest = json.loads((current_dir / "manifest.json").read_text(encoding="utf-8"))
     source_report = json.loads((base_dir / "source_integrity.json").read_text(encoding="utf-8"))
-    district_report = json.loads((REPO_ROOT / "data/district_contests/current_geojson_qa.json").read_text(encoding="utf-8"))
+    district_report = json.loads((district_root / "current_geojson_qa.json").read_text(encoding="utf-8"))
     district_crosswalk = json.loads((REPO_ROOT / "data/crosswalk/current_precinct_to_district_weights.json").read_text(encoding="utf-8"))
     precincts = json.loads((REPO_ROOT / "data/Voting_Precincts.geojson").read_text(encoding="utf-8"))
 
@@ -156,6 +159,64 @@ def main() -> int:
     district_conservation_failures = sum(any(int(v) for v in row.get("conservation_delta", {}).values()) for row in district_files)
     if district_conservation_failures:
         errors.append(f"district conservation failures: {district_conservation_failures}")
+    district_statewide_total_failures = 0
+    district_statewide_total_checks = 0
+    county_total_cache = {}
+    county_rows_cache = {}
+    district_component_failures = 0
+    district_component_checks = 0
+    component_catalog_path = district_root / "mixed_county_components.json"
+    component_plans = (json.loads(component_catalog_path.read_text(encoding="utf-8")).get("plans") or {}
+                       if component_catalog_path.exists() else {})
+    for record in district_files if str(district_report.get("assignment_method") or "").startswith("nc_county_constrained") else []:
+        district_statewide_total_checks += 1
+        contest_key = (str(record.get("contest_type") or ""), int(record.get("year") or 0))
+        if contest_key not in county_total_cache:
+            contest_path = current_dir / f"{contest_key[0]}_{contest_key[1]}.json"
+            contest_rows = json.loads(contest_path.read_text(encoding="utf-8")).get("rows") or []
+            county_total_cache[contest_key] = totals(contest_rows, False)
+            county_rows_cache[contest_key] = {
+                str(row.get("county") or "").strip().upper(): row for row in contest_rows
+                if " - " not in str(row.get("county") or "")
+            }
+        filename = str(record.get("file") or "")
+        if filename.endswith("_2022_lines.json"):
+            district_path = district_root / "state_house_2022_lines" / filename
+        elif filename.endswith("_2024_lines.json"):
+            district_path = district_root / "state_house_2024_lines" / filename
+        else:
+            district_path = district_root / filename
+        district_payload = json.loads(district_path.read_text(encoding="utf-8"))
+        results = (district_payload.get("general") or {}).get("results") or {}
+        actual = {field: sum(int(row.get(field) or 0) for row in results.values()) for field in FIELDS}
+        expected = county_total_cache[contest_key]
+        if any(actual[field] != expected[field] for field in FIELDS):
+            district_statewide_total_failures += 1
+        district_component_checks += 1
+        meta = district_payload.get("meta") or {}
+        exact = meta.get("whole_county_vote_components") or {}
+        split = meta.get("split_county_vote_components") or {}
+        plan = component_plans.get(str(record.get("scope") or "")) or {}
+        expected_exact = {}
+        for county, district in (plan.get("whole_county_destinations") or {}).items():
+            row = county_rows_cache[contest_key].get(county)
+            if row:
+                bucket = expected_exact.setdefault(district, {field: 0 for field in COMPONENT_FIELDS})
+                for field in COMPONENT_FIELDS:
+                    bucket[field] += int(row.get(field) or 0)
+        components_valid = bool(plan) and exact == expected_exact and set(split) == set(results)
+        for district, result in results.items():
+            components_valid &= all(
+                int(exact.get(district, {}).get(field, 0)) + int(split.get(district, {}).get(field, 0))
+                == int(result.get(field) or 0) for field in COMPONENT_FIELDS
+            )
+            components_valid &= sum(int(result.get(field) or 0) for field in COMPONENT_FIELDS) == int(result.get("total_votes") or 0)
+        if not components_valid:
+            district_component_failures += 1
+    if district_statewide_total_failures:
+        errors.append(f"district statewide totals differ from official county rows: {district_statewide_total_failures}")
+    if district_component_failures:
+        errors.append(f"district whole/split component failures: {district_component_failures}")
     snapshot_calibrations = [row for row in district_files if row.get("calibration_target_file")]
     snapshot_comparisons = [row for row in district_files if row.get("snapshot_comparison_target_file")]
     skipped_snapshot_calibrations = [
@@ -189,6 +250,10 @@ def main() -> int:
             "errors": len(errors),
             "warnings": len(warnings),
             "district_conservation_failures": district_conservation_failures,
+            "district_statewide_total_failures": district_statewide_total_failures,
+            "district_statewide_total_checks": district_statewide_total_checks,
+            "district_component_checks": district_component_checks,
+            "district_component_failures": district_component_failures,
             "snapshot_calibrations": len(snapshot_calibrations),
             "snapshot_calibration_failures": snapshot_calibration_failures,
             "snapshot_comparisons": len(snapshot_comparisons),
@@ -199,7 +264,11 @@ def main() -> int:
         "district_crosswalks": crosswalk_scopes,
         "contests": contests,
     }
-    (REPO_ROOT / args.out).write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    out_path = REPO_ROOT / args.out if args.out else (
+        district_root / "contest_integrity_report.json" if args.district_root != "data/district_contests"
+        else REPO_ROOT / "data/contest_integrity_report.json"
+    )
+    out_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report["summary"], indent=2))
     return 1 if errors else 0
 

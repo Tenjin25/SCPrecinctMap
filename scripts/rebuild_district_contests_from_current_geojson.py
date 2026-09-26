@@ -323,6 +323,7 @@ def rebuild_one(contest: dict, weights: dict[str, dict[str, float]], scope: str,
 
 def rebuild_manifest(directory: Path, line_suffix: str, district_lines: str | None) -> None:
     entries = []
+    source_contests = {}
     for path in directory.glob("*.json"):
         if path.name.startswith(("manifest", "qa_", "current_geojson_qa")):
             continue
@@ -340,7 +341,22 @@ def rebuild_manifest(directory: Path, line_suffix: str, district_lines: str | No
             continue
         payload = json.loads(path.read_text(encoding="utf-8"))
         rows = len(((payload.get("general") or {}).get("results") or {}))
+        if rows == 0:
+            continue
         entry = {"scope": scope, "contest_type": contest, "year": year, "file": path.name, "rows": rows}
+        source_key = (contest, year)
+        if source_key not in source_contests:
+            source_path = REPO_ROOT / "data/contests_2025_crosswalked" / f"{contest}_{year}.json"
+            if source_path.exists():
+                source_rows = json.loads(source_path.read_text(encoding="utf-8")).get("rows") or []
+                county_rows = [row for row in source_rows if " - " not in str(row.get("county") or "")]
+                dem_total = sum(int(row.get("dem_votes") or 0) for row in county_rows)
+                rep_total = sum(int(row.get("rep_votes") or 0) for row in county_rows)
+                source_contests[source_key] = dem_total > 0 and rep_total > 0
+            else:
+                source_contests[source_key] = None
+        if source_contests[source_key] is not None:
+            entry["major_party_contested"] = source_contests[source_key]
         if district_lines:
             entry["district_lines"] = district_lines
         entries.append(entry)

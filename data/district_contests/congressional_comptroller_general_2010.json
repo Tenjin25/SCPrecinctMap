@@ -2,130 +2,200 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 53932,
-        "rep_votes": 84873,
-        "other_votes": 68,
-        "total_votes": 138873,
+        "dem_votes": 65199,
+        "rep_votes": 101913,
+        "other_votes": 72,
+        "total_votes": 167184,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": 30941,
-        "margin_pct": 22.2801,
+        "margin": 36714,
+        "margin_pct": 21.9602,
         "winner": "R",
         "color": "#cb181d"
       },
       "2": {
-        "dem_votes": 75853,
-        "rep_votes": 107196,
-        "other_votes": 116,
-        "total_votes": 183165,
+        "dem_votes": 84465,
+        "rep_votes": 122376,
+        "other_votes": 140,
+        "total_votes": 206981,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": 31343,
-        "margin_pct": 17.1119,
+        "margin": 37911,
+        "margin_pct": 18.3162,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 56320,
-        "rep_votes": 105096,
-        "other_votes": 106,
-        "total_votes": 161522,
+        "dem_votes": 67416,
+        "rep_votes": 119950,
+        "other_votes": 119,
+        "total_votes": 187485,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": 48776,
-        "margin_pct": 30.1977,
+        "margin": 52534,
+        "margin_pct": 28.0204,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#cb181d"
       },
       "4": {
-        "dem_votes": 54551,
-        "rep_votes": 106671,
-        "other_votes": 139,
-        "total_votes": 161361,
+        "dem_votes": 62776,
+        "rep_votes": 113978,
+        "other_votes": 147,
+        "total_votes": 176901,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": 52120,
-        "margin_pct": 32.3002,
+        "margin": 51202,
+        "margin_pct": 28.9439,
         "winner": "R",
-        "color": "#a50f15"
+        "color": "#cb181d"
       },
       "5": {
-        "dem_votes": 66074,
-        "rep_votes": 88268,
-        "other_votes": 53,
-        "total_votes": 154395,
+        "dem_votes": 77832,
+        "rep_votes": 113380,
+        "other_votes": 73,
+        "total_votes": 191285,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": 22194,
-        "margin_pct": 14.3748,
+        "margin": 35548,
+        "margin_pct": 18.5838,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 121606,
-        "rep_votes": 57154,
-        "other_votes": 80,
-        "total_votes": 178840,
+        "dem_votes": 135717,
+        "rep_votes": 72726,
+        "other_votes": 102,
+        "total_votes": 208545,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": -64452,
-        "margin_pct": -36.0389,
+        "margin": -62991,
+        "margin_pct": -30.205,
         "winner": "D",
         "color": "#2171b5"
       },
       "7": {
-        "dem_votes": 71911,
-        "rep_votes": 91798,
-        "other_votes": 57,
-        "total_votes": 163766,
+        "dem_votes": 80897,
+        "rep_votes": 102518,
+        "other_votes": 66,
+        "total_votes": 183481,
         "dem_candidate": "Robert Barber",
         "rep_candidate": "Richard A. Eckstrom",
-        "margin": 19887,
-        "margin_pct": 12.1435,
+        "margin": 21621,
+        "margin_pct": 11.7838,
         "winner": "R",
         "color": "#ef3b2c"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 98.153,
+    "match_coverage_pct": 98.3729,
     "precinct_rows_total": 2274,
-    "precinct_rows_overlap_weighted": 2232,
-    "precinct_rows_county_share_fallback": 42,
-    "precinct_votes_county_share_fallback": 5976,
+    "precinct_rows_overlap_weighted": 2237,
+    "precinct_rows_county_share_fallback": 6,
+    "precinct_votes_county_share_fallback": 1085,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 36,
+    "whole_county_vote_components": {
+      "3": {
+        "dem_votes": 62852,
+        "rep_votes": 111105,
+        "other_votes": 105
+      },
+      "2": {
+        "dem_votes": 47155,
+        "rep_votes": 89983,
+        "other_votes": 89
+      },
+      "6": {
+        "dem_votes": 26037,
+        "rep_votes": 15966,
+        "other_votes": 17
+      },
+      "1": {
+        "dem_votes": 35864,
+        "rep_votes": 56423,
+        "other_votes": 34
+      },
+      "5": {
+        "dem_votes": 64457,
+        "rep_votes": 93565,
+        "other_votes": 55
+      },
+      "7": {
+        "dem_votes": 63843,
+        "rep_votes": 82792,
+        "other_votes": 41
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 29335,
+        "rep_votes": 45490,
+        "other_votes": 38
+      },
+      "2": {
+        "dem_votes": 37310,
+        "rep_votes": 32393,
+        "other_votes": 51
+      },
+      "3": {
+        "dem_votes": 4564,
+        "rep_votes": 8845,
+        "other_votes": 14
+      },
+      "4": {
+        "dem_votes": 62776,
+        "rep_votes": 113978,
+        "other_votes": 147
+      },
+      "5": {
+        "dem_votes": 13375,
+        "rep_votes": 19815,
+        "other_votes": 18
+      },
+      "6": {
+        "dem_votes": 109680,
+        "rep_votes": 56760,
+        "other_votes": 85
+      },
+      "7": {
+        "dem_votes": 17054,
+        "rep_votes": 19726,
+        "other_votes": 25
+      }
+    },
+    "split_counties_reconciled": 10,
     "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 574302,
+      "rep_votes": 746841,
+      "other_votes": 719
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "punctuation_alias_rows": 1,
+    "punctuation_alias_votes": 993,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 5,
+    "historical_name_bridge_votes": 3477,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/comptroller_general_2010",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.654893,
-    "snapshot_comparison_max_abs_share_delta_pp": 3.155901,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "congressional",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#congressional/comptroller_general_2010",
-    "calibration_districts": 7,
-    "calibration_expected_districts": 7,
-    "calibration_snapshot_districts": 7,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.295185,
-    "calibration_max_abs_share_delta_pp": 0.693923,
-    "calibration_statewide_mix_gap_pp": 0.447189,
-    "calibration_tolerance_pp": 2.447189,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "margin_calibration_mean_abs_delta_pp_before": 0.8851,
-    "margin_calibration_max_abs_delta_pp_before": 1.3877,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0002,
-    "margin_calibration_max_abs_delta_pp_after": 0.0004
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.832633,
+    "snapshot_comparison_max_abs_share_delta_pp": 2.919059,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 574302,
+      "rep_votes": 746841,
+      "other_votes": 719
+    }
   }
 }

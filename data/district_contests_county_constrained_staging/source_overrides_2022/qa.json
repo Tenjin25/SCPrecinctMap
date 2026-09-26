@@ -1,0 +1,138 @@
+{
+  "attorney_general_2022.json": {
+    "Spartanburg - Trinity Methodist": {
+      "from": "SPARTANBURG - TRINITY PRESBYTERIAN",
+      "to": "SPARTANBURG - TRINITY METHODIST",
+      "source_votes": 777
+    },
+    "Spartanburg - West View Elementary": {
+      "from": "SPARTANBURG - TRINITY METHODIST",
+      "to": "SPARTANBURG - WEST VIEW ELEMENTARY",
+      "source_votes": 900
+    },
+    "Lancaster - 521 North": {
+      "from": "LANCASTER - OSCEOLA",
+      "to": "LANCASTER - 521 NORTH",
+      "source_votes": 467
+    }
+  },
+  "commissioner_agriculture_2022.json": {
+    "Spartanburg - Trinity Methodist": {
+      "from": "SPARTANBURG - TRINITY PRESBYTERIAN",
+      "to": "SPARTANBURG - TRINITY METHODIST",
+      "source_votes": 922
+    },
+    "Spartanburg - West View Elementary": {
+      "from": "SPARTANBURG - TRINITY METHODIST",
+      "to": "SPARTANBURG - WEST VIEW ELEMENTARY",
+      "source_votes": 958
+    },
+    "Lancaster - 521 North": {
+      "from": "LANCASTER - OSCEOLA",
+      "to": "LANCASTER - 521 NORTH",
+      "source_votes": 488
+    }
+  },
+  "comptroller_general_2022.json": {
+    "Spartanburg - Trinity Methodist": {
+      "from": "SPARTANBURG - TRINITY PRESBYTERIAN",
+      "to": "SPARTANBURG - TRINITY METHODIST",
+      "source_votes": 774
+    },
+    "Spartanburg - West View Elementary": {
+      "from": "SPARTANBURG - TRINITY METHODIST",
+      "to": "SPARTANBURG - WEST VIEW ELEMENTARY",
+      "source_votes": 902
+    },
+    "Lancaster - 521 North": {
+      "from": "LANCASTER - OSCEOLA",
+      "to": "LANCASTER - 521 NORTH",
+      "source_votes": 465
+    }
+  },
+  "governor_2022.json": {
+    "Spartanburg - Trinity Methodist": {
+      "from": "SPARTANBURG - TRINITY PRESBYTERIAN",
+      "to": "SPARTANBURG - TRINITY METHODIST",
+      "source_votes": 1080
+    },
+    "Spartanburg - West View Elementary": {
+      "from": "SPARTANBURG - TRINITY METHODIST",
+      "to": "SPARTANBURG - WEST VIEW ELEMENTARY",
+      "source_votes": 1082
+    },
+    "Lancaster - 521 North": {
+      "from": "LANCASTER - OSCEOLA",
+      "to": "LANCASTER - 521 NORTH",
+      "source_votes": 584
+    }
+  },
+  "secretary_of_state_2022.json": {
+    "Spartanburg - Trinity Methodist": {
+      "from": "SPARTANBURG - TRINITY PRESBYTERIAN",
+      "to": "SPARTANBURG - TRINITY METHODIST",
+      "source_votes": 1067
+    },
+    "Spartanburg - West View Elementary": {
+      "from": "SPARTANBURG - TRINITY METHODIST",
+      "to": "SPARTANBURG - WEST VIEW ELEMENTARY",
+      "source_votes": 1086
+    },
+    "Lancaster - 521 North": {
+      "from": "LANCASTER - OSCEOLA",
+      "to": "LANCASTER - 521 NORTH",
+      "source_votes": 582
+    }
+  },
+  "state_treasurer_2022.json": {
+    "Spartanburg - Trinity Methodist": {
+      "from": "SPARTANBURG - TRINITY PRESBYTERIAN",
+      "to": "SPARTANBURG - TRINITY METHODIST",
+      "source_votes": 925
+    },
+    "Spartanburg - West View Elementary": {
+      "from": "SPARTANBURG - TRINITY METHODIST",
+      "to": "SPARTANBURG - WEST VIEW ELEMENTARY",
+      "source_votes": 968
+    },
+    "Lancaster - 521 North": {
+      "from": "LANCASTER - OSCEOLA",
+      "to": "LANCASTER - 521 NORTH",
+      "source_votes": 502
+    }
+  },
+  "superintendent_2022.json": {
+    "Spartanburg - Trinity Methodist": {
+      "from": "SPARTANBURG - TRINITY PRESBYTERIAN",
+      "to": "SPARTANBURG - TRINITY METHODIST",
+      "source_votes": 1073
+    },
+    "Spartanburg - West View Elementary": {
+      "from": "SPARTANBURG - TRINITY METHODIST",
+      "to": "SPARTANBURG - WEST VIEW ELEMENTARY",
+      "source_votes": 1080
+    },
+    "Lancaster - 521 North": {
+      "from": "LANCASTER - OSCEOLA",
+      "to": "LANCASTER - 521 NORTH",
+      "source_votes": 583
+    }
+  },
+  "us_senate_2022.json": {
+    "Spartanburg - Trinity Methodist": {
+      "from": "SPARTANBURG - TRINITY PRESBYTERIAN",
+      "to": "SPARTANBURG - TRINITY METHODIST",
+      "source_votes": 1063
+    },
+    "Spartanburg - West View Elementary": {
+      "from": "SPARTANBURG - TRINITY METHODIST",
+      "to": "SPARTANBURG - WEST VIEW ELEMENTARY",
+      "source_votes": 1090
+    },
+    "Lancaster - 521 North": {
+      "from": "LANCASTER - OSCEOLA",
+      "to": "LANCASTER - 521 NORTH",
+      "source_votes": 584
+    }
+  }
+}

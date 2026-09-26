@@ -1,0 +1,699 @@
+{
+  "schema": "reviewed_2010_2024_vtd_name_bridge.v1",
+  "weights": {
+    "RICHLAND - OAK POINTE": {
+      "RICHLAND - OAK POINTE 2": 0.61343361,
+      "RICHLAND - OAK POINTE 1": 0.25929526,
+      "RICHLAND - OAK POINTE 3": 0.12727113
+    },
+    "KERSHAW - RABONS XROADS": {
+      "KERSHAW - RABONS CROSSROADS": 1.0
+    },
+    "MARLBORO - E BENNETTSVILLE": {
+      "MARLBORO - EAST BENNETTSVILLE": 0.99913612,
+      "MARLBORO - N BENNETTSVILLE": 0.00086388
+    },
+    "MARLBORO - QUICKS XROADS": {
+      "MARLBORO - QUICKS X ROADS": 1.0
+    },
+    "SPARTANBURG - PARK HILLS ELEMENTARY SCHOOL": {
+      "SPARTANBURG - SILVERHILL MEMORIAL UMC": 0.99360997,
+      "SPARTANBURG - AIRPORT": 0.00639003
+    },
+    "UNION - MONARCH": {
+      "UNION - MONARCH BOX 1": 1.0
+    },
+    "SPARTANBURG - WOODRUFF ARMORY DRIVE": {
+      "SPARTANBURG - WOODRUFF LEISURE CENTER": 0.99928195,
+      "SPARTANBURG - R.D. ANDERSON VOCATIONAL": 0.00071805
+    },
+    "AIKEN - BREEZY HILL 50": {
+      "AIKEN - COMMUNITY 86": 0.50960944,
+      "AIKEN - BREEZY HILL": 0.27103256,
+      "AIKEN - BREEZY 87": 0.219358
+    }
+  },
+  "allowed_years": {
+    "RICHLAND - OAK POINTE": [
+      2010
+    ],
+    "KERSHAW - RABONS XROADS": [
+      2010,
+      2012,
+      2014
+    ],
+    "MARLBORO - E BENNETTSVILLE": [
+      2010,
+      2012,
+      2014,
+      2016,
+      2018,
+      2020,
+      2022
+    ],
+    "MARLBORO - QUICKS XROADS": [
+      2010,
+      2012,
+      2014
+    ],
+    "SPARTANBURG - PARK HILLS ELEMENTARY SCHOOL": [
+      2010,
+      2012,
+      2014
+    ],
+    "UNION - MONARCH": [
+      2022
+    ],
+    "SPARTANBURG - WOODRUFF ARMORY DRIVE": [
+      2012
+    ],
+    "AIKEN - BREEZY HILL 50": [
+      2012
+    ]
+  },
+  "evidence": [
+    {
+      "source": "RICHLAND - OAK POINTE",
+      "vtd10_name": "RICHLAND - OAK POINT",
+      "vtd10_alternates": [],
+      "vtd10_geoid": "45079384",
+      "vtd10_overlay_share": 0.999999,
+      "vtd10_to_current_file": "data/crosswalk/vtd10_to_2025_vote_weight_splits.json",
+      "vtd10_overlay_file": "data/crosswalk/vtd10_to_2025_areal_top8.csv",
+      "review_note": "Reviewed county-qualified abbreviation or spelling variant; VTD10 overlay gives the current precinct footprint.",
+      "election_rows": [
+        {
+          "year": 2010,
+          "contest": "governor_2010.json",
+          "votes": 1426
+        },
+        {
+          "year": 2010,
+          "contest": "us_senate_2010.json",
+          "votes": 1370
+        },
+        {
+          "year": 2010,
+          "contest": "attorney_general_2010.json",
+          "votes": 1411
+        },
+        {
+          "year": 2010,
+          "contest": "secretary_of_state_2010.json",
+          "votes": 1398
+        },
+        {
+          "year": 2010,
+          "contest": "superintendent_2010.json",
+          "votes": 1407
+        },
+        {
+          "year": 2010,
+          "contest": "state_treasurer_2010.json",
+          "votes": 979
+        },
+        {
+          "year": 2010,
+          "contest": "comptroller_general_2010.json",
+          "votes": 1398
+        },
+        {
+          "year": 2010,
+          "contest": "commissioner_agriculture_2010.json",
+          "votes": 1389
+        }
+      ]
+    },
+    {
+      "source": "KERSHAW - RABONS XROADS",
+      "vtd10_name": "KERSHAW - RABONS CROSSROADS",
+      "vtd10_alternates": [],
+      "vtd10_geoid": "45055143",
+      "vtd10_overlay_share": 1.0,
+      "vtd10_to_current_file": "data/crosswalk/vtd10_to_2025_vote_weight_splits.json",
+      "vtd10_overlay_file": "data/crosswalk/vtd10_to_2025_areal_top8.csv",
+      "review_note": "Reviewed county-qualified abbreviation or spelling variant; VTD10 overlay gives the current precinct footprint.",
+      "election_rows": [
+        {
+          "year": 2014,
+          "contest": "governor_2014.json",
+          "votes": 793
+        },
+        {
+          "year": 2014,
+          "contest": "us_senate_2014.json",
+          "votes": 1591
+        },
+        {
+          "year": 2014,
+          "contest": "attorney_general_2014.json",
+          "votes": 784
+        },
+        {
+          "year": 2014,
+          "contest": "secretary_of_state_2014.json",
+          "votes": 781
+        },
+        {
+          "year": 2014,
+          "contest": "superintendent_2014.json",
+          "votes": 794
+        },
+        {
+          "year": 2014,
+          "contest": "state_treasurer_2014.json",
+          "votes": 648
+        },
+        {
+          "year": 2014,
+          "contest": "comptroller_general_2014.json",
+          "votes": 789
+        },
+        {
+          "year": 2014,
+          "contest": "commissioner_agriculture_2014.json",
+          "votes": 692
+        },
+        {
+          "year": 2012,
+          "contest": "president_2012.json",
+          "votes": 1012
+        },
+        {
+          "year": 2010,
+          "contest": "governor_2010.json",
+          "votes": 852
+        },
+        {
+          "year": 2010,
+          "contest": "us_senate_2010.json",
+          "votes": 836
+        },
+        {
+          "year": 2010,
+          "contest": "attorney_general_2010.json",
+          "votes": 840
+        },
+        {
+          "year": 2010,
+          "contest": "secretary_of_state_2010.json",
+          "votes": 826
+        },
+        {
+          "year": 2010,
+          "contest": "superintendent_2010.json",
+          "votes": 839
+        },
+        {
+          "year": 2010,
+          "contest": "state_treasurer_2010.json",
+          "votes": 668
+        },
+        {
+          "year": 2010,
+          "contest": "comptroller_general_2010.json",
+          "votes": 837
+        },
+        {
+          "year": 2010,
+          "contest": "commissioner_agriculture_2010.json",
+          "votes": 839
+        }
+      ]
+    },
+    {
+      "source": "MARLBORO - E BENNETTSVILLE",
+      "vtd10_name": "MARLBORO - EAST BENNETTSVILLE",
+      "vtd10_alternates": [],
+      "vtd10_geoid": "45069012",
+      "vtd10_overlay_share": 0.998985,
+      "vtd10_to_current_file": "data/crosswalk/vtd10_to_2025_vote_weight_splits.json",
+      "vtd10_overlay_file": "data/crosswalk/vtd10_to_2025_areal_top8.csv",
+      "review_note": "Reviewed county-qualified abbreviation or spelling variant; VTD10 overlay gives the current precinct footprint.",
+      "election_rows": [
+        {
+          "year": 2022,
+          "contest": "governor_2022.json",
+          "votes": 580
+        },
+        {
+          "year": 2022,
+          "contest": "us_senate_2022.json",
+          "votes": 580
+        },
+        {
+          "year": 2022,
+          "contest": "attorney_general_2022.json",
+          "votes": 326
+        },
+        {
+          "year": 2022,
+          "contest": "secretary_of_state_2022.json",
+          "votes": 573
+        },
+        {
+          "year": 2022,
+          "contest": "superintendent_2022.json",
+          "votes": 580
+        },
+        {
+          "year": 2022,
+          "contest": "state_treasurer_2022.json",
+          "votes": 381
+        },
+        {
+          "year": 2022,
+          "contest": "comptroller_general_2022.json",
+          "votes": 323
+        },
+        {
+          "year": 2022,
+          "contest": "commissioner_agriculture_2022.json",
+          "votes": 367
+        },
+        {
+          "year": 2020,
+          "contest": "president_2020.json",
+          "votes": 1121
+        },
+        {
+          "year": 2020,
+          "contest": "us_senate_2020.json",
+          "votes": 1127
+        },
+        {
+          "year": 2018,
+          "contest": "governor_2018.json",
+          "votes": 356
+        },
+        {
+          "year": 2018,
+          "contest": "attorney_general_2018.json",
+          "votes": 358
+        },
+        {
+          "year": 2018,
+          "contest": "secretary_of_state_2018.json",
+          "votes": 357
+        },
+        {
+          "year": 2018,
+          "contest": "superintendent_2018.json",
+          "votes": 149
+        },
+        {
+          "year": 2018,
+          "contest": "state_treasurer_2018.json",
+          "votes": 358
+        },
+        {
+          "year": 2018,
+          "contest": "comptroller_general_2018.json",
+          "votes": 187
+        },
+        {
+          "year": 2018,
+          "contest": "commissioner_agriculture_2018.json",
+          "votes": 250
+        },
+        {
+          "year": 2016,
+          "contest": "president_2016.json",
+          "votes": 484
+        },
+        {
+          "year": 2016,
+          "contest": "us_senate_2016.json",
+          "votes": 467
+        },
+        {
+          "year": 2014,
+          "contest": "governor_2014.json",
+          "votes": 350
+        },
+        {
+          "year": 2014,
+          "contest": "us_senate_2014.json",
+          "votes": 687
+        },
+        {
+          "year": 2014,
+          "contest": "attorney_general_2014.json",
+          "votes": 340
+        },
+        {
+          "year": 2014,
+          "contest": "secretary_of_state_2014.json",
+          "votes": 341
+        },
+        {
+          "year": 2014,
+          "contest": "superintendent_2014.json",
+          "votes": 344
+        },
+        {
+          "year": 2014,
+          "contest": "state_treasurer_2014.json",
+          "votes": 206
+        },
+        {
+          "year": 2014,
+          "contest": "comptroller_general_2014.json",
+          "votes": 343
+        },
+        {
+          "year": 2014,
+          "contest": "commissioner_agriculture_2014.json",
+          "votes": 244
+        },
+        {
+          "year": 2012,
+          "contest": "president_2012.json",
+          "votes": 549
+        },
+        {
+          "year": 2010,
+          "contest": "governor_2010.json",
+          "votes": 470
+        },
+        {
+          "year": 2010,
+          "contest": "us_senate_2010.json",
+          "votes": 463
+        },
+        {
+          "year": 2010,
+          "contest": "attorney_general_2010.json",
+          "votes": 467
+        },
+        {
+          "year": 2010,
+          "contest": "secretary_of_state_2010.json",
+          "votes": 461
+        },
+        {
+          "year": 2010,
+          "contest": "superintendent_2010.json",
+          "votes": 461
+        },
+        {
+          "year": 2010,
+          "contest": "state_treasurer_2010.json",
+          "votes": 208
+        },
+        {
+          "year": 2010,
+          "contest": "comptroller_general_2010.json",
+          "votes": 463
+        },
+        {
+          "year": 2010,
+          "contest": "commissioner_agriculture_2010.json",
+          "votes": 465
+        }
+      ]
+    },
+    {
+      "source": "MARLBORO - QUICKS XROADS",
+      "vtd10_name": "MARLBORO - QUICKS X ROADS",
+      "vtd10_alternates": [],
+      "vtd10_geoid": "45069008",
+      "vtd10_overlay_share": 0.999565,
+      "vtd10_to_current_file": "data/crosswalk/vtd10_to_2025_vote_weight_splits.json",
+      "vtd10_overlay_file": "data/crosswalk/vtd10_to_2025_areal_top8.csv",
+      "review_note": "Reviewed county-qualified abbreviation or spelling variant; VTD10 overlay gives the current precinct footprint.",
+      "election_rows": [
+        {
+          "year": 2014,
+          "contest": "governor_2014.json",
+          "votes": 240
+        },
+        {
+          "year": 2014,
+          "contest": "us_senate_2014.json",
+          "votes": 478
+        },
+        {
+          "year": 2014,
+          "contest": "attorney_general_2014.json",
+          "votes": 237
+        },
+        {
+          "year": 2014,
+          "contest": "secretary_of_state_2014.json",
+          "votes": 238
+        },
+        {
+          "year": 2014,
+          "contest": "superintendent_2014.json",
+          "votes": 237
+        },
+        {
+          "year": 2014,
+          "contest": "state_treasurer_2014.json",
+          "votes": 119
+        },
+        {
+          "year": 2014,
+          "contest": "comptroller_general_2014.json",
+          "votes": 236
+        },
+        {
+          "year": 2014,
+          "contest": "commissioner_agriculture_2014.json",
+          "votes": 150
+        },
+        {
+          "year": 2012,
+          "contest": "president_2012.json",
+          "votes": 400
+        },
+        {
+          "year": 2010,
+          "contest": "governor_2010.json",
+          "votes": 306
+        },
+        {
+          "year": 2010,
+          "contest": "us_senate_2010.json",
+          "votes": 302
+        },
+        {
+          "year": 2010,
+          "contest": "attorney_general_2010.json",
+          "votes": 306
+        },
+        {
+          "year": 2010,
+          "contest": "secretary_of_state_2010.json",
+          "votes": 301
+        },
+        {
+          "year": 2010,
+          "contest": "superintendent_2010.json",
+          "votes": 305
+        },
+        {
+          "year": 2010,
+          "contest": "state_treasurer_2010.json",
+          "votes": 160
+        },
+        {
+          "year": 2010,
+          "contest": "comptroller_general_2010.json",
+          "votes": 306
+        },
+        {
+          "year": 2010,
+          "contest": "commissioner_agriculture_2010.json",
+          "votes": 306
+        }
+      ]
+    },
+    {
+      "source": "SPARTANBURG - PARK HILLS ELEMENTARY SCHOOL",
+      "vtd10_name": "SPARTANBURG - PARK HILLS ELEMENTARY",
+      "vtd10_alternates": [],
+      "vtd10_geoid": "45083080",
+      "vtd10_overlay_share": 0.999996,
+      "vtd10_to_current_file": "data/crosswalk/vtd10_to_2025_vote_weight_splits.json",
+      "vtd10_overlay_file": "data/crosswalk/vtd10_to_2025_areal_top8.csv",
+      "review_note": "Reviewed county-qualified abbreviation or spelling variant; VTD10 overlay gives the current precinct footprint.",
+      "election_rows": [
+        {
+          "year": 2014,
+          "contest": "governor_2014.json",
+          "votes": 323
+        },
+        {
+          "year": 2014,
+          "contest": "us_senate_2014.json",
+          "votes": 643
+        },
+        {
+          "year": 2014,
+          "contest": "attorney_general_2014.json",
+          "votes": 319
+        },
+        {
+          "year": 2014,
+          "contest": "secretary_of_state_2014.json",
+          "votes": 322
+        },
+        {
+          "year": 2014,
+          "contest": "superintendent_2014.json",
+          "votes": 321
+        },
+        {
+          "year": 2014,
+          "contest": "state_treasurer_2014.json",
+          "votes": 33
+        },
+        {
+          "year": 2014,
+          "contest": "comptroller_general_2014.json",
+          "votes": 319
+        },
+        {
+          "year": 2014,
+          "contest": "commissioner_agriculture_2014.json",
+          "votes": 51
+        },
+        {
+          "year": 2012,
+          "contest": "president_2012.json",
+          "votes": 563
+        },
+        {
+          "year": 2010,
+          "contest": "governor_2010.json",
+          "votes": 478
+        },
+        {
+          "year": 2010,
+          "contest": "us_senate_2010.json",
+          "votes": 468
+        },
+        {
+          "year": 2010,
+          "contest": "attorney_general_2010.json",
+          "votes": 476
+        },
+        {
+          "year": 2010,
+          "contest": "secretary_of_state_2010.json",
+          "votes": 476
+        },
+        {
+          "year": 2010,
+          "contest": "superintendent_2010.json",
+          "votes": 477
+        },
+        {
+          "year": 2010,
+          "contest": "state_treasurer_2010.json",
+          "votes": 58
+        },
+        {
+          "year": 2010,
+          "contest": "comptroller_general_2010.json",
+          "votes": 473
+        },
+        {
+          "year": 2010,
+          "contest": "commissioner_agriculture_2010.json",
+          "votes": 474
+        }
+      ]
+    },
+    {
+      "source": "UNION - MONARCH",
+      "vtd10_name": "UNION - MONARCH BOX 1",
+      "vtd10_alternates": [
+        "UNION - MONARCH BOX 2"
+      ],
+      "vtd10_geoid": "45087013",
+      "vtd10_overlay_share": 0.999768,
+      "vtd10_to_current_file": "data/crosswalk/vtd10_to_2025_vote_weight_splits.json",
+      "vtd10_overlay_file": "data/crosswalk/vtd10_to_2025_areal_top8.csv",
+      "review_note": "Both named Monarch VTD10 polygons map entirely to the same current precinct.",
+      "election_rows": [
+        {
+          "year": 2022,
+          "contest": "governor_2022.json",
+          "votes": 700
+        },
+        {
+          "year": 2022,
+          "contest": "us_senate_2022.json",
+          "votes": 698
+        },
+        {
+          "year": 2022,
+          "contest": "attorney_general_2022.json",
+          "votes": 620
+        },
+        {
+          "year": 2022,
+          "contest": "secretary_of_state_2022.json",
+          "votes": 703
+        },
+        {
+          "year": 2022,
+          "contest": "superintendent_2022.json",
+          "votes": 701
+        },
+        {
+          "year": 2022,
+          "contest": "state_treasurer_2022.json",
+          "votes": 649
+        },
+        {
+          "year": 2022,
+          "contest": "comptroller_general_2022.json",
+          "votes": 619
+        },
+        {
+          "year": 2022,
+          "contest": "commissioner_agriculture_2022.json",
+          "votes": 644
+        }
+      ]
+    },
+    {
+      "source": "SPARTANBURG - WOODRUFF ARMORY DRIVE",
+      "vtd10_name": "SPARTANBURG - WOODRUFF ARMORY DRIVE FIRE STATIONS",
+      "vtd10_alternates": [],
+      "vtd10_geoid": "45083001",
+      "vtd10_overlay_share": 0.999924,
+      "vtd10_to_current_file": "data/crosswalk/vtd10_to_2025_vote_weight_splits.json",
+      "vtd10_overlay_file": "data/crosswalk/vtd10_to_2025_areal_top8.csv",
+      "review_note": "Reviewed county-qualified abbreviation or spelling variant; VTD10 overlay gives the current precinct footprint.",
+      "election_rows": [
+        {
+          "year": 2012,
+          "contest": "president_2012.json",
+          "votes": 394
+        }
+      ]
+    },
+    {
+      "source": "AIKEN - BREEZY HILL 50",
+      "vtd10_name": "AIKEN - BREEZY HILL",
+      "vtd10_alternates": [],
+      "vtd10_geoid": "45003050",
+      "vtd10_overlay_share": 0.994803,
+      "vtd10_to_current_file": "data/crosswalk/vtd10_to_2025_vote_weight_splits.json",
+      "vtd10_overlay_file": "data/crosswalk/vtd10_to_2025_areal_top8.csv",
+      "review_note": "Reviewed county-qualified abbreviation or spelling variant; VTD10 overlay gives the current precinct footprint.",
+      "election_rows": [
+        {
+          "year": 2012,
+          "contest": "president_2012.json",
+          "votes": 1027
+        }
+      ]
+    }
+  ]
+}

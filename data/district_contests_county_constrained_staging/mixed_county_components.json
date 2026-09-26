@@ -1,0 +1,474 @@
+{
+  "schema": "mixed_county_components.v1",
+  "full_county_threshold": 0.999,
+  "material_partial_county_threshold": 0.001,
+  "method": "Canonical county returns are inserted directly for whole counties; only split-county components use precinct/block weights. County area shares at or below 0.1% are geometry slivers.",
+  "plans": {
+    "congressional": {
+      "exact_components": {
+        "1": [
+          "BEAUFORT",
+          "BERKELEY"
+        ],
+        "2": [
+          "AIKEN",
+          "BARNWELL",
+          "LEXINGTON"
+        ],
+        "3": [
+          "ABBEVILLE",
+          "ANDERSON",
+          "EDGEFIELD",
+          "GREENWOOD",
+          "LAURENS",
+          "MCCORMICK",
+          "NEWBERRY",
+          "OCONEE",
+          "PICKENS",
+          "SALUDA"
+        ],
+        "5": [
+          "CHEROKEE",
+          "CHESTER",
+          "FAIRFIELD",
+          "KERSHAW",
+          "LANCASTER",
+          "LEE",
+          "UNION",
+          "YORK"
+        ],
+        "6": [
+          "ALLENDALE",
+          "BAMBERG",
+          "CALHOUN",
+          "CLARENDON",
+          "HAMPTON",
+          "WILLIAMSBURG"
+        ],
+        "7": [
+          "CHESTERFIELD",
+          "DARLINGTON",
+          "DILLON",
+          "GEORGETOWN",
+          "HORRY",
+          "MARION",
+          "MARLBORO"
+        ]
+      },
+      "allocated_components": {
+        "1": [
+          "CHARLESTON",
+          "COLLETON",
+          "DORCHESTER",
+          "JASPER"
+        ],
+        "2": [
+          "ORANGEBURG",
+          "RICHLAND"
+        ],
+        "3": [
+          "GREENVILLE"
+        ],
+        "5": [
+          "SPARTANBURG",
+          "SUMTER"
+        ],
+        "6": [
+          "CHARLESTON",
+          "COLLETON",
+          "DORCHESTER",
+          "FLORENCE",
+          "JASPER",
+          "ORANGEBURG",
+          "RICHLAND",
+          "SUMTER"
+        ],
+        "7": [
+          "FLORENCE"
+        ]
+      },
+      "whole_county_destinations": {
+        "ABBEVILLE": "3",
+        "AIKEN": "2",
+        "ALLENDALE": "6",
+        "ANDERSON": "3",
+        "BAMBERG": "6",
+        "BARNWELL": "2",
+        "BEAUFORT": "1",
+        "BERKELEY": "1",
+        "CALHOUN": "6",
+        "CHEROKEE": "5",
+        "CHESTER": "5",
+        "CHESTERFIELD": "7",
+        "CLARENDON": "6",
+        "DARLINGTON": "7",
+        "DILLON": "7",
+        "EDGEFIELD": "3",
+        "FAIRFIELD": "5",
+        "GEORGETOWN": "7",
+        "GREENWOOD": "3",
+        "HAMPTON": "6",
+        "HORRY": "7",
+        "KERSHAW": "5",
+        "LANCASTER": "5",
+        "LAURENS": "3",
+        "LEE": "5",
+        "LEXINGTON": "2",
+        "MARION": "7",
+        "MARLBORO": "7",
+        "MCCORMICK": "3",
+        "NEWBERRY": "3",
+        "OCONEE": "3",
+        "PICKENS": "3",
+        "SALUDA": "3",
+        "UNION": "5",
+        "WILLIAMSBURG": "6",
+        "YORK": "5"
+      }
+    },
+    "state_house_2022": {
+      "exact_components": {
+        "11": [
+          "ABBEVILLE"
+        ],
+        "12": [
+          "MCCORMICK"
+        ],
+        "40": [
+          "NEWBERRY"
+        ],
+        "41": [
+          "FAIRFIELD"
+        ],
+        "42": [
+          "UNION"
+        ],
+        "50": [
+          "LEE"
+        ],
+        "55": [
+          "DILLON"
+        ],
+        "57": [
+          "MARION"
+        ],
+        "64": [
+          "CLARENDON"
+        ],
+        "90": [
+          "BAMBERG"
+        ],
+        "91": [
+          "ALLENDALE",
+          "BARNWELL"
+        ],
+        "93": [
+          "CALHOUN"
+        ],
+        "122": [
+          "HAMPTON"
+        ]
+      },
+      "allocated_components": {
+        "11": [
+          "ANDERSON",
+          "LAURENS"
+        ],
+        "12": [
+          "GREENWOOD"
+        ],
+        "40": [
+          "LEXINGTON"
+        ],
+        "41": [
+          "CHESTER",
+          "RICHLAND"
+        ],
+        "42": [
+          "LAURENS"
+        ],
+        "50": [
+          "KERSHAW",
+          "SUMTER"
+        ],
+        "55": [
+          "HORRY",
+          "MARLBORO"
+        ],
+        "57": [
+          "HORRY",
+          "WILLIAMSBURG"
+        ],
+        "64": [
+          "SUMTER"
+        ],
+        "90": [
+          "ORANGEBURG"
+        ],
+        "91": [
+          "ORANGEBURG"
+        ],
+        "93": [
+          "LEXINGTON",
+          "ORANGEBURG"
+        ],
+        "122": [
+          "BEAUFORT",
+          "COLLETON",
+          "JASPER"
+        ]
+      },
+      "whole_county_destinations": {
+        "ABBEVILLE": "11",
+        "ALLENDALE": "91",
+        "BAMBERG": "90",
+        "BARNWELL": "91",
+        "CALHOUN": "93",
+        "CLARENDON": "64",
+        "DILLON": "55",
+        "FAIRFIELD": "41",
+        "HAMPTON": "122",
+        "LEE": "50",
+        "MARION": "57",
+        "MCCORMICK": "12",
+        "NEWBERRY": "40",
+        "UNION": "42"
+      }
+    },
+    "state_senate_2022": {
+      "exact_components": {
+        "1": [
+          "OCONEE"
+        ],
+        "4": [
+          "ABBEVILLE"
+        ],
+        "9": [
+          "LAURENS"
+        ],
+        "10": [
+          "GREENWOOD"
+        ],
+        "14": [
+          "CHEROKEE"
+        ],
+        "17": [
+          "CHESTER",
+          "FAIRFIELD"
+        ],
+        "18": [
+          "NEWBERRY"
+        ],
+        "25": [
+          "EDGEFIELD",
+          "MCCORMICK"
+        ],
+        "29": [
+          "MARLBORO"
+        ],
+        "30": [
+          "DILLON",
+          "MARION"
+        ],
+        "32": [
+          "WILLIAMSBURG"
+        ],
+        "36": [
+          "CLARENDON"
+        ],
+        "40": [
+          "ALLENDALE",
+          "BAMBERG",
+          "BARNWELL"
+        ],
+        "45": [
+          "HAMPTON"
+        ]
+      },
+      "allocated_components": {
+        "1": [
+          "PICKENS"
+        ],
+        "4": [
+          "ANDERSON"
+        ],
+        "9": [
+          "GREENVILLE",
+          "UNION"
+        ],
+        "10": [
+          "LEXINGTON",
+          "SALUDA"
+        ],
+        "14": [
+          "SPARTANBURG",
+          "UNION",
+          "YORK"
+        ],
+        "17": [
+          "LANCASTER",
+          "YORK"
+        ],
+        "18": [
+          "LEXINGTON",
+          "RICHLAND"
+        ],
+        "25": [
+          "AIKEN",
+          "LEXINGTON",
+          "SALUDA"
+        ],
+        "29": [
+          "CHESTERFIELD",
+          "DARLINGTON",
+          "LEE",
+          "SUMTER"
+        ],
+        "30": [
+          "DARLINGTON",
+          "FLORENCE",
+          "HORRY"
+        ],
+        "32": [
+          "BERKELEY",
+          "CHARLESTON",
+          "FLORENCE",
+          "GEORGETOWN",
+          "HORRY"
+        ],
+        "36": [
+          "CALHOUN",
+          "ORANGEBURG",
+          "SUMTER"
+        ],
+        "40": [
+          "AIKEN",
+          "COLLETON",
+          "ORANGEBURG"
+        ],
+        "45": [
+          "BEAUFORT",
+          "CHARLESTON",
+          "COLLETON",
+          "JASPER"
+        ]
+      },
+      "whole_county_destinations": {
+        "ABBEVILLE": "4",
+        "ALLENDALE": "40",
+        "BAMBERG": "40",
+        "BARNWELL": "40",
+        "CHEROKEE": "14",
+        "CHESTER": "17",
+        "CLARENDON": "36",
+        "DILLON": "30",
+        "EDGEFIELD": "25",
+        "FAIRFIELD": "17",
+        "GREENWOOD": "10",
+        "HAMPTON": "45",
+        "LAURENS": "9",
+        "MARION": "30",
+        "MARLBORO": "29",
+        "MCCORMICK": "25",
+        "NEWBERRY": "18",
+        "OCONEE": "1",
+        "WILLIAMSBURG": "32"
+      }
+    },
+    "state_house_2024": {
+      "exact_components": {
+        "11": [
+          "ABBEVILLE"
+        ],
+        "12": [
+          "MCCORMICK"
+        ],
+        "40": [
+          "NEWBERRY"
+        ],
+        "41": [
+          "FAIRFIELD"
+        ],
+        "42": [
+          "UNION"
+        ],
+        "50": [
+          "LEE"
+        ],
+        "64": [
+          "CLARENDON"
+        ],
+        "90": [
+          "BAMBERG"
+        ],
+        "91": [
+          "ALLENDALE",
+          "BARNWELL"
+        ],
+        "93": [
+          "CALHOUN"
+        ],
+        "122": [
+          "HAMPTON"
+        ]
+      },
+      "allocated_components": {
+        "11": [
+          "ANDERSON",
+          "LAURENS"
+        ],
+        "12": [
+          "GREENWOOD"
+        ],
+        "40": [
+          "LEXINGTON"
+        ],
+        "41": [
+          "CHESTER",
+          "RICHLAND"
+        ],
+        "42": [
+          "LAURENS"
+        ],
+        "50": [
+          "KERSHAW",
+          "SUMTER"
+        ],
+        "64": [
+          "SUMTER"
+        ],
+        "90": [
+          "COLLETON",
+          "DORCHESTER",
+          "ORANGEBURG"
+        ],
+        "91": [
+          "ORANGEBURG"
+        ],
+        "93": [
+          "LEXINGTON",
+          "ORANGEBURG"
+        ],
+        "122": [
+          "BEAUFORT",
+          "COLLETON",
+          "JASPER"
+        ]
+      },
+      "whole_county_destinations": {
+        "ABBEVILLE": "11",
+        "ALLENDALE": "91",
+        "BAMBERG": "90",
+        "BARNWELL": "91",
+        "CALHOUN": "93",
+        "CLARENDON": "64",
+        "FAIRFIELD": "41",
+        "HAMPTON": "122",
+        "LEE": "50",
+        "MCCORMICK": "12",
+        "NEWBERRY": "40",
+        "UNION": "42"
+      }
+    }
+  }
+}

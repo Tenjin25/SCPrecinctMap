@@ -3,124 +3,199 @@
     "results": {
       "1": {
         "dem_votes": 0,
-        "rep_votes": 116527,
-        "other_votes": 3944,
-        "total_votes": 120471,
+        "rep_votes": 147395,
+        "other_votes": 3933,
+        "total_votes": 151328,
         "dem_candidate": "",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 116527,
-        "margin_pct": 96.7262,
+        "margin": 147395,
+        "margin_pct": 97.401,
         "winner": "R",
         "color": "#67000d"
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 135615,
-        "other_votes": 2980,
-        "total_votes": 138595,
+        "rep_votes": 158576,
+        "other_votes": 3208,
+        "total_votes": 161784,
         "dem_candidate": "",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 135615,
-        "margin_pct": 97.8499,
+        "margin": 158576,
+        "margin_pct": 98.0171,
         "winner": "R",
         "color": "#67000d"
       },
       "3": {
         "dem_votes": 0,
-        "rep_votes": 145731,
-        "other_votes": 1850,
-        "total_votes": 147581,
+        "rep_votes": 167013,
+        "other_votes": 2020,
+        "total_votes": 169033,
         "dem_candidate": "",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 145731,
-        "margin_pct": 98.7465,
+        "margin": 167013,
+        "margin_pct": 98.805,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 130592,
-        "other_votes": 3330,
-        "total_votes": 133922,
+        "rep_votes": 146362,
+        "other_votes": 3651,
+        "total_votes": 150013,
         "dem_candidate": "",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 130592,
-        "margin_pct": 97.5135,
+        "margin": 146362,
+        "margin_pct": 97.5662,
         "winner": "R",
         "color": "#67000d"
       },
       "5": {
         "dem_votes": 0,
-        "rep_votes": 128800,
-        "other_votes": 1354,
-        "total_votes": 130154,
+        "rep_votes": 149899,
+        "other_votes": 1482,
+        "total_votes": 151381,
         "dem_candidate": "",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 128800,
-        "margin_pct": 98.9597,
+        "margin": 149899,
+        "margin_pct": 99.021,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
         "dem_votes": 0,
-        "rep_votes": 70601,
-        "other_votes": 1780,
-        "total_votes": 72381,
+        "rep_votes": 85045,
+        "other_votes": 3178,
+        "total_votes": 88223,
         "dem_candidate": "",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 70601,
-        "margin_pct": 97.5408,
+        "margin": 85045,
+        "margin_pct": 96.3978,
         "winner": "R",
         "color": "#67000d"
       },
       "7": {
         "dem_votes": 0,
-        "rep_votes": 125280,
-        "other_votes": 1255,
-        "total_votes": 126535,
+        "rep_votes": 143767,
+        "other_votes": 1394,
+        "total_votes": 145161,
         "dem_candidate": "",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 125280,
-        "margin_pct": 99.0082,
+        "margin": 143767,
+        "margin_pct": 99.0397,
         "winner": "R",
         "color": "#67000d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 97.5631,
+    "match_coverage_pct": 97.6058,
     "precinct_rows_total": 2339,
-    "precinct_rows_overlap_weighted": 2282,
-    "precinct_rows_county_share_fallback": 57,
-    "precinct_votes_county_share_fallback": 2824,
+    "precinct_rows_overlap_weighted": 2283,
+    "precinct_rows_county_share_fallback": 15,
+    "precinct_votes_county_share_fallback": 1095,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 36,
+    "whole_county_vote_components": {
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 153318,
+        "other_votes": 1756
+      },
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 115045,
+        "other_votes": 1862
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 18350,
+        "other_votes": 92
+      },
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 78724,
+        "other_votes": 1367
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 124726,
+        "other_votes": 1252
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 120831,
+        "other_votes": 995
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 68671,
+        "other_votes": 2566
+      },
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 43531,
+        "other_votes": 1346
+      },
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 13695,
+        "other_votes": 264
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 146362,
+        "other_votes": 3651
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 25173,
+        "other_votes": 230
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 66695,
+        "other_votes": 3086
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 22936,
+        "other_votes": 399
+      }
+    },
+    "split_counties_reconciled": 10,
     "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 0,
+      "rep_votes": 998057,
+      "other_votes": 18866
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "punctuation_alias_rows": 1,
+    "punctuation_alias_votes": 1140,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 1,
+    "historical_name_bridge_votes": 149,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/superintendent_2018",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.184249,
-    "snapshot_comparison_max_abs_share_delta_pp": 1.17125,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "congressional",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#congressional/superintendent_2018",
-    "calibration_districts": 7,
-    "calibration_expected_districts": 7,
-    "calibration_snapshot_districts": 7,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.010542,
-    "calibration_max_abs_share_delta_pp": 0.026425,
-    "calibration_statewide_mix_gap_pp": 0.01534,
-    "calibration_tolerance_pp": 2.01534,
-    "calibration_conservation_delta": {
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.201837,
+    "snapshot_comparison_max_abs_share_delta_pp": 1.163422,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
       "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
+      "rep_votes": 998057,
+      "other_votes": 18866
     }
   }
 }

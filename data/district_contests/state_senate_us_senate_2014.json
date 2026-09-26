@@ -2,598 +2,903 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 8620,
-        "rep_votes": 31012,
-        "other_votes": 2434,
-        "total_votes": 42066,
+        "dem_votes": 10121,
+        "rep_votes": 36264,
+        "other_votes": 2781,
+        "total_votes": 49166,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 22392,
-        "margin_pct": 53.2306,
+        "margin": 26143,
+        "margin_pct": 53.1729,
         "winner": "R",
         "color": "#67000d"
       },
       "2": {
-        "dem_votes": 7269,
-        "rep_votes": 36146,
-        "other_votes": 4000,
-        "total_votes": 47415,
+        "dem_votes": 7664,
+        "rep_votes": 39042,
+        "other_votes": 4221,
+        "total_votes": 50927,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 28877,
-        "margin_pct": 60.9027,
+        "margin": 31378,
+        "margin_pct": 61.6137,
         "winner": "R",
         "color": "#67000d"
       },
       "3": {
-        "dem_votes": 8954,
-        "rep_votes": 38100,
-        "other_votes": 3500,
-        "total_votes": 50554,
+        "dem_votes": 10358,
+        "rep_votes": 42506,
+        "other_votes": 3863,
+        "total_votes": 56727,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 29146,
-        "margin_pct": 57.6532,
+        "margin": 32148,
+        "margin_pct": 56.6714,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
-        "dem_votes": 11984,
-        "rep_votes": 26957,
-        "other_votes": 2782,
-        "total_votes": 41723,
+        "dem_votes": 14240,
+        "rep_votes": 30239,
+        "other_votes": 3095,
+        "total_votes": 47574,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 14973,
-        "margin_pct": 35.8867,
+        "margin": 15999,
+        "margin_pct": 33.6297,
         "winner": "R",
         "color": "#a50f15"
       },
       "5": {
-        "dem_votes": 6936,
-        "rep_votes": 33230,
-        "other_votes": 4372,
-        "total_votes": 44538,
+        "dem_votes": 7801,
+        "rep_votes": 36278,
+        "other_votes": 4735,
+        "total_votes": 48814,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 26294,
-        "margin_pct": 59.0372,
+        "margin": 28477,
+        "margin_pct": 58.3378,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
-        "dem_votes": 10847,
-        "rep_votes": 39308,
-        "other_votes": 4641,
-        "total_votes": 54796,
+        "dem_votes": 12089,
+        "rep_votes": 42421,
+        "other_votes": 4977,
+        "total_votes": 59487,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 28461,
-        "margin_pct": 51.9399,
+        "margin": 30332,
+        "margin_pct": 50.9893,
         "winner": "R",
         "color": "#67000d"
       },
       "7": {
-        "dem_votes": 18704,
-        "rep_votes": 15009,
-        "other_votes": 2381,
-        "total_votes": 36094,
+        "dem_votes": 20756,
+        "rep_votes": 16645,
+        "other_votes": 2624,
+        "total_votes": 40025,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": -3695,
-        "margin_pct": -10.2372,
+        "margin": -4111,
+        "margin_pct": -10.2711,
         "winner": "D",
         "color": "#6baed6"
       },
       "8": {
-        "dem_votes": 12636,
-        "rep_votes": 39692,
-        "other_votes": 4093,
-        "total_votes": 56421,
+        "dem_votes": 14142,
+        "rep_votes": 43027,
+        "other_votes": 4408,
+        "total_votes": 61577,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 27056,
-        "margin_pct": 47.9538,
+        "margin": 28885,
+        "margin_pct": 46.9087,
         "winner": "R",
         "color": "#67000d"
       },
       "9": {
-        "dem_votes": 13456,
-        "rep_votes": 29964,
-        "other_votes": 3743,
-        "total_votes": 47163,
+        "dem_votes": 15220,
+        "rep_votes": 33369,
+        "other_votes": 4103,
+        "total_votes": 52692,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 16508,
-        "margin_pct": 35.002,
+        "margin": 18149,
+        "margin_pct": 34.4436,
         "winner": "R",
         "color": "#a50f15"
       },
       "10": {
-        "dem_votes": 11243,
-        "rep_votes": 38484,
-        "other_votes": 2866,
-        "total_votes": 52593,
+        "dem_votes": 15753,
+        "rep_votes": 43339,
+        "other_votes": 3092,
+        "total_votes": 62184,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 27241,
-        "margin_pct": 51.7959,
+        "margin": 27586,
+        "margin_pct": 44.3619,
         "winner": "R",
         "color": "#67000d"
       },
       "11": {
-        "dem_votes": 9798,
-        "rep_votes": 20023,
-        "other_votes": 2645,
-        "total_votes": 32466,
+        "dem_votes": 12981,
+        "rep_votes": 22509,
+        "other_votes": 2974,
+        "total_votes": 38464,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 10225,
-        "margin_pct": 31.4945,
+        "margin": 9528,
+        "margin_pct": 24.7712,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "12": {
+        "dem_votes": 12440,
+        "rep_votes": 30757,
+        "other_votes": 3655,
+        "total_votes": 46852,
+        "dem_candidate": "Brad Hutto",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 18317,
+        "margin_pct": 39.0954,
         "winner": "R",
         "color": "#a50f15"
       },
-      "12": {
-        "dem_votes": 10750,
-        "rep_votes": 27227,
-        "other_votes": 3183,
-        "total_votes": 41160,
-        "dem_candidate": "Brad Hutto",
-        "rep_candidate": "Lindsey Graham",
-        "margin": 16477,
-        "margin_pct": 40.0316,
-        "winner": "R",
-        "color": "#67000d"
-      },
       "13": {
-        "dem_votes": 12091,
-        "rep_votes": 36419,
-        "other_votes": 4240,
-        "total_votes": 52750,
+        "dem_votes": 14465,
+        "rep_votes": 40954,
+        "other_votes": 4672,
+        "total_votes": 60091,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 24328,
-        "margin_pct": 46.1194,
+        "margin": 26489,
+        "margin_pct": 44.0815,
         "winner": "R",
         "color": "#67000d"
       },
       "14": {
-        "dem_votes": 9012,
-        "rep_votes": 26577,
-        "other_votes": 2844,
-        "total_votes": 38433,
+        "dem_votes": 10933,
+        "rep_votes": 31183,
+        "other_votes": 3260,
+        "total_votes": 45376,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 17565,
-        "margin_pct": 45.7029,
+        "margin": 20250,
+        "margin_pct": 44.6271,
         "winner": "R",
         "color": "#67000d"
       },
       "15": {
-        "dem_votes": 10748,
-        "rep_votes": 25464,
-        "other_votes": 2495,
-        "total_votes": 38707,
+        "dem_votes": 14253,
+        "rep_votes": 33944,
+        "other_votes": 3248,
+        "total_votes": 51445,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 14716,
-        "margin_pct": 38.019,
+        "margin": 19691,
+        "margin_pct": 38.2758,
         "winner": "R",
         "color": "#a50f15"
       },
       "16": {
-        "dem_votes": 8998,
-        "rep_votes": 24350,
-        "other_votes": 2173,
-        "total_votes": 35521,
+        "dem_votes": 11443,
+        "rep_votes": 30963,
+        "other_votes": 2716,
+        "total_votes": 45122,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 15352,
-        "margin_pct": 43.2195,
+        "margin": 19520,
+        "margin_pct": 43.2605,
         "winner": "R",
         "color": "#67000d"
       },
       "17": {
-        "dem_votes": 22702,
-        "rep_votes": 18964,
-        "other_votes": 2188,
-        "total_votes": 43854,
+        "dem_votes": 28568,
+        "rep_votes": 23668,
+        "other_votes": 2780,
+        "total_votes": 55016,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": -3738,
-        "margin_pct": -8.5237,
+        "margin": -4900,
+        "margin_pct": -8.9065,
         "winner": "D",
         "color": "#9ecae1"
       },
       "18": {
-        "dem_votes": 16150,
-        "rep_votes": 41742,
-        "other_votes": 3370,
-        "total_votes": 61262,
+        "dem_votes": 18952,
+        "rep_votes": 48588,
+        "other_votes": 3798,
+        "total_votes": 71338,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 25592,
-        "margin_pct": 41.7747,
+        "margin": 29636,
+        "margin_pct": 41.5431,
         "winner": "R",
         "color": "#67000d"
       },
       "19": {
-        "dem_votes": 33596,
-        "rep_votes": 10272,
-        "other_votes": 1710,
-        "total_votes": 45578,
+        "dem_votes": 40894,
+        "rep_votes": 12107,
+        "other_votes": 1969,
+        "total_votes": 54970,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": -23324,
-        "margin_pct": -51.1738,
+        "margin": -28787,
+        "margin_pct": -52.3686,
         "winner": "D",
         "color": "#08519c"
       },
       "20": {
-        "dem_votes": 17915,
-        "rep_votes": 21288,
-        "other_votes": 2665,
-        "total_votes": 41868,
+        "dem_votes": 25300,
+        "rep_votes": 28800,
+        "other_votes": 3457,
+        "total_votes": 57557,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 3373,
-        "margin_pct": 8.0563,
+        "margin": 3500,
+        "margin_pct": 6.0809,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "21": {
-        "dem_votes": 35399,
-        "rep_votes": 15991,
-        "other_votes": 2131,
-        "total_votes": 53521,
+        "dem_votes": 43032,
+        "rep_votes": 18825,
+        "other_votes": 2451,
+        "total_votes": 64308,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": -19408,
-        "margin_pct": -36.2624,
+        "margin": -24207,
+        "margin_pct": -37.6423,
         "winner": "D",
         "color": "#2171b5"
       },
       "22": {
-        "dem_votes": 25696,
-        "rep_votes": 26360,
-        "other_votes": 2100,
-        "total_votes": 54156,
+        "dem_votes": 31229,
+        "rep_votes": 31012,
+        "other_votes": 2416,
+        "total_votes": 64657,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 664,
-        "margin_pct": 1.2261,
-        "winner": "R",
-        "color": "#fcbba1"
+        "margin": -217,
+        "margin_pct": -0.3356,
+        "winner": "D",
+        "color": "#c6dbef"
       },
       "23": {
-        "dem_votes": 9639,
-        "rep_votes": 30571,
-        "other_votes": 3228,
-        "total_votes": 43438,
+        "dem_votes": 11077,
+        "rep_votes": 36376,
+        "other_votes": 3653,
+        "total_votes": 51106,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 20932,
-        "margin_pct": 48.1882,
+        "margin": 25299,
+        "margin_pct": 49.503,
         "winner": "R",
         "color": "#67000d"
       },
       "24": {
-        "dem_votes": 15559,
-        "rep_votes": 38964,
-        "other_votes": 2833,
-        "total_votes": 57356,
+        "dem_votes": 18232,
+        "rep_votes": 44173,
+        "other_votes": 3190,
+        "total_votes": 65595,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 23405,
-        "margin_pct": 40.8065,
+        "margin": 25941,
+        "margin_pct": 39.5472,
         "winner": "R",
-        "color": "#67000d"
+        "color": "#a50f15"
       },
       "25": {
-        "dem_votes": 16491,
-        "rep_votes": 31265,
-        "other_votes": 2518,
-        "total_votes": 50274,
+        "dem_votes": 19439,
+        "rep_votes": 36619,
+        "other_votes": 2865,
+        "total_votes": 58923,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 14774,
-        "margin_pct": 29.387,
+        "margin": 17180,
+        "margin_pct": 29.1567,
         "winner": "R",
         "color": "#cb181d"
       },
       "26": {
-        "dem_votes": 17971,
-        "rep_votes": 22181,
-        "other_votes": 2589,
-        "total_votes": 42741,
+        "dem_votes": 21158,
+        "rep_votes": 26135,
+        "other_votes": 2934,
+        "total_votes": 50227,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 4210,
-        "margin_pct": 9.85,
+        "margin": 4977,
+        "margin_pct": 9.909,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "27": {
-        "dem_votes": 16742,
-        "rep_votes": 30272,
-        "other_votes": 2436,
-        "total_votes": 49450,
+        "dem_votes": 20214,
+        "rep_votes": 35186,
+        "other_votes": 2764,
+        "total_votes": 58164,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 13530,
-        "margin_pct": 27.361,
+        "margin": 14972,
+        "margin_pct": 25.741,
         "winner": "R",
         "color": "#cb181d"
       },
       "28": {
-        "dem_votes": 10564,
-        "rep_votes": 29004,
-        "other_votes": 1854,
-        "total_votes": 41422,
+        "dem_votes": 11524,
+        "rep_votes": 31287,
+        "other_votes": 1971,
+        "total_votes": 44782,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 18440,
-        "margin_pct": 44.5174,
+        "margin": 19763,
+        "margin_pct": 44.1316,
         "winner": "R",
         "color": "#67000d"
       },
       "29": {
-        "dem_votes": 27473,
-        "rep_votes": 23607,
-        "other_votes": 1744,
-        "total_votes": 52824,
+        "dem_votes": 34767,
+        "rep_votes": 26999,
+        "other_votes": 1975,
+        "total_votes": 63741,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": -3866,
-        "margin_pct": -7.3186,
+        "margin": -7768,
+        "margin_pct": -12.1868,
         "winner": "D",
-        "color": "#9ecae1"
+        "color": "#6baed6"
       },
       "30": {
-        "dem_votes": 25671,
-        "rep_votes": 20249,
-        "other_votes": 1633,
-        "total_votes": 47553,
+        "dem_votes": 29437,
+        "rep_votes": 22654,
+        "other_votes": 1767,
+        "total_votes": 53858,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": -5422,
-        "margin_pct": -11.402,
+        "margin": -6783,
+        "margin_pct": -12.5942,
         "winner": "D",
         "color": "#6baed6"
       },
       "31": {
-        "dem_votes": 17240,
-        "rep_votes": 30801,
-        "other_votes": 2236,
-        "total_votes": 50277,
+        "dem_votes": 20137,
+        "rep_votes": 33764,
+        "other_votes": 2407,
+        "total_votes": 56308,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 13561,
-        "margin_pct": 26.9726,
+        "margin": 13627,
+        "margin_pct": 24.2008,
         "winner": "R",
         "color": "#cb181d"
       },
       "32": {
-        "dem_votes": 31575,
-        "rep_votes": 20988,
-        "other_votes": 1554,
-        "total_votes": 54117,
+        "dem_votes": 37731,
+        "rep_votes": 24418,
+        "other_votes": 1795,
+        "total_votes": 63944,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": -10587,
-        "margin_pct": -19.5632,
+        "margin": -13313,
+        "margin_pct": -20.8198,
         "winner": "D",
-        "color": "#6baed6"
+        "color": "#4292c6"
       },
       "33": {
-        "dem_votes": 10214,
-        "rep_votes": 21459,
-        "other_votes": 1690,
-        "total_votes": 33363,
+        "dem_votes": 11172,
+        "rep_votes": 23123,
+        "other_votes": 1788,
+        "total_votes": 36083,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 11245,
-        "margin_pct": 33.705,
+        "margin": 11951,
+        "margin_pct": 33.1209,
         "winner": "R",
         "color": "#a50f15"
       },
       "34": {
-        "dem_votes": 11875,
-        "rep_votes": 38808,
-        "other_votes": 2671,
-        "total_votes": 53354,
+        "dem_votes": 13446,
+        "rep_votes": 43006,
+        "other_votes": 2882,
+        "total_votes": 59334,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 26933,
-        "margin_pct": 50.4798,
+        "margin": 29560,
+        "margin_pct": 49.8197,
         "winner": "R",
         "color": "#67000d"
       },
       "35": {
-        "dem_votes": 20585,
-        "rep_votes": 22582,
-        "other_votes": 1978,
-        "total_votes": 45145,
+        "dem_votes": 26003,
+        "rep_votes": 25802,
+        "other_votes": 2260,
+        "total_votes": 54065,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 1997,
-        "margin_pct": 4.4235,
-        "winner": "R",
-        "color": "#fcbba1"
-      },
-      "36": {
-        "dem_votes": 28703,
-        "rep_votes": 26339,
-        "other_votes": 1791,
-        "total_votes": 56833,
-        "dem_candidate": "Brad Hutto",
-        "rep_candidate": "Lindsey Graham",
-        "margin": -2364,
-        "margin_pct": -4.1596,
+        "margin": -201,
+        "margin_pct": -0.3718,
         "winner": "D",
         "color": "#c6dbef"
       },
-      "37": {
-        "dem_votes": 11176,
-        "rep_votes": 26201,
-        "other_votes": 2348,
-        "total_votes": 39725,
+      "36": {
+        "dem_votes": 38119,
+        "rep_votes": 30961,
+        "other_votes": 2104,
+        "total_votes": 71184,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 15025,
-        "margin_pct": 37.8225,
+        "margin": -7158,
+        "margin_pct": -10.0556,
+        "winner": "D",
+        "color": "#6baed6"
+      },
+      "37": {
+        "dem_votes": 13709,
+        "rep_votes": 31631,
+        "other_votes": 2706,
+        "total_votes": 48046,
+        "dem_candidate": "Brad Hutto",
+        "rep_candidate": "Lindsey Graham",
+        "margin": 17922,
+        "margin_pct": 37.3018,
         "winner": "R",
         "color": "#a50f15"
       },
       "38": {
-        "dem_votes": 10680,
-        "rep_votes": 24489,
-        "other_votes": 2568,
-        "total_votes": 37737,
+        "dem_votes": 12383,
+        "rep_votes": 26970,
+        "other_votes": 2720,
+        "total_votes": 42073,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 13809,
-        "margin_pct": 36.5927,
+        "margin": 14587,
+        "margin_pct": 34.6707,
         "winner": "R",
         "color": "#a50f15"
       },
       "39": {
-        "dem_votes": 20745,
-        "rep_votes": 15338,
-        "other_votes": 1476,
-        "total_votes": 37559,
+        "dem_votes": 24685,
+        "rep_votes": 16869,
+        "other_votes": 1599,
+        "total_votes": 43153,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": -5407,
-        "margin_pct": -14.396,
+        "margin": -7816,
+        "margin_pct": -18.1123,
         "winner": "D",
         "color": "#6baed6"
       },
       "40": {
-        "dem_votes": 31105,
-        "rep_votes": 23279,
-        "other_votes": 1773,
-        "total_votes": 56157,
+        "dem_votes": 37875,
+        "rep_votes": 25326,
+        "other_votes": 1955,
+        "total_votes": 65156,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": -7826,
-        "margin_pct": -13.9359,
+        "margin": -12549,
+        "margin_pct": -19.2599,
         "winner": "D",
         "color": "#6baed6"
       },
       "41": {
-        "dem_votes": 11366,
-        "rep_votes": 19795,
-        "other_votes": 2017,
-        "total_votes": 33178,
+        "dem_votes": 14174,
+        "rep_votes": 24029,
+        "other_votes": 2340,
+        "total_votes": 40543,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 8429,
-        "margin_pct": 25.4054,
+        "margin": 9855,
+        "margin_pct": 24.3075,
         "winner": "R",
         "color": "#cb181d"
       },
       "42": {
-        "dem_votes": 19773,
-        "rep_votes": 8081,
-        "other_votes": 1384,
-        "total_votes": 29238,
+        "dem_votes": 27245,
+        "rep_votes": 10375,
+        "other_votes": 1729,
+        "total_votes": 39349,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": -11692,
-        "margin_pct": -39.9891,
+        "margin": -16870,
+        "margin_pct": -42.8728,
         "winner": "D",
-        "color": "#2171b5"
+        "color": "#08519c"
       },
       "43": {
-        "dem_votes": 15667,
-        "rep_votes": 32843,
-        "other_votes": 2375,
-        "total_votes": 50885,
+        "dem_votes": 19693,
+        "rep_votes": 41460,
+        "other_votes": 2883,
+        "total_votes": 64036,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 17176,
-        "margin_pct": 33.7545,
+        "margin": 21767,
+        "margin_pct": 33.9918,
         "winner": "R",
         "color": "#a50f15"
       },
       "44": {
-        "dem_votes": 12010,
-        "rep_votes": 28980,
-        "other_votes": 2703,
-        "total_votes": 43693,
+        "dem_votes": 14952,
+        "rep_votes": 34137,
+        "other_votes": 3074,
+        "total_votes": 52163,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 16970,
-        "margin_pct": 38.8392,
+        "margin": 19185,
+        "margin_pct": 36.7789,
         "winner": "R",
         "color": "#a50f15"
       },
       "45": {
-        "dem_votes": 22434,
-        "rep_votes": 16509,
-        "other_votes": 1677,
-        "total_votes": 40620,
+        "dem_votes": 30284,
+        "rep_votes": 19294,
+        "other_votes": 1956,
+        "total_votes": 51534,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": -5925,
-        "margin_pct": -14.5864,
+        "margin": -10990,
+        "margin_pct": -21.3257,
         "winner": "D",
-        "color": "#6baed6"
+        "color": "#4292c6"
       },
       "46": {
-        "dem_votes": 13126,
-        "rep_votes": 37389,
-        "other_votes": 1753,
-        "total_votes": 52268,
+        "dem_votes": 16219,
+        "rep_votes": 43122,
+        "other_votes": 1980,
+        "total_votes": 61321,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 24263,
-        "margin_pct": 46.4204,
+        "margin": 26903,
+        "margin_pct": 43.8724,
         "winner": "R",
         "color": "#67000d"
       }
     }
   },
   "meta": {
-    "match_coverage_pct": 97.7404,
+    "match_coverage_pct": 97.9176,
     "precinct_rows_total": 2257,
-    "precinct_rows_overlap_weighted": 2206,
-    "precinct_rows_county_share_fallback": 51,
-    "precinct_votes_county_share_fallback": 4693,
+    "precinct_rows_overlap_weighted": 2210,
+    "precinct_rows_county_share_fallback": 30,
+    "precinct_votes_county_share_fallback": 1014,
+    "precinct_rows_emergency_party_reconciled": 0,
+    "precinct_votes_emergency_party_reconciled": 0,
+    "emergency_allocation_method": "county_total_vote_share",
+    "whole_counties_exact": 19,
+    "whole_county_vote_components": {
+      "4": {
+        "dem_votes": 5041,
+        "rep_votes": 8529,
+        "other_votes": 769
+      },
+      "40": {
+        "dem_votes": 15565,
+        "rep_votes": 10284,
+        "other_votes": 813
+      },
+      "14": {
+        "dem_votes": 6256,
+        "rep_votes": 16660,
+        "other_votes": 1710
+      },
+      "17": {
+        "dem_votes": 16667,
+        "rep_votes": 13865,
+        "other_votes": 1634
+      },
+      "36": {
+        "dem_votes": 10817,
+        "rep_votes": 9137,
+        "other_votes": 602
+      },
+      "30": {
+        "dem_votes": 16855,
+        "rep_votes": 12483,
+        "other_votes": 951
+      },
+      "25": {
+        "dem_votes": 8420,
+        "rep_votes": 11914,
+        "other_votes": 829
+      },
+      "10": {
+        "dem_votes": 11788,
+        "rep_votes": 22090,
+        "other_votes": 1572
+      },
+      "45": {
+        "dem_votes": 7200,
+        "rep_votes": 4032,
+        "other_votes": 426
+      },
+      "9": {
+        "dem_votes": 8942,
+        "rep_votes": 19023,
+        "other_votes": 2310
+      },
+      "29": {
+        "dem_votes": 7175,
+        "rep_votes": 4828,
+        "other_votes": 436
+      },
+      "18": {
+        "dem_votes": 7356,
+        "rep_votes": 13487,
+        "other_votes": 1067
+      },
+      "1": {
+        "dem_votes": 7478,
+        "rep_votes": 30828,
+        "other_votes": 2374
+      },
+      "32": {
+        "dem_votes": 14120,
+        "rep_votes": 6880,
+        "other_votes": 490
+      }
+    },
+    "split_county_vote_components": {
+      "1": {
+        "dem_votes": 2643,
+        "rep_votes": 5436,
+        "other_votes": 407
+      },
+      "2": {
+        "dem_votes": 7664,
+        "rep_votes": 39042,
+        "other_votes": 4221
+      },
+      "3": {
+        "dem_votes": 10358,
+        "rep_votes": 42506,
+        "other_votes": 3863
+      },
+      "4": {
+        "dem_votes": 9199,
+        "rep_votes": 21710,
+        "other_votes": 2326
+      },
+      "5": {
+        "dem_votes": 7801,
+        "rep_votes": 36278,
+        "other_votes": 4735
+      },
+      "6": {
+        "dem_votes": 12089,
+        "rep_votes": 42421,
+        "other_votes": 4977
+      },
+      "7": {
+        "dem_votes": 20756,
+        "rep_votes": 16645,
+        "other_votes": 2624
+      },
+      "8": {
+        "dem_votes": 14142,
+        "rep_votes": 43027,
+        "other_votes": 4408
+      },
+      "9": {
+        "dem_votes": 6278,
+        "rep_votes": 14346,
+        "other_votes": 1793
+      },
+      "10": {
+        "dem_votes": 3965,
+        "rep_votes": 21249,
+        "other_votes": 1520
+      },
+      "11": {
+        "dem_votes": 12981,
+        "rep_votes": 22509,
+        "other_votes": 2974
+      },
+      "12": {
+        "dem_votes": 12440,
+        "rep_votes": 30757,
+        "other_votes": 3655
+      },
+      "13": {
+        "dem_votes": 14465,
+        "rep_votes": 40954,
+        "other_votes": 4672
+      },
+      "14": {
+        "dem_votes": 4677,
+        "rep_votes": 14523,
+        "other_votes": 1550
+      },
+      "15": {
+        "dem_votes": 14253,
+        "rep_votes": 33944,
+        "other_votes": 3248
+      },
+      "16": {
+        "dem_votes": 11443,
+        "rep_votes": 30963,
+        "other_votes": 2716
+      },
+      "17": {
+        "dem_votes": 11901,
+        "rep_votes": 9803,
+        "other_votes": 1146
+      },
+      "18": {
+        "dem_votes": 11596,
+        "rep_votes": 35101,
+        "other_votes": 2731
+      },
+      "19": {
+        "dem_votes": 40894,
+        "rep_votes": 12107,
+        "other_votes": 1969
+      },
+      "20": {
+        "dem_votes": 25300,
+        "rep_votes": 28800,
+        "other_votes": 3457
+      },
+      "21": {
+        "dem_votes": 43032,
+        "rep_votes": 18825,
+        "other_votes": 2451
+      },
+      "22": {
+        "dem_votes": 31229,
+        "rep_votes": 31012,
+        "other_votes": 2416
+      },
+      "23": {
+        "dem_votes": 11077,
+        "rep_votes": 36376,
+        "other_votes": 3653
+      },
+      "24": {
+        "dem_votes": 18232,
+        "rep_votes": 44173,
+        "other_votes": 3190
+      },
+      "25": {
+        "dem_votes": 11019,
+        "rep_votes": 24705,
+        "other_votes": 2036
+      },
+      "26": {
+        "dem_votes": 21158,
+        "rep_votes": 26135,
+        "other_votes": 2934
+      },
+      "27": {
+        "dem_votes": 20214,
+        "rep_votes": 35186,
+        "other_votes": 2764
+      },
+      "28": {
+        "dem_votes": 11524,
+        "rep_votes": 31287,
+        "other_votes": 1971
+      },
+      "29": {
+        "dem_votes": 27592,
+        "rep_votes": 22171,
+        "other_votes": 1539
+      },
+      "30": {
+        "dem_votes": 12582,
+        "rep_votes": 10171,
+        "other_votes": 816
+      },
+      "31": {
+        "dem_votes": 20137,
+        "rep_votes": 33764,
+        "other_votes": 2407
+      },
+      "32": {
+        "dem_votes": 23611,
+        "rep_votes": 17538,
+        "other_votes": 1305
+      },
+      "33": {
+        "dem_votes": 11172,
+        "rep_votes": 23123,
+        "other_votes": 1788
+      },
+      "34": {
+        "dem_votes": 13446,
+        "rep_votes": 43006,
+        "other_votes": 2882
+      },
+      "35": {
+        "dem_votes": 26003,
+        "rep_votes": 25802,
+        "other_votes": 2260
+      },
+      "36": {
+        "dem_votes": 27302,
+        "rep_votes": 21824,
+        "other_votes": 1502
+      },
+      "37": {
+        "dem_votes": 13709,
+        "rep_votes": 31631,
+        "other_votes": 2706
+      },
+      "38": {
+        "dem_votes": 12383,
+        "rep_votes": 26970,
+        "other_votes": 2720
+      },
+      "39": {
+        "dem_votes": 24685,
+        "rep_votes": 16869,
+        "other_votes": 1599
+      },
+      "40": {
+        "dem_votes": 22310,
+        "rep_votes": 15042,
+        "other_votes": 1142
+      },
+      "41": {
+        "dem_votes": 14174,
+        "rep_votes": 24029,
+        "other_votes": 2340
+      },
+      "42": {
+        "dem_votes": 27245,
+        "rep_votes": 10375,
+        "other_votes": 1729
+      },
+      "43": {
+        "dem_votes": 19693,
+        "rep_votes": 41460,
+        "other_votes": 2883
+      },
+      "44": {
+        "dem_votes": 14952,
+        "rep_votes": 34137,
+        "other_votes": 3074
+      },
+      "45": {
+        "dem_votes": 23084,
+        "rep_votes": 15262,
+        "other_votes": 1530
+      },
+      "46": {
+        "dem_votes": 16219,
+        "rep_votes": 43122,
+        "other_votes": 1980
+      }
+    },
+    "split_counties_reconciled": 27,
     "district_lines_file": "data/tileset/sc_state_senate_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
+    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "split_precinct_weight_source": "rdh-cvap24",
+    "canonical_statewide_totals": {
+      "dem_votes": 916309,
+      "rep_votes": 1430156,
+      "other_votes": 132592
+    },
     "conservation_delta": {
       "dem_votes": 0,
       "rep_votes": 0,
       "other_votes": 0
     },
+    "punctuation_alias_rows": 1,
+    "punctuation_alias_votes": 1856,
+    "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
+    "historical_name_bridge_rows": 4,
+    "historical_name_bridge_votes": 3399,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/us_senate_2014",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.167018,
-    "snapshot_comparison_max_abs_share_delta_pp": 2.832648,
-    "calibration_method": "snapshot_shares_with_exact_statewide_party_and_district_totals",
-    "calibration_geometry": "state_senate_2022",
-    "calibration_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/us_senate_2014",
-    "calibration_districts": 46,
-    "calibration_expected_districts": 46,
-    "calibration_snapshot_districts": 46,
-    "calibration_source_fallback_districts": 0,
-    "calibration_mean_abs_share_delta_pp": 0.038351,
-    "calibration_max_abs_share_delta_pp": 0.118975,
-    "calibration_statewide_mix_gap_pp": 0.057268,
-    "calibration_tolerance_pp": 2.057268,
-    "calibration_conservation_delta": {
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    "margin_calibration_mode": "margins_only_original_shares",
-    "margin_calibration_mean_abs_delta_pp_before": 0.1103,
-    "margin_calibration_max_abs_delta_pp_before": 0.2341,
-    "margin_calibration_mean_abs_delta_pp_after": 0.0011,
-    "margin_calibration_max_abs_delta_pp_after": 0.0022
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.691032,
+    "snapshot_comparison_max_abs_share_delta_pp": 3.955084,
+    "snapshot_calibration_status": "comparison_only_calibration_disabled",
+    "district_statewide_totals": {
+      "dem_votes": 916309,
+      "rep_votes": 1430156,
+      "other_votes": 132592
+    }
   }
 }

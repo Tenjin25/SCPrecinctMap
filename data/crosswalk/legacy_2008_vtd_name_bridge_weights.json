@@ -1,0 +1,1971 @@
+{
+  "schema": "legacy_2008_vtd_name_bridge.v1",
+  "method": "Unique locality-name match to VTD10, corroborated by >=90% dominant 2008 VTD overlap; VTD10-to-current weights allocate votes.",
+  "weights": {
+    "HORRY - MT. OLIVE": {
+      "HORRY - MT OLIVE": 1.0
+    },
+    "HORRY - MT. VERNON": {
+      "HORRY - MT VERNON": 1.0
+    },
+    "MARION - NORTHEAST MULLINS": {
+      "MARION - N EAST MULLINS": 0.99888437,
+      "MARION - S EAST MULLINS": 0.00111563
+    },
+    "MARION - NORTHWEST MULLINS": {
+      "MARION - N WEST MULLINS": 0.991302,
+      "MARION - S WEST MULLINS": 0.004126,
+      "MARION - ZION": 0.00264,
+      "MARION - N EAST MULLINS": 0.00106,
+      "MARION - MARION NORTH": 0.000872
+    },
+    "MARION - SOUTHEAST MULLINS": {
+      "MARION - S EAST MULLINS": 1.0
+    },
+    "MARION - SOUTHWEST MULLINS": {
+      "MARION - S WEST MULLINS": 1.0
+    },
+    "NEWBERRY - ST. PHILLIPS-JOLLY STREET": {
+      "NEWBERRY - ST PHILLIPS-JOLLY STREET": 1.0
+    },
+    "SPARTANBURG - ARROWOOD": {
+      "SPARTANBURG - CHESNEE ELEMENTARY": 1.0
+    },
+    "SPARTANBURG - BEN AVON": {
+      "SPARTANBURG - BEN AVON METHODIST": 0.61679628,
+      "SPARTANBURG - MORNINGSIDE": 0.38320372
+    },
+    "SPARTANBURG - CROFT": {
+      "SPARTANBURG - CROFT BAPTIST": 1.0
+    },
+    "SPARTANBURG - CROSS ANCHOR": {
+      "SPARTANBURG - CROSS ANCHOR FIRE STATION": 1.0
+    },
+    "SPARTANBURG - PACOLET": {
+      "SPARTANBURG - PACOLET ELEMENTARY SCHOOL": 0.9983897,
+      "SPARTANBURG - CLIFTON GLENDALE": 0.0016103
+    },
+    "SPARTANBURG - PARK HILLS ELEMENTARY SCHOOL": {
+      "SPARTANBURG - SILVERHILL MEMORIAL UMC": 0.99360997,
+      "SPARTANBURG - AIRPORT": 0.00639003
+    },
+    "SPARTANBURG - PELHAM": {
+      "SPARTANBURG - PELHAM FIRE STATION": 1.0
+    },
+    "SPARTANBURG - VICTOR MILL": {
+      "SPARTANBURG - VICTOR MILL METHODIST": 1.0
+    },
+    "SPARTANBURG - WHITE STONE": {
+      "SPARTANBURG - SOUTHPORT": 1.0
+    }
+  },
+  "evidence": [
+    {
+      "source_precinct": "HORRY - MT. OLIVE",
+      "vtd10_name": "HORRY - MT. OLIVE",
+      "dominant_2008_vtd": "Horry - VTD 49",
+      "dominant_2008_vtd_overlap_share": 0.932926,
+      "source_vote_count": 1259
+    },
+    {
+      "source_precinct": "HORRY - MT. VERNON",
+      "vtd10_name": "HORRY - MT. VERNON",
+      "dominant_2008_vtd": "Horry - VTD 50",
+      "dominant_2008_vtd_overlap_share": 0.993365,
+      "source_vote_count": 321
+    },
+    {
+      "source_precinct": "MARION - NORTHEAST MULLINS",
+      "vtd10_name": "MARION - NORTHEAST MULLINS",
+      "dominant_2008_vtd": "Marion - VTD 15",
+      "dominant_2008_vtd_overlap_share": 1.0,
+      "source_vote_count": 1010
+    },
+    {
+      "source_precinct": "MARION - NORTHWEST MULLINS",
+      "vtd10_name": "MARION - NORTHWEST MULLINS",
+      "dominant_2008_vtd": "Marion - VTD 13",
+      "dominant_2008_vtd_overlap_share": 0.957655,
+      "source_vote_count": 796
+    },
+    {
+      "source_precinct": "MARION - SOUTHEAST MULLINS",
+      "vtd10_name": "MARION - SOUTHEAST MULLINS",
+      "dominant_2008_vtd": "Marion - VTD 16",
+      "dominant_2008_vtd_overlap_share": 1.0,
+      "source_vote_count": 676
+    },
+    {
+      "source_precinct": "MARION - SOUTHWEST MULLINS",
+      "vtd10_name": "MARION - SOUTHWEST MULLINS",
+      "dominant_2008_vtd": "Marion - VTD 14",
+      "dominant_2008_vtd_overlap_share": 1.0,
+      "source_vote_count": 769
+    },
+    {
+      "source_precinct": "NEWBERRY - ST. PHILLIPS-JOLLY STREET",
+      "vtd10_name": "NEWBERRY - ST. PHILLIPS-JOLLY STREET",
+      "dominant_2008_vtd": "Newberry - VTD 10",
+      "dominant_2008_vtd_overlap_share": 1.0,
+      "source_vote_count": 649
+    },
+    {
+      "source_precinct": "SPARTANBURG - ARROWOOD",
+      "vtd10_name": "SPARTANBURG - ARROWOOD BAPTIST",
+      "dominant_2008_vtd": "Spartanburg - VTD 4",
+      "dominant_2008_vtd_overlap_share": 1.0,
+      "source_vote_count": 325
+    },
+    {
+      "source_precinct": "SPARTANBURG - BEN AVON",
+      "vtd10_name": "SPARTANBURG - BEN AVON METHODIST",
+      "dominant_2008_vtd": "Spartanburg - VTD 53",
+      "dominant_2008_vtd_overlap_share": 0.987474,
+      "source_vote_count": 1980
+    },
+    {
+      "source_precinct": "SPARTANBURG - CROFT",
+      "vtd10_name": "SPARTANBURG - CROFT BAPTIST",
+      "dominant_2008_vtd": "Spartanburg - VTD 74",
+      "dominant_2008_vtd_overlap_share": 1.0,
+      "source_vote_count": 677
+    },
+    {
+      "source_precinct": "SPARTANBURG - CROSS ANCHOR",
+      "vtd10_name": "SPARTANBURG - CROSS ANCHOR FIRE STATION",
+      "dominant_2008_vtd": "Spartanburg - VTD 59",
+      "dominant_2008_vtd_overlap_share": 1.0,
+      "source_vote_count": 467
+    },
+    {
+      "source_precinct": "SPARTANBURG - PACOLET",
+      "vtd10_name": "SPARTANBURG - PACOLET TOWN HALL",
+      "dominant_2008_vtd": "Spartanburg - VTD 61",
+      "dominant_2008_vtd_overlap_share": 0.992895,
+      "source_vote_count": 923
+    },
+    {
+      "source_precinct": "SPARTANBURG - PARK HILLS ELEMENTARY SCHOOL",
+      "vtd10_name": "SPARTANBURG - PARK HILLS ELEMENTARY",
+      "dominant_2008_vtd": "Spartanburg - VTD 54",
+      "dominant_2008_vtd_overlap_share": 0.952499,
+      "source_vote_count": 663
+    },
+    {
+      "source_precinct": "SPARTANBURG - PELHAM",
+      "vtd10_name": "SPARTANBURG - PELHAM FIRE STATION",
+      "dominant_2008_vtd": "Spartanburg - VTD 77",
+      "dominant_2008_vtd_overlap_share": 1.0,
+      "source_vote_count": 716
+    },
+    {
+      "source_precinct": "SPARTANBURG - VICTOR MILL",
+      "vtd10_name": "SPARTANBURG - VICTOR MILL METHODIST",
+      "dominant_2008_vtd": "Spartanburg - VTD 68",
+      "dominant_2008_vtd_overlap_share": 0.901506,
+      "source_vote_count": 975
+    },
+    {
+      "source_precinct": "SPARTANBURG - WHITE STONE",
+      "vtd10_name": "SPARTANBURG - WHITE STONE METHODIST",
+      "dominant_2008_vtd": "Spartanburg - VTD 75",
+      "dominant_2008_vtd_overlap_share": 0.998054,
+      "source_vote_count": 531
+    }
+  ],
+  "review_only": [
+    {
+      "source_precinct": "SPARTANBURG - CAMPTON A",
+      "source_vote_count": 2481,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - CANAAN BAPTIST",
+          "name_similarity": 0.5333
+        },
+        {
+          "name": "SPARTANBURG - DRAYTON FIRE STATION",
+          "name_similarity": 0.5
+        },
+        {
+          "name": "SPARTANBURG - CHAPMAN HIGH SCHOOL",
+          "name_similarity": 0.5
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - WEST VIEW B",
+      "source_vote_count": 2152,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - WEST VIEW ELEMENTARY",
+          "name_similarity": 0.9
+        },
+        {
+          "name": "SPARTANBURG - WEST SIDE BAPTIST",
+          "name_similarity": 0.7
+        },
+        {
+          "name": "SPARTANBURG - EASTSIDE BAPTIST",
+          "name_similarity": 0.5263
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - BOWEN",
+      "source_vote_count": 1854,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - LAKE BOWEN BAPTIST",
+          "name_similarity": 0.6667
+        },
+        {
+          "name": "SPARTANBURG - COWPENS FIRE STATION",
+          "name_similarity": 0.6667
+        },
+        {
+          "name": "SPARTANBURG - BETHANY BAPTIST",
+          "name_similarity": 0.5
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - REIDVILLE B",
+      "source_vote_count": 1840,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - REIDVILLE FIRE STATION",
+          "name_similarity": 0.9
+        },
+        {
+          "name": "SPARTANBURG - REIDVILLE ELEMENTARY",
+          "name_similarity": 0.9
+        },
+        {
+          "name": "SPARTANBURG - EASTSIDE BAPTIST",
+          "name_similarity": 0.4211
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - BOILING SPRINGS B",
+      "source_vote_count": 1827,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - BOILING SPRINGS JR. HIGH",
+          "name_similarity": 0.9375
+        },
+        {
+          "name": "SPARTANBURG - BOILING SPRINGS HIGH SCHOOL",
+          "name_similarity": 0.9375
+        },
+        {
+          "name": "SPARTANBURG - BOILING SPRINGS 9TH GRADE",
+          "name_similarity": 0.7619
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - BALLENGER",
+      "source_vote_count": 1738,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - EBENEZER BAPTIST",
+          "name_similarity": 0.5882
+        },
+        {
+          "name": "SPARTANBURG - GRAMLING METHODIST",
+          "name_similarity": 0.4706
+        },
+        {
+          "name": "SPARTANBURG - GLENDALE FIRE STATION",
+          "name_similarity": 0.4706
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - ARLINGTON",
+      "source_vote_count": 1586,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - GRAMLING METHODIST",
+          "name_similarity": 0.5882
+        },
+        {
+          "name": "SPARTANBURG - TRINITY METHODIST",
+          "name_similarity": 0.5
+        },
+        {
+          "name": "SPARTANBURG - DRAYTON FIRE STATION",
+          "name_similarity": 0.5
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - WALNUT GROVE",
+      "source_vote_count": 1574,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - CEDAR GROVE BAPTIST",
+          "name_similarity": 0.6087
+        },
+        {
+          "name": "SPARTANBURG - WEST VIEW ELEMENTARY",
+          "name_similarity": 0.4762
+        },
+        {
+          "name": "SPARTANBURG - ABNER CREEK BAPTIST",
+          "name_similarity": 0.4348
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - CHEROKEE SPRINGS B",
+      "source_vote_count": 1494,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - CHEROKEE SPRINGS FIRE STATION",
+          "name_similarity": 0.9412
+        },
+        {
+          "name": "SPARTANBURG - HOLLY SPRINGS BAPTIST",
+          "name_similarity": 0.6452
+        },
+        {
+          "name": "SPARTANBURG - COLLEY SPRINGS BAPTIST",
+          "name_similarity": 0.625
+        }
+      ]
+    },
+    {
+      "source_precinct": "LEXINGTON - ST. DAVIDS",
+      "source_vote_count": 1485,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "LEXINGTON - 088",
+          "name_similarity": 0.0
+        },
+        {
+          "name": "LEXINGTON - 087",
+          "name_similarity": 0.0
+        },
+        {
+          "name": "LEXINGTON - 086",
+          "name_similarity": 0.0
+        }
+      ]
+    },
+    {
+      "source_precinct": "LEXINGTON - BETHANY",
+      "source_vote_count": 1443,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "LEXINGTON - 088",
+          "name_similarity": 0.0
+        },
+        {
+          "name": "LEXINGTON - 087",
+          "name_similarity": 0.0
+        },
+        {
+          "name": "LEXINGTON - 086",
+          "name_similarity": 0.0
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - SPARTANBURG HIGH A",
+      "source_vote_count": 1394,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - SPARTANBURG HIGH SCHOOL",
+          "name_similarity": 0.9167
+        },
+        {
+          "name": "SPARTANBURG - NORTH SPARTANBURG FIRE STATION",
+          "name_similarity": 0.7333
+        },
+        {
+          "name": "SPARTANBURG - STARTEX FIRE STATION",
+          "name_similarity": 0.4
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - FAIRMONT",
+      "source_vote_count": 1381,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - FAIRFOREST MIDDLE SCHOOL",
+          "name_similarity": 0.6667
+        },
+        {
+          "name": "SPARTANBURG - BEAUMONT METHODIST",
+          "name_similarity": 0.625
+        },
+        {
+          "name": "SPARTANBURG - TRINITY METHODIST",
+          "name_similarity": 0.4
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - CUNNINGHAM",
+      "source_vote_count": 1344,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - CHAPMAN HIGH SCHOOL",
+          "name_similarity": 0.4706
+        },
+        {
+          "name": "SPARTANBURG - CHAPMAN ELEMENTARY",
+          "name_similarity": 0.4706
+        },
+        {
+          "name": "SPARTANBURG - CANNONS ELEMENTARY",
+          "name_similarity": 0.4706
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - CAMPOBELLO",
+      "source_vote_count": 1316,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - POWELL SAXON UNA FIRE STATION",
+          "name_similarity": 0.4615
+        },
+        {
+          "name": "SPARTANBURG - WELLFORD FIRE STATION",
+          "name_similarity": 0.4444
+        },
+        {
+          "name": "SPARTANBURG - CAVINS HOBBYSVILLE",
+          "name_similarity": 0.4286
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - POPLAR SPRINGS B",
+      "source_vote_count": 1314,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - POPLAR SPRINGS FIRE STATION",
+          "name_similarity": 0.9333
+        },
+        {
+          "name": "SPARTANBURG - HOLLY SPRINGS BAPTIST",
+          "name_similarity": 0.6897
+        },
+        {
+          "name": "SPARTANBURG - COLLEY SPRINGS BAPTIST",
+          "name_similarity": 0.6667
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - INMAN A",
+      "source_vote_count": 1259,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - INMAN MILLS BAPTIST",
+          "name_similarity": 0.6667
+        },
+        {
+          "name": "SPARTANBURG - LYMAN TOWN HALL",
+          "name_similarity": 0.5
+        },
+        {
+          "name": "SPARTANBURG - CANAAN BAPTIST",
+          "name_similarity": 0.4615
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - BRKLYN CS FINGV",
+      "source_vote_count": 1233,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - HOLLY SPRINGS BAPTIST",
+          "name_similarity": 0.5
+        },
+        {
+          "name": "SPARTANBURG - CHEROKEE SPRINGS FIRE STATION",
+          "name_similarity": 0.4516
+        },
+        {
+          "name": "SPARTANBURG - GRAMLING METHODIST",
+          "name_similarity": 0.4348
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - CEDAR SPRINGS",
+      "source_vote_count": 1212,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - CHEROKEE SPRINGS FIRE STATION",
+          "name_similarity": 0.7586
+        },
+        {
+          "name": "SPARTANBURG - POPLAR SPRINGS FIRE STATION",
+          "name_similarity": 0.7407
+        },
+        {
+          "name": "SPARTANBURG - COLLEY SPRINGS BAPTIST",
+          "name_similarity": 0.7407
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - CAMPTON B",
+      "source_vote_count": 1188,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - DRAYTON FIRE STATION",
+          "name_similarity": 0.5
+        },
+        {
+          "name": "SPARTANBURG - CHAPMAN HIGH SCHOOL",
+          "name_similarity": 0.5
+        },
+        {
+          "name": "SPARTANBURG - CHAPMAN ELEMENTARY",
+          "name_similarity": 0.5
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - CAMELOT",
+      "source_vote_count": 1153,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - BEAUMONT METHODIST",
+          "name_similarity": 0.5333
+        },
+        {
+          "name": "SPARTANBURG - CROFT BAPTIST",
+          "name_similarity": 0.5
+        },
+        {
+          "name": "SPARTANBURG - PACOLET TOWN HALL",
+          "name_similarity": 0.4286
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - WHITNEY A 1",
+      "source_vote_count": 1133,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - WHITE STONE METHODIST",
+          "name_similarity": 0.5455
+        },
+        {
+          "name": "SPARTANBURG - WHITLOCK JR. HIGH",
+          "name_similarity": 0.4211
+        },
+        {
+          "name": "SPARTANBURG - HAYNE BAPTIST",
+          "name_similarity": 0.375
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - INMAN B",
+      "source_vote_count": 1103,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - INMAN MILLS BAPTIST",
+          "name_similarity": 0.6667
+        },
+        {
+          "name": "SPARTANBURG - LYMAN TOWN HALL",
+          "name_similarity": 0.5
+        },
+        {
+          "name": "SPARTANBURG - CHAPMAN HIGH SCHOOL",
+          "name_similarity": 0.4286
+        }
+      ]
+    },
+    {
+      "source_precinct": "KERSHAW - RABONS XROADS",
+      "source_vote_count": 1096,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "KERSHAW - RABONS CROSSROADS",
+          "name_similarity": 0.7742
+        },
+        {
+          "name": "KERSHAW - GATES FORD",
+          "name_similarity": 0.4348
+        },
+        {
+          "name": "KERSHAW - SALT POND",
+          "name_similarity": 0.3636
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - COWPENS A",
+      "source_vote_count": 1068,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - COWPENS FIRE STATION",
+          "name_similarity": 0.875
+        },
+        {
+          "name": "SPARTANBURG - COWPENS DEPOT MUSEUM",
+          "name_similarity": 0.5517
+        },
+        {
+          "name": "SPARTANBURG - CANNONS ELEMENTARY",
+          "name_similarity": 0.5
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - CHESNEE",
+      "source_vote_count": 1060,
+      "reason": "weak_2008_vtd_overlap",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - CHESNEE SENIOR CENTER",
+          "name_similarity": 1.0,
+          "dominant_2008_vtd_overlap_share": 0.822254
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - WOODRUFF 1",
+      "source_vote_count": 1029,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - WOODRUFF TOWN HALL",
+          "name_similarity": 0.8889
+        },
+        {
+          "name": "SPARTANBURG - WOODRUFF FIRE STATION",
+          "name_similarity": 0.8889
+        },
+        {
+          "name": "SPARTANBURG - WOODRUFF AMERICAN LEGION",
+          "name_similarity": 0.5294
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - MOORE-SWITZER",
+      "source_vote_count": 997,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - MOTLOW CREEK BAPTIST",
+          "name_similarity": 0.48
+        },
+        {
+          "name": "SPARTANBURG - WEST SIDE BAPTIST",
+          "name_similarity": 0.4545
+        },
+        {
+          "name": "SPARTANBURG - FAIRFOREST MIDDLE SCHOOL",
+          "name_similarity": 0.4348
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - DUNCAN B",
+      "source_vote_count": 994,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - UNA FIRE STATION",
+          "name_similarity": 0.5455
+        },
+        {
+          "name": "SPARTANBURG - MOUNTAIN VIEW BAPTIST",
+          "name_similarity": 0.4762
+        },
+        {
+          "name": "SPARTANBURG - CANAAN BAPTIST",
+          "name_similarity": 0.4286
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - BOBO",
+      "source_vote_count": 973,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - WOODRUFF TOWN HALL",
+          "name_similarity": 0.3333
+        },
+        {
+          "name": "SPARTANBURG - WOODRUFF FIRE STATION",
+          "name_similarity": 0.3333
+        },
+        {
+          "name": "SPARTANBURG - BEN AVON METHODIST",
+          "name_similarity": 0.3333
+        }
+      ]
+    },
+    {
+      "source_precinct": "GREENVILLE - MT. PLEASANT",
+      "source_vote_count": 934,
+      "reason": "weak_2008_vtd_overlap",
+      "candidate_vtd10_names": [
+        {
+          "name": "GREENVILLE - MT. PLEASANT",
+          "name_similarity": 1.0,
+          "dominant_2008_vtd_overlap_share": 0.629619
+        }
+      ]
+    },
+    {
+      "source_precinct": "AIKEN - BREEZY HILL 50",
+      "source_vote_count": 887,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "AIKEN - BREEZY HILL",
+          "name_similarity": 0.88
+        },
+        {
+          "name": "AIKEN - SLEEPY HOLLOW 65",
+          "name_similarity": 0.6
+        },
+        {
+          "name": "AIKEN - BEECH ISLAND",
+          "name_similarity": 0.4615
+        }
+      ]
+    },
+    {
+      "source_precinct": "MARLBORO - NORTH BENNETTSVILLE",
+      "source_vote_count": 879,
+      "reason": "weak_2008_vtd_overlap",
+      "candidate_vtd10_names": [
+        {
+          "name": "MARLBORO - NORTH BENNETTSVILLE",
+          "name_similarity": 1.0,
+          "dominant_2008_vtd_overlap_share": 0.248629
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - ZION HILL A",
+      "source_vote_count": 868,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - VICTOR MILL METHODIST",
+          "name_similarity": 0.5455
+        },
+        {
+          "name": "SPARTANBURG - INMAN MILLS BAPTIST",
+          "name_similarity": 0.5455
+        },
+        {
+          "name": "SPARTANBURG - MT. ZION FULL GOSPEL BAPTIST",
+          "name_similarity": 0.5333
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - MAYO",
+      "source_vote_count": 845,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - MAYO ELEMENTARY",
+          "name_similarity": 1.0
+        },
+        {
+          "name": "SPARTANBURG - DRAYTON FIRE STATION",
+          "name_similarity": 0.5455
+        },
+        {
+          "name": "SPARTANBURG - LYMAN TOWN HALL",
+          "name_similarity": 0.4444
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - SPARTANBURG HIGH B",
+      "source_vote_count": 825,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - SPARTANBURG HIGH SCHOOL",
+          "name_similarity": 0.9167
+        },
+        {
+          "name": "SPARTANBURG - NORTH SPARTANBURG FIRE STATION",
+          "name_similarity": 0.7333
+        },
+        {
+          "name": "SPARTANBURG - STARTEX FIRE STATION",
+          "name_similarity": 0.4
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - ZION HILL B",
+      "source_vote_count": 773,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - VICTOR MILL METHODIST",
+          "name_similarity": 0.5455
+        },
+        {
+          "name": "SPARTANBURG - INMAN MILLS BAPTIST",
+          "name_similarity": 0.5455
+        },
+        {
+          "name": "SPARTANBURG - MT. ZION FULL GOSPEL BAPTIST",
+          "name_similarity": 0.5333
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - WHITNEY A 2",
+      "source_vote_count": 758,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - WHITE STONE METHODIST",
+          "name_similarity": 0.5455
+        },
+        {
+          "name": "SPARTANBURG - WHITLOCK JR. HIGH",
+          "name_similarity": 0.4211
+        },
+        {
+          "name": "SPARTANBURG - HAYNE BAPTIST",
+          "name_similarity": 0.375
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - DUNCAN A",
+      "source_vote_count": 755,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - CANAAN BAPTIST",
+          "name_similarity": 0.5714
+        },
+        {
+          "name": "SPARTANBURG - UNA FIRE STATION",
+          "name_similarity": 0.5455
+        },
+        {
+          "name": "SPARTANBURG - MOUNTAIN VIEW BAPTIST",
+          "name_similarity": 0.4762
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - EAST GREER",
+      "source_vote_count": 736,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - PINE STREET ELEMENTARY",
+          "name_similarity": 0.5714
+        },
+        {
+          "name": "SPARTANBURG - CEDAR GROVE BAPTIST",
+          "name_similarity": 0.5714
+        },
+        {
+          "name": "SPARTANBURG - EASTSIDE BAPTIST",
+          "name_similarity": 0.5556
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - WOODRUFF 2",
+      "source_vote_count": 709,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - WOODRUFF TOWN HALL",
+          "name_similarity": 0.8889
+        },
+        {
+          "name": "SPARTANBURG - WOODRUFF FIRE STATION",
+          "name_similarity": 0.8889
+        },
+        {
+          "name": "SPARTANBURG - WOODRUFF AMERICAN LEGION",
+          "name_similarity": 0.5294
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - WHITNEY STATION B-HILL TOP",
+      "source_vote_count": 692,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - WHITLOCK JR. HIGH",
+          "name_similarity": 0.4615
+        },
+        {
+          "name": "SPARTANBURG - MT. ZION FULL GOSPEL BAPTIST",
+          "name_similarity": 0.4324
+        },
+        {
+          "name": "SPARTANBURG - SILVERHILL METHODIST CHURCH",
+          "name_similarity": 0.4286
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - PAULINE-GLENN S",
+      "source_vote_count": 686,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - PAULINE GLEEN SPRINGS ELEMENTARY",
+          "name_similarity": 0.7778
+        },
+        {
+          "name": "SPARTANBURG - PINE STREET ELEMENTARY",
+          "name_similarity": 0.4615
+        },
+        {
+          "name": "SPARTANBURG - GRAMLING METHODIST",
+          "name_similarity": 0.4348
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - COWPENS B",
+      "source_vote_count": 662,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - COWPENS FIRE STATION",
+          "name_similarity": 0.875
+        },
+        {
+          "name": "SPARTANBURG - COWPENS DEPOT MUSEUM",
+          "name_similarity": 0.5517
+        },
+        {
+          "name": "SPARTANBURG - CANNONS ELEMENTARY",
+          "name_similarity": 0.5
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - HAYNE SHOP",
+      "source_vote_count": 653,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - HAYNE BAPTIST",
+          "name_similarity": 0.6667
+        },
+        {
+          "name": "SPARTANBURG - WHITE STONE METHODIST",
+          "name_similarity": 0.4762
+        },
+        {
+          "name": "SPARTANBURG - HOLLY SPRINGS BAPTIST",
+          "name_similarity": 0.4348
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - CANNONS CAMPGRD",
+      "source_vote_count": 648,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - CANNONS ELEMENTARY",
+          "name_similarity": 0.6364
+        },
+        {
+          "name": "SPARTANBURG - ANDERSON MILL ELEMENTARY",
+          "name_similarity": 0.4286
+        },
+        {
+          "name": "SPARTANBURG - CEDAR GROVE BAPTIST",
+          "name_similarity": 0.3846
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - DEYOUNG",
+      "source_vote_count": 642,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - DRAYTON FIRE STATION",
+          "name_similarity": 0.5714
+        },
+        {
+          "name": "SPARTANBURG - UNA FIRE STATION",
+          "name_similarity": 0.4
+        },
+        {
+          "name": "SPARTANBURG - BEN AVON METHODIST",
+          "name_similarity": 0.4
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - MOTLOW",
+      "source_vote_count": 641,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - MOTLOW CREEK BAPTIST",
+          "name_similarity": 0.6667
+        },
+        {
+          "name": "SPARTANBURG - WHITLOCK JR. HIGH",
+          "name_similarity": 0.4286
+        },
+        {
+          "name": "SPARTANBURG - BEAUMONT METHODIST",
+          "name_similarity": 0.4286
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - CENTRAL FIRE STATION",
+      "source_vote_count": 635,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - GLENDALE FIRE STATION",
+          "name_similarity": 0.5333
+        },
+        {
+          "name": "SPARTANBURG - ENOREE FIRST BAPTIST",
+          "name_similarity": 0.4615
+        },
+        {
+          "name": "SPARTANBURG - CANAAN BAPTIST",
+          "name_similarity": 0.4615
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - STARTEX",
+      "source_vote_count": 562,
+      "reason": "weak_2008_vtd_overlap",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - STARTEX FIRE STATION",
+          "name_similarity": 1.0,
+          "dominant_2008_vtd_overlap_share": 0.668138
+        }
+      ]
+    },
+    {
+      "source_precinct": "MARLBORO - E BENNETTSVILLE",
+      "source_vote_count": 560,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "MARLBORO - WEST BENNETTSVILLE",
+          "name_similarity": 0.9091
+        },
+        {
+          "name": "MARLBORO - EAST BENNETTSVILLE",
+          "name_similarity": 0.9091
+        },
+        {
+          "name": "MARLBORO - SOUTH BENNETTSVILLE",
+          "name_similarity": 0.8235
+        }
+      ]
+    },
+    {
+      "source_precinct": "MARLBORO - WEST BENNETTSVILLE",
+      "source_vote_count": 551,
+      "reason": "weak_2008_vtd_overlap",
+      "candidate_vtd10_names": [
+        {
+          "name": "MARLBORO - WEST BENNETTSVILLE",
+          "name_similarity": 1.0,
+          "dominant_2008_vtd_overlap_share": 0.662788
+        }
+      ]
+    },
+    {
+      "source_precinct": "HORRY - EMERGENCY",
+      "source_vote_count": 512,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "HORRY - GARDEN CITY 4",
+          "name_similarity": 0.4545
+        },
+        {
+          "name": "HORRY - GARDEN CITY 3",
+          "name_similarity": 0.4545
+        },
+        {
+          "name": "HORRY - GARDEN CITY 2",
+          "name_similarity": 0.4545
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - CLIFTON",
+      "source_vote_count": 505,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - CLIFDALE ELEMENTARY",
+          "name_similarity": 0.5333
+        },
+        {
+          "name": "SPARTANBURG - CROFT BAPTIST",
+          "name_similarity": 0.5
+        },
+        {
+          "name": "SPARTANBURG - WHITE STONE METHODIST",
+          "name_similarity": 0.4444
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - PACOLET MILLS",
+      "source_vote_count": 486,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - PACOLET TOWN HALL",
+          "name_similarity": 0.7
+        },
+        {
+          "name": "SPARTANBURG - PARK HILLS ELEMENTARY",
+          "name_similarity": 0.6087
+        },
+        {
+          "name": "SPARTANBURG - VICTOR MILL METHODIST",
+          "name_similarity": 0.5833
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - BUNTON",
+      "source_vote_count": 461,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - BEN AVON METHODIST",
+          "name_similarity": 0.5714
+        },
+        {
+          "name": "SPARTANBURG - BEAUMONT METHODIST",
+          "name_similarity": 0.5714
+        },
+        {
+          "name": "SPARTANBURG - CORNERSTONE BAPTIST",
+          "name_similarity": 0.4706
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - ARKWRIGHT",
+      "source_vote_count": 437,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - POPLAR SPRINGS FIRE STATION",
+          "name_similarity": 0.4348
+        },
+        {
+          "name": "SPARTANBURG - PARK HILLS ELEMENTARY",
+          "name_similarity": 0.4211
+        },
+        {
+          "name": "SPARTANBURG - FAIRFOREST MIDDLE SCHOOL",
+          "name_similarity": 0.4211
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - ARCADIA-JOHNSON CITY",
+      "source_vote_count": 430,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - ARCADIA ELEMENTARY",
+          "name_similarity": 0.5185
+        },
+        {
+          "name": "SPARTANBURG - TRINITY METHODIST",
+          "name_similarity": 0.4444
+        },
+        {
+          "name": "SPARTANBURG - ANDERSON MILL ELEMENTARY",
+          "name_similarity": 0.4242
+        }
+      ]
+    },
+    {
+      "source_precinct": "MARLBORO - QUICKS XROADS",
+      "source_vote_count": 390,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "MARLBORO - QUICKS X ROADS",
+          "name_similarity": 0.963
+        },
+        {
+          "name": "MARLBORO - ADAMSVILLE",
+          "name_similarity": 0.2609
+        },
+        {
+          "name": "MARLBORO - BROWNSVILLE",
+          "name_similarity": 0.25
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - WOODRUFF 3",
+      "source_vote_count": 388,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - WOODRUFF TOWN HALL",
+          "name_similarity": 0.8889
+        },
+        {
+          "name": "SPARTANBURG - WOODRUFF FIRE STATION",
+          "name_similarity": 0.8889
+        },
+        {
+          "name": "SPARTANBURG - WOODRUFF AMERICAN LEGION",
+          "name_similarity": 0.5294
+        }
+      ]
+    },
+    {
+      "source_precinct": "MARLBORO - SOUTH BENNETTSVILLE",
+      "source_vote_count": 366,
+      "reason": "weak_2008_vtd_overlap",
+      "candidate_vtd10_names": [
+        {
+          "name": "MARLBORO - SOUTH BENNETTSVILLE",
+          "name_similarity": 1.0,
+          "dominant_2008_vtd_overlap_share": 0.525254
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - UNA",
+      "source_vote_count": 235,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - UNA FIRE STATION",
+          "name_similarity": 1.0
+        },
+        {
+          "name": "SPARTANBURG - CANAAN BAPTIST",
+          "name_similarity": 0.4444
+        },
+        {
+          "name": "SPARTANBURG - MOUNTAIN VIEW BAPTIST",
+          "name_similarity": 0.375
+        }
+      ]
+    },
+    {
+      "source_precinct": "CHESTERFIELD - WHITE OAK",
+      "source_vote_count": 177,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "CHESTERFIELD - SNOW HILL-VAUGHN",
+          "name_similarity": 0.4
+        },
+        {
+          "name": "CHESTERFIELD - SHILOH",
+          "name_similarity": 0.4
+        },
+        {
+          "name": "CHESTERFIELD - MIDDENDORF",
+          "name_similarity": 0.3158
+        }
+      ]
+    },
+    {
+      "source_precinct": "CHESTERFIELD - CAT POND",
+      "source_vote_count": 160,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "CHESTERFIELD - MT. CROGHAN",
+          "name_similarity": 0.4444
+        },
+        {
+          "name": "CHESTERFIELD - CHERAW 4",
+          "name_similarity": 0.4211
+        },
+        {
+          "name": "CHESTERFIELD - CHERAW 3",
+          "name_similarity": 0.4211
+        }
+      ]
+    },
+    {
+      "source_precinct": "CHESTERFIELD - VAUGHN",
+      "source_vote_count": 159,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "CHESTERFIELD - SNOW HILL-VAUGHN",
+          "name_similarity": 0.5455
+        },
+        {
+          "name": "CHESTERFIELD - CASH",
+          "name_similarity": 0.4
+        },
+        {
+          "name": "CHESTERFIELD - MT. CROGHAN",
+          "name_similarity": 0.375
+        }
+      ]
+    },
+    {
+      "source_precinct": "KERSHAW - EMERGENCY",
+      "source_vote_count": 137,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "KERSHAW - EAST CAMDEN-HERMITAGE",
+          "name_similarity": 0.4
+        },
+        {
+          "name": "KERSHAW - MALVERN HILL",
+          "name_similarity": 0.381
+        },
+        {
+          "name": "KERSHAW - WHITES GARDENS",
+          "name_similarity": 0.3333
+        }
+      ]
+    },
+    {
+      "source_precinct": "CHESTERFIELD - WEXFORD",
+      "source_vote_count": 136,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "CHESTERFIELD - JEFFERSON",
+          "name_similarity": 0.375
+        },
+        {
+          "name": "CHESTERFIELD - MIDDENDORF",
+          "name_similarity": 0.3529
+        },
+        {
+          "name": "CHESTERFIELD - PEE DEE",
+          "name_similarity": 0.2857
+        }
+      ]
+    },
+    {
+      "source_precinct": "ORANGEBURG - EMERGENCY",
+      "source_vote_count": 94,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "ORANGEBURG - PROVIDENCE",
+          "name_similarity": 0.4211
+        },
+        {
+          "name": "ORANGEBURG - ELLOREE 2",
+          "name_similarity": 0.3333
+        },
+        {
+          "name": "ORANGEBURG - ELLOREE 1",
+          "name_similarity": 0.3333
+        }
+      ]
+    },
+    {
+      "source_precinct": "CLARENDON - EMERGENCY",
+      "source_vote_count": 84,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "CLARENDON - HOME BRANCH",
+          "name_similarity": 0.5
+        },
+        {
+          "name": "CLARENDON - HARMONY",
+          "name_similarity": 0.375
+        },
+        {
+          "name": "CLARENDON - SUMMERTON 3",
+          "name_similarity": 0.3478
+        }
+      ]
+    },
+    {
+      "source_precinct": "DARLINGTON - EMERGENCY",
+      "source_vote_count": 82,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "DARLINGTON - NEW MARKET",
+          "name_similarity": 0.3158
+        },
+        {
+          "name": "DARLINGTON - LAMAR 2",
+          "name_similarity": 0.3158
+        },
+        {
+          "name": "DARLINGTON - LAMAR 1",
+          "name_similarity": 0.3158
+        }
+      ]
+    },
+    {
+      "source_precinct": "WILLIAMSBURG - EMERGENCY",
+      "source_vote_count": 35,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "WILLIAMSBURG - HEMMINGWAY",
+          "name_similarity": 0.4211
+        },
+        {
+          "name": "WILLIAMSBURG - HEBRON",
+          "name_similarity": 0.4
+        },
+        {
+          "name": "WILLIAMSBURG - MOUNT VERNON",
+          "name_similarity": 0.381
+        }
+      ]
+    },
+    {
+      "source_precinct": "BAMBERG - EMERGENCY",
+      "source_vote_count": 23,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "BAMBERG - SOUTH BAMBERG",
+          "name_similarity": 0.3636
+        },
+        {
+          "name": "BAMBERG - NORTH BAMBERG",
+          "name_similarity": 0.3636
+        },
+        {
+          "name": "BAMBERG - WEST DENMARK",
+          "name_similarity": 0.2857
+        }
+      ]
+    },
+    {
+      "source_precinct": "DORCHESTER - EMERGENCY",
+      "source_vote_count": 22,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "DORCHESTER - ST. GEORGE 2",
+          "name_similarity": 0.4348
+        },
+        {
+          "name": "DORCHESTER - ST. GEORGE 1",
+          "name_similarity": 0.4348
+        },
+        {
+          "name": "DORCHESTER - CLEMSON",
+          "name_similarity": 0.375
+        }
+      ]
+    },
+    {
+      "source_precinct": "MARLBORO - EMERGENCY",
+      "source_vote_count": 20,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "MARLBORO - EAST MCCOLL",
+          "name_similarity": 0.3
+        },
+        {
+          "name": "MARLBORO - MCCOLL",
+          "name_similarity": 0.2667
+        },
+        {
+          "name": "MARLBORO - BLENHEIM",
+          "name_similarity": 0.2353
+        }
+      ]
+    },
+    {
+      "source_precinct": "ABBEVILLE - EMERGENCY",
+      "source_vote_count": 19,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "ABBEVILLE - KEOWEE",
+          "name_similarity": 0.4
+        },
+        {
+          "name": "ABBEVILLE - ABBEVILLE 4",
+          "name_similarity": 0.2609
+        },
+        {
+          "name": "ABBEVILLE - ABBEVILLE 3",
+          "name_similarity": 0.2609
+        }
+      ]
+    },
+    {
+      "source_precinct": "ALLENDALE - EMERGENCY",
+      "source_vote_count": 11,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "ALLENDALE - ULMER",
+          "name_similarity": 0.4286
+        },
+        {
+          "name": "ALLENDALE - MARTIN",
+          "name_similarity": 0.4
+        },
+        {
+          "name": "ALLENDALE - FAIRFAX 2",
+          "name_similarity": 0.1905
+        }
+      ]
+    },
+    {
+      "source_precinct": "CHESTER - EMERGENCY",
+      "source_vote_count": 11,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "CHESTER - EDGEMOOR",
+          "name_similarity": 0.3529
+        },
+        {
+          "name": "CHESTER - BATON ROUGE",
+          "name_similarity": 0.3
+        },
+        {
+          "name": "CHESTER - BECKHAMVILLE",
+          "name_similarity": 0.2857
+        }
+      ]
+    },
+    {
+      "source_precinct": "MARION - EMERGENCY",
+      "source_vote_count": 7,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "MARION - TEMPERANCE",
+          "name_similarity": 0.6316
+        },
+        {
+          "name": "MARION - SELLERS",
+          "name_similarity": 0.375
+        },
+        {
+          "name": "MARION - CENTENARY",
+          "name_similarity": 0.3333
+        }
+      ]
+    },
+    {
+      "source_precinct": "NEWBERRY - EMERGENCY",
+      "source_vote_count": 3,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "NEWBERRY - BETH - EDEN",
+          "name_similarity": 0.4444
+        },
+        {
+          "name": "NEWBERRY - HELENA",
+          "name_similarity": 0.4
+        },
+        {
+          "name": "NEWBERRY - WHEELAND",
+          "name_similarity": 0.3529
+        }
+      ]
+    },
+    {
+      "source_precinct": "BARNWELL - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "BARNWELL - FRIENDSHIP",
+          "name_similarity": 0.3158
+        },
+        {
+          "name": "BARNWELL - HEALING SPRINGS",
+          "name_similarity": 0.25
+        },
+        {
+          "name": "BARNWELL - SNELLING",
+          "name_similarity": 0.2353
+        }
+      ]
+    },
+    {
+      "source_precinct": "BEAUFORT - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "BEAUFORT - ST. HELENA 2C",
+          "name_similarity": 0.381
+        },
+        {
+          "name": "BEAUFORT - ST. HELENA 1C",
+          "name_similarity": 0.381
+        },
+        {
+          "name": "BEAUFORT - BURTON 2C",
+          "name_similarity": 0.3333
+        }
+      ]
+    },
+    {
+      "source_precinct": "CALHOUN - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "CALHOUN - CAMERON",
+          "name_similarity": 0.5
+        },
+        {
+          "name": "CALHOUN - FALL BRANCH",
+          "name_similarity": 0.3
+        },
+        {
+          "name": "CALHOUN - MIDWAY",
+          "name_similarity": 0.2667
+        }
+      ]
+    },
+    {
+      "source_precinct": "CHEROKEE - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "CHEROKEE - MORGAN",
+          "name_similarity": 0.5333
+        },
+        {
+          "name": "CHEROKEE - TIMBER RIDGE",
+          "name_similarity": 0.4762
+        },
+        {
+          "name": "CHEROKEE - EZELLS-BUTLER",
+          "name_similarity": 0.2727
+        }
+      ]
+    },
+    {
+      "source_precinct": "CHESTERFIELD - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "CHESTERFIELD - JEFFERSON",
+          "name_similarity": 0.4444
+        },
+        {
+          "name": "CHESTERFIELD - MT. CROGHAN",
+          "name_similarity": 0.4211
+        },
+        {
+          "name": "CHESTERFIELD - PEE DEE",
+          "name_similarity": 0.375
+        }
+      ]
+    },
+    {
+      "source_precinct": "COLLETON - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "COLLETON - BEREA",
+          "name_similarity": 0.4286
+        },
+        {
+          "name": "COLLETON - PEEPLES",
+          "name_similarity": 0.375
+        },
+        {
+          "name": "COLLETON - HENDERSONVILLE",
+          "name_similarity": 0.3478
+        }
+      ]
+    },
+    {
+      "source_precinct": "DILLON - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "DILLON - KEMPER",
+          "name_similarity": 0.5333
+        },
+        {
+          "name": "DILLON - HAMER",
+          "name_similarity": 0.4286
+        },
+        {
+          "name": "DILLON - MINTURN",
+          "name_similarity": 0.375
+        }
+      ]
+    },
+    {
+      "source_precinct": "EDGEFIELD - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "EDGEFIELD - MERRIWEATHER 2",
+          "name_similarity": 0.3846
+        },
+        {
+          "name": "EDGEFIELD - MERRIWEATHER 1",
+          "name_similarity": 0.3846
+        },
+        {
+          "name": "EDGEFIELD - TRENTON",
+          "name_similarity": 0.375
+        }
+      ]
+    },
+    {
+      "source_precinct": "FAIRFIELD - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "FAIRFIELD - RIDGEWAY",
+          "name_similarity": 0.4706
+        },
+        {
+          "name": "FAIRFIELD - HOREB-GLENN",
+          "name_similarity": 0.4
+        },
+        {
+          "name": "FAIRFIELD - CENTERVILLE",
+          "name_similarity": 0.4
+        }
+      ]
+    },
+    {
+      "source_precinct": "HAMPTON - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "HAMPTON - YEMASSEE",
+          "name_similarity": 0.4706
+        },
+        {
+          "name": "HAMPTON - EARLY BRANCH",
+          "name_similarity": 0.381
+        },
+        {
+          "name": "HAMPTON - CROCKET-MILEY",
+          "name_similarity": 0.3636
+        }
+      ]
+    },
+    {
+      "source_precinct": "LANCASTER - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "LANCASTER - ELGIN",
+          "name_similarity": 0.4286
+        },
+        {
+          "name": "LANCASTER - RIVERSIDE",
+          "name_similarity": 0.3333
+        },
+        {
+          "name": "LANCASTER - CHESTERFIELD AVE",
+          "name_similarity": 0.32
+        }
+      ]
+    },
+    {
+      "source_precinct": "LEE - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "LEE - CEDAR CREEK",
+          "name_similarity": 0.3
+        },
+        {
+          "name": "LEE - TURKEY CREEK",
+          "name_similarity": 0.2857
+        },
+        {
+          "name": "LEE - RATTLESNAKE SPRINGS",
+          "name_similarity": 0.2857
+        }
+      ]
+    },
+    {
+      "source_precinct": "MCCORMICK - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "MCCORMICK - PLUM BRANCH",
+          "name_similarity": 0.4
+        },
+        {
+          "name": "MCCORMICK - BETHANY",
+          "name_similarity": 0.375
+        },
+        {
+          "name": "MCCORMICK - MODOC",
+          "name_similarity": 0.2857
+        }
+      ]
+    },
+    {
+      "source_precinct": "PICKENS - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "PICKENS - GEORGES CREEK",
+          "name_similarity": 0.4545
+        },
+        {
+          "name": "PICKENS - EASLEY",
+          "name_similarity": 0.4
+        },
+        {
+          "name": "PICKENS - MORRISON",
+          "name_similarity": 0.3529
+        }
+      ]
+    },
+    {
+      "source_precinct": "SPARTANBURG - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SPARTANBURG - DANIEL MORGAN TECHNOLOGY CENTER",
+          "name_similarity": 0.4242
+        },
+        {
+          "name": "SPARTANBURG - TRINITY METHODIST",
+          "name_similarity": 0.375
+        },
+        {
+          "name": "SPARTANBURG - CHESNEE SENIOR CENTER",
+          "name_similarity": 0.375
+        }
+      ]
+    },
+    {
+      "source_precinct": "SUMTER - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "SUMTER - REMBERT",
+          "name_similarity": 0.5
+        },
+        {
+          "name": "SUMTER - MULLBERRY",
+          "name_similarity": 0.4444
+        },
+        {
+          "name": "SUMTER - LEMIRA",
+          "name_similarity": 0.4
+        }
+      ]
+    },
+    {
+      "source_precinct": "UNION - EMERGENCY",
+      "source_vote_count": 0,
+      "reason": "ambiguous_or_no_unique_name",
+      "candidate_vtd10_names": [
+        {
+          "name": "UNION - EXCELSIOR",
+          "name_similarity": 0.3333
+        },
+        {
+          "name": "UNION - ADAMSBURG",
+          "name_similarity": 0.3333
+        },
+        {
+          "name": "UNION - WEST SPRINGS",
+          "name_similarity": 0.2857
+        }
+      ]
+    }
+  ],
+  "qa": {
+    "bridged_rows": 16,
+    "bridged_votes": 12737,
+    "unmatched_rows_examined": 112,
+    "review_only_rows": 96,
+    "review_only_votes": 63012,
+    "rejections": {
+      "ambiguous_or_no_unique_name": 90,
+      "weak_2008_vtd_overlap": 6
+    }
+  }
+}

@@ -1,0 +1,1114 @@
+{
+  "method": "Compare served and staged seven-district sums with official county-row statewide totals for every 2010\u20132024 statewide contest projected on congressional lines. Vote shortfall is per contest, not a sum of distinct voters.",
+  "summary": {
+    "files": 37,
+    "years": 8,
+    "served_statewide_failures": 37,
+    "staged_statewide_failures": 0,
+    "winner_changes": 0
+  },
+  "years": [
+    {
+      "year": 2010,
+      "files": 8,
+      "largest_served_vote_shortfall": 182596,
+      "largest_margin_change_pp": 8.555,
+      "winner_changes": 0,
+      "staged_statewide_failures": 0
+    },
+    {
+      "year": 2012,
+      "files": 1,
+      "largest_served_vote_shortfall": 450313,
+      "largest_margin_change_pp": 5.5958,
+      "winner_changes": 0,
+      "staged_statewide_failures": 0
+    },
+    {
+      "year": 2014,
+      "files": 8,
+      "largest_served_vote_shortfall": 367211,
+      "largest_margin_change_pp": 4.5845,
+      "winner_changes": 0,
+      "staged_statewide_failures": 0
+    },
+    {
+      "year": 2016,
+      "files": 2,
+      "largest_served_vote_shortfall": 512024,
+      "largest_margin_change_pp": 5.544,
+      "winner_changes": 0,
+      "staged_statewide_failures": 0
+    },
+    {
+      "year": 2018,
+      "files": 7,
+      "largest_served_vote_shortfall": 293459,
+      "largest_margin_change_pp": 4.5469,
+      "winner_changes": 0,
+      "staged_statewide_failures": 0
+    },
+    {
+      "year": 2020,
+      "files": 2,
+      "largest_served_vote_shortfall": 9109,
+      "largest_margin_change_pp": 2.8929,
+      "winner_changes": 0,
+      "staged_statewide_failures": 0
+    },
+    {
+      "year": 2022,
+      "files": 8,
+      "largest_served_vote_shortfall": 6077,
+      "largest_margin_change_pp": 2.9505,
+      "winner_changes": 0,
+      "staged_statewide_failures": 0
+    },
+    {
+      "year": 2024,
+      "files": 1,
+      "largest_served_vote_shortfall": 6263,
+      "largest_margin_change_pp": 1.8864,
+      "winner_changes": 0,
+      "staged_statewide_failures": 0
+    }
+  ],
+  "files": [
+    {
+      "file": "congressional_president_2016.json",
+      "year": 2016,
+      "contest": "president",
+      "canonical_statewide_totals": {
+        "dem_votes": 855373,
+        "rep_votes": 1155389,
+        "other_votes": 92265,
+        "total_votes": 2103027
+      },
+      "served_statewide_delta": {
+        "dem_votes": -244345,
+        "rep_votes": -251887,
+        "other_votes": -15792,
+        "total_votes": -512024
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 4.6656,
+      "largest_margin_change_district": "4",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 202,
+      "match_coverage_pct": 99.2147
+    },
+    {
+      "file": "congressional_us_senate_2016.json",
+      "year": 2016,
+      "contest": "us_senate",
+      "canonical_statewide_totals": {
+        "dem_votes": 704540,
+        "rep_votes": 1241609,
+        "other_votes": 103744,
+        "total_votes": 2049893
+      },
+      "served_statewide_delta": {
+        "dem_votes": -205426,
+        "rep_votes": -276425,
+        "other_votes": -15925,
+        "total_votes": -497776
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 5.544,
+      "largest_margin_change_district": "7",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 201,
+      "match_coverage_pct": 99.2147
+    },
+    {
+      "file": "congressional_president_2012.json",
+      "year": 2012,
+      "contest": "president",
+      "canonical_statewide_totals": {
+        "dem_votes": 865941,
+        "rep_votes": 1071645,
+        "other_votes": 26532,
+        "total_votes": 1964118
+      },
+      "served_statewide_delta": {
+        "dem_votes": -231747,
+        "rep_votes": -214646,
+        "other_votes": -3920,
+        "total_votes": -450313
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 5.5958,
+      "largest_margin_change_district": "4",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 3013,
+      "match_coverage_pct": 97.5417
+    },
+    {
+      "file": "congressional_us_senate_2014.json",
+      "year": 2014,
+      "contest": "us_senate",
+      "canonical_statewide_totals": {
+        "dem_votes": 916309,
+        "rep_votes": 1430156,
+        "other_votes": 132592,
+        "total_votes": 2479057
+      },
+      "served_statewide_delta": {
+        "dem_votes": -155008,
+        "rep_votes": -196262,
+        "other_votes": -15941,
+        "total_votes": -367211
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 4.5845,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 267,
+      "match_coverage_pct": 97.9176
+    },
+    {
+      "file": "congressional_governor_2018.json",
+      "year": 2018,
+      "contest": "governor",
+      "canonical_statewide_totals": {
+        "dem_votes": 784182,
+        "rep_votes": 921342,
+        "other_votes": 2045,
+        "total_votes": 1707569
+      },
+      "served_statewide_delta": {
+        "dem_votes": -156083,
+        "rep_votes": -137135,
+        "other_votes": -241,
+        "total_votes": -293459
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 4.1531,
+      "largest_margin_change_district": "4",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1837,
+      "match_coverage_pct": 97.6058
+    },
+    {
+      "file": "congressional_attorney_general_2018.json",
+      "year": 2018,
+      "contest": "attorney_general",
+      "canonical_statewide_totals": {
+        "dem_votes": 729694,
+        "rep_votes": 938032,
+        "other_votes": 36108,
+        "total_votes": 1703834
+      },
+      "served_statewide_delta": {
+        "dem_votes": -149967,
+        "rep_votes": -137681,
+        "other_votes": -4991,
+        "total_votes": -292639
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 4.5469,
+      "largest_margin_change_district": "4",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1840,
+      "match_coverage_pct": 97.6058
+    },
+    {
+      "file": "congressional_state_treasurer_2018.json",
+      "year": 2018,
+      "contest": "state_treasurer",
+      "canonical_statewide_totals": {
+        "dem_votes": 694200,
+        "rep_votes": 952233,
+        "other_votes": 55467,
+        "total_votes": 1701900
+      },
+      "served_statewide_delta": {
+        "dem_votes": -143019,
+        "rep_votes": -142982,
+        "other_votes": -6488,
+        "total_votes": -292489
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 4.3569,
+      "largest_margin_change_district": "4",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1838,
+      "match_coverage_pct": 97.6058
+    },
+    {
+      "file": "congressional_secretary_of_state_2018.json",
+      "year": 2018,
+      "contest": "secretary_of_state",
+      "canonical_statewide_totals": {
+        "dem_votes": 727952,
+        "rep_votes": 970576,
+        "other_votes": 968,
+        "total_votes": 1699496
+      },
+      "served_statewide_delta": {
+        "dem_votes": -147610,
+        "rep_votes": -144315,
+        "other_votes": -116,
+        "total_votes": -292041
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 4.3217,
+      "largest_margin_change_district": "7",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1835,
+      "match_coverage_pct": 97.6058
+    },
+    {
+      "file": "congressional_commissioner_agriculture_2018.json",
+      "year": 2018,
+      "contest": "commissioner_agriculture",
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1015366,
+        "other_votes": 325934,
+        "total_votes": 1341300
+      },
+      "served_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": -148529,
+        "other_votes": -56446,
+        "total_votes": -204975
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 1.1057,
+      "largest_margin_change_district": "4",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1418,
+      "match_coverage_pct": 97.6058
+    },
+    {
+      "file": "congressional_governor_2014.json",
+      "year": 2014,
+      "contest": "governor",
+      "canonical_statewide_totals": {
+        "dem_votes": 516166,
+        "rep_votes": 696645,
+        "other_votes": 33490,
+        "total_votes": 1246301
+      },
+      "served_statewide_delta": {
+        "dem_votes": -85365,
+        "rep_votes": -93380,
+        "other_votes": -5854,
+        "total_votes": -184599
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 3.3522,
+      "largest_margin_change_district": "4",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 132,
+      "match_coverage_pct": 97.9176
+    },
+    {
+      "file": "congressional_governor_2010.json",
+      "year": 2010,
+      "contest": "governor",
+      "canonical_statewide_totals": {
+        "dem_votes": 630534,
+        "rep_votes": 690525,
+        "other_votes": 23139,
+        "total_votes": 1344198
+      },
+      "served_statewide_delta": {
+        "dem_votes": -81815,
+        "rep_votes": -98084,
+        "other_votes": -2697,
+        "total_votes": -182596
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 5.5736,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1105,
+      "match_coverage_pct": 98.3729
+    },
+    {
+      "file": "congressional_secretary_of_state_2014.json",
+      "year": 2014,
+      "contest": "secretary_of_state",
+      "canonical_statewide_totals": {
+        "dem_votes": 496344,
+        "rep_votes": 730739,
+        "other_votes": 788,
+        "total_votes": 1227871
+      },
+      "served_statewide_delta": {
+        "dem_votes": -83267,
+        "rep_votes": -98554,
+        "other_votes": -83,
+        "total_votes": -181904
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 3.5732,
+      "largest_margin_change_district": "4",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 135,
+      "match_coverage_pct": 97.9176
+    },
+    {
+      "file": "congressional_attorney_general_2014.json",
+      "year": 2014,
+      "contest": "attorney_general",
+      "canonical_statewide_totals": {
+        "dem_votes": 486058,
+        "rep_votes": 738434,
+        "other_votes": 879,
+        "total_votes": 1225371
+      },
+      "served_statewide_delta": {
+        "dem_votes": -81671,
+        "rep_votes": -99995,
+        "other_votes": -120,
+        "total_votes": -181786
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 3.705,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 135,
+      "match_coverage_pct": 97.9176
+    },
+    {
+      "file": "congressional_attorney_general_2010.json",
+      "year": 2010,
+      "contest": "attorney_general",
+      "canonical_statewide_totals": {
+        "dem_votes": 589135,
+        "rep_votes": 716193,
+        "other_votes": 27478,
+        "total_votes": 1332806
+      },
+      "served_statewide_delta": {
+        "dem_votes": -76557,
+        "rep_votes": -101858,
+        "other_votes": -3207,
+        "total_votes": -181622
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 6.2376,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1089,
+      "match_coverage_pct": 98.3729
+    },
+    {
+      "file": "congressional_superintendent_2014.json",
+      "year": 2014,
+      "contest": "superintendent",
+      "canonical_statewide_totals": {
+        "dem_votes": 476358,
+        "rep_votes": 699081,
+        "other_votes": 51750,
+        "total_votes": 1227189
+      },
+      "served_statewide_delta": {
+        "dem_votes": -79966,
+        "rep_votes": -96086,
+        "other_votes": -5554,
+        "total_votes": -181606
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 3.9375,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 133,
+      "match_coverage_pct": 97.9176
+    },
+    {
+      "file": "congressional_superintendent_2010.json",
+      "year": 2010,
+      "contest": "superintendent",
+      "canonical_statewide_totals": {
+        "dem_votes": 572508,
+        "rep_votes": 680787,
+        "other_votes": 74769,
+        "total_votes": 1328064
+      },
+      "served_statewide_delta": {
+        "dem_votes": -72285,
+        "rep_votes": -99312,
+        "other_votes": -9324,
+        "total_votes": -180921
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 6.6995,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1094,
+      "match_coverage_pct": 98.3729
+    },
+    {
+      "file": "congressional_secretary_of_state_2010.json",
+      "year": 2010,
+      "contest": "secretary_of_state",
+      "canonical_statewide_totals": {
+        "dem_votes": 516414,
+        "rep_votes": 805783,
+        "other_votes": 638,
+        "total_votes": 1322835
+      },
+      "served_statewide_delta": {
+        "dem_votes": -67915,
+        "rep_votes": -112673,
+        "other_votes": -103,
+        "total_votes": -180691
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 7.6171,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1094,
+      "match_coverage_pct": 98.3729
+    },
+    {
+      "file": "congressional_comptroller_general_2014.json",
+      "year": 2014,
+      "contest": "comptroller_general",
+      "canonical_statewide_totals": {
+        "dem_votes": 489066,
+        "rep_votes": 728549,
+        "other_votes": 693,
+        "total_votes": 1218308
+      },
+      "served_statewide_delta": {
+        "dem_votes": -82094,
+        "rep_votes": -98323,
+        "other_votes": -86,
+        "total_votes": -180503
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 3.7224,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 135,
+      "match_coverage_pct": 97.9176
+    },
+    {
+      "file": "congressional_comptroller_general_2010.json",
+      "year": 2010,
+      "contest": "comptroller_general",
+      "canonical_statewide_totals": {
+        "dem_votes": 574302,
+        "rep_votes": 746841,
+        "other_votes": 719,
+        "total_votes": 1321862
+      },
+      "served_statewide_delta": {
+        "dem_votes": -74055,
+        "rep_votes": -105785,
+        "other_votes": -100,
+        "total_votes": -179940
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 5.8339,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1085,
+      "match_coverage_pct": 98.3729
+    },
+    {
+      "file": "congressional_commissioner_agriculture_2010.json",
+      "year": 2010,
+      "contest": "commissioner_agriculture",
+      "canonical_statewide_totals": {
+        "dem_votes": 525229,
+        "rep_votes": 792260,
+        "other_votes": 533,
+        "total_votes": 1318022
+      },
+      "served_statewide_delta": {
+        "dem_votes": -69518,
+        "rep_votes": -109945,
+        "other_votes": -100,
+        "total_votes": -179563
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 7.4965,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1075,
+      "match_coverage_pct": 98.3729
+    },
+    {
+      "file": "congressional_us_senate_2010.json",
+      "year": 2010,
+      "contest": "us_senate",
+      "canonical_statewide_totals": {
+        "dem_votes": 364598,
+        "rep_votes": 810771,
+        "other_votes": 143425,
+        "total_votes": 1318794
+      },
+      "served_statewide_delta": {
+        "dem_votes": -44079,
+        "rep_votes": -113321,
+        "other_votes": -21528,
+        "total_votes": -178928
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 8.555,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1099,
+      "match_coverage_pct": 98.3729
+    },
+    {
+      "file": "congressional_comptroller_general_2018.json",
+      "year": 2018,
+      "contest": "comptroller_general",
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1136932,
+        "other_votes": 26028,
+        "total_votes": 1162960
+      },
+      "served_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": -163687,
+        "other_votes": -4593,
+        "total_votes": -168280
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 0.3604,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1204,
+      "match_coverage_pct": 97.6058
+    },
+    {
+      "file": "congressional_superintendent_2018.json",
+      "year": 2018,
+      "contest": "superintendent",
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 998057,
+        "other_votes": 18866,
+        "total_votes": 1016923
+      },
+      "served_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": -144911,
+        "other_votes": -2373,
+        "total_votes": -147284
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 1.143,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 1095,
+      "match_coverage_pct": 97.6058
+    },
+    {
+      "file": "congressional_commissioner_agriculture_2014.json",
+      "year": 2014,
+      "contest": "commissioner_agriculture",
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 759640,
+        "other_votes": 193976,
+        "total_votes": 953616
+      },
+      "served_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": -100594,
+        "other_votes": -25710,
+        "total_votes": -126304
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 0.9282,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 114,
+      "match_coverage_pct": 97.9176
+    },
+    {
+      "file": "congressional_state_treasurer_2010.json",
+      "year": 2010,
+      "contest": "state_treasurer",
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 907755,
+        "other_votes": 9748,
+        "total_votes": 917503
+      },
+      "served_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": -118941,
+        "other_votes": -1791,
+        "total_votes": -120732
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 0.214,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 890,
+      "match_coverage_pct": 98.3729
+    },
+    {
+      "file": "congressional_state_treasurer_2014.json",
+      "year": 2014,
+      "contest": "state_treasurer",
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 857526,
+        "other_votes": 10819,
+        "total_votes": 868345
+      },
+      "served_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": -110775,
+        "other_votes": -1674,
+        "total_votes": -112449
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 0.2436,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 107,
+      "match_coverage_pct": 97.9176
+    },
+    {
+      "file": "congressional_president_2020.json",
+      "year": 2020,
+      "contest": "president",
+      "canonical_statewide_totals": {
+        "dem_votes": 1091541,
+        "rep_votes": 1385103,
+        "other_votes": 36685,
+        "total_votes": 2513329
+      },
+      "served_statewide_delta": {
+        "dem_votes": -5820,
+        "rep_votes": -3203,
+        "other_votes": -86,
+        "total_votes": -9109
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 0.8108,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "match_coverage_pct": 100.0
+    },
+    {
+      "file": "congressional_us_senate_2020.json",
+      "year": 2020,
+      "contest": "us_senate",
+      "canonical_statewide_totals": {
+        "dem_votes": 1110828,
+        "rep_votes": 1369137,
+        "other_votes": 35139,
+        "total_votes": 2515104
+      },
+      "served_statewide_delta": {
+        "dem_votes": 4251,
+        "rep_votes": -12997,
+        "other_votes": -328,
+        "total_votes": -9074
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 2.8929,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "match_coverage_pct": 100.0
+    },
+    {
+      "file": "congressional_president_2024.json",
+      "year": 2024,
+      "contest": "president",
+      "canonical_statewide_totals": {
+        "dem_votes": 1028452,
+        "rep_votes": 1483747,
+        "other_votes": 35941,
+        "total_votes": 2548140
+      },
+      "served_statewide_delta": {
+        "dem_votes": 2088,
+        "rep_votes": -8143,
+        "other_votes": -208,
+        "total_votes": -6263
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 1.8864,
+      "largest_margin_change_district": "4",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "match_coverage_pct": 100.0
+    },
+    {
+      "file": "congressional_governor_2022.json",
+      "year": 2022,
+      "contest": "governor",
+      "canonical_statewide_totals": {
+        "dem_votes": 692691,
+        "rep_votes": 988501,
+        "other_votes": 22000,
+        "total_votes": 1703192
+      },
+      "served_statewide_delta": {
+        "dem_votes": 1810,
+        "rep_votes": -7818,
+        "other_votes": -69,
+        "total_votes": -6077
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 2.9505,
+      "largest_margin_change_district": "1",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "match_coverage_pct": 100.0
+    },
+    {
+      "file": "congressional_us_senate_2022.json",
+      "year": 2022,
+      "contest": "us_senate",
+      "canonical_statewide_totals": {
+        "dem_votes": 627616,
+        "rep_votes": 1066274,
+        "other_votes": 1812,
+        "total_votes": 1695702
+      },
+      "served_statewide_delta": {
+        "dem_votes": 2966,
+        "rep_votes": -9013,
+        "other_votes": -7,
+        "total_votes": -6054
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 2.4604,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "match_coverage_pct": 100.0
+    },
+    {
+      "file": "congressional_superintendent_2022.json",
+      "year": 2022,
+      "contest": "superintendent",
+      "canonical_statewide_totals": {
+        "dem_votes": 669018,
+        "rep_votes": 937493,
+        "other_votes": 82207,
+        "total_votes": 1688718
+      },
+      "served_statewide_delta": {
+        "dem_votes": 2626,
+        "rep_votes": -8142,
+        "other_votes": -504,
+        "total_votes": -6020
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 2.9329,
+      "largest_margin_change_district": "1",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "match_coverage_pct": 100.0
+    },
+    {
+      "file": "congressional_secretary_of_state_2022.json",
+      "year": 2022,
+      "contest": "secretary_of_state",
+      "canonical_statewide_totals": {
+        "dem_votes": 619341,
+        "rep_votes": 1071451,
+        "other_votes": 1109,
+        "total_votes": 1691901
+      },
+      "served_statewide_delta": {
+        "dem_votes": 2860,
+        "rep_votes": -8873,
+        "other_votes": -1,
+        "total_votes": -6014
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 2.1409,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "match_coverage_pct": 100.0
+    },
+    {
+      "file": "congressional_state_treasurer_2022.json",
+      "year": 2022,
+      "contest": "state_treasurer",
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1129961,
+        "other_votes": 288325,
+        "total_votes": 1418286
+      },
+      "served_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": -3903,
+        "other_votes": -1242,
+        "total_votes": -5145
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 1.1239,
+      "largest_margin_change_district": "1",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "match_coverage_pct": 100.0
+    },
+    {
+      "file": "congressional_commissioner_agriculture_2022.json",
+      "year": 2022,
+      "contest": "commissioner_agriculture",
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1085139,
+        "other_votes": 313253,
+        "total_votes": 1398392
+      },
+      "served_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": -3709,
+        "other_votes": -1406,
+        "total_votes": -5115
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 1.0845,
+      "largest_margin_change_district": "1",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "match_coverage_pct": 100.0
+    },
+    {
+      "file": "congressional_attorney_general_2022.json",
+      "year": 2022,
+      "contest": "attorney_general",
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1223080,
+        "other_votes": 33709,
+        "total_votes": 1256789
+      },
+      "served_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": -4441,
+        "other_votes": -144,
+        "total_votes": -4585
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 0.6011,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "match_coverage_pct": 100.0
+    },
+    {
+      "file": "congressional_comptroller_general_2022.json",
+      "year": 2022,
+      "contest": "comptroller_general",
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1229879,
+        "other_votes": 22407,
+        "total_votes": 1252286
+      },
+      "served_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": -4410,
+        "other_votes": -114,
+        "total_votes": -4524
+      },
+      "staged_statewide_delta": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 0
+      },
+      "largest_margin_change_pp": 0.2714,
+      "largest_margin_change_district": "6",
+      "winner_changes": 0,
+      "precinct_votes_county_share_fallback": 0,
+      "match_coverage_pct": 100.0
+    }
+  ]
+}
