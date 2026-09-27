@@ -14,62 +14,62 @@
         "color": "#67000d"
       },
       "2": {
-        "dem_votes": 42822,
-        "rep_votes": 135147,
-        "other_votes": 27496,
-        "total_votes": 205465,
+        "dem_votes": 42820,
+        "rep_votes": 135143,
+        "other_votes": 27495,
+        "total_votes": 205458,
         "dem_candidate": "Alvin M. Greene",
         "rep_candidate": "Jim DeMint",
-        "margin": 92325,
-        "margin_pct": 44.9347,
+        "margin": 92323,
+        "margin_pct": 44.9352,
         "winner": "R",
         "color": "#67000d"
       },
       "3": {
         "dem_votes": 41007,
-        "rep_votes": 130711,
+        "rep_votes": 130713,
         "other_votes": 16483,
-        "total_votes": 188201,
+        "total_votes": 188203,
         "dem_candidate": "Alvin M. Greene",
         "rep_candidate": "Jim DeMint",
-        "margin": 89704,
-        "margin_pct": 47.6639,
+        "margin": 89706,
+        "margin_pct": 47.6645,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
         "dem_votes": 36994,
-        "rep_votes": 121994,
+        "rep_votes": 121992,
         "other_votes": 18577,
-        "total_votes": 177565,
+        "total_votes": 177563,
         "dem_candidate": "Alvin M. Greene",
         "rep_candidate": "Jim DeMint",
-        "margin": 85000,
-        "margin_pct": 47.8698,
+        "margin": 84998,
+        "margin_pct": 47.8692,
         "winner": "R",
         "color": "#67000d"
       },
       "5": {
         "dem_votes": 52453,
-        "rep_votes": 122290,
+        "rep_votes": 122289,
         "other_votes": 17094,
-        "total_votes": 191837,
+        "total_votes": 191836,
         "dem_candidate": "Alvin M. Greene",
         "rep_candidate": "Jim DeMint",
-        "margin": 69837,
-        "margin_pct": 36.4043,
+        "margin": 69836,
+        "margin_pct": 36.404,
         "winner": "R",
         "color": "#a50f15"
       },
       "6": {
-        "dem_votes": 95508,
-        "rep_votes": 81833,
-        "other_votes": 27518,
-        "total_votes": 204859,
+        "dem_votes": 95510,
+        "rep_votes": 81838,
+        "other_votes": 27519,
+        "total_votes": 204867,
         "dem_candidate": "Alvin M. Greene",
         "rep_candidate": "Jim DeMint",
-        "margin": -13675,
-        "margin_pct": -6.6753,
+        "margin": -13672,
+        "margin_pct": -6.6736,
         "winner": "D",
         "color": "#9ecae1"
       },
@@ -136,29 +136,29 @@
         "other_votes": 11740
       },
       "2": {
-        "dem_votes": 17506,
-        "rep_votes": 37681,
-        "other_votes": 13056
+        "dem_votes": 17504,
+        "rep_votes": 37677,
+        "other_votes": 13055
       },
       "3": {
         "dem_votes": 2762,
-        "rep_votes": 9440,
+        "rep_votes": 9442,
         "other_votes": 1305
       },
       "4": {
         "dem_votes": 36994,
-        "rep_votes": 121994,
+        "rep_votes": 121992,
         "other_votes": 18577
       },
       "5": {
         "dem_votes": 8314,
-        "rep_votes": 21607,
+        "rep_votes": 21606,
         "other_votes": 3278
       },
       "6": {
-        "dem_votes": 73663,
-        "rep_votes": 64532,
-        "other_votes": 25071
+        "dem_votes": 73665,
+        "rep_votes": 64537,
+        "other_votes": 25072
       },
       "7": {
         "dem_votes": 13029,
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 5,
     "historical_name_bridge_votes": 3439,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/us_senate_2010",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 1.130094,
-    "snapshot_comparison_max_abs_share_delta_pp": 5.298841,
+    "snapshot_comparison_mean_abs_share_delta_pp": 1.130191,
+    "snapshot_comparison_max_abs_share_delta_pp": 5.299685,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 364598,

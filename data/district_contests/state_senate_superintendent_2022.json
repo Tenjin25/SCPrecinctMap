@@ -14,14 +14,14 @@
         "color": "#a50f15"
       },
       "2": {
-        "dem_votes": 8070,
+        "dem_votes": 8071,
         "rep_votes": 27091,
         "other_votes": 1687,
-        "total_votes": 36848,
+        "total_votes": 36849,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 19021,
-        "margin_pct": 51.6202,
+        "margin": 19020,
+        "margin_pct": 51.6161,
         "winner": "R",
         "color": "#67000d"
       },
@@ -51,37 +51,37 @@
       },
       "5": {
         "dem_votes": 9471,
-        "rep_votes": 29029,
+        "rep_votes": 29028,
         "other_votes": 1724,
-        "total_votes": 40224,
+        "total_votes": 40223,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 19558,
-        "margin_pct": 48.6227,
+        "margin": 19557,
+        "margin_pct": 48.6214,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
-        "dem_votes": 13751,
+        "dem_votes": 13749,
         "rep_votes": 23327,
         "other_votes": 1943,
-        "total_votes": 39021,
+        "total_votes": 39019,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 9576,
-        "margin_pct": 24.5406,
+        "margin": 9578,
+        "margin_pct": 24.547,
         "winner": "R",
         "color": "#cb181d"
       },
       "7": {
-        "dem_votes": 15749,
-        "rep_votes": 10435,
+        "dem_votes": 15750,
+        "rep_votes": 10436,
         "other_votes": 1311,
-        "total_votes": 27495,
+        "total_votes": 27497,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
         "margin": -5314,
-        "margin_pct": -19.3272,
+        "margin_pct": -19.3257,
         "winner": "D",
         "color": "#6baed6"
       },
@@ -98,14 +98,14 @@
         "color": "#ef3b2c"
       },
       "9": {
-        "dem_votes": 11739,
-        "rep_votes": 23218,
+        "dem_votes": 11740,
+        "rep_votes": 23219,
         "other_votes": 1800,
-        "total_votes": 36757,
+        "total_votes": 36759,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
         "margin": 11479,
-        "margin_pct": 31.2294,
+        "margin_pct": 31.2277,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -134,38 +134,38 @@
         "color": "#cb181d"
       },
       "12": {
-        "dem_votes": 13605,
-        "rep_votes": 21645,
+        "dem_votes": 13604,
+        "rep_votes": 21643,
         "other_votes": 1710,
-        "total_votes": 36960,
+        "total_votes": 36957,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 8040,
-        "margin_pct": 21.7532,
+        "margin": 8039,
+        "margin_pct": 21.7523,
         "winner": "R",
         "color": "#cb181d"
       },
       "13": {
         "dem_votes": 12924,
-        "rep_votes": 23654,
+        "rep_votes": 23656,
         "other_votes": 1811,
-        "total_votes": 38389,
+        "total_votes": 38391,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 10730,
-        "margin_pct": 27.9507,
+        "margin": 10732,
+        "margin_pct": 27.9545,
         "winner": "R",
         "color": "#cb181d"
       },
       "14": {
         "dem_votes": 8211,
-        "rep_votes": 24266,
+        "rep_votes": 24264,
         "other_votes": 1484,
-        "total_votes": 33961,
+        "total_votes": 33959,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 16055,
-        "margin_pct": 47.2748,
+        "margin": 16053,
+        "margin_pct": 47.2717,
         "winner": "R",
         "color": "#67000d"
       },
@@ -182,26 +182,26 @@
         "color": "#cb181d"
       },
       "16": {
-        "dem_votes": 17210,
-        "rep_votes": 26046,
+        "dem_votes": 17206,
+        "rep_votes": 26039,
         "other_votes": 1971,
-        "total_votes": 45227,
+        "total_votes": 45216,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 8836,
-        "margin_pct": 19.537,
+        "margin": 8833,
+        "margin_pct": 19.5351,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "17": {
-        "dem_votes": 16447,
-        "rep_votes": 17371,
+        "dem_votes": 16451,
+        "rep_votes": 17379,
         "other_votes": 2063,
-        "total_votes": 35881,
+        "total_votes": 35893,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 924,
-        "margin_pct": 2.5752,
+        "margin": 928,
+        "margin_pct": 2.5855,
         "winner": "R",
         "color": "#fcbba1"
       },
@@ -219,13 +219,13 @@
       },
       "19": {
         "dem_votes": 21399,
-        "rep_votes": 5380,
+        "rep_votes": 5381,
         "other_votes": 1719,
-        "total_votes": 28498,
+        "total_votes": 28499,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": -16019,
-        "margin_pct": -56.211,
+        "margin": -16018,
+        "margin_pct": -56.2055,
         "winner": "D",
         "color": "#08519c"
       },
@@ -242,14 +242,14 @@
         "color": "#6baed6"
       },
       "21": {
-        "dem_votes": 23000,
-        "rep_votes": 7195,
+        "dem_votes": 23002,
+        "rep_votes": 7196,
         "other_votes": 2167,
-        "total_votes": 32362,
+        "total_votes": 32365,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": -15805,
-        "margin_pct": -48.8381,
+        "margin": -15806,
+        "margin_pct": -48.8367,
         "winner": "D",
         "color": "#08519c"
       },
@@ -279,49 +279,49 @@
       },
       "24": {
         "dem_votes": 13061,
-        "rep_votes": 24081,
+        "rep_votes": 24082,
         "other_votes": 1559,
-        "total_votes": 38701,
+        "total_votes": 38702,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 11020,
-        "margin_pct": 28.4747,
+        "margin": 11021,
+        "margin_pct": 28.4766,
         "winner": "R",
         "color": "#cb181d"
       },
       "25": {
-        "dem_votes": 12103,
+        "dem_votes": 12104,
         "rep_votes": 23112,
         "other_votes": 1772,
-        "total_votes": 36987,
+        "total_votes": 36988,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 11009,
-        "margin_pct": 29.7645,
+        "margin": 11008,
+        "margin_pct": 29.761,
         "winner": "R",
         "color": "#cb181d"
       },
       "26": {
-        "dem_votes": 13780,
-        "rep_votes": 12715,
+        "dem_votes": 13778,
+        "rep_votes": 12714,
         "other_votes": 1794,
-        "total_votes": 28289,
+        "total_votes": 28286,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": -1065,
-        "margin_pct": -3.7647,
+        "margin": -1064,
+        "margin_pct": -3.7616,
         "winner": "D",
         "color": "#c6dbef"
       },
       "27": {
         "dem_votes": 11973,
         "rep_votes": 21222,
-        "other_votes": 2138,
-        "total_votes": 35333,
+        "other_votes": 2137,
+        "total_votes": 35332,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
         "margin": 9249,
-        "margin_pct": 26.1767,
+        "margin_pct": 26.1774,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -350,14 +350,14 @@
         "color": "#c6dbef"
       },
       "30": {
-        "dem_votes": 14201,
+        "dem_votes": 14202,
         "rep_votes": 14706,
         "other_votes": 1135,
-        "total_votes": 30042,
+        "total_votes": 30043,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 505,
-        "margin_pct": 1.681,
+        "margin": 504,
+        "margin_pct": 1.6776,
         "winner": "R",
         "color": "#fcbba1"
       },
@@ -410,14 +410,14 @@
         "color": "#67000d"
       },
       "35": {
-        "dem_votes": 15921,
-        "rep_votes": 14149,
-        "other_votes": 1720,
-        "total_votes": 31790,
+        "dem_votes": 15920,
+        "rep_votes": 14148,
+        "other_votes": 1721,
+        "total_votes": 31789,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
         "margin": -1772,
-        "margin_pct": -5.5741,
+        "margin_pct": -5.5743,
         "winner": "D",
         "color": "#9ecae1"
       },
@@ -470,26 +470,26 @@
         "color": "#fcbba1"
       },
       "40": {
-        "dem_votes": 16078,
-        "rep_votes": 14499,
+        "dem_votes": 16077,
+        "rep_votes": 14498,
         "other_votes": 1333,
-        "total_votes": 31910,
+        "total_votes": 31908,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
         "margin": -1579,
-        "margin_pct": -4.9483,
+        "margin_pct": -4.9486,
         "winner": "D",
         "color": "#c6dbef"
       },
       "41": {
         "dem_votes": 15771,
-        "rep_votes": 20373,
+        "rep_votes": 20374,
         "other_votes": 1953,
-        "total_votes": 38097,
+        "total_votes": 38098,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 4602,
-        "margin_pct": 12.0797,
+        "margin": 4603,
+        "margin_pct": 12.082,
         "winner": "R",
         "color": "#ef3b2c"
       },
@@ -531,13 +531,13 @@
       },
       "45": {
         "dem_votes": 17147,
-        "rep_votes": 14926,
+        "rep_votes": 14925,
         "other_votes": 1510,
-        "total_votes": 33583,
+        "total_votes": 33582,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": -2221,
-        "margin_pct": -6.6135,
+        "margin": -2222,
+        "margin_pct": -6.6166,
         "winner": "D",
         "color": "#9ecae1"
       },
@@ -644,7 +644,7 @@
         "other_votes": 420
       },
       "2": {
-        "dem_votes": 8070,
+        "dem_votes": 8071,
         "rep_votes": 27091,
         "other_votes": 1687
       },
@@ -660,17 +660,17 @@
       },
       "5": {
         "dem_votes": 9471,
-        "rep_votes": 29029,
+        "rep_votes": 29028,
         "other_votes": 1724
       },
       "6": {
-        "dem_votes": 13751,
+        "dem_votes": 13749,
         "rep_votes": 23327,
         "other_votes": 1943
       },
       "7": {
-        "dem_votes": 15749,
-        "rep_votes": 10435,
+        "dem_votes": 15750,
+        "rep_votes": 10436,
         "other_votes": 1311
       },
       "8": {
@@ -679,8 +679,8 @@
         "other_votes": 2242
       },
       "9": {
-        "dem_votes": 5695,
-        "rep_votes": 10492,
+        "dem_votes": 5696,
+        "rep_votes": 10493,
         "other_votes": 840
       },
       "10": {
@@ -694,18 +694,18 @@
         "other_votes": 1248
       },
       "12": {
-        "dem_votes": 13605,
-        "rep_votes": 21645,
+        "dem_votes": 13604,
+        "rep_votes": 21643,
         "other_votes": 1710
       },
       "13": {
         "dem_votes": 12924,
-        "rep_votes": 23654,
+        "rep_votes": 23656,
         "other_votes": 1811
       },
       "14": {
         "dem_votes": 4361,
-        "rep_votes": 12570,
+        "rep_votes": 12568,
         "other_votes": 934
       },
       "15": {
@@ -714,13 +714,13 @@
         "other_votes": 2333
       },
       "16": {
-        "dem_votes": 17210,
-        "rep_votes": 26046,
+        "dem_votes": 17206,
+        "rep_votes": 26039,
         "other_votes": 1971
       },
       "17": {
-        "dem_votes": 8353,
-        "rep_votes": 8758,
+        "dem_votes": 8357,
+        "rep_votes": 8766,
         "other_votes": 877
       },
       "18": {
@@ -730,7 +730,7 @@
       },
       "19": {
         "dem_votes": 21399,
-        "rep_votes": 5380,
+        "rep_votes": 5381,
         "other_votes": 1719
       },
       "20": {
@@ -739,8 +739,8 @@
         "other_votes": 2509
       },
       "21": {
-        "dem_votes": 23000,
-        "rep_votes": 7195,
+        "dem_votes": 23002,
+        "rep_votes": 7196,
         "other_votes": 2167
       },
       "22": {
@@ -755,23 +755,23 @@
       },
       "24": {
         "dem_votes": 13061,
-        "rep_votes": 24081,
+        "rep_votes": 24082,
         "other_votes": 1559
       },
       "25": {
-        "dem_votes": 7408,
+        "dem_votes": 7409,
         "rep_votes": 14965,
         "other_votes": 1311
       },
       "26": {
-        "dem_votes": 13780,
-        "rep_votes": 12715,
+        "dem_votes": 13778,
+        "rep_votes": 12714,
         "other_votes": 1794
       },
       "27": {
         "dem_votes": 11973,
         "rep_votes": 21222,
-        "other_votes": 2138
+        "other_votes": 2137
       },
       "28": {
         "dem_votes": 12007,
@@ -784,7 +784,7 @@
         "other_votes": 1157
       },
       "30": {
-        "dem_votes": 6086,
+        "dem_votes": 6087,
         "rep_votes": 7330,
         "other_votes": 476
       },
@@ -809,9 +809,9 @@
         "other_votes": 1694
       },
       "35": {
-        "dem_votes": 15921,
-        "rep_votes": 14149,
-        "other_votes": 1720
+        "dem_votes": 15920,
+        "rep_votes": 14148,
+        "other_votes": 1721
       },
       "36": {
         "dem_votes": 12449,
@@ -834,13 +834,13 @@
         "other_votes": 1369
       },
       "40": {
-        "dem_votes": 9895,
-        "rep_votes": 9285,
+        "dem_votes": 9894,
+        "rep_votes": 9284,
         "other_votes": 731
       },
       "41": {
         "dem_votes": 15771,
-        "rep_votes": 20373,
+        "rep_votes": 20374,
         "other_votes": 1953
       },
       "42": {
@@ -860,7 +860,7 @@
       },
       "45": {
         "dem_votes": 14258,
-        "rep_votes": 12565,
+        "rep_votes": 12564,
         "other_votes": 1223
       },
       "46": {
@@ -889,11 +889,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 2,
     "historical_name_bridge_votes": 1281,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 358,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/superintendent_2022",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 1.451754,
-    "snapshot_comparison_max_abs_share_delta_pp": 8.494791,
+    "snapshot_comparison_mean_abs_share_delta_pp": 1.451803,
+    "snapshot_comparison_max_abs_share_delta_pp": 8.493162,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 669018,

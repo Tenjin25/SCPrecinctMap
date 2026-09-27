@@ -14,62 +14,62 @@
         "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 102857,
-        "rep_votes": 128322,
+        "dem_votes": 102853,
+        "rep_votes": 128320,
         "other_votes": 14616,
-        "total_votes": 245795,
+        "total_votes": 245789,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 25465,
-        "margin_pct": 10.3603,
+        "margin": 25467,
+        "margin_pct": 10.3613,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 69235,
-        "rep_votes": 155717,
+        "dem_votes": 69236,
+        "rep_votes": 155719,
         "other_votes": 11635,
-        "total_votes": 236587,
+        "total_votes": 236590,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 86482,
+        "margin": 86483,
         "margin_pct": 36.554,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 86212,
-        "rep_votes": 135527,
+        "dem_votes": 86211,
+        "rep_votes": 135525,
         "other_votes": 11031,
-        "total_votes": 232770,
+        "total_votes": 232767,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 49315,
-        "margin_pct": 21.1861,
+        "margin": 49314,
+        "margin_pct": 21.186,
         "winner": "R",
         "color": "#cb181d"
       },
       "5": {
         "dem_votes": 89752,
-        "rep_votes": 138938,
+        "rep_votes": 138937,
         "other_votes": 12223,
-        "total_votes": 240913,
+        "total_votes": 240912,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 49186,
-        "margin_pct": 20.4165,
+        "margin": 49185,
+        "margin_pct": 20.4162,
         "winner": "R",
         "color": "#cb181d"
       },
       "6": {
-        "dem_votes": 124964,
-        "rep_votes": 73829,
+        "dem_votes": 124968,
+        "rep_votes": 73832,
         "other_votes": 10888,
-        "total_votes": 209681,
+        "total_votes": 209688,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": -51135,
-        "margin_pct": -24.387,
+        "margin": -51136,
+        "margin_pct": -24.3867,
         "winner": "D",
         "color": "#4292c6"
       },
@@ -136,28 +136,28 @@
         "other_votes": 7064
       },
       "2": {
-        "dem_votes": 48480,
-        "rep_votes": 32029,
+        "dem_votes": 48476,
+        "rep_votes": 32027,
         "other_votes": 5675
       },
       "3": {
-        "dem_votes": 7443,
-        "rep_votes": 13817,
+        "dem_votes": 7444,
+        "rep_votes": 13819,
         "other_votes": 1069
       },
       "4": {
-        "dem_votes": 86212,
-        "rep_votes": 135527,
+        "dem_votes": 86211,
+        "rep_votes": 135525,
         "other_votes": 11031
       },
       "5": {
         "dem_votes": 15349,
-        "rep_votes": 23937,
+        "rep_votes": 23936,
         "other_votes": 1708
       },
       "6": {
-        "dem_votes": 105465,
-        "rep_votes": 57100,
+        "dem_votes": 105469,
+        "rep_votes": 57103,
         "other_votes": 9169
       },
       "7": {
@@ -188,10 +188,12 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 2,
     "historical_name_bridge_votes": 1281,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/superintendent_2022",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.420409,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.420352,
     "snapshot_comparison_max_abs_share_delta_pp": 1.593644,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

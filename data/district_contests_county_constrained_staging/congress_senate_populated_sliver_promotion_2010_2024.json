@@ -1,0 +1,627 @@
+{
+  "method": "Retain positive block-CVAP pieces below the 0.1% precinct-area cutoff in congressional and State Senate split allocations; preserve exact whole-county returns.",
+  "whole_counties_unchanged": {
+    "congressional": 36,
+    "state_senate_2022": 19
+  },
+  "house_files_unchanged": 111,
+  "already_promoted_files": 0,
+  "by_scope": {
+    "congressional": {
+      "files": 37,
+      "changed_district_rows": 164,
+      "winner_changes": 0,
+      "max_abs_party_vote_change": 7,
+      "max_abs_margin_change_pp": 0.0022
+    },
+    "state_senate": {
+      "files": 37,
+      "changed_district_rows": 844,
+      "winner_changes": 0,
+      "max_abs_party_vote_change": 9,
+      "max_abs_margin_change_pp": 0.019
+    }
+  },
+  "largest_changes": [
+    {
+      "file": "state_senate_comptroller_general_2010.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 3,
+        "rep_votes": 8,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.019,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_commissioner_agriculture_2010.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 3,
+        "rep_votes": 8,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0187,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_governor_2010.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 3,
+        "rep_votes": 7,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0176,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_superintendent_2010.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 3,
+        "rep_votes": 7,
+        "other_votes": 1
+      },
+      "margin_change_pp": 0.0175,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_us_senate_2010.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 7,
+        "other_votes": 1
+      },
+      "margin_change_pp": 0.0169,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_attorney_general_2010.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 3,
+        "rep_votes": 7,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0166,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_secretary_of_state_2010.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 3,
+        "rep_votes": 7,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0145,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_governor_2014.json",
+      "district": "7",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 2,
+        "other_votes": 1
+      },
+      "margin_change_pp": 0.0124,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_superintendent_2014.json",
+      "district": "7",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0118,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_president_2012.json",
+      "district": "35",
+      "vote_deltas": {
+        "dem_votes": -3,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0118,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_commissioner_agriculture_2010.json",
+      "district": "32",
+      "vote_deltas": {
+        "dem_votes": -2,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0117,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_secretary_of_state_2014.json",
+      "district": "7",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0115,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_governor_2010.json",
+      "district": "7",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0114,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_us_senate_2022.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 3,
+        "rep_votes": 8,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0113,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_secretary_of_state_2022.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 3,
+        "rep_votes": 8,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0108,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_secretary_of_state_2010.json",
+      "district": "7",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0105,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_superintendent_2022.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 4,
+        "rep_votes": 8,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0103,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_governor_2022.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 3,
+        "rep_votes": 7,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0097,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_president_2012.json",
+      "district": "7",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 3,
+        "other_votes": 1
+      },
+      "margin_change_pp": 0.0097,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_attorney_general_2010.json",
+      "district": "26",
+      "vote_deltas": {
+        "dem_votes": -3,
+        "rep_votes": 0,
+        "other_votes": -1
+      },
+      "margin_change_pp": 0.0092,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_attorney_general_2018.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 2,
+        "rep_votes": 5,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0087,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_superintendent_2010.json",
+      "district": "7",
+      "vote_deltas": {
+        "dem_votes": -1,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0087,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_attorney_general_2022.json",
+      "district": "42",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": -1
+      },
+      "margin_change_pp": 0.0085,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_us_senate_2020.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 3,
+        "rep_votes": 7,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0083,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_state_treasurer_2018.json",
+      "district": "7",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0083,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_state_treasurer_2018.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 4,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0083,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_us_senate_2014.json",
+      "district": "7",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 3,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0083,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_president_2020.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 3,
+        "rep_votes": 7,
+        "other_votes": 1
+      },
+      "margin_change_pp": 0.0079,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_attorney_general_2018.json",
+      "district": "29",
+      "vote_deltas": {
+        "dem_votes": -2,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0075,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_attorney_general_2014.json",
+      "district": "30",
+      "vote_deltas": {
+        "dem_votes": -1,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0075,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_superintendent_2010.json",
+      "district": "35",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": -1,
+        "other_votes": -1
+      },
+      "margin_change_pp": -0.0074,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_president_2024.json",
+      "district": "26",
+      "vote_deltas": {
+        "dem_votes": -4,
+        "rep_votes": -1,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0072,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_president_2016.json",
+      "district": "26",
+      "vote_deltas": {
+        "dem_votes": -4,
+        "rep_votes": -1,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0072,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_governor_2014.json",
+      "district": "33",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_change_pp": -0.0072,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_attorney_general_2010.json",
+      "district": "42",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0072,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_secretary_of_state_2010.json",
+      "district": "9",
+      "vote_deltas": {
+        "dem_votes": -1,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0071,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_superintendent_2014.json",
+      "district": "27",
+      "vote_deltas": {
+        "dem_votes": -1,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0069,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_president_2020.json",
+      "district": "7",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 3,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0068,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_governor_2022.json",
+      "district": "42",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": -1,
+        "other_votes": 0
+      },
+      "margin_change_pp": -0.0067,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_state_treasurer_2018.json",
+      "district": "26",
+      "vote_deltas": {
+        "dem_votes": -3,
+        "rep_votes": -1,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0067,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_us_senate_2010.json",
+      "district": "41",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_change_pp": -0.0067,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_governor_2018.json",
+      "district": "7",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0065,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_governor_2018.json",
+      "district": "17",
+      "vote_deltas": {
+        "dem_votes": 2,
+        "rep_votes": 4,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0065,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_superintendent_2014.json",
+      "district": "16",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_change_pp": -0.0065,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_secretary_of_state_2022.json",
+      "district": "42",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0064,
+      "winner_before": "D",
+      "winner_after": "D"
+    },
+    {
+      "file": "state_senate_superintendent_2022.json",
+      "district": "6",
+      "vote_deltas": {
+        "dem_votes": -2,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0064,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_governor_2014.json",
+      "district": "16",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_change_pp": -0.0064,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_secretary_of_state_2018.json",
+      "district": "26",
+      "vote_deltas": {
+        "dem_votes": -3,
+        "rep_votes": -1,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0063,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_superintendent_2014.json",
+      "district": "14",
+      "vote_deltas": {
+        "dem_votes": -1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0063,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_senate_president_2020.json",
+      "district": "26",
+      "vote_deltas": {
+        "dem_votes": -4,
+        "rep_votes": -1,
+        "other_votes": 0
+      },
+      "margin_change_pp": 0.0062,
+      "winner_before": "D",
+      "winner_after": "D"
+    }
+  ]
+}

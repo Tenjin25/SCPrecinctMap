@@ -14,38 +14,38 @@
         "color": "#cb181d"
       },
       "2": {
-        "dem_votes": 80210,
-        "rep_votes": 111639,
-        "other_votes": 6204,
-        "total_votes": 198053,
+        "dem_votes": 80206,
+        "rep_votes": 111637,
+        "other_votes": 6203,
+        "total_votes": 198046,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 31429,
-        "margin_pct": 15.869,
+        "margin": 31431,
+        "margin_pct": 15.8706,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
         "dem_votes": 51930,
-        "rep_votes": 117526,
+        "rep_votes": 117527,
         "other_votes": 4556,
-        "total_votes": 174012,
+        "total_votes": 174013,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 65596,
-        "margin_pct": 37.6963,
+        "margin": 65597,
+        "margin_pct": 37.6966,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
         "dem_votes": 52863,
-        "rep_votes": 108120,
+        "rep_votes": 108119,
         "other_votes": 4312,
-        "total_votes": 165295,
+        "total_votes": 165294,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 55257,
-        "margin_pct": 33.4293,
+        "margin": 55256,
+        "margin_pct": 33.4289,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -62,14 +62,14 @@
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 131143,
-        "rep_votes": 62417,
-        "other_votes": 4837,
-        "total_votes": 198397,
+        "dem_votes": 131147,
+        "rep_votes": 62419,
+        "other_votes": 4838,
+        "total_votes": 198404,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": -68726,
-        "margin_pct": -34.6406,
+        "margin": -68728,
+        "margin_pct": -34.6404,
         "winner": "D",
         "color": "#2171b5"
       },
@@ -136,18 +136,18 @@
         "other_votes": 2713
       },
       "2": {
-        "dem_votes": 38965,
-        "rep_votes": 29581,
-        "other_votes": 1815
+        "dem_votes": 38961,
+        "rep_votes": 29579,
+        "other_votes": 1814
       },
       "3": {
         "dem_votes": 3862,
-        "rep_votes": 9339,
+        "rep_votes": 9340,
         "other_votes": 318
       },
       "4": {
         "dem_votes": 52863,
-        "rep_votes": 108120,
+        "rep_votes": 108119,
         "other_votes": 4312
       },
       "5": {
@@ -156,9 +156,9 @@
         "other_votes": 697
       },
       "6": {
-        "dem_votes": 106911,
-        "rep_votes": 47873,
-        "other_votes": 4137
+        "dem_votes": 106915,
+        "rep_votes": 47875,
+        "other_votes": 4138
       },
       "7": {
         "dem_votes": 15562,
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 4,
     "historical_name_bridge_votes": 1706,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/governor_2014",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.78674,
-    "snapshot_comparison_max_abs_share_delta_pp": 1.711056,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.786678,
+    "snapshot_comparison_max_abs_share_delta_pp": 1.711265,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 516166,

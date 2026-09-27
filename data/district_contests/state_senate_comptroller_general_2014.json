@@ -50,62 +50,62 @@
         "color": "#a50f15"
       },
       "5": {
-        "dem_votes": 4642,
-        "rep_votes": 19387,
+        "dem_votes": 4641,
+        "rep_votes": 19386,
         "other_votes": 20,
-        "total_votes": 24049,
+        "total_votes": 24047,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
         "margin": 14745,
-        "margin_pct": 61.3123,
+        "margin_pct": 61.3174,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
-        "dem_votes": 6980,
+        "dem_votes": 6979,
         "rep_votes": 22149,
         "other_votes": 27,
-        "total_votes": 29156,
+        "total_votes": 29155,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 15169,
-        "margin_pct": 52.027,
+        "margin": 15170,
+        "margin_pct": 52.0322,
         "winner": "R",
         "color": "#67000d"
       },
       "7": {
         "dem_votes": 11224,
-        "rep_votes": 8445,
+        "rep_votes": 8446,
         "other_votes": 23,
-        "total_votes": 19692,
+        "total_votes": 19693,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": -2779,
-        "margin_pct": -14.1123,
+        "margin": -2778,
+        "margin_pct": -14.1065,
         "winner": "D",
         "color": "#6baed6"
       },
       "8": {
-        "dem_votes": 8033,
+        "dem_votes": 8034,
         "rep_votes": 22026,
         "other_votes": 26,
-        "total_votes": 30085,
+        "total_votes": 30086,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 13993,
-        "margin_pct": 46.5116,
+        "margin": 13992,
+        "margin_pct": 46.5067,
         "winner": "R",
         "color": "#67000d"
       },
       "9": {
-        "dem_votes": 8501,
+        "dem_votes": 8502,
         "rep_votes": 17530,
         "other_votes": 15,
-        "total_votes": 26046,
+        "total_votes": 26047,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 9029,
-        "margin_pct": 34.6656,
+        "margin": 9028,
+        "margin_pct": 34.6604,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -135,25 +135,25 @@
       },
       "12": {
         "dem_votes": 6982,
-        "rep_votes": 16006,
+        "rep_votes": 16005,
         "other_votes": 18,
-        "total_votes": 23006,
+        "total_votes": 23005,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 9024,
-        "margin_pct": 39.2246,
+        "margin": 9023,
+        "margin_pct": 39.2219,
         "winner": "R",
         "color": "#a50f15"
       },
       "13": {
         "dem_votes": 8147,
-        "rep_votes": 21431,
+        "rep_votes": 21432,
         "other_votes": 20,
-        "total_votes": 29598,
+        "total_votes": 29599,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 13284,
-        "margin_pct": 44.8814,
+        "margin": 13285,
+        "margin_pct": 44.8833,
         "winner": "R",
         "color": "#67000d"
       },
@@ -183,25 +183,25 @@
       },
       "16": {
         "dem_votes": 6174,
-        "rep_votes": 15882,
+        "rep_votes": 15881,
         "other_votes": 8,
-        "total_votes": 22064,
+        "total_votes": 22063,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 9708,
-        "margin_pct": 43.9993,
+        "margin": 9707,
+        "margin_pct": 43.9967,
         "winner": "R",
         "color": "#67000d"
       },
       "17": {
         "dem_votes": 14891,
-        "rep_votes": 12292,
+        "rep_votes": 12293,
         "other_votes": 13,
-        "total_votes": 27196,
+        "total_votes": 27197,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": -2599,
-        "margin_pct": -9.5566,
+        "margin": -2598,
+        "margin_pct": -9.5525,
         "winner": "D",
         "color": "#9ecae1"
       },
@@ -219,13 +219,13 @@
       },
       "19": {
         "dem_votes": 20947,
-        "rep_votes": 6235,
+        "rep_votes": 6236,
         "other_votes": 21,
-        "total_votes": 27203,
+        "total_votes": 27204,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": -14712,
-        "margin_pct": -54.0823,
+        "margin": -14711,
+        "margin_pct": -54.0766,
         "winner": "D",
         "color": "#08519c"
       },
@@ -242,14 +242,14 @@
         "color": "#fcbba1"
       },
       "21": {
-        "dem_votes": 22287,
+        "dem_votes": 22289,
         "rep_votes": 9373,
         "other_votes": 28,
-        "total_votes": 31688,
+        "total_votes": 31690,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": -12914,
-        "margin_pct": -40.7536,
+        "margin": -12916,
+        "margin_pct": -40.7573,
         "winner": "D",
         "color": "#08519c"
       },
@@ -291,37 +291,37 @@
       },
       "25": {
         "dem_votes": 10112,
-        "rep_votes": 19061,
+        "rep_votes": 19062,
         "other_votes": 10,
-        "total_votes": 29183,
+        "total_votes": 29184,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 8949,
-        "margin_pct": 30.6651,
+        "margin": 8950,
+        "margin_pct": 30.6675,
         "winner": "R",
         "color": "#a50f15"
       },
       "26": {
-        "dem_votes": 11169,
-        "rep_votes": 13566,
+        "dem_votes": 11167,
+        "rep_votes": 13565,
         "other_votes": 27,
-        "total_votes": 24762,
+        "total_votes": 24759,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 2397,
-        "margin_pct": 9.6802,
+        "margin": 2398,
+        "margin_pct": 9.6854,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "27": {
-        "dem_votes": 10628,
-        "rep_votes": 18070,
+        "dem_votes": 10629,
+        "rep_votes": 18071,
         "other_votes": 12,
-        "total_votes": 28710,
+        "total_votes": 28712,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
         "margin": 7442,
-        "margin_pct": 25.9213,
+        "margin_pct": 25.9195,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -338,14 +338,14 @@
         "color": "#67000d"
       },
       "29": {
-        "dem_votes": 17959,
-        "rep_votes": 13551,
+        "dem_votes": 17958,
+        "rep_votes": 13550,
         "other_votes": 14,
-        "total_votes": 31524,
+        "total_votes": 31522,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
         "margin": -4408,
-        "margin_pct": -13.983,
+        "margin_pct": -13.9839,
         "winner": "D",
         "color": "#6baed6"
       },
@@ -411,25 +411,25 @@
       },
       "35": {
         "dem_votes": 13460,
-        "rep_votes": 13239,
+        "rep_votes": 13240,
         "other_votes": 5,
-        "total_votes": 26704,
+        "total_votes": 26705,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": -221,
-        "margin_pct": -0.8276,
+        "margin": -220,
+        "margin_pct": -0.8238,
         "winner": "D",
         "color": "#c6dbef"
       },
       "36": {
         "dem_votes": 19387,
-        "rep_votes": 15867,
+        "rep_votes": 15866,
         "other_votes": 9,
-        "total_votes": 35263,
+        "total_votes": 35262,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": -3520,
-        "margin_pct": -9.9821,
+        "margin": -3521,
+        "margin_pct": -9.9853,
         "winner": "D",
         "color": "#9ecae1"
       },
@@ -471,13 +471,13 @@
       },
       "40": {
         "dem_votes": 18852,
-        "rep_votes": 13449,
+        "rep_votes": 13448,
         "other_votes": 9,
-        "total_votes": 32310,
+        "total_votes": 32309,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": -5403,
-        "margin_pct": -16.7224,
+        "margin": -5404,
+        "margin_pct": -16.726,
         "winner": "D",
         "color": "#6baed6"
       },
@@ -659,27 +659,27 @@
         "other_votes": 8
       },
       "5": {
-        "dem_votes": 4642,
-        "rep_votes": 19387,
+        "dem_votes": 4641,
+        "rep_votes": 19386,
         "other_votes": 20
       },
       "6": {
-        "dem_votes": 6980,
+        "dem_votes": 6979,
         "rep_votes": 22149,
         "other_votes": 27
       },
       "7": {
         "dem_votes": 11224,
-        "rep_votes": 8445,
+        "rep_votes": 8446,
         "other_votes": 23
       },
       "8": {
-        "dem_votes": 8033,
+        "dem_votes": 8034,
         "rep_votes": 22026,
         "other_votes": 26
       },
       "9": {
-        "dem_votes": 3560,
+        "dem_votes": 3561,
         "rep_votes": 7485,
         "other_votes": 7
       },
@@ -695,12 +695,12 @@
       },
       "12": {
         "dem_votes": 6982,
-        "rep_votes": 16006,
+        "rep_votes": 16005,
         "other_votes": 18
       },
       "13": {
         "dem_votes": 8147,
-        "rep_votes": 21431,
+        "rep_votes": 21432,
         "other_votes": 20
       },
       "14": {
@@ -715,12 +715,12 @@
       },
       "16": {
         "dem_votes": 6174,
-        "rep_votes": 15882,
+        "rep_votes": 15881,
         "other_votes": 8
       },
       "17": {
         "dem_votes": 6194,
-        "rep_votes": 5103,
+        "rep_votes": 5104,
         "other_votes": 7
       },
       "18": {
@@ -730,7 +730,7 @@
       },
       "19": {
         "dem_votes": 20947,
-        "rep_votes": 6235,
+        "rep_votes": 6236,
         "other_votes": 21
       },
       "20": {
@@ -739,7 +739,7 @@
         "other_votes": 23
       },
       "21": {
-        "dem_votes": 22287,
+        "dem_votes": 22289,
         "rep_votes": 9373,
         "other_votes": 28
       },
@@ -760,17 +760,17 @@
       },
       "25": {
         "dem_votes": 5774,
-        "rep_votes": 12898,
+        "rep_votes": 12899,
         "other_votes": 9
       },
       "26": {
-        "dem_votes": 11169,
-        "rep_votes": 13566,
+        "dem_votes": 11167,
+        "rep_votes": 13565,
         "other_votes": 27
       },
       "27": {
-        "dem_votes": 10628,
-        "rep_votes": 18070,
+        "dem_votes": 10629,
+        "rep_votes": 18071,
         "other_votes": 12
       },
       "28": {
@@ -779,8 +779,8 @@
         "other_votes": 5
       },
       "29": {
-        "dem_votes": 14178,
-        "rep_votes": 11219,
+        "dem_votes": 14177,
+        "rep_votes": 11218,
         "other_votes": 11
       },
       "30": {
@@ -810,12 +810,12 @@
       },
       "35": {
         "dem_votes": 13460,
-        "rep_votes": 13239,
+        "rep_votes": 13240,
         "other_votes": 5
       },
       "36": {
         "dem_votes": 13862,
-        "rep_votes": 11218,
+        "rep_votes": 11217,
         "other_votes": 6
       },
       "37": {
@@ -835,7 +835,7 @@
       },
       "40": {
         "dem_votes": 11139,
-        "rep_votes": 7962,
+        "rep_votes": 7961,
         "other_votes": 9
       },
       "41": {
@@ -889,10 +889,12 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 4,
     "historical_name_bridge_votes": 1687,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 358,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/comptroller_general_2014",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.66038,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.66035,
     "snapshot_comparison_max_abs_share_delta_pp": 4.121922,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

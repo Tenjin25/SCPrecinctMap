@@ -15,13 +15,13 @@
       },
       "2": {
         "dem_votes": 7902,
-        "rep_votes": 28609,
+        "rep_votes": 28610,
         "other_votes": 571,
-        "total_votes": 37082,
+        "total_votes": 37083,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 20707,
-        "margin_pct": 55.8411,
+        "margin": 20708,
+        "margin_pct": 55.8423,
         "winner": "R",
         "color": "#67000d"
       },
@@ -51,61 +51,61 @@
       },
       "5": {
         "dem_votes": 9442,
-        "rep_votes": 30363,
+        "rep_votes": 30362,
         "other_votes": 617,
-        "total_votes": 40422,
+        "total_votes": 40421,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 20921,
-        "margin_pct": 51.7565,
+        "margin": 20920,
+        "margin_pct": 51.7553,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
-        "dem_votes": 14058,
-        "rep_votes": 24469,
+        "dem_votes": 14056,
+        "rep_votes": 24468,
         "other_votes": 736,
-        "total_votes": 39263,
+        "total_votes": 39260,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 10411,
-        "margin_pct": 26.5161,
+        "margin": 10412,
+        "margin_pct": 26.5206,
         "winner": "R",
         "color": "#cb181d"
       },
       "7": {
-        "dem_votes": 16434,
-        "rep_votes": 10781,
+        "dem_votes": 16435,
+        "rep_votes": 10783,
         "other_votes": 474,
-        "total_votes": 27689,
+        "total_votes": 27692,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": -5653,
-        "margin_pct": -20.416,
+        "margin": -5652,
+        "margin_pct": -20.4102,
         "winner": "D",
         "color": "#4292c6"
       },
       "8": {
-        "dem_votes": 17018,
+        "dem_votes": 17019,
         "rep_votes": 26281,
         "other_votes": 710,
-        "total_votes": 44009,
+        "total_votes": 44010,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 9263,
-        "margin_pct": 21.048,
+        "margin": 9262,
+        "margin_pct": 21.0452,
         "winner": "R",
         "color": "#cb181d"
       },
       "9": {
         "dem_votes": 11590,
-        "rep_votes": 24837,
+        "rep_votes": 24838,
         "other_votes": 549,
-        "total_votes": 36976,
+        "total_votes": 36977,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 13247,
-        "margin_pct": 35.8259,
+        "margin": 13248,
+        "margin_pct": 35.8277,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -134,38 +134,38 @@
         "color": "#cb181d"
       },
       "12": {
-        "dem_votes": 13437,
-        "rep_votes": 23189,
+        "dem_votes": 13436,
+        "rep_votes": 23187,
         "other_votes": 529,
-        "total_votes": 37155,
+        "total_votes": 37152,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 9752,
-        "margin_pct": 26.2468,
+        "margin": 9751,
+        "margin_pct": 26.2462,
         "winner": "R",
         "color": "#cb181d"
       },
       "13": {
-        "dem_votes": 12457,
-        "rep_votes": 25679,
+        "dem_votes": 12458,
+        "rep_votes": 25680,
         "other_votes": 503,
-        "total_votes": 38639,
+        "total_votes": 38641,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
         "margin": 13222,
-        "margin_pct": 34.2193,
+        "margin_pct": 34.2175,
         "winner": "R",
         "color": "#a50f15"
       },
       "14": {
         "dem_votes": 7685,
-        "rep_votes": 25993,
+        "rep_votes": 25992,
         "other_votes": 419,
-        "total_votes": 34097,
+        "total_votes": 34096,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 18308,
-        "margin_pct": 53.6939,
+        "margin": 18307,
+        "margin_pct": 53.6925,
         "winner": "R",
         "color": "#67000d"
       },
@@ -182,26 +182,26 @@
         "color": "#cb181d"
       },
       "16": {
-        "dem_votes": 17719,
-        "rep_votes": 26997,
-        "other_votes": 768,
-        "total_votes": 45484,
+        "dem_votes": 17716,
+        "rep_votes": 26990,
+        "other_votes": 767,
+        "total_votes": 45473,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 9278,
-        "margin_pct": 20.3984,
+        "margin": 9274,
+        "margin_pct": 20.3945,
         "winner": "R",
         "color": "#cb181d"
       },
       "17": {
-        "dem_votes": 16888,
-        "rep_votes": 18657,
+        "dem_votes": 16891,
+        "rep_votes": 18664,
         "other_votes": 532,
-        "total_votes": 36077,
+        "total_votes": 36087,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 1769,
-        "margin_pct": 4.9034,
+        "margin": 1773,
+        "margin_pct": 4.9131,
         "winner": "R",
         "color": "#fcbba1"
       },
@@ -218,14 +218,14 @@
         "color": "#cb181d"
       },
       "19": {
-        "dem_votes": 22393,
+        "dem_votes": 22394,
         "rep_votes": 5878,
         "other_votes": 440,
-        "total_votes": 28711,
+        "total_votes": 28712,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": -16515,
-        "margin_pct": -57.5215,
+        "margin": -16516,
+        "margin_pct": -57.523,
         "winner": "D",
         "color": "#08519c"
       },
@@ -242,14 +242,14 @@
         "color": "#4292c6"
       },
       "21": {
-        "dem_votes": 24031,
-        "rep_votes": 8152,
+        "dem_votes": 24032,
+        "rep_votes": 8153,
         "other_votes": 454,
-        "total_votes": 32637,
+        "total_votes": 32639,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
         "margin": -15879,
-        "margin_pct": -48.6534,
+        "margin_pct": -48.6504,
         "winner": "D",
         "color": "#08519c"
       },
@@ -278,86 +278,86 @@
         "color": "#a50f15"
       },
       "24": {
-        "dem_votes": 12938,
+        "dem_votes": 12937,
         "rep_votes": 25350,
         "other_votes": 621,
-        "total_votes": 38909,
+        "total_votes": 38908,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 12412,
-        "margin_pct": 31.9001,
+        "margin": 12413,
+        "margin_pct": 31.9035,
         "winner": "R",
         "color": "#a50f15"
       },
       "25": {
-        "dem_votes": 11693,
-        "rep_votes": 24949,
+        "dem_votes": 11694,
+        "rep_votes": 24950,
         "other_votes": 544,
-        "total_votes": 37186,
+        "total_votes": 37188,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
         "margin": 13256,
-        "margin_pct": 35.6478,
+        "margin_pct": 35.6459,
         "winner": "R",
         "color": "#a50f15"
       },
       "26": {
-        "dem_votes": 14393,
-        "rep_votes": 13740,
+        "dem_votes": 14391,
+        "rep_votes": 13739,
         "other_votes": 450,
-        "total_votes": 28583,
+        "total_votes": 28580,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": -653,
-        "margin_pct": -2.2846,
+        "margin": -652,
+        "margin_pct": -2.2813,
         "winner": "D",
         "color": "#c6dbef"
       },
       "27": {
-        "dem_votes": 10729,
-        "rep_votes": 24316,
-        "other_votes": 446,
-        "total_votes": 35491,
+        "dem_votes": 10728,
+        "rep_votes": 24315,
+        "other_votes": 447,
+        "total_votes": 35490,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
         "margin": 13587,
-        "margin_pct": 38.2829,
+        "margin_pct": 38.284,
         "winner": "R",
         "color": "#a50f15"
       },
       "28": {
         "dem_votes": 12917,
-        "rep_votes": 33273,
+        "rep_votes": 33272,
         "other_votes": 355,
-        "total_votes": 46545,
+        "total_votes": 46544,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 20356,
-        "margin_pct": 43.734,
+        "margin": 20355,
+        "margin_pct": 43.7328,
         "winner": "R",
         "color": "#67000d"
       },
       "29": {
-        "dem_votes": 15771,
+        "dem_votes": 15770,
         "rep_votes": 17326,
         "other_votes": 341,
-        "total_votes": 33438,
+        "total_votes": 33437,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 1555,
-        "margin_pct": 4.6504,
+        "margin": 1556,
+        "margin_pct": 4.6535,
         "winner": "R",
         "color": "#fcbba1"
       },
       "30": {
-        "dem_votes": 14192,
+        "dem_votes": 14193,
         "rep_votes": 15820,
         "other_votes": 287,
-        "total_votes": 30299,
+        "total_votes": 30300,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 1628,
-        "margin_pct": 5.3731,
+        "margin": 1627,
+        "margin_pct": 5.3696,
         "winner": "R",
         "color": "#fc8a6a"
       },
@@ -375,13 +375,13 @@
       },
       "32": {
         "dem_votes": 17997,
-        "rep_votes": 16183,
+        "rep_votes": 16184,
         "other_votes": 345,
-        "total_votes": 34525,
+        "total_votes": 34526,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": -1814,
-        "margin_pct": -5.2542,
+        "margin": -1813,
+        "margin_pct": -5.2511,
         "winner": "D",
         "color": "#9ecae1"
       },
@@ -410,14 +410,14 @@
         "color": "#a50f15"
       },
       "35": {
-        "dem_votes": 16238,
-        "rep_votes": 15354,
+        "dem_votes": 16239,
+        "rep_votes": 15355,
         "other_votes": 418,
-        "total_votes": 32010,
+        "total_votes": 32012,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
         "margin": -884,
-        "margin_pct": -2.7616,
+        "margin_pct": -2.7615,
         "winner": "D",
         "color": "#c6dbef"
       },
@@ -471,61 +471,61 @@
       },
       "40": {
         "dem_votes": 15879,
-        "rep_votes": 15828,
+        "rep_votes": 15827,
         "other_votes": 356,
-        "total_votes": 32063,
+        "total_votes": 32062,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": -51,
-        "margin_pct": -0.1591,
+        "margin": -52,
+        "margin_pct": -0.1622,
         "winner": "D",
         "color": "#c6dbef"
       },
       "41": {
         "dem_votes": 18027,
-        "rep_votes": 20211,
+        "rep_votes": 20212,
         "other_votes": 440,
-        "total_votes": 38678,
+        "total_votes": 38679,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 2184,
-        "margin_pct": 5.6466,
+        "margin": 2185,
+        "margin_pct": 5.6491,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "42": {
         "dem_votes": 15915,
-        "rep_votes": 5618,
+        "rep_votes": 5617,
         "other_votes": 327,
-        "total_votes": 21860,
+        "total_votes": 21859,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": -10297,
-        "margin_pct": -47.1043,
+        "margin": -10298,
+        "margin_pct": -47.111,
         "winner": "D",
         "color": "#08519c"
       },
       "43": {
         "dem_votes": 23625,
-        "rep_votes": 28122,
+        "rep_votes": 28123,
         "other_votes": 440,
-        "total_votes": 52187,
+        "total_votes": 52188,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 4497,
-        "margin_pct": 8.6171,
+        "margin": 4498,
+        "margin_pct": 8.6188,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "44": {
         "dem_votes": 16449,
-        "rep_votes": 19553,
+        "rep_votes": 19552,
         "other_votes": 471,
-        "total_votes": 36473,
+        "total_votes": 36472,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 3104,
-        "margin_pct": 8.5104,
+        "margin": 3103,
+        "margin_pct": 8.5079,
         "winner": "R",
         "color": "#fc8a6a"
       },
@@ -645,7 +645,7 @@
       },
       "2": {
         "dem_votes": 7902,
-        "rep_votes": 28609,
+        "rep_votes": 28610,
         "other_votes": 571
       },
       "3": {
@@ -660,27 +660,27 @@
       },
       "5": {
         "dem_votes": 9442,
-        "rep_votes": 30363,
+        "rep_votes": 30362,
         "other_votes": 617
       },
       "6": {
-        "dem_votes": 14058,
-        "rep_votes": 24469,
+        "dem_votes": 14056,
+        "rep_votes": 24468,
         "other_votes": 736
       },
       "7": {
-        "dem_votes": 16434,
-        "rep_votes": 10781,
+        "dem_votes": 16435,
+        "rep_votes": 10783,
         "other_votes": 474
       },
       "8": {
-        "dem_votes": 17018,
+        "dem_votes": 17019,
         "rep_votes": 26281,
         "other_votes": 710
       },
       "9": {
         "dem_votes": 5819,
-        "rep_votes": 11071,
+        "rep_votes": 11072,
         "other_votes": 265
       },
       "10": {
@@ -694,18 +694,18 @@
         "other_votes": 411
       },
       "12": {
-        "dem_votes": 13437,
-        "rep_votes": 23189,
+        "dem_votes": 13436,
+        "rep_votes": 23187,
         "other_votes": 529
       },
       "13": {
-        "dem_votes": 12457,
-        "rep_votes": 25679,
+        "dem_votes": 12458,
+        "rep_votes": 25680,
         "other_votes": 503
       },
       "14": {
         "dem_votes": 4000,
-        "rep_votes": 13693,
+        "rep_votes": 13692,
         "other_votes": 262
       },
       "15": {
@@ -714,13 +714,13 @@
         "other_votes": 737
       },
       "16": {
-        "dem_votes": 17719,
-        "rep_votes": 26997,
-        "other_votes": 768
+        "dem_votes": 17716,
+        "rep_votes": 26990,
+        "other_votes": 767
       },
       "17": {
-        "dem_votes": 8574,
-        "rep_votes": 9237,
+        "dem_votes": 8577,
+        "rep_votes": 9244,
         "other_votes": 270
       },
       "18": {
@@ -729,7 +729,7 @@
         "other_votes": 544
       },
       "19": {
-        "dem_votes": 22393,
+        "dem_votes": 22394,
         "rep_votes": 5878,
         "other_votes": 440
       },
@@ -739,8 +739,8 @@
         "other_votes": 420
       },
       "21": {
-        "dem_votes": 24031,
-        "rep_votes": 8152,
+        "dem_votes": 24032,
+        "rep_votes": 8153,
         "other_votes": 454
       },
       "22": {
@@ -754,37 +754,37 @@
         "other_votes": 590
       },
       "24": {
-        "dem_votes": 12938,
+        "dem_votes": 12937,
         "rep_votes": 25350,
         "other_votes": 621
       },
       "25": {
-        "dem_votes": 7144,
-        "rep_votes": 16285,
+        "dem_votes": 7145,
+        "rep_votes": 16286,
         "other_votes": 384
       },
       "26": {
-        "dem_votes": 14393,
-        "rep_votes": 13740,
+        "dem_votes": 14391,
+        "rep_votes": 13739,
         "other_votes": 450
       },
       "27": {
-        "dem_votes": 10729,
-        "rep_votes": 24316,
-        "other_votes": 446
+        "dem_votes": 10728,
+        "rep_votes": 24315,
+        "other_votes": 447
       },
       "28": {
         "dem_votes": 12917,
-        "rep_votes": 33273,
+        "rep_votes": 33272,
         "other_votes": 355
       },
       "29": {
-        "dem_votes": 12524,
+        "dem_votes": 12523,
         "rep_votes": 14117,
         "other_votes": 260
       },
       "30": {
-        "dem_votes": 6200,
+        "dem_votes": 6201,
         "rep_votes": 7633,
         "other_votes": 135
       },
@@ -795,7 +795,7 @@
       },
       "32": {
         "dem_votes": 12158,
-        "rep_votes": 12325,
+        "rep_votes": 12326,
         "other_votes": 250
       },
       "33": {
@@ -809,8 +809,8 @@
         "other_votes": 459
       },
       "35": {
-        "dem_votes": 16238,
-        "rep_votes": 15354,
+        "dem_votes": 16239,
+        "rep_votes": 15355,
         "other_votes": 418
       },
       "36": {
@@ -835,27 +835,27 @@
       },
       "40": {
         "dem_votes": 9910,
-        "rep_votes": 9887,
+        "rep_votes": 9886,
         "other_votes": 206
       },
       "41": {
         "dem_votes": 18027,
-        "rep_votes": 20211,
+        "rep_votes": 20212,
         "other_votes": 440
       },
       "42": {
         "dem_votes": 15915,
-        "rep_votes": 5618,
+        "rep_votes": 5617,
         "other_votes": 327
       },
       "43": {
         "dem_votes": 23625,
-        "rep_votes": 28122,
+        "rep_votes": 28123,
         "other_votes": 440
       },
       "44": {
         "dem_votes": 16449,
-        "rep_votes": 19553,
+        "rep_votes": 19552,
         "other_votes": 471
       },
       "45": {
@@ -889,11 +889,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 2,
     "historical_name_bridge_votes": 1280,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 358,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/governor_2022",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.148564,
-    "snapshot_comparison_max_abs_share_delta_pp": 2.595814,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.14858,
+    "snapshot_comparison_max_abs_share_delta_pp": 2.597393,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 692691,

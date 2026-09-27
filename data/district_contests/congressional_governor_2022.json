@@ -14,38 +14,38 @@
         "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 104178,
-        "rep_votes": 139763,
+        "dem_votes": 104174,
+        "rep_votes": 139760,
         "other_votes": 3709,
-        "total_votes": 247650,
+        "total_votes": 247643,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 35585,
-        "margin_pct": 14.3691,
+        "margin": 35586,
+        "margin_pct": 14.3699,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 66834,
-        "rep_votes": 168083,
+        "dem_votes": 66835,
+        "rep_votes": 168085,
         "other_votes": 3162,
-        "total_votes": 238079,
+        "total_votes": 238082,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 101249,
-        "margin_pct": 42.5275,
+        "margin": 101250,
+        "margin_pct": 42.5274,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
-        "dem_votes": 87098,
-        "rep_votes": 143416,
+        "dem_votes": 87097,
+        "rep_votes": 143414,
         "other_votes": 3682,
-        "total_votes": 234196,
+        "total_votes": 234193,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 56318,
-        "margin_pct": 24.0474,
+        "margin": 56317,
+        "margin_pct": 24.0473,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -62,14 +62,14 @@
         "color": "#cb181d"
       },
       "6": {
-        "dem_votes": 132602,
-        "rep_votes": 76797,
+        "dem_votes": 132606,
+        "rep_votes": 76800,
         "other_votes": 2610,
-        "total_votes": 212009,
+        "total_votes": 212016,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": -55805,
-        "margin_pct": -26.322,
+        "margin": -55806,
+        "margin_pct": -26.3216,
         "winner": "D",
         "color": "#4292c6"
       },
@@ -136,18 +136,18 @@
         "other_votes": 1360
       },
       "2": {
-        "dem_votes": 49876,
-        "rep_votes": 35844,
+        "dem_votes": 49872,
+        "rep_votes": 35841,
         "other_votes": 1157
       },
       "3": {
-        "dem_votes": 7580,
-        "rep_votes": 14553,
+        "dem_votes": 7581,
+        "rep_votes": 14555,
         "other_votes": 366
       },
       "4": {
-        "dem_votes": 87098,
-        "rep_votes": 143416,
+        "dem_votes": 87097,
+        "rep_votes": 143414,
         "other_votes": 3682
       },
       "5": {
@@ -156,8 +156,8 @@
         "other_votes": 475
       },
       "6": {
-        "dem_votes": 113146,
-        "rep_votes": 58364,
+        "dem_votes": 113150,
+        "rep_votes": 58367,
         "other_votes": 2195
       },
       "7": {
@@ -188,10 +188,12 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 2,
     "historical_name_bridge_votes": 1280,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/governor_2022",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.347384,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.347323,
     "snapshot_comparison_max_abs_share_delta_pp": 1.483986,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

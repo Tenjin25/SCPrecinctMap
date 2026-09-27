@@ -15,36 +15,36 @@
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 178445,
+        "rep_votes": 178441,
         "other_votes": 4690,
-        "total_votes": 183135,
+        "total_votes": 183131,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 178445,
+        "margin": 178441,
         "margin_pct": 97.439,
         "winner": "R",
         "color": "#67000d"
       },
       "3": {
         "dem_votes": 0,
-        "rep_votes": 181493,
+        "rep_votes": 181495,
         "other_votes": 2641,
-        "total_votes": 184134,
+        "total_votes": 184136,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 181493,
+        "margin": 181495,
         "margin_pct": 98.5657,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 165645,
+        "rep_votes": 165643,
         "other_votes": 4039,
-        "total_votes": 169684,
+        "total_votes": 169682,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 165645,
+        "margin": 165643,
         "margin_pct": 97.6197,
         "winner": "R",
         "color": "#67000d"
@@ -63,13 +63,13 @@
       },
       "6": {
         "dem_votes": 0,
-        "rep_votes": 110769,
+        "rep_votes": 110773,
         "other_votes": 4755,
-        "total_votes": 115524,
+        "total_votes": 115528,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 110769,
-        "margin_pct": 95.884,
+        "margin": 110773,
+        "margin_pct": 95.8841,
         "winner": "R",
         "color": "#67000d"
       },
@@ -137,17 +137,17 @@
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 54003,
+        "rep_votes": 53999,
         "other_votes": 2244
       },
       "3": {
         "dem_votes": 0,
-        "rep_votes": 15326,
+        "rep_votes": 15328,
         "other_votes": 336
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 165645,
+        "rep_votes": 165643,
         "other_votes": 4039
       },
       "5": {
@@ -157,7 +157,7 @@
       },
       "6": {
         "dem_votes": 0,
-        "rep_votes": 89614,
+        "rep_votes": 89618,
         "other_votes": 4344
       },
       "7": {
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 1,
     "historical_name_bridge_votes": 187,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/comptroller_general_2018",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.081743,
-    "snapshot_comparison_max_abs_share_delta_pp": 0.316197,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.081736,
+    "snapshot_comparison_max_abs_share_delta_pp": 0.316055,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 0,

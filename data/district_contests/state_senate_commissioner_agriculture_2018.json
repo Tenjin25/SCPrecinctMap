@@ -27,61 +27,61 @@
       },
       "3": {
         "dem_votes": 0,
-        "rep_votes": 30490,
+        "rep_votes": 30489,
         "other_votes": 5697,
-        "total_votes": 36187,
+        "total_votes": 36186,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 30490,
-        "margin_pct": 84.2568,
+        "margin": 30489,
+        "margin_pct": 84.2563,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 21865,
+        "rep_votes": 21866,
         "other_votes": 4547,
-        "total_votes": 26412,
+        "total_votes": 26413,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 21865,
-        "margin_pct": 82.7843,
+        "margin": 21866,
+        "margin_pct": 82.785,
         "winner": "R",
         "color": "#67000d"
       },
       "5": {
         "dem_votes": 0,
-        "rep_votes": 28940,
+        "rep_votes": 28939,
         "other_votes": 4733,
-        "total_votes": 33673,
+        "total_votes": 33672,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 28940,
-        "margin_pct": 85.9442,
+        "margin": 28939,
+        "margin_pct": 85.9438,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
         "dem_votes": 0,
-        "rep_votes": 27575,
-        "other_votes": 7580,
-        "total_votes": 35155,
+        "rep_votes": 27574,
+        "other_votes": 7579,
+        "total_votes": 35153,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 27575,
-        "margin_pct": 78.4383,
+        "margin": 27574,
+        "margin_pct": 78.44,
         "winner": "R",
         "color": "#67000d"
       },
       "7": {
         "dem_votes": 0,
-        "rep_votes": 11820,
+        "rep_votes": 11822,
         "other_votes": 7670,
-        "total_votes": 19490,
+        "total_votes": 19492,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 11820,
-        "margin_pct": 60.6465,
+        "margin": 11822,
+        "margin_pct": 60.6505,
         "winner": "R",
         "color": "#67000d"
       },
@@ -99,13 +99,13 @@
       },
       "9": {
         "dem_votes": 0,
-        "rep_votes": 24556,
-        "other_votes": 5666,
-        "total_votes": 30222,
+        "rep_votes": 24557,
+        "other_votes": 5667,
+        "total_votes": 30224,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 24556,
-        "margin_pct": 81.2521,
+        "margin": 24557,
+        "margin_pct": 81.25,
         "winner": "R",
         "color": "#67000d"
       },
@@ -135,73 +135,73 @@
       },
       "12": {
         "dem_votes": 0,
-        "rep_votes": 23789,
+        "rep_votes": 23788,
         "other_votes": 6361,
-        "total_votes": 30150,
+        "total_votes": 30149,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 23789,
-        "margin_pct": 78.9022,
+        "margin": 23788,
+        "margin_pct": 78.9015,
         "winner": "R",
         "color": "#67000d"
       },
       "13": {
         "dem_votes": 0,
-        "rep_votes": 26367,
+        "rep_votes": 26368,
         "other_votes": 5632,
-        "total_votes": 31999,
+        "total_votes": 32000,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 26367,
-        "margin_pct": 82.3994,
+        "margin": 26368,
+        "margin_pct": 82.4,
         "winner": "R",
         "color": "#67000d"
       },
       "14": {
         "dem_votes": 0,
-        "rep_votes": 24929,
+        "rep_votes": 24928,
         "other_votes": 3943,
-        "total_votes": 28872,
+        "total_votes": 28871,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 24929,
-        "margin_pct": 86.3432,
+        "margin": 24928,
+        "margin_pct": 86.3427,
         "winner": "R",
         "color": "#67000d"
       },
       "15": {
         "dem_votes": 0,
-        "rep_votes": 25789,
+        "rep_votes": 25788,
         "other_votes": 8602,
-        "total_votes": 34391,
+        "total_votes": 34390,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 25789,
-        "margin_pct": 74.9876,
+        "margin": 25788,
+        "margin_pct": 74.9869,
         "winner": "R",
         "color": "#67000d"
       },
       "16": {
         "dem_votes": 0,
-        "rep_votes": 26306,
-        "other_votes": 10039,
-        "total_votes": 36345,
+        "rep_votes": 26303,
+        "other_votes": 10037,
+        "total_votes": 36340,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 26306,
-        "margin_pct": 72.3786,
+        "margin": 26303,
+        "margin_pct": 72.3803,
         "winner": "R",
         "color": "#67000d"
       },
       "17": {
         "dem_votes": 0,
-        "rep_votes": 19030,
-        "other_votes": 9302,
-        "total_votes": 28332,
+        "rep_votes": 19034,
+        "other_votes": 9304,
+        "total_votes": 28338,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 19030,
-        "margin_pct": 67.1679,
+        "margin": 19034,
+        "margin_pct": 67.1678,
         "winner": "R",
         "color": "#67000d"
       },
@@ -219,13 +219,13 @@
       },
       "19": {
         "dem_votes": 0,
-        "rep_votes": 8376,
-        "other_votes": 13359,
-        "total_votes": 21735,
+        "rep_votes": 8377,
+        "other_votes": 13360,
+        "total_votes": 21737,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 8376,
-        "margin_pct": 38.5369,
+        "margin": 8377,
+        "margin_pct": 38.538,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -243,25 +243,25 @@
       },
       "21": {
         "dem_votes": 0,
-        "rep_votes": 12376,
-        "other_votes": 12248,
-        "total_votes": 24624,
+        "rep_votes": 12377,
+        "other_votes": 12249,
+        "total_votes": 24626,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 12376,
+        "margin": 12377,
         "margin_pct": 50.2599,
         "winner": "R",
         "color": "#67000d"
       },
       "22": {
         "dem_votes": 0,
-        "rep_votes": 19825,
+        "rep_votes": 19824,
         "other_votes": 12796,
-        "total_votes": 32621,
+        "total_votes": 32620,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 19825,
-        "margin_pct": 60.7737,
+        "margin": 19824,
+        "margin_pct": 60.7725,
         "winner": "R",
         "color": "#67000d"
       },
@@ -291,37 +291,37 @@
       },
       "25": {
         "dem_votes": 0,
-        "rep_votes": 25467,
+        "rep_votes": 25468,
         "other_votes": 5690,
-        "total_votes": 31157,
+        "total_votes": 31158,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 25467,
-        "margin_pct": 81.7377,
+        "margin": 25468,
+        "margin_pct": 81.7382,
         "winner": "R",
         "color": "#67000d"
       },
       "26": {
         "dem_votes": 0,
-        "rep_votes": 17736,
-        "other_votes": 8154,
-        "total_votes": 25890,
+        "rep_votes": 17735,
+        "other_votes": 8152,
+        "total_votes": 25887,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 17736,
-        "margin_pct": 68.5052,
+        "margin": 17735,
+        "margin_pct": 68.5093,
         "winner": "R",
         "color": "#67000d"
       },
       "27": {
         "dem_votes": 0,
-        "rep_votes": 24303,
+        "rep_votes": 24302,
         "other_votes": 5537,
-        "total_votes": 29840,
+        "total_votes": 29839,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 24303,
-        "margin_pct": 81.4444,
+        "margin": 24302,
+        "margin_pct": 81.4437,
         "winner": "R",
         "color": "#67000d"
       },
@@ -340,12 +340,12 @@
       "29": {
         "dem_votes": 0,
         "rep_votes": 18694,
-        "other_votes": 6602,
-        "total_votes": 25296,
+        "other_votes": 6601,
+        "total_votes": 25295,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
         "margin": 18694,
-        "margin_pct": 73.901,
+        "margin_pct": 73.9039,
         "winner": "R",
         "color": "#67000d"
       },
@@ -411,25 +411,25 @@
       },
       "35": {
         "dem_votes": 0,
-        "rep_votes": 17375,
+        "rep_votes": 17376,
         "other_votes": 7274,
-        "total_votes": 24649,
+        "total_votes": 24650,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 17375,
-        "margin_pct": 70.4897,
+        "margin": 17376,
+        "margin_pct": 70.4909,
         "winner": "R",
         "color": "#67000d"
       },
       "36": {
         "dem_votes": 0,
         "rep_votes": 19190,
-        "other_votes": 6681,
-        "total_votes": 25871,
+        "other_votes": 6682,
+        "total_votes": 25872,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
         "margin": 19190,
-        "margin_pct": 74.1757,
+        "margin_pct": 74.1729,
         "winner": "R",
         "color": "#67000d"
       },
@@ -447,13 +447,13 @@
       },
       "38": {
         "dem_votes": 0,
-        "rep_votes": 20140,
+        "rep_votes": 20139,
         "other_votes": 6619,
-        "total_votes": 26759,
+        "total_votes": 26758,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 20140,
-        "margin_pct": 75.2644,
+        "margin": 20139,
+        "margin_pct": 75.2635,
         "winner": "R",
         "color": "#67000d"
       },
@@ -471,25 +471,25 @@
       },
       "40": {
         "dem_votes": 0,
-        "rep_votes": 17352,
+        "rep_votes": 17351,
         "other_votes": 6436,
-        "total_votes": 23788,
+        "total_votes": 23787,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 17352,
-        "margin_pct": 72.9443,
+        "margin": 17351,
+        "margin_pct": 72.9432,
         "winner": "R",
         "color": "#67000d"
       },
       "41": {
         "dem_votes": 0,
-        "rep_votes": 20028,
+        "rep_votes": 20030,
         "other_votes": 7521,
-        "total_votes": 27549,
+        "total_votes": 27551,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 20028,
-        "margin_pct": 72.6996,
+        "margin": 20030,
+        "margin_pct": 72.7015,
         "winner": "R",
         "color": "#67000d"
       },
@@ -519,13 +519,13 @@
       },
       "44": {
         "dem_votes": 0,
-        "rep_votes": 21527,
+        "rep_votes": 21526,
         "other_votes": 7609,
-        "total_votes": 29136,
+        "total_votes": 29135,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 21527,
-        "margin_pct": 73.8845,
+        "margin": 21526,
+        "margin_pct": 73.8836,
         "winner": "R",
         "color": "#67000d"
       },
@@ -650,27 +650,27 @@
       },
       "3": {
         "dem_votes": 0,
-        "rep_votes": 30490,
+        "rep_votes": 30489,
         "other_votes": 5697
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 16136,
+        "rep_votes": 16137,
         "other_votes": 3392
       },
       "5": {
         "dem_votes": 0,
-        "rep_votes": 28940,
+        "rep_votes": 28939,
         "other_votes": 4733
       },
       "6": {
         "dem_votes": 0,
-        "rep_votes": 27575,
-        "other_votes": 7580
+        "rep_votes": 27574,
+        "other_votes": 7579
       },
       "7": {
         "dem_votes": 0,
-        "rep_votes": 11820,
+        "rep_votes": 11822,
         "other_votes": 7670
       },
       "8": {
@@ -680,8 +680,8 @@
       },
       "9": {
         "dem_votes": 0,
-        "rep_votes": 10725,
-        "other_votes": 2810
+        "rep_votes": 10726,
+        "other_votes": 2811
       },
       "10": {
         "dem_votes": 0,
@@ -695,33 +695,33 @@
       },
       "12": {
         "dem_votes": 0,
-        "rep_votes": 23789,
+        "rep_votes": 23788,
         "other_votes": 6361
       },
       "13": {
         "dem_votes": 0,
-        "rep_votes": 26367,
+        "rep_votes": 26368,
         "other_votes": 5632
       },
       "14": {
         "dem_votes": 0,
-        "rep_votes": 12875,
+        "rep_votes": 12874,
         "other_votes": 2221
       },
       "15": {
         "dem_votes": 0,
-        "rep_votes": 25789,
+        "rep_votes": 25788,
         "other_votes": 8602
       },
       "16": {
         "dem_votes": 0,
-        "rep_votes": 26306,
-        "other_votes": 10039
+        "rep_votes": 26303,
+        "other_votes": 10037
       },
       "17": {
         "dem_votes": 0,
-        "rep_votes": 9364,
-        "other_votes": 5042
+        "rep_votes": 9368,
+        "other_votes": 5044
       },
       "18": {
         "dem_votes": 0,
@@ -730,8 +730,8 @@
       },
       "19": {
         "dem_votes": 0,
-        "rep_votes": 8376,
-        "other_votes": 13359
+        "rep_votes": 8377,
+        "other_votes": 13360
       },
       "20": {
         "dem_votes": 0,
@@ -740,12 +740,12 @@
       },
       "21": {
         "dem_votes": 0,
-        "rep_votes": 12376,
-        "other_votes": 12248
+        "rep_votes": 12377,
+        "other_votes": 12249
       },
       "22": {
         "dem_votes": 0,
-        "rep_votes": 19825,
+        "rep_votes": 19824,
         "other_votes": 12796
       },
       "23": {
@@ -760,17 +760,17 @@
       },
       "25": {
         "dem_votes": 0,
-        "rep_votes": 17200,
+        "rep_votes": 17201,
         "other_votes": 3624
       },
       "26": {
         "dem_votes": 0,
-        "rep_votes": 17736,
-        "other_votes": 8154
+        "rep_votes": 17735,
+        "other_votes": 8152
       },
       "27": {
         "dem_votes": 0,
-        "rep_votes": 24303,
+        "rep_votes": 24302,
         "other_votes": 5537
       },
       "28": {
@@ -781,7 +781,7 @@
       "29": {
         "dem_votes": 0,
         "rep_votes": 15274,
-        "other_votes": 4949
+        "other_votes": 4948
       },
       "30": {
         "dem_votes": 0,
@@ -810,13 +810,13 @@
       },
       "35": {
         "dem_votes": 0,
-        "rep_votes": 17375,
+        "rep_votes": 17376,
         "other_votes": 7274
       },
       "36": {
         "dem_votes": 0,
         "rep_votes": 13007,
-        "other_votes": 5029
+        "other_votes": 5030
       },
       "37": {
         "dem_votes": 0,
@@ -825,7 +825,7 @@
       },
       "38": {
         "dem_votes": 0,
-        "rep_votes": 20140,
+        "rep_votes": 20139,
         "other_votes": 6619
       },
       "39": {
@@ -835,12 +835,12 @@
       },
       "40": {
         "dem_votes": 0,
-        "rep_votes": 11009,
+        "rep_votes": 11008,
         "other_votes": 4300
       },
       "41": {
         "dem_votes": 0,
-        "rep_votes": 20028,
+        "rep_votes": 20030,
         "other_votes": 7521
       },
       "42": {
@@ -855,7 +855,7 @@
       },
       "44": {
         "dem_votes": 0,
-        "rep_votes": 21527,
+        "rep_votes": 21526,
         "other_votes": 7609
       },
       "45": {
@@ -889,11 +889,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 1,
     "historical_name_bridge_votes": 250,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 358,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/commissioner_agriculture_2018",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.328913,
-    "snapshot_comparison_max_abs_share_delta_pp": 3.289476,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.328788,
+    "snapshot_comparison_max_abs_share_delta_pp": 3.290613,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 0,

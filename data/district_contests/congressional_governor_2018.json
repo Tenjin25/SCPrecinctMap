@@ -14,62 +14,62 @@
         "color": "#fc8a6a"
       },
       "2": {
-        "dem_votes": 118826,
-        "rep_votes": 138784,
+        "dem_votes": 118822,
+        "rep_votes": 138781,
         "other_votes": 333,
-        "total_votes": 257943,
+        "total_votes": 257936,
         "dem_candidate": "James Smith / Mandy Powers Norrell",
         "rep_candidate": "Henry McMaster / Pamela Evette",
-        "margin": 19958,
-        "margin_pct": 7.7374,
+        "margin": 19959,
+        "margin_pct": 7.738,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "3": {
-        "dem_votes": 78809,
-        "rep_votes": 156573,
+        "dem_votes": 78811,
+        "rep_votes": 156575,
         "other_votes": 356,
-        "total_votes": 235738,
+        "total_votes": 235742,
         "dem_candidate": "James Smith / Mandy Powers Norrell",
         "rep_candidate": "Henry McMaster / Pamela Evette",
         "margin": 77764,
-        "margin_pct": 32.9875,
+        "margin_pct": 32.9869,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 98027,
-        "rep_votes": 135245,
+        "dem_votes": 98025,
+        "rep_votes": 135243,
         "other_votes": 474,
-        "total_votes": 233746,
+        "total_votes": 233742,
         "dem_candidate": "James Smith / Mandy Powers Norrell",
         "rep_candidate": "Henry McMaster / Pamela Evette",
         "margin": 37218,
-        "margin_pct": 15.9224,
+        "margin_pct": 15.9227,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "5": {
         "dem_votes": 103752,
-        "rep_votes": 141556,
+        "rep_votes": 141555,
         "other_votes": 174,
-        "total_votes": 245482,
+        "total_votes": 245481,
         "dem_candidate": "James Smith / Mandy Powers Norrell",
         "rep_candidate": "Henry McMaster / Pamela Evette",
-        "margin": 37804,
-        "margin_pct": 15.3999,
+        "margin": 37803,
+        "margin_pct": 15.3996,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 162734,
-        "rep_votes": 75664,
+        "dem_votes": 162738,
+        "rep_votes": 75668,
         "other_votes": 232,
-        "total_votes": 238630,
+        "total_votes": 238638,
         "dem_candidate": "James Smith / Mandy Powers Norrell",
         "rep_candidate": "Henry McMaster / Pamela Evette",
         "margin": -87070,
-        "margin_pct": -36.4874,
+        "margin_pct": -36.4862,
         "winner": "D",
         "color": "#2171b5"
       },
@@ -136,28 +136,28 @@
         "other_votes": 145
       },
       "2": {
-        "dem_votes": 55669,
-        "rep_votes": 35705,
+        "dem_votes": 55665,
+        "rep_votes": 35702,
         "other_votes": 117
       },
       "3": {
-        "dem_votes": 7837,
-        "rep_votes": 12977,
+        "dem_votes": 7839,
+        "rep_votes": 12979,
         "other_votes": 39
       },
       "4": {
-        "dem_votes": 98027,
-        "rep_votes": 135245,
+        "dem_votes": 98025,
+        "rep_votes": 135243,
         "other_votes": 474
       },
       "5": {
         "dem_votes": 17354,
-        "rep_votes": 24030,
+        "rep_votes": 24029,
         "other_votes": 35
       },
       "6": {
-        "dem_votes": 136442,
-        "rep_votes": 58498,
+        "dem_votes": 136446,
+        "rep_votes": 58502,
         "other_votes": 194
       },
       "7": {
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 1,
     "historical_name_bridge_votes": 356,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/governor_2018",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.792591,
-    "snapshot_comparison_max_abs_share_delta_pp": 2.082681,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.792534,
+    "snapshot_comparison_max_abs_share_delta_pp": 2.082543,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 784182,

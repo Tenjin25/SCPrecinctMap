@@ -15,37 +15,37 @@
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 157813,
-        "other_votes": 50558,
-        "total_votes": 208371,
+        "rep_votes": 157809,
+        "other_votes": 50557,
+        "total_votes": 208366,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 157813,
-        "margin_pct": 75.7365,
+        "margin": 157809,
+        "margin_pct": 75.7364,
         "winner": "R",
         "color": "#67000d"
       },
       "3": {
         "dem_votes": 0,
-        "rep_votes": 178403,
-        "other_votes": 31328,
-        "total_votes": 209731,
+        "rep_votes": 178405,
+        "other_votes": 31329,
+        "total_votes": 209734,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 178403,
-        "margin_pct": 85.0628,
+        "margin": 178405,
+        "margin_pct": 85.0625,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 156824,
-        "other_votes": 42505,
-        "total_votes": 199329,
+        "rep_votes": 156822,
+        "other_votes": 42504,
+        "total_votes": 199326,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 156824,
-        "margin_pct": 78.676,
+        "margin": 156822,
+        "margin_pct": 78.6761,
         "winner": "R",
         "color": "#67000d"
       },
@@ -63,13 +63,13 @@
       },
       "6": {
         "dem_votes": 0,
-        "rep_votes": 91100,
-        "other_votes": 54947,
-        "total_votes": 146047,
+        "rep_votes": 91104,
+        "other_votes": 54948,
+        "total_votes": 146052,
         "dem_candidate": "",
         "rep_candidate": "Hugh Weathers",
-        "margin": 91100,
-        "margin_pct": 62.3772,
+        "margin": 91104,
+        "margin_pct": 62.3778,
         "winner": "R",
         "color": "#67000d"
       },
@@ -137,18 +137,18 @@
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 44155,
-        "other_votes": 24073
+        "rep_votes": 44151,
+        "other_votes": 24072
       },
       "3": {
         "dem_votes": 0,
-        "rep_votes": 15582,
-        "other_votes": 3760
+        "rep_votes": 15584,
+        "other_votes": 3761
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 156824,
-        "other_votes": 42505
+        "rep_votes": 156822,
+        "other_votes": 42504
       },
       "5": {
         "dem_votes": 0,
@@ -157,8 +157,8 @@
       },
       "6": {
         "dem_votes": 0,
-        "rep_votes": 71299,
-        "other_votes": 48977
+        "rep_votes": 71303,
+        "other_votes": 48978
       },
       "7": {
         "dem_votes": 0,
@@ -188,10 +188,12 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 2,
     "historical_name_bridge_votes": 1011,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/commissioner_agriculture_2022",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.257979,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.257889,
     "snapshot_comparison_max_abs_share_delta_pp": 1.309825,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
