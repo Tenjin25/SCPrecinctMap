@@ -75,13 +75,13 @@
       },
       "7": {
         "dem_votes": 0,
-        "rep_votes": 6918,
+        "rep_votes": 6931,
         "other_votes": 50,
-        "total_votes": 6968,
+        "total_votes": 6981,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 6918,
-        "margin_pct": 99.2824,
+        "margin": 6931,
+        "margin_pct": 99.2838,
         "winner": "R",
         "color": "#67000d"
       },
@@ -123,13 +123,13 @@
       },
       "11": {
         "dem_votes": 0,
-        "rep_votes": 7799,
+        "rep_votes": 7786,
         "other_votes": 64,
-        "total_votes": 7863,
+        "total_votes": 7850,
         "dem_candidate": "",
         "rep_candidate": "Curtis Loftis",
-        "margin": 7799,
-        "margin_pct": 99.1861,
+        "margin": 7786,
+        "margin_pct": 99.1847,
         "winner": "R",
         "color": "#67000d"
       },
@@ -1495,18 +1495,13 @@
     "match_coverage_pct": 98.3729,
     "precinct_rows_total": 2274,
     "precinct_rows_overlap_weighted": 2237,
-    "precinct_rows_county_share_fallback": 23,
-    "precinct_votes_county_share_fallback": 1926,
+    "precinct_rows_county_share_fallback": 24,
+    "precinct_votes_county_share_fallback": 1927,
     "precinct_rows_emergency_party_reconciled": 0,
     "precinct_votes_emergency_party_reconciled": 0,
     "emergency_allocation_method": "county_total_vote_share",
-    "whole_counties_exact": 14,
+    "whole_counties_exact": 13,
     "whole_county_vote_components": {
-      "11": {
-        "dem_votes": 0,
-        "rep_votes": 4748,
-        "other_votes": 38
-      },
       "91": {
         "dem_votes": 0,
         "rep_votes": 4842,
@@ -1601,7 +1596,7 @@
       },
       "7": {
         "dem_votes": 0,
-        "rep_votes": 6918,
+        "rep_votes": 6931,
         "other_votes": 50
       },
       "8": {
@@ -1621,8 +1616,8 @@
       },
       "11": {
         "dem_votes": 0,
-        "rep_votes": 3051,
-        "other_votes": 26
+        "rep_votes": 7786,
+        "other_votes": 64
       },
       "12": {
         "dem_votes": 0,
@@ -2190,7 +2185,7 @@
         "other_votes": 83
       }
     },
-    "split_counties_reconciled": 32,
+    "split_counties_reconciled": 33,
     "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
@@ -2205,6 +2200,18 @@
       "rep_votes": 0,
       "other_votes": 0
     },
+    "whole_county_cvap_exceptions": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ],
     "punctuation_alias_rows": 1,
     "punctuation_alias_votes": 927,
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",

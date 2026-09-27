@@ -74,14 +74,14 @@
         "color": "#67000d"
       },
       "7": {
-        "dem_votes": 2829,
-        "rep_votes": 7810,
-        "other_votes": 513,
-        "total_votes": 11152,
+        "dem_votes": 2834,
+        "rep_votes": 7827,
+        "other_votes": 514,
+        "total_votes": 11175,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 4981,
-        "margin_pct": 44.6646,
+        "margin": 4993,
+        "margin_pct": 44.6801,
         "winner": "R",
         "color": "#67000d"
       },
@@ -122,14 +122,14 @@
         "color": "#a50f15"
       },
       "11": {
-        "dem_votes": 3551,
-        "rep_votes": 8851,
-        "other_votes": 525,
-        "total_votes": 12927,
+        "dem_votes": 3546,
+        "rep_votes": 8834,
+        "other_votes": 524,
+        "total_votes": 12904,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 5300,
-        "margin_pct": 40.9995,
+        "margin": 5288,
+        "margin_pct": 40.9795,
         "winner": "R",
         "color": "#67000d"
       },
@@ -1500,13 +1500,8 @@
     "precinct_rows_emergency_party_reconciled": 0,
     "precinct_votes_emergency_party_reconciled": 0,
     "emergency_allocation_method": "county_total_vote_share",
-    "whole_counties_exact": 12,
+    "whole_counties_exact": 11,
     "whole_county_vote_components": {
-      "11": {
-        "dem_votes": 2675,
-        "rep_votes": 5510,
-        "other_votes": 363
-      },
       "91": {
         "dem_votes": 3942,
         "rep_votes": 3686,
@@ -1590,9 +1585,9 @@
         "other_votes": 768
       },
       "7": {
-        "dem_votes": 2829,
-        "rep_votes": 7810,
-        "other_votes": 513
+        "dem_votes": 2834,
+        "rep_votes": 7827,
+        "other_votes": 514
       },
       "8": {
         "dem_votes": 3524,
@@ -1610,9 +1605,9 @@
         "other_votes": 622
       },
       "11": {
-        "dem_votes": 876,
-        "rep_votes": 3341,
-        "other_votes": 162
+        "dem_votes": 3546,
+        "rep_votes": 8834,
+        "other_votes": 524
       },
       "12": {
         "dem_votes": 3409,
@@ -2180,7 +2175,7 @@
         "other_votes": 581
       }
     },
-    "split_counties_reconciled": 34,
+    "split_counties_reconciled": 35,
     "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
@@ -2195,6 +2190,18 @@
       "rep_votes": 0,
       "other_votes": 0
     },
+    "whole_county_cvap_exceptions": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ],
     "punctuation_alias_rows": 2,
     "punctuation_alias_votes": 2879,
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
@@ -2203,7 +2210,7 @@
     "snapshot_comparison_geometry": "state_house_2024",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_house_2024/superintendent_2022",
     "snapshot_comparison_districts": 124,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.354166,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.354204,
     "snapshot_comparison_max_abs_share_delta_pp": 3.519428,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

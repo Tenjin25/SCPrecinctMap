@@ -74,14 +74,14 @@
         "color": "#67000d"
       },
       "7": {
-        "dem_votes": 4933,
-        "rep_votes": 12694,
+        "dem_votes": 4941,
+        "rep_votes": 12722,
         "other_votes": 183,
-        "total_votes": 17810,
+        "total_votes": 17846,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 7761,
-        "margin_pct": 43.5766,
+        "margin": 7781,
+        "margin_pct": 43.6008,
         "winner": "R",
         "color": "#67000d"
       },
@@ -122,14 +122,14 @@
         "color": "#67000d"
       },
       "11": {
-        "dem_votes": 5570,
-        "rep_votes": 13444,
+        "dem_votes": 5562,
+        "rep_votes": 13416,
         "other_votes": 192,
-        "total_votes": 19206,
+        "total_votes": 19170,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 7874,
-        "margin_pct": 40.9976,
+        "margin": 7854,
+        "margin_pct": 40.9703,
         "winner": "R",
         "color": "#67000d"
       },
@@ -1500,13 +1500,8 @@
     "precinct_rows_emergency_party_reconciled": 0,
     "precinct_votes_emergency_party_reconciled": 0,
     "emergency_allocation_method": "county_total_vote_share",
-    "whole_counties_exact": 14,
+    "whole_counties_exact": 13,
     "whole_county_vote_components": {
-      "11": {
-        "dem_votes": 4101,
-        "rep_votes": 8215,
-        "other_votes": 117
-      },
       "91": {
         "dem_votes": 7438,
         "rep_votes": 6327,
@@ -1600,8 +1595,8 @@
         "other_votes": 347
       },
       "7": {
-        "dem_votes": 4933,
-        "rep_votes": 12694,
+        "dem_votes": 4941,
+        "rep_votes": 12722,
         "other_votes": 183
       },
       "8": {
@@ -1620,9 +1615,9 @@
         "other_votes": 328
       },
       "11": {
-        "dem_votes": 1469,
-        "rep_votes": 5229,
-        "other_votes": 75
+        "dem_votes": 5562,
+        "rep_votes": 13416,
+        "other_votes": 192
       },
       "12": {
         "dem_votes": 6268,
@@ -2190,7 +2185,7 @@
         "other_votes": 347
       }
     },
-    "split_counties_reconciled": 32,
+    "split_counties_reconciled": 33,
     "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
@@ -2205,6 +2200,18 @@
       "rep_votes": 0,
       "other_votes": 0
     },
+    "whole_county_cvap_exceptions": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ],
     "punctuation_alias_rows": 2,
     "punctuation_alias_votes": 4139,
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
@@ -2213,7 +2220,7 @@
     "snapshot_comparison_geometry": "state_house_root",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_house_root/president_2020",
     "snapshot_comparison_districts": 124,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.828325,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.828464,
     "snapshot_comparison_max_abs_share_delta_pp": 20.672455,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

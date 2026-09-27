@@ -74,14 +74,14 @@
         "color": "#67000d"
       },
       "7": {
-        "dem_votes": 3377,
-        "rep_votes": 10689,
-        "other_votes": 863,
-        "total_votes": 14929,
+        "dem_votes": 3384,
+        "rep_votes": 10713,
+        "other_votes": 865,
+        "total_votes": 14962,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 7312,
-        "margin_pct": 48.9785,
+        "margin": 7329,
+        "margin_pct": 48.9841,
         "winner": "R",
         "color": "#67000d"
       },
@@ -122,14 +122,14 @@
         "color": "#67000d"
       },
       "11": {
-        "dem_votes": 4697,
-        "rep_votes": 11343,
-        "other_votes": 957,
-        "total_votes": 16997,
+        "dem_votes": 4690,
+        "rep_votes": 11319,
+        "other_votes": 955,
+        "total_votes": 16964,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 6646,
-        "margin_pct": 39.101,
+        "margin": 6629,
+        "margin_pct": 39.0769,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -1500,13 +1500,8 @@
     "precinct_rows_emergency_party_reconciled": 0,
     "precinct_votes_emergency_party_reconciled": 0,
     "emergency_allocation_method": "county_total_vote_share",
-    "whole_counties_exact": 14,
+    "whole_counties_exact": 13,
     "whole_county_vote_components": {
-      "11": {
-        "dem_votes": 3285,
-        "rep_votes": 6669,
-        "other_votes": 516
-      },
       "91": {
         "dem_votes": 6450,
         "rep_votes": 5589,
@@ -1600,9 +1595,9 @@
         "other_votes": 839
       },
       "7": {
-        "dem_votes": 3377,
-        "rep_votes": 10689,
-        "other_votes": 863
+        "dem_votes": 3384,
+        "rep_votes": 10713,
+        "other_votes": 865
       },
       "8": {
         "dem_votes": 3873,
@@ -1620,9 +1615,9 @@
         "other_votes": 837
       },
       "11": {
-        "dem_votes": 1412,
-        "rep_votes": 4674,
-        "other_votes": 441
+        "dem_votes": 4690,
+        "rep_votes": 11319,
+        "other_votes": 955
       },
       "12": {
         "dem_votes": 5151,
@@ -2190,7 +2185,7 @@
         "other_votes": 811
       }
     },
-    "split_counties_reconciled": 32,
+    "split_counties_reconciled": 33,
     "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
@@ -2205,6 +2200,18 @@
       "rep_votes": 0,
       "other_votes": 0
     },
+    "whole_county_cvap_exceptions": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ],
     "punctuation_alias_rows": 2,
     "punctuation_alias_votes": 2204,
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
@@ -2213,7 +2220,7 @@
     "snapshot_comparison_geometry": "state_house_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_house_2022/us_senate_2016",
     "snapshot_comparison_districts": 124,
-    "snapshot_comparison_mean_abs_share_delta_pp": 2.249262,
+    "snapshot_comparison_mean_abs_share_delta_pp": 2.249313,
     "snapshot_comparison_max_abs_share_delta_pp": 33.035337,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

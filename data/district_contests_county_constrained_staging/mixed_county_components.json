@@ -1,8 +1,9 @@
 {
   "schema": "mixed_county_components.v1",
   "full_county_threshold": 0.999,
+  "max_whole_county_outside_cvap_share": 0.001,
   "material_partial_county_threshold": 0.001,
-  "method": "Canonical county returns are inserted directly for whole counties; only split-county components use precinct/block weights. County area shares at or below 0.1% are geometry slivers.",
+  "method": "Canonical county returns are inserted directly for whole counties only when both area and block population pass the 0.1% sliver test; split-county components use precinct/block weights.",
   "plans": {
     "congressional": {
       "exact_components": {
@@ -124,13 +125,11 @@
         "UNION": "5",
         "WILLIAMSBURG": "6",
         "YORK": "5"
-      }
+      },
+      "whole_county_cvap_exceptions": []
     },
     "state_house_2022": {
       "exact_components": {
-        "11": [
-          "ABBEVILLE"
-        ],
         "12": [
           "MCCORMICK"
         ],
@@ -170,10 +169,6 @@
         ]
       },
       "allocated_components": {
-        "11": [
-          "ANDERSON",
-          "LAURENS"
-        ],
         "12": [
           "GREENWOOD"
         ],
@@ -219,7 +214,6 @@
         ]
       },
       "whole_county_destinations": {
-        "ABBEVILLE": "11",
         "ALLENDALE": "91",
         "BAMBERG": "90",
         "BARNWELL": "91",
@@ -233,7 +227,19 @@
         "MCCORMICK": "12",
         "NEWBERRY": "40",
         "UNION": "42"
-      }
+      },
+      "whole_county_cvap_exceptions": [
+        {
+          "county": "ABBEVILLE",
+          "would_be_whole_district": "11",
+          "outside_cvap": 67.0,
+          "outside_district_cvap": {
+            "7": 67.0
+          },
+          "county_cvap": 19481.0,
+          "outside_cvap_share": 0.00343925
+        }
+      ]
     },
     "state_senate_2022": {
       "exact_components": {
@@ -373,13 +379,11 @@
         "NEWBERRY": "18",
         "OCONEE": "1",
         "WILLIAMSBURG": "32"
-      }
+      },
+      "whole_county_cvap_exceptions": []
     },
     "state_house_2024": {
       "exact_components": {
-        "11": [
-          "ABBEVILLE"
-        ],
         "12": [
           "MCCORMICK"
         ],
@@ -413,10 +417,6 @@
         ]
       },
       "allocated_components": {
-        "11": [
-          "ANDERSON",
-          "LAURENS"
-        ],
         "12": [
           "GREENWOOD"
         ],
@@ -456,7 +456,6 @@
         ]
       },
       "whole_county_destinations": {
-        "ABBEVILLE": "11",
         "ALLENDALE": "91",
         "BAMBERG": "90",
         "BARNWELL": "91",
@@ -468,7 +467,19 @@
         "MCCORMICK": "12",
         "NEWBERRY": "40",
         "UNION": "42"
-      }
+      },
+      "whole_county_cvap_exceptions": [
+        {
+          "county": "ABBEVILLE",
+          "would_be_whole_district": "11",
+          "outside_cvap": 67.0,
+          "outside_district_cvap": {
+            "7": 67.0
+          },
+          "county_cvap": 19481.0,
+          "outside_cvap_share": 0.00343925
+        }
+      ]
     }
   }
 }

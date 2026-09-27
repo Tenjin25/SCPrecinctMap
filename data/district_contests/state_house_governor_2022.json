@@ -74,14 +74,14 @@
         "color": "#67000d"
       },
       "7": {
-        "dem_votes": 2707,
-        "rep_votes": 8398,
+        "dem_votes": 2711,
+        "rep_votes": 8416,
         "other_votes": 131,
-        "total_votes": 11236,
+        "total_votes": 11258,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 5691,
-        "margin_pct": 50.6497,
+        "margin": 5705,
+        "margin_pct": 50.6751,
         "winner": "R",
         "color": "#67000d"
       },
@@ -122,14 +122,14 @@
         "color": "#67000d"
       },
       "11": {
-        "dem_votes": 3361,
-        "rep_votes": 9495,
+        "dem_votes": 3357,
+        "rep_votes": 9477,
         "other_votes": 135,
-        "total_votes": 12991,
+        "total_votes": 12969,
         "dem_candidate": "Joe Cunningham/Tally Parham Casey",
         "rep_candidate": "Henry McMaster/Pamela Evette",
-        "margin": 6134,
-        "margin_pct": 47.2173,
+        "margin": 6120,
+        "margin_pct": 47.1895,
         "winner": "R",
         "color": "#67000d"
       },
@@ -1500,13 +1500,8 @@
     "precinct_rows_emergency_party_reconciled": 0,
     "precinct_votes_emergency_party_reconciled": 0,
     "emergency_allocation_method": "county_total_vote_share",
-    "whole_counties_exact": 14,
+    "whole_counties_exact": 13,
     "whole_county_vote_components": {
-      "11": {
-        "dem_votes": 2498,
-        "rep_votes": 6010,
-        "other_votes": 93
-      },
       "91": {
         "dem_votes": 3777,
         "rep_votes": 4205,
@@ -1600,8 +1595,8 @@
         "other_votes": 170
       },
       "7": {
-        "dem_votes": 2707,
-        "rep_votes": 8398,
+        "dem_votes": 2711,
+        "rep_votes": 8416,
         "other_votes": 131
       },
       "8": {
@@ -1620,9 +1615,9 @@
         "other_votes": 148
       },
       "11": {
-        "dem_votes": 863,
-        "rep_votes": 3485,
-        "other_votes": 42
+        "dem_votes": 3357,
+        "rep_votes": 9477,
+        "other_votes": 135
       },
       "12": {
         "dem_votes": 3415,
@@ -2190,7 +2185,7 @@
         "other_votes": 148
       }
     },
-    "split_counties_reconciled": 32,
+    "split_counties_reconciled": 33,
     "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
@@ -2205,6 +2200,18 @@
       "rep_votes": 0,
       "other_votes": 0
     },
+    "whole_county_cvap_exceptions": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ],
     "punctuation_alias_rows": 2,
     "punctuation_alias_votes": 2894,
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
@@ -2213,7 +2220,7 @@
     "snapshot_comparison_geometry": "state_house_root",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_house_root/governor_2022",
     "snapshot_comparison_districts": 124,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.847888,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.84802,
     "snapshot_comparison_max_abs_share_delta_pp": 21.948569,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
