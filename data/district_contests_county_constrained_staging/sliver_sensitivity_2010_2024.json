@@ -1,0 +1,750 @@
+{
+  "method": "All positive block-CVAP district intersections are retained in the trial, including pieces at or below the 0.1% area cutoff. Whole-county decisions and official county-party targets remain unchanged. Statewide party and total votes are checked in every file.",
+  "summary": {
+    "changed_district_rows": 5093,
+    "changed_files": 185,
+    "winner_changes": 0,
+    "max_abs_margin_change_pp": 0.0535,
+    "max_abs_party_vote_change": 9
+  },
+  "by_scope": {
+    "congressional": {
+      "changed_files": 37,
+      "changed_district_rows": 164,
+      "winner_changes": 0,
+      "max_abs_margin_change_pp": 0.0022,
+      "max_abs_party_vote_change": 7
+    },
+    "state_house": {
+      "changed_files": 37,
+      "changed_district_rows": 1281,
+      "winner_changes": 0,
+      "max_abs_margin_change_pp": 0.0535,
+      "max_abs_party_vote_change": 6
+    },
+    "state_house_2022_lines": {
+      "changed_files": 37,
+      "changed_district_rows": 1281,
+      "winner_changes": 0,
+      "max_abs_margin_change_pp": 0.0535,
+      "max_abs_party_vote_change": 6
+    },
+    "state_house_2024_lines": {
+      "changed_files": 37,
+      "changed_district_rows": 1523,
+      "winner_changes": 0,
+      "max_abs_margin_change_pp": 0.0394,
+      "max_abs_party_vote_change": 6
+    },
+    "state_senate": {
+      "changed_files": 37,
+      "changed_district_rows": 844,
+      "winner_changes": 0,
+      "max_abs_margin_change_pp": 0.019,
+      "max_abs_party_vote_change": 9
+    }
+  },
+  "largest_changes": [
+    {
+      "file": "state_house_superintendent_2014.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_before_pp": -11.0664,
+      "margin_trial_pp": -11.0129,
+      "margin_change_pp": 0.0535,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_superintendent_2014_2022_lines.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_before_pp": -11.0664,
+      "margin_trial_pp": -11.0129,
+      "margin_change_pp": 0.0535,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2014.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 1
+      },
+      "margin_before_pp": 67.4269,
+      "margin_trial_pp": 67.3875,
+      "margin_change_pp": -0.0394,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_commissioner_agriculture_2014_2022_lines.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 1
+      },
+      "margin_before_pp": 67.4269,
+      "margin_trial_pp": 67.3875,
+      "margin_change_pp": -0.0394,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_commissioner_agriculture_2014_2024_lines.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": 1
+      },
+      "margin_before_pp": 67.4269,
+      "margin_trial_pp": 67.3875,
+      "margin_change_pp": -0.0394,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_secretary_of_state_2010.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 2,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_before_pp": 5.618,
+      "margin_trial_pp": 5.5815,
+      "margin_change_pp": -0.0365,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_secretary_of_state_2010_2022_lines.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 2,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_before_pp": 5.618,
+      "margin_trial_pp": 5.5815,
+      "margin_change_pp": -0.0365,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_superintendent_2018.json",
+      "district": "113",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": -1
+      },
+      "margin_before_pp": 92.8925,
+      "margin_trial_pp": 92.9254,
+      "margin_change_pp": 0.0329,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_superintendent_2018_2022_lines.json",
+      "district": "113",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": -1
+      },
+      "margin_before_pp": 92.8925,
+      "margin_trial_pp": 92.9254,
+      "margin_change_pp": 0.0329,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_superintendent_2018_2024_lines.json",
+      "district": "113",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": -1
+      },
+      "margin_before_pp": 92.9321,
+      "margin_trial_pp": 92.9646,
+      "margin_change_pp": 0.0325,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_us_senate_2010.json",
+      "district": "51",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 3,
+        "other_votes": 1
+      },
+      "margin_before_pp": -12.4424,
+      "margin_trial_pp": -12.4115,
+      "margin_change_pp": 0.0309,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_us_senate_2010_2022_lines.json",
+      "district": "51",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 3,
+        "other_votes": 1
+      },
+      "margin_before_pp": -12.4424,
+      "margin_trial_pp": -12.4115,
+      "margin_change_pp": 0.0309,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2010_2024_lines.json",
+      "district": "51",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 3,
+        "other_votes": 1
+      },
+      "margin_before_pp": -12.4424,
+      "margin_trial_pp": -12.4115,
+      "margin_change_pp": 0.0309,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_comptroller_general_2010.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 2,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_before_pp": -0.4332,
+      "margin_trial_pp": -0.4637,
+      "margin_change_pp": -0.0305,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_comptroller_general_2010_2022_lines.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 2,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_before_pp": -0.4332,
+      "margin_trial_pp": -0.4637,
+      "margin_change_pp": -0.0305,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_comptroller_general_2010_2024_lines.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 2,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_before_pp": -0.4332,
+      "margin_trial_pp": -0.4637,
+      "margin_change_pp": -0.0305,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_comptroller_general_2014.json",
+      "district": "51",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 3,
+        "other_votes": 0
+      },
+      "margin_before_pp": -36.5951,
+      "margin_trial_pp": -36.565,
+      "margin_change_pp": 0.0301,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_comptroller_general_2014_2022_lines.json",
+      "district": "51",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 3,
+        "other_votes": 0
+      },
+      "margin_before_pp": -36.5951,
+      "margin_trial_pp": -36.565,
+      "margin_change_pp": 0.0301,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_comptroller_general_2014_2024_lines.json",
+      "district": "51",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 3,
+        "other_votes": 0
+      },
+      "margin_before_pp": -36.5951,
+      "margin_trial_pp": -36.565,
+      "margin_change_pp": 0.0301,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_attorney_general_2014.json",
+      "district": "51",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 3,
+        "other_votes": 0
+      },
+      "margin_before_pp": -36.5351,
+      "margin_trial_pp": -36.5052,
+      "margin_change_pp": 0.0299,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_attorney_general_2014_2022_lines.json",
+      "district": "51",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 3,
+        "other_votes": 0
+      },
+      "margin_before_pp": -36.5351,
+      "margin_trial_pp": -36.5052,
+      "margin_change_pp": 0.0299,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_attorney_general_2014_2024_lines.json",
+      "district": "51",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 3,
+        "other_votes": 0
+      },
+      "margin_before_pp": -36.5351,
+      "margin_trial_pp": -36.5052,
+      "margin_change_pp": 0.0299,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_attorney_general_2010.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": -2.9493,
+      "margin_trial_pp": -2.9791,
+      "margin_change_pp": -0.0298,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_attorney_general_2010_2022_lines.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": -2.9493,
+      "margin_trial_pp": -2.9791,
+      "margin_change_pp": -0.0298,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_secretary_of_state_2014_2024_lines.json",
+      "district": "117",
+      "vote_deltas": {
+        "dem_votes": -1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": 24.3067,
+      "margin_trial_pp": 24.3357,
+      "margin_change_pp": 0.029,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_secretary_of_state_2014.json",
+      "district": "117",
+      "vote_deltas": {
+        "dem_votes": -1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": 24.2954,
+      "margin_trial_pp": 24.3243,
+      "margin_change_pp": 0.0289,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_secretary_of_state_2014_2022_lines.json",
+      "district": "117",
+      "vote_deltas": {
+        "dem_votes": -1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": 24.2954,
+      "margin_trial_pp": 24.3243,
+      "margin_change_pp": 0.0289,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2010_2024_lines.json",
+      "district": "117",
+      "vote_deltas": {
+        "dem_votes": -1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": 44.2964,
+      "margin_trial_pp": 44.3246,
+      "margin_change_pp": 0.0282,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_attorney_general_2010_2024_lines.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 2,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_before_pp": -2.9195,
+      "margin_trial_pp": -2.9475,
+      "margin_change_pp": -0.028,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_governor_2010.json",
+      "district": "99",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": -1,
+        "other_votes": 0
+      },
+      "margin_before_pp": 33.1608,
+      "margin_trial_pp": 33.1335,
+      "margin_change_pp": -0.0273,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_governor_2010_2022_lines.json",
+      "district": "99",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": -1,
+        "other_votes": 0
+      },
+      "margin_before_pp": 33.1608,
+      "margin_trial_pp": 33.1335,
+      "margin_change_pp": -0.0273,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2010.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_before_pp": 4.2004,
+      "margin_trial_pp": 4.2275,
+      "margin_change_pp": 0.0271,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_commissioner_agriculture_2010_2022_lines.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_before_pp": 4.2004,
+      "margin_trial_pp": 4.2275,
+      "margin_change_pp": 0.0271,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_commissioner_agriculture_2010_2024_lines.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_before_pp": 4.2004,
+      "margin_trial_pp": 4.2275,
+      "margin_change_pp": 0.0271,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_governor_2014_2024_lines.json",
+      "district": "15",
+      "vote_deltas": {
+        "dem_votes": 2,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_before_pp": -10.8506,
+      "margin_trial_pp": -10.8773,
+      "margin_change_pp": -0.0267,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_secretary_of_state_2010.json",
+      "district": "117",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": 30.2049,
+      "margin_trial_pp": 30.1795,
+      "margin_change_pp": -0.0254,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_secretary_of_state_2010_2022_lines.json",
+      "district": "117",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": 30.2049,
+      "margin_trial_pp": 30.1795,
+      "margin_change_pp": -0.0254,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_secretary_of_state_2010_2024_lines.json",
+      "district": "117",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": 30.2049,
+      "margin_trial_pp": 30.1795,
+      "margin_change_pp": -0.0254,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2010.json",
+      "district": "117",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": 27.891,
+      "margin_trial_pp": 27.866,
+      "margin_change_pp": -0.025,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_commissioner_agriculture_2010_2022_lines.json",
+      "district": "117",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": 27.891,
+      "margin_trial_pp": 27.866,
+      "margin_change_pp": -0.025,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_commissioner_agriculture_2010_2024_lines.json",
+      "district": "117",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": 27.891,
+      "margin_trial_pp": 27.866,
+      "margin_change_pp": -0.025,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_governor_2010.json",
+      "district": "101",
+      "vote_deltas": {
+        "dem_votes": -1,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_before_pp": -32.9965,
+      "margin_trial_pp": -32.972,
+      "margin_change_pp": 0.0245,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_governor_2010_2022_lines.json",
+      "district": "101",
+      "vote_deltas": {
+        "dem_votes": -1,
+        "rep_votes": 2,
+        "other_votes": 0
+      },
+      "margin_before_pp": -32.9965,
+      "margin_trial_pp": -32.972,
+      "margin_change_pp": 0.0245,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2022_2024_lines.json",
+      "district": "113",
+      "vote_deltas": {
+        "dem_votes": -1,
+        "rep_votes": 1,
+        "other_votes": 0
+      },
+      "margin_before_pp": -35.9015,
+      "margin_trial_pp": -35.877,
+      "margin_change_pp": 0.0245,
+      "winner_before": "D",
+      "winner_trial": "D"
+    },
+    {
+      "file": "state_house_us_senate_2010.json",
+      "district": "67",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": -2,
+        "other_votes": 0
+      },
+      "margin_before_pp": 51.6749,
+      "margin_trial_pp": 51.6513,
+      "margin_change_pp": -0.0236,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_us_senate_2010_2022_lines.json",
+      "district": "67",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": -2,
+        "other_votes": 0
+      },
+      "margin_before_pp": 51.6749,
+      "margin_trial_pp": 51.6513,
+      "margin_change_pp": -0.0236,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2010_2024_lines.json",
+      "district": "67",
+      "vote_deltas": {
+        "dem_votes": 1,
+        "rep_votes": -2,
+        "other_votes": 0
+      },
+      "margin_before_pp": 51.6749,
+      "margin_trial_pp": 51.6513,
+      "margin_change_pp": -0.0236,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_comptroller_general_2010_2024_lines.json",
+      "district": "44",
+      "vote_deltas": {
+        "dem_votes": -1,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": 40.4395,
+      "margin_trial_pp": 40.4621,
+      "margin_change_pp": 0.0226,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_governor_2022_2024_lines.json",
+      "district": "10",
+      "vote_deltas": {
+        "dem_votes": -2,
+        "rep_votes": 0,
+        "other_votes": 0
+      },
+      "margin_before_pp": 46.2342,
+      "margin_trial_pp": 46.2567,
+      "margin_change_pp": 0.0225,
+      "winner_before": "R",
+      "winner_trial": "R"
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2014.json",
+      "district": "117",
+      "vote_deltas": {
+        "dem_votes": 0,
+        "rep_votes": 0,
+        "other_votes": -1
+      },
+      "margin_before_pp": 77.7874,
+      "margin_trial_pp": 77.8097,
+      "margin_change_pp": 0.0223,
+      "winner_before": "R",
+      "winner_trial": "R"
+    }
+  ],
+  "winner_changes": []
+}

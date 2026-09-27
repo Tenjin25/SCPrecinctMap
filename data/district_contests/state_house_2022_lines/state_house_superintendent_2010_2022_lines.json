@@ -74,14 +74,14 @@
         "color": "#cb181d"
       },
       "7": {
-        "dem_votes": 3980,
-        "rep_votes": 4838,
-        "other_votes": 538,
-        "total_votes": 9356,
+        "dem_votes": 3988,
+        "rep_votes": 4848,
+        "other_votes": 539,
+        "total_votes": 9375,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 858,
-        "margin_pct": 9.1706,
+        "margin": 860,
+        "margin_pct": 9.1733,
         "winner": "R",
         "color": "#fc8a6a"
       },
@@ -122,14 +122,14 @@
         "color": "#a50f15"
       },
       "11": {
-        "dem_votes": 5188,
-        "rep_votes": 5410,
-        "other_votes": 581,
-        "total_votes": 11179,
+        "dem_votes": 5180,
+        "rep_votes": 5400,
+        "other_votes": 580,
+        "total_votes": 11160,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 222,
-        "margin_pct": 1.9859,
+        "margin": 220,
+        "margin_pct": 1.9713,
         "winner": "R",
         "color": "#fcbba1"
       },
@@ -1495,18 +1495,13 @@
     "match_coverage_pct": 98.3729,
     "precinct_rows_total": 2274,
     "precinct_rows_overlap_weighted": 2237,
-    "precinct_rows_county_share_fallback": 23,
-    "precinct_votes_county_share_fallback": 2378,
+    "precinct_rows_county_share_fallback": 24,
+    "precinct_votes_county_share_fallback": 2379,
     "precinct_rows_emergency_party_reconciled": 0,
     "precinct_votes_emergency_party_reconciled": 0,
     "emergency_allocation_method": "county_total_vote_share",
-    "whole_counties_exact": 14,
+    "whole_counties_exact": 13,
     "whole_county_vote_components": {
-      "11": {
-        "dem_votes": 3690,
-        "rep_votes": 3254,
-        "other_votes": 347
-      },
       "91": {
         "dem_votes": 5165,
         "rep_votes": 3860,
@@ -1600,9 +1595,9 @@
         "other_votes": 632
       },
       "7": {
-        "dem_votes": 3980,
-        "rep_votes": 4838,
-        "other_votes": 538
+        "dem_votes": 3988,
+        "rep_votes": 4848,
+        "other_votes": 539
       },
       "8": {
         "dem_votes": 4003,
@@ -1620,9 +1615,9 @@
         "other_votes": 628
       },
       "11": {
-        "dem_votes": 1498,
-        "rep_votes": 2156,
-        "other_votes": 234
+        "dem_votes": 5180,
+        "rep_votes": 5400,
+        "other_votes": 580
       },
       "12": {
         "dem_votes": 4418,
@@ -2190,7 +2185,7 @@
         "other_votes": 745
       }
     },
-    "split_counties_reconciled": 32,
+    "split_counties_reconciled": 33,
     "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
@@ -2205,6 +2200,18 @@
       "rep_votes": 0,
       "other_votes": 0
     },
+    "whole_county_cvap_exceptions": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ],
     "punctuation_alias_rows": 1,
     "punctuation_alias_votes": 1001,
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",

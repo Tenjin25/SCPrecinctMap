@@ -75,13 +75,13 @@
       },
       "7": {
         "dem_votes": 0,
-        "rep_votes": 5840,
-        "other_votes": 1062,
-        "total_votes": 6902,
+        "rep_votes": 5854,
+        "other_votes": 1066,
+        "total_votes": 6920,
         "dem_candidate": "",
         "rep_candidate": "Hugh E. Weathers",
-        "margin": 5840,
-        "margin_pct": 84.6132,
+        "margin": 5854,
+        "margin_pct": 84.5954,
         "winner": "R",
         "color": "#67000d"
       },
@@ -123,13 +123,13 @@
       },
       "11": {
         "dem_votes": 0,
-        "rep_votes": 7028,
-        "other_votes": 1658,
-        "total_votes": 8686,
+        "rep_votes": 7014,
+        "other_votes": 1654,
+        "total_votes": 8668,
         "dem_candidate": "",
         "rep_candidate": "Hugh E. Weathers",
-        "margin": 7028,
-        "margin_pct": 80.9118,
+        "margin": 7014,
+        "margin_pct": 80.9183,
         "winner": "R",
         "color": "#67000d"
       },
@@ -1495,18 +1495,13 @@
     "match_coverage_pct": 97.9176,
     "precinct_rows_total": 2257,
     "precinct_rows_overlap_weighted": 2210,
-    "precinct_rows_county_share_fallback": 33,
+    "precinct_rows_county_share_fallback": 34,
     "precinct_votes_county_share_fallback": 276,
     "precinct_rows_emergency_party_reconciled": 0,
     "precinct_votes_emergency_party_reconciled": 0,
     "emergency_allocation_method": "county_total_vote_share",
-    "whole_counties_exact": 14,
+    "whole_counties_exact": 13,
     "whole_county_vote_components": {
-      "11": {
-        "dem_votes": 0,
-        "rep_votes": 4401,
-        "other_votes": 1119
-      },
       "91": {
         "dem_votes": 0,
         "rep_votes": 3902,
@@ -1601,8 +1596,8 @@
       },
       "7": {
         "dem_votes": 0,
-        "rep_votes": 5840,
-        "other_votes": 1062
+        "rep_votes": 5854,
+        "other_votes": 1066
       },
       "8": {
         "dem_votes": 0,
@@ -1621,8 +1616,8 @@
       },
       "11": {
         "dem_votes": 0,
-        "rep_votes": 2627,
-        "other_votes": 539
+        "rep_votes": 7014,
+        "other_votes": 1654
       },
       "12": {
         "dem_votes": 0,
@@ -2190,7 +2185,7 @@
         "other_votes": 1305
       }
     },
-    "split_counties_reconciled": 32,
+    "split_counties_reconciled": 33,
     "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
@@ -2205,6 +2200,18 @@
       "rep_votes": 0,
       "other_votes": 0
     },
+    "whole_county_cvap_exceptions": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ],
     "punctuation_alias_rows": 1,
     "punctuation_alias_votes": 889,
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
@@ -2213,7 +2220,7 @@
     "snapshot_comparison_geometry": "state_house_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_house_2022/commissioner_agriculture_2014",
     "snapshot_comparison_districts": 124,
-    "snapshot_comparison_mean_abs_share_delta_pp": 1.180548,
+    "snapshot_comparison_mean_abs_share_delta_pp": 1.180488,
     "snapshot_comparison_max_abs_share_delta_pp": 23.901082,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

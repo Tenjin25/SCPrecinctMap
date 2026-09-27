@@ -74,14 +74,14 @@
         "color": "#67000d"
       },
       "7": {
-        "dem_votes": 4851,
-        "rep_votes": 8852,
+        "dem_votes": 4861,
+        "rep_votes": 8871,
         "other_votes": 220,
-        "total_votes": 13923,
+        "total_votes": 13952,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "Mitt Romney and Paul Ryan",
-        "margin": 4001,
-        "margin_pct": 28.7366,
+        "margin": 4010,
+        "margin_pct": 28.7414,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -122,14 +122,14 @@
         "color": "#67000d"
       },
       "11": {
-        "dem_votes": 6507,
-        "rep_votes": 9905,
+        "dem_votes": 6497,
+        "rep_votes": 9886,
         "other_votes": 228,
-        "total_votes": 16640,
+        "total_votes": 16611,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "Mitt Romney and Paul Ryan",
-        "margin": 3398,
-        "margin_pct": 20.4207,
+        "margin": 3389,
+        "margin_pct": 20.4021,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -1495,18 +1495,13 @@
     "match_coverage_pct": 97.5417,
     "precinct_rows_total": 2278,
     "precinct_rows_overlap_weighted": 2222,
-    "precinct_rows_county_share_fallback": 43,
-    "precinct_votes_county_share_fallback": 6070,
+    "precinct_rows_county_share_fallback": 44,
+    "precinct_votes_county_share_fallback": 6142,
     "precinct_rows_emergency_party_reconciled": 0,
     "precinct_votes_emergency_party_reconciled": 0,
     "emergency_allocation_method": "county_total_vote_share",
-    "whole_counties_exact": 12,
+    "whole_counties_exact": 11,
     "whole_county_vote_components": {
-      "11": {
-        "dem_votes": 4543,
-        "rep_votes": 5981,
-        "other_votes": 147
-      },
       "91": {
         "dem_votes": 8485,
         "rep_votes": 5497,
@@ -1590,8 +1585,8 @@
         "other_votes": 230
       },
       "7": {
-        "dem_votes": 4851,
-        "rep_votes": 8852,
+        "dem_votes": 4861,
+        "rep_votes": 8871,
         "other_votes": 220
       },
       "8": {
@@ -1610,9 +1605,9 @@
         "other_votes": 236
       },
       "11": {
-        "dem_votes": 1964,
-        "rep_votes": 3924,
-        "other_votes": 81
+        "dem_votes": 6497,
+        "rep_votes": 9886,
+        "other_votes": 228
       },
       "12": {
         "dem_votes": 6625,
@@ -2180,7 +2175,7 @@
         "other_votes": 197
       }
     },
-    "split_counties_reconciled": 34,
+    "split_counties_reconciled": 35,
     "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
@@ -2195,6 +2190,18 @@
       "rep_votes": 0,
       "other_votes": 0
     },
+    "whole_county_cvap_exceptions": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ],
     "punctuation_alias_rows": 1,
     "punctuation_alias_votes": 1440,
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
@@ -2203,7 +2210,7 @@
     "snapshot_comparison_geometry": "state_house_2024",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_house_2024/president_2012",
     "snapshot_comparison_districts": 124,
-    "snapshot_comparison_mean_abs_share_delta_pp": 1.374114,
+    "snapshot_comparison_mean_abs_share_delta_pp": 1.374154,
     "snapshot_comparison_max_abs_share_delta_pp": 11.017965,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

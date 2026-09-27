@@ -74,14 +74,14 @@
         "color": "#67000d"
       },
       "7": {
-        "dem_votes": 4096,
-        "rep_votes": 11274,
-        "other_votes": 1063,
-        "total_votes": 16433,
+        "dem_votes": 4108,
+        "rep_votes": 11300,
+        "other_votes": 1067,
+        "total_votes": 16475,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 7178,
-        "margin_pct": 43.6804,
+        "margin": 7192,
+        "margin_pct": 43.654,
         "winner": "R",
         "color": "#67000d"
       },
@@ -122,14 +122,14 @@
         "color": "#67000d"
       },
       "11": {
-        "dem_votes": 6744,
-        "rep_votes": 13614,
-        "other_votes": 1272,
-        "total_votes": 21630,
+        "dem_votes": 6732,
+        "rep_votes": 13588,
+        "other_votes": 1268,
+        "total_votes": 21588,
         "dem_candidate": "Brad Hutto",
         "rep_candidate": "Lindsey Graham",
-        "margin": 6870,
-        "margin_pct": 31.7614,
+        "margin": 6856,
+        "margin_pct": 31.7584,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -1495,18 +1495,13 @@
     "match_coverage_pct": 97.9176,
     "precinct_rows_total": 2257,
     "precinct_rows_overlap_weighted": 2210,
-    "precinct_rows_county_share_fallback": 33,
+    "precinct_rows_county_share_fallback": 34,
     "precinct_votes_county_share_fallback": 1005,
     "precinct_rows_emergency_party_reconciled": 0,
     "precinct_votes_emergency_party_reconciled": 0,
     "emergency_allocation_method": "county_total_vote_share",
-    "whole_counties_exact": 14,
+    "whole_counties_exact": 13,
     "whole_county_vote_components": {
-      "11": {
-        "dem_votes": 5041,
-        "rep_votes": 8529,
-        "other_votes": 769
-      },
       "91": {
         "dem_votes": 9182,
         "rep_votes": 7142,
@@ -1600,9 +1595,9 @@
         "other_votes": 1342
       },
       "7": {
-        "dem_votes": 4096,
-        "rep_votes": 11274,
-        "other_votes": 1063
+        "dem_votes": 4108,
+        "rep_votes": 11300,
+        "other_votes": 1067
       },
       "8": {
         "dem_votes": 4544,
@@ -1620,9 +1615,9 @@
         "other_votes": 1700
       },
       "11": {
-        "dem_votes": 1703,
-        "rep_votes": 5085,
-        "other_votes": 503
+        "dem_votes": 6732,
+        "rep_votes": 13588,
+        "other_votes": 1268
       },
       "12": {
         "dem_votes": 6472,
@@ -2190,7 +2185,7 @@
         "other_votes": 942
       }
     },
-    "split_counties_reconciled": 32,
+    "split_counties_reconciled": 33,
     "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
@@ -2205,6 +2200,18 @@
       "rep_votes": 0,
       "other_votes": 0
     },
+    "whole_county_cvap_exceptions": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ],
     "punctuation_alias_rows": 1,
     "punctuation_alias_votes": 1856,
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
@@ -2213,7 +2220,7 @@
     "snapshot_comparison_geometry": "state_house_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_house_2022/us_senate_2014",
     "snapshot_comparison_districts": 124,
-    "snapshot_comparison_mean_abs_share_delta_pp": 2.128013,
+    "snapshot_comparison_mean_abs_share_delta_pp": 2.128052,
     "snapshot_comparison_max_abs_share_delta_pp": 47.491799,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

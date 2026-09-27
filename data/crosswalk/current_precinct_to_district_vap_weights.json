@@ -5,6 +5,7 @@
     "weight_file": "data/sc_cvap_2024_2020_b_csv.zip",
     "weight_field": "CVAP_TOT24",
     "block_file": "work/crosswalk_inputs/tl_2020_45_tabblock20.zip",
+    "sliver_audit_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
     "material_split_threshold": 0.001,
     "area_fallback_precincts": {},
     "vap_weighted_precincts": {
