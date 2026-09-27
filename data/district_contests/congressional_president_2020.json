@@ -14,74 +14,74 @@
         "color": "#fc8a6a"
       },
       "2": {
-        "dem_votes": 161016,
-        "rep_votes": 199788,
+        "dem_votes": 161010,
+        "rep_votes": 199784,
         "other_votes": 5711,
-        "total_votes": 366515,
+        "total_votes": 366505,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 38772,
-        "margin_pct": 10.5786,
+        "margin": 38774,
+        "margin_pct": 10.5794,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 106444,
-        "rep_votes": 236944,
+        "dem_votes": 106447,
+        "rep_votes": 236946,
         "other_votes": 4904,
-        "total_votes": 348292,
+        "total_votes": 348297,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 130500,
-        "margin_pct": 37.4686,
+        "margin": 130499,
+        "margin_pct": 37.4677,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 138202,
-        "rep_votes": 202610,
+        "dem_votes": 138199,
+        "rep_votes": 202608,
         "other_votes": 6367,
-        "total_votes": 347179,
+        "total_votes": 347174,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 64408,
-        "margin_pct": 18.5518,
+        "margin": 64409,
+        "margin_pct": 18.5524,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "5": {
         "dem_votes": 147058,
-        "rep_votes": 213457,
+        "rep_votes": 213456,
         "other_votes": 4893,
-        "total_votes": 365408,
+        "total_votes": 365407,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 66399,
-        "margin_pct": 18.1712,
+        "margin": 66398,
+        "margin_pct": 18.171,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 220159,
-        "rep_votes": 112268,
+        "dem_votes": 220165,
+        "rep_votes": 112272,
         "other_votes": 4834,
-        "total_votes": 337261,
+        "total_votes": 337271,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": -107891,
-        "margin_pct": -31.9904,
+        "margin": -107893,
+        "margin_pct": -31.99,
         "winner": "D",
         "color": "#2171b5"
       },
       "7": {
         "dem_votes": 147272,
-        "rep_votes": 215663,
+        "rep_votes": 215664,
         "other_votes": 3619,
-        "total_votes": 366554,
+        "total_votes": 366555,
         "dem_candidate": "Joseph R Biden | Kamala D Harris",
         "rep_candidate": "Donald J Trump | Michael R Pence",
-        "margin": 68391,
-        "margin_pct": 18.6578,
+        "margin": 68392,
+        "margin_pct": 18.658,
         "winner": "R",
         "color": "#ef3b2c"
       }
@@ -136,33 +136,33 @@
         "other_votes": 3297
       },
       "2": {
-        "dem_votes": 74720,
-        "rep_votes": 49890,
+        "dem_votes": 74714,
+        "rep_votes": 49886,
         "other_votes": 1831
       },
       "3": {
-        "dem_votes": 11250,
-        "rep_votes": 20329,
+        "dem_votes": 11253,
+        "rep_votes": 20331,
         "other_votes": 573
       },
       "4": {
-        "dem_votes": 138202,
-        "rep_votes": 202610,
+        "dem_votes": 138199,
+        "rep_votes": 202608,
         "other_votes": 6367
       },
       "5": {
         "dem_votes": 24844,
-        "rep_votes": 37428,
+        "rep_votes": 37427,
         "other_votes": 738
       },
       "6": {
-        "dem_votes": 185664,
-        "rep_votes": 86912,
+        "dem_votes": 185670,
+        "rep_votes": 86916,
         "other_votes": 4296
       },
       "7": {
         "dem_votes": 28021,
-        "rep_votes": 30889,
+        "rep_votes": 30890,
         "other_votes": 688
       }
     },
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 1,
     "historical_name_bridge_votes": 1121,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/president_2020",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.077422,
-    "snapshot_comparison_max_abs_share_delta_pp": 0.416125,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.077438,
+    "snapshot_comparison_max_abs_share_delta_pp": 0.415969,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 1091541,

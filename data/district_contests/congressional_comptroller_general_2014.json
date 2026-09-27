@@ -14,62 +14,62 @@
         "color": "#cb181d"
       },
       "2": {
-        "dem_votes": 71120,
-        "rep_votes": 122671,
+        "dem_votes": 71116,
+        "rep_votes": 122668,
         "other_votes": 166,
-        "total_votes": 193957,
+        "total_votes": 193950,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 51551,
-        "margin_pct": 26.5786,
+        "margin": 51552,
+        "margin_pct": 26.58,
         "winner": "R",
         "color": "#cb181d"
       },
       "3": {
-        "dem_votes": 49345,
-        "rep_votes": 120982,
+        "dem_votes": 49346,
+        "rep_votes": 120983,
         "other_votes": 90,
-        "total_votes": 170417,
+        "total_votes": 170419,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
         "margin": 71637,
-        "margin_pct": 42.0363,
+        "margin_pct": 42.0358,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
-        "dem_votes": 49261,
-        "rep_votes": 111414,
+        "dem_votes": 49260,
+        "rep_votes": 111413,
         "other_votes": 143,
-        "total_votes": 160818,
+        "total_votes": 160816,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
         "margin": 62153,
-        "margin_pct": 38.648,
+        "margin_pct": 38.6485,
         "winner": "R",
         "color": "#a50f15"
       },
       "5": {
         "dem_votes": 64792,
-        "rep_votes": 103789,
+        "rep_votes": 103788,
         "other_votes": 65,
-        "total_votes": 168646,
+        "total_votes": 168645,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 38997,
-        "margin_pct": 23.1236,
+        "margin": 38996,
+        "margin_pct": 23.1231,
         "winner": "R",
         "color": "#cb181d"
       },
       "6": {
-        "dem_votes": 126807,
-        "rep_votes": 67326,
+        "dem_votes": 126811,
+        "rep_votes": 67330,
         "other_votes": 96,
-        "total_votes": 194229,
+        "total_votes": 194237,
         "dem_candidate": "Kyle Herbert",
         "rep_candidate": "Richard Eckstrom",
         "margin": -59481,
-        "margin_pct": -30.6242,
+        "margin_pct": -30.6229,
         "winner": "D",
         "color": "#2171b5"
       },
@@ -136,28 +136,28 @@
         "other_votes": 35
       },
       "2": {
-        "dem_votes": 34367,
-        "rep_votes": 34097,
+        "dem_votes": 34363,
+        "rep_votes": 34094,
         "other_votes": 75
       },
       "3": {
-        "dem_votes": 3788,
-        "rep_votes": 9399,
+        "dem_votes": 3789,
+        "rep_votes": 9400,
         "other_votes": 6
       },
       "4": {
-        "dem_votes": 49261,
-        "rep_votes": 111414,
+        "dem_votes": 49260,
+        "rep_votes": 111413,
         "other_votes": 143
       },
       "5": {
         "dem_votes": 12132,
-        "rep_votes": 19621,
+        "rep_votes": 19620,
         "other_votes": 12
       },
       "6": {
-        "dem_votes": 102915,
-        "rep_votes": 52394,
+        "dem_votes": 102919,
+        "rep_votes": 52398,
         "other_votes": 85
       },
       "7": {
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 4,
     "historical_name_bridge_votes": 1687,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/comptroller_general_2014",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.834617,
-    "snapshot_comparison_max_abs_share_delta_pp": 1.863095,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.834586,
+    "snapshot_comparison_max_abs_share_delta_pp": 1.863724,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 489066,

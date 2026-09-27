@@ -14,38 +14,38 @@
         "color": "#a50f15"
       },
       "2": {
-        "dem_votes": 99067,
-        "rep_votes": 190793,
-        "other_votes": 16505,
-        "total_votes": 306365,
+        "dem_votes": 99063,
+        "rep_votes": 190789,
+        "other_votes": 16504,
+        "total_votes": 306356,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
         "margin": 91726,
-        "margin_pct": 29.9401,
+        "margin_pct": 29.941,
         "winner": "R",
         "color": "#cb181d"
       },
       "3": {
-        "dem_votes": 69597,
-        "rep_votes": 203975,
+        "dem_votes": 69598,
+        "rep_votes": 203978,
         "other_votes": 15283,
-        "total_votes": 288855,
+        "total_votes": 288859,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 134378,
-        "margin_pct": 46.5209,
+        "margin": 134380,
+        "margin_pct": 46.521,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
-        "dem_votes": 81193,
-        "rep_votes": 187802,
+        "dem_votes": 81192,
+        "rep_votes": 187799,
         "other_votes": 14346,
-        "total_votes": 283341,
+        "total_votes": 283337,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
-        "margin": 106609,
-        "margin_pct": 37.6257,
+        "margin": 106607,
+        "margin_pct": 37.6255,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -62,14 +62,14 @@
         "color": "#cb181d"
       },
       "6": {
-        "dem_votes": 168637,
-        "rep_votes": 115804,
-        "other_votes": 13703,
-        "total_votes": 298144,
+        "dem_votes": 168641,
+        "rep_votes": 115808,
+        "other_votes": 13704,
+        "total_votes": 298153,
         "dem_candidate": "Thomas Dixon",
         "rep_candidate": "Tim Scott",
         "margin": -52833,
-        "margin_pct": -17.7206,
+        "margin_pct": -17.7201,
         "winner": "D",
         "color": "#6baed6"
       },
@@ -136,18 +136,18 @@
         "other_votes": 5937
       },
       "2": {
-        "dem_votes": 46358,
-        "rep_votes": 53297,
-        "other_votes": 4677
+        "dem_votes": 46354,
+        "rep_votes": 53293,
+        "other_votes": 4676
       },
       "3": {
-        "dem_votes": 6310,
-        "rep_votes": 17186,
+        "dem_votes": 6311,
+        "rep_votes": 17189,
         "other_votes": 1179
       },
       "4": {
-        "dem_votes": 81193,
-        "rep_votes": 187802,
+        "dem_votes": 81192,
+        "rep_votes": 187799,
         "other_votes": 14346
       },
       "5": {
@@ -156,9 +156,9 @@
         "other_votes": 2505
       },
       "6": {
-        "dem_votes": 138858,
-        "rep_votes": 93135,
-        "other_votes": 11589
+        "dem_votes": 138862,
+        "rep_votes": 93139,
+        "other_votes": 11590
       },
       "7": {
         "dem_votes": 20102,
@@ -186,10 +186,12 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 1,
     "historical_name_bridge_votes": 467,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/us_senate_2016",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 1.304784,
+    "snapshot_comparison_mean_abs_share_delta_pp": 1.304773,
     "snapshot_comparison_max_abs_share_delta_pp": 2.995392,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

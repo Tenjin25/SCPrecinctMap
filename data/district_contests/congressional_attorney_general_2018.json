@@ -14,62 +14,62 @@
         "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 107870,
-        "rep_votes": 143219,
+        "dem_votes": 107866,
+        "rep_votes": 143216,
         "other_votes": 6128,
-        "total_votes": 257217,
+        "total_votes": 257210,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 35349,
-        "margin_pct": 13.7429,
+        "margin": 35350,
+        "margin_pct": 13.7436,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 70909,
-        "rep_votes": 160038,
-        "other_votes": 4369,
-        "total_votes": 235316,
+        "dem_votes": 70910,
+        "rep_votes": 160040,
+        "other_votes": 4370,
+        "total_votes": 235320,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 89129,
-        "margin_pct": 37.8763,
+        "margin": 89130,
+        "margin_pct": 37.8761,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 88664,
-        "rep_votes": 140315,
-        "other_votes": 4428,
-        "total_votes": 233407,
+        "dem_votes": 88663,
+        "rep_votes": 140313,
+        "other_votes": 4427,
+        "total_votes": 233403,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 51651,
-        "margin_pct": 22.1292,
+        "margin": 51650,
+        "margin_pct": 22.1291,
         "winner": "R",
         "color": "#cb181d"
       },
       "5": {
         "dem_votes": 97226,
-        "rep_votes": 142863,
+        "rep_votes": 142862,
         "other_votes": 4916,
-        "total_votes": 245005,
+        "total_votes": 245004,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
-        "margin": 45637,
-        "margin_pct": 18.627,
+        "margin": 45636,
+        "margin_pct": 18.6266,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 156414,
-        "rep_votes": 76160,
+        "dem_votes": 156418,
+        "rep_votes": 76164,
         "other_votes": 5705,
-        "total_votes": 238279,
+        "total_votes": 238287,
         "dem_candidate": "Constance Anastopoulo",
         "rep_candidate": "Alan Wilson",
         "margin": -80254,
-        "margin_pct": -33.6807,
+        "margin_pct": -33.6796,
         "winner": "D",
         "color": "#2171b5"
       },
@@ -136,28 +136,28 @@
         "other_votes": 3299
       },
       "2": {
-        "dem_votes": 51400,
-        "rep_votes": 37503,
+        "dem_votes": 51396,
+        "rep_votes": 37500,
         "other_votes": 2219
       },
       "3": {
-        "dem_votes": 7095,
-        "rep_votes": 13328,
-        "other_votes": 379
+        "dem_votes": 7096,
+        "rep_votes": 13330,
+        "other_votes": 380
       },
       "4": {
-        "dem_votes": 88664,
-        "rep_votes": 140315,
-        "other_votes": 4428
+        "dem_votes": 88663,
+        "rep_votes": 140313,
+        "other_votes": 4427
       },
       "5": {
         "dem_votes": 16336,
-        "rep_votes": 24273,
+        "rep_votes": 24272,
         "other_votes": 759
       },
       "6": {
-        "dem_votes": 131037,
-        "rep_votes": 58916,
+        "dem_votes": 131041,
+        "rep_votes": 58920,
         "other_votes": 5019
       },
       "7": {
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 1,
     "historical_name_bridge_votes": 358,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/attorney_general_2018",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.944527,
-    "snapshot_comparison_max_abs_share_delta_pp": 2.296742,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.944458,
+    "snapshot_comparison_max_abs_share_delta_pp": 2.296965,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 729694,

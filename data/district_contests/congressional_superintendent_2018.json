@@ -15,36 +15,36 @@
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 158576,
+        "rep_votes": 158573,
         "other_votes": 3208,
-        "total_votes": 161784,
+        "total_votes": 161781,
         "dem_candidate": "",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 158576,
+        "margin": 158573,
         "margin_pct": 98.0171,
         "winner": "R",
         "color": "#67000d"
       },
       "3": {
         "dem_votes": 0,
-        "rep_votes": 167013,
+        "rep_votes": 167015,
         "other_votes": 2020,
-        "total_votes": 169033,
+        "total_votes": 169035,
         "dem_candidate": "",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 167013,
+        "margin": 167015,
         "margin_pct": 98.805,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 146362,
+        "rep_votes": 146360,
         "other_votes": 3651,
-        "total_votes": 150013,
+        "total_votes": 150011,
         "dem_candidate": "",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 146362,
+        "margin": 146360,
         "margin_pct": 97.5662,
         "winner": "R",
         "color": "#67000d"
@@ -63,13 +63,13 @@
       },
       "6": {
         "dem_votes": 0,
-        "rep_votes": 85045,
+        "rep_votes": 85048,
         "other_votes": 3178,
-        "total_votes": 88223,
+        "total_votes": 88226,
         "dem_candidate": "",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 85045,
-        "margin_pct": 96.3978,
+        "margin": 85048,
+        "margin_pct": 96.3979,
         "winner": "R",
         "color": "#67000d"
       },
@@ -137,17 +137,17 @@
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 43531,
+        "rep_votes": 43528,
         "other_votes": 1346
       },
       "3": {
         "dem_votes": 0,
-        "rep_votes": 13695,
+        "rep_votes": 13697,
         "other_votes": 264
       },
       "4": {
         "dem_votes": 0,
-        "rep_votes": 146362,
+        "rep_votes": 146360,
         "other_votes": 3651
       },
       "5": {
@@ -157,7 +157,7 @@
       },
       "6": {
         "dem_votes": 0,
-        "rep_votes": 66695,
+        "rep_votes": 66698,
         "other_votes": 3086
       },
       "7": {
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 1,
     "historical_name_bridge_votes": 149,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/superintendent_2018",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.201837,
-    "snapshot_comparison_max_abs_share_delta_pp": 1.163422,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.20182,
+    "snapshot_comparison_max_abs_share_delta_pp": 1.1633,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 0,

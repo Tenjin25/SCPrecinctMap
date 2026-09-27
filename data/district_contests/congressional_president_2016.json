@@ -14,38 +14,38 @@
         "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 121682,
-        "rep_votes": 175255,
+        "dem_votes": 121677,
+        "rep_votes": 175251,
         "other_votes": 15757,
-        "total_votes": 312694,
+        "total_votes": 312685,
         "dem_candidate": "Hillary Rodham Clinton / Timothy Michael Kaine",
         "rep_candidate": "Donald J Trump / Michael R Pence",
-        "margin": 53573,
-        "margin_pct": 17.1327,
+        "margin": 53574,
+        "margin_pct": 17.1335,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 86407,
-        "rep_votes": 198574,
+        "dem_votes": 86409,
+        "rep_votes": 198576,
         "other_votes": 11742,
-        "total_votes": 296723,
+        "total_votes": 296727,
         "dem_candidate": "Hillary Rodham Clinton / Timothy Michael Kaine",
         "rep_candidate": "Donald J Trump / Michael R Pence",
         "margin": 112167,
-        "margin_pct": 37.8019,
+        "margin_pct": 37.8014,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 102331,
-        "rep_votes": 171411,
+        "dem_votes": 102329,
+        "rep_votes": 171409,
         "other_votes": 15595,
-        "total_votes": 289337,
+        "total_votes": 289333,
         "dem_candidate": "Hillary Rodham Clinton / Timothy Michael Kaine",
         "rep_candidate": "Donald J Trump / Michael R Pence",
         "margin": 69080,
-        "margin_pct": 23.8753,
+        "margin_pct": 23.8756,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -62,14 +62,14 @@
         "color": "#cb181d"
       },
       "6": {
-        "dem_votes": 195470,
-        "rep_votes": 98939,
+        "dem_votes": 195475,
+        "rep_votes": 98943,
         "other_votes": 11805,
-        "total_votes": 306214,
+        "total_votes": 306223,
         "dem_candidate": "Hillary Rodham Clinton / Timothy Michael Kaine",
         "rep_candidate": "Donald J Trump / Michael R Pence",
-        "margin": -96531,
-        "margin_pct": -31.524,
+        "margin": -96532,
+        "margin_pct": -31.5234,
         "winner": "D",
         "color": "#2171b5"
       },
@@ -136,18 +136,18 @@
         "other_votes": 9125
       },
       "2": {
-        "dem_votes": 56597,
-        "rep_votes": 44315,
+        "dem_votes": 56592,
+        "rep_votes": 44311,
         "other_votes": 5353
       },
       "3": {
-        "dem_votes": 7617,
-        "rep_votes": 16351,
+        "dem_votes": 7619,
+        "rep_votes": 16353,
         "other_votes": 1253
       },
       "4": {
-        "dem_votes": 102331,
-        "rep_votes": 171411,
+        "dem_votes": 102329,
+        "rep_votes": 171409,
         "other_votes": 15595
       },
       "5": {
@@ -156,8 +156,8 @@
         "other_votes": 1830
       },
       "6": {
-        "dem_votes": 162409,
-        "rep_votes": 76421,
+        "dem_votes": 162414,
+        "rep_votes": 76425,
         "other_votes": 10774
       },
       "7": {
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 1,
     "historical_name_bridge_votes": 484,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/president_2016",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 1.221286,
-    "snapshot_comparison_max_abs_share_delta_pp": 2.516355,
+    "snapshot_comparison_mean_abs_share_delta_pp": 1.221214,
+    "snapshot_comparison_max_abs_share_delta_pp": 2.516153,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 855373,

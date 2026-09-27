@@ -14,14 +14,14 @@
         "color": "#67000d"
       },
       "2": {
-        "dem_votes": 11933,
-        "rep_votes": 43892,
+        "dem_votes": 11934,
+        "rep_votes": 43893,
         "other_votes": 696,
-        "total_votes": 56521,
+        "total_votes": 56523,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
         "margin": 31959,
-        "margin_pct": 56.5436,
+        "margin_pct": 56.5416,
         "winner": "R",
         "color": "#67000d"
       },
@@ -51,37 +51,37 @@
       },
       "5": {
         "dem_votes": 13996,
-        "rep_votes": 45014,
+        "rep_votes": 45012,
         "other_votes": 786,
-        "total_votes": 59796,
+        "total_votes": 59794,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 31018,
-        "margin_pct": 51.873,
+        "margin": 31016,
+        "margin_pct": 51.8714,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
-        "dem_votes": 19814,
-        "rep_votes": 33729,
+        "dem_votes": 19812,
+        "rep_votes": 33727,
         "other_votes": 1181,
-        "total_votes": 54724,
+        "total_votes": 54720,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
         "margin": 13915,
-        "margin_pct": 25.4276,
+        "margin_pct": 25.4295,
         "winner": "R",
         "color": "#cb181d"
       },
       "7": {
-        "dem_votes": 25951,
-        "rep_votes": 19053,
+        "dem_votes": 25953,
+        "rep_votes": 19055,
         "other_votes": 893,
-        "total_votes": 45897,
+        "total_votes": 45901,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
         "margin": -6898,
-        "margin_pct": -15.0293,
+        "margin_pct": -15.028,
         "winner": "D",
         "color": "#6baed6"
       },
@@ -99,13 +99,13 @@
       },
       "9": {
         "dem_votes": 17522,
-        "rep_votes": 37959,
+        "rep_votes": 37961,
         "other_votes": 724,
-        "total_votes": 56205,
+        "total_votes": 56207,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 20437,
-        "margin_pct": 36.3615,
+        "margin": 20439,
+        "margin_pct": 36.3638,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -134,14 +134,14 @@
         "color": "#cb181d"
       },
       "12": {
-        "dem_votes": 21783,
-        "rep_votes": 36211,
+        "dem_votes": 21782,
+        "rep_votes": 36210,
         "other_votes": 929,
-        "total_votes": 58923,
+        "total_votes": 58921,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
         "margin": 14428,
-        "margin_pct": 24.4862,
+        "margin_pct": 24.487,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -182,74 +182,74 @@
         "color": "#cb181d"
       },
       "16": {
-        "dem_votes": 28503,
-        "rep_votes": 39498,
+        "dem_votes": 28498,
+        "rep_votes": 39490,
         "other_votes": 1143,
-        "total_votes": 69144,
+        "total_votes": 69131,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 10995,
-        "margin_pct": 15.9016,
+        "margin": 10992,
+        "margin_pct": 15.9002,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "17": {
-        "dem_votes": 27166,
-        "rep_votes": 28263,
+        "dem_votes": 27171,
+        "rep_votes": 28271,
         "other_votes": 707,
-        "total_votes": 56136,
+        "total_votes": 56149,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 1097,
-        "margin_pct": 1.9542,
+        "margin": 1100,
+        "margin_pct": 1.9591,
         "winner": "R",
         "color": "#fcbba1"
       },
       "18": {
         "dem_votes": 22994,
-        "rep_votes": 42780,
+        "rep_votes": 42781,
         "other_votes": 954,
-        "total_votes": 66728,
+        "total_votes": 66729,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 19786,
-        "margin_pct": 29.6517,
+        "margin": 19787,
+        "margin_pct": 29.6528,
         "winner": "R",
         "color": "#cb181d"
       },
       "19": {
-        "dem_votes": 33195,
+        "dem_votes": 33196,
         "rep_votes": 9087,
         "other_votes": 770,
-        "total_votes": 43052,
+        "total_votes": 43053,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": -24108,
-        "margin_pct": -55.9974,
+        "margin": -24109,
+        "margin_pct": -55.9984,
         "winner": "D",
         "color": "#08519c"
       },
       "20": {
-        "dem_votes": 30958,
+        "dem_votes": 30957,
         "rep_votes": 22195,
         "other_votes": 1125,
-        "total_votes": 54278,
+        "total_votes": 54277,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": -8763,
-        "margin_pct": -16.1447,
+        "margin": -8762,
+        "margin_pct": -16.1431,
         "winner": "D",
         "color": "#6baed6"
       },
       "21": {
-        "dem_votes": 32885,
+        "dem_votes": 32887,
         "rep_votes": 11714,
         "other_votes": 857,
-        "total_votes": 45456,
+        "total_votes": 45458,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": -21171,
-        "margin_pct": -46.5747,
+        "margin": -21173,
+        "margin_pct": -46.5771,
         "winner": "D",
         "color": "#08519c"
       },
@@ -291,25 +291,25 @@
       },
       "25": {
         "dem_votes": 19094,
-        "rep_votes": 38648,
+        "rep_votes": 38649,
         "other_votes": 725,
-        "total_votes": 58467,
+        "total_votes": 58468,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 19554,
-        "margin_pct": 33.4445,
+        "margin": 19555,
+        "margin_pct": 33.4456,
         "winner": "R",
         "color": "#a50f15"
       },
       "26": {
-        "dem_votes": 20259,
-        "rep_votes": 19933,
+        "dem_votes": 20255,
+        "rep_votes": 19932,
         "other_votes": 735,
-        "total_votes": 40927,
+        "total_votes": 40922,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": -326,
-        "margin_pct": -0.7965,
+        "margin": -323,
+        "margin_pct": -0.7893,
         "winner": "D",
         "color": "#c6dbef"
       },
@@ -327,37 +327,37 @@
       },
       "28": {
         "dem_votes": 20546,
-        "rep_votes": 50606,
+        "rep_votes": 50605,
         "other_votes": 675,
-        "total_votes": 71827,
+        "total_votes": 71826,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 30060,
-        "margin_pct": 41.8506,
+        "margin": 30059,
+        "margin_pct": 41.8497,
         "winner": "R",
         "color": "#67000d"
       },
       "29": {
         "dem_votes": 24073,
-        "rep_votes": 25567,
+        "rep_votes": 25566,
         "other_votes": 847,
-        "total_votes": 50487,
+        "total_votes": 50486,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 1494,
-        "margin_pct": 2.9592,
+        "margin": 1493,
+        "margin_pct": 2.9573,
         "winner": "R",
         "color": "#fcbba1"
       },
       "30": {
-        "dem_votes": 22065,
-        "rep_votes": 24915,
+        "dem_votes": 22066,
+        "rep_votes": 24916,
         "other_votes": 492,
-        "total_votes": 47472,
+        "total_votes": 47474,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
         "margin": 2850,
-        "margin_pct": 6.0035,
+        "margin_pct": 6.0033,
         "winner": "R",
         "color": "#fc8a6a"
       },
@@ -374,26 +374,26 @@
         "color": "#cb181d"
       },
       "32": {
-        "dem_votes": 26036,
+        "dem_votes": 26035,
         "rep_votes": 24247,
         "other_votes": 598,
-        "total_votes": 50881,
+        "total_votes": 50880,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": -1789,
-        "margin_pct": -3.516,
+        "margin": -1788,
+        "margin_pct": -3.5142,
         "winner": "D",
         "color": "#c6dbef"
       },
       "33": {
         "dem_votes": 20803,
-        "rep_votes": 38388,
+        "rep_votes": 38389,
         "other_votes": 577,
-        "total_votes": 59768,
+        "total_votes": 59769,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 17585,
-        "margin_pct": 29.4221,
+        "margin": 17586,
+        "margin_pct": 29.4233,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -471,37 +471,37 @@
       },
       "40": {
         "dem_votes": 23817,
-        "rep_votes": 23588,
+        "rep_votes": 23587,
         "other_votes": 576,
-        "total_votes": 47981,
+        "total_votes": 47980,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": -229,
-        "margin_pct": -0.4773,
+        "margin": -230,
+        "margin_pct": -0.4794,
         "winner": "D",
         "color": "#c6dbef"
       },
       "41": {
-        "dem_votes": 25188,
+        "dem_votes": 25189,
         "rep_votes": 32506,
         "other_votes": 871,
-        "total_votes": 58565,
+        "total_votes": 58566,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 7318,
-        "margin_pct": 12.4955,
+        "margin": 7317,
+        "margin_pct": 12.4936,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "42": {
-        "dem_votes": 24169,
+        "dem_votes": 24170,
         "rep_votes": 10370,
         "other_votes": 739,
-        "total_votes": 35278,
+        "total_votes": 35279,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": -13799,
-        "margin_pct": -39.115,
+        "margin": -13800,
+        "margin_pct": -39.1168,
         "winner": "D",
         "color": "#2171b5"
       },
@@ -518,26 +518,26 @@
         "color": "#ef3b2c"
       },
       "44": {
-        "dem_votes": 21640,
+        "dem_votes": 21641,
         "rep_votes": 28546,
         "other_votes": 839,
-        "total_votes": 51025,
+        "total_votes": 51026,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 6906,
-        "margin_pct": 13.5345,
+        "margin": 6905,
+        "margin_pct": 13.5323,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "45": {
-        "dem_votes": 27194,
+        "dem_votes": 27193,
         "rep_votes": 23922,
         "other_votes": 737,
-        "total_votes": 51853,
+        "total_votes": 51852,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": -3272,
-        "margin_pct": -6.3101,
+        "margin": -3271,
+        "margin_pct": -6.3083,
         "winner": "D",
         "color": "#9ecae1"
       },
@@ -644,8 +644,8 @@
         "other_votes": 205
       },
       "2": {
-        "dem_votes": 11933,
-        "rep_votes": 43892,
+        "dem_votes": 11934,
+        "rep_votes": 43893,
         "other_votes": 696
       },
       "3": {
@@ -660,17 +660,17 @@
       },
       "5": {
         "dem_votes": 13996,
-        "rep_votes": 45014,
+        "rep_votes": 45012,
         "other_votes": 786
       },
       "6": {
-        "dem_votes": 19814,
-        "rep_votes": 33729,
+        "dem_votes": 19812,
+        "rep_votes": 33727,
         "other_votes": 1181
       },
       "7": {
-        "dem_votes": 25951,
-        "rep_votes": 19053,
+        "dem_votes": 25953,
+        "rep_votes": 19055,
         "other_votes": 893
       },
       "8": {
@@ -680,7 +680,7 @@
       },
       "9": {
         "dem_votes": 8753,
-        "rep_votes": 16849,
+        "rep_votes": 16851,
         "other_votes": 390
       },
       "10": {
@@ -694,8 +694,8 @@
         "other_votes": 565
       },
       "12": {
-        "dem_votes": 21783,
-        "rep_votes": 36211,
+        "dem_votes": 21782,
+        "rep_votes": 36210,
         "other_votes": 929
       },
       "13": {
@@ -714,32 +714,32 @@
         "other_votes": 869
       },
       "16": {
-        "dem_votes": 28503,
-        "rep_votes": 39498,
+        "dem_votes": 28498,
+        "rep_votes": 39490,
         "other_votes": 1143
       },
       "17": {
-        "dem_votes": 14536,
-        "rep_votes": 14441,
+        "dem_votes": 14541,
+        "rep_votes": 14449,
         "other_votes": 388
       },
       "18": {
         "dem_votes": 17153,
-        "rep_votes": 30713,
+        "rep_votes": 30714,
         "other_votes": 733
       },
       "19": {
-        "dem_votes": 33195,
+        "dem_votes": 33196,
         "rep_votes": 9087,
         "other_votes": 770
       },
       "20": {
-        "dem_votes": 30958,
+        "dem_votes": 30957,
         "rep_votes": 22195,
         "other_votes": 1125
       },
       "21": {
-        "dem_votes": 32885,
+        "dem_votes": 32887,
         "rep_votes": 11714,
         "other_votes": 857
       },
@@ -760,12 +760,12 @@
       },
       "25": {
         "dem_votes": 11922,
-        "rep_votes": 25991,
+        "rep_votes": 25992,
         "other_votes": 482
       },
       "26": {
-        "dem_votes": 20259,
-        "rep_votes": 19933,
+        "dem_votes": 20255,
+        "rep_votes": 19932,
         "other_votes": 735
       },
       "27": {
@@ -775,17 +775,17 @@
       },
       "28": {
         "dem_votes": 20546,
-        "rep_votes": 50606,
+        "rep_votes": 50605,
         "other_votes": 675
       },
       "29": {
         "dem_votes": 18936,
-        "rep_votes": 20671,
+        "rep_votes": 20670,
         "other_votes": 728
       },
       "30": {
-        "dem_votes": 9508,
-        "rep_votes": 12483,
+        "dem_votes": 9509,
+        "rep_votes": 12484,
         "other_votes": 232
       },
       "31": {
@@ -794,13 +794,13 @@
         "other_votes": 651
       },
       "32": {
-        "dem_votes": 17402,
+        "dem_votes": 17401,
         "rep_votes": 18723,
         "other_votes": 426
       },
       "33": {
         "dem_votes": 20803,
-        "rep_votes": 38388,
+        "rep_votes": 38389,
         "other_votes": 577
       },
       "34": {
@@ -835,16 +835,16 @@
       },
       "40": {
         "dem_votes": 14325,
-        "rep_votes": 14794,
+        "rep_votes": 14793,
         "other_votes": 342
       },
       "41": {
-        "dem_votes": 25188,
+        "dem_votes": 25189,
         "rep_votes": 32506,
         "other_votes": 871
       },
       "42": {
-        "dem_votes": 24169,
+        "dem_votes": 24170,
         "rep_votes": 10370,
         "other_votes": 739
       },
@@ -854,12 +854,12 @@
         "other_votes": 1061
       },
       "44": {
-        "dem_votes": 21640,
+        "dem_votes": 21641,
         "rep_votes": 28546,
         "other_votes": 839
       },
       "45": {
-        "dem_votes": 22866,
+        "dem_votes": 22865,
         "rep_votes": 20121,
         "other_votes": 633
       },
@@ -889,11 +889,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 0,
     "historical_name_bridge_votes": 0,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 358,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/president_2024",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.186,
-    "snapshot_comparison_max_abs_share_delta_pp": 2.501438,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.185952,
+    "snapshot_comparison_max_abs_share_delta_pp": 2.500605,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 1028452,

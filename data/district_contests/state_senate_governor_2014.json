@@ -51,61 +51,61 @@
       },
       "5": {
         "dem_votes": 4833,
-        "rep_votes": 19171,
+        "rep_votes": 19170,
         "other_votes": 683,
-        "total_votes": 24687,
+        "total_votes": 24686,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 14338,
-        "margin_pct": 58.0792,
+        "margin": 14337,
+        "margin_pct": 58.0775,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
-        "dem_votes": 7857,
-        "rep_votes": 21468,
-        "other_votes": 795,
-        "total_votes": 30120,
+        "dem_votes": 7856,
+        "rep_votes": 21467,
+        "other_votes": 794,
+        "total_votes": 30117,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
         "margin": 13611,
-        "margin_pct": 45.1892,
+        "margin_pct": 45.1937,
         "winner": "R",
         "color": "#67000d"
       },
       "7": {
         "dem_votes": 11437,
-        "rep_votes": 8147,
-        "other_votes": 585,
-        "total_votes": 20169,
+        "rep_votes": 8149,
+        "other_votes": 586,
+        "total_votes": 20172,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": -3290,
-        "margin_pct": -16.3122,
+        "margin": -3288,
+        "margin_pct": -16.2998,
         "winner": "D",
         "color": "#6baed6"
       },
       "8": {
-        "dem_votes": 9164,
+        "dem_votes": 9165,
         "rep_votes": 21226,
         "other_votes": 751,
-        "total_votes": 31141,
+        "total_votes": 31142,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 12062,
-        "margin_pct": 38.7335,
+        "margin": 12061,
+        "margin_pct": 38.729,
         "winner": "R",
         "color": "#a50f15"
       },
       "9": {
         "dem_votes": 8709,
-        "rep_votes": 17141,
+        "rep_votes": 17142,
         "other_votes": 628,
-        "total_votes": 26478,
+        "total_votes": 26479,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 8432,
-        "margin_pct": 31.8453,
+        "margin": 8433,
+        "margin_pct": 31.8479,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -135,61 +135,61 @@
       },
       "12": {
         "dem_votes": 7397,
-        "rep_votes": 15600,
+        "rep_votes": 15599,
         "other_votes": 613,
-        "total_votes": 23610,
+        "total_votes": 23609,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 8203,
-        "margin_pct": 34.7438,
+        "margin": 8202,
+        "margin_pct": 34.741,
         "winner": "R",
         "color": "#a50f15"
       },
       "13": {
         "dem_votes": 8826,
-        "rep_votes": 20693,
+        "rep_votes": 20694,
         "other_votes": 753,
-        "total_votes": 30272,
+        "total_votes": 30273,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 11867,
-        "margin_pct": 39.2012,
+        "margin": 11868,
+        "margin_pct": 39.2033,
         "winner": "R",
         "color": "#a50f15"
       },
       "14": {
         "dem_votes": 6255,
-        "rep_votes": 15877,
+        "rep_votes": 15876,
         "other_votes": 666,
-        "total_votes": 22798,
+        "total_votes": 22797,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 9622,
-        "margin_pct": 42.2055,
+        "margin": 9621,
+        "margin_pct": 42.2029,
         "winner": "R",
         "color": "#67000d"
       },
       "15": {
-        "dem_votes": 8119,
+        "dem_votes": 8118,
         "rep_votes": 17140,
         "other_votes": 656,
-        "total_votes": 25915,
+        "total_votes": 25914,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 9021,
-        "margin_pct": 34.81,
+        "margin": 9022,
+        "margin_pct": 34.8152,
         "winner": "R",
         "color": "#a50f15"
       },
       "16": {
-        "dem_votes": 5872,
+        "dem_votes": 5873,
         "rep_votes": 16261,
         "other_votes": 605,
-        "total_votes": 22738,
+        "total_votes": 22739,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 10389,
-        "margin_pct": 45.69,
+        "margin": 10388,
+        "margin_pct": 45.6836,
         "winner": "R",
         "color": "#67000d"
       },
@@ -207,13 +207,13 @@
       },
       "18": {
         "dem_votes": 12491,
-        "rep_votes": 22057,
+        "rep_votes": 22058,
         "other_votes": 1290,
-        "total_votes": 35838,
+        "total_votes": 35839,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 9566,
-        "margin_pct": 26.6923,
+        "margin": 9567,
+        "margin_pct": 26.6944,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -242,14 +242,14 @@
         "color": "#9ecae1"
       },
       "21": {
-        "dem_votes": 24156,
+        "dem_votes": 24157,
         "rep_votes": 7521,
         "other_votes": 818,
-        "total_votes": 32495,
+        "total_votes": 32496,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": -16635,
-        "margin_pct": -51.1925,
+        "margin": -16636,
+        "margin_pct": -51.194,
         "winner": "D",
         "color": "#08519c"
       },
@@ -302,14 +302,14 @@
         "color": "#cb181d"
       },
       "26": {
-        "dem_votes": 12788,
-        "rep_votes": 11416,
+        "dem_votes": 12787,
+        "rep_votes": 11415,
         "other_votes": 1063,
-        "total_votes": 25267,
+        "total_votes": 25265,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
         "margin": -1372,
-        "margin_pct": -5.43,
+        "margin_pct": -5.4304,
         "winner": "D",
         "color": "#9ecae1"
       },
@@ -338,26 +338,26 @@
         "color": "#67000d"
       },
       "29": {
-        "dem_votes": 18411,
+        "dem_votes": 18409,
         "rep_votes": 12907,
         "other_votes": 684,
-        "total_votes": 32002,
+        "total_votes": 32000,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": -5504,
-        "margin_pct": -17.1989,
+        "margin": -5502,
+        "margin_pct": -17.1937,
         "winner": "D",
         "color": "#6baed6"
       },
       "30": {
-        "dem_votes": 15398,
+        "dem_votes": 15399,
         "rep_votes": 10938,
         "other_votes": 621,
-        "total_votes": 26957,
+        "total_votes": 26958,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": -4460,
-        "margin_pct": -16.5449,
+        "margin": -4461,
+        "margin_pct": -16.548,
         "winner": "D",
         "color": "#6baed6"
       },
@@ -386,26 +386,26 @@
         "color": "#4292c6"
       },
       "33": {
-        "dem_votes": 6020,
+        "dem_votes": 6021,
         "rep_votes": 11530,
         "other_votes": 540,
-        "total_votes": 18090,
+        "total_votes": 18091,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 5510,
-        "margin_pct": 30.4588,
+        "margin": 5509,
+        "margin_pct": 30.4516,
         "winner": "R",
         "color": "#a50f15"
       },
       "34": {
-        "dem_votes": 7374,
+        "dem_votes": 7373,
         "rep_votes": 21467,
         "other_votes": 908,
-        "total_votes": 29749,
+        "total_votes": 29748,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 14093,
-        "margin_pct": 47.373,
+        "margin": 14094,
+        "margin_pct": 47.378,
         "winner": "R",
         "color": "#67000d"
       },
@@ -422,38 +422,38 @@
         "color": "#6baed6"
       },
       "36": {
-        "dem_votes": 19915,
+        "dem_votes": 19916,
         "rep_votes": 15324,
         "other_votes": 546,
-        "total_votes": 35785,
+        "total_votes": 35786,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": -4591,
-        "margin_pct": -12.8294,
+        "margin": -4592,
+        "margin_pct": -12.8318,
         "winner": "D",
         "color": "#6baed6"
       },
       "37": {
-        "dem_votes": 7991,
+        "dem_votes": 7990,
         "rep_votes": 15333,
         "other_votes": 832,
-        "total_votes": 24156,
+        "total_votes": 24155,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 7342,
-        "margin_pct": 30.3941,
+        "margin": 7343,
+        "margin_pct": 30.3995,
         "winner": "R",
         "color": "#a50f15"
       },
       "38": {
         "dem_votes": 7112,
-        "rep_votes": 13210,
+        "rep_votes": 13209,
         "other_votes": 824,
-        "total_votes": 21146,
+        "total_votes": 21145,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 6098,
-        "margin_pct": 28.8376,
+        "margin": 6097,
+        "margin_pct": 28.8342,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -482,14 +482,14 @@
         "color": "#6baed6"
       },
       "41": {
-        "dem_votes": 7924,
-        "rep_votes": 11754,
+        "dem_votes": 7925,
+        "rep_votes": 11755,
         "other_votes": 650,
-        "total_votes": 20328,
+        "total_votes": 20330,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
         "margin": 3830,
-        "margin_pct": 18.841,
+        "margin_pct": 18.8392,
         "winner": "R",
         "color": "#ef3b2c"
       },
@@ -660,27 +660,27 @@
       },
       "5": {
         "dem_votes": 4833,
-        "rep_votes": 19171,
+        "rep_votes": 19170,
         "other_votes": 683
       },
       "6": {
-        "dem_votes": 7857,
-        "rep_votes": 21468,
-        "other_votes": 795
+        "dem_votes": 7856,
+        "rep_votes": 21467,
+        "other_votes": 794
       },
       "7": {
         "dem_votes": 11437,
-        "rep_votes": 8147,
-        "other_votes": 585
+        "rep_votes": 8149,
+        "other_votes": 586
       },
       "8": {
-        "dem_votes": 9164,
+        "dem_votes": 9165,
         "rep_votes": 21226,
         "other_votes": 751
       },
       "9": {
         "dem_votes": 3540,
-        "rep_votes": 7476,
+        "rep_votes": 7477,
         "other_votes": 286
       },
       "10": {
@@ -695,26 +695,26 @@
       },
       "12": {
         "dem_votes": 7397,
-        "rep_votes": 15600,
+        "rep_votes": 15599,
         "other_votes": 613
       },
       "13": {
         "dem_votes": 8826,
-        "rep_votes": 20693,
+        "rep_votes": 20694,
         "other_votes": 753
       },
       "14": {
         "dem_votes": 2652,
-        "rep_votes": 7500,
+        "rep_votes": 7499,
         "other_votes": 298
       },
       "15": {
-        "dem_votes": 8119,
+        "dem_votes": 8118,
         "rep_votes": 17140,
         "other_votes": 656
       },
       "16": {
-        "dem_votes": 5872,
+        "dem_votes": 5873,
         "rep_votes": 16261,
         "other_votes": 605
       },
@@ -725,7 +725,7 @@
       },
       "18": {
         "dem_votes": 8145,
-        "rep_votes": 15810,
+        "rep_votes": 15811,
         "other_votes": 914
       },
       "19": {
@@ -739,7 +739,7 @@
         "other_votes": 1258
       },
       "21": {
-        "dem_votes": 24156,
+        "dem_votes": 24157,
         "rep_votes": 7521,
         "other_votes": 818
       },
@@ -764,8 +764,8 @@
         "other_votes": 506
       },
       "26": {
-        "dem_votes": 12788,
-        "rep_votes": 11416,
+        "dem_votes": 12787,
+        "rep_votes": 11415,
         "other_votes": 1063
       },
       "27": {
@@ -779,12 +779,12 @@
         "other_votes": 621
       },
       "29": {
-        "dem_votes": 14585,
+        "dem_votes": 14583,
         "rep_votes": 10663,
         "other_votes": 505
       },
       "30": {
-        "dem_votes": 6577,
+        "dem_votes": 6578,
         "rep_votes": 4952,
         "other_votes": 267
       },
@@ -799,12 +799,12 @@
         "other_votes": 474
       },
       "33": {
-        "dem_votes": 6020,
+        "dem_votes": 6021,
         "rep_votes": 11530,
         "other_votes": 540
       },
       "34": {
-        "dem_votes": 7374,
+        "dem_votes": 7373,
         "rep_votes": 21467,
         "other_votes": 908
       },
@@ -814,18 +814,18 @@
         "other_votes": 520
       },
       "36": {
-        "dem_votes": 14224,
+        "dem_votes": 14225,
         "rep_votes": 10798,
         "other_votes": 398
       },
       "37": {
-        "dem_votes": 7991,
+        "dem_votes": 7990,
         "rep_votes": 15333,
         "other_votes": 832
       },
       "38": {
         "dem_votes": 7112,
-        "rep_votes": 13210,
+        "rep_votes": 13209,
         "other_votes": 824
       },
       "39": {
@@ -839,8 +839,8 @@
         "other_votes": 339
       },
       "41": {
-        "dem_votes": 7924,
-        "rep_votes": 11754,
+        "dem_votes": 7925,
+        "rep_votes": 11755,
         "other_votes": 650
       },
       "42": {
@@ -889,10 +889,12 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 4,
     "historical_name_bridge_votes": 1706,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 358,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/governor_2014",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.658341,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.658558,
     "snapshot_comparison_max_abs_share_delta_pp": 3.752881,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

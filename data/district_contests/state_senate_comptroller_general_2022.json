@@ -15,12 +15,12 @@
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 32229,
+        "rep_votes": 32230,
         "other_votes": 353,
-        "total_votes": 32582,
+        "total_votes": 32583,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 32229,
+        "margin": 32230,
         "margin_pct": 98.9166,
         "winner": "R",
         "color": "#67000d"
@@ -51,37 +51,37 @@
       },
       "5": {
         "dem_votes": 0,
-        "rep_votes": 34241,
+        "rep_votes": 34240,
         "other_votes": 365,
-        "total_votes": 34606,
+        "total_votes": 34605,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 34241,
-        "margin_pct": 98.9453,
+        "margin": 34240,
+        "margin_pct": 98.9452,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
         "dem_votes": 0,
-        "rep_votes": 30336,
+        "rep_votes": 30334,
         "other_votes": 644,
-        "total_votes": 30980,
+        "total_votes": 30978,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 30336,
-        "margin_pct": 97.9212,
+        "margin": 30334,
+        "margin_pct": 97.9211,
         "winner": "R",
         "color": "#67000d"
       },
       "7": {
         "dem_votes": 0,
-        "rep_votes": 15564,
+        "rep_votes": 15566,
         "other_votes": 647,
-        "total_votes": 16211,
+        "total_votes": 16213,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 15564,
-        "margin_pct": 96.0089,
+        "margin": 15566,
+        "margin_pct": 96.0094,
         "winner": "R",
         "color": "#67000d"
       },
@@ -135,25 +135,25 @@
       },
       "12": {
         "dem_votes": 0,
-        "rep_votes": 28354,
+        "rep_votes": 28352,
         "other_votes": 532,
-        "total_votes": 28886,
+        "total_votes": 28884,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 28354,
-        "margin_pct": 98.1583,
+        "margin": 28352,
+        "margin_pct": 98.1581,
         "winner": "R",
         "color": "#67000d"
       },
       "13": {
         "dem_votes": 0,
-        "rep_votes": 30491,
+        "rep_votes": 30493,
         "other_votes": 507,
-        "total_votes": 30998,
+        "total_votes": 31000,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 30491,
-        "margin_pct": 98.3644,
+        "margin": 30493,
+        "margin_pct": 98.3645,
         "winner": "R",
         "color": "#67000d"
       },
@@ -183,49 +183,49 @@
       },
       "16": {
         "dem_votes": 0,
-        "rep_votes": 33901,
+        "rep_votes": 33893,
         "other_votes": 671,
-        "total_votes": 34572,
+        "total_votes": 34564,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 33901,
-        "margin_pct": 98.0591,
+        "margin": 33893,
+        "margin_pct": 98.0587,
         "winner": "R",
         "color": "#67000d"
       },
       "17": {
         "dem_votes": 0,
-        "rep_votes": 23554,
+        "rep_votes": 23562,
         "other_votes": 473,
-        "total_votes": 24027,
+        "total_votes": 24035,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 23554,
-        "margin_pct": 98.0314,
+        "margin": 23562,
+        "margin_pct": 98.032,
         "winner": "R",
         "color": "#67000d"
       },
       "18": {
         "dem_votes": 0,
-        "rep_votes": 37630,
+        "rep_votes": 37629,
         "other_votes": 630,
-        "total_votes": 38260,
+        "total_votes": 38259,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 37630,
-        "margin_pct": 98.3534,
+        "margin": 37629,
+        "margin_pct": 98.3533,
         "winner": "R",
         "color": "#67000d"
       },
       "19": {
         "dem_votes": 0,
-        "rep_votes": 12847,
+        "rep_votes": 12848,
         "other_votes": 743,
-        "total_votes": 13590,
+        "total_votes": 13591,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 12847,
-        "margin_pct": 94.5327,
+        "margin": 12848,
+        "margin_pct": 94.5331,
         "winner": "R",
         "color": "#67000d"
       },
@@ -243,13 +243,13 @@
       },
       "21": {
         "dem_votes": 0,
-        "rep_votes": 15560,
+        "rep_votes": 15561,
         "other_votes": 880,
-        "total_votes": 16440,
+        "total_votes": 16441,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 15560,
-        "margin_pct": 94.6472,
+        "margin": 15561,
+        "margin_pct": 94.6475,
         "winner": "R",
         "color": "#67000d"
       },
@@ -291,73 +291,73 @@
       },
       "25": {
         "dem_votes": 0,
-        "rep_votes": 28822,
+        "rep_votes": 28824,
         "other_votes": 332,
-        "total_votes": 29154,
+        "total_votes": 29156,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 28822,
-        "margin_pct": 98.8612,
+        "margin": 28824,
+        "margin_pct": 98.8613,
         "winner": "R",
         "color": "#67000d"
       },
       "26": {
         "dem_votes": 0,
-        "rep_votes": 19138,
+        "rep_votes": 19136,
         "other_votes": 672,
-        "total_votes": 19810,
+        "total_votes": 19808,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 19138,
-        "margin_pct": 96.6078,
+        "margin": 19136,
+        "margin_pct": 96.6074,
         "winner": "R",
         "color": "#67000d"
       },
       "27": {
         "dem_votes": 0,
-        "rep_votes": 28211,
+        "rep_votes": 28210,
         "other_votes": 303,
-        "total_votes": 28514,
+        "total_votes": 28513,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 28211,
-        "margin_pct": 98.9374,
+        "margin": 28210,
+        "margin_pct": 98.9373,
         "winner": "R",
         "color": "#67000d"
       },
       "28": {
         "dem_votes": 0,
-        "rep_votes": 37624,
+        "rep_votes": 37623,
         "other_votes": 286,
-        "total_votes": 37910,
+        "total_votes": 37909,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 37624,
+        "margin": 37623,
         "margin_pct": 99.2456,
         "winner": "R",
         "color": "#67000d"
       },
       "29": {
         "dem_votes": 0,
-        "rep_votes": 20919,
+        "rep_votes": 20918,
         "other_votes": 224,
-        "total_votes": 21143,
+        "total_votes": 21142,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 20919,
+        "margin": 20918,
         "margin_pct": 98.9405,
         "winner": "R",
         "color": "#67000d"
       },
       "30": {
         "dem_votes": 0,
-        "rep_votes": 18998,
+        "rep_votes": 18999,
         "other_votes": 260,
-        "total_votes": 19258,
+        "total_votes": 19259,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 18998,
-        "margin_pct": 98.6499,
+        "margin": 18999,
+        "margin_pct": 98.65,
         "winner": "R",
         "color": "#67000d"
       },
@@ -375,24 +375,24 @@
       },
       "32": {
         "dem_votes": 0,
-        "rep_votes": 19996,
+        "rep_votes": 19995,
         "other_votes": 296,
-        "total_votes": 20292,
+        "total_votes": 20291,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 19996,
-        "margin_pct": 98.5413,
+        "margin": 19995,
+        "margin_pct": 98.5412,
         "winner": "R",
         "color": "#67000d"
       },
       "33": {
         "dem_votes": 0,
-        "rep_votes": 29173,
+        "rep_votes": 29174,
         "other_votes": 410,
-        "total_votes": 29583,
+        "total_votes": 29584,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 29173,
+        "margin": 29174,
         "margin_pct": 98.6141,
         "winner": "R",
         "color": "#67000d"
@@ -411,13 +411,13 @@
       },
       "35": {
         "dem_votes": 0,
-        "rep_votes": 20768,
+        "rep_votes": 20769,
         "other_votes": 495,
-        "total_votes": 21263,
+        "total_votes": 21264,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 20768,
-        "margin_pct": 97.672,
+        "margin": 20769,
+        "margin_pct": 97.6721,
         "winner": "R",
         "color": "#67000d"
       },
@@ -435,25 +435,25 @@
       },
       "37": {
         "dem_votes": 0,
-        "rep_votes": 27977,
+        "rep_votes": 27978,
         "other_votes": 396,
-        "total_votes": 28373,
+        "total_votes": 28374,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 27977,
-        "margin_pct": 98.6043,
+        "margin": 27978,
+        "margin_pct": 98.6044,
         "winner": "R",
         "color": "#67000d"
       },
       "38": {
         "dem_votes": 0,
-        "rep_votes": 24518,
+        "rep_votes": 24517,
         "other_votes": 491,
-        "total_votes": 25009,
+        "total_votes": 25008,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 24518,
-        "margin_pct": 98.0367,
+        "margin": 24517,
+        "margin_pct": 98.0366,
         "winner": "R",
         "color": "#67000d"
       },
@@ -471,25 +471,25 @@
       },
       "40": {
         "dem_votes": 0,
-        "rep_votes": 19465,
+        "rep_votes": 19464,
         "other_votes": 306,
-        "total_votes": 19771,
+        "total_votes": 19770,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 19465,
-        "margin_pct": 98.4523,
+        "margin": 19464,
+        "margin_pct": 98.4522,
         "winner": "R",
         "color": "#67000d"
       },
       "41": {
         "dem_votes": 0,
-        "rep_votes": 27198,
+        "rep_votes": 27199,
         "other_votes": 588,
-        "total_votes": 27786,
+        "total_votes": 27787,
         "dem_candidate": "",
         "rep_candidate": "Richard Eckstrom",
-        "margin": 27198,
-        "margin_pct": 97.8838,
+        "margin": 27199,
+        "margin_pct": 97.8839,
         "winner": "R",
         "color": "#67000d"
       },
@@ -645,7 +645,7 @@
       },
       "2": {
         "dem_votes": 0,
-        "rep_votes": 32229,
+        "rep_votes": 32230,
         "other_votes": 353
       },
       "3": {
@@ -660,17 +660,17 @@
       },
       "5": {
         "dem_votes": 0,
-        "rep_votes": 34241,
+        "rep_votes": 34240,
         "other_votes": 365
       },
       "6": {
         "dem_votes": 0,
-        "rep_votes": 30336,
+        "rep_votes": 30334,
         "other_votes": 644
       },
       "7": {
         "dem_votes": 0,
-        "rep_votes": 15564,
+        "rep_votes": 15566,
         "other_votes": 647
       },
       "8": {
@@ -695,12 +695,12 @@
       },
       "12": {
         "dem_votes": 0,
-        "rep_votes": 28354,
+        "rep_votes": 28352,
         "other_votes": 532
       },
       "13": {
         "dem_votes": 0,
-        "rep_votes": 30491,
+        "rep_votes": 30493,
         "other_votes": 507
       },
       "14": {
@@ -715,22 +715,22 @@
       },
       "16": {
         "dem_votes": 0,
-        "rep_votes": 33901,
+        "rep_votes": 33893,
         "other_votes": 671
       },
       "17": {
         "dem_votes": 0,
-        "rep_votes": 11692,
+        "rep_votes": 11700,
         "other_votes": 300
       },
       "18": {
         "dem_votes": 0,
-        "rep_votes": 27650,
+        "rep_votes": 27649,
         "other_votes": 541
       },
       "19": {
         "dem_votes": 0,
-        "rep_votes": 12847,
+        "rep_votes": 12848,
         "other_votes": 743
       },
       "20": {
@@ -740,7 +740,7 @@
       },
       "21": {
         "dem_votes": 0,
-        "rep_votes": 15560,
+        "rep_votes": 15561,
         "other_votes": 880
       },
       "22": {
@@ -760,32 +760,32 @@
       },
       "25": {
         "dem_votes": 0,
-        "rep_votes": 19039,
+        "rep_votes": 19041,
         "other_votes": 241
       },
       "26": {
         "dem_votes": 0,
-        "rep_votes": 19138,
+        "rep_votes": 19136,
         "other_votes": 672
       },
       "27": {
         "dem_votes": 0,
-        "rep_votes": 28211,
+        "rep_votes": 28210,
         "other_votes": 303
       },
       "28": {
         "dem_votes": 0,
-        "rep_votes": 37624,
+        "rep_votes": 37623,
         "other_votes": 286
       },
       "29": {
         "dem_votes": 0,
-        "rep_votes": 16974,
+        "rep_votes": 16973,
         "other_votes": 189
       },
       "30": {
         "dem_votes": 0,
-        "rep_votes": 9113,
+        "rep_votes": 9114,
         "other_votes": 118
       },
       "31": {
@@ -795,12 +795,12 @@
       },
       "32": {
         "dem_votes": 0,
-        "rep_votes": 14867,
+        "rep_votes": 14866,
         "other_votes": 192
       },
       "33": {
         "dem_votes": 0,
-        "rep_votes": 29173,
+        "rep_votes": 29174,
         "other_votes": 410
       },
       "34": {
@@ -810,7 +810,7 @@
       },
       "35": {
         "dem_votes": 0,
-        "rep_votes": 20768,
+        "rep_votes": 20769,
         "other_votes": 495
       },
       "36": {
@@ -820,12 +820,12 @@
       },
       "37": {
         "dem_votes": 0,
-        "rep_votes": 27977,
+        "rep_votes": 27978,
         "other_votes": 396
       },
       "38": {
         "dem_votes": 0,
-        "rep_votes": 24518,
+        "rep_votes": 24517,
         "other_votes": 491
       },
       "39": {
@@ -835,12 +835,12 @@
       },
       "40": {
         "dem_votes": 0,
-        "rep_votes": 12350,
+        "rep_votes": 12349,
         "other_votes": 235
       },
       "41": {
         "dem_votes": 0,
-        "rep_votes": 27198,
+        "rep_votes": 27199,
         "other_votes": 588
       },
       "42": {
@@ -889,11 +889,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 2,
     "historical_name_bridge_votes": 942,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 358,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/comptroller_general_2022",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.013533,
-    "snapshot_comparison_max_abs_share_delta_pp": 0.173115,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.013511,
+    "snapshot_comparison_max_abs_share_delta_pp": 0.17301,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 0,

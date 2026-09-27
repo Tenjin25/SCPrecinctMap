@@ -14,62 +14,62 @@
         "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 154629,
-        "rep_votes": 205597,
+        "dem_votes": 154624,
+        "rep_votes": 205593,
         "other_votes": 5469,
-        "total_votes": 365695,
+        "total_votes": 365686,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 50968,
-        "margin_pct": 13.9373,
+        "margin": 50969,
+        "margin_pct": 13.9379,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 99210,
-        "rep_votes": 252712,
+        "dem_votes": 99213,
+        "rep_votes": 252715,
         "other_votes": 4530,
-        "total_votes": 356452,
+        "total_votes": 356458,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
         "margin": 153502,
-        "margin_pct": 43.0639,
+        "margin_pct": 43.0631,
         "winner": "R",
         "color": "#67000d"
       },
       "4": {
-        "dem_votes": 132528,
-        "rep_votes": 216051,
+        "dem_votes": 132525,
+        "rep_votes": 216048,
         "other_votes": 5725,
-        "total_votes": 354304,
+        "total_votes": 354298,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
         "margin": 83523,
-        "margin_pct": 23.5738,
+        "margin_pct": 23.5742,
         "winner": "R",
         "color": "#cb181d"
       },
       "5": {
         "dem_votes": 141470,
-        "rep_votes": 226440,
+        "rep_votes": 226439,
         "other_votes": 5071,
-        "total_votes": 372981,
+        "total_votes": 372980,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 84970,
-        "margin_pct": 22.7813,
+        "margin": 84969,
+        "margin_pct": 22.7811,
         "winner": "R",
         "color": "#cb181d"
       },
       "6": {
-        "dem_votes": 189748,
-        "rep_votes": 118272,
+        "dem_votes": 189753,
+        "rep_votes": 118277,
         "other_votes": 5006,
-        "total_votes": 313026,
+        "total_votes": 313036,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
         "margin": -71476,
-        "margin_pct": -22.8339,
+        "margin_pct": -22.8332,
         "winner": "D",
         "color": "#4292c6"
       },
@@ -136,28 +136,28 @@
         "other_votes": 3169
       },
       "2": {
-        "dem_votes": 71434,
-        "rep_votes": 49435,
+        "dem_votes": 71429,
+        "rep_votes": 49431,
         "other_votes": 2029
       },
       "3": {
-        "dem_votes": 11650,
-        "rep_votes": 22874,
+        "dem_votes": 11653,
+        "rep_votes": 22877,
         "other_votes": 553
       },
       "4": {
-        "dem_votes": 132528,
-        "rep_votes": 216051,
+        "dem_votes": 132525,
+        "rep_votes": 216048,
         "other_votes": 5725
       },
       "5": {
         "dem_votes": 22740,
-        "rep_votes": 39590,
+        "rep_votes": 39589,
         "other_votes": 657
       },
       "6": {
-        "dem_votes": 160973,
-        "rep_votes": 92219,
+        "dem_votes": 160978,
+        "rep_votes": 92224,
         "other_votes": 4320
       },
       "7": {
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 0,
     "historical_name_bridge_votes": 0,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/president_2024",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.329162,
-    "snapshot_comparison_max_abs_share_delta_pp": 0.954048,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.3291,
+    "snapshot_comparison_max_abs_share_delta_pp": 0.953862,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 1028452,

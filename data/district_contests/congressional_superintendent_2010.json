@@ -14,38 +14,38 @@
         "color": "#cb181d"
       },
       "2": {
-        "dem_votes": 80325,
-        "rep_votes": 115261,
+        "dem_votes": 80321,
+        "rep_votes": 115258,
         "other_votes": 12417,
-        "total_votes": 208003,
+        "total_votes": 207996,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 34936,
-        "margin_pct": 16.7959,
+        "margin": 34937,
+        "margin_pct": 16.797,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 74392,
-        "rep_votes": 104561,
+        "dem_votes": 74393,
+        "rep_votes": 104562,
         "other_votes": 10098,
-        "total_votes": 189051,
+        "total_votes": 189053,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
         "margin": 30169,
-        "margin_pct": 15.9581,
+        "margin_pct": 15.958,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "4": {
-        "dem_votes": 70692,
-        "rep_votes": 98591,
+        "dem_votes": 70691,
+        "rep_votes": 98590,
         "other_votes": 9647,
-        "total_votes": 178930,
+        "total_votes": 178928,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
         "margin": 27899,
-        "margin_pct": 15.5921,
+        "margin_pct": 15.5923,
         "winner": "R",
         "color": "#ef3b2c"
       },
@@ -62,14 +62,14 @@
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 130909,
-        "rep_votes": 68536,
+        "dem_votes": 130913,
+        "rep_votes": 68539,
         "other_votes": 9306,
-        "total_votes": 208751,
+        "total_votes": 208758,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": -62373,
-        "margin_pct": -29.8791,
+        "margin": -62374,
+        "margin_pct": -29.8786,
         "winner": "D",
         "color": "#4292c6"
       },
@@ -136,18 +136,18 @@
         "other_votes": 5568
       },
       "2": {
-        "dem_votes": 35675,
-        "rep_votes": 31237,
+        "dem_votes": 35671,
+        "rep_votes": 31234,
         "other_votes": 3400
       },
       "3": {
-        "dem_votes": 4934,
-        "rep_votes": 7721,
+        "dem_votes": 4935,
+        "rep_votes": 7722,
         "other_votes": 883
       },
       "4": {
-        "dem_votes": 70692,
-        "rep_votes": 98591,
+        "dem_votes": 70691,
+        "rep_votes": 98590,
         "other_votes": 9647
       },
       "5": {
@@ -156,8 +156,8 @@
         "other_votes": 1559
       },
       "6": {
-        "dem_votes": 105030,
-        "rep_votes": 53802,
+        "dem_votes": 105034,
+        "rep_votes": 53805,
         "other_votes": 8025
       },
       "7": {
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 5,
     "historical_name_bridge_votes": 3489,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/superintendent_2010",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.840949,
-    "snapshot_comparison_max_abs_share_delta_pp": 3.531692,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.841007,
+    "snapshot_comparison_max_abs_share_delta_pp": 3.531879,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 572508,

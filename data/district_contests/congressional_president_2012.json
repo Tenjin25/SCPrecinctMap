@@ -14,38 +14,38 @@
         "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 112393,
-        "rep_votes": 165757,
+        "dem_votes": 112387,
+        "rep_votes": 165752,
         "other_votes": 3945,
-        "total_votes": 282095,
+        "total_votes": 282084,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "Mitt Romney and Paul Ryan",
-        "margin": 53364,
-        "margin_pct": 18.917,
+        "margin": 53365,
+        "margin_pct": 18.9181,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 93801,
-        "rep_votes": 177582,
+        "dem_votes": 93802,
+        "rep_votes": 177584,
         "other_votes": 4106,
-        "total_votes": 275489,
+        "total_votes": 275492,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "Mitt Romney and Paul Ryan",
-        "margin": 83781,
-        "margin_pct": 30.4117,
+        "margin": 83782,
+        "margin_pct": 30.4118,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 97659,
-        "rep_votes": 161455,
+        "dem_votes": 97658,
+        "rep_votes": 161453,
         "other_votes": 4348,
-        "total_votes": 263462,
+        "total_votes": 263459,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "Mitt Romney and Paul Ryan",
-        "margin": 63796,
-        "margin_pct": 24.2145,
+        "margin": 63795,
+        "margin_pct": 24.2144,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -62,14 +62,14 @@
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 214149,
-        "rep_votes": 103752,
+        "dem_votes": 214155,
+        "rep_votes": 103757,
         "other_votes": 3829,
-        "total_votes": 321730,
+        "total_votes": 321741,
         "dem_candidate": "Barack Obama and Joe Biden",
         "rep_candidate": "Mitt Romney and Paul Ryan",
-        "margin": -110397,
-        "margin_pct": -34.3136,
+        "margin": -110398,
+        "margin_pct": -34.3127,
         "winner": "D",
         "color": "#2171b5"
       },
@@ -136,18 +136,18 @@
         "other_votes": 1896
       },
       "2": {
-        "dem_votes": 47735,
-        "rep_votes": 40394,
+        "dem_votes": 47729,
+        "rep_votes": 40389,
         "other_votes": 1057
       },
       "3": {
-        "dem_votes": 6996,
-        "rep_votes": 13339,
+        "dem_votes": 6997,
+        "rep_votes": 13341,
         "other_votes": 307
       },
       "4": {
-        "dem_votes": 97659,
-        "rep_votes": 161455,
+        "dem_votes": 97658,
+        "rep_votes": 161453,
         "other_votes": 4348
       },
       "5": {
@@ -156,8 +156,8 @@
         "other_votes": 561
       },
       "6": {
-        "dem_votes": 175923,
-        "rep_votes": 81806,
+        "dem_votes": 175929,
+        "rep_votes": 81811,
         "other_votes": 3320
       },
       "7": {
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 6,
     "historical_name_bridge_votes": 3945,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/president_2012",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 1.305238,
-    "snapshot_comparison_max_abs_share_delta_pp": 2.860276,
+    "snapshot_comparison_mean_abs_share_delta_pp": 1.30523,
+    "snapshot_comparison_max_abs_share_delta_pp": 2.860319,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 865941,
