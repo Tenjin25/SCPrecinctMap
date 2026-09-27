@@ -28,6 +28,8 @@ ROOT = Path(__file__).resolve().parents[1]
 FIELDS = base.FIELDS
 FULL_COUNTY_THRESHOLD = 0.999
 MATERIAL_PARTIAL_THRESHOLD = 0.001
+MAX_WHOLE_COUNTY_OUTSIDE_CVAP_SHARE = 0.001
+SLIVER_AUDIT_FILE = "data/crosswalk/current_precinct_district_sliver_population_audit.json"
 
 
 def punctuation_key(value: str) -> str:
@@ -67,7 +69,7 @@ def whole_county_destinations(weights: dict[str, dict[str, float]], areas: dict[
 
 
 def mixed_county_components(weights: dict[str, dict[str, float]], areas: dict[str, float],
-                            whole: dict[str, str]) -> dict:
+                            whole: dict[str, str], population_split_destinations: dict[str, set[str]] | None = None) -> dict:
     """Catalog exact and material partial counties in each mixed district."""
     county_area: dict[str, float] = defaultdict(float)
     intersections: dict[str, dict[str, float]] = defaultdict(lambda: defaultdict(float))
@@ -85,7 +87,7 @@ def mixed_county_components(weights: dict[str, dict[str, float]], areas: dict[st
             share = area / county_area[county]
             if whole.get(county) == district:
                 exact[district].append(county)
-            elif share > MATERIAL_PARTIAL_THRESHOLD:
+            elif share > MATERIAL_PARTIAL_THRESHOLD or district in (population_split_destinations or {}).get(county, set()):
                 allocated[district].append(county)
     mixed = set(exact) & set(allocated)
     order = base.build_data._district_sort_key
@@ -93,6 +95,38 @@ def mixed_county_components(weights: dict[str, dict[str, float]], areas: dict[st
         "exact_components": {district: sorted(exact[district]) for district in sorted(mixed, key=order)},
         "allocated_components": {district: sorted(allocated[district]) for district in sorted(mixed, key=order)},
     }
+
+
+def guard_whole_counties_by_population(whole: dict[str, str], scope: str, audit: dict,
+                                      county_fips: dict[str, str]) -> tuple[dict[str, str], list[dict]]:
+    """Treat a near-whole county as split when its omitted piece has material CVAP."""
+    outside = defaultdict(lambda: defaultdict(float))
+    for entry in audit.get("entries", []):
+        if entry.get("scope") != scope:
+            continue
+        county = str(entry.get("precinct") or "").split(" - ", 1)[0]
+        destination = whole.get(county)
+        if not destination:
+            continue
+        for district, value in entry.get("candidate_cvap", {}).items():
+            if district != destination:
+                outside[county][district] += float(value)
+    guarded = dict(whole)
+    exceptions = []
+    county_totals = audit.get("county_cvap_totals_by_fips") or {}
+    for county, districts in sorted(outside.items()):
+        population = sum(districts.values())
+        total = float(county_totals.get(county_fips.get(county, "")) or 0)
+        if total <= 0:
+            raise ValueError(f"No county block population for {county}")
+        share = population / total
+        if share > MAX_WHOLE_COUNTY_OUTSIDE_CVAP_SHARE:
+            exceptions.append({"county": county, "would_be_whole_district": guarded.pop(county),
+                               "outside_cvap": round(population, 4),
+                               "outside_district_cvap": {district: round(value, 4)
+                                                        for district, value in sorted(districts.items()) if value >= 1},
+                               "county_cvap": round(total, 4), "outside_cvap_share": round(share, 8)})
+    return guarded, exceptions
 
 
 def rebuild_one(contest: dict, weights: dict[str, dict[str, float]], whole: dict[str, str],
@@ -262,6 +296,10 @@ def main() -> int:
     parser.add_argument("--crosswalk", default="data/crosswalk/current_precinct_to_district_weights.json")
     parser.add_argument("--precincts", default="data/Voting_Precincts.geojson")
     parser.add_argument("--block-weights", default="data/crosswalk/current_precinct_to_district_vap_weights.json")
+    parser.add_argument("--whole-county-sliver-audit", default=SLIVER_AUDIT_FILE,
+                        help="Block-population audit used to guard near-whole county assignments")
+    parser.add_argument("--sliver-population-audit", default="",
+                        help="Trial: retain every district piece with positive block CVAP from this audit file")
     parser.add_argument("--skip-legacy-2008-bridge", action="store_true",
                         help="Disable conservative unique-name matches backed by the 2008 VTD overlay")
     parser.add_argument("--legacy-2008-bridge", default="data/crosswalk/legacy_2008_vtd_name_bridge_weights.json")
@@ -284,6 +322,22 @@ def main() -> int:
     manifest = json.loads((contest_dir / "manifest.json").read_text(encoding="utf-8"))
     crosswalk = json.loads((ROOT / args.crosswalk).read_text(encoding="utf-8"))
     block_weights = json.loads((ROOT / args.block_weights).read_text(encoding="utf-8"))
+    whole_sliver_audit = json.loads((ROOT / args.whole_county_sliver_audit).read_text(encoding="utf-8"))
+    if (whole_sliver_audit.get("weight_source") != block_weights.get("meta", {}).get("weight_source") or
+            float(whole_sliver_audit.get("material_split_threshold", -1)) != MATERIAL_PARTIAL_THRESHOLD):
+        raise ValueError("Whole-county sliver audit does not match the selected block weights")
+    sliver_trial = (json.loads((ROOT / args.sliver_population_audit).read_text(encoding="utf-8"))
+                    if args.sliver_population_audit else None)
+    sliver_by_scope = defaultdict(dict)
+    if sliver_trial:
+        for entry in sliver_trial.get("entries", []):
+            counts = {str(district): float(value) for district, value in entry.get("candidate_cvap", {}).items()
+                      if float(value) > 0}
+            total = sum(counts.values())
+            if total > 0:
+                sliver_by_scope[entry["scope"]][norm(entry["precinct"])] = {
+                    district: count / total for district, count in counts.items()
+                }
     legacy_2008 = (json.loads((ROOT / args.legacy_2008_bridge).read_text(encoding="utf-8"))
                    if not args.skip_legacy_2008_bridge else None)
     reviewed_vtd = (json.loads((ROOT / args.reviewed_vtd_bridge).read_text(encoding="utf-8"))
@@ -291,6 +345,9 @@ def main() -> int:
     weight_source = str(block_weights.get("meta", {}).get("weight_source") or "unknown")
     precincts = json.loads((ROOT / args.precincts).read_text(encoding="utf-8"))
     areas = precinct_areas(precincts)
+    county_fips = {norm(feature["properties"].get("county_nam")): str(
+        feature["properties"].get("source_fips") or feature["properties"].get("COUNTYFP20") or "").zfill(3)
+        for feature in precincts.get("features", []) if feature.get("properties", {}).get("county_nam")}
     aliases = {}
     for feature in precincts.get("features", []):
         props = feature.get("properties") or {}
@@ -340,6 +397,7 @@ def main() -> int:
             total = sum(material.values())
             allocation_weights[key] = {district: share / total for district, share in material.items()}
         allocation_weights.update(block_overrides)
+        allocation_weights.update(sliver_by_scope.get(scope, {}))
         weights = {alias: allocation_weights[key] for alias, key in aliases.items() if key in allocation_weights}
         punctuation_weights = dict(weights)
         punctuation_weights.update({source: allocation_weights[current]
@@ -384,9 +442,16 @@ def main() -> int:
                     reviewed_weights_by_year[int(year)][source] = dict(district_shares)
                     reviewed_keys_by_year[int(year)].add(source)
         whole = whole_county_destinations(canonical, areas)
+        whole, whole_cvap_exceptions = guard_whole_counties_by_population(
+            whole, scope, whole_sliver_audit, county_fips)
+        population_split_destinations = {
+            row["county"]: set(row["outside_district_cvap"])
+            for row in whole_cvap_exceptions
+        }
         components[scope] = {
-            **mixed_county_components(canonical, areas, whole),
+            **mixed_county_components(canonical, areas, whole, population_split_destinations),
             "whole_county_destinations": {county: whole[county] for county in sorted(whole)},
+            "whole_county_cvap_exceptions": whole_cvap_exceptions,
         }
         for entry in manifest.get("files", []):
             contest_path = (override_dir / entry["file"] if override_dir and
@@ -411,6 +476,9 @@ def main() -> int:
             payload, meta = rebuild_one(contest, selected_weights,
                                         whole, scope, node["district_file"], weight_source,
                                         emergency_by_party=args.emergency_by_party and 2010 <= year <= 2024)
+            if whole_cvap_exceptions:
+                payload["meta"]["whole_county_cvap_exceptions"] = whole_cvap_exceptions
+                meta["whole_county_cvap_exceptions"] = whole_cvap_exceptions
             if scope == "congressional" and year == 2022 and congress_ballot:
                 keys = {norm(key) for key in congress_ballot if not key.startswith("_")}
                 ballot_rows = [row for row in contest.get("rows", []) if norm(row.get("county")) in keys]
@@ -444,6 +512,9 @@ def main() -> int:
                 payload["meta"]["historical_name_bridge_votes"] = sum(int(row.get("total_votes") or 0) for row in bridged_rows)
                 meta.update({key: payload["meta"][key] for key in
                              ("historical_name_bridge", "historical_name_bridge_rows", "historical_name_bridge_votes")})
+            if sliver_trial:
+                payload["meta"]["sliver_population_trial_file"] = args.sliver_population_audit
+                meta["sliver_population_trial_file"] = args.sliver_population_audit
             calibration_key = "state_house_root" if prefix == "state_house" and lines is None else scope
             contest_key = f"{entry['contest_type']}_{entry['year']}"
             target = (targets.get(calibration_key) or {}).get(contest_key)
@@ -509,8 +580,9 @@ def main() -> int:
     component_catalog = {
         "schema": "mixed_county_components.v1",
         "full_county_threshold": FULL_COUNTY_THRESHOLD,
+        "max_whole_county_outside_cvap_share": MAX_WHOLE_COUNTY_OUTSIDE_CVAP_SHARE,
         "material_partial_county_threshold": MATERIAL_PARTIAL_THRESHOLD,
-        "method": "Canonical county returns are inserted directly for whole counties; only split-county components use precinct/block weights. County area shares at or below 0.1% are geometry slivers.",
+        "method": "Canonical county returns are inserted directly for whole counties only when both area and block population pass the 0.1% sliver test; split-county components use precinct/block weights.",
         "plans": components,
     }
     report = {"assignment_method": "nc_county_constrained_block_weighted_split_precincts",

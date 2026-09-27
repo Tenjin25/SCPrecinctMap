@@ -74,14 +74,14 @@
         "color": "#67000d"
       },
       "7": {
-        "dem_votes": 2454,
-        "rep_votes": 5552,
+        "dem_votes": 2460,
+        "rep_votes": 5567,
         "other_votes": 259,
-        "total_votes": 8265,
+        "total_votes": 8286,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 3098,
-        "margin_pct": 37.4834,
+        "margin": 3107,
+        "margin_pct": 37.497,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -122,14 +122,14 @@
         "color": "#67000d"
       },
       "11": {
-        "dem_votes": 3730,
-        "rep_votes": 6840,
+        "dem_votes": 3724,
+        "rep_votes": 6825,
         "other_votes": 302,
-        "total_votes": 10872,
+        "total_votes": 10851,
         "dem_candidate": "Vincent Sheheen",
         "rep_candidate": "Nikki R. Haley",
-        "margin": 3110,
-        "margin_pct": 28.6056,
+        "margin": 3101,
+        "margin_pct": 28.578,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -1495,18 +1495,13 @@
     "match_coverage_pct": 97.9176,
     "precinct_rows_total": 2257,
     "precinct_rows_overlap_weighted": 2210,
-    "precinct_rows_county_share_fallback": 33,
+    "precinct_rows_county_share_fallback": 34,
     "precinct_votes_county_share_fallback": 505,
     "precinct_rows_emergency_party_reconciled": 0,
     "precinct_votes_emergency_party_reconciled": 0,
     "emergency_allocation_method": "county_total_vote_share",
-    "whole_counties_exact": 14,
+    "whole_counties_exact": 13,
     "whole_county_vote_components": {
-      "11": {
-        "dem_votes": 2756,
-        "rep_votes": 4256,
-        "other_votes": 190
-      },
       "91": {
         "dem_votes": 4611,
         "rep_votes": 3695,
@@ -1600,8 +1595,8 @@
         "other_votes": 308
       },
       "7": {
-        "dem_votes": 2454,
-        "rep_votes": 5552,
+        "dem_votes": 2460,
+        "rep_votes": 5567,
         "other_votes": 259
       },
       "8": {
@@ -1620,9 +1615,9 @@
         "other_votes": 231
       },
       "11": {
-        "dem_votes": 974,
-        "rep_votes": 2584,
-        "other_votes": 112
+        "dem_votes": 3724,
+        "rep_votes": 6825,
+        "other_votes": 302
       },
       "12": {
         "dem_votes": 3399,
@@ -2190,7 +2185,7 @@
         "other_votes": 204
       }
     },
-    "split_counties_reconciled": 32,
+    "split_counties_reconciled": 33,
     "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
@@ -2205,6 +2200,18 @@
       "rep_votes": 0,
       "other_votes": 0
     },
+    "whole_county_cvap_exceptions": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ],
     "punctuation_alias_rows": 1,
     "punctuation_alias_votes": 935,
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
@@ -2213,7 +2220,7 @@
     "snapshot_comparison_geometry": "state_house_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_house_2022/governor_2014",
     "snapshot_comparison_districts": 124,
-    "snapshot_comparison_mean_abs_share_delta_pp": 2.191462,
+    "snapshot_comparison_mean_abs_share_delta_pp": 2.191492,
     "snapshot_comparison_max_abs_share_delta_pp": 47.457055,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

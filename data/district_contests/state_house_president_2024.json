@@ -74,14 +74,14 @@
         "color": "#67000d"
       },
       "7": {
-        "dem_votes": 4182,
-        "rep_votes": 13551,
+        "dem_votes": 4188,
+        "rep_votes": 13581,
         "other_votes": 185,
-        "total_votes": 17918,
+        "total_votes": 17954,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 9369,
-        "margin_pct": 52.2882,
+        "margin": 9393,
+        "margin_pct": 52.317,
         "winner": "R",
         "color": "#67000d"
       },
@@ -122,14 +122,14 @@
         "color": "#67000d"
       },
       "11": {
-        "dem_votes": 4705,
-        "rep_votes": 13858,
+        "dem_votes": 4699,
+        "rep_votes": 13828,
         "other_votes": 194,
-        "total_votes": 18757,
+        "total_votes": 18721,
         "dem_candidate": "Kamala D. Harris and Tim Walz",
         "rep_candidate": "Donald J. Trump and JD Vance",
-        "margin": 9153,
-        "margin_pct": 48.7978,
+        "margin": 9129,
+        "margin_pct": 48.7634,
         "winner": "R",
         "color": "#67000d"
       },
@@ -1500,13 +1500,8 @@
     "precinct_rows_emergency_party_reconciled": 0,
     "precinct_votes_emergency_party_reconciled": 0,
     "emergency_allocation_method": "county_total_vote_share",
-    "whole_counties_exact": 14,
+    "whole_counties_exact": 13,
     "whole_county_vote_components": {
-      "11": {
-        "dem_votes": 3399,
-        "rep_votes": 8509,
-        "other_votes": 140
-      },
       "91": {
         "dem_votes": 6247,
         "rep_votes": 6418,
@@ -1600,8 +1595,8 @@
         "other_votes": 294
       },
       "7": {
-        "dem_votes": 4182,
-        "rep_votes": 13551,
+        "dem_votes": 4188,
+        "rep_votes": 13581,
         "other_votes": 185
       },
       "8": {
@@ -1620,9 +1615,9 @@
         "other_votes": 233
       },
       "11": {
-        "dem_votes": 1306,
-        "rep_votes": 5349,
-        "other_votes": 54
+        "dem_votes": 4699,
+        "rep_votes": 13828,
+        "other_votes": 194
       },
       "12": {
         "dem_votes": 5202,
@@ -2190,7 +2185,7 @@
         "other_votes": 316
       }
     },
-    "split_counties_reconciled": 32,
+    "split_counties_reconciled": 33,
     "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
@@ -2205,6 +2200,18 @@
       "rep_votes": 0,
       "other_votes": 0
     },
+    "whole_county_cvap_exceptions": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ],
     "punctuation_alias_rows": 1,
     "punctuation_alias_votes": 2362,
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
@@ -2213,7 +2220,7 @@
     "snapshot_comparison_geometry": "state_house_root",
     "snapshot_comparison_target_file": "data/district-statistics state house 2024 pres.csv",
     "snapshot_comparison_districts": 124,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.471336,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.471156,
     "snapshot_comparison_max_abs_share_delta_pp": 21.876178,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

@@ -1,0 +1,4478 @@
+{
+  "method": "The 0.1% county-area sliver guard now also requires at most 0.1% of county block CVAP outside the apparent whole district. The 2022 House ballot file independently shows Abbeville Broadmouth and Keowee votes in District 7.",
+  "exceptions": {
+    "state_house_2022": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ],
+    "state_house_2024": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ]
+  },
+  "summary": {
+    "changed_files": 111,
+    "changed_district_rows": 222,
+    "winner_changes": 0,
+    "max_abs_margin_change_pp": 0.0562,
+    "max_abs_party_vote_change": 30
+  },
+  "changed_rows": [
+    {
+      "file": "state_house_president_2024.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4182,
+        "rep_votes": 13551,
+        "other_votes": 185,
+        "total_votes": 17918
+      },
+      "after": {
+        "dem_votes": 4188,
+        "rep_votes": 13581,
+        "other_votes": 185,
+        "total_votes": 17954
+      },
+      "margin_before_pp": 52.2882,
+      "margin_after_pp": 52.317,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_president_2024.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4705,
+        "rep_votes": 13858,
+        "other_votes": 194,
+        "total_votes": 18757
+      },
+      "after": {
+        "dem_votes": 4699,
+        "rep_votes": 13828,
+        "other_votes": 194,
+        "total_votes": 18721
+      },
+      "margin_before_pp": 48.7978,
+      "margin_after_pp": 48.7634,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_governor_2022.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2707,
+        "rep_votes": 8398,
+        "other_votes": 131,
+        "total_votes": 11236
+      },
+      "after": {
+        "dem_votes": 2711,
+        "rep_votes": 8416,
+        "other_votes": 131,
+        "total_votes": 11258
+      },
+      "margin_before_pp": 50.6497,
+      "margin_after_pp": 50.6751,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_governor_2022.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3361,
+        "rep_votes": 9495,
+        "other_votes": 135,
+        "total_votes": 12991
+      },
+      "after": {
+        "dem_votes": 3357,
+        "rep_votes": 9477,
+        "other_votes": 135,
+        "total_votes": 12969
+      },
+      "margin_before_pp": 47.2173,
+      "margin_after_pp": 47.1895,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_us_senate_2022.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2468,
+        "rep_votes": 8720,
+        "other_votes": 12,
+        "total_votes": 11200
+      },
+      "after": {
+        "dem_votes": 2472,
+        "rep_votes": 8739,
+        "other_votes": 12,
+        "total_votes": 11223
+      },
+      "margin_before_pp": 55.8214,
+      "margin_after_pp": 55.8407,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_us_senate_2022.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3066,
+        "rep_votes": 9881,
+        "other_votes": 8,
+        "total_votes": 12955
+      },
+      "after": {
+        "dem_votes": 3062,
+        "rep_votes": 9862,
+        "other_votes": 8,
+        "total_votes": 12932
+      },
+      "margin_before_pp": 52.6052,
+      "margin_after_pp": 52.5827,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_attorney_general_2022.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9317,
+        "other_votes": 114,
+        "total_votes": 9431
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9337,
+        "other_votes": 114,
+        "total_votes": 9451
+      },
+      "margin_before_pp": 98.7912,
+      "margin_after_pp": 98.7938,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_attorney_general_2022.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 10579,
+        "other_votes": 103,
+        "total_votes": 10682
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 10559,
+        "other_votes": 103,
+        "total_votes": 10662
+      },
+      "margin_before_pp": 99.0358,
+      "margin_after_pp": 99.034,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_secretary_of_state_2022.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2446,
+        "rep_votes": 8730,
+        "other_votes": 9,
+        "total_votes": 11185
+      },
+      "after": {
+        "dem_votes": 2450,
+        "rep_votes": 8748,
+        "other_votes": 9,
+        "total_votes": 11207
+      },
+      "margin_before_pp": 56.1824,
+      "margin_after_pp": 56.197,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_secretary_of_state_2022.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3057,
+        "rep_votes": 9865,
+        "other_votes": 6,
+        "total_votes": 12928
+      },
+      "after": {
+        "dem_votes": 3053,
+        "rep_votes": 9847,
+        "other_votes": 6,
+        "total_votes": 12906
+      },
+      "margin_before_pp": 52.6609,
+      "margin_after_pp": 52.6422,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_superintendent_2022.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2829,
+        "rep_votes": 7810,
+        "other_votes": 513,
+        "total_votes": 11152
+      },
+      "after": {
+        "dem_votes": 2834,
+        "rep_votes": 7827,
+        "other_votes": 514,
+        "total_votes": 11175
+      },
+      "margin_before_pp": 44.6646,
+      "margin_after_pp": 44.6801,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_superintendent_2022.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3551,
+        "rep_votes": 8851,
+        "other_votes": 525,
+        "total_votes": 12927
+      },
+      "after": {
+        "dem_votes": 3546,
+        "rep_votes": 8834,
+        "other_votes": 524,
+        "total_votes": 12904
+      },
+      "margin_before_pp": 40.9995,
+      "margin_after_pp": 40.9795,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_state_treasurer_2022.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8924,
+        "other_votes": 1083,
+        "total_votes": 10007
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8943,
+        "other_votes": 1085,
+        "total_votes": 10028
+      },
+      "margin_before_pp": 89.1776,
+      "margin_after_pp": 89.1803,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_state_treasurer_2022.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 10152,
+        "other_votes": 1116,
+        "total_votes": 11268
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 10133,
+        "other_votes": 1114,
+        "total_votes": 11247
+      },
+      "margin_before_pp": 90.0958,
+      "margin_after_pp": 90.0951,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_comptroller_general_2022.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9308,
+        "other_votes": 89,
+        "total_votes": 9397
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9328,
+        "other_votes": 89,
+        "total_votes": 9417
+      },
+      "margin_before_pp": 99.0529,
+      "margin_after_pp": 99.0549,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_comptroller_general_2022.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 10579,
+        "other_votes": 70,
+        "total_votes": 10649
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 10559,
+        "other_votes": 70,
+        "total_votes": 10629
+      },
+      "margin_before_pp": 99.3427,
+      "margin_after_pp": 99.3414,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2022.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8729,
+        "other_votes": 1207,
+        "total_votes": 9936
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8747,
+        "other_votes": 1210,
+        "total_votes": 9957
+      },
+      "margin_before_pp": 87.8523,
+      "margin_after_pp": 87.8477,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2022.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9847,
+        "other_votes": 1350,
+        "total_votes": 11197
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9829,
+        "other_votes": 1347,
+        "total_votes": 11176
+      },
+      "margin_before_pp": 87.9432,
+      "margin_after_pp": 87.9474,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_president_2020.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4933,
+        "rep_votes": 12694,
+        "other_votes": 183,
+        "total_votes": 17810
+      },
+      "after": {
+        "dem_votes": 4941,
+        "rep_votes": 12722,
+        "other_votes": 183,
+        "total_votes": 17846
+      },
+      "margin_before_pp": 43.5766,
+      "margin_after_pp": 43.6008,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_president_2020.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5570,
+        "rep_votes": 13444,
+        "other_votes": 192,
+        "total_votes": 19206
+      },
+      "after": {
+        "dem_votes": 5562,
+        "rep_votes": 13416,
+        "other_votes": 192,
+        "total_votes": 19170
+      },
+      "margin_before_pp": 40.9976,
+      "margin_after_pp": 40.9703,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_us_senate_2020.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 5142,
+        "rep_votes": 12391,
+        "other_votes": 280,
+        "total_votes": 17813
+      },
+      "after": {
+        "dem_votes": 5150,
+        "rep_votes": 12418,
+        "other_votes": 280,
+        "total_votes": 17848
+      },
+      "margin_before_pp": 40.695,
+      "margin_after_pp": 40.7216,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_us_senate_2020.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5790,
+        "rep_votes": 13117,
+        "other_votes": 319,
+        "total_votes": 19226
+      },
+      "after": {
+        "dem_votes": 5782,
+        "rep_votes": 13090,
+        "other_votes": 319,
+        "total_votes": 19191
+      },
+      "margin_before_pp": 38.1099,
+      "margin_after_pp": 38.0804,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_governor_2018.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3352,
+        "rep_votes": 8051,
+        "other_votes": 13,
+        "total_votes": 11416
+      },
+      "after": {
+        "dem_votes": 3359,
+        "rep_votes": 8068,
+        "other_votes": 13,
+        "total_votes": 11440
+      },
+      "margin_before_pp": 41.1615,
+      "margin_after_pp": 41.1626,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_governor_2018.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4470,
+        "rep_votes": 9014,
+        "other_votes": 11,
+        "total_votes": 13495
+      },
+      "after": {
+        "dem_votes": 4463,
+        "rep_votes": 8997,
+        "other_votes": 11,
+        "total_votes": 13471
+      },
+      "margin_before_pp": 33.6717,
+      "margin_after_pp": 33.6575,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_attorney_general_2018.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3065,
+        "rep_votes": 8122,
+        "other_votes": 215,
+        "total_votes": 11402
+      },
+      "after": {
+        "dem_votes": 3071,
+        "rep_votes": 8139,
+        "other_votes": 215,
+        "total_votes": 11425
+      },
+      "margin_before_pp": 44.3519,
+      "margin_after_pp": 44.3589,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_attorney_general_2018.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4073,
+        "rep_votes": 9161,
+        "other_votes": 232,
+        "total_votes": 13466
+      },
+      "after": {
+        "dem_votes": 4067,
+        "rep_votes": 9144,
+        "other_votes": 232,
+        "total_votes": 13443
+      },
+      "margin_before_pp": 37.784,
+      "margin_after_pp": 37.7669,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_secretary_of_state_2018.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3093,
+        "rep_votes": 8295,
+        "other_votes": 2,
+        "total_votes": 11390
+      },
+      "after": {
+        "dem_votes": 3100,
+        "rep_votes": 8312,
+        "other_votes": 2,
+        "total_votes": 11414
+      },
+      "margin_before_pp": 45.6716,
+      "margin_after_pp": 45.6632,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_secretary_of_state_2018.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4152,
+        "rep_votes": 9297,
+        "other_votes": 7,
+        "total_votes": 13456
+      },
+      "after": {
+        "dem_votes": 4145,
+        "rep_votes": 9280,
+        "other_votes": 7,
+        "total_votes": 13432
+      },
+      "margin_before_pp": 38.2357,
+      "margin_after_pp": 38.2296,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_superintendent_2018.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8388,
+        "other_votes": 54,
+        "total_votes": 8442
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8405,
+        "other_votes": 54,
+        "total_votes": 8459
+      },
+      "margin_before_pp": 99.3603,
+      "margin_after_pp": 99.3616,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_superintendent_2018.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9467,
+        "other_votes": 39,
+        "total_votes": 9506
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9450,
+        "other_votes": 39,
+        "total_votes": 9489
+      },
+      "margin_before_pp": 99.5897,
+      "margin_after_pp": 99.589,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_state_treasurer_2018.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2936,
+        "rep_votes": 8143,
+        "other_votes": 315,
+        "total_votes": 11394
+      },
+      "after": {
+        "dem_votes": 2943,
+        "rep_votes": 8159,
+        "other_votes": 316,
+        "total_votes": 11418
+      },
+      "margin_before_pp": 45.6995,
+      "margin_after_pp": 45.6823,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_state_treasurer_2018.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3971,
+        "rep_votes": 9132,
+        "other_votes": 362,
+        "total_votes": 13465
+      },
+      "after": {
+        "dem_votes": 3964,
+        "rep_votes": 9116,
+        "other_votes": 361,
+        "total_votes": 13441
+      },
+      "margin_before_pp": 38.329,
+      "margin_after_pp": 38.3305,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_comptroller_general_2018.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8979,
+        "other_votes": 111,
+        "total_votes": 9090
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8997,
+        "other_votes": 111,
+        "total_votes": 9108
+      },
+      "margin_before_pp": 98.7789,
+      "margin_after_pp": 98.7813,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_comptroller_general_2018.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 10197,
+        "other_votes": 120,
+        "total_votes": 10317
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 10179,
+        "other_votes": 120,
+        "total_votes": 10299
+      },
+      "margin_before_pp": 98.8369,
+      "margin_after_pp": 98.8348,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2018.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8413,
+        "other_votes": 1476,
+        "total_votes": 9889
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8430,
+        "other_votes": 1479,
+        "total_votes": 9909
+      },
+      "margin_before_pp": 85.0743,
+      "margin_after_pp": 85.0742,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2018.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9482,
+        "other_votes": 1814,
+        "total_votes": 11296
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9465,
+        "other_votes": 1811,
+        "total_votes": 11276
+      },
+      "margin_before_pp": 83.9412,
+      "margin_after_pp": 83.9393,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_president_2016.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4021,
+        "rep_votes": 10933,
+        "other_votes": 438,
+        "total_votes": 15392
+      },
+      "after": {
+        "dem_votes": 4030,
+        "rep_votes": 10958,
+        "other_votes": 439,
+        "total_votes": 15427
+      },
+      "margin_before_pp": 44.9064,
+      "margin_after_pp": 44.9083,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_president_2016.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5466,
+        "rep_votes": 11636,
+        "other_votes": 451,
+        "total_votes": 17553
+      },
+      "after": {
+        "dem_votes": 5457,
+        "rep_votes": 11611,
+        "other_votes": 450,
+        "total_votes": 17518
+      },
+      "margin_before_pp": 35.1507,
+      "margin_after_pp": 35.1296,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_us_senate_2016.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3377,
+        "rep_votes": 10689,
+        "other_votes": 863,
+        "total_votes": 14929
+      },
+      "after": {
+        "dem_votes": 3384,
+        "rep_votes": 10713,
+        "other_votes": 865,
+        "total_votes": 14962
+      },
+      "margin_before_pp": 48.9785,
+      "margin_after_pp": 48.9841,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_us_senate_2016.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4697,
+        "rep_votes": 11343,
+        "other_votes": 957,
+        "total_votes": 16997
+      },
+      "after": {
+        "dem_votes": 4690,
+        "rep_votes": 11319,
+        "other_votes": 955,
+        "total_votes": 16964
+      },
+      "margin_before_pp": 39.101,
+      "margin_after_pp": 39.0769,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_governor_2014.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2454,
+        "rep_votes": 5552,
+        "other_votes": 259,
+        "total_votes": 8265
+      },
+      "after": {
+        "dem_votes": 2460,
+        "rep_votes": 5567,
+        "other_votes": 259,
+        "total_votes": 8286
+      },
+      "margin_before_pp": 37.4834,
+      "margin_after_pp": 37.497,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_governor_2014.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3730,
+        "rep_votes": 6840,
+        "other_votes": 302,
+        "total_votes": 10872
+      },
+      "after": {
+        "dem_votes": 3724,
+        "rep_votes": 6825,
+        "other_votes": 302,
+        "total_votes": 10851
+      },
+      "margin_before_pp": 28.6056,
+      "margin_after_pp": 28.578,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_us_senate_2014.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4096,
+        "rep_votes": 11274,
+        "other_votes": 1063,
+        "total_votes": 16433
+      },
+      "after": {
+        "dem_votes": 4108,
+        "rep_votes": 11300,
+        "other_votes": 1067,
+        "total_votes": 16475
+      },
+      "margin_before_pp": 43.6804,
+      "margin_after_pp": 43.654,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_us_senate_2014.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 6744,
+        "rep_votes": 13614,
+        "other_votes": 1272,
+        "total_votes": 21630
+      },
+      "after": {
+        "dem_votes": 6732,
+        "rep_votes": 13588,
+        "other_votes": 1268,
+        "total_votes": 21588
+      },
+      "margin_before_pp": 31.7614,
+      "margin_after_pp": 31.7584,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_attorney_general_2014.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2312,
+        "rep_votes": 5782,
+        "other_votes": 2,
+        "total_votes": 8096
+      },
+      "after": {
+        "dem_votes": 2319,
+        "rep_votes": 5796,
+        "other_votes": 2,
+        "total_votes": 8117
+      },
+      "margin_before_pp": 42.8607,
+      "margin_after_pp": 42.836,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_attorney_general_2014.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3715,
+        "rep_votes": 6891,
+        "other_votes": 9,
+        "total_votes": 10615
+      },
+      "after": {
+        "dem_votes": 3708,
+        "rep_votes": 6877,
+        "other_votes": 9,
+        "total_votes": 10594
+      },
+      "margin_before_pp": 29.9199,
+      "margin_after_pp": 29.9132,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_secretary_of_state_2014.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2290,
+        "rep_votes": 5802,
+        "other_votes": 2,
+        "total_votes": 8094
+      },
+      "after": {
+        "dem_votes": 2296,
+        "rep_votes": 5816,
+        "other_votes": 2,
+        "total_votes": 8114
+      },
+      "margin_before_pp": 43.3902,
+      "margin_after_pp": 43.3818,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_secretary_of_state_2014.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3645,
+        "rep_votes": 6996,
+        "other_votes": 6,
+        "total_votes": 10647
+      },
+      "after": {
+        "dem_votes": 3639,
+        "rep_votes": 6982,
+        "other_votes": 6,
+        "total_votes": 10627
+      },
+      "margin_before_pp": 31.4737,
+      "margin_after_pp": 31.4576,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_superintendent_2014.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2385,
+        "rep_votes": 5309,
+        "other_votes": 417,
+        "total_votes": 8111
+      },
+      "after": {
+        "dem_votes": 2393,
+        "rep_votes": 5320,
+        "other_votes": 419,
+        "total_votes": 8132
+      },
+      "margin_before_pp": 36.0498,
+      "margin_after_pp": 35.9936,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_superintendent_2014.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3678,
+        "rep_votes": 6553,
+        "other_votes": 473,
+        "total_votes": 10704
+      },
+      "after": {
+        "dem_votes": 3670,
+        "rep_votes": 6542,
+        "other_votes": 471,
+        "total_votes": 10683
+      },
+      "margin_before_pp": 26.8591,
+      "margin_after_pp": 26.8838,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_state_treasurer_2014.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 6495,
+        "other_votes": 25,
+        "total_votes": 6520
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 6512,
+        "other_votes": 25,
+        "total_votes": 6537
+      },
+      "margin_before_pp": 99.6166,
+      "margin_after_pp": 99.6176,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_state_treasurer_2014.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 7985,
+        "other_votes": 54,
+        "total_votes": 8039
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 7968,
+        "other_votes": 54,
+        "total_votes": 8022
+      },
+      "margin_before_pp": 99.3283,
+      "margin_after_pp": 99.3269,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_comptroller_general_2014.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2365,
+        "rep_votes": 5702,
+        "other_votes": 6,
+        "total_votes": 8073
+      },
+      "after": {
+        "dem_votes": 2372,
+        "rep_votes": 5715,
+        "other_votes": 6,
+        "total_votes": 8093
+      },
+      "margin_before_pp": 41.3353,
+      "margin_after_pp": 41.3073,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_comptroller_general_2014.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3780,
+        "rep_votes": 6833,
+        "other_votes": 2,
+        "total_votes": 10615
+      },
+      "after": {
+        "dem_votes": 3773,
+        "rep_votes": 6820,
+        "other_votes": 2,
+        "total_votes": 10595
+      },
+      "margin_before_pp": 28.7612,
+      "margin_after_pp": 28.7588,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2014.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 5840,
+        "other_votes": 1062,
+        "total_votes": 6902
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 5854,
+        "other_votes": 1066,
+        "total_votes": 6920
+      },
+      "margin_before_pp": 84.6132,
+      "margin_after_pp": 84.5954,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2014.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 7028,
+        "other_votes": 1658,
+        "total_votes": 8686
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 7014,
+        "other_votes": 1654,
+        "total_votes": 8668
+      },
+      "margin_before_pp": 80.9118,
+      "margin_after_pp": 80.9183,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_president_2012.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4851,
+        "rep_votes": 8852,
+        "other_votes": 220,
+        "total_votes": 13923
+      },
+      "after": {
+        "dem_votes": 4861,
+        "rep_votes": 8871,
+        "other_votes": 220,
+        "total_votes": 13952
+      },
+      "margin_before_pp": 28.7366,
+      "margin_after_pp": 28.7414,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_president_2012.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 6507,
+        "rep_votes": 9905,
+        "other_votes": 228,
+        "total_votes": 16640
+      },
+      "after": {
+        "dem_votes": 6497,
+        "rep_votes": 9886,
+        "other_votes": 228,
+        "total_votes": 16611
+      },
+      "margin_before_pp": 20.4207,
+      "margin_after_pp": 20.4021,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_governor_2010.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4206,
+        "rep_votes": 4966,
+        "other_votes": 213,
+        "total_votes": 9385
+      },
+      "after": {
+        "dem_votes": 4213,
+        "rep_votes": 4976,
+        "other_votes": 214,
+        "total_votes": 9403
+      },
+      "margin_before_pp": 8.098,
+      "margin_after_pp": 8.1144,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_governor_2010.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5392,
+        "rep_votes": 5618,
+        "other_votes": 233,
+        "total_votes": 11243
+      },
+      "after": {
+        "dem_votes": 5385,
+        "rep_votes": 5608,
+        "other_votes": 232,
+        "total_votes": 11225
+      },
+      "margin_before_pp": 2.0101,
+      "margin_after_pp": 1.9866,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_us_senate_2010.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2356,
+        "rep_votes": 6274,
+        "other_votes": 710,
+        "total_votes": 9340
+      },
+      "after": {
+        "dem_votes": 2361,
+        "rep_votes": 6285,
+        "other_votes": 712,
+        "total_votes": 9358
+      },
+      "margin_before_pp": 41.9486,
+      "margin_after_pp": 41.932,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_us_senate_2010.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3260,
+        "rep_votes": 7085,
+        "other_votes": 785,
+        "total_votes": 11130
+      },
+      "after": {
+        "dem_votes": 3255,
+        "rep_votes": 7074,
+        "other_votes": 783,
+        "total_votes": 11112
+      },
+      "margin_before_pp": 34.3666,
+      "margin_after_pp": 34.3683,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_attorney_general_2010.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3639,
+        "rep_votes": 5530,
+        "other_votes": 187,
+        "total_votes": 9356
+      },
+      "after": {
+        "dem_votes": 3646,
+        "rep_votes": 5540,
+        "other_votes": 188,
+        "total_votes": 9374
+      },
+      "margin_before_pp": 20.2116,
+      "margin_after_pp": 20.2048,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_attorney_general_2010.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4759,
+        "rep_votes": 6165,
+        "other_votes": 259,
+        "total_votes": 11183
+      },
+      "after": {
+        "dem_votes": 4752,
+        "rep_votes": 6155,
+        "other_votes": 258,
+        "total_votes": 11165
+      },
+      "margin_before_pp": 12.5727,
+      "margin_after_pp": 12.5661,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_secretary_of_state_2010.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3132,
+        "rep_votes": 6131,
+        "other_votes": 0,
+        "total_votes": 9263
+      },
+      "after": {
+        "dem_votes": 3138,
+        "rep_votes": 6143,
+        "other_votes": 0,
+        "total_votes": 9281
+      },
+      "margin_before_pp": 32.3761,
+      "margin_after_pp": 32.378,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_secretary_of_state_2010.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4149,
+        "rep_votes": 6940,
+        "other_votes": 7,
+        "total_votes": 11096
+      },
+      "after": {
+        "dem_votes": 4143,
+        "rep_votes": 6928,
+        "other_votes": 7,
+        "total_votes": 11078
+      },
+      "margin_before_pp": 25.1532,
+      "margin_after_pp": 25.1399,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_superintendent_2010.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3980,
+        "rep_votes": 4838,
+        "other_votes": 538,
+        "total_votes": 9356
+      },
+      "after": {
+        "dem_votes": 3988,
+        "rep_votes": 4848,
+        "other_votes": 539,
+        "total_votes": 9375
+      },
+      "margin_before_pp": 9.1706,
+      "margin_after_pp": 9.1733,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_superintendent_2010.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5188,
+        "rep_votes": 5410,
+        "other_votes": 581,
+        "total_votes": 11179
+      },
+      "after": {
+        "dem_votes": 5180,
+        "rep_votes": 5400,
+        "other_votes": 580,
+        "total_votes": 11160
+      },
+      "margin_before_pp": 1.9859,
+      "margin_after_pp": 1.9713,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_state_treasurer_2010.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 6918,
+        "other_votes": 50,
+        "total_votes": 6968
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 6931,
+        "other_votes": 50,
+        "total_votes": 6981
+      },
+      "margin_before_pp": 99.2824,
+      "margin_after_pp": 99.2838,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_state_treasurer_2010.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 7799,
+        "other_votes": 64,
+        "total_votes": 7863
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 7786,
+        "other_votes": 64,
+        "total_votes": 7850
+      },
+      "margin_before_pp": 99.1861,
+      "margin_after_pp": 99.1847,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_comptroller_general_2010.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3699,
+        "rep_votes": 5563,
+        "other_votes": 3,
+        "total_votes": 9265
+      },
+      "after": {
+        "dem_votes": 3706,
+        "rep_votes": 5574,
+        "other_votes": 3,
+        "total_votes": 9283
+      },
+      "margin_before_pp": 20.1187,
+      "margin_after_pp": 20.1228,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_comptroller_general_2010.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4683,
+        "rep_votes": 6400,
+        "other_votes": 4,
+        "total_votes": 11087
+      },
+      "after": {
+        "dem_votes": 4676,
+        "rep_votes": 6389,
+        "other_votes": 4,
+        "total_votes": 11069
+      },
+      "margin_before_pp": 15.4866,
+      "margin_after_pp": 15.4757,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2010.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3206,
+        "rep_votes": 6063,
+        "other_votes": 1,
+        "total_votes": 9270
+      },
+      "after": {
+        "dem_votes": 3212,
+        "rep_votes": 6075,
+        "other_votes": 1,
+        "total_votes": 9288
+      },
+      "margin_before_pp": 30.8198,
+      "margin_after_pp": 30.8247,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_commissioner_agriculture_2010.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4287,
+        "rep_votes": 6777,
+        "other_votes": 10,
+        "total_votes": 11074
+      },
+      "after": {
+        "dem_votes": 4281,
+        "rep_votes": 6765,
+        "other_votes": 10,
+        "total_votes": 11056
+      },
+      "margin_before_pp": 22.4851,
+      "margin_after_pp": 22.4674,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_president_2024_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4182,
+        "rep_votes": 13551,
+        "other_votes": 185,
+        "total_votes": 17918
+      },
+      "after": {
+        "dem_votes": 4188,
+        "rep_votes": 13581,
+        "other_votes": 185,
+        "total_votes": 17954
+      },
+      "margin_before_pp": 52.2882,
+      "margin_after_pp": 52.317,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_president_2024_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4705,
+        "rep_votes": 13858,
+        "other_votes": 194,
+        "total_votes": 18757
+      },
+      "after": {
+        "dem_votes": 4699,
+        "rep_votes": 13828,
+        "other_votes": 194,
+        "total_votes": 18721
+      },
+      "margin_before_pp": 48.7978,
+      "margin_after_pp": 48.7634,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_attorney_general_2022_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9317,
+        "other_votes": 114,
+        "total_votes": 9431
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9337,
+        "other_votes": 114,
+        "total_votes": 9451
+      },
+      "margin_before_pp": 98.7912,
+      "margin_after_pp": 98.7938,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_attorney_general_2022_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 10579,
+        "other_votes": 103,
+        "total_votes": 10682
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 10559,
+        "other_votes": 103,
+        "total_votes": 10662
+      },
+      "margin_before_pp": 99.0358,
+      "margin_after_pp": 99.034,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_commissioner_agriculture_2022_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8729,
+        "other_votes": 1207,
+        "total_votes": 9936
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8747,
+        "other_votes": 1210,
+        "total_votes": 9957
+      },
+      "margin_before_pp": 87.8523,
+      "margin_after_pp": 87.8477,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_commissioner_agriculture_2022_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9847,
+        "other_votes": 1350,
+        "total_votes": 11197
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9829,
+        "other_votes": 1347,
+        "total_votes": 11176
+      },
+      "margin_before_pp": 87.9432,
+      "margin_after_pp": 87.9474,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_comptroller_general_2022_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9308,
+        "other_votes": 89,
+        "total_votes": 9397
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9328,
+        "other_votes": 89,
+        "total_votes": 9417
+      },
+      "margin_before_pp": 99.0529,
+      "margin_after_pp": 99.0549,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_comptroller_general_2022_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 10579,
+        "other_votes": 70,
+        "total_votes": 10649
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 10559,
+        "other_votes": 70,
+        "total_votes": 10629
+      },
+      "margin_before_pp": 99.3427,
+      "margin_after_pp": 99.3414,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_governor_2022_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2707,
+        "rep_votes": 8398,
+        "other_votes": 131,
+        "total_votes": 11236
+      },
+      "after": {
+        "dem_votes": 2711,
+        "rep_votes": 8416,
+        "other_votes": 131,
+        "total_votes": 11258
+      },
+      "margin_before_pp": 50.6497,
+      "margin_after_pp": 50.6751,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_governor_2022_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3361,
+        "rep_votes": 9495,
+        "other_votes": 135,
+        "total_votes": 12991
+      },
+      "after": {
+        "dem_votes": 3357,
+        "rep_votes": 9477,
+        "other_votes": 135,
+        "total_votes": 12969
+      },
+      "margin_before_pp": 47.2173,
+      "margin_after_pp": 47.1895,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_secretary_of_state_2022_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2446,
+        "rep_votes": 8730,
+        "other_votes": 9,
+        "total_votes": 11185
+      },
+      "after": {
+        "dem_votes": 2450,
+        "rep_votes": 8748,
+        "other_votes": 9,
+        "total_votes": 11207
+      },
+      "margin_before_pp": 56.1824,
+      "margin_after_pp": 56.197,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_secretary_of_state_2022_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3057,
+        "rep_votes": 9865,
+        "other_votes": 6,
+        "total_votes": 12928
+      },
+      "after": {
+        "dem_votes": 3053,
+        "rep_votes": 9847,
+        "other_votes": 6,
+        "total_votes": 12906
+      },
+      "margin_before_pp": 52.6609,
+      "margin_after_pp": 52.6422,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_state_treasurer_2022_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8924,
+        "other_votes": 1083,
+        "total_votes": 10007
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8943,
+        "other_votes": 1085,
+        "total_votes": 10028
+      },
+      "margin_before_pp": 89.1776,
+      "margin_after_pp": 89.1803,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_state_treasurer_2022_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 10152,
+        "other_votes": 1116,
+        "total_votes": 11268
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 10133,
+        "other_votes": 1114,
+        "total_votes": 11247
+      },
+      "margin_before_pp": 90.0958,
+      "margin_after_pp": 90.0951,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_superintendent_2022_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2829,
+        "rep_votes": 7810,
+        "other_votes": 513,
+        "total_votes": 11152
+      },
+      "after": {
+        "dem_votes": 2834,
+        "rep_votes": 7827,
+        "other_votes": 514,
+        "total_votes": 11175
+      },
+      "margin_before_pp": 44.6646,
+      "margin_after_pp": 44.6801,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_superintendent_2022_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3551,
+        "rep_votes": 8851,
+        "other_votes": 525,
+        "total_votes": 12927
+      },
+      "after": {
+        "dem_votes": 3546,
+        "rep_votes": 8834,
+        "other_votes": 524,
+        "total_votes": 12904
+      },
+      "margin_before_pp": 40.9995,
+      "margin_after_pp": 40.9795,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_us_senate_2022_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2468,
+        "rep_votes": 8720,
+        "other_votes": 12,
+        "total_votes": 11200
+      },
+      "after": {
+        "dem_votes": 2472,
+        "rep_votes": 8739,
+        "other_votes": 12,
+        "total_votes": 11223
+      },
+      "margin_before_pp": 55.8214,
+      "margin_after_pp": 55.8407,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_us_senate_2022_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3066,
+        "rep_votes": 9881,
+        "other_votes": 8,
+        "total_votes": 12955
+      },
+      "after": {
+        "dem_votes": 3062,
+        "rep_votes": 9862,
+        "other_votes": 8,
+        "total_votes": 12932
+      },
+      "margin_before_pp": 52.6052,
+      "margin_after_pp": 52.5827,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_president_2020_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4933,
+        "rep_votes": 12694,
+        "other_votes": 183,
+        "total_votes": 17810
+      },
+      "after": {
+        "dem_votes": 4941,
+        "rep_votes": 12722,
+        "other_votes": 183,
+        "total_votes": 17846
+      },
+      "margin_before_pp": 43.5766,
+      "margin_after_pp": 43.6008,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_president_2020_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5570,
+        "rep_votes": 13444,
+        "other_votes": 192,
+        "total_votes": 19206
+      },
+      "after": {
+        "dem_votes": 5562,
+        "rep_votes": 13416,
+        "other_votes": 192,
+        "total_votes": 19170
+      },
+      "margin_before_pp": 40.9976,
+      "margin_after_pp": 40.9703,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_us_senate_2020_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 5142,
+        "rep_votes": 12391,
+        "other_votes": 280,
+        "total_votes": 17813
+      },
+      "after": {
+        "dem_votes": 5150,
+        "rep_votes": 12418,
+        "other_votes": 280,
+        "total_votes": 17848
+      },
+      "margin_before_pp": 40.695,
+      "margin_after_pp": 40.7216,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_us_senate_2020_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5790,
+        "rep_votes": 13117,
+        "other_votes": 319,
+        "total_votes": 19226
+      },
+      "after": {
+        "dem_votes": 5782,
+        "rep_votes": 13090,
+        "other_votes": 319,
+        "total_votes": 19191
+      },
+      "margin_before_pp": 38.1099,
+      "margin_after_pp": 38.0804,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_attorney_general_2018_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3065,
+        "rep_votes": 8122,
+        "other_votes": 215,
+        "total_votes": 11402
+      },
+      "after": {
+        "dem_votes": 3071,
+        "rep_votes": 8139,
+        "other_votes": 215,
+        "total_votes": 11425
+      },
+      "margin_before_pp": 44.3519,
+      "margin_after_pp": 44.3589,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_attorney_general_2018_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4073,
+        "rep_votes": 9161,
+        "other_votes": 232,
+        "total_votes": 13466
+      },
+      "after": {
+        "dem_votes": 4067,
+        "rep_votes": 9144,
+        "other_votes": 232,
+        "total_votes": 13443
+      },
+      "margin_before_pp": 37.784,
+      "margin_after_pp": 37.7669,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_commissioner_agriculture_2018_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8413,
+        "other_votes": 1476,
+        "total_votes": 9889
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8430,
+        "other_votes": 1479,
+        "total_votes": 9909
+      },
+      "margin_before_pp": 85.0743,
+      "margin_after_pp": 85.0742,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_commissioner_agriculture_2018_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9482,
+        "other_votes": 1814,
+        "total_votes": 11296
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9465,
+        "other_votes": 1811,
+        "total_votes": 11276
+      },
+      "margin_before_pp": 83.9412,
+      "margin_after_pp": 83.9393,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_comptroller_general_2018_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8979,
+        "other_votes": 111,
+        "total_votes": 9090
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8997,
+        "other_votes": 111,
+        "total_votes": 9108
+      },
+      "margin_before_pp": 98.7789,
+      "margin_after_pp": 98.7813,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_comptroller_general_2018_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 10197,
+        "other_votes": 120,
+        "total_votes": 10317
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 10179,
+        "other_votes": 120,
+        "total_votes": 10299
+      },
+      "margin_before_pp": 98.8369,
+      "margin_after_pp": 98.8348,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_governor_2018_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3352,
+        "rep_votes": 8051,
+        "other_votes": 13,
+        "total_votes": 11416
+      },
+      "after": {
+        "dem_votes": 3359,
+        "rep_votes": 8068,
+        "other_votes": 13,
+        "total_votes": 11440
+      },
+      "margin_before_pp": 41.1615,
+      "margin_after_pp": 41.1626,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_governor_2018_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4470,
+        "rep_votes": 9014,
+        "other_votes": 11,
+        "total_votes": 13495
+      },
+      "after": {
+        "dem_votes": 4463,
+        "rep_votes": 8997,
+        "other_votes": 11,
+        "total_votes": 13471
+      },
+      "margin_before_pp": 33.6717,
+      "margin_after_pp": 33.6575,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_secretary_of_state_2018_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3093,
+        "rep_votes": 8295,
+        "other_votes": 2,
+        "total_votes": 11390
+      },
+      "after": {
+        "dem_votes": 3100,
+        "rep_votes": 8312,
+        "other_votes": 2,
+        "total_votes": 11414
+      },
+      "margin_before_pp": 45.6716,
+      "margin_after_pp": 45.6632,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_secretary_of_state_2018_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4152,
+        "rep_votes": 9297,
+        "other_votes": 7,
+        "total_votes": 13456
+      },
+      "after": {
+        "dem_votes": 4145,
+        "rep_votes": 9280,
+        "other_votes": 7,
+        "total_votes": 13432
+      },
+      "margin_before_pp": 38.2357,
+      "margin_after_pp": 38.2296,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_state_treasurer_2018_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2936,
+        "rep_votes": 8143,
+        "other_votes": 315,
+        "total_votes": 11394
+      },
+      "after": {
+        "dem_votes": 2943,
+        "rep_votes": 8159,
+        "other_votes": 316,
+        "total_votes": 11418
+      },
+      "margin_before_pp": 45.6995,
+      "margin_after_pp": 45.6823,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_state_treasurer_2018_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3971,
+        "rep_votes": 9132,
+        "other_votes": 362,
+        "total_votes": 13465
+      },
+      "after": {
+        "dem_votes": 3964,
+        "rep_votes": 9116,
+        "other_votes": 361,
+        "total_votes": 13441
+      },
+      "margin_before_pp": 38.329,
+      "margin_after_pp": 38.3305,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_superintendent_2018_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8388,
+        "other_votes": 54,
+        "total_votes": 8442
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8405,
+        "other_votes": 54,
+        "total_votes": 8459
+      },
+      "margin_before_pp": 99.3603,
+      "margin_after_pp": 99.3616,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_superintendent_2018_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9467,
+        "other_votes": 39,
+        "total_votes": 9506
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9450,
+        "other_votes": 39,
+        "total_votes": 9489
+      },
+      "margin_before_pp": 99.5897,
+      "margin_after_pp": 99.589,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_president_2016_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4021,
+        "rep_votes": 10933,
+        "other_votes": 438,
+        "total_votes": 15392
+      },
+      "after": {
+        "dem_votes": 4030,
+        "rep_votes": 10958,
+        "other_votes": 439,
+        "total_votes": 15427
+      },
+      "margin_before_pp": 44.9064,
+      "margin_after_pp": 44.9083,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_president_2016_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5466,
+        "rep_votes": 11636,
+        "other_votes": 451,
+        "total_votes": 17553
+      },
+      "after": {
+        "dem_votes": 5457,
+        "rep_votes": 11611,
+        "other_votes": 450,
+        "total_votes": 17518
+      },
+      "margin_before_pp": 35.1507,
+      "margin_after_pp": 35.1296,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_us_senate_2016_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3377,
+        "rep_votes": 10689,
+        "other_votes": 863,
+        "total_votes": 14929
+      },
+      "after": {
+        "dem_votes": 3384,
+        "rep_votes": 10713,
+        "other_votes": 865,
+        "total_votes": 14962
+      },
+      "margin_before_pp": 48.9785,
+      "margin_after_pp": 48.9841,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_us_senate_2016_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4697,
+        "rep_votes": 11343,
+        "other_votes": 957,
+        "total_votes": 16997
+      },
+      "after": {
+        "dem_votes": 4690,
+        "rep_votes": 11319,
+        "other_votes": 955,
+        "total_votes": 16964
+      },
+      "margin_before_pp": 39.101,
+      "margin_after_pp": 39.0769,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_attorney_general_2014_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2312,
+        "rep_votes": 5782,
+        "other_votes": 2,
+        "total_votes": 8096
+      },
+      "after": {
+        "dem_votes": 2319,
+        "rep_votes": 5796,
+        "other_votes": 2,
+        "total_votes": 8117
+      },
+      "margin_before_pp": 42.8607,
+      "margin_after_pp": 42.836,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_attorney_general_2014_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3715,
+        "rep_votes": 6891,
+        "other_votes": 9,
+        "total_votes": 10615
+      },
+      "after": {
+        "dem_votes": 3708,
+        "rep_votes": 6877,
+        "other_votes": 9,
+        "total_votes": 10594
+      },
+      "margin_before_pp": 29.9199,
+      "margin_after_pp": 29.9132,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_commissioner_agriculture_2014_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 5840,
+        "other_votes": 1062,
+        "total_votes": 6902
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 5854,
+        "other_votes": 1066,
+        "total_votes": 6920
+      },
+      "margin_before_pp": 84.6132,
+      "margin_after_pp": 84.5954,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_commissioner_agriculture_2014_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 7028,
+        "other_votes": 1658,
+        "total_votes": 8686
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 7014,
+        "other_votes": 1654,
+        "total_votes": 8668
+      },
+      "margin_before_pp": 80.9118,
+      "margin_after_pp": 80.9183,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_comptroller_general_2014_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2365,
+        "rep_votes": 5702,
+        "other_votes": 6,
+        "total_votes": 8073
+      },
+      "after": {
+        "dem_votes": 2372,
+        "rep_votes": 5715,
+        "other_votes": 6,
+        "total_votes": 8093
+      },
+      "margin_before_pp": 41.3353,
+      "margin_after_pp": 41.3073,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_comptroller_general_2014_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3780,
+        "rep_votes": 6833,
+        "other_votes": 2,
+        "total_votes": 10615
+      },
+      "after": {
+        "dem_votes": 3773,
+        "rep_votes": 6820,
+        "other_votes": 2,
+        "total_votes": 10595
+      },
+      "margin_before_pp": 28.7612,
+      "margin_after_pp": 28.7588,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_governor_2014_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2454,
+        "rep_votes": 5552,
+        "other_votes": 259,
+        "total_votes": 8265
+      },
+      "after": {
+        "dem_votes": 2460,
+        "rep_votes": 5567,
+        "other_votes": 259,
+        "total_votes": 8286
+      },
+      "margin_before_pp": 37.4834,
+      "margin_after_pp": 37.497,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_governor_2014_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3730,
+        "rep_votes": 6840,
+        "other_votes": 302,
+        "total_votes": 10872
+      },
+      "after": {
+        "dem_votes": 3724,
+        "rep_votes": 6825,
+        "other_votes": 302,
+        "total_votes": 10851
+      },
+      "margin_before_pp": 28.6056,
+      "margin_after_pp": 28.578,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_secretary_of_state_2014_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2290,
+        "rep_votes": 5802,
+        "other_votes": 2,
+        "total_votes": 8094
+      },
+      "after": {
+        "dem_votes": 2296,
+        "rep_votes": 5816,
+        "other_votes": 2,
+        "total_votes": 8114
+      },
+      "margin_before_pp": 43.3902,
+      "margin_after_pp": 43.3818,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_secretary_of_state_2014_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3645,
+        "rep_votes": 6996,
+        "other_votes": 6,
+        "total_votes": 10647
+      },
+      "after": {
+        "dem_votes": 3639,
+        "rep_votes": 6982,
+        "other_votes": 6,
+        "total_votes": 10627
+      },
+      "margin_before_pp": 31.4737,
+      "margin_after_pp": 31.4576,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_state_treasurer_2014_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 6495,
+        "other_votes": 25,
+        "total_votes": 6520
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 6512,
+        "other_votes": 25,
+        "total_votes": 6537
+      },
+      "margin_before_pp": 99.6166,
+      "margin_after_pp": 99.6176,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_state_treasurer_2014_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 7985,
+        "other_votes": 54,
+        "total_votes": 8039
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 7968,
+        "other_votes": 54,
+        "total_votes": 8022
+      },
+      "margin_before_pp": 99.3283,
+      "margin_after_pp": 99.3269,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_superintendent_2014_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2385,
+        "rep_votes": 5309,
+        "other_votes": 417,
+        "total_votes": 8111
+      },
+      "after": {
+        "dem_votes": 2393,
+        "rep_votes": 5320,
+        "other_votes": 419,
+        "total_votes": 8132
+      },
+      "margin_before_pp": 36.0498,
+      "margin_after_pp": 35.9936,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_superintendent_2014_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3678,
+        "rep_votes": 6553,
+        "other_votes": 473,
+        "total_votes": 10704
+      },
+      "after": {
+        "dem_votes": 3670,
+        "rep_votes": 6542,
+        "other_votes": 471,
+        "total_votes": 10683
+      },
+      "margin_before_pp": 26.8591,
+      "margin_after_pp": 26.8838,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_us_senate_2014_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4096,
+        "rep_votes": 11274,
+        "other_votes": 1063,
+        "total_votes": 16433
+      },
+      "after": {
+        "dem_votes": 4108,
+        "rep_votes": 11300,
+        "other_votes": 1067,
+        "total_votes": 16475
+      },
+      "margin_before_pp": 43.6804,
+      "margin_after_pp": 43.654,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_us_senate_2014_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 6744,
+        "rep_votes": 13614,
+        "other_votes": 1272,
+        "total_votes": 21630
+      },
+      "after": {
+        "dem_votes": 6732,
+        "rep_votes": 13588,
+        "other_votes": 1268,
+        "total_votes": 21588
+      },
+      "margin_before_pp": 31.7614,
+      "margin_after_pp": 31.7584,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_president_2012_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4851,
+        "rep_votes": 8852,
+        "other_votes": 220,
+        "total_votes": 13923
+      },
+      "after": {
+        "dem_votes": 4861,
+        "rep_votes": 8871,
+        "other_votes": 220,
+        "total_votes": 13952
+      },
+      "margin_before_pp": 28.7366,
+      "margin_after_pp": 28.7414,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_president_2012_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 6507,
+        "rep_votes": 9905,
+        "other_votes": 228,
+        "total_votes": 16640
+      },
+      "after": {
+        "dem_votes": 6497,
+        "rep_votes": 9886,
+        "other_votes": 228,
+        "total_votes": 16611
+      },
+      "margin_before_pp": 20.4207,
+      "margin_after_pp": 20.4021,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_attorney_general_2010_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3639,
+        "rep_votes": 5530,
+        "other_votes": 187,
+        "total_votes": 9356
+      },
+      "after": {
+        "dem_votes": 3646,
+        "rep_votes": 5540,
+        "other_votes": 188,
+        "total_votes": 9374
+      },
+      "margin_before_pp": 20.2116,
+      "margin_after_pp": 20.2048,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_attorney_general_2010_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4759,
+        "rep_votes": 6165,
+        "other_votes": 259,
+        "total_votes": 11183
+      },
+      "after": {
+        "dem_votes": 4752,
+        "rep_votes": 6155,
+        "other_votes": 258,
+        "total_votes": 11165
+      },
+      "margin_before_pp": 12.5727,
+      "margin_after_pp": 12.5661,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_commissioner_agriculture_2010_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3206,
+        "rep_votes": 6063,
+        "other_votes": 1,
+        "total_votes": 9270
+      },
+      "after": {
+        "dem_votes": 3212,
+        "rep_votes": 6075,
+        "other_votes": 1,
+        "total_votes": 9288
+      },
+      "margin_before_pp": 30.8198,
+      "margin_after_pp": 30.8247,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_commissioner_agriculture_2010_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4287,
+        "rep_votes": 6777,
+        "other_votes": 10,
+        "total_votes": 11074
+      },
+      "after": {
+        "dem_votes": 4281,
+        "rep_votes": 6765,
+        "other_votes": 10,
+        "total_votes": 11056
+      },
+      "margin_before_pp": 22.4851,
+      "margin_after_pp": 22.4674,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_comptroller_general_2010_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3699,
+        "rep_votes": 5563,
+        "other_votes": 3,
+        "total_votes": 9265
+      },
+      "after": {
+        "dem_votes": 3706,
+        "rep_votes": 5574,
+        "other_votes": 3,
+        "total_votes": 9283
+      },
+      "margin_before_pp": 20.1187,
+      "margin_after_pp": 20.1228,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_comptroller_general_2010_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4683,
+        "rep_votes": 6400,
+        "other_votes": 4,
+        "total_votes": 11087
+      },
+      "after": {
+        "dem_votes": 4676,
+        "rep_votes": 6389,
+        "other_votes": 4,
+        "total_votes": 11069
+      },
+      "margin_before_pp": 15.4866,
+      "margin_after_pp": 15.4757,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_governor_2010_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4206,
+        "rep_votes": 4966,
+        "other_votes": 213,
+        "total_votes": 9385
+      },
+      "after": {
+        "dem_votes": 4213,
+        "rep_votes": 4976,
+        "other_votes": 214,
+        "total_votes": 9403
+      },
+      "margin_before_pp": 8.098,
+      "margin_after_pp": 8.1144,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_governor_2010_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5392,
+        "rep_votes": 5618,
+        "other_votes": 233,
+        "total_votes": 11243
+      },
+      "after": {
+        "dem_votes": 5385,
+        "rep_votes": 5608,
+        "other_votes": 232,
+        "total_votes": 11225
+      },
+      "margin_before_pp": 2.0101,
+      "margin_after_pp": 1.9866,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_secretary_of_state_2010_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3132,
+        "rep_votes": 6131,
+        "other_votes": 0,
+        "total_votes": 9263
+      },
+      "after": {
+        "dem_votes": 3138,
+        "rep_votes": 6143,
+        "other_votes": 0,
+        "total_votes": 9281
+      },
+      "margin_before_pp": 32.3761,
+      "margin_after_pp": 32.378,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_secretary_of_state_2010_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4149,
+        "rep_votes": 6940,
+        "other_votes": 7,
+        "total_votes": 11096
+      },
+      "after": {
+        "dem_votes": 4143,
+        "rep_votes": 6928,
+        "other_votes": 7,
+        "total_votes": 11078
+      },
+      "margin_before_pp": 25.1532,
+      "margin_after_pp": 25.1399,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_state_treasurer_2010_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 6918,
+        "other_votes": 50,
+        "total_votes": 6968
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 6931,
+        "other_votes": 50,
+        "total_votes": 6981
+      },
+      "margin_before_pp": 99.2824,
+      "margin_after_pp": 99.2838,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_state_treasurer_2010_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 7799,
+        "other_votes": 64,
+        "total_votes": 7863
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 7786,
+        "other_votes": 64,
+        "total_votes": 7850
+      },
+      "margin_before_pp": 99.1861,
+      "margin_after_pp": 99.1847,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_superintendent_2010_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3980,
+        "rep_votes": 4838,
+        "other_votes": 538,
+        "total_votes": 9356
+      },
+      "after": {
+        "dem_votes": 3988,
+        "rep_votes": 4848,
+        "other_votes": 539,
+        "total_votes": 9375
+      },
+      "margin_before_pp": 9.1706,
+      "margin_after_pp": 9.1733,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_superintendent_2010_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5188,
+        "rep_votes": 5410,
+        "other_votes": 581,
+        "total_votes": 11179
+      },
+      "after": {
+        "dem_votes": 5180,
+        "rep_votes": 5400,
+        "other_votes": 580,
+        "total_votes": 11160
+      },
+      "margin_before_pp": 1.9859,
+      "margin_after_pp": 1.9713,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_us_senate_2010_2022_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2356,
+        "rep_votes": 6274,
+        "other_votes": 710,
+        "total_votes": 9340
+      },
+      "after": {
+        "dem_votes": 2361,
+        "rep_votes": 6285,
+        "other_votes": 712,
+        "total_votes": 9358
+      },
+      "margin_before_pp": 41.9486,
+      "margin_after_pp": 41.932,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2022_lines/state_house_us_senate_2010_2022_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3260,
+        "rep_votes": 7085,
+        "other_votes": 785,
+        "total_votes": 11130
+      },
+      "after": {
+        "dem_votes": 3255,
+        "rep_votes": 7074,
+        "other_votes": 783,
+        "total_votes": 11112
+      },
+      "margin_before_pp": 34.3666,
+      "margin_after_pp": 34.3683,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_president_2024_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4182,
+        "rep_votes": 13551,
+        "other_votes": 185,
+        "total_votes": 17918
+      },
+      "after": {
+        "dem_votes": 4188,
+        "rep_votes": 13581,
+        "other_votes": 185,
+        "total_votes": 17954
+      },
+      "margin_before_pp": 52.2882,
+      "margin_after_pp": 52.317,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_president_2024_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4705,
+        "rep_votes": 13858,
+        "other_votes": 194,
+        "total_votes": 18757
+      },
+      "after": {
+        "dem_votes": 4699,
+        "rep_votes": 13828,
+        "other_votes": 194,
+        "total_votes": 18721
+      },
+      "margin_before_pp": 48.7978,
+      "margin_after_pp": 48.7634,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_attorney_general_2022_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9317,
+        "other_votes": 114,
+        "total_votes": 9431
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9337,
+        "other_votes": 114,
+        "total_votes": 9451
+      },
+      "margin_before_pp": 98.7912,
+      "margin_after_pp": 98.7938,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_attorney_general_2022_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 10579,
+        "other_votes": 103,
+        "total_votes": 10682
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 10559,
+        "other_votes": 103,
+        "total_votes": 10662
+      },
+      "margin_before_pp": 99.0358,
+      "margin_after_pp": 99.034,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_commissioner_agriculture_2022_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8729,
+        "other_votes": 1207,
+        "total_votes": 9936
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8747,
+        "other_votes": 1210,
+        "total_votes": 9957
+      },
+      "margin_before_pp": 87.8523,
+      "margin_after_pp": 87.8477,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_commissioner_agriculture_2022_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9847,
+        "other_votes": 1350,
+        "total_votes": 11197
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9829,
+        "other_votes": 1347,
+        "total_votes": 11176
+      },
+      "margin_before_pp": 87.9432,
+      "margin_after_pp": 87.9474,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_comptroller_general_2022_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9308,
+        "other_votes": 89,
+        "total_votes": 9397
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9328,
+        "other_votes": 89,
+        "total_votes": 9417
+      },
+      "margin_before_pp": 99.0529,
+      "margin_after_pp": 99.0549,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_comptroller_general_2022_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 10579,
+        "other_votes": 70,
+        "total_votes": 10649
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 10559,
+        "other_votes": 70,
+        "total_votes": 10629
+      },
+      "margin_before_pp": 99.3427,
+      "margin_after_pp": 99.3414,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_governor_2022_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2707,
+        "rep_votes": 8398,
+        "other_votes": 131,
+        "total_votes": 11236
+      },
+      "after": {
+        "dem_votes": 2711,
+        "rep_votes": 8416,
+        "other_votes": 131,
+        "total_votes": 11258
+      },
+      "margin_before_pp": 50.6497,
+      "margin_after_pp": 50.6751,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_governor_2022_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3361,
+        "rep_votes": 9495,
+        "other_votes": 135,
+        "total_votes": 12991
+      },
+      "after": {
+        "dem_votes": 3357,
+        "rep_votes": 9477,
+        "other_votes": 135,
+        "total_votes": 12969
+      },
+      "margin_before_pp": 47.2173,
+      "margin_after_pp": 47.1895,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_secretary_of_state_2022_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2446,
+        "rep_votes": 8730,
+        "other_votes": 9,
+        "total_votes": 11185
+      },
+      "after": {
+        "dem_votes": 2450,
+        "rep_votes": 8748,
+        "other_votes": 9,
+        "total_votes": 11207
+      },
+      "margin_before_pp": 56.1824,
+      "margin_after_pp": 56.197,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_secretary_of_state_2022_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3057,
+        "rep_votes": 9865,
+        "other_votes": 6,
+        "total_votes": 12928
+      },
+      "after": {
+        "dem_votes": 3053,
+        "rep_votes": 9847,
+        "other_votes": 6,
+        "total_votes": 12906
+      },
+      "margin_before_pp": 52.6609,
+      "margin_after_pp": 52.6422,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_state_treasurer_2022_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8924,
+        "other_votes": 1083,
+        "total_votes": 10007
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8943,
+        "other_votes": 1085,
+        "total_votes": 10028
+      },
+      "margin_before_pp": 89.1776,
+      "margin_after_pp": 89.1803,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_state_treasurer_2022_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 10152,
+        "other_votes": 1116,
+        "total_votes": 11268
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 10133,
+        "other_votes": 1114,
+        "total_votes": 11247
+      },
+      "margin_before_pp": 90.0958,
+      "margin_after_pp": 90.0951,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_superintendent_2022_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2829,
+        "rep_votes": 7810,
+        "other_votes": 513,
+        "total_votes": 11152
+      },
+      "after": {
+        "dem_votes": 2834,
+        "rep_votes": 7827,
+        "other_votes": 514,
+        "total_votes": 11175
+      },
+      "margin_before_pp": 44.6646,
+      "margin_after_pp": 44.6801,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_superintendent_2022_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3551,
+        "rep_votes": 8851,
+        "other_votes": 525,
+        "total_votes": 12927
+      },
+      "after": {
+        "dem_votes": 3546,
+        "rep_votes": 8834,
+        "other_votes": 524,
+        "total_votes": 12904
+      },
+      "margin_before_pp": 40.9995,
+      "margin_after_pp": 40.9795,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2022_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2468,
+        "rep_votes": 8720,
+        "other_votes": 12,
+        "total_votes": 11200
+      },
+      "after": {
+        "dem_votes": 2472,
+        "rep_votes": 8739,
+        "other_votes": 12,
+        "total_votes": 11223
+      },
+      "margin_before_pp": 55.8214,
+      "margin_after_pp": 55.8407,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2022_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3066,
+        "rep_votes": 9881,
+        "other_votes": 8,
+        "total_votes": 12955
+      },
+      "after": {
+        "dem_votes": 3062,
+        "rep_votes": 9862,
+        "other_votes": 8,
+        "total_votes": 12932
+      },
+      "margin_before_pp": 52.6052,
+      "margin_after_pp": 52.5827,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_president_2020_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4933,
+        "rep_votes": 12694,
+        "other_votes": 183,
+        "total_votes": 17810
+      },
+      "after": {
+        "dem_votes": 4941,
+        "rep_votes": 12722,
+        "other_votes": 183,
+        "total_votes": 17846
+      },
+      "margin_before_pp": 43.5766,
+      "margin_after_pp": 43.6008,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_president_2020_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5570,
+        "rep_votes": 13444,
+        "other_votes": 192,
+        "total_votes": 19206
+      },
+      "after": {
+        "dem_votes": 5562,
+        "rep_votes": 13416,
+        "other_votes": 192,
+        "total_votes": 19170
+      },
+      "margin_before_pp": 40.9976,
+      "margin_after_pp": 40.9703,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2020_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 5142,
+        "rep_votes": 12391,
+        "other_votes": 280,
+        "total_votes": 17813
+      },
+      "after": {
+        "dem_votes": 5150,
+        "rep_votes": 12418,
+        "other_votes": 280,
+        "total_votes": 17848
+      },
+      "margin_before_pp": 40.695,
+      "margin_after_pp": 40.7216,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2020_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5790,
+        "rep_votes": 13117,
+        "other_votes": 319,
+        "total_votes": 19226
+      },
+      "after": {
+        "dem_votes": 5782,
+        "rep_votes": 13090,
+        "other_votes": 319,
+        "total_votes": 19191
+      },
+      "margin_before_pp": 38.1099,
+      "margin_after_pp": 38.0804,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_attorney_general_2018_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3065,
+        "rep_votes": 8122,
+        "other_votes": 215,
+        "total_votes": 11402
+      },
+      "after": {
+        "dem_votes": 3071,
+        "rep_votes": 8139,
+        "other_votes": 215,
+        "total_votes": 11425
+      },
+      "margin_before_pp": 44.3519,
+      "margin_after_pp": 44.3589,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_attorney_general_2018_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4073,
+        "rep_votes": 9161,
+        "other_votes": 232,
+        "total_votes": 13466
+      },
+      "after": {
+        "dem_votes": 4067,
+        "rep_votes": 9144,
+        "other_votes": 232,
+        "total_votes": 13443
+      },
+      "margin_before_pp": 37.784,
+      "margin_after_pp": 37.7669,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_commissioner_agriculture_2018_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8413,
+        "other_votes": 1476,
+        "total_votes": 9889
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8430,
+        "other_votes": 1479,
+        "total_votes": 9909
+      },
+      "margin_before_pp": 85.0743,
+      "margin_after_pp": 85.0742,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_commissioner_agriculture_2018_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9482,
+        "other_votes": 1814,
+        "total_votes": 11296
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9465,
+        "other_votes": 1811,
+        "total_votes": 11276
+      },
+      "margin_before_pp": 83.9412,
+      "margin_after_pp": 83.9393,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_comptroller_general_2018_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8979,
+        "other_votes": 111,
+        "total_votes": 9090
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8997,
+        "other_votes": 111,
+        "total_votes": 9108
+      },
+      "margin_before_pp": 98.7789,
+      "margin_after_pp": 98.7813,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_comptroller_general_2018_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 10197,
+        "other_votes": 120,
+        "total_votes": 10317
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 10179,
+        "other_votes": 120,
+        "total_votes": 10299
+      },
+      "margin_before_pp": 98.8369,
+      "margin_after_pp": 98.8348,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_governor_2018_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3352,
+        "rep_votes": 8051,
+        "other_votes": 13,
+        "total_votes": 11416
+      },
+      "after": {
+        "dem_votes": 3359,
+        "rep_votes": 8068,
+        "other_votes": 13,
+        "total_votes": 11440
+      },
+      "margin_before_pp": 41.1615,
+      "margin_after_pp": 41.1626,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_governor_2018_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4470,
+        "rep_votes": 9014,
+        "other_votes": 11,
+        "total_votes": 13495
+      },
+      "after": {
+        "dem_votes": 4463,
+        "rep_votes": 8997,
+        "other_votes": 11,
+        "total_votes": 13471
+      },
+      "margin_before_pp": 33.6717,
+      "margin_after_pp": 33.6575,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_secretary_of_state_2018_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3093,
+        "rep_votes": 8295,
+        "other_votes": 2,
+        "total_votes": 11390
+      },
+      "after": {
+        "dem_votes": 3100,
+        "rep_votes": 8312,
+        "other_votes": 2,
+        "total_votes": 11414
+      },
+      "margin_before_pp": 45.6716,
+      "margin_after_pp": 45.6632,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_secretary_of_state_2018_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4152,
+        "rep_votes": 9297,
+        "other_votes": 7,
+        "total_votes": 13456
+      },
+      "after": {
+        "dem_votes": 4145,
+        "rep_votes": 9280,
+        "other_votes": 7,
+        "total_votes": 13432
+      },
+      "margin_before_pp": 38.2357,
+      "margin_after_pp": 38.2296,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_state_treasurer_2018_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2936,
+        "rep_votes": 8143,
+        "other_votes": 315,
+        "total_votes": 11394
+      },
+      "after": {
+        "dem_votes": 2943,
+        "rep_votes": 8159,
+        "other_votes": 316,
+        "total_votes": 11418
+      },
+      "margin_before_pp": 45.6995,
+      "margin_after_pp": 45.6823,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_state_treasurer_2018_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3971,
+        "rep_votes": 9132,
+        "other_votes": 362,
+        "total_votes": 13465
+      },
+      "after": {
+        "dem_votes": 3964,
+        "rep_votes": 9116,
+        "other_votes": 361,
+        "total_votes": 13441
+      },
+      "margin_before_pp": 38.329,
+      "margin_after_pp": 38.3305,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_superintendent_2018_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 8388,
+        "other_votes": 54,
+        "total_votes": 8442
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 8405,
+        "other_votes": 54,
+        "total_votes": 8459
+      },
+      "margin_before_pp": 99.3603,
+      "margin_after_pp": 99.3616,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_superintendent_2018_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 9467,
+        "other_votes": 39,
+        "total_votes": 9506
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 9450,
+        "other_votes": 39,
+        "total_votes": 9489
+      },
+      "margin_before_pp": 99.5897,
+      "margin_after_pp": 99.589,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_president_2016_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4021,
+        "rep_votes": 10933,
+        "other_votes": 438,
+        "total_votes": 15392
+      },
+      "after": {
+        "dem_votes": 4030,
+        "rep_votes": 10958,
+        "other_votes": 439,
+        "total_votes": 15427
+      },
+      "margin_before_pp": 44.9064,
+      "margin_after_pp": 44.9083,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_president_2016_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5466,
+        "rep_votes": 11636,
+        "other_votes": 451,
+        "total_votes": 17553
+      },
+      "after": {
+        "dem_votes": 5457,
+        "rep_votes": 11611,
+        "other_votes": 450,
+        "total_votes": 17518
+      },
+      "margin_before_pp": 35.1507,
+      "margin_after_pp": 35.1296,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2016_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3377,
+        "rep_votes": 10689,
+        "other_votes": 863,
+        "total_votes": 14929
+      },
+      "after": {
+        "dem_votes": 3384,
+        "rep_votes": 10713,
+        "other_votes": 865,
+        "total_votes": 14962
+      },
+      "margin_before_pp": 48.9785,
+      "margin_after_pp": 48.9841,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2016_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4697,
+        "rep_votes": 11343,
+        "other_votes": 957,
+        "total_votes": 16997
+      },
+      "after": {
+        "dem_votes": 4690,
+        "rep_votes": 11319,
+        "other_votes": 955,
+        "total_votes": 16964
+      },
+      "margin_before_pp": 39.101,
+      "margin_after_pp": 39.0769,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_attorney_general_2014_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2312,
+        "rep_votes": 5782,
+        "other_votes": 2,
+        "total_votes": 8096
+      },
+      "after": {
+        "dem_votes": 2319,
+        "rep_votes": 5796,
+        "other_votes": 2,
+        "total_votes": 8117
+      },
+      "margin_before_pp": 42.8607,
+      "margin_after_pp": 42.836,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_attorney_general_2014_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3715,
+        "rep_votes": 6891,
+        "other_votes": 9,
+        "total_votes": 10615
+      },
+      "after": {
+        "dem_votes": 3708,
+        "rep_votes": 6877,
+        "other_votes": 9,
+        "total_votes": 10594
+      },
+      "margin_before_pp": 29.9199,
+      "margin_after_pp": 29.9132,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_commissioner_agriculture_2014_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 5840,
+        "other_votes": 1062,
+        "total_votes": 6902
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 5854,
+        "other_votes": 1066,
+        "total_votes": 6920
+      },
+      "margin_before_pp": 84.6132,
+      "margin_after_pp": 84.5954,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_commissioner_agriculture_2014_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 7028,
+        "other_votes": 1658,
+        "total_votes": 8686
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 7014,
+        "other_votes": 1654,
+        "total_votes": 8668
+      },
+      "margin_before_pp": 80.9118,
+      "margin_after_pp": 80.9183,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_comptroller_general_2014_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2365,
+        "rep_votes": 5702,
+        "other_votes": 6,
+        "total_votes": 8073
+      },
+      "after": {
+        "dem_votes": 2372,
+        "rep_votes": 5715,
+        "other_votes": 6,
+        "total_votes": 8093
+      },
+      "margin_before_pp": 41.3353,
+      "margin_after_pp": 41.3073,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_comptroller_general_2014_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3780,
+        "rep_votes": 6833,
+        "other_votes": 2,
+        "total_votes": 10615
+      },
+      "after": {
+        "dem_votes": 3773,
+        "rep_votes": 6820,
+        "other_votes": 2,
+        "total_votes": 10595
+      },
+      "margin_before_pp": 28.7612,
+      "margin_after_pp": 28.7588,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_governor_2014_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2454,
+        "rep_votes": 5552,
+        "other_votes": 259,
+        "total_votes": 8265
+      },
+      "after": {
+        "dem_votes": 2460,
+        "rep_votes": 5567,
+        "other_votes": 259,
+        "total_votes": 8286
+      },
+      "margin_before_pp": 37.4834,
+      "margin_after_pp": 37.497,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_governor_2014_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3730,
+        "rep_votes": 6840,
+        "other_votes": 302,
+        "total_votes": 10872
+      },
+      "after": {
+        "dem_votes": 3724,
+        "rep_votes": 6825,
+        "other_votes": 302,
+        "total_votes": 10851
+      },
+      "margin_before_pp": 28.6056,
+      "margin_after_pp": 28.578,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_secretary_of_state_2014_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2290,
+        "rep_votes": 5802,
+        "other_votes": 2,
+        "total_votes": 8094
+      },
+      "after": {
+        "dem_votes": 2296,
+        "rep_votes": 5816,
+        "other_votes": 2,
+        "total_votes": 8114
+      },
+      "margin_before_pp": 43.3902,
+      "margin_after_pp": 43.3818,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_secretary_of_state_2014_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3645,
+        "rep_votes": 6996,
+        "other_votes": 6,
+        "total_votes": 10647
+      },
+      "after": {
+        "dem_votes": 3639,
+        "rep_votes": 6982,
+        "other_votes": 6,
+        "total_votes": 10627
+      },
+      "margin_before_pp": 31.4737,
+      "margin_after_pp": 31.4576,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_state_treasurer_2014_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 6495,
+        "other_votes": 25,
+        "total_votes": 6520
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 6512,
+        "other_votes": 25,
+        "total_votes": 6537
+      },
+      "margin_before_pp": 99.6166,
+      "margin_after_pp": 99.6176,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_state_treasurer_2014_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 7985,
+        "other_votes": 54,
+        "total_votes": 8039
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 7968,
+        "other_votes": 54,
+        "total_votes": 8022
+      },
+      "margin_before_pp": 99.3283,
+      "margin_after_pp": 99.3269,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_superintendent_2014_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2385,
+        "rep_votes": 5309,
+        "other_votes": 417,
+        "total_votes": 8111
+      },
+      "after": {
+        "dem_votes": 2393,
+        "rep_votes": 5320,
+        "other_votes": 419,
+        "total_votes": 8132
+      },
+      "margin_before_pp": 36.0498,
+      "margin_after_pp": 35.9936,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_superintendent_2014_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3678,
+        "rep_votes": 6553,
+        "other_votes": 473,
+        "total_votes": 10704
+      },
+      "after": {
+        "dem_votes": 3670,
+        "rep_votes": 6542,
+        "other_votes": 471,
+        "total_votes": 10683
+      },
+      "margin_before_pp": 26.8591,
+      "margin_after_pp": 26.8838,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2014_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4096,
+        "rep_votes": 11274,
+        "other_votes": 1063,
+        "total_votes": 16433
+      },
+      "after": {
+        "dem_votes": 4108,
+        "rep_votes": 11300,
+        "other_votes": 1067,
+        "total_votes": 16475
+      },
+      "margin_before_pp": 43.6804,
+      "margin_after_pp": 43.654,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2014_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 6744,
+        "rep_votes": 13614,
+        "other_votes": 1272,
+        "total_votes": 21630
+      },
+      "after": {
+        "dem_votes": 6732,
+        "rep_votes": 13588,
+        "other_votes": 1268,
+        "total_votes": 21588
+      },
+      "margin_before_pp": 31.7614,
+      "margin_after_pp": 31.7584,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_president_2012_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4851,
+        "rep_votes": 8852,
+        "other_votes": 220,
+        "total_votes": 13923
+      },
+      "after": {
+        "dem_votes": 4861,
+        "rep_votes": 8871,
+        "other_votes": 220,
+        "total_votes": 13952
+      },
+      "margin_before_pp": 28.7366,
+      "margin_after_pp": 28.7414,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_president_2012_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 6507,
+        "rep_votes": 9905,
+        "other_votes": 228,
+        "total_votes": 16640
+      },
+      "after": {
+        "dem_votes": 6497,
+        "rep_votes": 9886,
+        "other_votes": 228,
+        "total_votes": 16611
+      },
+      "margin_before_pp": 20.4207,
+      "margin_after_pp": 20.4021,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_attorney_general_2010_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3639,
+        "rep_votes": 5530,
+        "other_votes": 187,
+        "total_votes": 9356
+      },
+      "after": {
+        "dem_votes": 3646,
+        "rep_votes": 5540,
+        "other_votes": 188,
+        "total_votes": 9374
+      },
+      "margin_before_pp": 20.2116,
+      "margin_after_pp": 20.2048,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_attorney_general_2010_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4759,
+        "rep_votes": 6165,
+        "other_votes": 259,
+        "total_votes": 11183
+      },
+      "after": {
+        "dem_votes": 4752,
+        "rep_votes": 6155,
+        "other_votes": 258,
+        "total_votes": 11165
+      },
+      "margin_before_pp": 12.5727,
+      "margin_after_pp": 12.5661,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_commissioner_agriculture_2010_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3206,
+        "rep_votes": 6063,
+        "other_votes": 1,
+        "total_votes": 9270
+      },
+      "after": {
+        "dem_votes": 3212,
+        "rep_votes": 6075,
+        "other_votes": 1,
+        "total_votes": 9288
+      },
+      "margin_before_pp": 30.8198,
+      "margin_after_pp": 30.8247,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_commissioner_agriculture_2010_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4287,
+        "rep_votes": 6777,
+        "other_votes": 10,
+        "total_votes": 11074
+      },
+      "after": {
+        "dem_votes": 4281,
+        "rep_votes": 6765,
+        "other_votes": 10,
+        "total_votes": 11056
+      },
+      "margin_before_pp": 22.4851,
+      "margin_after_pp": 22.4674,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_comptroller_general_2010_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3699,
+        "rep_votes": 5563,
+        "other_votes": 3,
+        "total_votes": 9265
+      },
+      "after": {
+        "dem_votes": 3706,
+        "rep_votes": 5574,
+        "other_votes": 3,
+        "total_votes": 9283
+      },
+      "margin_before_pp": 20.1187,
+      "margin_after_pp": 20.1228,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_comptroller_general_2010_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4683,
+        "rep_votes": 6400,
+        "other_votes": 4,
+        "total_votes": 11087
+      },
+      "after": {
+        "dem_votes": 4676,
+        "rep_votes": 6389,
+        "other_votes": 4,
+        "total_votes": 11069
+      },
+      "margin_before_pp": 15.4866,
+      "margin_after_pp": 15.4757,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_governor_2010_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 4206,
+        "rep_votes": 4966,
+        "other_votes": 213,
+        "total_votes": 9385
+      },
+      "after": {
+        "dem_votes": 4213,
+        "rep_votes": 4976,
+        "other_votes": 214,
+        "total_votes": 9403
+      },
+      "margin_before_pp": 8.098,
+      "margin_after_pp": 8.1144,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_governor_2010_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5392,
+        "rep_votes": 5618,
+        "other_votes": 233,
+        "total_votes": 11243
+      },
+      "after": {
+        "dem_votes": 5385,
+        "rep_votes": 5608,
+        "other_votes": 232,
+        "total_votes": 11225
+      },
+      "margin_before_pp": 2.0101,
+      "margin_after_pp": 1.9866,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_secretary_of_state_2010_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3132,
+        "rep_votes": 6131,
+        "other_votes": 0,
+        "total_votes": 9263
+      },
+      "after": {
+        "dem_votes": 3138,
+        "rep_votes": 6143,
+        "other_votes": 0,
+        "total_votes": 9281
+      },
+      "margin_before_pp": 32.3761,
+      "margin_after_pp": 32.378,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_secretary_of_state_2010_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 4149,
+        "rep_votes": 6940,
+        "other_votes": 7,
+        "total_votes": 11096
+      },
+      "after": {
+        "dem_votes": 4143,
+        "rep_votes": 6928,
+        "other_votes": 7,
+        "total_votes": 11078
+      },
+      "margin_before_pp": 25.1532,
+      "margin_after_pp": 25.1399,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_state_treasurer_2010_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 6918,
+        "other_votes": 50,
+        "total_votes": 6968
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 6931,
+        "other_votes": 50,
+        "total_votes": 6981
+      },
+      "margin_before_pp": 99.2824,
+      "margin_after_pp": 99.2838,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_state_treasurer_2010_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 0,
+        "rep_votes": 7799,
+        "other_votes": 64,
+        "total_votes": 7863
+      },
+      "after": {
+        "dem_votes": 0,
+        "rep_votes": 7786,
+        "other_votes": 64,
+        "total_votes": 7850
+      },
+      "margin_before_pp": 99.1861,
+      "margin_after_pp": 99.1847,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_superintendent_2010_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 3980,
+        "rep_votes": 4838,
+        "other_votes": 538,
+        "total_votes": 9356
+      },
+      "after": {
+        "dem_votes": 3988,
+        "rep_votes": 4848,
+        "other_votes": 539,
+        "total_votes": 9375
+      },
+      "margin_before_pp": 9.1706,
+      "margin_after_pp": 9.1733,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_superintendent_2010_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 5188,
+        "rep_votes": 5410,
+        "other_votes": 581,
+        "total_votes": 11179
+      },
+      "after": {
+        "dem_votes": 5180,
+        "rep_votes": 5400,
+        "other_votes": 580,
+        "total_votes": 11160
+      },
+      "margin_before_pp": 1.9859,
+      "margin_after_pp": 1.9713,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2010_2024_lines.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 2356,
+        "rep_votes": 6274,
+        "other_votes": 710,
+        "total_votes": 9340
+      },
+      "after": {
+        "dem_votes": 2361,
+        "rep_votes": 6285,
+        "other_votes": 712,
+        "total_votes": 9358
+      },
+      "margin_before_pp": 41.9486,
+      "margin_after_pp": 41.932,
+      "winner_before": "R",
+      "winner_after": "R"
+    },
+    {
+      "file": "state_house_2024_lines/state_house_us_senate_2010_2024_lines.json",
+      "district": "11",
+      "before": {
+        "dem_votes": 3260,
+        "rep_votes": 7085,
+        "other_votes": 785,
+        "total_votes": 11130
+      },
+      "after": {
+        "dem_votes": 3255,
+        "rep_votes": 7074,
+        "other_votes": 783,
+        "total_votes": 11112
+      },
+      "margin_before_pp": 34.3666,
+      "margin_after_pp": 34.3683,
+      "winner_before": "R",
+      "winner_after": "R"
+    }
+  ]
+}

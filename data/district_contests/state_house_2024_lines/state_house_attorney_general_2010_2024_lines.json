@@ -74,14 +74,14 @@
         "color": "#a50f15"
       },
       "7": {
-        "dem_votes": 3639,
-        "rep_votes": 5530,
-        "other_votes": 187,
-        "total_votes": 9356,
+        "dem_votes": 3646,
+        "rep_votes": 5540,
+        "other_votes": 188,
+        "total_votes": 9374,
         "dem_candidate": "Matthew Richardson",
         "rep_candidate": "Alan Wilson",
-        "margin": 1891,
-        "margin_pct": 20.2116,
+        "margin": 1894,
+        "margin_pct": 20.2048,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -122,14 +122,14 @@
         "color": "#67000d"
       },
       "11": {
-        "dem_votes": 4759,
-        "rep_votes": 6165,
-        "other_votes": 259,
-        "total_votes": 11183,
+        "dem_votes": 4752,
+        "rep_votes": 6155,
+        "other_votes": 258,
+        "total_votes": 11165,
         "dem_candidate": "Matthew Richardson",
         "rep_candidate": "Alan Wilson",
-        "margin": 1406,
-        "margin_pct": 12.5727,
+        "margin": 1403,
+        "margin_pct": 12.5661,
         "winner": "R",
         "color": "#ef3b2c"
       },
@@ -1495,18 +1495,13 @@
     "match_coverage_pct": 98.3729,
     "precinct_rows_total": 2274,
     "precinct_rows_overlap_weighted": 2237,
-    "precinct_rows_county_share_fallback": 25,
-    "precinct_votes_county_share_fallback": 2380,
+    "precinct_rows_county_share_fallback": 26,
+    "precinct_votes_county_share_fallback": 2381,
     "precinct_rows_emergency_party_reconciled": 0,
     "precinct_votes_emergency_party_reconciled": 0,
     "emergency_allocation_method": "county_total_vote_share",
-    "whole_counties_exact": 12,
+    "whole_counties_exact": 11,
     "whole_county_vote_components": {
-      "11": {
-        "dem_votes": 3357,
-        "rep_votes": 3744,
-        "other_votes": 174
-      },
       "91": {
         "dem_votes": 5929,
         "rep_votes": 3381,
@@ -1590,9 +1585,9 @@
         "other_votes": 241
       },
       "7": {
-        "dem_votes": 3639,
-        "rep_votes": 5530,
-        "other_votes": 187
+        "dem_votes": 3646,
+        "rep_votes": 5540,
+        "other_votes": 188
       },
       "8": {
         "dem_votes": 3897,
@@ -1610,9 +1605,9 @@
         "other_votes": 216
       },
       "11": {
-        "dem_votes": 1402,
-        "rep_votes": 2421,
-        "other_votes": 85
+        "dem_votes": 4752,
+        "rep_votes": 6155,
+        "other_votes": 258
       },
       "12": {
         "dem_votes": 4401,
@@ -2180,7 +2175,7 @@
         "other_votes": 276
       }
     },
-    "split_counties_reconciled": 34,
+    "split_counties_reconciled": 35,
     "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
@@ -2195,6 +2190,18 @@
       "rep_votes": 0,
       "other_votes": 0
     },
+    "whole_county_cvap_exceptions": [
+      {
+        "county": "ABBEVILLE",
+        "would_be_whole_district": "11",
+        "outside_cvap": 67.0,
+        "outside_district_cvap": {
+          "7": 67.0
+        },
+        "county_cvap": 19481.0,
+        "outside_cvap_share": 0.00343925
+      }
+    ],
     "punctuation_alias_rows": 1,
     "punctuation_alias_votes": 1002,
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
@@ -2203,7 +2210,7 @@
     "snapshot_comparison_geometry": "state_house_2024",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_house_2024/attorney_general_2010",
     "snapshot_comparison_districts": 124,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.818293,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.818289,
     "snapshot_comparison_max_abs_share_delta_pp": 8.212707,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
