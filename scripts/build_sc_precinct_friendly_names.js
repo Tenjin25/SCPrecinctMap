@@ -34,8 +34,8 @@ function applyNameOverride(raw) {
   const name = String(raw || '').replace(/\s+/g, ' ').trim();
   const key = normalizeKey(name);
   const overrides = {
-    'MT. CALVARY PRESBYTERIAN': 'Mt. Calvary Presbyterian Church, PCA',
-    'MT CALVARY PRESBYTERIAN': 'Mt. Calvary Presbyterian Church, PCA',
+    'MT. CALVARY PRESBYTERIAN': 'Mt. Calvary Presbyterian Church (PCA)',
+    'MT CALVARY PRESBYTERIAN': 'Mt. Calvary Presbyterian Church (PCA)',
     'TRINITY PRESBYTERIAN': 'Trinity Presbyterian Church, Evangel Presbytery',
     'E BENNETTSVILLE': 'East Bennettsville',
     'N BENNETTSVILLE': 'North Bennettsville',
