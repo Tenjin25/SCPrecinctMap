@@ -36,7 +36,7 @@ function applyNameOverride(raw) {
   const overrides = {
     'MT. CALVARY PRESBYTERIAN': 'Mt. Calvary Presbyterian Church (PCA)',
     'MT CALVARY PRESBYTERIAN': 'Mt. Calvary Presbyterian Church (PCA)',
-    'TRINITY PRESBYTERIAN': 'Trinity Presbyterian Church, Evangel Presbytery',
+    'TRINITY PRESBYTERIAN': 'Trinity Presbyterian Church (Evangel Presbytery)',
     'E BENNETTSVILLE': 'East Bennettsville',
     'N BENNETTSVILLE': 'North Bennettsville',
     'S BENNETTSVILLE': 'South Bennettsville',
