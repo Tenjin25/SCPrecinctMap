@@ -1,0 +1,193 @@
+{
+  "write": true,
+  "method": "2022 dated statewide precinct geometry intersected with 2020 blocks, weighted by CVAP24, then joined to official district block equivalencies",
+  "qa": {
+    "precincts": 2261,
+    "area_fallback_precincts": {},
+    "uncovered": 0
+  },
+  "files": [
+    {
+      "file": "data/district_contests/congressional_governor_2022.json",
+      "changed_districts": 7,
+      "max_abs_margin_shift_pp": 0.0885,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 692691,
+        "rep_votes": 988501,
+        "other_votes": 22000
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_attorney_general_2022.json",
+      "changed_districts": 7,
+      "max_abs_margin_shift_pp": 0.0091,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1223080,
+        "other_votes": 33709
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_secretary_of_state_2022.json",
+      "changed_districts": 7,
+      "max_abs_margin_shift_pp": 0.0856,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 619341,
+        "rep_votes": 1071451,
+        "other_votes": 1109
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_state_treasurer_2022.json",
+      "changed_districts": 7,
+      "max_abs_margin_shift_pp": 0.0294,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1129961,
+        "other_votes": 288325
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_comptroller_general_2022.json",
+      "changed_districts": 7,
+      "max_abs_margin_shift_pp": 0.0034,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1229879,
+        "other_votes": 22407
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_superintendent_2022.json",
+      "changed_districts": 7,
+      "max_abs_margin_shift_pp": 0.0755,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 669018,
+        "rep_votes": 937493,
+        "other_votes": 82207
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_commissioner_agriculture_2022.json",
+      "changed_districts": 7,
+      "max_abs_margin_shift_pp": 0.0334,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1085139,
+        "other_votes": 313253
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_us_senate_2022.json",
+      "changed_districts": 7,
+      "max_abs_margin_shift_pp": 0.0797,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 627616,
+        "rep_votes": 1066274,
+        "other_votes": 1812
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_governor_2022.json",
+      "changed_districts": 46,
+      "max_abs_margin_shift_pp": 0.1501,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 692691,
+        "rep_votes": 988501,
+        "other_votes": 22000
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_attorney_general_2022.json",
+      "changed_districts": 46,
+      "max_abs_margin_shift_pp": 0.0136,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1223080,
+        "other_votes": 33709
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_secretary_of_state_2022.json",
+      "changed_districts": 46,
+      "max_abs_margin_shift_pp": 0.1491,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 619341,
+        "rep_votes": 1071451,
+        "other_votes": 1109
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_state_treasurer_2022.json",
+      "changed_districts": 46,
+      "max_abs_margin_shift_pp": 0.0489,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1129961,
+        "other_votes": 288325
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_comptroller_general_2022.json",
+      "changed_districts": 46,
+      "max_abs_margin_shift_pp": 0.0122,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1229879,
+        "other_votes": 22407
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_superintendent_2022.json",
+      "changed_districts": 46,
+      "max_abs_margin_shift_pp": 0.1162,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 669018,
+        "rep_votes": 937493,
+        "other_votes": 82207
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_commissioner_agriculture_2022.json",
+      "changed_districts": 46,
+      "max_abs_margin_shift_pp": 0.0559,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1085139,
+        "other_votes": 313253
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_us_senate_2022.json",
+      "changed_districts": 46,
+      "max_abs_margin_shift_pp": 0.1537,
+      "winner_flips": [],
+      "canonical_statewide_totals": {
+        "dem_votes": 627616,
+        "rep_votes": 1066274,
+        "other_votes": 1812
+      }
+    }
+  ],
+  "summary": {
+    "files": 16,
+    "changed_district_records": 424,
+    "winner_flips": 0,
+    "max_abs_margin_shift_pp": 0.1537
+  }
+}
