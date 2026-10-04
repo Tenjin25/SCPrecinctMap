@@ -2,86 +2,86 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 107300,
-        "rep_votes": 149522,
-        "other_votes": 12997,
-        "total_votes": 269819,
+        "dem_votes": 107356,
+        "rep_votes": 149616,
+        "other_votes": 13012,
+        "total_votes": 269984,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 42222,
-        "margin_pct": 15.6483,
+        "margin": 42260,
+        "margin_pct": 15.6528,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 102853,
-        "rep_votes": 128320,
-        "other_votes": 14616,
-        "total_votes": 245789,
+        "dem_votes": 102528,
+        "rep_votes": 128118,
+        "other_votes": 14568,
+        "total_votes": 245214,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 25467,
-        "margin_pct": 10.3613,
+        "margin": 25590,
+        "margin_pct": 10.4358,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 69236,
-        "rep_votes": 155719,
-        "other_votes": 11635,
-        "total_votes": 236590,
+        "dem_votes": 69144,
+        "rep_votes": 155522,
+        "other_votes": 11622,
+        "total_votes": 236288,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 86483,
-        "margin_pct": 36.554,
+        "margin": 86378,
+        "margin_pct": 36.5562,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 86211,
-        "rep_votes": 135525,
-        "other_votes": 11031,
-        "total_votes": 232767,
+        "dem_votes": 85964,
+        "rep_votes": 135263,
+        "other_votes": 10999,
+        "total_votes": 232226,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 49314,
-        "margin_pct": 21.186,
+        "margin": 49299,
+        "margin_pct": 21.2289,
         "winner": "R",
         "color": "#cb181d"
       },
       "5": {
-        "dem_votes": 89752,
-        "rep_votes": 138937,
-        "other_votes": 12223,
-        "total_votes": 240912,
+        "dem_votes": 89718,
+        "rep_votes": 138813,
+        "other_votes": 12207,
+        "total_votes": 240738,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 49185,
-        "margin_pct": 20.4162,
+        "margin": 49095,
+        "margin_pct": 20.3935,
         "winner": "R",
         "color": "#cb181d"
       },
       "6": {
-        "dem_votes": 124968,
-        "rep_votes": 73832,
-        "other_votes": 10888,
-        "total_votes": 209688,
+        "dem_votes": 125405,
+        "rep_votes": 74138,
+        "other_votes": 10948,
+        "total_votes": 210491,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": -51136,
-        "margin_pct": -24.3867,
+        "margin": -51267,
+        "margin_pct": -24.3559,
         "winner": "D",
         "color": "#4292c6"
       },
       "7": {
-        "dem_votes": 88698,
-        "rep_votes": 155638,
-        "other_votes": 8817,
-        "total_votes": 253153,
+        "dem_votes": 88903,
+        "rep_votes": 156023,
+        "other_votes": 8851,
+        "total_votes": 253777,
         "dem_candidate": "Lisa Ellis",
         "rep_candidate": "Ellen Weaver",
-        "margin": 66940,
-        "margin_pct": 26.4425,
+        "margin": 67120,
+        "margin_pct": 26.4484,
         "winner": "R",
         "color": "#cb181d"
       }
@@ -136,28 +136,28 @@
         "other_votes": 7064
       },
       "2": {
-        "dem_votes": 48476,
-        "rep_votes": 32027,
+        "dem_votes": 48480,
+        "rep_votes": 32029,
         "other_votes": 5675
       },
       "3": {
-        "dem_votes": 7444,
-        "rep_votes": 13819,
+        "dem_votes": 7443,
+        "rep_votes": 13817,
         "other_votes": 1069
       },
       "4": {
-        "dem_votes": 86211,
-        "rep_votes": 135525,
+        "dem_votes": 86212,
+        "rep_votes": 135527,
         "other_votes": 11031
       },
       "5": {
         "dem_votes": 15349,
-        "rep_votes": 23936,
+        "rep_votes": 23937,
         "other_votes": 1708
       },
       "6": {
-        "dem_votes": 105469,
-        "rep_votes": 57103,
+        "dem_votes": 105465,
+        "rep_votes": 57100,
         "other_votes": 9169
       },
       "7": {
@@ -169,7 +169,7 @@
     "split_counties_reconciled": 10,
     "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "assignment_method": "rdh_2022_dated_precinct_geometry_with_official_block_equivalency_cvap24",
     "split_precinct_weight_source": "rdh-cvap24",
     "canonical_statewide_totals": {
       "dem_votes": 669018,
@@ -188,18 +188,21 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 2,
     "historical_name_bridge_votes": 1281,
-    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
-    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/superintendent_2022",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.420352,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.420409,
     "snapshot_comparison_max_abs_share_delta_pp": 1.593644,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 669018,
       "rep_votes": 937493,
       "other_votes": 82207
-    }
+    },
+    "block_equivalency_plan": "congressional",
+    "block_equivalency_file": "data/ConPassed BlockEQ.xlsx",
+    "precinct_election_file": "data/rdh_blockfiles/sc_2022_gen_prec.zip",
+    "precinct_geometry_member": "sc_2022_gen_st_prec/sc_2022_gen_st_prec.shp",
+    "block_weight_source": "data/sc_cvap_2024_2020_b_csv.zip#CVAP_TOT24"
   }
 }

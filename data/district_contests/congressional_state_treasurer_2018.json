@@ -2,86 +2,86 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 103150,
-        "rep_votes": 141392,
-        "other_votes": 9458,
-        "total_votes": 254000,
+        "dem_votes": 103367,
+        "rep_votes": 141687,
+        "other_votes": 9466,
+        "total_votes": 254520,
         "dem_candidate": "Rosalyn L Glenn",
         "rep_candidate": "Curtis Loftis",
-        "margin": 38242,
-        "margin_pct": 15.0559,
+        "margin": 38320,
+        "margin_pct": 15.0558,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "2": {
-        "dem_votes": 100017,
-        "rep_votes": 147558,
+        "dem_votes": 100011,
+        "rep_votes": 147566,
         "other_votes": 9086,
-        "total_votes": 256661,
+        "total_votes": 256663,
         "dem_candidate": "Rosalyn L Glenn",
         "rep_candidate": "Curtis Loftis",
-        "margin": 47541,
-        "margin_pct": 18.5229,
+        "margin": 47555,
+        "margin_pct": 18.5282,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 67366,
-        "rep_votes": 160735,
-        "other_votes": 7146,
-        "total_votes": 235247,
+        "dem_votes": 67375,
+        "rep_votes": 160757,
+        "other_votes": 7153,
+        "total_votes": 235285,
         "dem_candidate": "Rosalyn L Glenn",
         "rep_candidate": "Curtis Loftis",
-        "margin": 93369,
-        "margin_pct": 39.6898,
+        "margin": 93382,
+        "margin_pct": 39.6889,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 83561,
-        "rep_votes": 142259,
-        "other_votes": 7523,
-        "total_votes": 233343,
+        "dem_votes": 83551,
+        "rep_votes": 142208,
+        "other_votes": 7515,
+        "total_votes": 233274,
         "dem_candidate": "Rosalyn L Glenn",
         "rep_candidate": "Curtis Loftis",
-        "margin": 58698,
-        "margin_pct": 25.1552,
+        "margin": 58657,
+        "margin_pct": 25.1451,
         "winner": "R",
         "color": "#cb181d"
       },
       "5": {
         "dem_votes": 94336,
-        "rep_votes": 141991,
-        "other_votes": 8383,
-        "total_votes": 244710,
+        "rep_votes": 142019,
+        "other_votes": 8386,
+        "total_votes": 244741,
         "dem_candidate": "Rosalyn L Glenn",
         "rep_candidate": "Curtis Loftis",
-        "margin": 47655,
-        "margin_pct": 19.4741,
+        "margin": 47683,
+        "margin_pct": 19.483,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 150738,
-        "rep_votes": 79542,
-        "other_votes": 7668,
-        "total_votes": 237948,
+        "dem_votes": 150525,
+        "rep_votes": 79234,
+        "other_votes": 7656,
+        "total_votes": 237415,
         "dem_candidate": "Rosalyn L Glenn",
         "rep_candidate": "Curtis Loftis",
-        "margin": -71196,
-        "margin_pct": -29.9208,
+        "margin": -71291,
+        "margin_pct": -30.028,
         "winner": "D",
-        "color": "#4292c6"
+        "color": "#2171b5"
       },
       "7": {
-        "dem_votes": 95032,
-        "rep_votes": 138756,
-        "other_votes": 6203,
-        "total_votes": 239991,
+        "dem_votes": 95035,
+        "rep_votes": 138762,
+        "other_votes": 6205,
+        "total_votes": 240002,
         "dem_candidate": "Rosalyn L Glenn",
         "rep_candidate": "Curtis Loftis",
-        "margin": 43724,
-        "margin_pct": 18.219,
+        "margin": 43727,
+        "margin_pct": 18.2194,
         "winner": "R",
         "color": "#ef3b2c"
       }
@@ -136,18 +136,18 @@
         "other_votes": 4748
       },
       "2": {
-        "dem_votes": 47730,
-        "rep_votes": 40117,
-        "other_votes": 3096
+        "dem_votes": 47734,
+        "rep_votes": 40120,
+        "other_votes": 3097
       },
       "3": {
-        "dem_votes": 6813,
-        "rep_votes": 13363,
+        "dem_votes": 6811,
+        "rep_votes": 13361,
         "other_votes": 655
       },
       "4": {
-        "dem_votes": 83561,
-        "rep_votes": 142259,
+        "dem_votes": 83563,
+        "rep_votes": 142261,
         "other_votes": 7523
       },
       "5": {
@@ -156,9 +156,9 @@
         "other_votes": 1063
       },
       "6": {
-        "dem_votes": 125784,
-        "rep_votes": 62229,
-        "other_votes": 6647
+        "dem_votes": 125780,
+        "rep_votes": 62226,
+        "other_votes": 6646
       },
       "7": {
         "dem_votes": 19041,
@@ -169,7 +169,7 @@
     "split_counties_reconciled": 10,
     "district_lines_file": "data/tileset/sc_cd118_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
-    "assignment_method": "nc_county_constrained_block_weighted_split_precincts",
+    "assignment_method": "rdh_block_disaggregation_joined_to_official_block_equivalency",
     "split_precinct_weight_source": "rdh-cvap24",
     "canonical_statewide_totals": {
       "dem_votes": 694200,
@@ -186,18 +186,20 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 1,
     "historical_name_bridge_votes": 358,
-    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
-    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/state_treasurer_2018",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 1.010065,
-    "snapshot_comparison_max_abs_share_delta_pp": 2.259223,
+    "snapshot_comparison_mean_abs_share_delta_pp": 1.010044,
+    "snapshot_comparison_max_abs_share_delta_pp": 2.259466,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 694200,
       "rep_votes": 952233,
       "other_votes": 55467
-    }
+    },
+    "block_equivalency_plan": "congressional",
+    "block_equivalency_file": "data/ConPassed BlockEQ.xlsx",
+    "block_election_file": "data/rdh_blockfiles/sc_2018_gen_2020_blocks.zip",
+    "block_vote_rounding": "party_statewide_total_preserved_largest_remainder"
   }
 }

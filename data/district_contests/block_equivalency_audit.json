@@ -1,0 +1,1361 @@
+{
+  "write": true,
+  "years": [
+    2016,
+    2018,
+    2020,
+    2024
+  ],
+  "plans": [
+    "state_house_2022",
+    "state_house_2024",
+    "congressional",
+    "state_senate"
+  ],
+  "files": [
+    {
+      "file": "data/district_contests/state_house_president_2016.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.6365,
+      "canonical_statewide_totals": {
+        "dem_votes": 855373,
+        "rep_votes": 1155389,
+        "other_votes": 92265
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 855373.12,
+        "rep_votes": 1155391.33,
+        "other_votes": 92242.22
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 855373.12,
+        "rep_votes": 1155391.33,
+        "other_votes": 92242.22
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2022_lines/state_house_president_2016_2022_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.6365,
+      "canonical_statewide_totals": {
+        "dem_votes": 855373,
+        "rep_votes": 1155389,
+        "other_votes": 92265
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 855373.12,
+        "rep_votes": 1155391.33,
+        "other_votes": 92242.22
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 855373.12,
+        "rep_votes": 1155391.33,
+        "other_votes": 92242.22
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_us_senate_2016.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 3.1677,
+      "canonical_statewide_totals": {
+        "dem_votes": 704540,
+        "rep_votes": 1241609,
+        "other_votes": 103744
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 757022.52,
+        "rep_votes": 1241609.37,
+        "other_votes": 51250.13
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 704540.0,
+        "rep_votes": 1241609.37,
+        "other_votes": 103732.65
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2022_lines/state_house_us_senate_2016_2022_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 3.1677,
+      "canonical_statewide_totals": {
+        "dem_votes": 704540,
+        "rep_votes": 1241609,
+        "other_votes": 103744
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 757022.52,
+        "rep_votes": 1241609.37,
+        "other_votes": 51250.13
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 704540.0,
+        "rep_votes": 1241609.37,
+        "other_votes": 103732.65
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2024_lines/state_house_president_2016_2024_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.6359,
+      "canonical_statewide_totals": {
+        "dem_votes": 855373,
+        "rep_votes": 1155389,
+        "other_votes": 92265
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 855373.12,
+        "rep_votes": 1155391.33,
+        "other_votes": 92242.22
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 855373.12,
+        "rep_votes": 1155391.33,
+        "other_votes": 92242.22
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2024_lines/state_house_us_senate_2016_2024_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [
+        {
+          "district": "57",
+          "old_margin_pct": -0.8027,
+          "new_margin_pct": 0.2694,
+          "margin_shift_pp": 1.0721,
+          "old_winner": "D",
+          "new_winner": "R"
+        }
+      ],
+      "max_abs_margin_shift_pp": 3.5921,
+      "canonical_statewide_totals": {
+        "dem_votes": 704540,
+        "rep_votes": 1241609,
+        "other_votes": 103744
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 757022.52,
+        "rep_votes": 1241609.37,
+        "other_votes": 51250.13
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 704540.0,
+        "rep_votes": 1241609.37,
+        "other_votes": 103732.65
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_president_2016.json",
+      "districts": 7,
+      "changed_districts": 7,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.0735,
+      "canonical_statewide_totals": {
+        "dem_votes": 855373,
+        "rep_votes": 1155389,
+        "other_votes": 92265
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 855373.12,
+        "rep_votes": 1155391.33,
+        "other_votes": 92242.22
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 855373.12,
+        "rep_votes": 1155391.33,
+        "other_votes": 92242.22
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_us_senate_2016.json",
+      "districts": 7,
+      "changed_districts": 7,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 1.4893,
+      "canonical_statewide_totals": {
+        "dem_votes": 704540,
+        "rep_votes": 1241609,
+        "other_votes": 103744
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 757022.52,
+        "rep_votes": 1241609.37,
+        "other_votes": 51250.13
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 704540.0,
+        "rep_votes": 1241609.37,
+        "other_votes": 103732.65
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_president_2016.json",
+      "districts": 46,
+      "changed_districts": 46,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.281,
+      "canonical_statewide_totals": {
+        "dem_votes": 855373,
+        "rep_votes": 1155389,
+        "other_votes": 92265
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 855373.12,
+        "rep_votes": 1155391.33,
+        "other_votes": 92242.22
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 855373.12,
+        "rep_votes": 1155391.33,
+        "other_votes": 92242.22
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_us_senate_2016.json",
+      "districts": 46,
+      "changed_districts": 46,
+      "winner_flips": [
+        {
+          "district": "39",
+          "old_margin_pct": -1.2416,
+          "new_margin_pct": 2.2021,
+          "margin_shift_pp": 3.4437,
+          "old_winner": "D",
+          "new_winner": "R"
+        }
+      ],
+      "max_abs_margin_shift_pp": 3.4437,
+      "canonical_statewide_totals": {
+        "dem_votes": 704540,
+        "rep_votes": 1241609,
+        "other_votes": 103744
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 757022.52,
+        "rep_votes": 1241609.37,
+        "other_votes": 51250.13
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 704540.0,
+        "rep_votes": 1241609.37,
+        "other_votes": 103732.65
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_governor_2018.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.6663,
+      "canonical_statewide_totals": {
+        "dem_votes": 784182,
+        "rep_votes": 921342,
+        "other_votes": 2045
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 784183.32,
+        "rep_votes": 921341.56,
+        "other_votes": 2036.16
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 784183.32,
+        "rep_votes": 921341.56,
+        "other_votes": 2036.16
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2022_lines/state_house_governor_2018_2022_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.6663,
+      "canonical_statewide_totals": {
+        "dem_votes": 784182,
+        "rep_votes": 921342,
+        "other_votes": 2045
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 784183.32,
+        "rep_votes": 921341.56,
+        "other_votes": 2036.16
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 784183.32,
+        "rep_votes": 921341.56,
+        "other_votes": 2036.16
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_secretary_of_state_2018.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.7299,
+      "canonical_statewide_totals": {
+        "dem_votes": 727952,
+        "rep_votes": 970576,
+        "other_votes": 968
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 727954.25,
+        "rep_votes": 970575.82,
+        "other_votes": 962.35
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 727954.25,
+        "rep_votes": 970575.82,
+        "other_votes": 962.35
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2022_lines/state_house_secretary_of_state_2018_2022_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.7299,
+      "canonical_statewide_totals": {
+        "dem_votes": 727952,
+        "rep_votes": 970576,
+        "other_votes": 968
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 727954.25,
+        "rep_votes": 970575.82,
+        "other_votes": 962.35
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 727954.25,
+        "rep_votes": 970575.82,
+        "other_votes": 962.35
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_state_treasurer_2018.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.8323,
+      "canonical_statewide_totals": {
+        "dem_votes": 694200,
+        "rep_votes": 952233,
+        "other_votes": 55467
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 694198.89,
+        "rep_votes": 952233.28,
+        "other_votes": 55463.27
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 694198.89,
+        "rep_votes": 952233.28,
+        "other_votes": 55463.27
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2022_lines/state_house_state_treasurer_2018_2022_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.8323,
+      "canonical_statewide_totals": {
+        "dem_votes": 694200,
+        "rep_votes": 952233,
+        "other_votes": 55467
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 694198.89,
+        "rep_votes": 952233.28,
+        "other_votes": 55463.27
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 694198.89,
+        "rep_votes": 952233.28,
+        "other_votes": 55463.27
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_attorney_general_2018.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.6559,
+      "canonical_statewide_totals": {
+        "dem_votes": 729694,
+        "rep_votes": 938032,
+        "other_votes": 36108
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 729693.72,
+        "rep_votes": 938031.87,
+        "other_votes": 36101.52
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 729693.72,
+        "rep_votes": 938031.87,
+        "other_votes": 36101.52
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2022_lines/state_house_attorney_general_2018_2022_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.6559,
+      "canonical_statewide_totals": {
+        "dem_votes": 729694,
+        "rep_votes": 938032,
+        "other_votes": 36108
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 729693.72,
+        "rep_votes": 938031.87,
+        "other_votes": 36101.52
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 729693.72,
+        "rep_votes": 938031.87,
+        "other_votes": 36101.52
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_comptroller_general_2018.json",
+      "districts": 124,
+      "changed_districts": 123,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.2294,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1136932,
+        "other_votes": 26028
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1136933.15,
+        "other_votes": 26025.06
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1136933.15,
+        "other_votes": 26025.06
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2022_lines/state_house_comptroller_general_2018_2022_lines.json",
+      "districts": 124,
+      "changed_districts": 123,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.2294,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1136932,
+        "other_votes": 26028
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1136933.15,
+        "other_votes": 26025.06
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1136933.15,
+        "other_votes": 26025.06
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_superintendent_2018.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.2911,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 998057,
+        "other_votes": 18866
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 998056.84,
+        "other_votes": 18862.81
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 998056.84,
+        "other_votes": 18862.81
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2022_lines/state_house_superintendent_2018_2022_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.2911,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 998057,
+        "other_votes": 18866
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 998056.84,
+        "other_votes": 18862.81
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 998056.84,
+        "other_votes": 18862.81
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_commissioner_agriculture_2018.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 1.1509,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1015366,
+        "other_votes": 325934
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1015365.01,
+        "other_votes": 325925.51
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1015365.01,
+        "other_votes": 325925.51
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2022_lines/state_house_commissioner_agriculture_2018_2022_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 1.1509,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1015366,
+        "other_votes": 325934
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1015365.01,
+        "other_votes": 325925.51
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1015365.01,
+        "other_votes": 325925.51
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2024_lines/state_house_governor_2018_2024_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.6699,
+      "canonical_statewide_totals": {
+        "dem_votes": 784182,
+        "rep_votes": 921342,
+        "other_votes": 2045
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 784183.32,
+        "rep_votes": 921341.56,
+        "other_votes": 2036.16
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 784183.32,
+        "rep_votes": 921341.56,
+        "other_votes": 2036.16
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2024_lines/state_house_secretary_of_state_2018_2024_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.7284,
+      "canonical_statewide_totals": {
+        "dem_votes": 727952,
+        "rep_votes": 970576,
+        "other_votes": 968
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 727954.25,
+        "rep_votes": 970575.82,
+        "other_votes": 962.35
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 727954.25,
+        "rep_votes": 970575.82,
+        "other_votes": 962.35
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2024_lines/state_house_state_treasurer_2018_2024_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.8312,
+      "canonical_statewide_totals": {
+        "dem_votes": 694200,
+        "rep_votes": 952233,
+        "other_votes": 55467
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 694198.89,
+        "rep_votes": 952233.28,
+        "other_votes": 55463.27
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 694198.89,
+        "rep_votes": 952233.28,
+        "other_votes": 55463.27
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2024_lines/state_house_attorney_general_2018_2024_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.6605,
+      "canonical_statewide_totals": {
+        "dem_votes": 729694,
+        "rep_votes": 938032,
+        "other_votes": 36108
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 729693.72,
+        "rep_votes": 938031.87,
+        "other_votes": 36101.52
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 729693.72,
+        "rep_votes": 938031.87,
+        "other_votes": 36101.52
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2024_lines/state_house_comptroller_general_2018_2024_lines.json",
+      "districts": 124,
+      "changed_districts": 123,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.2309,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1136932,
+        "other_votes": 26028
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1136933.15,
+        "other_votes": 26025.06
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1136933.15,
+        "other_votes": 26025.06
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2024_lines/state_house_superintendent_2018_2024_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.2911,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 998057,
+        "other_votes": 18866
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 998056.84,
+        "other_votes": 18862.81
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 998056.84,
+        "other_votes": 18862.81
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2024_lines/state_house_commissioner_agriculture_2018_2024_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 1.1476,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1015366,
+        "other_votes": 325934
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1015365.01,
+        "other_votes": 325925.51
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1015365.01,
+        "other_votes": 325925.51
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_governor_2018.json",
+      "districts": 7,
+      "changed_districts": 7,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.1092,
+      "canonical_statewide_totals": {
+        "dem_votes": 784182,
+        "rep_votes": 921342,
+        "other_votes": 2045
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 784183.32,
+        "rep_votes": 921341.56,
+        "other_votes": 2036.16
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 784183.32,
+        "rep_votes": 921341.56,
+        "other_votes": 2036.16
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_secretary_of_state_2018.json",
+      "districts": 7,
+      "changed_districts": 7,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.1102,
+      "canonical_statewide_totals": {
+        "dem_votes": 727952,
+        "rep_votes": 970576,
+        "other_votes": 968
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 727954.25,
+        "rep_votes": 970575.82,
+        "other_votes": 962.35
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 727954.25,
+        "rep_votes": 970575.82,
+        "other_votes": 962.35
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_state_treasurer_2018.json",
+      "districts": 7,
+      "changed_districts": 7,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.1066,
+      "canonical_statewide_totals": {
+        "dem_votes": 694200,
+        "rep_votes": 952233,
+        "other_votes": 55467
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 694198.89,
+        "rep_votes": 952233.28,
+        "other_votes": 55463.27
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 694198.89,
+        "rep_votes": 952233.28,
+        "other_votes": 55463.27
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_attorney_general_2018.json",
+      "districts": 7,
+      "changed_districts": 7,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.1073,
+      "canonical_statewide_totals": {
+        "dem_votes": 729694,
+        "rep_votes": 938032,
+        "other_votes": 36108
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 729693.72,
+        "rep_votes": 938031.87,
+        "other_votes": 36101.52
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 729693.72,
+        "rep_votes": 938031.87,
+        "other_votes": 36101.52
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_comptroller_general_2018.json",
+      "districts": 7,
+      "changed_districts": 7,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.0076,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1136932,
+        "other_votes": 26028
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1136933.15,
+        "other_votes": 26025.06
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1136933.15,
+        "other_votes": 26025.06
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_superintendent_2018.json",
+      "districts": 7,
+      "changed_districts": 7,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.0051,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 998057,
+        "other_votes": 18866
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 998056.84,
+        "other_votes": 18862.81
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 998056.84,
+        "other_votes": 18862.81
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_commissioner_agriculture_2018.json",
+      "districts": 7,
+      "changed_districts": 7,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.0542,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1015366,
+        "other_votes": 325934
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1015365.01,
+        "other_votes": 325925.51
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1015365.01,
+        "other_votes": 325925.51
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_governor_2018.json",
+      "districts": 46,
+      "changed_districts": 46,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 1.9936,
+      "canonical_statewide_totals": {
+        "dem_votes": 784182,
+        "rep_votes": 921342,
+        "other_votes": 2045
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 784183.32,
+        "rep_votes": 921341.56,
+        "other_votes": 2036.16
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 784183.32,
+        "rep_votes": 921341.56,
+        "other_votes": 2036.16
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_secretary_of_state_2018.json",
+      "districts": 46,
+      "changed_districts": 46,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.0261,
+      "canonical_statewide_totals": {
+        "dem_votes": 727952,
+        "rep_votes": 970576,
+        "other_votes": 968
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 727954.25,
+        "rep_votes": 970575.82,
+        "other_votes": 962.35
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 727954.25,
+        "rep_votes": 970575.82,
+        "other_votes": 962.35
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_state_treasurer_2018.json",
+      "districts": 46,
+      "changed_districts": 46,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.0609,
+      "canonical_statewide_totals": {
+        "dem_votes": 694200,
+        "rep_votes": 952233,
+        "other_votes": 55467
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 694198.89,
+        "rep_votes": 952233.28,
+        "other_votes": 55463.27
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 694198.89,
+        "rep_votes": 952233.28,
+        "other_votes": 55463.27
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_attorney_general_2018.json",
+      "districts": 46,
+      "changed_districts": 46,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 1.9918,
+      "canonical_statewide_totals": {
+        "dem_votes": 729694,
+        "rep_votes": 938032,
+        "other_votes": 36108
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 729693.72,
+        "rep_votes": 938031.87,
+        "other_votes": 36101.52
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 729693.72,
+        "rep_votes": 938031.87,
+        "other_votes": 36101.52
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_comptroller_general_2018.json",
+      "districts": 46,
+      "changed_districts": 46,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.1217,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1136932,
+        "other_votes": 26028
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1136933.15,
+        "other_votes": 26025.06
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1136933.15,
+        "other_votes": 26025.06
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_superintendent_2018.json",
+      "districts": 46,
+      "changed_districts": 46,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.0859,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 998057,
+        "other_votes": 18866
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 998056.84,
+        "other_votes": 18862.81
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 998056.84,
+        "other_votes": 18862.81
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_commissioner_agriculture_2018.json",
+      "districts": 46,
+      "changed_districts": 46,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.631,
+      "canonical_statewide_totals": {
+        "dem_votes": 0,
+        "rep_votes": 1015366,
+        "other_votes": 325934
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1015365.01,
+        "other_votes": 325925.51
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 0.0,
+        "rep_votes": 1015365.01,
+        "other_votes": 325925.51
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_president_2020.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.0852,
+      "canonical_statewide_totals": {
+        "dem_votes": 1091541,
+        "rep_votes": 1385103,
+        "other_votes": 36685
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1091542.32,
+        "rep_votes": 1385102.71,
+        "other_votes": 36666.91
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1091542.32,
+        "rep_votes": 1385102.71,
+        "other_votes": 36666.91
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2022_lines/state_house_president_2020_2022_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.0852,
+      "canonical_statewide_totals": {
+        "dem_votes": 1091541,
+        "rep_votes": 1385103,
+        "other_votes": 36685
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1091542.32,
+        "rep_votes": 1385102.71,
+        "other_votes": 36666.91
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1091542.32,
+        "rep_votes": 1385102.71,
+        "other_votes": 36666.91
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_us_senate_2020.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 1.6421,
+      "canonical_statewide_totals": {
+        "dem_votes": 1110828,
+        "rep_votes": 1369137,
+        "other_votes": 35139
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1110826.48,
+        "rep_votes": 1369137.35,
+        "other_votes": 35129.12
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1110826.48,
+        "rep_votes": 1369137.35,
+        "other_votes": 35129.12
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2022_lines/state_house_us_senate_2020_2022_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 1.6421,
+      "canonical_statewide_totals": {
+        "dem_votes": 1110828,
+        "rep_votes": 1369137,
+        "other_votes": 35139
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1110826.48,
+        "rep_votes": 1369137.35,
+        "other_votes": 35129.12
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1110826.48,
+        "rep_votes": 1369137.35,
+        "other_votes": 35129.12
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2024_lines/state_house_president_2020_2024_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 2.0852,
+      "canonical_statewide_totals": {
+        "dem_votes": 1091541,
+        "rep_votes": 1385103,
+        "other_votes": 36685
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1091542.32,
+        "rep_votes": 1385102.71,
+        "other_votes": 36666.91
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1091542.32,
+        "rep_votes": 1385102.71,
+        "other_votes": 36666.91
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2024_lines/state_house_us_senate_2020_2024_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 1.6421,
+      "canonical_statewide_totals": {
+        "dem_votes": 1110828,
+        "rep_votes": 1369137,
+        "other_votes": 35139
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1110826.48,
+        "rep_votes": 1369137.35,
+        "other_votes": 35129.12
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1110826.48,
+        "rep_votes": 1369137.35,
+        "other_votes": 35129.12
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_president_2020.json",
+      "districts": 7,
+      "changed_districts": 7,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.1234,
+      "canonical_statewide_totals": {
+        "dem_votes": 1091541,
+        "rep_votes": 1385103,
+        "other_votes": 36685
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1091542.32,
+        "rep_votes": 1385102.71,
+        "other_votes": 36666.91
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1091542.32,
+        "rep_votes": 1385102.71,
+        "other_votes": 36666.91
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_us_senate_2020.json",
+      "districts": 7,
+      "changed_districts": 7,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.119,
+      "canonical_statewide_totals": {
+        "dem_votes": 1110828,
+        "rep_votes": 1369137,
+        "other_votes": 35139
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1110826.48,
+        "rep_votes": 1369137.35,
+        "other_votes": 35129.12
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1110826.48,
+        "rep_votes": 1369137.35,
+        "other_votes": 35129.12
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_president_2020.json",
+      "districts": 46,
+      "changed_districts": 46,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.5718,
+      "canonical_statewide_totals": {
+        "dem_votes": 1091541,
+        "rep_votes": 1385103,
+        "other_votes": 36685
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1091542.32,
+        "rep_votes": 1385102.71,
+        "other_votes": 36666.91
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1091542.32,
+        "rep_votes": 1385102.71,
+        "other_votes": 36666.91
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_us_senate_2020.json",
+      "districts": 46,
+      "changed_districts": 46,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.4559,
+      "canonical_statewide_totals": {
+        "dem_votes": 1110828,
+        "rep_votes": 1369137,
+        "other_votes": 35139
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1110826.48,
+        "rep_votes": 1369137.35,
+        "other_votes": 35129.12
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1110826.48,
+        "rep_votes": 1369137.35,
+        "other_votes": 35129.12
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_president_2024.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 1.497,
+      "canonical_statewide_totals": {
+        "dem_votes": 1028452,
+        "rep_votes": 1483747,
+        "other_votes": 35941
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1028447.0,
+        "rep_votes": 1483750.0,
+        "other_votes": 35915.0
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1028447.0,
+        "rep_votes": 1483750.0,
+        "other_votes": 35915.0
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2022_lines/state_house_president_2024_2022_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 1.497,
+      "canonical_statewide_totals": {
+        "dem_votes": 1028452,
+        "rep_votes": 1483747,
+        "other_votes": 35941
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1028447.0,
+        "rep_votes": 1483750.0,
+        "other_votes": 35915.0
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1028447.0,
+        "rep_votes": 1483750.0,
+        "other_votes": 35915.0
+      }
+    },
+    {
+      "file": "data/district_contests/state_house_2024_lines/state_house_president_2024_2024_lines.json",
+      "districts": 124,
+      "changed_districts": 124,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 1.497,
+      "canonical_statewide_totals": {
+        "dem_votes": 1028452,
+        "rep_votes": 1483747,
+        "other_votes": 35941
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1028447.0,
+        "rep_votes": 1483750.0,
+        "other_votes": 35915.0
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1028447.0,
+        "rep_votes": 1483750.0,
+        "other_votes": 35915.0
+      }
+    },
+    {
+      "file": "data/district_contests/congressional_president_2024.json",
+      "districts": 7,
+      "changed_districts": 7,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.0117,
+      "canonical_statewide_totals": {
+        "dem_votes": 1028452,
+        "rep_votes": 1483747,
+        "other_votes": 35941
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1028447.0,
+        "rep_votes": 1483750.0,
+        "other_votes": 35915.0
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1028447.0,
+        "rep_votes": 1483750.0,
+        "other_votes": 35915.0
+      }
+    },
+    {
+      "file": "data/district_contests/state_senate_president_2024.json",
+      "districts": 46,
+      "changed_districts": 46,
+      "winner_flips": [],
+      "max_abs_margin_shift_pp": 0.702,
+      "canonical_statewide_totals": {
+        "dem_votes": 1028452,
+        "rep_votes": 1483747,
+        "other_votes": 35941
+      },
+      "raw_rdh_statewide_totals": {
+        "dem_votes": 1028447.0,
+        "rep_votes": 1483750.0,
+        "other_votes": 35915.0
+      },
+      "adjusted_rdh_statewide_totals": {
+        "dem_votes": 1028447.0,
+        "rep_votes": 1483750.0,
+        "other_votes": 35915.0
+      }
+    }
+  ],
+  "summary": {
+    "files": 60,
+    "changed_district_records": 5097,
+    "winner_flips": 2,
+    "max_abs_margin_shift_pp": 3.5921
+  }
+}
