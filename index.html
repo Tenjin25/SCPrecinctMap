@@ -10395,13 +10395,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span class="section-kicker">Quick Jumps</span>
                 <div class="region-jumps" id="region-jumps">
                   <button type="button" class="region-jump-btn" data-region-jump="upstate">Upstate</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="piedmont">Piedmont</button>
                   <button type="button" class="region-jump-btn" data-region-jump="charlotte_metro">Charlotte Metro</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="charleston_metro">Charleston Metro</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="upper_savannah">Upper Savannah</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="csra">CSRA</button>
                   <button type="button" class="region-jump-btn" data-region-jump="midlands">Midlands</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="columbia_metro">Columbia Metro</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="santee_lynches">Santee–Lynches</button>
                   <button type="button" class="region-jump-btn" data-region-jump="pee_dee">Pee Dee</button>
                   <button type="button" class="region-jump-btn" data-region-jump="grand_strand">Grand Strand</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="charleston_metro">Charleston Metro</button>
                   <button type="button" class="region-jump-btn" data-region-jump="lowcountry">Lowcountry</button>
+                  <button type="button" class="region-jump-btn" data-region-jump="southern_lowcountry">Southern Lowcountry</button>
                 </div>
             </div>
             <div class="control-group" style="margin-bottom:10px;">
@@ -10928,18 +10932,23 @@ document.addEventListener('DOMContentLoaded', function() {
           bounds: [[-83.49, 33.48], [-81.23, 35.33]],
           counties: ['Abbeville', 'Anderson', 'Cherokee', 'Greenville', 'Greenwood', 'Laurens', 'McCormick', 'Oconee', 'Pickens', 'Spartanburg', 'Union']
         },
-        piedmont: {
-          label: 'Piedmont',
-          bounds: [[-83.6, 33.41], [-79.53, 35.33]],
-          counties: ['Abbeville', 'Anderson', 'Cherokee', 'Chester', 'Chesterfield', 'Edgefield', 'Fairfield', 'Greenville', 'Greenwood', 'Kershaw', 'Lancaster', 'Laurens', 'Lexington', 'McCormick', 'Newberry', 'Oconee', 'Pickens', 'Richland', 'Saluda', 'Spartanburg', 'Union', 'York']
-        },
         charlotte_metro: {
-          label: 'Charlotte Metro',
+          label: 'Charlotte Metropolitan Area',
           bounds: [[-81.61, 34.36], [-80.29, 35.26]],
           counties: ['Chester', 'Lancaster', 'York']
         },
+        upper_savannah: {
+          label: 'Upper Savannah',
+          bounds: [[-82.67, 33.16], [-81.43, 34.82]],
+          counties: ['Abbeville', 'Edgefield', 'Greenwood', 'Laurens', 'McCormick', 'Saluda']
+        },
+        csra: {
+          label: 'Central Savannah River Area',
+          bounds: [[-82.33, 32.72], [-80.96, 34.22]],
+          counties: ['Aiken', 'Allendale', 'Barnwell', 'Edgefield', 'McCormick']
+        },
         charleston_metro: {
-          label: 'Charleston Metro',
+          label: 'Charleston Metropolitan Area',
           bounds: [[-80.91, 32.38], [-79.14, 33.61]],
           counties: ['Berkeley', 'Charleston', 'Dorchester']
         },
@@ -10947,6 +10956,16 @@ document.addEventListener('DOMContentLoaded', function() {
           label: 'Midlands',
           bounds: [[-82.32, 32.95], [-80.15, 35.31]],
           counties: ['Aiken', 'Barnwell', 'Chester', 'Edgefield', 'Fairfield', 'Kershaw', 'Lancaster', 'Lexington', 'Newberry', 'Richland', 'Saluda', 'York']
+        },
+        columbia_metro: {
+          label: 'Columbia Metropolitan Area',
+          bounds: [[-81.68, 33.42], [-79.98, 34.82]],
+          counties: ['Calhoun', 'Fairfield', 'Kershaw', 'Lexington', 'Richland', 'Saluda']
+        },
+        santee_lynches: {
+          label: 'Santee–Lynches',
+          bounds: [[-80.91, 33.53], [-79.57, 34.85]],
+          counties: ['Clarendon', 'Kershaw', 'Lee', 'Sumter']
         },
         pee_dee: {
           label: 'Pee Dee',
@@ -10962,6 +10981,11 @@ document.addEventListener('DOMContentLoaded', function() {
           label: 'Lowcountry',
           bounds: [[-81.78, 31.86], [-79.1, 34.01]],
           counties: ['Allendale', 'Bamberg', 'Beaufort', 'Berkeley', 'Calhoun', 'Charleston', 'Colleton', 'Dorchester', 'Hampton', 'Jasper', 'Orangeburg']
+        },
+        southern_lowcountry: {
+          label: 'Southern Lowcountry',
+          bounds: [[-81.45, 31.84], [-80.34, 33.12]],
+          counties: ['Allendale', 'Beaufort', 'Colleton', 'Hampton', 'Jasper']
         }
     };
 
