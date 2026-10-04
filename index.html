@@ -10827,8 +10827,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-10-03-block-equivalency-v1';
-    const APP_BUILD_ID = '2026-10-03-block-equivalency-v1';
+    const DATA_CACHE_BUSTER = '2026-10-03-raw-margin-tiers-v1';
+    const APP_BUILD_ID = '2026-10-03-raw-margin-tiers-v1';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -14742,7 +14742,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const demPct = (d / total) * 100;
       const repPct = (r / total) * 100;
       const otherPct = (o / total) * 100;
-      const marginPct = competitivenessMarginValue(marginPctValue(r, d, total));
+      const marginPct = marginPctValue(r, d, total);
       const signedMarginPct = signedMarginPctFromVotes(d, r, total);
       const winnerParty = repPct > demPct ? 'rep' : (demPct > repPct ? 'dem' : 'tie');
       const winnerLabel = winnerParty === 'rep'
@@ -14811,7 +14811,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const demPct = (demVotes / totalVotes) * 100;
       const repPct = (repVotes / totalVotes) * 100;
       const otherPct = (otherVotes / totalVotes) * 100;
-      const marginPct = competitivenessMarginValue(marginPctValue(repVotes, demVotes, totalVotes));
+      const marginPct = marginPctValue(repVotes, demVotes, totalVotes);
       const isCountyContext = String(meta?.kind || '').toLowerCase() === 'county';
       const pctFormatter = isCountyContext ? formatPctForCountyCloseRace : formatPctForCloseRace;
 
@@ -20539,7 +20539,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const demPct = (demVotes / totalVotes) * 100;
         const repPct = (repVotes / totalVotes) * 100;
         const otherPct = (otherVotes / totalVotes) * 100;
-        const marginPct = competitivenessMarginValue(marginPctValue(repVotes, demVotes, totalVotes));
+        const marginPct = marginPctValue(repVotes, demVotes, totalVotes);
         const marginLabel = formatMarginPctForDisplay(marginPctDisplayValue(repVotes, demVotes, totalVotes));
         const winner = demPct > repPct ? 'Democratic' : 'Republican';
         let officeName = formatContestName(contestType, year);
@@ -21879,12 +21879,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const pct = Math.abs(Number(marginPct) || 0);
       return toFixedForDisplay(pct, marginDisplayDigits(pct));
     }
-    function competitivenessMarginValue(marginPct) {
-      const pct = Math.abs(Number(marginPct) || 0);
-      // Classify the one-decimal margin shown in county-facing summaries.
-      return roundForDisplay(pct, 1);
-    }
-
     function marginPctDisplayValue(repVotes, demVotes, totalVotes) {
       const rawMarginPct = marginPctValue(repVotes, demVotes, totalVotes);
       const t = safeNumber(totalVotes, 0);
@@ -22131,7 +22125,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function compactCompetitivenessLabel(marginPct, party) {
-      marginPct = competitivenessMarginValue(marginPct);
       const side = party === 'rep' ? 'R' : (party === 'dem' ? 'D' : '');
       if (marginPct >= 40) return side ? `Annihilation ${side}` : 'Annihilation';
       if (marginPct >= 30) return side ? `Dominant ${side}` : 'Dominant';
@@ -22144,7 +22137,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function competitivenessTierMeta(marginPct, party) {
-      const pct = competitivenessMarginValue(marginPct);
+      const pct = Math.abs(Number(marginPct) || 0);
       const normalizedParty = party === 'rep' || party === 'R'
         ? 'rep'
         : (party === 'dem' || party === 'D' ? 'dem' : 'tie');
@@ -22585,7 +22578,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const demPct = (d / total) * 100;
       const repPct = (r / total) * 100;
       const otherPct = (o / total) * 100;
-      const marginPct = competitivenessMarginValue(marginPctValue(r, d, total));
+      const marginPct = marginPctValue(r, d, total);
       const winnerParty = repPct > demPct ? 'rep' : (demPct > repPct ? 'dem' : 'tie');
       const winnerLabel = winnerParty === 'rep'
         ? formatVoteCounterWinnerLabel(resolvedCandidates.repCandidate, 'R', 'Republican')
@@ -23011,7 +23004,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const demPct = (demVotes / totalVotes) * 100;
         const repPct = (repVotes / totalVotes) * 100;
         const otherPct = (otherVotes / totalVotes) * 100;
-        const marginPct = competitivenessMarginValue(marginPctValue(repVotes, demVotes, totalVotes));
+        const marginPct = marginPctValue(repVotes, demVotes, totalVotes);
         const marginLabel = formatMarginPctForDisplay(marginPctDisplayValue(repVotes, demVotes, totalVotes));
         const officeName = formatContestName(contestType, year);
         let demCandidate = (opts?.demCandidate || '').toString().trim() || getCandidateName(year, officeName, 'Democrat');
@@ -33209,7 +33202,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function categoryColorForMargin(marginPct, winner) {
-      marginPct = competitivenessMarginValue(marginPct);
       // DRA-hybrid mid tiers; OG Stronghold + OG Dominant/Annihilation.
       // Safe sits clearly above Stronghold (wider mid→deep gap).
       if (marginPct >= 40) {
@@ -33241,7 +33233,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function accessibilityMarginColor(marginPct, winner) {
-      marginPct = competitivenessMarginValue(marginPct);
       // Color-blind-friendly blue/orange ramp with saturated competitive tiers.
       const repRamp = ['#ffd29a', '#f6ad55', '#f58a2a', '#ed6a00', '#d65300', '#b33c00', '#8c2d04'];
       const demRamp = ['#bae6fd', '#60a5fa', '#0ea5e9', '#0284c7', '#0369a1', '#075985', '#063f5c'];
