@@ -51,37 +51,37 @@
       },
       "5": {
         "dem_votes": 4564,
-        "rep_votes": 19566,
+        "rep_votes": 19565,
         "other_votes": 26,
-        "total_votes": 24156,
+        "total_votes": 24155,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": 15002,
-        "margin_pct": 62.1047,
+        "margin": 15001,
+        "margin_pct": 62.1031,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
         "dem_votes": 7081,
-        "rep_votes": 22241,
+        "rep_votes": 22240,
         "other_votes": 23,
-        "total_votes": 29345,
+        "total_votes": 29344,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": 15160,
-        "margin_pct": 51.6613,
+        "margin": 15159,
+        "margin_pct": 51.6596,
         "winner": "R",
         "color": "#67000d"
       },
       "7": {
         "dem_votes": 11239,
-        "rep_votes": 8483,
+        "rep_votes": 8484,
         "other_votes": 25,
-        "total_votes": 19747,
+        "total_votes": 19748,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": -2756,
-        "margin_pct": -13.9566,
+        "margin": -2755,
+        "margin_pct": -13.9508,
         "winner": "D",
         "color": "#6baed6"
       },
@@ -99,13 +99,13 @@
       },
       "9": {
         "dem_votes": 8474,
-        "rep_votes": 17613,
+        "rep_votes": 17615,
         "other_votes": 20,
-        "total_votes": 26107,
+        "total_votes": 26109,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": 9139,
-        "margin_pct": 35.0059,
+        "margin": 9141,
+        "margin_pct": 35.0109,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -135,13 +135,13 @@
       },
       "12": {
         "dem_votes": 7044,
-        "rep_votes": 16099,
+        "rep_votes": 16098,
         "other_votes": 19,
-        "total_votes": 23162,
+        "total_votes": 23161,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": 9055,
-        "margin_pct": 39.0942,
+        "margin": 9054,
+        "margin_pct": 39.0916,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -218,14 +218,14 @@
         "color": "#67000d"
       },
       "19": {
-        "dem_votes": 20894,
+        "dem_votes": 20895,
         "rep_votes": 6415,
         "other_votes": 11,
-        "total_votes": 27320,
+        "total_votes": 27321,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": -14479,
-        "margin_pct": -52.9978,
+        "margin": -14480,
+        "margin_pct": -52.9995,
         "winner": "D",
         "color": "#08519c"
       },
@@ -242,14 +242,14 @@
         "color": "#c6dbef"
       },
       "21": {
-        "dem_votes": 21949,
-        "rep_votes": 9905,
+        "dem_votes": 21950,
+        "rep_votes": 9906,
         "other_votes": 35,
-        "total_votes": 31889,
+        "total_votes": 31891,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
         "margin": -12044,
-        "margin_pct": -37.7685,
+        "margin_pct": -37.7661,
         "winner": "D",
         "color": "#2171b5"
       },
@@ -291,25 +291,25 @@
       },
       "25": {
         "dem_votes": 9944,
-        "rep_votes": 19271,
+        "rep_votes": 19272,
         "other_votes": 22,
-        "total_votes": 29237,
+        "total_votes": 29238,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": 9327,
-        "margin_pct": 31.9014,
+        "margin": 9328,
+        "margin_pct": 31.9037,
         "winner": "R",
         "color": "#a50f15"
       },
       "26": {
-        "dem_votes": 10790,
-        "rep_votes": 14065,
+        "dem_votes": 10788,
+        "rep_votes": 14064,
         "other_votes": 33,
-        "total_votes": 24888,
+        "total_votes": 24885,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": 3275,
-        "margin_pct": 13.159,
+        "margin": 3276,
+        "margin_pct": 13.1646,
         "winner": "R",
         "color": "#ef3b2c"
       },
@@ -327,49 +327,49 @@
       },
       "28": {
         "dem_votes": 6251,
-        "rep_votes": 15803,
+        "rep_votes": 15802,
         "other_votes": 13,
-        "total_votes": 22067,
+        "total_votes": 22066,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": 9552,
-        "margin_pct": 43.2864,
+        "margin": 9551,
+        "margin_pct": 43.2838,
         "winner": "R",
         "color": "#67000d"
       },
       "29": {
         "dem_votes": 17970,
-        "rep_votes": 13585,
+        "rep_votes": 13584,
         "other_votes": 13,
-        "total_votes": 31568,
+        "total_votes": 31567,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": -4385,
-        "margin_pct": -13.8906,
+        "margin": -4386,
+        "margin_pct": -13.8943,
         "winner": "D",
         "color": "#6baed6"
       },
       "30": {
-        "dem_votes": 15295,
-        "rep_votes": 11413,
+        "dem_votes": 15294,
+        "rep_votes": 11414,
         "other_votes": 9,
         "total_votes": 26717,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": -3882,
-        "margin_pct": -14.5301,
+        "margin": -3880,
+        "margin_pct": -14.5226,
         "winner": "D",
         "color": "#6baed6"
       },
       "31": {
-        "dem_votes": 10521,
+        "dem_votes": 10522,
         "rep_votes": 17432,
         "other_votes": 17,
-        "total_votes": 27970,
+        "total_votes": 27971,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": 6911,
-        "margin_pct": 24.7086,
+        "margin": 6910,
+        "margin_pct": 24.7042,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -399,13 +399,13 @@
       },
       "34": {
         "dem_votes": 7560,
-        "rep_votes": 21605,
+        "rep_votes": 21606,
         "other_votes": 13,
-        "total_votes": 29178,
+        "total_votes": 29179,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": 14045,
-        "margin_pct": 48.1356,
+        "margin": 14046,
+        "margin_pct": 48.1374,
         "winner": "R",
         "color": "#67000d"
       },
@@ -434,14 +434,14 @@
         "color": "#6baed6"
       },
       "37": {
-        "dem_votes": 7626,
+        "dem_votes": 7627,
         "rep_votes": 15997,
         "other_votes": 12,
-        "total_votes": 23635,
+        "total_votes": 23636,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": 8371,
-        "margin_pct": 35.4178,
+        "margin": 8370,
+        "margin_pct": 35.4121,
         "winner": "R",
         "color": "#a50f15"
       },
@@ -471,13 +471,13 @@
       },
       "40": {
         "dem_votes": 18784,
-        "rep_votes": 13551,
+        "rep_votes": 13550,
         "other_votes": 12,
-        "total_votes": 32347,
+        "total_votes": 32346,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": -5233,
-        "margin_pct": -16.1777,
+        "margin": -5234,
+        "margin_pct": -16.1813,
         "winner": "D",
         "color": "#6baed6"
       },
@@ -494,14 +494,14 @@
         "color": "#cb181d"
       },
       "42": {
-        "dem_votes": 14318,
+        "dem_votes": 14317,
         "rep_votes": 5033,
         "other_votes": 20,
-        "total_votes": 19371,
+        "total_votes": 19370,
         "dem_candidate": "Parnell Diggs",
         "rep_candidate": "Alan Wilson",
-        "margin": -9285,
-        "margin_pct": -47.9325,
+        "margin": -9284,
+        "margin_pct": -47.9298,
         "winner": "D",
         "color": "#08519c"
       },
@@ -660,17 +660,17 @@
       },
       "5": {
         "dem_votes": 4564,
-        "rep_votes": 19566,
+        "rep_votes": 19565,
         "other_votes": 26
       },
       "6": {
         "dem_votes": 7081,
-        "rep_votes": 22241,
+        "rep_votes": 22240,
         "other_votes": 23
       },
       "7": {
         "dem_votes": 11239,
-        "rep_votes": 8483,
+        "rep_votes": 8484,
         "other_votes": 25
       },
       "8": {
@@ -680,7 +680,7 @@
       },
       "9": {
         "dem_votes": 3539,
-        "rep_votes": 7544,
+        "rep_votes": 7546,
         "other_votes": 6
       },
       "10": {
@@ -695,7 +695,7 @@
       },
       "12": {
         "dem_votes": 7044,
-        "rep_votes": 16099,
+        "rep_votes": 16098,
         "other_votes": 19
       },
       "13": {
@@ -729,7 +729,7 @@
         "other_votes": 30
       },
       "19": {
-        "dem_votes": 20894,
+        "dem_votes": 20895,
         "rep_votes": 6415,
         "other_votes": 11
       },
@@ -739,8 +739,8 @@
         "other_votes": 37
       },
       "21": {
-        "dem_votes": 21949,
-        "rep_votes": 9905,
+        "dem_votes": 21950,
+        "rep_votes": 9906,
         "other_votes": 35
       },
       "22": {
@@ -760,12 +760,12 @@
       },
       "25": {
         "dem_votes": 5629,
-        "rep_votes": 13075,
+        "rep_votes": 13076,
         "other_votes": 18
       },
       "26": {
-        "dem_votes": 10790,
-        "rep_votes": 14065,
+        "dem_votes": 10788,
+        "rep_votes": 14064,
         "other_votes": 33
       },
       "27": {
@@ -775,21 +775,21 @@
       },
       "28": {
         "dem_votes": 6251,
-        "rep_votes": 15803,
+        "rep_votes": 15802,
         "other_votes": 13
       },
       "29": {
         "dem_votes": 14205,
-        "rep_votes": 11227,
+        "rep_votes": 11226,
         "other_votes": 7
       },
       "30": {
-        "dem_votes": 6515,
-        "rep_votes": 5203,
+        "dem_votes": 6514,
+        "rep_votes": 5204,
         "other_votes": 2
       },
       "31": {
-        "dem_votes": 10521,
+        "dem_votes": 10522,
         "rep_votes": 17432,
         "other_votes": 17
       },
@@ -805,7 +805,7 @@
       },
       "34": {
         "dem_votes": 7560,
-        "rep_votes": 21605,
+        "rep_votes": 21606,
         "other_votes": 13
       },
       "35": {
@@ -819,7 +819,7 @@
         "other_votes": 6
       },
       "37": {
-        "dem_votes": 7626,
+        "dem_votes": 7627,
         "rep_votes": 15997,
         "other_votes": 12
       },
@@ -835,7 +835,7 @@
       },
       "40": {
         "dem_votes": 11110,
-        "rep_votes": 8008,
+        "rep_votes": 8007,
         "other_votes": 6
       },
       "41": {
@@ -844,7 +844,7 @@
         "other_votes": 15
       },
       "42": {
-        "dem_votes": 14318,
+        "dem_votes": 14317,
         "rep_votes": 5033,
         "other_votes": 20
       },
@@ -889,10 +889,12 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 4,
     "historical_name_bridge_votes": 1680,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 358,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/attorney_general_2014",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.660927,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.661052,
     "snapshot_comparison_max_abs_share_delta_pp": 4.072404,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

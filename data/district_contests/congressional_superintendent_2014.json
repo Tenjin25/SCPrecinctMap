@@ -14,37 +14,37 @@
         "color": "#cb181d"
       },
       "2": {
-        "dem_votes": 66187,
-        "rep_votes": 121802,
+        "dem_votes": 66183,
+        "rep_votes": 121799,
         "other_votes": 7508,
-        "total_votes": 195497,
+        "total_votes": 195490,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 55615,
-        "margin_pct": 28.448,
+        "margin": 55616,
+        "margin_pct": 28.4495,
         "winner": "R",
         "color": "#cb181d"
       },
       "3": {
-        "dem_votes": 47539,
-        "rep_votes": 115554,
+        "dem_votes": 47540,
+        "rep_votes": 115556,
         "other_votes": 8598,
-        "total_votes": 171691,
+        "total_votes": 171694,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 68015,
-        "margin_pct": 39.6148,
+        "margin": 68016,
+        "margin_pct": 39.6147,
         "winner": "R",
         "color": "#a50f15"
       },
       "4": {
-        "dem_votes": 49125,
-        "rep_votes": 101452,
+        "dem_votes": 49124,
+        "rep_votes": 101450,
         "other_votes": 11159,
-        "total_votes": 161736,
+        "total_votes": 161733,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": 52327,
+        "margin": 52326,
         "margin_pct": 32.3533,
         "winner": "R",
         "color": "#a50f15"
@@ -62,14 +62,14 @@
         "color": "#cb181d"
       },
       "6": {
-        "dem_votes": 125100,
-        "rep_votes": 65400,
+        "dem_votes": 125104,
+        "rep_votes": 65403,
         "other_votes": 5256,
-        "total_votes": 195756,
+        "total_votes": 195763,
         "dem_candidate": "Tom Thompson",
         "rep_candidate": "Molly Mitchell Spearman",
-        "margin": -59700,
-        "margin_pct": -30.4971,
+        "margin": -59701,
+        "margin_pct": -30.4966,
         "winner": "D",
         "color": "#2171b5"
       },
@@ -136,18 +136,18 @@
         "other_votes": 2946
       },
       "2": {
-        "dem_votes": 32440,
-        "rep_votes": 34672,
+        "dem_votes": 32436,
+        "rep_votes": 34669,
         "other_votes": 2206
       },
       "3": {
-        "dem_votes": 3680,
-        "rep_votes": 8611,
+        "dem_votes": 3681,
+        "rep_votes": 8613,
         "other_votes": 968
       },
       "4": {
-        "dem_votes": 49125,
-        "rep_votes": 101452,
+        "dem_votes": 49124,
+        "rep_votes": 101450,
         "other_votes": 11159
       },
       "5": {
@@ -156,8 +156,8 @@
         "other_votes": 1334
       },
       "6": {
-        "dem_votes": 101019,
-        "rep_votes": 51174,
+        "dem_votes": 101023,
+        "rep_votes": 51177,
         "other_votes": 4479
       },
       "7": {
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 4,
     "historical_name_bridge_votes": 1696,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/superintendent_2014",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.805653,
-    "snapshot_comparison_max_abs_share_delta_pp": 1.992665,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.805601,
+    "snapshot_comparison_max_abs_share_delta_pp": 1.992907,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 476358,

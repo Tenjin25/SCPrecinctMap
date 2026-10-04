@@ -14,38 +14,38 @@
         "color": "#cb181d"
       },
       "2": {
-        "dem_votes": 86430,
-        "rep_votes": 117989,
+        "dem_votes": 86425,
+        "rep_votes": 117986,
         "other_votes": 4481,
-        "total_votes": 208900,
+        "total_votes": 208892,
         "dem_candidate": "Matthew Richardson",
         "rep_candidate": "Alan Wilson",
-        "margin": 31559,
-        "margin_pct": 15.1072,
+        "margin": 31561,
+        "margin_pct": 15.1088,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "3": {
-        "dem_votes": 69236,
-        "rep_votes": 115754,
+        "dem_votes": 69237,
+        "rep_votes": 115755,
         "other_votes": 4026,
-        "total_votes": 189016,
+        "total_votes": 189018,
         "dem_candidate": "Matthew Richardson",
         "rep_candidate": "Alan Wilson",
         "margin": 46518,
-        "margin_pct": 24.6106,
+        "margin_pct": 24.6104,
         "winner": "R",
         "color": "#cb181d"
       },
       "4": {
-        "dem_votes": 65931,
-        "rep_votes": 108992,
+        "dem_votes": 65930,
+        "rep_votes": 108991,
         "other_votes": 3716,
-        "total_votes": 178639,
+        "total_votes": 178637,
         "dem_candidate": "Matthew Richardson",
         "rep_candidate": "Alan Wilson",
         "margin": 43061,
-        "margin_pct": 24.105,
+        "margin_pct": 24.1053,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -62,14 +62,14 @@
         "color": "#ef3b2c"
       },
       "6": {
-        "dem_votes": 136875,
-        "rep_votes": 69320,
+        "dem_votes": 136880,
+        "rep_votes": 69323,
         "other_votes": 3850,
-        "total_votes": 210045,
+        "total_votes": 210053,
         "dem_candidate": "Matthew Richardson",
         "rep_candidate": "Alan Wilson",
-        "margin": -67555,
-        "margin_pct": -32.1622,
+        "margin": -67557,
+        "margin_pct": -32.1619,
         "winner": "D",
         "color": "#2171b5"
       },
@@ -136,18 +136,18 @@
         "other_votes": 2015
       },
       "2": {
-        "dem_votes": 38330,
-        "rep_votes": 31023,
+        "dem_votes": 38325,
+        "rep_votes": 31020,
         "other_votes": 1177
       },
       "3": {
-        "dem_votes": 4686,
-        "rep_votes": 8550,
+        "dem_votes": 4687,
+        "rep_votes": 8551,
         "other_votes": 309
       },
       "4": {
-        "dem_votes": 65931,
-        "rep_votes": 108992,
+        "dem_votes": 65930,
+        "rep_votes": 108991,
         "other_votes": 3716
       },
       "5": {
@@ -156,8 +156,8 @@
         "other_votes": 542
       },
       "6": {
-        "dem_votes": 110160,
-        "rep_votes": 54384,
+        "dem_votes": 110165,
+        "rep_votes": 54387,
         "other_votes": 3378
       },
       "7": {
@@ -186,11 +186,13 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 5,
     "historical_name_bridge_votes": 3500,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 70,
     "snapshot_comparison_geometry": "congressional",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#congressional/attorney_general_2010",
     "snapshot_comparison_districts": 7,
-    "snapshot_comparison_mean_abs_share_delta_pp": 0.890076,
-    "snapshot_comparison_max_abs_share_delta_pp": 3.202117,
+    "snapshot_comparison_mean_abs_share_delta_pp": 0.890155,
+    "snapshot_comparison_max_abs_share_delta_pp": 3.202219,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {
       "dem_votes": 589135,

@@ -51,61 +51,61 @@
       },
       "5": {
         "dem_votes": 7229,
-        "rep_votes": 18251,
+        "rep_votes": 18250,
         "other_votes": 1653,
-        "total_votes": 27133,
+        "total_votes": 27132,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 11022,
-        "margin_pct": 40.6221,
+        "margin": 11021,
+        "margin_pct": 40.6199,
         "winner": "R",
         "color": "#67000d"
       },
       "6": {
-        "dem_votes": 10265,
-        "rep_votes": 19802,
+        "dem_votes": 10264,
+        "rep_votes": 19801,
         "other_votes": 1723,
-        "total_votes": 31790,
+        "total_votes": 31788,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
         "margin": 9537,
-        "margin_pct": 30.0,
+        "margin_pct": 30.0019,
         "winner": "R",
         "color": "#a50f15"
       },
       "7": {
-        "dem_votes": 14642,
-        "rep_votes": 7174,
+        "dem_votes": 14641,
+        "rep_votes": 7175,
         "other_votes": 1078,
         "total_votes": 22894,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": -7468,
-        "margin_pct": -32.6199,
+        "margin": -7466,
+        "margin_pct": -32.6112,
         "winner": "D",
         "color": "#2171b5"
       },
       "8": {
-        "dem_votes": 12451,
-        "rep_votes": 17993,
+        "dem_votes": 12452,
+        "rep_votes": 17994,
         "other_votes": 1709,
-        "total_votes": 32153,
+        "total_votes": 32155,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
         "margin": 5542,
-        "margin_pct": 17.2363,
+        "margin_pct": 17.2353,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "9": {
         "dem_votes": 11815,
         "rep_votes": 14939,
-        "other_votes": 1539,
-        "total_votes": 28293,
+        "other_votes": 1540,
+        "total_votes": 28294,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
         "margin": 3124,
-        "margin_pct": 11.0416,
+        "margin_pct": 11.0412,
         "winner": "R",
         "color": "#ef3b2c"
       },
@@ -135,25 +135,25 @@
       },
       "12": {
         "dem_votes": 10810,
-        "rep_votes": 16340,
-        "other_votes": 1526,
-        "total_votes": 28676,
+        "rep_votes": 16339,
+        "other_votes": 1525,
+        "total_votes": 28674,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 5530,
-        "margin_pct": 19.2844,
+        "margin": 5529,
+        "margin_pct": 19.2823,
         "winner": "R",
         "color": "#ef3b2c"
       },
       "13": {
-        "dem_votes": 11591,
-        "rep_votes": 16817,
+        "dem_votes": 11592,
+        "rep_votes": 16818,
         "other_votes": 1641,
-        "total_votes": 30049,
+        "total_votes": 30051,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
         "margin": 5226,
-        "margin_pct": 17.3916,
+        "margin_pct": 17.3904,
         "winner": "R",
         "color": "#ef3b2c"
       },
@@ -182,26 +182,26 @@
         "color": "#cb181d"
       },
       "16": {
-        "dem_votes": 6297,
-        "rep_votes": 15322,
-        "other_votes": 2054,
-        "total_votes": 23673,
+        "dem_votes": 6294,
+        "rep_votes": 15315,
+        "other_votes": 2053,
+        "total_votes": 23662,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 9025,
-        "margin_pct": 38.1236,
+        "margin": 9021,
+        "margin_pct": 38.1244,
         "winner": "R",
         "color": "#a50f15"
       },
       "17": {
-        "dem_votes": 18235,
-        "rep_votes": 12955,
-        "other_votes": 1706,
-        "total_votes": 32896,
+        "dem_votes": 18238,
+        "rep_votes": 12962,
+        "other_votes": 1707,
+        "total_votes": 32907,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": -5280,
-        "margin_pct": -16.0506,
+        "margin": -5276,
+        "margin_pct": -16.0331,
         "winner": "D",
         "color": "#6baed6"
       },
@@ -218,14 +218,14 @@
         "color": "#cb181d"
       },
       "19": {
-        "dem_votes": 21018,
+        "dem_votes": 21019,
         "rep_votes": 6959,
         "other_votes": 1383,
-        "total_votes": 29360,
+        "total_votes": 29361,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": -14059,
-        "margin_pct": -47.8849,
+        "margin": -14060,
+        "margin_pct": -47.8867,
         "winner": "D",
         "color": "#08519c"
       },
@@ -242,14 +242,14 @@
         "color": "#c6dbef"
       },
       "21": {
-        "dem_votes": 22402,
-        "rep_votes": 9086,
+        "dem_votes": 22403,
+        "rep_votes": 9087,
         "other_votes": 1599,
-        "total_votes": 33087,
+        "total_votes": 33089,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
         "margin": -13316,
-        "margin_pct": -40.2454,
+        "margin_pct": -40.243,
         "winner": "D",
         "color": "#08519c"
       },
@@ -302,50 +302,50 @@
         "color": "#ef3b2c"
       },
       "26": {
-        "dem_votes": 14593,
-        "rep_votes": 15047,
+        "dem_votes": 14591,
+        "rep_votes": 15046,
         "other_votes": 2077,
-        "total_votes": 31717,
+        "total_votes": 31714,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 454,
-        "margin_pct": 1.4314,
+        "margin": 455,
+        "margin_pct": 1.4347,
         "winner": "R",
         "color": "#fcbba1"
       },
       "27": {
-        "dem_votes": 14619,
+        "dem_votes": 14618,
         "rep_votes": 16945,
         "other_votes": 1805,
-        "total_votes": 33369,
+        "total_votes": 33368,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 2326,
-        "margin_pct": 6.9705,
+        "margin": 2327,
+        "margin_pct": 6.9737,
         "winner": "R",
         "color": "#fc8a6a"
       },
       "28": {
         "dem_votes": 5807,
-        "rep_votes": 14146,
+        "rep_votes": 14145,
         "other_votes": 1448,
-        "total_votes": 21401,
+        "total_votes": 21400,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 8339,
-        "margin_pct": 38.9655,
+        "margin": 8338,
+        "margin_pct": 38.9626,
         "winner": "R",
         "color": "#a50f15"
       },
       "29": {
         "dem_votes": 20606,
-        "rep_votes": 14117,
-        "other_votes": 1367,
-        "total_votes": 36090,
+        "rep_votes": 14118,
+        "other_votes": 1368,
+        "total_votes": 36092,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": -6489,
-        "margin_pct": -17.98,
+        "margin": -6488,
+        "margin_pct": -17.9763,
         "winner": "D",
         "color": "#6baed6"
       },
@@ -387,13 +387,13 @@
       },
       "33": {
         "dem_votes": 6234,
-        "rep_votes": 11675,
+        "rep_votes": 11676,
         "other_votes": 1443,
-        "total_votes": 19352,
+        "total_votes": 19353,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 5441,
-        "margin_pct": 28.116,
+        "margin": 5442,
+        "margin_pct": 28.1197,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -410,14 +410,14 @@
         "color": "#67000d"
       },
       "35": {
-        "dem_votes": 14481,
-        "rep_votes": 12306,
-        "other_votes": 1452,
-        "total_votes": 28239,
+        "dem_votes": 14482,
+        "rep_votes": 12305,
+        "other_votes": 1451,
+        "total_votes": 28238,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": -2175,
-        "margin_pct": -7.7021,
+        "margin": -2177,
+        "margin_pct": -7.7095,
         "winner": "D",
         "color": "#9ecae1"
       },
@@ -434,14 +434,14 @@
         "color": "#6baed6"
       },
       "37": {
-        "dem_votes": 8174,
+        "dem_votes": 8175,
         "rep_votes": 14518,
         "other_votes": 1596,
-        "total_votes": 24288,
+        "total_votes": 24289,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 6344,
-        "margin_pct": 26.1199,
+        "margin": 6343,
+        "margin_pct": 26.1147,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -494,26 +494,26 @@
         "color": "#ef3b2c"
       },
       "42": {
-        "dem_votes": 13657,
+        "dem_votes": 13656,
         "rep_votes": 5063,
         "other_votes": 1146,
-        "total_votes": 19866,
+        "total_votes": 19865,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": -8594,
-        "margin_pct": -43.2598,
+        "margin": -8593,
+        "margin_pct": -43.257,
         "winner": "D",
         "color": "#08519c"
       },
       "43": {
         "dem_votes": 11438,
-        "rep_votes": 19238,
+        "rep_votes": 19239,
         "other_votes": 2276,
-        "total_votes": 32952,
+        "total_votes": 32953,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": 7800,
-        "margin_pct": 23.6708,
+        "margin": 7801,
+        "margin_pct": 23.6731,
         "winner": "R",
         "color": "#cb181d"
       },
@@ -531,13 +531,13 @@
       },
       "45": {
         "dem_votes": 16844,
-        "rep_votes": 9824,
+        "rep_votes": 9823,
         "other_votes": 1188,
-        "total_votes": 27856,
+        "total_votes": 27855,
         "dem_candidate": "Frank Holleman",
         "rep_candidate": "Mick Zais",
-        "margin": -7020,
-        "margin_pct": -25.201,
+        "margin": -7021,
+        "margin_pct": -25.2055,
         "winner": "D",
         "color": "#4292c6"
       },
@@ -660,28 +660,28 @@
       },
       "5": {
         "dem_votes": 7229,
-        "rep_votes": 18251,
+        "rep_votes": 18250,
         "other_votes": 1653
       },
       "6": {
-        "dem_votes": 10265,
-        "rep_votes": 19802,
+        "dem_votes": 10264,
+        "rep_votes": 19801,
         "other_votes": 1723
       },
       "7": {
-        "dem_votes": 14642,
-        "rep_votes": 7174,
+        "dem_votes": 14641,
+        "rep_votes": 7175,
         "other_votes": 1078
       },
       "8": {
-        "dem_votes": 12451,
-        "rep_votes": 17993,
+        "dem_votes": 12452,
+        "rep_votes": 17994,
         "other_votes": 1709
       },
       "9": {
         "dem_votes": 4277,
         "rep_votes": 5988,
-        "other_votes": 741
+        "other_votes": 742
       },
       "10": {
         "dem_votes": 3484,
@@ -695,12 +695,12 @@
       },
       "12": {
         "dem_votes": 10810,
-        "rep_votes": 16340,
-        "other_votes": 1526
+        "rep_votes": 16339,
+        "other_votes": 1525
       },
       "13": {
-        "dem_votes": 11591,
-        "rep_votes": 16817,
+        "dem_votes": 11592,
+        "rep_votes": 16818,
         "other_votes": 1641
       },
       "14": {
@@ -714,14 +714,14 @@
         "other_votes": 2270
       },
       "16": {
-        "dem_votes": 6297,
-        "rep_votes": 15322,
-        "other_votes": 2054
+        "dem_votes": 6294,
+        "rep_votes": 15315,
+        "other_votes": 2053
       },
       "17": {
-        "dem_votes": 7803,
-        "rep_votes": 6095,
-        "other_votes": 864
+        "dem_votes": 7806,
+        "rep_votes": 6102,
+        "other_votes": 865
       },
       "18": {
         "dem_votes": 8122,
@@ -729,7 +729,7 @@
         "other_votes": 1461
       },
       "19": {
-        "dem_votes": 21018,
+        "dem_votes": 21019,
         "rep_votes": 6959,
         "other_votes": 1383
       },
@@ -739,8 +739,8 @@
         "other_votes": 2409
       },
       "21": {
-        "dem_votes": 22402,
-        "rep_votes": 9086,
+        "dem_votes": 22403,
+        "rep_votes": 9087,
         "other_votes": 1599
       },
       "22": {
@@ -764,24 +764,24 @@
         "other_votes": 1083
       },
       "26": {
-        "dem_votes": 14593,
-        "rep_votes": 15047,
+        "dem_votes": 14591,
+        "rep_votes": 15046,
         "other_votes": 2077
       },
       "27": {
-        "dem_votes": 14619,
+        "dem_votes": 14618,
         "rep_votes": 16945,
         "other_votes": 1805
       },
       "28": {
         "dem_votes": 5807,
-        "rep_votes": 14146,
+        "rep_votes": 14145,
         "other_votes": 1448
       },
       "29": {
         "dem_votes": 16107,
-        "rep_votes": 11862,
-        "other_votes": 1023
+        "rep_votes": 11863,
+        "other_votes": 1024
       },
       "30": {
         "dem_votes": 7395,
@@ -800,7 +800,7 @@
       },
       "33": {
         "dem_votes": 6234,
-        "rep_votes": 11675,
+        "rep_votes": 11676,
         "other_votes": 1443
       },
       "34": {
@@ -809,9 +809,9 @@
         "other_votes": 2113
       },
       "35": {
-        "dem_votes": 14481,
-        "rep_votes": 12306,
-        "other_votes": 1452
+        "dem_votes": 14482,
+        "rep_votes": 12305,
+        "other_votes": 1451
       },
       "36": {
         "dem_votes": 14274,
@@ -819,7 +819,7 @@
         "other_votes": 834
       },
       "37": {
-        "dem_votes": 8174,
+        "dem_votes": 8175,
         "rep_votes": 14518,
         "other_votes": 1596
       },
@@ -844,13 +844,13 @@
         "other_votes": 1279
       },
       "42": {
-        "dem_votes": 13657,
+        "dem_votes": 13656,
         "rep_votes": 5063,
         "other_votes": 1146
       },
       "43": {
         "dem_votes": 11438,
-        "rep_votes": 19238,
+        "rep_votes": 19239,
         "other_votes": 2276
       },
       "44": {
@@ -860,7 +860,7 @@
       },
       "45": {
         "dem_votes": 12855,
-        "rep_votes": 7830,
+        "rep_votes": 7829,
         "other_votes": 974
       },
       "46": {
@@ -889,10 +889,12 @@
     "historical_name_bridge": "data/crosswalk/reviewed_vtd_name_bridge_2010_2024.json",
     "historical_name_bridge_rows": 5,
     "historical_name_bridge_votes": 3489,
+    "populated_sliver_allocation_file": "data/crosswalk/current_precinct_district_sliver_population_audit.json",
+    "populated_sliver_precincts": 358,
     "snapshot_comparison_geometry": "state_senate_2022",
     "snapshot_comparison_target_file": "data/district_contests/district_snapshot_targets.json#state_senate_2022/superintendent_2010",
     "snapshot_comparison_districts": 46,
-    "snapshot_comparison_mean_abs_share_delta_pp": 1.74193,
+    "snapshot_comparison_mean_abs_share_delta_pp": 1.741769,
     "snapshot_comparison_max_abs_share_delta_pp": 12.058361,
     "snapshot_calibration_status": "comparison_only_calibration_disabled",
     "district_statewide_totals": {

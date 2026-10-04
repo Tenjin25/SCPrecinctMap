@@ -30,6 +30,7 @@ FULL_COUNTY_THRESHOLD = 0.999
 MATERIAL_PARTIAL_THRESHOLD = 0.001
 MAX_WHOLE_COUNTY_OUTSIDE_CVAP_SHARE = 0.001
 SLIVER_AUDIT_FILE = "data/crosswalk/current_precinct_district_sliver_population_audit.json"
+POPULATED_SLIVER_SCOPES = {"congressional", "state_senate_2022"}
 
 
 def punctuation_key(value: str) -> str:
@@ -300,6 +301,8 @@ def main() -> int:
                         help="Block-population audit used to guard near-whole county assignments")
     parser.add_argument("--sliver-population-audit", default="",
                         help="Trial: retain every district piece with positive block CVAP from this audit file")
+    parser.add_argument("--skip-populated-slivers", action="store_true",
+                        help="Rebuild without the default congressional and Senate populated-sliver allocations")
     parser.add_argument("--skip-legacy-2008-bridge", action="store_true",
                         help="Disable conservative unique-name matches backed by the 2008 VTD overlay")
     parser.add_argument("--legacy-2008-bridge", default="data/crosswalk/legacy_2008_vtd_name_bridge_weights.json")
@@ -313,6 +316,8 @@ def main() -> int:
                         help="Experimentally calibrate to legacy snapshots; default is comparison only")
     parser.add_argument("--write", action="store_true", help="Write reviewable staged district slices and QA")
     args = parser.parse_args()
+    if args.skip_populated_slivers and args.sliver_population_audit:
+        parser.error("--skip-populated-slivers cannot be combined with --sliver-population-audit")
     contest_dir = ROOT / args.contests
     override_dir = ROOT / args.contest_overrides_dir if args.contest_overrides_dir else None
     congress_ballot = (None if args.skip_reviewed_2022_congress_ballot else
@@ -328,16 +333,22 @@ def main() -> int:
         raise ValueError("Whole-county sliver audit does not match the selected block weights")
     sliver_trial = (json.loads((ROOT / args.sliver_population_audit).read_text(encoding="utf-8"))
                     if args.sliver_population_audit else None)
+    if sliver_trial and (sliver_trial.get("weight_source") != whole_sliver_audit.get("weight_source") or
+                         float(sliver_trial.get("material_split_threshold", -1)) != MATERIAL_PARTIAL_THRESHOLD):
+        raise ValueError("Populated-sliver trial audit does not match the selected block weights")
     sliver_by_scope = defaultdict(dict)
-    if sliver_trial:
-        for entry in sliver_trial.get("entries", []):
-            counts = {str(district): float(value) for district, value in entry.get("candidate_cvap", {}).items()
-                      if float(value) > 0}
-            total = sum(counts.values())
-            if total > 0:
-                sliver_by_scope[entry["scope"]][norm(entry["precinct"])] = {
-                    district: count / total for district, count in counts.items()
-                }
+    for entry in (sliver_trial or whole_sliver_audit).get("entries", []):
+        scope = entry["scope"]
+        if not sliver_trial and (args.skip_populated_slivers or scope not in POPULATED_SLIVER_SCOPES or
+                                 float(entry.get("excluded_sliver_cvap") or 0) <= 0):
+            continue
+        counts = {str(district): float(value) for district, value in entry.get("candidate_cvap", {}).items()
+                  if float(value) > 0}
+        total = sum(counts.values())
+        if total > 0:
+            sliver_by_scope[scope][norm(entry["precinct"])] = {
+                district: count / total for district, count in counts.items()
+            }
     legacy_2008 = (json.loads((ROOT / args.legacy_2008_bridge).read_text(encoding="utf-8"))
                    if not args.skip_legacy_2008_bridge else None)
     reviewed_vtd = (json.loads((ROOT / args.reviewed_vtd_bridge).read_text(encoding="utf-8"))
@@ -515,6 +526,11 @@ def main() -> int:
             if sliver_trial:
                 payload["meta"]["sliver_population_trial_file"] = args.sliver_population_audit
                 meta["sliver_population_trial_file"] = args.sliver_population_audit
+            elif scope in POPULATED_SLIVER_SCOPES and not args.skip_populated_slivers:
+                payload["meta"]["populated_sliver_allocation_file"] = args.whole_county_sliver_audit
+                payload["meta"]["populated_sliver_precincts"] = len(sliver_by_scope[scope])
+                meta["populated_sliver_allocation_file"] = args.whole_county_sliver_audit
+                meta["populated_sliver_precincts"] = len(sliver_by_scope[scope])
             calibration_key = "state_house_root" if prefix == "state_house" and lines is None else scope
             contest_key = f"{entry['contest_type']}_{entry['year']}"
             target = (targets.get(calibration_key) or {}).get(contest_key)
