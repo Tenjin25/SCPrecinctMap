@@ -12,35 +12,27 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: true
-      - name: Patch index and update data cachebuster
+      - name: Patch congressional tap handling and cachebuster
         shell: python
         run: |
           from pathlib import Path
+          import re
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
-          old = """              // Mobile-friendly: show a tap tooltip (and outline) on selection.
-              try {
-                setDistrictHoverOutline('congressional', districtNum);
-                setTooltipPinned(false);
-                if (isTouchInteractionMode()) {
-                  await renderDistrictHover(
-                    e,
-                    'congressional',
-                    'Congressional District',
-                    ['DISTRICT', 'CD118FP', 'CD119FP', 'district_id', 'district', 'NAMELSAD'],
-                    { forceTooltip: true }
-                  );
-                  setTooltipPinned(true);
-                } else {
-                  hideHoverTooltip();
-                }
-              } catch (_) {}"""
-          new = """              if (!isTouchInteractionMode()) hideHoverTooltip();"""
-          anchor = """              lastSelectedCounty = `District ${districtNum}`;
-              await zoomToDistrictSelection('congressional', districtNum, e.features[0]);"""
-          replacement = """              lastSelectedCounty = `District ${districtNum}`;
-              // Render and pin the touch tooltip before the camera moves.
-              // Moving first can invalidate the asynchronous district hover request.
+          start = s.index("map.on('click', 'district-fill'")
+          end = s.find("map.on('click'", start + 10)
+          if end < 0: end = min(len(s), start + 6500)
+          section = s[start:end]
+          old_block = re.compile(r'(?m)^\s*// Mobile-friendly: show a tap tooltip \(and outline\) on selection\.\s*\n\s*try \{.*?\n\s*\} catch \(_\) \{\}', re.S)
+          anchor = "              await zoomToDistrictSelection('congressional', districtNum, e.features[0]);"
+          if "Render and pin the touch tooltip before the camera moves." not in section:
+              match = old_block.search(section)
+              if not match:
+                  raise SystemExit('Congressional mobile tooltip block not found; source must be inspected before patching')
+              if section.count(anchor) != 1:
+                  raise SystemExit('Congressional zoom anchor not unique')
+              section = section[:match.start()] + "\n              if (!isTouchInteractionMode()) hideHoverTooltip();" + section[match.end():]
+              insertion = """              // Render and pin the touch tooltip before the camera moves.
               if (isTouchInteractionMode()) {
                 setDistrictHoverOutline('congressional', districtNum);
                 setTooltipPinned(false);
@@ -55,19 +47,17 @@ jobs:
                   console.warn('Unable to show congressional tap tooltip:', error);
                 }
               }
-              await zoomToDistrictSelection('congressional', districtNum, e.features[0]);"""
-          cache_old = "const DATA_CACHE_BUSTER = '2026-10-06-mobile-contest-ready-v4';"
-          cache_new = "const DATA_CACHE_BUSTER = '2026-10-27-congressional-mobile-tooltip-v5';"
-          for needle in (old, anchor, cache_old):
-              if s.count(needle) != 1:
-                  raise SystemExit(f'Expected exactly one occurrence of patch anchor: {needle[:70]!r}; found {s.count(needle)}')
-          s = s.replace(anchor, replacement).replace(old, new).replace(cache_old, cache_new)
+"""
+              section = section.replace(anchor, insertion + anchor)
+              s = s[:start] + section + s[end:]
+          s, count = re.subn(r"const DATA_CACHE_BUSTER = '[^']+';", "const DATA_CACHE_BUSTER = '2026-10-27-congressional-mobile-tooltip-v5';", s, count=1)
+          if count != 1: raise SystemExit('DATA_CACHE_BUSTER declaration missing')
           p.write_text(s, encoding='utf-8')
           Path('.github/workflows/apply-congressional-mobile-tooltip.yml').unlink()
-      - name: Commit fix on review branch
+      - name: Commit patched index on review branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html .github/workflows/apply-congressional-mobile-tooltip.yml
-          git commit -m "Fix congressional touch tooltip and refresh data cachebuster"
+          git commit -m "Fix congressional mobile tooltip and bump cachebuster"
           git push
