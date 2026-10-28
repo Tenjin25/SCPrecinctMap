@@ -10831,7 +10831,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-10-27-congressional-county-zoom-v6';
+    const DATA_CACHE_BUSTER = '2026-10-28-congressional-selected-mobile-v7';
     const APP_BUILD_ID = '2026-10-06-mobile-contest-ready-v4';
 
     function withCacheBuster(path) {
@@ -27787,7 +27787,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!demCandidate) demCandidate = getCandidateName(year, formatContestName(contestType, year), 'Democrat');
       if (!repCandidate) repCandidate = getCandidateName(year, formatContestName(contestType, year), 'Republican');
       setVoteCounterHoverState(
-        `Hover: ${panelDistrictLabel} ${displayDistrictNum}`,
+        `${scope === "congressional" && isTouchInteractionMode() && (forceTooltip || tooltipPinned) ? "Selected" : "Hover"}: ${panelDistrictLabel} ${displayDistrictNum}`,
         `${formatContestLabel(contestType, year)}`,
         demVotes,
         repVotes,
@@ -30893,7 +30893,7 @@ document.addEventListener('DOMContentLoaded', function() {
               // Render and pin the touch tooltip before the camera moves.
               if (isTouchInteractionMode()) {
                 setDistrictHoverOutline('congressional', districtNum);
-                setTooltipPinned(false);
+                setTooltipPinned(true);
                 try {
                   await renderDistrictHover(
                     e, 'congressional', 'Congressional District',
