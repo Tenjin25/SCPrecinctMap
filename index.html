@@ -10831,7 +10831,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-10-27-congressional-mobile-tooltip-v5';
+    const DATA_CACHE_BUSTER = '2026-10-27-congressional-county-zoom-v6';
     const APP_BUILD_ID = '2026-10-06-mobile-contest-ready-v4';
 
     function withCacheBuster(path) {
@@ -30699,7 +30699,7 @@ document.addEventListener('DOMContentLoaded', function() {
       scope,
       districtNum,
       fallbackFeature = null,
-      { padding = null, duration = 850, maxZoom = null } = {}
+      { padding = null, duration = 1000, maxZoom = null } = {}
     ) {
       const requestId = ++districtZoomRequestId;
       let feature = fallbackFeature;
@@ -30730,7 +30730,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const hasExplicitPadding = padding !== null && padding !== undefined && Number.isFinite(Number(padding));
         const basePadding = hasExplicitPadding
           ? Number(padding)
-          : (scope === 'congressional' ? 32 : SEARCH_ZOOM.padding);
+          : (scope === 'congressional' ? 28 : SEARCH_ZOOM.padding);
         const fitPadding = computeMapViewportPadding(basePadding);
         const bounds = [[bbox[0], bbox[1]], [bbox[2], bbox[3]]];
 
