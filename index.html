@@ -10831,7 +10831,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-10-06-mobile-contest-ready-v4';
+    const DATA_CACHE_BUSTER = '2026-10-27-congressional-mobile-tooltip-v5';
     const APP_BUILD_ID = '2026-10-06-mobile-contest-ready-v4';
 
     function withCacheBuster(path) {
@@ -30890,6 +30890,21 @@ document.addEventListener('DOMContentLoaded', function() {
               // Show detailed sidebar (results + trends).
               showDistrictDetails(districtNum);
               lastSelectedCounty = `District ${districtNum}`;
+              // Render and pin the touch tooltip before the camera moves.
+              if (isTouchInteractionMode()) {
+                setDistrictHoverOutline('congressional', districtNum);
+                setTooltipPinned(false);
+                try {
+                  await renderDistrictHover(
+                    e, 'congressional', 'Congressional District',
+                    ['DISTRICT', 'CD118FP', 'CD119FP', 'district_id', 'district', 'NAMELSAD'],
+                    { forceTooltip: true }
+                  );
+                  setTooltipPinned(true);
+                } catch (error) {
+                  console.warn('Unable to show congressional tap tooltip:', error);
+                }
+              }
               await zoomToDistrictSelection('congressional', districtNum, e.features[0]);
 
               // Pin vote counter to this district for current contest (if any).
@@ -30916,23 +30931,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).catch(() => {});
               }
 
-              // Mobile-friendly: show a tap tooltip (and outline) on selection.
-              try {
-                setDistrictHoverOutline('congressional', districtNum);
-                setTooltipPinned(false);
-                if (isTouchInteractionMode()) {
-                  await renderDistrictHover(
-                    e,
-                    'congressional',
-                    'Congressional District',
-                    ['DISTRICT', 'CD118FP', 'CD119FP', 'district_id', 'district', 'NAMELSAD'],
-                    { forceTooltip: true }
-                  );
-                  setTooltipPinned(true);
-                } else {
-                  hideHoverTooltip();
-                }
-              } catch (_) {}
+              if (!isTouchInteractionMode()) hideHoverTooltip();
             }
           }
         });
