@@ -33,21 +33,21 @@ jobs:
                   raise SystemExit('Congressional zoom anchor not unique')
               section = section[:match.start()] + "\n              if (!isTouchInteractionMode()) hideHoverTooltip();" + section[match.end():]
               insertion = """              // Render and pin the touch tooltip before the camera moves.
-              if (isTouchInteractionMode()) {
-                setDistrictHoverOutline('congressional', districtNum);
-                setTooltipPinned(false);
-                try {
-                  await renderDistrictHover(
-                    e, 'congressional', 'Congressional District',
-                    ['DISTRICT', 'CD118FP', 'CD119FP', 'district_id', 'district', 'NAMELSAD'],
-                    { forceTooltip: true }
-                  );
-                  setTooltipPinned(true);
-                } catch (error) {
-                  console.warn('Unable to show congressional tap tooltip:', error);
-                }
-              }
-"""
+                        if (isTouchInteractionMode()) {
+                          setDistrictHoverOutline('congressional', districtNum);
+                          setTooltipPinned(false);
+                          try {
+                            await renderDistrictHover(
+                              e, 'congressional', 'Congressional District',
+                              ['DISTRICT', 'CD118FP', 'CD119FP', 'district_id', 'district', 'NAMELSAD'],
+                              { forceTooltip: true }
+                            );
+                            setTooltipPinned(true);
+                          } catch (error) {
+                            console.warn('Unable to show congressional tap tooltip:', error);
+                          }
+                        }
+          """
               section = section.replace(anchor, insertion + anchor)
               s = s[:start] + section + s[end:]
           s, count = re.subn(r"const DATA_CACHE_BUSTER = '[^']+';", "const DATA_CACHE_BUSTER = '2026-10-27-congressional-mobile-tooltip-v5';", s, count=1)
