@@ -1,0 +1,44 @@
+name: Match congressional zoom to county selection
+on:
+  push:
+    branches: [fix/congressional-mobile-tooltip]
+    paths: ['.github/workflows/match-congressional-zoom.yml']
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Align congressional click zoom with county
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = "async function zoomToDistrictSelection("
+          start = s.index(marker)
+          end = s.index("const DISTRICT_LINE_STYLE", start)
+          section = s[start:end]
+          old = "{ padding = null, duration = 850, maxZoom = null } = {}"
+          if section.count(old) != 1:
+              raise SystemExit("District zoom defaults changed; manual inspection required")
+          section = section.replace(old, "{ padding = null, duration = 1000, maxZoom = null } = {}")
+          old_padding = "(scope === 'congressional' ? 32 : SEARCH_ZOOM.padding)"
+          if section.count(old_padding) != 1:
+              raise SystemExit("Congressional padding anchor changed")
+          section = section.replace(old_padding, "(scope === 'congressional' ? 28 : SEARCH_ZOOM.padding)")
+          s = s[:start] + section + s[end:]
+          import re
+          s, count = re.subn(r"const DATA_CACHE_BUSTER = '[^']+';", "const DATA_CACHE_BUSTER = '2026-10-27-congressional-county-zoom-v6';", s, count=1)
+          if count != 1:
+              raise SystemExit("Cachebuster declaration not found")
+          p.write_text(s, encoding='utf-8')
+          Path('.github/workflows/match-congressional-zoom.yml').unlink()
+      - name: Commit change to review branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html .github/workflows/match-congressional-zoom.yml
+          git commit -m "Match congressional zoom animation to county and bump cachebuster"
+          git push
