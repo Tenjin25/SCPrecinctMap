@@ -1,0 +1,73 @@
+name: Apply congressional mobile tooltip fix
+on:
+  push:
+    branches: [fix/congressional-mobile-tooltip]
+    paths: ['.github/workflows/apply-congressional-mobile-tooltip.yml']
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Patch index and update data cachebuster
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          old = """              // Mobile-friendly: show a tap tooltip (and outline) on selection.
+              try {
+                setDistrictHoverOutline('congressional', districtNum);
+                setTooltipPinned(false);
+                if (isTouchInteractionMode()) {
+                  await renderDistrictHover(
+                    e,
+                    'congressional',
+                    'Congressional District',
+                    ['DISTRICT', 'CD118FP', 'CD119FP', 'district_id', 'district', 'NAMELSAD'],
+                    { forceTooltip: true }
+                  );
+                  setTooltipPinned(true);
+                } else {
+                  hideHoverTooltip();
+                }
+              } catch (_) {}"""
+          new = """              if (!isTouchInteractionMode()) hideHoverTooltip();"""
+          anchor = """              lastSelectedCounty = `District ${districtNum}`;
+              await zoomToDistrictSelection('congressional', districtNum, e.features[0]);"""
+          replacement = """              lastSelectedCounty = `District ${districtNum}`;
+              // Render and pin the touch tooltip before the camera moves.
+              // Moving first can invalidate the asynchronous district hover request.
+              if (isTouchInteractionMode()) {
+                setDistrictHoverOutline('congressional', districtNum);
+                setTooltipPinned(false);
+                try {
+                  await renderDistrictHover(
+                    e, 'congressional', 'Congressional District',
+                    ['DISTRICT', 'CD118FP', 'CD119FP', 'district_id', 'district', 'NAMELSAD'],
+                    { forceTooltip: true }
+                  );
+                  setTooltipPinned(true);
+                } catch (error) {
+                  console.warn('Unable to show congressional tap tooltip:', error);
+                }
+              }
+              await zoomToDistrictSelection('congressional', districtNum, e.features[0]);"""
+          cache_old = "const DATA_CACHE_BUSTER = '2026-10-06-mobile-contest-ready-v4';"
+          cache_new = "const DATA_CACHE_BUSTER = '2026-10-27-congressional-mobile-tooltip-v5';"
+          for needle in (old, anchor, cache_old):
+              if s.count(needle) != 1:
+                  raise SystemExit(f'Expected exactly one occurrence of patch anchor: {needle[:70]!r}; found {s.count(needle)}')
+          s = s.replace(anchor, replacement).replace(old, new).replace(cache_old, cache_new)
+          p.write_text(s, encoding='utf-8')
+          Path('.github/workflows/apply-congressional-mobile-tooltip.yml').unlink()
+      - name: Commit fix on review branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html .github/workflows/apply-congressional-mobile-tooltip.yml
+          git commit -m "Fix congressional touch tooltip and refresh data cachebuster"
+          git push
