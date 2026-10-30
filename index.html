@@ -10831,7 +10831,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-10-30-district-mobile-zoom-v8';
+    const DATA_CACHE_BUSTER = '2026-10-30-district-mobile-tooltip-v9';
     const APP_BUILD_ID = '2026-10-06-mobile-contest-ready-v4';
 
     function withCacheBuster(path) {
@@ -30706,6 +30706,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } catch (_) {}
 
       if (requestId !== districtZoomRequestId || !feature) return false;
+      let finishMove = null;
       try {
         const rawBbox = turf.bbox(feature);
         const bbox = rawBbox;
@@ -30719,6 +30720,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const fitPadding = computeMapViewportPadding(basePadding);
         const bounds = [[bbox[0], bbox[1]], [bbox[2], bbox[3]]];
 
+        const moveFinished = new Promise(resolve => {
+          let settled = false;
+          let fallbackTimer = null;
+          const done = () => {
+            if (settled) return;
+            settled = true;
+            if (fallbackTimer) clearTimeout(fallbackTimer);
+            try { map.off('moveend', done); } catch (_) {}
+            resolve();
+          };
+          finishMove = done;
+          try { map.once('moveend', done); } catch (_) {}
+          fallbackTimer = setTimeout(done, Math.max(0, Number(duration) || 0) + 350);
+        });
+
         map.fitBounds(
           bounds,
           {
@@ -30729,10 +30745,30 @@ document.addEventListener('DOMContentLoaded', function() {
             essential: true
           }
         );
+        await moveFinished;
+        if (requestId !== districtZoomRequestId) return false;
         return true;
       } catch (_) {
+        try { if (finishMove) finishMove(); } catch (_) {}
         return false;
       }
+    }
+
+    async function showSelectedDistrictTooltip(e, scope, districtLabel, districtFieldCandidates) {
+      if (!isTouchInteractionMode() || !(e?.features && e.features[0])) return;
+      const point = getMapCenterPoint() || e.point;
+      if (!point) return;
+      setTooltipPinned(false);
+      await renderDistrictHover(
+        { point, features: [e.features[0]] },
+        scope,
+        districtLabel,
+        districtFieldCandidates,
+        { forceTooltip: true }
+      );
+      // The selected tooltip gets its close button and selected styling from the
+      // forced mobile render, without locking global hover-follow state.
+      setTooltipPinned(false);
     }
 
     const DISTRICT_LINE_STYLE = (() => {
@@ -30905,7 +30941,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).catch(() => {});
               }
 
-              hideHoverTooltip();
+              if (isTouchInteractionMode()) {
+                await showSelectedDistrictTooltip(
+                  e,
+                  'congressional',
+                  'Congressional District',
+                  ['DISTRICT', 'CD118FP', 'CD119FP', 'district_id', 'district', 'NAMELSAD']
+                );
+              } else {
+                hideHoverTooltip();
+              }
             }
           }
         });
@@ -31011,6 +31056,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).catch(() => {});
               }
 
+              await showSelectedDistrictTooltip(
+                e,
+                'state_house',
+                'State House District',
+                ['DISTRICT', 'SLDLST', 'district_id', 'district', 'NAMELSAD']
+              );
+
             }
           }
         });
@@ -31115,6 +31167,13 @@ document.addEventListener('DOMContentLoaded', function() {
                   );
                 }).catch(() => {});
               }
+
+              await showSelectedDistrictTooltip(
+                e,
+                'state_senate',
+                'State Senate District',
+                ['DISTRICT', 'SLDUST', 'district_id', 'district', 'NAMELSAD']
+              );
 
             }
           }
