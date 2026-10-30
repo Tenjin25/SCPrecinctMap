@@ -10831,7 +10831,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-10-28-congressional-selected-mobile-v7';
+    const DATA_CACHE_BUSTER = '2026-10-30-district-mobile-zoom-v8';
     const APP_BUILD_ID = '2026-10-06-mobile-contest-ready-v4';
 
     function withCacheBuster(path) {
@@ -30669,23 +30669,11 @@ document.addEventListener('DOMContentLoaded', function() {
       saveUIState();
     }
 
-    function zoomToClickedDistrictFeature(feature, { padding = SEARCH_ZOOM.padding, duration = 800, maxZoom = SEARCH_ZOOM.districtMaxZoom } = {}) {
-      try {
-        if (!feature) return;
-        const bbox = turf.bbox(feature);
-        if (!Array.isArray(bbox) || bbox.length < 4) return;
-        map.fitBounds(
-          [[bbox[0], bbox[1]], [bbox[2], bbox[3]]],
-          { padding: computeMapViewportPadding(padding), duration, maxZoom }
-        );
-      } catch (_) {}
-    }
-
     let districtZoomRequestId = 0;
 
     function getDistrictZoomMax(scope) {
-      if (scope === 'state_house') return SEARCH_ZOOM.districtMaxZoom;
-      if (scope === 'state_senate') return SEARCH_ZOOM.districtMaxZoom;
+      if (scope === 'state_house') return 11.2;
+      if (scope === 'state_senate') return 11.0;
       return 10.5;
     }
 
@@ -30704,33 +30692,30 @@ document.addEventListener('DOMContentLoaded', function() {
       const requestId = ++districtZoomRequestId;
       let feature = fallbackFeature;
 
-      // Match NCPrecinctMap: legislative clicks fit the rendered feature
-      // directly. Only congressional clicks/searches need the full geometry.
-      if (scope === 'congressional' || !feature) {
-        try {
-          const sourceId = getDistrictSourceIdForScope(scope);
-          const path = getDistrictGeometryPath(scope, currentDistrictLinesYear);
-          const gj = await ensureSearchGeoJSON(sourceId, path);
-          const fullFeature = gj?.features?.find(
-            candidate => getDistrictNumberFromPropsNumeric(candidate?.properties) === Number(districtNum)
-          );
-          if (fullFeature) feature = fullFeature;
-        } catch (_) {}
-      }
+      // Rendered vector-tile features can contain only the fragment currently on
+      // screen. Resolve the complete geometry so a tap frames the whole district,
+      // matching county selection on mobile.
+      try {
+        const sourceId = getDistrictSourceIdForScope(scope);
+        const path = getDistrictGeometryPath(scope, currentDistrictLinesYear);
+        const gj = await ensureSearchGeoJSON(sourceId, path);
+        const fullFeature = gj?.features?.find(
+          candidate => getDistrictNumberFromPropsNumeric(candidate?.properties) === Number(districtNum)
+        );
+        if (fullFeature) feature = fullFeature;
+      } catch (_) {}
 
       if (requestId !== districtZoomRequestId || !feature) return false;
       try {
         const rawBbox = turf.bbox(feature);
-        const bbox = scope === 'congressional'
-          ? rawBbox
-          : expandBbox(rawBbox, SEARCH_ZOOM.bboxExpand);
+        const bbox = rawBbox;
         if (!Array.isArray(bbox) || bbox.length < 4 || !bbox.every(Number.isFinite)) return false;
         const hasExplicitZoomCap = maxZoom !== null && maxZoom !== undefined && Number.isFinite(Number(maxZoom));
         const zoomCap = hasExplicitZoomCap ? Number(maxZoom) : getDistrictZoomMax(scope);
         const hasExplicitPadding = padding !== null && padding !== undefined && Number.isFinite(Number(padding));
         const basePadding = hasExplicitPadding
           ? Number(padding)
-          : (scope === 'congressional' ? 28 : SEARCH_ZOOM.padding);
+          : 28;
         const fitPadding = computeMapViewportPadding(basePadding);
         const bounds = [[bbox[0], bbox[1]], [bbox[2], bbox[3]]];
 
@@ -30890,21 +30875,10 @@ document.addEventListener('DOMContentLoaded', function() {
               // Show detailed sidebar (results + trends).
               showDistrictDetails(districtNum);
               lastSelectedCounty = `District ${districtNum}`;
-              // Render and pin the touch tooltip before the camera moves.
-              if (isTouchInteractionMode()) {
-                setDistrictHoverOutline('congressional', districtNum);
-                setTooltipPinned(true);
-                try {
-                  await renderDistrictHover(
-                    e, 'congressional', 'Congressional District',
-                    ['DISTRICT', 'CD118FP', 'CD119FP', 'district_id', 'district', 'NAMELSAD'],
-                    { forceTooltip: true }
-                  );
-                  setTooltipPinned(true);
-                } catch (error) {
-                  console.warn('Unable to show congressional tap tooltip:', error);
-                }
-              }
+              suppressHoverRefresh(1600, { clearPointer: true });
+              setDistrictHoverOutline('congressional', districtNum);
+              setTooltipPinned(false);
+              hideHoverTooltip();
               await zoomToDistrictSelection('congressional', districtNum, e.features[0]);
 
               // Pin vote counter to this district for current contest (if any).
@@ -30931,7 +30905,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).catch(() => {});
               }
 
-              if (!isTouchInteractionMode()) hideHoverTooltip();
+              hideHoverTooltip();
             }
           }
         });
@@ -31008,7 +30982,11 @@ document.addEventListener('DOMContentLoaded', function() {
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'house');
               lastSelectedCounty = getDistrictTitleForScope('state_house', districtNum);
-              zoomToClickedDistrictFeature(e.features[0], { padding: 40, duration: 850, maxZoom: 11.2 });
+              suppressHoverRefresh(1600, { clearPointer: true });
+              setDistrictHoverOutline('state_house', districtNum);
+              setTooltipPinned(false);
+              hideHoverTooltip();
+              await zoomToDistrictSelection('state_house', districtNum, e.features[0]);
 
               const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
@@ -31033,22 +31011,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).catch(() => {});
               }
 
-              try {
-                setDistrictHoverOutline('state_house', districtNum);
-                setTooltipPinned(false);
-                if (isTouchInteractionMode()) {
-                  await renderDistrictHover(
-                    e,
-                    'state_house',
-                    'State House District',
-                    ['DISTRICT', 'SLDLST', 'district_id', 'district', 'NAMELSAD'],
-                    { forceTooltip: true }
-                  );
-                  setTooltipPinned(true);
-                } else {
-                  hideHoverTooltip();
-                }
-              } catch (_) {}
             }
           }
         });
@@ -31125,7 +31087,11 @@ document.addEventListener('DOMContentLoaded', function() {
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'senate');
               lastSelectedCounty = getDistrictTitleForScope('state_senate', districtNum);
-              zoomToClickedDistrictFeature(e.features[0], { padding: 40, duration: 850, maxZoom: 11.0 });
+              suppressHoverRefresh(1600, { clearPointer: true });
+              setDistrictHoverOutline('state_senate', districtNum);
+              setTooltipPinned(false);
+              hideHoverTooltip();
+              await zoomToDistrictSelection('state_senate', districtNum, e.features[0]);
 
               const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
@@ -31150,22 +31116,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).catch(() => {});
               }
 
-              try {
-                setDistrictHoverOutline('state_senate', districtNum);
-                setTooltipPinned(false);
-                if (isTouchInteractionMode()) {
-                  await renderDistrictHover(
-                    e,
-                    'state_senate',
-                    'State Senate District',
-                    ['DISTRICT', 'SLDUST', 'district_id', 'district', 'NAMELSAD'],
-                    { forceTooltip: true }
-                  );
-                  setTooltipPinned(true);
-                } else {
-                  hideHoverTooltip();
-                }
-              } catch (_) {}
             }
           }
         });
