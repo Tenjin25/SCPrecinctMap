@@ -10831,7 +10831,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-10-30-district-mobile-tooltip-v9';
+    const DATA_CACHE_BUSTER = '2026-10-31-district-mobile-tooltip-v10';
     const APP_BUILD_ID = '2026-10-06-mobile-contest-ready-v4';
 
     function withCacheBuster(path) {
@@ -30766,9 +30766,10 @@ document.addEventListener('DOMContentLoaded', function() {
         districtFieldCandidates,
         { forceTooltip: true }
       );
-      // The selected tooltip gets its close button and selected styling from the
-      // forced mobile render, without locking global hover-follow state.
-      setTooltipPinned(false);
+      // Pin only after the zoom and render are complete. Camera movement can emit
+      // a layer mouseleave; selected state prevents that event from immediately
+      // hiding the freshly rendered tooltip. The Close button clears this state.
+      setTooltipPinned(true);
     }
 
     const DISTRICT_LINE_STYLE = (() => {
