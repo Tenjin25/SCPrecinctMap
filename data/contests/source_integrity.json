@@ -59,6 +59,12 @@
       "file": "20241105__sc__general__precinct_complete.csv",
       "sha256": "81b8941fb1bad1f7591003075b1cb164f4d72e8d1644d63de5f56ec3c3a0ee40",
       "rows": 33556
+    },
+    {
+      "year": 2026,
+      "file": "20261103__sc__general__precinct.csv",
+      "sha256": "4336c091daf9fbac722175156c1cd91d2ca217dba36616f553cced010d03e1a7",
+      "rows": 2659
     }
   ],
   "contests": [
@@ -521,6 +527,86 @@
       "county_votes": 2548140,
       "geographic_precinct_votes": 2541877,
       "non_geographic_votes": 6263
+    },
+    {
+      "year": 2026,
+      "contest_type": "attorney_general",
+      "source_rows": 138,
+      "county_rows": 46,
+      "geographic_precinct_rows": 0,
+      "county_votes": 2012178,
+      "geographic_precinct_votes": 0,
+      "non_geographic_votes": 0
+    },
+    {
+      "year": 2026,
+      "contest_type": "commissioner_agriculture",
+      "source_rows": 230,
+      "county_rows": 46,
+      "geographic_precinct_rows": 0,
+      "county_votes": 2008029,
+      "geographic_precinct_votes": 0,
+      "non_geographic_votes": 0
+    },
+    {
+      "year": 2026,
+      "contest_type": "comptroller_general",
+      "source_rows": 138,
+      "county_rows": 46,
+      "geographic_precinct_rows": 0,
+      "county_votes": 2001187,
+      "geographic_precinct_votes": 0,
+      "non_geographic_votes": 0
+    },
+    {
+      "year": 2026,
+      "contest_type": "governor",
+      "source_rows": 230,
+      "county_rows": 46,
+      "geographic_precinct_rows": 0,
+      "county_votes": 2024351,
+      "geographic_precinct_votes": 0,
+      "non_geographic_votes": 0
+    },
+    {
+      "year": 2026,
+      "contest_type": "secretary_of_state",
+      "source_rows": 138,
+      "county_rows": 46,
+      "geographic_precinct_rows": 0,
+      "county_votes": 2013567,
+      "geographic_precinct_votes": 0,
+      "non_geographic_votes": 0
+    },
+    {
+      "year": 2026,
+      "contest_type": "state_treasurer",
+      "source_rows": 138,
+      "county_rows": 46,
+      "geographic_precinct_rows": 0,
+      "county_votes": 2010096,
+      "geographic_precinct_votes": 0,
+      "non_geographic_votes": 0
+    },
+    {
+      "year": 2026,
+      "contest_type": "superintendent",
+      "source_rows": 184,
+      "county_rows": 46,
+      "geographic_precinct_rows": 0,
+      "county_votes": 2012491,
+      "geographic_precinct_votes": 0,
+      "non_geographic_votes": 0
+    },
+    {
+      "year": 2026,
+      "contest_type": "us_senate",
+      "source_rows": 230,
+      "county_rows": 46,
+      "geographic_precinct_rows": 0,
+      "county_votes": 2027590,
+      "geographic_precinct_votes": 0,
+      "non_geographic_votes": 0
     }
   ]
 }
