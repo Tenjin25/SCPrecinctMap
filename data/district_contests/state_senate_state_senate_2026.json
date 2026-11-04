@@ -1,0 +1,23 @@
+{
+  "general": {
+    "results": {
+      "15": {
+        "dem_votes": 22803,
+        "rep_votes": 26496,
+        "other_votes": 38,
+        "total_votes": 49337,
+        "dem_candidate": "Chad Williams",
+        "rep_candidate": "James Burns",
+        "margin": 3693,
+        "margin_pct": 7.4853,
+        "winner": "R",
+        "color": "#fc8a6a"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 100,
+    "source_row_level": "county_district_summary",
+    "mixed_detail_rows_ignored": 0
+  }
+}

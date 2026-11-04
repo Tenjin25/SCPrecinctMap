@@ -113,6 +113,7 @@ ELECTION_FILES = {
                      '20241105__sc__general__precinct.csv'),
         os.path.join(DATA_OUT, '20241105__sc__general__precinct.csv'),
     ),
+    2026: os.path.join(DATA_OUT, '20261103__sc__general__precinct.csv'),
 }
 
 # Local override: if you generated an OpenElections-style precinct file from ELSTATS,
@@ -877,7 +878,7 @@ def build_election_data():
 # Step 5 – District contest slice JSONs  +  manifest
 # ---------------------------------------------------------------------------
 
-def build_district_contests():
+def build_district_contests(years: set[int] | None = None):
     """
     Aggregate OE CSV rows by district number for each scope and output
     district_contests/{scope}_{contest_type}_{year}.json  +  manifest.
@@ -908,6 +909,8 @@ def build_district_contests():
     rebuilt_keys = set()
 
     for year, csv_path in sorted(ELECTION_FILES.items()):
+        if years is not None and year not in years:
+            continue
         if not os.path.exists(csv_path):
             continue
         with open(csv_path, encoding='utf-8', newline='') as fh:

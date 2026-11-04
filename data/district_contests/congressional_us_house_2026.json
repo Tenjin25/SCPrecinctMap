@@ -1,0 +1,95 @@
+{
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 158877,
+        "rep_votes": 156521,
+        "other_votes": 5462,
+        "total_votes": 320860,
+        "dem_candidate": "Nancy Lacore",
+        "rep_candidate": "Jenny Costa Honeycutt",
+        "margin": -2356,
+        "margin_pct": -0.7343,
+        "winner": "D",
+        "color": "#c6dbef"
+      },
+      "2": {
+        "dem_votes": 143084,
+        "rep_votes": 147193,
+        "other_votes": 3985,
+        "total_votes": 294262,
+        "dem_candidate": "Zyon Khalifa",
+        "rep_candidate": "Joe Wilson",
+        "margin": 4109,
+        "margin_pct": 1.3964,
+        "winner": "R",
+        "color": "#fcbba1"
+      },
+      "3": {
+        "dem_votes": 93821,
+        "rep_votes": 173801,
+        "other_votes": 5244,
+        "total_votes": 272866,
+        "dem_candidate": "Eunice Lehmacher",
+        "rep_candidate": "Sheri Biggs",
+        "margin": 79980,
+        "margin_pct": 29.3111,
+        "winner": "R",
+        "color": "#cb181d"
+      },
+      "4": {
+        "dem_votes": 129561,
+        "rep_votes": 146808,
+        "other_votes": 7497,
+        "total_votes": 283866,
+        "dem_candidate": "Courtney McClain",
+        "rep_candidate": "William Timmons",
+        "margin": 17247,
+        "margin_pct": 6.0758,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "5": {
+        "dem_votes": 135157,
+        "rep_votes": 151553,
+        "other_votes": 155,
+        "total_votes": 286865,
+        "dem_candidate": "Mallory Dittmer",
+        "rep_candidate": "Wes Climer",
+        "margin": 16396,
+        "margin_pct": 5.7156,
+        "winner": "R",
+        "color": "#fc8a6a"
+      },
+      "6": {
+        "dem_votes": 177678,
+        "rep_votes": 78852,
+        "other_votes": 310,
+        "total_votes": 256840,
+        "dem_candidate": "James E Jim Clyburn",
+        "rep_candidate": "John Peterson",
+        "margin": -98826,
+        "margin_pct": -38.4777,
+        "winner": "D",
+        "color": "#2171b5"
+      },
+      "7": {
+        "dem_votes": 130993,
+        "rep_votes": 172124,
+        "other_votes": 203,
+        "total_votes": 303320,
+        "dem_candidate": "John Gregory Vincent",
+        "rep_candidate": "Russell Fry",
+        "margin": 41131,
+        "margin_pct": 13.5603,
+        "winner": "R",
+        "color": "#ef3b2c"
+      }
+    }
+  },
+  "meta": {
+    "match_coverage_pct": 100,
+    "source_row_level": "county_district_summary",
+    "mixed_detail_rows_ignored": 0
+  }
+}

@@ -29,6 +29,7 @@ SOURCE_FILES = {
     2020: "openelections-data-sc/2020/20201103__sc__general__precinct.csv",
     2022: "openelections-data-sc/2022/20221108__sc__general__precinct.csv",
     2024: "@repo:data/20241105__sc__general__precinct_complete.csv",
+    2026: "@repo:data/20261103__sc__general__precinct.csv",
 }
 VOTE_FIELDS = ("dem_votes", "rep_votes", "other_votes")
 
@@ -126,7 +127,22 @@ def main() -> int:
     contests_dir.mkdir(parents=True, exist_ok=True)
     county_names = county_display_names(REPO_ROOT / args.precincts)
     candidate_defaults = existing_candidate_defaults(contests_dir)
+    integrity_path = contests_dir / "source_integrity.json"
+    selected_years = set(args.years)
     integrity = {"sources": [], "contests": []}
+    if selected_years != set(SOURCE_FILES) and integrity_path.exists():
+        try:
+            existing_integrity = json.loads(integrity_path.read_text(encoding="utf-8"))
+            integrity["sources"] = [
+                row for row in existing_integrity.get("sources", [])
+                if int(row.get("year") or 0) not in selected_years
+            ]
+            integrity["contests"] = [
+                row for row in existing_integrity.get("contests", [])
+                if int(row.get("year") or 0) not in selected_years
+            ]
+        except (OSError, ValueError, json.JSONDecodeError):
+            pass
 
     for year in args.years:
         if year not in SOURCE_FILES:
@@ -212,7 +228,11 @@ def main() -> int:
             manifest.append({"year": year, "contest_type": contest, "file": path.name, "rows": len(payload["rows"])})
     manifest.sort(key=lambda item: (-item["year"], priority.get(item["contest_type"], 99)))
     (contests_dir / "manifest.json").write_text(json.dumps({"files": manifest}, separators=(",", ":")), encoding="utf-8")
-    (contests_dir / "source_integrity.json").write_text(json.dumps(integrity, indent=2) + "\n", encoding="utf-8")
+    integrity["sources"].sort(key=lambda row: int(row.get("year") or 0))
+    integrity["contests"].sort(
+        key=lambda row: (int(row.get("year") or 0), str(row.get("contest_type") or ""))
+    )
+    integrity_path.write_text(json.dumps(integrity, indent=2) + "\n", encoding="utf-8")
     print(f"rebuilt {len(integrity['contests'])} contest slices from {len(integrity['sources'])} source files")
     return 0
 
