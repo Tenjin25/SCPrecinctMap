@@ -322,6 +322,12 @@ def rebuild_one(contest: dict, weights: dict[str, dict[str, float]], scope: str,
 
 
 def rebuild_manifest(directory: Path, line_suffix: str, district_lines: str | None) -> None:
+    name = f"manifest{line_suffix}.json" if line_suffix else "manifest.json"
+    manifest_path = directory / name
+    try:
+        existing_entries = list((json.loads(manifest_path.read_text(encoding="utf-8")) or {}).get("files") or [])
+    except (FileNotFoundError, json.JSONDecodeError):
+        existing_entries = []
     entries = []
     source_contests = {}
     for path in directory.glob("*.json"):
@@ -360,9 +366,19 @@ def rebuild_manifest(directory: Path, line_suffix: str, district_lines: str | No
         if district_lines:
             entry["district_lines"] = district_lines
         entries.append(entry)
-    entries.sort(key=lambda item: (-item["year"], item["scope"], item["contest_type"]))
-    name = f"manifest{line_suffix}.json" if line_suffix else "manifest.json"
-    (directory / name).write_text(json.dumps({"files": entries}, indent=2) + "\n", encoding="utf-8")
+    scanned_by_file = {entry["file"]: entry for entry in entries}
+    merged_entries = []
+    for existing in existing_entries:
+        scanned = scanned_by_file.pop(existing.get("file"), None)
+        if scanned is None:
+            continue
+        merged = dict(existing)
+        merged.update(scanned)
+        merged_entries.append(merged)
+    new_entries = list(scanned_by_file.values())
+    new_entries.sort(key=lambda item: (-item["year"], item["scope"], item["contest_type"]))
+    merged_entries[0:0] = new_entries
+    manifest_path.write_text(json.dumps({"files": merged_entries}, indent=2) + "\n", encoding="utf-8")
 
 
 def main() -> int:
@@ -370,7 +386,19 @@ def main() -> int:
     parser.add_argument("--contests", default="data/contests_2025_crosswalked")
     parser.add_argument("--crosswalk", default="data/crosswalk/current_precinct_to_district_weights.json")
     parser.add_argument("--precincts", default="data/Voting_Precincts.geojson")
+    parser.add_argument("--year", type=int, action="append", help="Only rebuild the selected year (repeatable)")
+    parser.add_argument(
+        "--line-specific-state-house-only",
+        action="store_true",
+        help="Only write the dedicated 2022-line and 2024-line State House outputs",
+    )
+    parser.add_argument(
+        "--qa-output",
+        default="data/district_contests/current_geojson_qa.json",
+        help="QA output path, relative to the repository unless absolute",
+    )
     args = parser.parse_args()
+    selected_years = set(args.year or [])
     contest_dir = REPO_ROOT / args.contests
     manifest = json.loads((contest_dir / "manifest.json").read_text(encoding="utf-8"))
     crosswalk = json.loads((REPO_ROOT / args.crosswalk).read_text(encoding="utf-8"))
@@ -401,6 +429,8 @@ def main() -> int:
     comparison_count = 0
     rebuilt_dirs = set()
     for scope_key, out_rel, prefix, suffix, district_lines in OUTPUTS:
+        if args.line_specific_state_house_only and district_lines not in {"2022_lines", "2024_lines"}:
+            continue
         scope_data = crosswalk["scopes"][scope_key]
         # Contest rows use friendly display labels while the geometry crosswalk
         # stores Fiscal Affairs precinct_norm keys. Normalize both sides with
@@ -415,8 +445,12 @@ def main() -> int:
         out_dir.mkdir(parents=True, exist_ok=True)
         rebuilt_dirs.add((out_dir, suffix, district_lines))
         for entry in manifest.get("files") or []:
+            if selected_years and int(entry.get("year") or 0) not in selected_years:
+                continue
             contest = json.loads((contest_dir / entry["file"]).read_text(encoding="utf-8"))
             payload, meta = rebuild_one(contest, weights, scope_key, scope_data["district_file"])
+            if not ((payload.get("general") or {}).get("results") or {}):
+                continue
             calibration_key = "state_house_root" if prefix == "state_house" and district_lines is None else scope_key
             contest_key = f"{entry['contest_type']}_{entry['year']}"
             targets = (snapshot_targets.get(calibration_key) or {}).get(contest_key)
@@ -463,17 +497,41 @@ def main() -> int:
             name = f"{prefix}_{entry['contest_type']}_{entry['year']}{suffix}.json"
             (out_dir / name).write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
             qa.append({"scope": scope_key, "contest_type": entry["contest_type"], "year": entry["year"], "file": name, **meta})
+
+    if args.line_specific_state_house_only and selected_years:
+        current_lines_dir = REPO_ROOT / "data/district_contests/state_house_2024_lines"
+        current_lines_dir.mkdir(parents=True, exist_ok=True)
+        rebuilt_dirs.add((current_lines_dir, "_2024_lines", "2024_lines"))
+        for year in sorted(selected_years):
+            source_path = REPO_ROOT / "data/district_contests" / f"state_house_state_house_{year}.json"
+            if not source_path.exists():
+                continue
+            payload = json.loads(source_path.read_text(encoding="utf-8"))
+            payload.setdefault("meta", {})
+            payload["meta"].update({
+                "district_lines_version": "2024_lines",
+                "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
+                "source_file": source_path.name,
+            })
+            target_path = current_lines_dir / source_path.name
+            target_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     for directory, suffix, district_lines in rebuilt_dirs:
         if district_lines:
             for stale in directory.glob("state_house_*.json"):
-                if not stale.name.endswith(f"{suffix}.json"):
+                is_current_lines_direct_race = (
+                    district_lines == "2024_lines" and stale.name.startswith("state_house_state_house_")
+                )
+                if not stale.name.endswith(f"{suffix}.json") and not is_current_lines_direct_race:
                     stale.unlink()
             desired_manifest = f"manifest{suffix}.json"
             for stale in directory.glob("manifest*.json"):
                 if stale.name != desired_manifest:
                     stale.unlink()
         rebuild_manifest(directory, suffix, district_lines)
-    qa_path = REPO_ROOT / "data/district_contests/current_geojson_qa.json"
+    qa_path = Path(args.qa_output)
+    if not qa_path.is_absolute():
+        qa_path = REPO_ROOT / qa_path
+    qa_path.parent.mkdir(parents=True, exist_ok=True)
     qa_path.write_text(
         json.dumps(
             {

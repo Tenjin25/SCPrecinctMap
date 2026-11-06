@@ -3,7 +3,7 @@
 ## 2026-11-05
 
 - Added unofficial 2026 precinct results for seven statewide contests and all 124 State House contests, credited to [SCPOL Elections](https://elections.scpol.info/2026/).
-- Converted the wide source exports to the repository's OpenElections-compatible format and rebuilt the county, precinct, congressional, State House, and State Senate result layers.
+- Converted the wide source exports to the repository's OpenElections-compatible format and rebuilt the county, precinct, congressional, State House, and State Senate result layers. Statewide overlays now cover both the 2022-line and 2024-line State House views; direct 2026 House races use the current 2024 lines.
 
 ## 2026-10-06
 
