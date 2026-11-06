@@ -4,14 +4,14 @@
       "year": 2026,
       "contest_type": "governor",
       "file": "governor_2026.json",
-      "rows": 46,
+      "rows": 2307,
       "major_party_contested": true
     },
     {
       "year": 2026,
       "contest_type": "us_senate",
       "file": "us_senate_2026.json",
-      "rows": 46,
+      "rows": 2307,
       "major_party_contested": true
     },
     {
@@ -25,35 +25,35 @@
       "year": 2026,
       "contest_type": "secretary_of_state",
       "file": "secretary_of_state_2026.json",
-      "rows": 46,
+      "rows": 2307,
       "major_party_contested": true
     },
     {
       "year": 2026,
       "contest_type": "superintendent",
       "file": "superintendent_2026.json",
-      "rows": 46,
+      "rows": 2307,
       "major_party_contested": true
     },
     {
       "year": 2026,
       "contest_type": "state_treasurer",
       "file": "state_treasurer_2026.json",
-      "rows": 46,
+      "rows": 2307,
       "major_party_contested": true
     },
     {
       "year": 2026,
       "contest_type": "comptroller_general",
       "file": "comptroller_general_2026.json",
-      "rows": 46,
+      "rows": 2307,
       "major_party_contested": true
     },
     {
       "year": 2026,
       "contest_type": "commissioner_agriculture",
       "file": "commissioner_agriculture_2026.json",
-      "rows": 46,
+      "rows": 2307,
       "major_party_contested": true
     },
     {

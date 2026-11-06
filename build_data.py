@@ -923,6 +923,8 @@ def build_district_contests(years: set[int] | None = None):
             mapping = DISTRICT_OFFICE_MAP.get(office_raw)
             if not mapping:
                 continue
+            if year == 2026 and mapping == ('state_senate', 'state_senate'):
+                continue
             by_scope.setdefault(mapping, []).append(row)
 
         for (scope, ct), d_rows in by_scope.items():
@@ -1210,7 +1212,7 @@ def load_block_assignment_precinct_weights() -> dict[str, dict[str, dict[str, fl
     return out
 
 
-def build_statewide_contests_by_district_from_slices() -> int:
+def build_statewide_contests_by_district_from_slices(years: set[int] | None = None) -> int:
     """
     Build per-district results for *statewide* contest slices (President, US Senate, etc.)
     by assigning each precinct to a district polygon and summing precinct rows from
@@ -1303,6 +1305,12 @@ def build_statewide_contests_by_district_from_slices() -> int:
 
     dist_dir = os.path.join(DATA_OUT, 'district_contests')
     os.makedirs(dist_dir, exist_ok=True)
+    district_manifest_path = os.path.join(dist_dir, 'manifest.json')
+    try:
+        with open(district_manifest_path, encoding='utf-8') as fh:
+            existing_manifest_entries = list((json.load(fh) or {}).get('files') or [])
+    except (FileNotFoundError, json.JSONDecodeError):
+        existing_manifest_entries = []
 
     written = 0
 
@@ -1318,6 +1326,8 @@ def build_statewide_contests_by_district_from_slices() -> int:
         contest_type = entry.get('contest_type')
         fname = entry.get('file')
         if not (year and contest_type and fname):
+            continue
+        if years is not None and int(year) not in years:
             continue
         contest_path = os.path.join(DATA_OUT, 'contests', fname)
         if not os.path.exists(contest_path):
@@ -1467,7 +1477,7 @@ def build_statewide_contests_by_district_from_slices() -> int:
             written += 1
 
     # Rebuild manifest from disk so it includes both district-race and statewide-by-district slices.
-    manifest_entries = []
+    scanned_entries = []
     for fn in os.listdir(dist_dir):
         if not fn.endswith('.json') or fn == 'manifest.json':
             continue
@@ -1500,7 +1510,7 @@ def build_statewide_contests_by_district_from_slices() -> int:
         except Exception:
             rows_count = 0
 
-        manifest_entries.append({
+        scanned_entries.append({
             'year': y,
             'contest_type': contest_type,
             'scope': scope,
@@ -1508,8 +1518,28 @@ def build_statewide_contests_by_district_from_slices() -> int:
             'rows': rows_count,
         })
 
-    manifest_entries.sort(key=lambda e: (-e['year'], _PRIORITY.get(e['contest_type'], 99), e['scope']))
-    write_json({'files': manifest_entries}, os.path.join(dist_dir, 'manifest.json'))
+    scanned_by_file = {entry['file']: entry for entry in scanned_entries}
+    manifest_entries = []
+    for existing in existing_manifest_entries:
+        file_name = existing.get('file')
+        scanned = scanned_by_file.pop(file_name, None)
+        if scanned is None:
+            continue
+        merged = dict(existing)
+        merged.update(scanned)
+        manifest_entries.append(merged)
+
+    new_entries = list(scanned_by_file.values())
+    new_entries.sort(key=lambda e: (-e['year'], _PRIORITY.get(e['contest_type'], 99), e['scope']))
+    if years and new_entries:
+        insert_at = max(
+            (idx + 1 for idx, entry in enumerate(manifest_entries) if int(entry.get('year') or 0) in years),
+            default=0,
+        )
+        manifest_entries[insert_at:insert_at] = new_entries
+    else:
+        manifest_entries.extend(new_entries)
+    write_json({'files': manifest_entries}, district_manifest_path, indent=2)
     return written
 
 

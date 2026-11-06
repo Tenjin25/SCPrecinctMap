@@ -461,6 +461,12 @@ def main() -> None:
     ap.add_argument("--manual-historical-weights", default="data/crosswalk/manual_historical_current_weight_overrides.json")
     ap.add_argument("--aliases", default="precinct_aliases.json")
     ap.add_argument("--precincts", default="data/Voting_Precincts.geojson")
+    ap.add_argument(
+        "--year",
+        type=int,
+        action="append",
+        help="Only rebuild the selected election year (repeatable); preserve other output manifest and QA entries",
+    )
     args = ap.parse_args()
 
     base = os.path.abspath(args.base)
@@ -487,10 +493,33 @@ def main() -> None:
     manifest_path = os.path.join(contests_dir, "manifest.json")
     with open(manifest_path, encoding="utf-8") as fh:
         manifest = json.load(fh) or {}
+    selected_years = set(args.year or [])
+    out_manifest_path = os.path.join(out_dir, "manifest.json")
+    qa_name = "qa_2025_crosswalked.json" if "2025" in os.path.basename(out_dir) else "qa_vtd20_crosswalked.json"
+    qa_path = os.path.join(out_dir, qa_name)
+
     out_manifest = {"files": []}
     qa = []
+    if selected_years and os.path.exists(out_manifest_path):
+        with open(out_manifest_path, encoding="utf-8") as fh:
+            previous_manifest = json.load(fh) or {}
+        out_manifest["files"] = list(previous_manifest.get("files") or [])
+    if selected_years and os.path.exists(qa_path):
+        with open(qa_path, encoding="utf-8") as fh:
+            previous_qa = json.load(fh) or {}
+        qa = list(previous_qa.get("stats") or [])
+
+    def upsert(rows: list[dict], replacement: dict) -> None:
+        key = (int(replacement.get("year") or 0), str(replacement.get("contest_type") or ""))
+        for idx, row in enumerate(rows):
+            if (int(row.get("year") or 0), str(row.get("contest_type") or "")) == key:
+                rows[idx] = replacement
+                return
+        rows.append(replacement)
 
     for entry in manifest.get("files") or []:
+        if selected_years and int(entry.get("year") or 0) not in selected_years:
+            continue
         file_name = str(entry.get("file") or "").strip()
         if not file_name:
             continue
@@ -504,20 +533,19 @@ def main() -> None:
         county_rows = [row for row in out_payload["rows"] if " - " not in str(row.get("county") or "")]
         dem_total = sum(int(row.get("dem_votes") or 0) for row in county_rows)
         rep_total = sum(int(row.get("rep_votes") or 0) for row in county_rows)
-        out_manifest["files"].append({
+        upsert(out_manifest["files"], {
             "year": out_payload["year"],
             "contest_type": out_payload["contest_type"],
             "file": file_name,
             "rows": len(out_payload["rows"]),
             "major_party_contested": dem_total > 0 and rep_total > 0,
         })
-        qa.append(stats)
+        upsert(qa, stats)
 
-    with open(os.path.join(out_dir, "manifest.json"), "w", encoding="utf-8", newline="") as fh:
+    with open(out_manifest_path, "w", encoding="utf-8", newline="") as fh:
         json.dump(out_manifest, fh, indent=2)
         fh.write("\n")
-    qa_name = "qa_2025_crosswalked.json" if "2025" in os.path.basename(out_dir) else "qa_vtd20_crosswalked.json"
-    with open(os.path.join(out_dir, qa_name), "w", encoding="utf-8", newline="") as fh:
+    with open(qa_path, "w", encoding="utf-8", newline="") as fh:
         json.dump({"stats": qa}, fh, indent=2)
         fh.write("\n")
 
