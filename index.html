@@ -10831,8 +10831,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-11-05-precinct-results-v3';
-    const APP_BUILD_ID = '2026-10-06-mobile-contest-ready-v4';
+    const DATA_CACHE_BUSTER = '2026-11-05-legislative-click-zoom-v4';
+    const APP_BUILD_ID = '2026-11-05-legislative-click-zoom-v5';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -30695,18 +30695,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const requestId = ++districtZoomRequestId;
       let feature = fallbackFeature;
 
-      // Rendered vector-tile features can contain only the fragment currently on
-      // screen. Resolve the complete geometry so a tap frames the whole district,
-      // matching county selection on mobile.
-      try {
-        const sourceId = getDistrictSourceIdForScope(scope);
-        const path = getDistrictGeometryPath(scope, currentDistrictLinesYear);
-        const gj = await ensureSearchGeoJSON(sourceId, path);
-        const fullFeature = gj?.features?.find(
-          candidate => getDistrictNumberFromPropsNumeric(candidate?.properties) === Number(districtNum)
-        );
-        if (fullFeature) feature = fullFeature;
-      } catch (_) {}
+      // Legislative map clicks should fit the rendered district under the pointer.
+      // Resolving the full geometry here can include distant/disconnected pieces
+      // and produces a much weaker click-to-zoom. Congressional clicks and search
+      // selections still use complete geometry for consistent whole-district framing.
+      if (scope === 'congressional' || !feature) {
+        try {
+          const sourceId = getDistrictSourceIdForScope(scope);
+          const path = getDistrictGeometryPath(scope, currentDistrictLinesYear);
+          const gj = await ensureSearchGeoJSON(sourceId, path);
+          const fullFeature = gj?.features?.find(
+            candidate => getDistrictNumberFromPropsNumeric(candidate?.properties) === Number(districtNum)
+          );
+          if (fullFeature) feature = fullFeature;
+        } catch (_) {}
+      }
 
       if (requestId !== districtZoomRequestId || !feature) return false;
       let finishMove = null;
@@ -30908,7 +30911,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add click handler for districts with full trends popup
         map.on('click', 'district-fill', async (e) => {
           if (e.features && e.features[0] && e.features[0].properties) {
-            const props = e.features[0].properties;
+            const clickedFeature = e.features[0];
+            const props = clickedFeature.properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.CD118FP || props.CD119FP || props.district_id || props.district);
             if (districtNum) {
               // Show detailed sidebar (results + trends).
@@ -30926,7 +30930,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   ['DISTRICT', 'CD118FP', 'CD119FP', 'district_id', 'district', 'NAMELSAD']
                 );
               }
-              await zoomToDistrictSelection('congressional', districtNum, e.features[0]);
+              await zoomToDistrictSelection('congressional', districtNum, clickedFeature);
 
               // Pin vote counter to this district for current contest (if any).
               const contestValue = document.getElementById('contestSelect')?.value || '';
@@ -31025,7 +31029,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add click handler for state house districts with full trends popup
         map.on('click', 'state-house-fill', async (e) => {
           if (e.features && e.features[0] && e.features[0].properties) {
-            const props = e.features[0].properties;
+            const clickedFeature = e.features[0];
+            const props = clickedFeature.properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.SLDLST || props.district_id || props.district);
             if (districtNum) {
               // Show detailed sidebar (results + trends).
@@ -31041,7 +31046,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'State House District',
                 ['DISTRICT', 'SLDLST', 'district_id', 'district', 'NAMELSAD']
               );
-              await zoomToDistrictSelection('state_house', districtNum, e.features[0]);
+              await zoomToDistrictSelection('state_house', districtNum, clickedFeature);
 
               const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
@@ -31136,7 +31141,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add click handler for state senate districts with full trends popup
         map.on('click', 'state-senate-fill', async (e) => {
           if (e.features && e.features[0] && e.features[0].properties) {
-            const props = e.features[0].properties;
+            const clickedFeature = e.features[0];
+            const props = clickedFeature.properties;
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.SLDUST || props.district_id || props.district);
             if (districtNum) {
               // Show detailed sidebar (results + trends).
@@ -31152,7 +31158,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'State Senate District',
                 ['DISTRICT', 'SLDUST', 'district_id', 'district', 'NAMELSAD']
               );
-              await zoomToDistrictSelection('state_senate', districtNum, e.features[0]);
+              await zoomToDistrictSelection('state_senate', districtNum, clickedFeature);
 
               const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
