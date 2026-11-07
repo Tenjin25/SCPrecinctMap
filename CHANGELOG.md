@@ -5,6 +5,7 @@
 - Refreshed the 2026 results from the SCPOL/SC Votes ENR feed after all 46 county feeds were marked certified; final statewide certification is still pending.
 - Added precinct-level Attorney General and all seven U.S. House contests, and rebuilt the county, precinct, congressional, State House, and State Senate statewide-overlay layers. The 2026 State Senate direct contest remains excluded.
 - Added a reproducible importer and feed metadata snapshot so future certification updates can be checked and regenerated from the normalized source.
+- Added a runtime-only GitHub Pages workflow that validates the static artifact on pull requests and excludes raw election inputs, development scripts, tests, screenshots, and QA staging files from production deployments.
 
 ## 2026-11-05
 
