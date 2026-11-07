@@ -1062,9 +1062,9 @@
       "year": 2026,
       "contest_type": "attorney_general",
       "source_file": "attorney_general_2026.json",
-      "source_rows": 46,
+      "source_rows": 2330,
       "county_rows": 46,
-      "precinct_rows": 0,
+      "precinct_rows": 2284,
       "weighted_rows": 0,
       "weighted_vtd20_current_rows": 0,
       "weighted_reviewed_2022_house_ballot_rows": 0,
@@ -1076,10 +1076,10 @@
       "weighted_vtd10_rows": 0,
       "weighted_vtd10_fallback_rows": 0,
       "weighted_expanded_extra_rows": 0,
-      "alias_rows": 0,
-      "direct_rows": 0,
-      "unmatched_rows": 0,
-      "output_rows": 46
+      "alias_rows": 70,
+      "direct_rows": 2133,
+      "unmatched_rows": 81,
+      "output_rows": 2307
     },
     {
       "year": 2026,

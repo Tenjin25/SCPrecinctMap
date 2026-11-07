@@ -2,6 +2,15 @@
   "files": [
     {
       "scope": "state_house",
+      "contest_type": "attorney_general",
+      "year": 2026,
+      "file": "state_house_attorney_general_2026_2022_lines.json",
+      "rows": 124,
+      "major_party_contested": true,
+      "district_lines": "2022_lines"
+    },
+    {
+      "scope": "state_house",
       "contest_type": "commissioner_agriculture",
       "year": 2026,
       "file": "state_house_commissioner_agriculture_2026_2022_lines.json",

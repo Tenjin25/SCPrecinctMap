@@ -1,5 +1,11 @@
 # Change history
 
+## 2026-11-06
+
+- Refreshed the 2026 results from the SCPOL/SC Votes ENR feed after all 46 county feeds were marked certified; final statewide certification is still pending.
+- Added precinct-level Attorney General and all seven U.S. House contests, and rebuilt the county, precinct, congressional, State House, and State Senate statewide-overlay layers. The 2026 State Senate direct contest remains excluded.
+- Added a reproducible importer and feed metadata snapshot so future certification updates can be checked and regenerated from the normalized source.
+
 ## 2026-11-05
 
 - Added unofficial 2026 precinct results for seven statewide contests and all 124 State House contests, credited to [SCPOL Elections](https://elections.scpol.info/2026/).

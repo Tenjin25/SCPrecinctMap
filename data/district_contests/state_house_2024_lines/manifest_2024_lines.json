@@ -2,6 +2,15 @@
   "files": [
     {
       "scope": "state_house",
+      "contest_type": "attorney_general",
+      "year": 2026,
+      "file": "state_house_attorney_general_2026_2024_lines.json",
+      "rows": 124,
+      "major_party_contested": true,
+      "district_lines": "2024_lines"
+    },
+    {
+      "scope": "state_house",
       "contest_type": "state_house",
       "year": 2026,
       "file": "state_house_state_house_2026.json",

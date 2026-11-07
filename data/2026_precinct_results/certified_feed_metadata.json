@@ -1,0 +1,388 @@
+{
+  "source_url": "https://elections.scpol.info/2026/normalized-enr.json",
+  "format_version": 1,
+  "election_id": "127300",
+  "statewide_results_version": "386034",
+  "fetched_at_utc": "2026-11-07T01:53:08.463100+00:00",
+  "last_updated_utc": "2026-11-06T23:18:22+00:00",
+  "source": "SC Votes ENR",
+  "county_count": 46,
+  "certified_county_count": 46,
+  "uncertified_counties": [],
+  "outputs": {
+    "sc-2026-governor-and-lieutenant-governor-precincts.csv": {
+      "rows": 2450,
+      "votes": 2037622,
+      "contests": 1
+    },
+    "sc-2026-secretary-of-state-precincts.csv": {
+      "rows": 2450,
+      "votes": 2026799,
+      "contests": 1
+    },
+    "sc-2026-state-treasurer-precincts.csv": {
+      "rows": 2450,
+      "votes": 2023312,
+      "contests": 1
+    },
+    "sc-2026-attorney-general-precincts.csv": {
+      "rows": 2450,
+      "votes": 2025414,
+      "contests": 1
+    },
+    "sc-2026-comptroller-general-precincts.csv": {
+      "rows": 2450,
+      "votes": 2014358,
+      "contests": 1
+    },
+    "sc-2026-state-superintendent-of-education-precincts.csv": {
+      "rows": 2450,
+      "votes": 2025691,
+      "contests": 1
+    },
+    "sc-2026-commissioner-of-agriculture-precincts.csv": {
+      "rows": 2450,
+      "votes": 2021197,
+      "contests": 1
+    },
+    "sc-2026-u-s-senate-precincts.csv": {
+      "rows": 2450,
+      "votes": 2040895,
+      "contests": 1
+    },
+    "sc-2026-all-u-s-house-precincts.csv": {
+      "rows": 2495,
+      "votes": 2032136,
+      "contests": 7
+    },
+    "sc-2026-all-state-house-precincts.csv": {
+      "rows": 3307,
+      "votes": 1971487,
+      "contests": 124
+    }
+  },
+  "counties": {
+    "Abbeville": {
+      "election_id": "127301",
+      "results_version": "385871",
+      "last_updated_raw": "11/6/2026 10:52:28 AM EST",
+      "last_updated_utc": "2026-11-06T15:52:28+00:00",
+      "certified": true
+    },
+    "Aiken": {
+      "election_id": "127302",
+      "results_version": "385836",
+      "last_updated_raw": "11/6/2026 9:13:58 AM EST",
+      "last_updated_utc": "2026-11-06T14:13:58+00:00",
+      "certified": true
+    },
+    "Allendale": {
+      "election_id": "127303",
+      "results_version": "385862",
+      "last_updated_raw": "11/6/2026 10:33:50 AM EST",
+      "last_updated_utc": "2026-11-06T15:33:50+00:00",
+      "certified": true
+    },
+    "Anderson": {
+      "election_id": "127304",
+      "results_version": "385929",
+      "last_updated_raw": "11/6/2026 12:50:42 PM EST",
+      "last_updated_utc": "2026-11-06T17:50:42+00:00",
+      "certified": true
+    },
+    "Bamberg": {
+      "election_id": "127305",
+      "results_version": "385860",
+      "last_updated_raw": "11/6/2026 10:42:56 AM EST",
+      "last_updated_utc": "2026-11-06T15:42:56+00:00",
+      "certified": true
+    },
+    "Barnwell": {
+      "election_id": "127306",
+      "results_version": "385927",
+      "last_updated_raw": "11/6/2026 12:35:16 PM EST",
+      "last_updated_utc": "2026-11-06T17:35:16+00:00",
+      "certified": true
+    },
+    "Beaufort": {
+      "election_id": "127307",
+      "results_version": "386009",
+      "last_updated_raw": "11/6/2026 4:38:13 PM EST",
+      "last_updated_utc": "2026-11-06T21:38:13+00:00",
+      "certified": true
+    },
+    "Berkeley": {
+      "election_id": "127308",
+      "results_version": "386000",
+      "last_updated_raw": "11/6/2026 4:16:42 PM EST",
+      "last_updated_utc": "2026-11-06T21:16:42+00:00",
+      "certified": true
+    },
+    "Calhoun": {
+      "election_id": "127309",
+      "results_version": "385943",
+      "last_updated_raw": "11/6/2026 1:49:39 PM EST",
+      "last_updated_utc": "2026-11-06T18:49:39+00:00",
+      "certified": true
+    },
+    "Charleston": {
+      "election_id": "127310",
+      "results_version": "385892",
+      "last_updated_raw": "11/6/2026 12:00:43 PM EST",
+      "last_updated_utc": "2026-11-06T17:00:43+00:00",
+      "certified": true
+    },
+    "Cherokee": {
+      "election_id": "127311",
+      "results_version": "385890",
+      "last_updated_raw": "11/6/2026 11:29:55 AM EST",
+      "last_updated_utc": "2026-11-06T16:29:55+00:00",
+      "certified": true
+    },
+    "Chester": {
+      "election_id": "127312",
+      "results_version": "385910",
+      "last_updated_raw": "11/6/2026 12:03:30 PM EST",
+      "last_updated_utc": "2026-11-06T17:03:30+00:00",
+      "certified": true
+    },
+    "Chesterfield": {
+      "election_id": "127313",
+      "results_version": "385881",
+      "last_updated_raw": "11/6/2026 11:17:48 AM EST",
+      "last_updated_utc": "2026-11-06T16:17:48+00:00",
+      "certified": true
+    },
+    "Clarendon": {
+      "election_id": "127314",
+      "results_version": "385901",
+      "last_updated_raw": "11/6/2026 11:59:49 AM EST",
+      "last_updated_utc": "2026-11-06T16:59:49+00:00",
+      "certified": true
+    },
+    "Colleton": {
+      "election_id": "127315",
+      "results_version": "385934",
+      "last_updated_raw": "11/6/2026 1:26:11 PM EST",
+      "last_updated_utc": "2026-11-06T18:26:11+00:00",
+      "certified": true
+    },
+    "Darlington": {
+      "election_id": "127316",
+      "results_version": "385889",
+      "last_updated_raw": "11/6/2026 11:41:13 AM EST",
+      "last_updated_utc": "2026-11-06T16:41:13+00:00",
+      "certified": true
+    },
+    "Dillon": {
+      "election_id": "127317",
+      "results_version": "385855",
+      "last_updated_raw": "11/6/2026 10:03:10 AM EST",
+      "last_updated_utc": "2026-11-06T15:03:10+00:00",
+      "certified": true
+    },
+    "Dorchester": {
+      "election_id": "127318",
+      "results_version": "385958",
+      "last_updated_raw": "11/6/2026 2:47:53 PM EST",
+      "last_updated_utc": "2026-11-06T19:47:53+00:00",
+      "certified": true
+    },
+    "Edgefield": {
+      "election_id": "127319",
+      "results_version": "385857",
+      "last_updated_raw": "11/6/2026 10:03:51 AM EST",
+      "last_updated_utc": "2026-11-06T15:03:51+00:00",
+      "certified": true
+    },
+    "Fairfield": {
+      "election_id": "127320",
+      "results_version": "385924",
+      "last_updated_raw": "11/6/2026 2:17:51 PM EST",
+      "last_updated_utc": "2026-11-06T19:17:51+00:00",
+      "certified": true
+    },
+    "Florence": {
+      "election_id": "127321",
+      "results_version": "385925",
+      "last_updated_raw": "11/6/2026 12:33:16 PM EST",
+      "last_updated_utc": "2026-11-06T17:33:16+00:00",
+      "certified": true
+    },
+    "Georgetown": {
+      "election_id": "127322",
+      "results_version": "385959",
+      "last_updated_raw": "11/6/2026 3:07:16 PM EST",
+      "last_updated_utc": "2026-11-06T20:07:16+00:00",
+      "certified": true
+    },
+    "Greenville": {
+      "election_id": "127323",
+      "results_version": "385962",
+      "last_updated_raw": "11/6/2026 3:02:44 PM EST",
+      "last_updated_utc": "2026-11-06T20:02:44+00:00",
+      "certified": true
+    },
+    "Greenwood": {
+      "election_id": "127324",
+      "results_version": "385887",
+      "last_updated_raw": "11/6/2026 12:02:47 PM EST",
+      "last_updated_utc": "2026-11-06T17:02:47+00:00",
+      "certified": true
+    },
+    "Hampton": {
+      "election_id": "127325",
+      "results_version": "385922",
+      "last_updated_raw": "11/6/2026 12:28:40 PM EST",
+      "last_updated_utc": "2026-11-06T17:28:40+00:00",
+      "certified": true
+    },
+    "Horry": {
+      "election_id": "127326",
+      "results_version": "385891",
+      "last_updated_raw": "11/6/2026 11:42:30 AM EST",
+      "last_updated_utc": "2026-11-06T16:42:30+00:00",
+      "certified": true
+    },
+    "Jasper": {
+      "election_id": "127327",
+      "results_version": "385875",
+      "last_updated_raw": "11/6/2026 11:05:37 AM EST",
+      "last_updated_utc": "2026-11-06T16:05:37+00:00",
+      "certified": true
+    },
+    "Kershaw": {
+      "election_id": "127328",
+      "results_version": "385864",
+      "last_updated_raw": "11/6/2026 11:09:58 AM EST",
+      "last_updated_utc": "2026-11-06T16:09:58+00:00",
+      "certified": true
+    },
+    "Lancaster": {
+      "election_id": "127329",
+      "results_version": "385930",
+      "last_updated_raw": "11/6/2026 12:51:37 PM EST",
+      "last_updated_utc": "2026-11-06T17:51:37+00:00",
+      "certified": true
+    },
+    "Laurens": {
+      "election_id": "127330",
+      "results_version": "385954",
+      "last_updated_raw": "11/6/2026 2:53:28 PM EST",
+      "last_updated_utc": "2026-11-06T19:53:28+00:00",
+      "certified": true
+    },
+    "Lee": {
+      "election_id": "127331",
+      "results_version": "385863",
+      "last_updated_raw": "11/6/2026 10:34:43 AM EST",
+      "last_updated_utc": "2026-11-06T15:34:43+00:00",
+      "certified": true
+    },
+    "Lexington": {
+      "election_id": "127332",
+      "results_version": "385978",
+      "last_updated_raw": "11/6/2026 3:24:43 PM EST",
+      "last_updated_utc": "2026-11-06T20:24:43+00:00",
+      "certified": true
+    },
+    "Marion": {
+      "election_id": "127333",
+      "results_version": "385956",
+      "last_updated_raw": "11/6/2026 2:25:25 PM EST",
+      "last_updated_utc": "2026-11-06T19:25:25+00:00",
+      "certified": true
+    },
+    "Marlboro": {
+      "election_id": "127334",
+      "results_version": "385888",
+      "last_updated_raw": "11/6/2026 11:35:16 AM EST",
+      "last_updated_utc": "2026-11-06T16:35:16+00:00",
+      "certified": true
+    },
+    "McCormick": {
+      "election_id": "127335",
+      "results_version": "385874",
+      "last_updated_raw": "11/6/2026 11:04:46 AM EST",
+      "last_updated_utc": "2026-11-06T16:04:46+00:00",
+      "certified": true
+    },
+    "Newberry": {
+      "election_id": "127336",
+      "results_version": "385909",
+      "last_updated_raw": "11/6/2026 1:46:54 PM EST",
+      "last_updated_utc": "2026-11-06T18:46:54+00:00",
+      "certified": true
+    },
+    "Oconee": {
+      "election_id": "127337",
+      "results_version": "385907",
+      "last_updated_raw": "11/6/2026 12:06:29 PM EST",
+      "last_updated_utc": "2026-11-06T17:06:29+00:00",
+      "certified": true
+    },
+    "Orangeburg": {
+      "election_id": "127338",
+      "results_version": "385903",
+      "last_updated_raw": "11/6/2026 11:56:16 AM EST",
+      "last_updated_utc": "2026-11-06T16:56:16+00:00",
+      "certified": true
+    },
+    "Pickens": {
+      "election_id": "127339",
+      "results_version": "385967",
+      "last_updated_raw": "11/6/2026 2:51:46 PM EST",
+      "last_updated_utc": "2026-11-06T19:51:46+00:00",
+      "certified": true
+    },
+    "Richland": {
+      "election_id": "127340",
+      "results_version": "386030",
+      "last_updated_raw": "11/6/2026 6:18:22 PM EST",
+      "last_updated_utc": "2026-11-06T23:18:22+00:00",
+      "certified": true
+    },
+    "Saluda": {
+      "election_id": "127341",
+      "results_version": "385879",
+      "last_updated_raw": "11/6/2026 11:14:26 AM EST",
+      "last_updated_utc": "2026-11-06T16:14:26+00:00",
+      "certified": true
+    },
+    "Spartanburg": {
+      "election_id": "127342",
+      "results_version": "385946",
+      "last_updated_raw": "11/6/2026 1:47:59 PM EST",
+      "last_updated_utc": "2026-11-06T18:47:59+00:00",
+      "certified": true
+    },
+    "Sumter": {
+      "election_id": "127343",
+      "results_version": "385885",
+      "last_updated_raw": "11/6/2026 11:20:49 AM EST",
+      "last_updated_utc": "2026-11-06T16:20:49+00:00",
+      "certified": true
+    },
+    "Union": {
+      "election_id": "127344",
+      "results_version": "385914",
+      "last_updated_raw": "11/6/2026 12:19:19 PM EST",
+      "last_updated_utc": "2026-11-06T17:19:19+00:00",
+      "certified": true
+    },
+    "Williamsburg": {
+      "election_id": "127345",
+      "results_version": "385858",
+      "last_updated_raw": "11/6/2026 10:13:38 AM EST",
+      "last_updated_utc": "2026-11-06T15:13:38+00:00",
+      "certified": true
+    },
+    "York": {
+      "election_id": "127346",
+      "results_version": "386003",
+      "last_updated_raw": "11/6/2026 4:18:06 PM EST",
+      "last_updated_utc": "2026-11-06T21:18:06+00:00",
+      "certified": true
+    }
+  }
+}
