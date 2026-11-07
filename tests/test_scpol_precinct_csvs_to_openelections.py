@@ -19,6 +19,10 @@ class ScpolPrecinctConversionTests(unittest.TestCase):
             parse_contest("State House of Representatives, District 007"),
             ("State House", "7"),
         )
+        self.assertEqual(
+            parse_contest("U.S. House of Representatives, District 01"),
+            ("U.S. House", "1"),
+        )
 
     def test_convert_replaces_only_matching_office(self):
         with tempfile.TemporaryDirectory() as temp_dir:

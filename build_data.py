@@ -786,7 +786,7 @@ def aggregate_all(
     return county_agg, precinct_agg
 
 
-def build_election_data():
+def build_election_data(years: set[int] | None = None):
     print('\n=== County/Precinct Contest JSONs ===')
     contests_dir = os.path.join(DATA_OUT, 'contests')
     os.makedirs(contests_dir, exist_ok=True)
@@ -795,6 +795,8 @@ def build_election_data():
     precinct_aliases = load_precinct_aliases(precinct_display_by_norm)
 
     for year, csv_path in sorted(ELECTION_FILES.items()):
+        if years is not None and year not in years:
+            continue
         if not os.path.exists(csv_path):
             print(f'  SKIP {year}: file not found at {csv_path}')
             continue

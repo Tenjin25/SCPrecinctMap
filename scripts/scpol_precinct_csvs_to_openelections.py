@@ -42,6 +42,9 @@ WRITE_IN = re.compile(r"^Write-In\s+\(NON\)$", re.IGNORECASE)
 STATE_HOUSE_CONTEST = re.compile(
     r"^State House of Representatives, District\s+(\d+)$", re.IGNORECASE
 )
+US_HOUSE_CONTEST = re.compile(
+    r"^U\.S\. House of Representatives, District\s+(\d+)$", re.IGNORECASE
+)
 
 
 def integer(value: object, *, context: str) -> int:
@@ -72,6 +75,9 @@ def parse_contest(label: str) -> tuple[str, str]:
     state_house = STATE_HOUSE_CONTEST.fullmatch(contest)
     if state_house:
         return "State House", str(int(state_house.group(1)))
+    us_house = US_HOUSE_CONTEST.fullmatch(contest)
+    if us_house:
+        return "U.S. House", str(int(us_house.group(1)))
     return contest, ""
 
 
@@ -224,8 +230,8 @@ def main() -> int:
     args = parser.parse_args()
     stats = convert(args.input_dir.resolve(), args.output.resolve())
     print(
-        f"replaced {stats['sources']} statewide contests with "
-        f"{stats['precinct_reporting_units']} precinct/reporting units each"
+        f"replaced {stats['sources']} precinct export files with "
+        f"{stats['precinct_reporting_units']} precinct/reporting units"
     )
     print(
         f"preserved {stats['preserved_rows']} existing rows; wrote "
