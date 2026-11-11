@@ -10831,7 +10831,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-11-06-county-certified-results-v5';
+    const DATA_CACHE_BUSTER = '2026-11-10-state-certified-results-v6';
     const APP_BUILD_ID = '2026-11-05-legislative-click-zoom-v5';
 
     function withCacheBuster(path) {
@@ -12006,7 +12006,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let smartInsightsLastOverlayKey = '';
     let smartInsightsActiveCountySet = null; // Set<string countyNorm> (UPPERCASE) for the current contest
     let smartInsightsReasonsByCounty = null; // Map<string countyNorm, string[]> for tooltips
-    const RECOUNT_MARGIN_THRESHOLD_PCT = 0.5;
+    const RECOUNT_MARGIN_THRESHOLD_PCT = 1;
+    const ORDERED_2026_RECOUNTS = {
+      congressional: { us_house: new Set(['2']) },
+      state_house: { state_house: new Set(['27', '89']) }
+    };
     const RECOUNT_MIN_ZOOM = 7.25;
     const BELLWETHER_CYCLE_COUNT = 3;
     const BELLWETHER_MIN_TWO_PARTY_VOTES = 150;
@@ -25479,6 +25483,14 @@ document.addEventListener('DOMContentLoaded', function() {
       return getReadableFocusLabel();
     }
 
+    function isOrdered2026RecountFocus(meta) {
+      if (Number(year) !== 2026 || !meta || meta.kind !== 'district') return false;
+      const scope = String(meta.scope || '');
+      const contest = String(contestType || '');
+      const district = String(Number(meta.districtNum));
+      return Boolean(ORDERED_2026_RECOUNTS[scope]?.[contest]?.has(district));
+    }
+
     function updateRecountRadarBadge() {
       if (!map) {
         setRecountRadarBadgeVisible(false);
@@ -25518,7 +25530,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const focusLabel = recountFocusLabelFromMeta(state.meta || null);
       const safeFocusLabel = escapeHtml(focusLabel || 'Focused race');
       const voteLabel = marginVotes === 1 ? 'vote' : 'votes';
-      const html = `<span class="recount-label">Recount Watch</span><span>${safeFocusLabel}: Margin ${marginVotes.toLocaleString()} ${voteLabel} (${formatMarginPctForDisplay(marginPct)}%)</span>`;
+      const badgeLabel = isOrdered2026RecountFocus(state.meta || null) ? 'Official Recount' : 'Close Result';
+      const html = `<span class="recount-label">${badgeLabel}</span><span>${safeFocusLabel}: Margin ${marginVotes.toLocaleString()} ${voteLabel} (${formatMarginPctForDisplay(marginPct)}%)</span>`;
       setRecountRadarBadgeVisible(true, html);
     }
 

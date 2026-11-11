@@ -3,13 +3,29 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.fetch_scpol_certified_precinct_csvs import candidate_label, publish, write_wide_csv
+from scripts.fetch_scpol_certified_precinct_csvs import (
+    STATE_CERTIFICATION,
+    candidate_label,
+    publish,
+    write_wide_csv,
+)
 
 
 class ScpolCertifiedFeedTests(unittest.TestCase):
     def test_candidate_label(self):
         self.assertEqual(candidate_label({"name": "REP Jane Doe", "party": "REP"}), "REP Jane Doe (REP)")
         self.assertEqual(candidate_label({"name": "Write-In", "party": "NON"}), "Write-In (NON)")
+
+    def test_state_certification_keeps_ordered_recounts_explicit(self):
+        self.assertEqual(STATE_CERTIFICATION["status"], "official_except_ordered_recounts")
+        self.assertEqual(
+            STATE_CERTIFICATION["ordered_recounts"],
+            [
+                {"office": "U.S. House", "district": "2"},
+                {"office": "State House", "district": "27"},
+                {"office": "State House", "district": "89"},
+            ],
+        )
 
     def test_uncertified_county_is_rejected(self):
         counties = {f"County {index}": {"certified": True} for index in range(46)}

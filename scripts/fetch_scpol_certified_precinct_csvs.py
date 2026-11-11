@@ -19,6 +19,17 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_URL = "https://elections.scpol.info/2026/normalized-enr.json"
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "data/2026_precinct_results"
+STATE_CERTIFICATION = {
+    "status": "official_except_ordered_recounts",
+    "certification_date": "2026-11-10",
+    "source_url": "https://www.scvotes.gov/elections-statistics/election-results/",
+    "recount_results_url": "https://www.enr-scvotes.org/SC/127592/",
+    "ordered_recounts": [
+        {"office": "U.S. House", "district": "2"},
+        {"office": "State House", "district": "27"},
+        {"office": "State House", "district": "89"},
+    ],
+}
 
 SINGLE_RACES = OrderedDict(
     (
@@ -173,6 +184,7 @@ def publish(feed: dict[str, object], output_dir: Path, *, allow_uncertified: boo
         "fetched_at_utc": source_metadata.get("fetchedAtUtc"),
         "last_updated_utc": source_metadata.get("lastUpdatedUtc"),
         "source": source_metadata.get("source"),
+        "state_certification": STATE_CERTIFICATION,
         "county_count": len(county_metadata),
         "certified_county_count": len(county_metadata) - len(uncertified),
         "uncertified_counties": uncertified,

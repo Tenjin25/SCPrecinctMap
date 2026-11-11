@@ -26,14 +26,14 @@
         "color": "#fcbba1"
       },
       "6": {
-        "dem_votes": 180840,
-        "rep_votes": 79584,
+        "dem_votes": 181118,
+        "rep_votes": 79898,
         "other_votes": 318,
-        "total_votes": 260742,
+        "total_votes": 261334,
         "dem_candidate": "James E Jim Clyburn",
         "rep_candidate": "John Peterson",
-        "margin": -101256,
-        "margin_pct": -38.8338,
+        "margin": -101220,
+        "margin_pct": -38.732,
         "winner": "D",
         "color": "#2171b5"
       },

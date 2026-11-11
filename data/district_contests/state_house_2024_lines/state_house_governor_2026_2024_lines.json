@@ -1106,16 +1106,16 @@
         "color": "#c6dbef"
       },
       "93": {
-        "dem_votes": 9872,
-        "rep_votes": 6468,
-        "other_votes": 221,
-        "total_votes": 16561,
+        "dem_votes": 10137,
+        "rep_votes": 6792,
+        "other_votes": 224,
+        "total_votes": 17153,
         "dem_candidate": "Jermaine Johnson / Sam Skardon",
         "rep_candidate": "Alan Wilson / Mike Reichenbach",
-        "margin": -3404,
-        "margin_pct": -20.5543,
+        "margin": -3345,
+        "margin_pct": -19.501,
         "winner": "D",
-        "color": "#4292c6"
+        "color": "#6baed6"
       },
       "94": {
         "dem_votes": 6815,
@@ -1496,7 +1496,7 @@
     "precinct_rows_total": 2261,
     "precinct_rows_overlap_weighted": 2175,
     "precinct_rows_county_share_fallback": 86,
-    "precinct_votes_county_share_fallback": 82735,
+    "precinct_votes_county_share_fallback": 82740,
     "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",

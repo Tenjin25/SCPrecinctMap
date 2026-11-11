@@ -2,62 +2,82 @@
   "source_url": "https://elections.scpol.info/2026/normalized-enr.json",
   "format_version": 1,
   "election_id": "127300",
-  "statewide_results_version": "386034",
-  "fetched_at_utc": "2026-11-07T01:53:08.463100+00:00",
-  "last_updated_utc": "2026-11-06T23:18:22+00:00",
+  "statewide_results_version": "386661",
+  "fetched_at_utc": "2026-11-11T02:29:22.920846+00:00",
+  "last_updated_utc": "2026-11-10T22:17:57+00:00",
   "source": "SC Votes ENR",
+  "state_certification": {
+    "status": "official_except_ordered_recounts",
+    "certification_date": "2026-11-10",
+    "source_url": "https://www.scvotes.gov/elections-statistics/election-results/",
+    "recount_results_url": "https://www.enr-scvotes.org/SC/127592/",
+    "ordered_recounts": [
+      {
+        "office": "U.S. House",
+        "district": "2"
+      },
+      {
+        "office": "State House",
+        "district": "27"
+      },
+      {
+        "office": "State House",
+        "district": "89"
+      }
+    ]
+  },
   "county_count": 46,
   "certified_county_count": 46,
   "uncertified_counties": [],
   "outputs": {
     "sc-2026-governor-and-lieutenant-governor-precincts.csv": {
       "rows": 2450,
-      "votes": 2037622,
+      "votes": 2038214,
       "contests": 1
     },
     "sc-2026-secretary-of-state-precincts.csv": {
       "rows": 2450,
-      "votes": 2026799,
+      "votes": 2027390,
       "contests": 1
     },
     "sc-2026-state-treasurer-precincts.csv": {
       "rows": 2450,
-      "votes": 2023312,
+      "votes": 2023902,
       "contests": 1
     },
     "sc-2026-attorney-general-precincts.csv": {
       "rows": 2450,
-      "votes": 2025414,
+      "votes": 2026004,
       "contests": 1
     },
     "sc-2026-comptroller-general-precincts.csv": {
       "rows": 2450,
-      "votes": 2014358,
+      "votes": 2014944,
       "contests": 1
     },
     "sc-2026-state-superintendent-of-education-precincts.csv": {
       "rows": 2450,
-      "votes": 2025691,
+      "votes": 2026279,
       "contests": 1
     },
     "sc-2026-commissioner-of-agriculture-precincts.csv": {
       "rows": 2450,
-      "votes": 2021197,
+      "votes": 2021785,
       "contests": 1
     },
     "sc-2026-u-s-senate-precincts.csv": {
       "rows": 2450,
-      "votes": 2040895,
+      "votes": 2041487,
       "contests": 1
     },
     "sc-2026-all-u-s-house-precincts.csv": {
       "rows": 2495,
-      "votes": 2032136,
+      "votes": 2032728,
       "contests": 7
     },
     "sc-2026-all-state-house-precincts.csv": {
       "rows": 3307,
-      "votes": 1971487,
+      "votes": 1972077,
       "contests": 124
     }
   },
@@ -85,9 +105,9 @@
     },
     "Anderson": {
       "election_id": "127304",
-      "results_version": "385929",
-      "last_updated_raw": "11/6/2026 12:50:42 PM EST",
-      "last_updated_utc": "2026-11-06T17:50:42+00:00",
+      "results_version": "386117",
+      "last_updated_raw": "11/9/2026 2:30:16 PM EST",
+      "last_updated_utc": "2026-11-09T19:30:16+00:00",
       "certified": true
     },
     "Bamberg": {
@@ -120,9 +140,9 @@
     },
     "Calhoun": {
       "election_id": "127309",
-      "results_version": "385943",
-      "last_updated_raw": "11/6/2026 1:49:39 PM EST",
-      "last_updated_utc": "2026-11-06T18:49:39+00:00",
+      "results_version": "386659",
+      "last_updated_raw": "11/10/2026 5:17:57 PM EST",
+      "last_updated_utc": "2026-11-10T22:17:57+00:00",
       "certified": true
     },
     "Charleston": {
@@ -379,9 +399,9 @@
     },
     "York": {
       "election_id": "127346",
-      "results_version": "386003",
-      "last_updated_raw": "11/6/2026 4:18:06 PM EST",
-      "last_updated_utc": "2026-11-06T21:18:06+00:00",
+      "results_version": "386114",
+      "last_updated_raw": "11/9/2026 12:43:28 PM EST",
+      "last_updated_utc": "2026-11-09T17:43:28+00:00",
       "certified": true
     }
   }

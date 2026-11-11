@@ -1,5 +1,11 @@
 # Change history
 
+## 2026-11-10
+
+- Refreshed the 2026 precinct results to SC Votes ENR version 386661, including later Anderson, Calhoun, and York updates, and rebuilt the county, precinct, congressional, State House, and State Senate statewide-overlay layers.
+- Marked the November 3 results official after state certification except for the ordered recounts in U.S. House District 2 and State House Districts 27 and 89.
+- Updated Recount Radar to use South Carolina's 1% recount threshold and distinguish an ordered 2026 recount from an otherwise close focused result.
+
 ## 2026-11-06
 
 - Refreshed the 2026 results from the SCPOL/SC Votes ENR feed after all 46 county feeds were marked certified; final statewide certification is still pending.

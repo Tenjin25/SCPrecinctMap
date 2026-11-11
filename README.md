@@ -856,7 +856,7 @@ No backend service is required.
 - UI/interaction design baseline: NC Election Atlas (inspiration and interaction model)
 - South Carolina adaptation and implementation: The Palmetto Explorer project
 - Data sources include U.S. Census TIGER/Line geography files, OpenElections precinct CSVs, and South Carolina election exports transformed into OpenElections-compatible structure where needed
-- Unofficial 2026 precinct results: [SCPOL Elections](https://elections.scpol.info/2026/), which publishes open-source precinct exports assembled from the South Carolina Election Commission's county Election Night Reporting feeds
+- 2026 precinct results: [SCPOL Elections](https://elections.scpol.info/2026/), which publishes open-source precinct exports assembled from the South Carolina Election Commission's county Election Night Reporting feeds. SC Votes certified the November 3 results on November 10 except for the ordered recounts in U.S. House District 2 and State House Districts 27 and 89.
 
 ## Known Caveats
 

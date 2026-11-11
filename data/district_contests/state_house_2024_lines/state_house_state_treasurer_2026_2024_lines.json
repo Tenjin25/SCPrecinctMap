@@ -1106,16 +1106,16 @@
         "color": "#c6dbef"
       },
       "93": {
-        "dem_votes": 9902,
-        "rep_votes": 6568,
+        "dem_votes": 10172,
+        "rep_votes": 6888,
         "other_votes": 6,
-        "total_votes": 16476,
+        "total_votes": 17066,
         "dem_candidate": "Vincent Coe",
         "rep_candidate": "Curtis Loftis",
-        "margin": -3334,
-        "margin_pct": -20.2355,
+        "margin": -3284,
+        "margin_pct": -19.2429,
         "winner": "D",
-        "color": "#4292c6"
+        "color": "#6baed6"
       },
       "94": {
         "dem_votes": 6847,
@@ -1496,7 +1496,7 @@
     "precinct_rows_total": 2261,
     "precinct_rows_overlap_weighted": 2175,
     "precinct_rows_county_share_fallback": 86,
-    "precinct_votes_county_share_fallback": 82215,
+    "precinct_votes_county_share_fallback": 82220,
     "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",

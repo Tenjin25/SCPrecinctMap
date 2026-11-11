@@ -1106,16 +1106,16 @@
         "color": "#c6dbef"
       },
       "93": {
-        "dem_votes": 9948,
-        "rep_votes": 6538,
+        "dem_votes": 10207,
+        "rep_votes": 6869,
         "other_votes": 6,
-        "total_votes": 16492,
+        "total_votes": 17082,
         "dem_candidate": "Richard Hricik",
         "rep_candidate": "David Stumbo",
-        "margin": -3410,
-        "margin_pct": -20.6767,
+        "margin": -3338,
+        "margin_pct": -19.541,
         "winner": "D",
-        "color": "#4292c6"
+        "color": "#6baed6"
       },
       "94": {
         "dem_votes": 6891,
@@ -1496,7 +1496,7 @@
     "precinct_rows_total": 2261,
     "precinct_rows_overlap_weighted": 2175,
     "precinct_rows_county_share_fallback": 86,
-    "precinct_votes_county_share_fallback": 82290,
+    "precinct_votes_county_share_fallback": 82295,
     "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
