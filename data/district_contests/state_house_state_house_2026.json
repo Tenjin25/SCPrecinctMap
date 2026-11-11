@@ -326,16 +326,16 @@
         "color": "#2171b5"
       },
       "93": {
-        "dem_votes": 9643,
-        "rep_votes": 6294,
+        "dem_votes": 9910,
+        "rep_votes": 6617,
         "other_votes": 4,
-        "total_votes": 15941,
+        "total_votes": 16531,
         "dem_candidate": "Jerry Govan",
         "rep_candidate": "Alex Morris",
-        "margin": -3349,
-        "margin_pct": -21.0087,
+        "margin": -3293,
+        "margin_pct": -19.9202,
         "winner": "D",
-        "color": "#4292c6"
+        "color": "#6baed6"
       },
       "112": {
         "dem_votes": 10761,

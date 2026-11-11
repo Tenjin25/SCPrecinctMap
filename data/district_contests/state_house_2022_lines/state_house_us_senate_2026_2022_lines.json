@@ -1106,16 +1106,16 @@
         "color": "#9ecae1"
       },
       "93": {
-        "dem_votes": 10011,
-        "rep_votes": 5296,
-        "other_votes": 298,
-        "total_votes": 15605,
+        "dem_votes": 10300,
+        "rep_votes": 5591,
+        "other_votes": 306,
+        "total_votes": 16197,
         "dem_candidate": "Annie Andrews",
         "rep_candidate": "Darline Graham",
-        "margin": -4715,
-        "margin_pct": -30.2147,
+        "margin": -4709,
+        "margin_pct": -29.0733,
         "winner": "D",
-        "color": "#2171b5"
+        "color": "#4292c6"
       },
       "94": {
         "dem_votes": 7414,
@@ -1496,7 +1496,7 @@
     "precinct_rows_total": 2261,
     "precinct_rows_overlap_weighted": 2175,
     "precinct_rows_county_share_fallback": 86,
-    "precinct_votes_county_share_fallback": 82815,
+    "precinct_votes_county_share_fallback": 82820,
     "district_lines_file": "data/tileset/sc_state_house_2022_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",

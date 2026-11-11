@@ -1106,14 +1106,14 @@
         "color": "#c6dbef"
       },
       "93": {
-        "dem_votes": 9992,
-        "rep_votes": 6443,
+        "dem_votes": 10260,
+        "rep_votes": 6761,
         "other_votes": 6,
-        "total_votes": 16441,
+        "total_votes": 17027,
         "dem_candidate": "Tiffany Boozer",
         "rep_candidate": "Mike Burkhold",
-        "margin": -3549,
-        "margin_pct": -21.5863,
+        "margin": -3499,
+        "margin_pct": -20.5497,
         "winner": "D",
         "color": "#4292c6"
       },
@@ -1496,7 +1496,7 @@
     "precinct_rows_total": 2261,
     "precinct_rows_overlap_weighted": 2175,
     "precinct_rows_county_share_fallback": 86,
-    "precinct_votes_county_share_fallback": 81869,
+    "precinct_votes_county_share_fallback": 81874,
     "district_lines_file": "data/tileset/sc_state_house_2024_lines_tileset.geojson",
     "precinct_lines_file": "data/Voting_Precincts.geojson",
     "assignment_method": "current_precinct_polygon_overlap_with_county_share_fallback",
