@@ -33,6 +33,8 @@ import re
 import traceback
 import zipfile
 
+from scripts.certified_recount_overrides import apply_certified_recounts
+
 try:
     import shapefile  # pip install pyshp
 except ImportError:
@@ -997,6 +999,7 @@ def build_district_contests(years: set[int] | None = None):
                     'mixed_detail_rows_ignored': len(by_scope[(scope, ct)]) - len(d_rows),
                 },
             }
+            apply_certified_recounts(fname, payload, margin_color)
             write_json(payload, os.path.join(dist_dir, fname), indent=2)
             print(f'    {scope}/{ct} {year}: {len(results)} district(s)')
             manifest_entries.append({
