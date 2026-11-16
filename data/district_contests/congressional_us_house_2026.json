@@ -14,14 +14,14 @@
         "color": "#cb181d"
       },
       "2": {
-        "dem_votes": 144865,
-        "rep_votes": 147791,
-        "other_votes": 4008,
-        "total_votes": 296664,
+        "dem_votes": 144945,
+        "rep_votes": 147785,
+        "other_votes": 4007,
+        "total_votes": 296737,
         "dem_candidate": "Zyon Khalifa",
         "rep_candidate": "Joe Wilson",
-        "margin": 2926,
-        "margin_pct": 0.9863,
+        "margin": 2840,
+        "margin_pct": 0.9571,
         "winner": "R",
         "color": "#fcbba1"
       },

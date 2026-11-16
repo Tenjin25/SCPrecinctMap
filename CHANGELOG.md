@@ -1,5 +1,10 @@
 # Change history
 
+## 2026-11-15
+
+- Applied the certified November 11 recount totals to U.S. House District 2 and State House Districts 27 and 89 in the direct district layers, including the 2024 House line copy. The same candidates remain ahead.
+- Updated the recount badge and certification metadata. The normalized general-election precinct feed remains at its November 10 version, so individual precinct rows for these races have not been reconciled to the recount.
+
 ## 2026-11-10
 
 - Refreshed the 2026 precinct results to SC Votes ENR version 386661, including later Anderson, Calhoun, and York updates, and rebuilt the county, precinct, congressional, State House, and State Senate statewide-overlay layers.

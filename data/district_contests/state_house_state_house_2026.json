@@ -794,14 +794,14 @@
         "color": "#fc8a6a"
       },
       "27": {
-        "dem_votes": 9101,
-        "rep_votes": 9139,
+        "dem_votes": 9111,
+        "rep_votes": 9143,
         "other_votes": 8,
-        "total_votes": 18248,
+        "total_votes": 18262,
         "dem_candidate": "John MacCarthy",
         "rep_candidate": "David Vaughan",
-        "margin": 38,
-        "margin_pct": 0.2082,
+        "margin": 32,
+        "margin_pct": 0.1752,
         "winner": "R",
         "color": "#fcbba1"
       },
@@ -1131,13 +1131,13 @@
       },
       "89": {
         "dem_votes": 7263,
-        "rep_votes": 7156,
+        "rep_votes": 7157,
         "other_votes": 11,
-        "total_votes": 14430,
+        "total_votes": 14431,
         "dem_candidate": "Joe Madge",
         "rep_candidate": "Micah Caskey",
-        "margin": -107,
-        "margin_pct": -0.7415,
+        "margin": -106,
+        "margin_pct": -0.7345,
         "winner": "D",
         "color": "#c6dbef"
       },
