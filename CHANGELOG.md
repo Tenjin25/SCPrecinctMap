@@ -2,6 +2,7 @@
 
 ## 2026-11-15
 
+- Made the certified recount totals reproducible from `data/2026_certified_recounts.json`. Both direct district rebuild paths now reapply CD-2, HD-27, and HD-89 after aggregation, and the precinct fetch metadata reads the same source.
 - Applied the certified November 11 recount totals to U.S. House District 2 and State House Districts 27 and 89 in the direct district layers, including the 2024 House line copy. The same candidates remain ahead.
 - Updated the recount badge and certification metadata. The normalized general-election precinct feed remains at its November 10 version, so individual precinct rows for these races have not been reconciled to the recount.
 

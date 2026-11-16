@@ -11,26 +11,19 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import sys
 import urllib.request
 from collections import OrderedDict
 from pathlib import Path
 
-
 REPO_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO_ROOT))
+from scripts.certified_recount_overrides import load_certification  # noqa: E402
+
+
 DEFAULT_URL = "https://elections.scpol.info/2026/normalized-enr.json"
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "data/2026_precinct_results"
-STATE_CERTIFICATION = {
-    "status": "official_including_recounts",
-    "certification_date": "2026-11-11",
-    "source_url": "https://www.scvotes.gov/elections-statistics/election-results/",
-    "recount_results_url": "https://www.enr-scvotes.org/SC/127592/",
-    "certified_recounts": [
-        {"office": "U.S. House", "district": "2", "dem_votes": 144945, "rep_votes": 147785, "other_votes": 4007},
-        {"office": "State House", "district": "27", "dem_votes": 9111, "rep_votes": 9143, "other_votes": 8},
-        {"office": "State House", "district": "89", "dem_votes": 7263, "rep_votes": 7157, "other_votes": 11},
-    ],
-    "precinct_feed_note": "The normalized general-election precinct feed remains at its November 10 version; direct district totals use the separately certified recount results.",
-}
+STATE_CERTIFICATION = load_certification()
 
 SINGLE_RACES = OrderedDict(
     (

@@ -21,5 +21,12 @@ contests in `data/20261103__sc__general__precinct.csv` while preserving contests
 that are still available only from the SC Votes county-summary workbook. The
 2026 State Senate contest is intentionally excluded from this refresh.
 
+The certified recount source of truth is `data/2026_certified_recounts.json`.
+Both district rebuild paths apply those three direct-race totals after
+aggregation. A future precinct refresh can therefore regenerate the district
+JSONs without reverting the certified results. Update that source file if SC
+Votes publishes a correction; do not distribute recount differences among
+precincts without an official precinct-level recount export.
+
 Non-geographic rows such as failsafe and provisional reporting units remain in
 county totals but are not joined to precinct polygons.
