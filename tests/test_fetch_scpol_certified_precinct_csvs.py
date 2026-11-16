@@ -16,14 +16,14 @@ class ScpolCertifiedFeedTests(unittest.TestCase):
         self.assertEqual(candidate_label({"name": "REP Jane Doe", "party": "REP"}), "REP Jane Doe (REP)")
         self.assertEqual(candidate_label({"name": "Write-In", "party": "NON"}), "Write-In (NON)")
 
-    def test_state_certification_keeps_ordered_recounts_explicit(self):
-        self.assertEqual(STATE_CERTIFICATION["status"], "official_except_ordered_recounts")
+    def test_state_certification_records_recount_totals(self):
+        self.assertEqual(STATE_CERTIFICATION["status"], "official_including_recounts")
         self.assertEqual(
-            STATE_CERTIFICATION["ordered_recounts"],
+            STATE_CERTIFICATION["certified_recounts"],
             [
-                {"office": "U.S. House", "district": "2"},
-                {"office": "State House", "district": "27"},
-                {"office": "State House", "district": "89"},
+                {"office": "U.S. House", "district": "2", "dem_votes": 144945, "rep_votes": 147785, "other_votes": 4007},
+                {"office": "State House", "district": "27", "dem_votes": 9111, "rep_votes": 9143, "other_votes": 8},
+                {"office": "State House", "district": "89", "dem_votes": 7263, "rep_votes": 7157, "other_votes": 11},
             ],
         )
 

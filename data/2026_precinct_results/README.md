@@ -5,9 +5,11 @@ These wide CSV files were downloaded from the independent
 The map states that its vote totals come from the South Carolina Election
 Commission's county Election Night Reporting feeds.
 
-The files were refreshed on November 10, 2026, after state certification. The
-results are official except for the ordered recounts in U.S. House District 2
-and State House Districts 27 and 89. The eight statewide files contain one row
+The files were refreshed on November 10, 2026, from the general-election feed.
+The state certified the recounts on November 11. Direct district JSON totals
+for U.S. House District 2 and State House Districts 27 and 89 use the certified
+recount figures; these wide precinct CSVs still reflect the November 10 feed,
+which has not incorporated the recount precinct breakdown. The eight statewide files contain one row
 per precinct/reporting unit. The all-U.S.-House and all-State-House files
 contain one row per precinct and district, so a split precinct can appear more
 than once. All files use one column per candidate.

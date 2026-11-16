@@ -10831,7 +10831,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-11-10-state-certified-results-v6';
+    const DATA_CACHE_BUSTER = '2026-11-15-certified-recounts-v7';
     const APP_BUILD_ID = '2026-11-05-legislative-click-zoom-v5';
 
     function withCacheBuster(path) {
@@ -25530,7 +25530,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const focusLabel = recountFocusLabelFromMeta(state.meta || null);
       const safeFocusLabel = escapeHtml(focusLabel || 'Focused race');
       const voteLabel = marginVotes === 1 ? 'vote' : 'votes';
-      const badgeLabel = isOrdered2026RecountFocus(state.meta || null) ? 'Official Recount' : 'Close Result';
+      const badgeLabel = isOrdered2026RecountFocus(state.meta || null) ? 'Certified Recount' : 'Close Result';
       const html = `<span class="recount-label">${badgeLabel}</span><span>${safeFocusLabel}: Margin ${marginVotes.toLocaleString()} ${voteLabel} (${formatMarginPctForDisplay(marginPct)}%)</span>`;
       setRecountRadarBadgeVisible(true, html);
     }
