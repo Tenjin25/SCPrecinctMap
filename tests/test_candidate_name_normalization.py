@@ -5,6 +5,7 @@ from scripts.candidate_name_normalization import (
     normalize_candidate_fields,
     normalize_candidate_name,
     normalize_json_text,
+    should_normalize_candidate_json,
 )
 
 
@@ -33,3 +34,10 @@ class CandidateNameNormalizationTests(unittest.TestCase):
         self.assertEqual(payload["total_votes"], 42)
         self.assertEqual(normalize_json_text(updated), (updated, 0))
         self.assertEqual(normalize_candidate_fields(payload), payload)
+
+    def test_direct_races_before_2022_are_excluded(self):
+        for family in ("state_house_state_house", "state_senate_state_senate", "congressional_us_house"):
+            self.assertFalse(should_normalize_candidate_json(f"{family}_2020.json"))
+            self.assertTrue(should_normalize_candidate_json(f"{family}_2022.json"))
+        self.assertFalse(should_normalize_candidate_json("state_house_state_house_2018_2022_lines.json"))
+        self.assertTrue(should_normalize_candidate_json("state_house_state_treasurer_2006.json"))

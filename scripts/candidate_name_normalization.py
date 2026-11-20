@@ -20,6 +20,16 @@ CANDIDATE_FIELD = re.compile(
 )
 INITIAL = re.compile(r"(?<![A-Za-z])([A-Z])(?=\s)")
 SUFFIX = re.compile(r"\s*,?\s*(Jr|Sr|III|II|IV)\.?$", re.IGNORECASE)
+DIRECT_RACE_FILE = re.compile(
+    r"^(?:state_house_state_house|state_senate_state_senate|congressional_us_house)"
+    r"_(\d{4})(?:_(?:2022|2024)_lines)?\.json$"
+)
+
+
+def should_normalize_candidate_json(filename: str) -> bool:
+    """Older direct races use prior lines; leave their archived JSON untouched."""
+    match = DIRECT_RACE_FILE.fullmatch(filename)
+    return match is None or int(match.group(1)) >= 2022
 
 
 def normalize_candidate_name(name: str) -> str:
@@ -71,6 +81,8 @@ def main() -> int:
     files = fields = 0
     for root in SERVED_DIRS:
         for path in root.rglob("*.json"):
+            if not should_normalize_candidate_json(path.name):
+                continue
             content = path.read_text(encoding="utf-8")
             updated, count = normalize_json_text(content)
             if count:

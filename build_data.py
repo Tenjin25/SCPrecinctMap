@@ -34,7 +34,7 @@ import traceback
 import zipfile
 
 from scripts.certified_recount_overrides import apply_certified_recounts
-from scripts.candidate_name_normalization import normalize_candidate_fields
+from scripts.candidate_name_normalization import normalize_candidate_fields, should_normalize_candidate_json
 
 try:
     import shapefile  # pip install pyshp
@@ -1002,7 +1002,8 @@ def build_district_contests(years: set[int] | None = None):
                 },
             }
             apply_certified_recounts(fname, payload, margin_color)
-            normalize_candidate_fields(payload)
+            if should_normalize_candidate_json(fname):
+                normalize_candidate_fields(payload)
             write_json(payload, os.path.join(dist_dir, fname), indent=2)
             print(f'    {scope}/{ct} {year}: {len(results)} district(s)')
             manifest_entries.append({
