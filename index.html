@@ -25487,9 +25487,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function isOrdered2026RecountFocus(meta) {
-      if (Number(year) !== 2026 || !meta || meta.kind !== 'district') return false;
+	      if (!meta || meta.kind !== 'district' || Number(meta.year) !== 2026) return false;
       const scope = String(meta.scope || '');
-      const contest = String(contestType || '');
+	      const contest = String(meta.contestType || '');
       const district = String(Number(meta.districtNum));
       return Boolean(ORDERED_2026_RECOUNTS[scope]?.[contest]?.has(district));
     }
@@ -33489,6 +33489,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	        } catch (err) {
 	          console.debug('Strict presidential CSV load skipped for', year, err?.message || err);
 	        }
+	      }
+	      if (Array.isArray(contestManifest) && contestManifest.length &&
+	          !contestManifest.some(entry => entry?.contest_type === contestType && Number(entry.year) === Number(year) && !entry.scope)) {
+	        return null;
 	      }
 	      try {
 	        const payload = await loadJSON(`${CONFIG.paths.contests_dir}/${key}.json`);

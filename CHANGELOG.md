@@ -3,6 +3,7 @@
 ## 2026-11-19
 
 - Normalized contest titles across the map to match the contest dropdown, including Comptroller General, State Treasurer, and Commissioner of Agriculture in 2026.
+- Fixed the recount badge's out-of-scope contest reference and skipped unavailable prior-year contest files when loading trend history.
 
 ## 2026-11-15
 
