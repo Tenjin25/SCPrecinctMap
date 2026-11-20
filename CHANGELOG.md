@@ -2,6 +2,7 @@
 
 ## 2026-11-19
 
+- Standardized existing candidate initials, generational suffixes, and stray party prefixes in the served contest and district JSONs across historical years. No initials were added where absent. The 2006 State Treasurer name is now **Grady L. Patterson, Jr.**, matching the [South Carolina Treasurer's Office history](https://www.scstatehouse.gov/CommitteeInfo/HouseLegislativeOversightCommittee/AgencyWebpages/TreasurersOffice/Staff%20Study%20%28Amended%20March%2017%2C%202016%29%20and%20agency%20response.PDF); vote totals are unchanged.
 - Normalized contest titles across the map to match the contest dropdown, including Comptroller General, State Treasurer, and Commissioner of Agriculture in 2026.
 - Fixed the recount badge's out-of-scope contest reference and skipped unavailable prior-year contest files when loading trend history.
 

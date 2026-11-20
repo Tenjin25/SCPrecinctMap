@@ -17,6 +17,7 @@ sys.path.insert(0, str(REPO_ROOT))
 import build_data  # noqa: E402
 from scripts.aggregate_contests_to_vtd20_crosswalks import norm  # noqa: E402
 from scripts.certified_recount_overrides import apply_certified_recounts  # noqa: E402
+from scripts.candidate_name_normalization import normalize_candidate_fields  # noqa: E402
 
 
 OUTPUTS = (
@@ -497,6 +498,7 @@ def main() -> int:
                     calibration_count += 1
             name = f"{prefix}_{entry['contest_type']}_{entry['year']}{suffix}.json"
             apply_certified_recounts(name, payload, build_data.margin_color)
+            normalize_candidate_fields(payload)
             (out_dir / name).write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
             qa.append({"scope": scope_key, "contest_type": entry["contest_type"], "year": entry["year"], "file": name, **meta})
 
@@ -517,6 +519,7 @@ def main() -> int:
             })
             target_path = current_lines_dir / source_path.name
             apply_certified_recounts(target_path.name, payload, build_data.margin_color)
+            normalize_candidate_fields(payload)
             target_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     for directory, suffix, district_lines in rebuilt_dirs:
         if district_lines:
