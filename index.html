@@ -11458,7 +11458,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       if (!pending.length) return;
 
-      const previousValue = document.getElementById('contestSelect')?.value || '';
       let changed = false;
       const queue = pending.slice();
       queue.forEach(entry => {
@@ -11502,11 +11501,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (changed) {
         updateContestSelectForCurrentView();
-        const sel = document.getElementById('contestSelect');
-        if (sel && previousValue) {
-          const match = Array.from(sel.options || []).some(opt => opt.value === previousValue);
-          if (match) sel.value = previousValue;
-        }
       }
     }
     let districtsInfo = null;
@@ -20115,6 +20109,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function populateContestSelectFromManifest(manifestEntries) {
 	      const q = (contestSearchQuery || '').toString().trim().toUpperCase();
 	      const sel = document.getElementById('contestSelect');
+	      const selectedValue = sel.value;
 	      sel.innerHTML = '<option value="">Select a contest...</option>';
 
 	      const contestYearPairs = {};
@@ -20198,7 +20193,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const key = `${contestType}_${year}`;
           const manifestSaysContested = parseMajorPartyContested(entry);
           const manifestContestedExplicit = parseMajorPartyContestedExplicit(entry);
-          if (!showUncontestedContests) {
+          if (!showUncontestedContests && key !== selectedValue) {
             if (!shouldKeepUncontestedDistrictRace(entry)) {
               if (contestUncontestedCache.get(key) === true) return;
               if (maybeUncontestedTypes.has(contestType) && manifestContestedExplicit === false) return;
@@ -20320,6 +20315,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	      });
 
 	      sel.appendChild(fragment);
+	      if (selectedValue && Array.from(sel.options).some(opt => opt.value === selectedValue)) {
+	        sel.value = selectedValue;
+	      }
 	      sel.dataset.populated = 'true';
       wireContestSelectHandlers(sel);
       queueUncontestedContestScan(manifestEntries, { maybeUncontestedTypes });
