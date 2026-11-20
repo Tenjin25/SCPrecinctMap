@@ -1,5 +1,10 @@
 # Change history
 
+## 2026-11-19
+
+- Normalized contest titles across the map to match the contest dropdown, including Comptroller General, State Treasurer, and Commissioner of Agriculture in 2026.
+- Fixed the recount badge's out-of-scope contest reference and skipped unavailable prior-year contest files when loading trend history.
+
 ## 2026-11-15
 
 - Made the certified recount totals reproducible from `data/2026_certified_recounts.json`. Both direct district rebuild paths now reapply CD-2, HD-27, and HD-89 after aggregation, and the precinct fetch metadata reads the same source.

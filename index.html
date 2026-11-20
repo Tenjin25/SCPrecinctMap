@@ -19807,18 +19807,21 @@ document.addEventListener('DOMContentLoaded', function() {
 	        return modeledDef.displayName;
 	      }
 	      const nameMap = {
-	        'president': 'President of the United States',
+	        'president': 'US President',
 	        'governor': 'Governor',
-	        'us_senate': 'United States Senator',
+	        'us_senate': 'US Senate',
 	        'lieutenant_governor': 'Lieutenant Governor',
 	        'attorney_general': 'Attorney General',
-	        'auditor': 'State Auditor',
-	        'labor_commissioner': 'Commissioner of Labor',
-	        'insurance_commissioner': 'Commissioner of Insurance',
+	        'auditor': 'Auditor',
+	        'labor_commissioner': 'Labor Commissioner',
+	        'insurance_commissioner': 'Insurance Commissioner',
 	        'superintendent': 'Superintendent of Education',
-	        'agriculture_commissioner': 'Commissioner of Agriculture',
+	        'agriculture_commissioner': 'Agriculture Commissioner',
+	        'commissioner_agriculture': 'Commissioner of Agriculture',
 	        'secretary_of_state': 'Secretary of State',
 	        'treasurer': 'Treasurer',
+	        'state_treasurer': 'State Treasurer',
+	        'comptroller_general': 'Comptroller General',
 	        'us_house': 'US House',
 	        'state_senate': 'State Senate',
 	        'state_house': 'State House'
@@ -19832,7 +19835,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	        return `Judicial Retention ${contestType.toUpperCase()}`;
 	      }
 
-	      return nameMap[contestType] || contestType.toUpperCase();
+	      return nameMap[contestType] || contestType.split('_').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ');
 	    }
 
     function formatContestLabel(contestType, year) {
@@ -25484,9 +25487,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function isOrdered2026RecountFocus(meta) {
-      if (Number(year) !== 2026 || !meta || meta.kind !== 'district') return false;
+	      if (!meta || meta.kind !== 'district' || Number(meta.year) !== 2026) return false;
       const scope = String(meta.scope || '');
-      const contest = String(contestType || '');
+	      const contest = String(meta.contestType || '');
       const district = String(Number(meta.districtNum));
       return Boolean(ORDERED_2026_RECOUNTS[scope]?.[contest]?.has(district));
     }
@@ -33486,6 +33489,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	        } catch (err) {
 	          console.debug('Strict presidential CSV load skipped for', year, err?.message || err);
 	        }
+	      }
+	      if (Array.isArray(contestManifest) && contestManifest.length &&
+	          !contestManifest.some(entry => entry?.contest_type === contestType && Number(entry.year) === Number(year) && !entry.scope)) {
+	        return null;
 	      }
 	      try {
 	        const payload = await loadJSON(`${CONFIG.paths.contests_dir}/${key}.json`);
