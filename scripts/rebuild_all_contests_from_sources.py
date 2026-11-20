@@ -16,6 +16,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 import build_data  # noqa: E402
+from scripts.candidate_name_normalization import normalize_candidate_fields  # noqa: E402
 
 
 SOURCE_FILES = {
@@ -202,6 +203,7 @@ def main() -> int:
                 for (county, precinct), values in sorted(precinct_votes.items())
             ]
             payload = {"year": year, "contest_type": contest, "rows": county_rows + precinct_rows}
+            normalize_candidate_fields(payload)
             out_path = contests_dir / f"{contest}_{year}.json"
             out_path.write_text(json.dumps(payload, separators=(",", ":")), encoding="utf-8")
             integrity["contests"].append({

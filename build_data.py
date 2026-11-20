@@ -34,6 +34,7 @@ import traceback
 import zipfile
 
 from scripts.certified_recount_overrides import apply_certified_recounts
+from scripts.candidate_name_normalization import normalize_candidate_fields, should_normalize_candidate_json
 
 try:
     import shapefile  # pip install pyshp
@@ -834,6 +835,7 @@ def build_election_data(years: set[int] | None = None):
                 'contest_type': ct,
                 'rows':         all_rows,
             }
+            normalize_candidate_fields(payload)
             write_json(payload, os.path.join(contests_dir, fname))
             print(f'    {ct}: {len(county_rows)} counties + {len(precinct_rows)} precincts')
             manifest_entries.append({
@@ -1000,6 +1002,8 @@ def build_district_contests(years: set[int] | None = None):
                 },
             }
             apply_certified_recounts(fname, payload, margin_color)
+            if should_normalize_candidate_json(fname):
+                normalize_candidate_fields(payload)
             write_json(payload, os.path.join(dist_dir, fname), indent=2)
             print(f'    {scope}/{ct} {year}: {len(results)} district(s)')
             manifest_entries.append({
@@ -1478,6 +1482,7 @@ def build_statewide_contests_by_district_from_slices(years: set[int] | None = No
                     'precinct_votes_county_share_fallback': round(matched_county_fallback_votes, 6),
                 },
             }
+            normalize_candidate_fields(out_payload)
             write_json(out_payload, os.path.join(dist_dir, out_name))
             written += 1
 

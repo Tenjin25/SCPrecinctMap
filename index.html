@@ -10831,7 +10831,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-11-15-certified-recounts-v7';
+    const DATA_CACHE_BUSTER = '2026-11-19-candidate-names-v8';
     const APP_BUILD_ID = '2026-11-05-legislative-click-zoom-v5';
 
     function withCacheBuster(path) {
@@ -12444,6 +12444,13 @@ document.addEventListener('DOMContentLoaded', function() {
       return `${normalizeDistrictLinesYear(linesYear)} lines`;
     }
 
+    function isPre2022DirectDistrictRace(scope, contestType, year) {
+      if (Number(year) >= 2022) return false;
+      return (scope === 'congressional' && contestType === 'us_house') ||
+        (scope === 'state_house' && contestType === 'state_house') ||
+        (scope === 'state_senate' && contestType === 'state_senate');
+    }
+
     function isDistrictLinesYearAllowedForView(view, linesYear) {
       const y = normalizeDistrictLinesYear(linesYear);
       const v = String(view || '').trim();
@@ -12474,6 +12481,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function getPreferredDistrictSlicePaths(scope, contestType, year, linesYear = currentDistrictLinesYear) {
+      if (isPre2022DirectDistrictRace(scope, contestType, year)) return [];
       const y = Number(year);
       const ly = normalizeDistrictLinesYear(linesYear);
       const key = `${scope}_${contestType}_${year}`;
@@ -19456,6 +19464,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
     async function loadDistrictSlice(scope, contestType, year, linesYearOverride = currentDistrictLinesYear) {
+      if (isPre2022DirectDistrictRace(scope, contestType, year)) return null;
       const key = `${scope}_${contestType}_${year}`;
       const linesYear = normalizeDistrictLinesYear(linesYearOverride);
       const cacheKey = `${linesYear}|${key}`;
@@ -20182,11 +20191,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	        const rows = Number(entry.rows || entry.districts || 0) || 0;
 	        if (!contestType || rows <= 0) return;
 
-          // Legislative contest cutoffs (district manifest only).
-          // SC State Senate: hide cycles before 2020. SC State House: hide cycles before 2022.
+          // Direct district elections on the current district lines begin in 2022.
           const scope = (entry.scope || '').toString().trim().toLowerCase();
-          if (scope === 'state_senate' && contestType === 'state_senate' && Number.isFinite(year) && year < 2020) return;
-          if (scope === 'state_house' && contestType === 'state_house' && Number.isFinite(year) && year < 2022) return;
+          if (isPre2022DirectDistrictRace(scope, contestType, year)) return;
 
           const key = `${contestType}_${year}`;
           const manifestSaysContested = parseMajorPartyContested(entry);
@@ -20211,6 +20218,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const year = Number(entry?.year);
             const rows = Number(entry?.rows || entry?.districts || 0) || 0;
             if (!contestType || !Number.isFinite(year) || rows <= 0) return;
+            const scope = String(entry?.scope || '').trim().toLowerCase();
+            if (isPre2022DirectDistrictRace(scope, contestType, year)) return;
             if (!contestYearPairs[contestType]) contestYearPairs[contestType] = new Set();
             contestYearPairs[contestType].add(year);
           });
@@ -21810,7 +21819,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const runningMateSplit = cleanedRaw.split(/\b(?:running\s+mate|with\s+running\s+mate|vp|vice\s+president)\b/i, 1)[0].trim();
       const normalizedRaw = runningMateSplit || cleanedRaw;
       // Common presidential ticket separators (case-insensitive).
-      const splitBySep = normalizedRaw.split(/\s*(?:,|\/|&|\+| and | - | – | — )\s*/i, 1)[0].trim();
+      // A trailing generational suffix is part of the candidate name, not a ticket separator.
+      const hasNameSuffix = /,\s*(?:Jr\.?|Sr\.?|II|III|IV)$/i.test(normalizedRaw);
+      const splitBySep = hasNameSuffix
+        ? normalizedRaw
+        : normalizedRaw.split(/\s*(?:,|\/|&|\+| and | - | – | — )\s*/i, 1)[0].trim();
       if (splitBySep) {
         return expandLegacyCandidateShorthand(
           splitBySep

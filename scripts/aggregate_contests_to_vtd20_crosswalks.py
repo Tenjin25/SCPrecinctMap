@@ -3,7 +3,12 @@ import argparse
 import json
 import os
 import re
+import sys
 from collections import OrderedDict
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from scripts.candidate_name_normalization import normalize_candidate_fields  # noqa: E402
 
 
 VOTE_FIELDS = ("dem_votes", "rep_votes", "other_votes")
@@ -527,6 +532,7 @@ def main() -> None:
         if not os.path.exists(in_path):
             continue
         out_payload, stats = process_contest(in_path, args, display_by_norm, aliases, weighted_by_year)
+        normalize_candidate_fields(out_payload)
         out_path = os.path.join(out_dir, file_name)
         with open(out_path, "w", encoding="utf-8", newline="") as fh:
             json.dump(out_payload, fh, separators=(",", ":"))
