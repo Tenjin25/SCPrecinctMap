@@ -19807,18 +19807,21 @@ document.addEventListener('DOMContentLoaded', function() {
 	        return modeledDef.displayName;
 	      }
 	      const nameMap = {
-	        'president': 'President of the United States',
+	        'president': 'US President',
 	        'governor': 'Governor',
-	        'us_senate': 'United States Senator',
+	        'us_senate': 'US Senate',
 	        'lieutenant_governor': 'Lieutenant Governor',
 	        'attorney_general': 'Attorney General',
-	        'auditor': 'State Auditor',
-	        'labor_commissioner': 'Commissioner of Labor',
-	        'insurance_commissioner': 'Commissioner of Insurance',
+	        'auditor': 'Auditor',
+	        'labor_commissioner': 'Labor Commissioner',
+	        'insurance_commissioner': 'Insurance Commissioner',
 	        'superintendent': 'Superintendent of Education',
-	        'agriculture_commissioner': 'Commissioner of Agriculture',
+	        'agriculture_commissioner': 'Agriculture Commissioner',
+	        'commissioner_agriculture': 'Commissioner of Agriculture',
 	        'secretary_of_state': 'Secretary of State',
 	        'treasurer': 'Treasurer',
+	        'state_treasurer': 'State Treasurer',
+	        'comptroller_general': 'Comptroller General',
 	        'us_house': 'US House',
 	        'state_senate': 'State Senate',
 	        'state_house': 'State House'
@@ -19832,7 +19835,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	        return `Judicial Retention ${contestType.toUpperCase()}`;
 	      }
 
-	      return nameMap[contestType] || contestType.toUpperCase();
+	      return nameMap[contestType] || contestType.split('_').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ');
 	    }
 
     function formatContestLabel(contestType, year) {
